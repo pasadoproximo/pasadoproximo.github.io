@@ -31,7 +31,9 @@ img,video{display:block;max-width:100%}
 .wrap{max-width:1240px;margin:0 auto;padding-inline:20px}
 
 /* barra superior flotante */
-.top{position:sticky;top:12px;z-index:20;margin-top:12px}
+.top{position:sticky;top:0;z-index:20;margin-top:12px}
+body.stuck .bar{border-top-left-radius:0;border-top-right-radius:0;border-top-color:transparent;border-bottom-left-radius:24px;border-bottom-right-radius:24px}
+.bar{transition:border-radius .25s}
 .bar{display:flex;align-items:center;justify-content:space-between;gap:12px;background:rgba(255,255,255,.78);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid var(--line);border-radius:999px;padding:8px 8px 8px 10px;box-shadow:0 8px 30px rgba(6,16,51,.06)}
 .brand{display:flex;align-items:center;gap:10px;text-decoration:none}
 .logo{width:38px;height:38px;border-radius:12px;background:var(--navy);display:grid;place-items:center;flex:none}
@@ -920,5 +922,6 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape'&&lb.classList.contai
 if('IntersectionObserver' in window){const vo=new IntersectionObserver(es=>es.forEach(e=>e.target.classList.toggle('play',e.isIntersecting)),{threshold:.2});document.querySelectorAll('.viz').forEach(v=>vo.observe(v));}else document.querySelectorAll('.viz').forEach(v=>v.classList.add('play'));
 </script>
 <script>(()=>{const m=document.querySelectorAll('.council span');if(!m.length||matchMedia('(prefers-reduced-motion: reduce)').matches)return;let i=0;setInterval(()=>{m.forEach(e=>e.classList.remove('talk'));m[i%m.length].classList.add('talk');i++},1400)})();</script>
+<script>(()=>{const f=()=>document.body.classList.toggle('stuck',scrollY>8);addEventListener('scroll',f,{passive:true});f()})();</script>
 </body>
 </html>
