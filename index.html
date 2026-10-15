@@ -1,0 +1,418 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Jorge Delgado Aguilera · Profesor de Geografía e Historia</title>
+<meta name="description" content="Portfolio de Jorge Delgado Aguilera, profesor de Geografía e Historia en Málaga. Tecnología educativa con criterio pedagógico: proyectos, experiencia y formación.">
+<meta property="og:title" content="Jorge Delgado Aguilera · Profesor de Geografía e Historia">
+<meta property="og:description" content="Tecnología educativa con criterio pedagógico. Proyectos de aula, IA en el aula y divulgación histórica.">
+<meta property="og:image" content="https://pasadoproximo.github.io/assets/og.jpg">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 26 26'%3E%3Crect width='26' height='26' rx='13' fill='%23061033'/%3E%3Cpath d='M13 4 5 8h16z' fill='%23fff'/%3E%3Crect x='6' y='9' width='14' height='1.6' fill='%23fff'/%3E%3Crect x='7.4' y='11.4' width='1.8' height='7' fill='%23fff'/%3E%3Crect x='10.8' y='11.4' width='1.8' height='7' fill='%23fff'/%3E%3Crect x='14.2' y='11.4' width='1.8' height='7' fill='%23fff'/%3E%3Crect x='17.6' y='11.4' width='1.8' height='7' fill='%23fff'/%3E%3Crect x='5' y='19' width='16' height='1.8' fill='%23fff'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alegreya+SC:wght@700&family=Alegreya+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&display=swap">
+<style>
+/* Pasado Próximo: blanco y azul marino */
+:root{--navy:#061033;--navy2:#13204F;--paper:#FFFFFF;--soft:#EEF1F7;--line:#D9DEEA;--txt:#061033;--mut:#56607A;--pale:#C9D0E2;
+ --f-disp:"Bricolage Grotesque","Arial Black",system-ui,sans-serif;--f-sc:"Alegreya SC",Georgia,serif;--f-body:"Alegreya Sans","Gill Sans","Segoe UI",system-ui,sans-serif}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+body{background:var(--paper);color:var(--txt);font-family:var(--f-body);font-size:18px;line-height:1.55;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1080px;margin:0 auto;padding-inline:20px}
+a{color:var(--navy)}
+:focus-visible{outline:3px solid var(--navy);outline-offset:3px}
+img,video{max-width:100%;display:block}
+
+/* barra superior */
+.top{background:var(--navy);color:#fff;position:sticky;top:0;z-index:10}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:12px}
+.brand{display:flex;align-items:center;gap:12px;color:#fff;text-decoration:none}
+.logo{width:42px;height:42px;border-radius:50%;border:2px solid #fff;display:grid;place-items:center;flex:none}
+.brand b{font-family:var(--f-disp);font-weight:800;letter-spacing:.02em;font-size:18px;line-height:1.05}
+.brand small{display:block;font:500 13px var(--f-body);color:var(--pale);letter-spacing:0}
+nav ul{list-style:none;display:flex;gap:4px;padding:0}
+nav a{color:#fff;text-decoration:none;font-weight:500;font-size:16px;padding:8px 12px;border-radius:999px}
+nav a:hover{background:var(--navy2)}
+@media (max-width:760px){nav{display:none}}
+
+/* portada */
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:56px;align-items:center;padding-block:64px 56px}
+@media (max-width:820px){.hero .wrap{grid-template-columns:1fr;gap:32px;padding-block:36px 40px}.photo{order:-1;max-width:300px}}
+.kicker{font-weight:700;font-size:14px;letter-spacing:.16em;text-transform:uppercase;color:var(--mut)}
+h1{font-family:var(--f-disp);font-weight:800;font-size:clamp(42px,6.4vw,76px);line-height:.96;letter-spacing:-.02em;margin-top:14px;text-wrap:balance}
+h1 mark{background:var(--navy);color:#fff;padding:0 .14em;border-radius:6px;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.lede{font-size:21px;line-height:1.5;margin-top:22px;max-width:40ch}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.btn{display:inline-flex;align-items:center;gap:8px;font:700 17px var(--f-body);padding:12px 22px;border-radius:999px;border:2px solid var(--navy);background:var(--navy);color:#fff;text-decoration:none}
+.btn.ghost{background:transparent;color:var(--navy)}
+.btn:hover{transform:translateY(-1px)}
+.photo{position:relative;justify-self:center;width:100%;margin:0}
+.photo img{width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;object-position:50% 30%;border-radius:28px;box-shadow:0 30px 60px rgba(6,16,51,.16)}
+.photo .tag{position:absolute;left:-14px;bottom:22px;background:#fff;border:2px solid var(--navy);border-radius:14px;padding:8px 14px;font:700 15px var(--f-body);box-shadow:0 10px 24px rgba(6,16,51,.12)}
+.photo .tag span{display:block;font-weight:400;color:var(--mut);font-size:14px}
+@media (max-width:820px){.photo .tag{left:8px}}
+.facts{list-style:none;padding:0;display:flex;flex-wrap:wrap;gap:8px 22px;margin-top:30px;color:var(--mut);font-size:16px}
+.facts b{color:var(--txt)}
+
+/* cita */
+.quote{background:var(--navy);color:#fff}
+.quote .wrap{padding-block:52px;display:grid;grid-template-columns:auto minmax(0,1fr);gap:28px;align-items:start}
+.quote .q{font:800 120px/0.7 var(--f-disp);color:var(--navy2)}
+.quote p.big{font-family:var(--f-sc);font-size:clamp(26px,3.6vw,40px);line-height:1.15}
+.quote cite{display:block;margin-top:14px;font:500 17px var(--f-body);color:var(--pale);font-style:normal}
+.quote .why{font-family:var(--f-body);margin-top:14px;color:var(--pale);max-width:62ch;font-size:17px}
+@media (max-width:600px){.quote .wrap{grid-template-columns:1fr;gap:0}.quote .q{font-size:80px}}
+
+/* secciones */
+section.blk{padding-block:72px}
+section.blk+section.blk{border-top:1px solid var(--line)}
+.eyebrow{font-weight:700;font-size:14px;letter-spacing:.16em;text-transform:uppercase;color:var(--mut)}
+h2{font-family:var(--f-disp);font-weight:800;font-size:clamp(34px,4.6vw,52px);line-height:1;letter-spacing:-.015em;margin-top:10px;text-wrap:balance}
+.sub{color:var(--mut);margin-top:12px;max-width:62ch}
+
+/* proyecto destacado */
+.feature{margin-top:36px;display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:40px;align-items:center;background:var(--soft);border-radius:28px;padding:36px}
+@media (max-width:820px){.feature{grid-template-columns:1fr;padding:24px;gap:24px}}
+.feature h3{font-family:var(--f-disp);font-weight:800;font-size:clamp(28px,3.4vw,40px);line-height:1.02;margin-top:8px}
+.feature p{margin-top:14px}
+.feature .phone{justify-self:center;width:min(280px,100%);aspect-ratio:9/16;border-radius:30px;overflow:hidden;background:var(--navy);border:9px solid var(--navy);box-shadow:0 26px 50px rgba(6,16,51,.2)}
+.feature .phone video{width:100%;height:100%;object-fit:cover;background:#fff}
+.pill{display:inline-block;font:700 13px var(--f-body);letter-spacing:.08em;text-transform:uppercase;background:var(--navy);color:#fff;border-radius:999px;padding:4px 12px}
+.pill.out{background:transparent;color:var(--navy);border:1.5px solid var(--navy)}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:16px;padding:0;list-style:none}
+.chips li{font-size:15px;background:#fff;border:1px solid var(--line);border-radius:999px;padding:3px 12px}
+.steps{list-style:none;padding:0;margin-top:16px;display:grid;gap:6px}
+.steps li{display:flex;gap:10px;align-items:baseline}
+.steps b{font-family:var(--f-sc);min-width:7.4em}
+
+/* rejilla de proyectos */
+.grid{list-style:none;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:22px}
+@media (max-width:900px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:600px){.grid{grid-template-columns:1fr}}
+.card{border:1.5px solid var(--line);border-radius:22px;padding:24px 22px 22px;display:flex;flex-direction:column;gap:10px;background:#fff;transition:border-color .2s,box-shadow .2s}
+.card:hover{border-color:var(--navy);box-shadow:0 14px 30px rgba(6,16,51,.08)}
+.card .ic{width:48px;height:48px;border-radius:14px;background:var(--navy);display:grid;place-items:center}
+.card .ic svg{width:26px;height:26px;stroke:#fff;fill:none;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+.card .ctx{font-size:14px;font-weight:700;color:var(--mut);letter-spacing:.04em}
+.card h3{font-family:var(--f-disp);font-weight:800;font-size:23px;line-height:1.08}
+.card p{font-size:17px;color:#2A3352}
+.card .go{margin-top:auto;padding-top:6px;font-weight:700;text-decoration:none;display:inline-flex;gap:6px;align-items:center}
+.card .go:hover{text-decoration:underline}
+.card .go.none{color:var(--mut);font-weight:500}
+.card.hl{background:var(--soft);border-color:var(--soft)}
+.group{margin-top:44px;font-family:var(--f-sc);font-size:24px;display:flex;align-items:center;gap:14px}
+.group::after{content:"";flex:1;height:1px;background:var(--line)}
+
+/* experiencia */
+.tl{list-style:none;padding:0;margin-top:36px;display:grid;gap:0}
+.tl>li{display:grid;grid-template-columns:200px minmax(0,1fr);gap:28px;padding-block:26px;border-top:1px solid var(--line)}
+.tl>li:last-child{border-bottom:1px solid var(--line)}
+@media (max-width:700px){.tl>li{grid-template-columns:1fr;gap:6px}}
+.when{font-family:var(--f-sc);font-size:19px;color:var(--mut)}
+.tl h3{font-family:var(--f-disp);font-weight:800;font-size:25px;line-height:1.1}
+.tl .org{color:var(--mut);margin-top:4px}
+.tl ul{margin-top:12px;padding-left:1.1em;display:grid;gap:4px}
+.tl ul li::marker{color:var(--navy)}
+
+/* formación */
+.two{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:48px;margin-top:36px}
+@media (max-width:820px){.two{grid-template-columns:1fr;gap:32px}}
+.edu{list-style:none;padding:0;display:grid;gap:14px}
+.edu li{background:var(--soft);border-radius:18px;padding:18px 20px}
+.edu b{display:block;font-size:19px;line-height:1.25}
+.edu span{color:var(--mut);font-size:16px}
+.edu em{display:block;margin-top:6px;font-size:16px;font-style:normal}
+.side h3{font-family:var(--f-sc);font-size:22px;margin-bottom:10px}
+.side h3:not(:first-child){margin-top:28px}
+.side p,.side li{font-size:17px}
+.side ul{padding-left:1.1em;display:grid;gap:4px}
+
+/* herramientas */
+.tools{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:18px;margin-top:36px}
+.tools div{border:1.5px solid var(--line);border-radius:20px;padding:20px 22px}
+.tools h3{font-family:var(--f-sc);font-size:21px}
+.tools .chips li{background:var(--soft);border-color:var(--soft)}
+
+/* contacto */
+.contact{background:var(--navy);color:#fff}
+.contact .wrap{padding-block:72px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:40px;align-items:end}
+@media (max-width:760px){.contact .wrap{grid-template-columns:1fr}}
+.contact h2{color:#fff}
+.contact .sub{color:var(--pale)}
+.links{list-style:none;padding:0;display:grid;gap:10px;min-width:280px}
+.links a{display:flex;align-items:center;gap:12px;color:#fff;text-decoration:none;font-weight:700;font-size:18px;border:1.5px solid #2A3866;border-radius:16px;padding:14px 18px}
+.links a:hover{border-color:#fff}
+.links svg{width:22px;height:22px;stroke:#fff;fill:none;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.links small{display:block;font-weight:400;color:var(--pale);font-size:14px}
+footer{background:var(--navy);color:var(--pale);font-size:15px;border-top:1px solid #1C2A5C}
+footer .wrap{padding-block:22px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+footer a{color:#fff}
+
+/* aparición suave */
+.rv{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
+.rv.in{opacity:1;transform:none}
+</style>
+</head>
+<body>
+
+<header class="top">
+ <div class="wrap">
+  <a class="brand" href="#inicio"><span class="logo" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 26 26"><path d="M13 2 2 7h22L13 2Z" fill="#fff"/><rect x="3" y="8" width="20" height="2" fill="#fff"/><rect x="5" y="11" width="2.4" height="9" fill="#fff"/><rect x="9.6" y="11" width="2.4" height="9" fill="#fff"/><rect x="14" y="11" width="2.4" height="9" fill="#fff"/><rect x="18.6" y="11" width="2.4" height="9" fill="#fff"/><rect x="2" y="21" width="22" height="2.4" fill="#fff"/></svg></span><b>Jorge Delgado<small>Pasado Próximo</small></b></a>
+  <nav aria-label="Secciones"><ul>
+   <li><a href="#proyectos">Proyectos</a></li>
+   <li><a href="#experiencia">Experiencia</a></li>
+   <li><a href="#formacion">Formación</a></li>
+   <li><a href="#contacto">Contacto</a></li>
+  </ul></nav>
+ </div>
+</header>
+
+<main id="inicio">
+<section class="hero">
+ <div class="wrap">
+  <div>
+   <p class="kicker">Profesor de Geografía e Historia · Málaga</p>
+   <h1>Tecnología educativa con <mark>criterio pedagógico</mark></h1>
+   <p class="lede">Soy Jorge Delgado. Doy clase de Historia y diseño materiales y herramientas digitales para el aula, también con inteligencia artificial, siempre al servicio de lo que el alumnado tiene que aprender.</p>
+   <div class="cta">
+    <a class="btn" href="#proyectos">Ver proyectos</a>
+    <a class="btn ghost" href="#contacto">Contactar</a>
+   </div>
+   <ul class="facts">
+    <li><b>Máster</b> en Tecnología Educativa</li>
+    <li><b>Máster</b> de Profesorado (UMA)</li>
+    <li><b>Grado</b> en Historia</li>
+   </ul>
+  </div>
+  <figure class="photo">
+   <img src="assets/jorge.jpg" alt="Jorge Delgado Aguilera sonriendo en un aula, con una estantería de libros y un mapamundi al fondo" width="900" height="918">
+   <figcaption class="tag">@pasadoproximo<span>Divulgación histórica</span></figcaption>
+  </figure>
+ </div>
+</section>
+
+<section class="quote" aria-label="Cita">
+ <div class="wrap">
+  <span class="q" aria-hidden="true">“</span>
+  <div>
+   <p class="big">Los textos no hablan sino cuando se sabe interrogarlos.</p>
+   <cite>Marc Bloch, <i>Apología de la historia</i></cite>
+   <p class="why">Con la tecnología pasa lo mismo: una herramienta solo enseña algo cuando el docente sabe qué preguntarle. Por eso mis proyectos empiezan por el objetivo didáctico y no por la aplicación.</p>
+  </div>
+ </div>
+</section>
+
+<section class="blk" id="proyectos">
+ <div class="wrap">
+  <p class="eyebrow">Proyectos</p>
+  <h2>Lo que he construido</h2>
+  <p class="sub">Herramientas, materiales y actividades diseñados para el aula de Secundaria y para el profesorado.</p>
+
+  <article class="feature rv">
+   <div>
+    <span class="pill">Proyecto destacado · 2026</span>
+    <h3>El Consejo de Clío</h3>
+    <p>Seis pensadores de la historia convierten una noticia de hoy en una sesión de clase. Es un sistema de agentes de IA: cada uno tiene una tarea y el último revisa el trabajo de todos antes de darlo por bueno.</p>
+    <ol class="steps">
+     <li><b>Heródoto</b> resume la noticia</li>
+     <li><b>Tucídides</b> la sitúa en el temario del curso</li>
+     <li><b>Hannah Arendt</b> la conecta con el pasado</li>
+     <li><b>Clío</b> la cuenta al alumnado</li>
+     <li><b>Sócrates</b> plantea el debate</li>
+     <li><b>Ibn Jaldún</b> lo revisa todo</li>
+    </ol>
+    <ul class="chips"><li>Claude</li><li>Agentes de IA</li><li>Currículo andaluz</li><li>LOMLOE</li></ul>
+    <div class="cta">
+     <a class="btn" href="/consejo-de-clio/">Ver el proyecto</a>
+     <a class="btn ghost" href="https://claude.ai/artifact/7fyLPT3yg45X1Wr4Mu9rjx" rel="noopener">Probarlo</a>
+    </div>
+   </div>
+   <div class="phone"><video src="/consejo-de-clio/assets/reel.mp4" poster="/consejo-de-clio/assets/reel-poster.jpg" muted loop playsinline autoplay preload="metadata" aria-label="Vídeo de demostración del Consejo de Clío"></video></div>
+  </article>
+
+  <h3 class="group">IA en el aula</h3>
+  <ul class="grid">
+   <li class="card rv">
+    <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.4-4.4M8.5 11h5M11 8.5v5"/></svg></span>
+    <span class="ctx">Actividad · LinkedIn</span>
+    <h3>Cazadores de bulos históricos</h3>
+    <p>El alumnado recibe un texto escrito por una IA sobre la caída de Málaga en 1937 y tiene que encontrar sus errores contrastando fuentes.</p>
+    <a class="go none" data-pending="bulos">Enlace en camino</a>
+   </li>
+   <li class="card rv">
+    <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="14" rx="2.5"/><path d="m3 15 5-5 4 4 3-3 6 6"/><circle cx="16" cy="8.5" r="1.5"/></svg></span>
+    <span class="ctx">Serie quincenal · Redes</span>
+    <h3>La IA también miente</h3>
+    <p>Imágenes históricas generadas con IA que esconden anacronismos. El reto es encontrar la trampa y explicar por qué no encaja con la época.</p>
+    <a class="go none" data-pending="ia-miente">Enlace en camino</a>
+   </li>
+   <li class="card rv">
+    <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3 4 6.5v5c0 4.6 3.4 8.4 8 9.5 4.6-1.1 8-4.9 8-9.5v-5z"/><path d="m8.5 12 2.4 2.4 4.6-4.8"/></svg></span>
+    <span class="ctx">TFM · Máster en Tecnología Educativa · 2024</span>
+    <h3>Asistente GPT para 2.º ESO</h3>
+    <p>Diseño de un GPT personalizado con control sobre la información que consulta el alumnado y límites de uso definidos pedagógicamente. Propuesta pendiente de pilotaje en el aula.</p>
+    <a class="go none" data-pending="tfm">Enlace en camino</a>
+   </li>
+  </ul>
+
+  <h3 class="group">Centro y profesorado</h3>
+  <ul class="grid">
+   <li class="card hl rv">
+    <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 5.5h6.5V19H4zM13.5 5.5H20V19h-6.5z"/><path d="M6.5 9h1.5M6.5 12h1.5M16 9h1.5M16 12h1.5"/></svg></span>
+    <span class="ctx">Colegio Cerrado de Calderón · 2024</span>
+    <h3>Repositorio digital docente</h3>
+    <p>Recursos digitales organizados por etapas, de Infantil a Bachillerato, con una ficha por herramienta y un tutorial en vídeo. El centro lo presentó en el IX Congreso Internacional de Creatividad Educativa (Braining, Valencia, 2025).</p>
+    <a class="go" href="https://sites.google.com/view/repositorio-digital-docente-cc/inicio" rel="noopener">Ver el repositorio →</a>
+   </li>
+   <li class="card rv">
+    <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="5" y="3.5" width="14" height="17" rx="2"/><path d="M9 3.5h6v3H9zM8.5 11l1.5 1.5 2.5-2.5M8.5 16l1.5 1.5 2.5-2.5M14.5 11.5h2M14.5 16.5h2"/></svg></span>
+    <span class="ctx">Máster en Tecnología Educativa</span>
+    <h3>Rúbrica para evaluar materiales digitales</h3>
+    <p>Una rúbrica en formulario para que el profesorado valore un material digital con criterios comunes antes de llevarlo al aula.</p>
+    <a class="go" href="https://form.jotform.com/241185578598070" rel="noopener">Ver la rúbrica →</a>
+   </li>
+   <li class="card rv">
+    <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3.5" y="4" width="17" height="13" rx="2"/><path d="M8 21h8M12 17v4M7.5 8.5h9M7.5 12h5"/></svg></span>
+    <span class="ctx">Máster en Tecnología Educativa · 2024</span>
+    <h3>e-Portfolio del máster</h3>
+    <p>El trabajo de los cinco módulos del máster: búsqueda y curación de información, visualización de datos, Aula del Futuro y diseño de materiales digitales.</p>
+    <a class="go" href="https://sites.google.com/view/e-portfolio-jorge/inicio" rel="noopener">Ver el e-portfolio →</a>
+   </li>
+  </ul>
+
+  <h3 class="group">Materiales para el aula</h3>
+  <ul class="grid">
+   <li class="card rv">
+    <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="5" y="10.5" width="14" height="10" rx="2"/><path d="M8 10.5V7.5a4 4 0 0 1 8 0v3M12 14.5v2.5"/></svg></span>
+    <span class="ctx">Genially + ChatGPT · 3.º ESO</span>
+    <h3>Escape room del Barroco</h3>
+    <p>Un escape room interactivo para repasar el Barroco resolviendo pruebas, con retos preparados con ayuda de ChatGPT.</p>
+    <a class="go" href="https://view.genially.com/6673e6438bead80014745272/interactive-content-escape-room-barroco" rel="noopener">Jugar al escape room →</a>
+   </li>
+   <li class="card rv">
+    <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 19.5h16M6.5 16V10M10.5 16V6M14.5 16v-4M18.5 16V8"/></svg></span>
+    <span class="ctx">Programa PROA+ · 2023-2025</span>
+    <h3>Material propio de refuerzo</h3>
+    <p>Materiales adaptados para alumnado con dificultades de aprendizaje en grupos heterogéneos, con varios cursos en la misma sesión.</p>
+    <span class="go none">Material de uso interno</span>
+   </li>
+  </ul>
+ </div>
+</section>
+
+<section class="blk" id="experiencia">
+ <div class="wrap">
+  <p class="eyebrow">Experiencia docente</p>
+  <h2>En el aula</h2>
+  <ol class="tl">
+   <li class="rv">
+    <span class="when">2023 – 2025</span>
+    <div>
+     <h3>Profesor de refuerzo educativo · PROA+</h3>
+     <p class="org">Sertudema · Residencia Escolar Andalucía, Málaga · Programa de la Junta de Andalucía</p>
+     <ul>
+      <li>Ámbito sociolingüístico (Lengua y Geografía e Historia) y Matemáticas con alumnado de ESO y Bachillerato, en grupos de 10 a 15 estudiantes.</li>
+      <li>Metodologías activas y aprendizaje cooperativo con alumnado en riesgo de abandono escolar.</li>
+      <li>Asistencia alta y clima de trabajo estable durante los dos cursos, con mejora de las calificaciones del grupo.</li>
+     </ul>
+    </div>
+   </li>
+   <li class="rv">
+    <span class="when">2024</span>
+    <div>
+     <h3>Coordinación TIC · Prácticas del Máster en Tecnología Educativa</h3>
+     <p class="org">Colegio Cerrado de Calderón, Málaga</p>
+     <ul>
+      <li>Creación del repositorio digital del centro para todo el claustro.</li>
+      <li>Docencia en Tecnología y Digitalización, 3.º ESO.</li>
+      <li>Soporte técnico y puesta a punto de los dispositivos del centro.</li>
+     </ul>
+    </div>
+   </li>
+   <li class="rv">
+    <span class="when">2019</span>
+    <div>
+     <h3>Prácticas del Máster de Profesorado</h3>
+     <p class="org">IES Campanillas, Málaga</p>
+     <ul>
+      <li>Intervención docente en 2.º ESO, Bachillerato y PMAR.</li>
+      <li>Metodologías activas para elevar la participación, con mejora de las calificaciones en 2.º ESO y PMAR.</li>
+     </ul>
+    </div>
+   </li>
+  </ol>
+ </div>
+</section>
+
+<section class="blk" id="formacion">
+ <div class="wrap">
+  <p class="eyebrow">Formación</p>
+  <h2>De la Historia al aula digital</h2>
+  <div class="two">
+   <ul class="edu">
+    <li class="rv"><b>Máster en Tecnología Educativa y Competencias Digitales</b><span>Universidad Europea · 2023-2024</span><em>TFM: asistente GPT para 2.º ESO con control de fuentes.</em></li>
+    <li class="rv"><b>Máster en Formación del Profesorado de Educación Secundaria</b><span>Universidad de Málaga · 2018-2019</span><em>Matrícula de Honor en el TFM.</em></li>
+    <li class="rv"><b>Grado en Historia</b><span>Universidad de Málaga · 2014-2017</span></li>
+    <li class="rv"><b>Técnico Superior en Administración y Finanzas</b><span>IES Politécnico Jesús Marín · 2012-2014</span></li>
+   </ul>
+   <div class="side rv">
+    <h3>Formación complementaria</h3>
+    <ul>
+     <li>Aprendizaje Cooperativo (150 h)</li>
+     <li>Actividades Extraescolares (150 h)</li>
+    </ul>
+    <h3>Idiomas</h3>
+    <p>Inglés B1 acreditado por Cambridge. Preparando el B2.</p>
+    <h3>Competencias docentes</h3>
+    <ul>
+     <li>Situaciones de aprendizaje y evaluación por competencias (LOMLOE)</li>
+     <li>Atención a la diversidad y programas de refuerzo</li>
+     <li>Curaduría de recursos digitales para el profesorado</li>
+     <li>Divulgación histórica en redes (Pasado Próximo)</li>
+    </ul>
+   </div>
+  </div>
+ </div>
+</section>
+
+<section class="blk" id="herramientas">
+ <div class="wrap">
+  <p class="eyebrow">Herramientas</p>
+  <h2>Con qué trabajo</h2>
+  <div class="tools">
+   <div class="rv"><h3>Aulas virtuales</h3><ul class="chips"><li>Moodle</li><li>Google Classroom</li><li>Microsoft Teams</li><li>Google Workspace</li><li>Google Sites</li></ul></div>
+   <div class="rv"><h3>Creación de contenido</h3><ul class="chips"><li>Genially</li><li>Canva</li><li>Book Creator</li><li>Sway</li><li>StopMotion Studio</li><li>ChatterPix</li><li>CapCut</li></ul></div>
+   <div class="rv"><h3>Evaluación e interacción</h3><ul class="chips"><li>Kahoot</li><li>Mentimeter</li><li>Wooclap</li><li>Flip</li><li>Edpuzzle</li><li>Jotform</li></ul></div>
+   <div class="rv"><h3>Geografía e Historia</h3><ul class="chips"><li>Google Arts &amp; Culture</li><li>GeaCron</li><li>KGeography</li><li>Timetoast</li><li>Historia Hispánica (RAH)</li><li>Visitas virtuales 360º</li></ul></div>
+   <div class="rv"><h3>Inteligencia artificial</h3><ul class="chips"><li>Claude</li><li>ChatGPT</li><li>Gemini</li><li>Copilot</li><li>GPT personalizados</li><li>Agentes de IA</li></ul></div>
+  </div>
+ </div>
+</section>
+</main>
+
+<section class="contact" id="contacto">
+ <div class="wrap">
+  <div>
+   <p class="eyebrow" style="color:var(--pale)">Contacto</p>
+   <h2>¿Hablamos?</h2>
+   <p class="sub">Estoy en Málaga y abierto a proyectos de docencia, formación del profesorado y tecnología educativa.</p>
+  </div>
+  <ul class="links">
+   <li><a href="mailto:jorgedelagui@gmail.com"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 6.5 8.5 6.5 8.5-6.5"/></svg><span>Correo<small>jorgedelagui@gmail.com</small></span></a></li>
+   <li><a href="https://www.linkedin.com/in/jorgedelgadoaguilera" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 10.5V16M8 7.8v.1M12 16v-5.5M12 13c0-1.6 1-2.6 2.3-2.6S16.5 11.3 16.5 13v3"/></svg><span>LinkedIn<small>jorgedelgadoaguilera</small></span></a></li>
+   <li><a href="https://www.instagram.com/pasadoproximo/" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17 7v.1"/></svg><span>Instagram<small>@pasadoproximo</small></span></a></li>
+  </ul>
+ </div>
+</section>
+<footer><div class="wrap"><span>© 2026 Jorge Delgado Aguilera · Campanillas (Málaga)</span><span>Profesor de Geografía e Historia</span></div></footer>
+
+<script>
+// aparición suave al hacer scroll
+const io='IntersectionObserver' in window?new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12}):null;
+document.querySelectorAll('.rv').forEach(el=>io?io.observe(el):el.classList.add('in'));
+</script>
+</body>
+</html>
