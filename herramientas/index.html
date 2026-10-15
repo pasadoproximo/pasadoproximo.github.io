@@ -107,7 +107,7 @@ a.stat:hover{transform:translateY(-3px);box-shadow:0 18px 38px rgba(6,16,51,.1)}
 @media (max-width:640px){.grid{grid-template-columns:minmax(0,1fr)}}
 .tool{background:#fff;border-radius:var(--r);padding:22px;display:flex;flex-direction:column;gap:12px;transition:transform .3s cubic-bezier(.2,.7,.2,1),box-shadow .3s}
 .tool:hover{transform:translateY(-3px);box-shadow:0 18px 38px rgba(6,16,51,.09)}
-.tool-h{display:grid;grid-template-columns:48px minmax(0,1fr) auto;gap:12px;align-items:center}
+.tool-h{display:grid;grid-template-columns:48px minmax(0,1fr);gap:12px;align-items:center}
 .lg{width:48px;height:48px;border-radius:14px;background:var(--bg);display:grid;place-items:center;overflow:hidden}
 .lg img{width:30px;height:30px;object-fit:contain}
 .lg b{font:800 22px var(--f-disp)}
@@ -208,11 +208,6 @@ footer a{font-weight:700}
   <div class="tabs" role="tablist" aria-label="Secciones de la caja" id="tabs"></div>
   <div class="row1">
    <label class="search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.4-4.4"/></svg><span class="sr">Buscar</span><input id="q" type="search" placeholder="Busca una herramienta o un uso: mapas, rúbrica, vídeo…" autocomplete="off"></label>
-   <div class="seg" role="group" aria-label="Filtrar por estado" id="seg">
-    <button type="button" data-st="all" aria-pressed="true">Todas</button>
-    <button type="button" data-st="nueva" aria-pressed="false">Nuevas</button>
-    <button type="button" data-st="vigente" aria-pressed="false">Siguen de 2024</button>
-   </div>
   </div>
   <div class="chips" id="chips" role="group" aria-label="Categorías"></div>
   <p class="count" id="count" aria-live="polite"></p>
@@ -256,7 +251,7 @@ const I={
 };
 const logo=t=>LOGOS.has(t.id)?`<img src="logos/${t.id}.png" alt="" width="30" height="30" loading="lazy">`:`<b>${esc(t.n[0])}</b>`;
 const yt=t=>'https://www.youtube.com/results?search_query='+encodeURIComponent(t.n.replace(/\s*\(.*\)/,'')+' tutorial español');
-const head=t=>`<div class="tool-h"><span class="lg">${logo(t)}</span><h3>${esc(t.n)}</h3><span class="st st-${t.st}">${ST[t.st]}</span></div>`;
+const head=t=>`<div class="tool-h"><span class="lg">${logo(t)}</span><h3>${esc(t.n)}</h3></div>`;
 const ideas=(t,title)=>`<div class="ideas"><h4>${title}</h4><ul>${t.i.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></div>`;
 const foot=t=>`<div class="tool-f"><a class="btn solid" href="${t.url}" rel="noopener" target="_blank">Abrir ${I.ext}</a><a class="btn line" href="${yt(t)}" rel="noopener" target="_blank" aria-label="Tutoriales de ${esc(t.n)} en YouTube">${I.play}Tutoriales</a></div>`;
 function card(t){
@@ -283,12 +278,11 @@ document.getElementById('tabs').innerHTML=Object.entries(SECTIONS).map(([k,v])=>
 function render(){
  const S=SECTIONS[state.sec];
  document.getElementById('chips').innerHTML='<button type="button" data-c="all" aria-pressed="'+(state.c==='all')+'">Todas las categorías</button>'+Object.entries(S.cats).map(([k,v])=>`<button type="button" data-c="${k}" aria-pressed="${state.c===k}">${v}</button>`).join('');
- document.getElementById('seg').style.display=state.sec==='recursos'?'none':'';
- document.getElementById('q').placeholder=state.sec==='aula'?'Busca una herramienta o una actividad: mapas, pódcast, repaso…':state.sec==='docente'?'Busca una herramienta o una tarea: rúbrica, IA, notas…':'Busca un recurso: imágenes, situaciones de aprendizaje…';
+  document.getElementById('q').placeholder=state.sec==='aula'?'Busca una herramienta o una actividad: mapas, pódcast, repaso…':state.sec==='docente'?'Busca una herramienta o una tarea: rúbrica, IA, notas…':'Busca un recurso: imágenes, situaciones de aprendizaje…';
  const list=document.getElementById('list');let shown=0;
  list.innerHTML=Object.entries(S.cats).map(([k,v])=>{
   if(state.c!=='all'&&state.c!==k)return '';
-  const ts=TOOLS.filter(t=>t.s===state.sec&&t.cat===k&&(state.st==='all'||t.st===state.st||(state.st==='vigente'&&t.st==='cambio'))&&(!state.q||state.q.split(/\s+/).every(w=>IDX[t.id].includes(w))));
+  const ts=TOOLS.filter(t=>t.s===state.sec&&t.cat===k&&(!state.q||state.q.split(/\s+/).every(w=>IDX[t.id].includes(w))));
   shown+=ts.length;if(!ts.length)return '';
   return `<section class="cat"><div class="cat-h"><h2>${v}</h2><span>${ts.length}</span></div><div class="grid">${ts.map(card).join('')}</div></section>`;
  }).join('');
@@ -300,7 +294,6 @@ function setSec(k){state.sec=k;state.c='all';document.querySelectorAll('#tabs bu
 document.getElementById('tabs').addEventListener('click',e=>{const b=e.target.closest('button');if(b)setSec(b.dataset.sec)});
 document.querySelectorAll('[data-go]').forEach(a=>a.addEventListener('click',()=>setSec(a.dataset.go)));
 document.getElementById('q').addEventListener('input',e=>{state.q=norm(e.target.value.trim());render()});
-document.getElementById('seg').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;document.querySelectorAll('#seg button').forEach(x=>x.setAttribute('aria-pressed',x===b));state.st=b.dataset.st;render()});
 document.getElementById('chips').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;state.c=b.dataset.c;render();document.getElementById('herramientas').scrollIntoView({block:'start'})});
 render();
 
