@@ -157,6 +157,22 @@ a.p{display:flex}
 .filters button:hover{background:var(--bg)}
 .filters button.on{background:var(--navy);color:#fff}
 @media (max-width:620px){.filters{border-radius:20px}}
+.p-wide{grid-column:span 2}
+.p-wide:not(.p-map){min-height:220px}
+.p-map{display:grid!important;grid-template-columns:minmax(0,1fr) minmax(0,.8fr);gap:18px;align-items:center;background:linear-gradient(135deg,#fff 40%,var(--ice))}
+.map-txt{display:flex;flex-direction:column;gap:10px}
+.map-txt .ico{margin-bottom:6px}
+.p-map .stages span{color:var(--txt);border-color:var(--line);background:#fff}
+.mini-map{width:100%;height:auto;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.p-map:hover .mini-map{transform:scale(1.04) rotate(-1deg)}
+.mini-map .land{fill:#fff;stroke:var(--navy);stroke-width:2.5}
+.mini-map .zocalo{fill:var(--ice)}
+.mini-map .cuencas ellipse{fill:var(--sky);opacity:.35}
+.mini-map path,.mini-map g path{stroke-linecap:round}
+.mini-map .alp path{fill:none;stroke:var(--navy);stroke-width:12}
+.mini-map .mid path{fill:none;stroke:#4A62B8;stroke-width:9}
+.mini-map .her path{fill:none;stroke:var(--sky);stroke-width:7;stroke-dasharray:2 10}
+@media (max-width:1020px){.p-map{grid-template-columns:1fr}.mini-map{max-width:340px}}
 .projs .p.hide{display:none}
 .projs .p.pop{animation:pop .45s cubic-bezier(.2,.7,.2,1)}
 @keyframes pop{from{opacity:0;transform:translateY(12px) scale(.98)}}
@@ -338,6 +354,25 @@ footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;color:v
     <p>Imágenes históricas generadas con IA con anacronismos escondidos, y siempre una trampa: algo que parece imposible y sí es de la época.</p>
    </a>
 
+   <a class="t p p-wide p-map lift rv" data-cat="aula" href="https://claude.ai/artifact/YNDYutXDuViE2pPjahzvFm" rel="noopener">
+    <span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+    <div class="map-txt">
+     <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m3 18 5-9 4 6 3-4 6 7z"/><circle cx="16.5" cy="6.5" r="1.8"/></svg></span>
+     <span class="meta">Apoyo al estudio · Geografía de España</span>
+     <h3>Mapa de relieves de la Península Ibérica</h3>
+     <p>Un mapa interactivo para estudiar el relieve: pulsas un tipo de relieve, una era geológica o un agente erosivo y el mapa lo localiza, con su ficha explicativa, imágenes y preguntas de repaso.</p>
+     <div class="stages"><span>Evolución geológica</span><span>Estructuras</span><span>Roquedo</span><span>Erosión</span></div>
+    </div>
+    <svg class="mini-map" viewBox="30 25 680 470" aria-hidden="true">
+     <path d="M50 76 L112 36 L218 42 L314 50 L410 53 L460 70 L520 80 L650 88 L650 117 L602 146 L539 192 L520 221 L482 279 L506 322 L472 349 L458 390 L419 419 L400 439 L352 439 L285 442 L242 480 L194 453 L141 413 L69 424 L74 337 L40 323 L64 279 L78 204 L69 134 Z" class="land"/>
+     <path d="M58 80 L200 62 L215 140 L208 250 L240 330 L190 385 L141 412 L72 420 L64 290 L74 160 Z" class="zocalo"/>
+     <g class="cuencas"><ellipse cx="280" cy="152" rx="75" ry="40"/><ellipse cx="335" cy="300" rx="85" ry="34"/><ellipse cx="472" cy="160" rx="80" ry="26" transform="rotate(-35 472 160)"/><ellipse cx="256" cy="392" rx="80" ry="20" transform="rotate(-18 256 392)"/></g>
+     <g class="alp"><path d="M424 76 L640 90"/><path d="M256 436 L352 419 L472 337"/></g>
+     <g class="mid"><path d="M160 76 L328 74"/><path d="M342 123 L472 250"/></g>
+     <g class="her"><path d="M136 238 L352 192"/><path d="M256 279 L328 285"/><path d="M160 366 L376 343"/></g>
+    </svg>
+   </a>
+
    <article class="t p ice lift rv" data-cat="aula" data-pending="nube">
     <span class="ico" style="background:#fff" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 18h10a4 4 0 0 0 .6-7.95A5.5 5.5 0 0 0 7 9.5 4.25 4.25 0 0 0 7 18z"/><path d="M12 18v3M9 21h6"/></svg></span>
     <span class="meta">Actividad · 2.º ESO</span>
@@ -383,7 +418,7 @@ footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;color:v
     <p>Pruebas interactivas para repasar el Barroco, con retos preparados con ayuda de ChatGPT.</p>
    </a>
 
-   <a class="t p lift rv" data-cat="prof" href="https://form.jotform.com/241185578598070" rel="noopener">
+   <a class="t p p-wide lift rv" data-cat="prof" href="https://form.jotform.com/241185578598070" rel="noopener">
     <span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
     <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="5" y="3.5" width="14" height="17" rx="2"/><path d="M9 3.5h6v3H9zM8.5 11l1.5 1.5 2.5-2.5M8.5 16l1.5 1.5 2.5-2.5M14.5 11.5h2M14.5 16.5h2"/></svg></span>
     <span class="meta">Jotform · Profesorado</span>
@@ -391,7 +426,7 @@ footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;color:v
     <p>Una rúbrica en formulario para valorar un recurso digital con criterios comunes antes de llevarlo al aula.</p>
    </a>
 
-   <a class="t p ice lift rv" data-cat="prof" href="https://sites.google.com/view/e-portfolio-jorge/inicio" rel="noopener">
+   <a class="t p p-wide ice lift rv" data-cat="prof" href="https://sites.google.com/view/e-portfolio-jorge/inicio" rel="noopener">
     <span class="arrow" style="background:#fff" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
     <span class="ico" style="background:#fff" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3.5" y="4" width="17" height="13" rx="2"/><path d="M8 21h8M12 17v4M7.5 8.5h9M7.5 12h5"/></svg></span>
     <span class="meta">Máster · 2024</span>
