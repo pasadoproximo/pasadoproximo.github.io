@@ -173,6 +173,10 @@ a.p{display:flex}
 .mini-map .mid path{fill:none;stroke:#4A62B8;stroke-width:9}
 .mini-map .her path{fill:none;stroke:var(--sky);stroke-width:7;stroke-dasharray:2 10}
 @media (max-width:1020px){.p-map{grid-template-columns:1fr}.mini-map{max-width:340px}}
+.dl{margin-top:auto;padding-top:8px;align-self:flex-start;display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:15px;text-decoration:none;background:var(--navy);color:#fff;border-radius:999px;padding:8px 16px;transition:background .2s,transform .2s}
+.dl:hover{background:var(--navy3);transform:translateY(-1px)}
+.dl svg{width:16px;height:16px;stroke:#fff;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.p .dl{margin-top:6px}
 .projs .p.hide{display:none}
 .projs .p.pop{animation:pop .45s cubic-bezier(.2,.7,.2,1)}
 @keyframes pop{from{opacity:0;transform:translateY(12px) scale(.98)}}
@@ -338,12 +342,12 @@ footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;color:v
     <div class="stages"><span>Infantil</span><span>Primaria</span><span>Secundaria</span><span>Bachillerato</span></div>
    </a>
 
-   <article class="t p lift rv" data-cat="aula ia" data-pending="bulos">
+   <article class="t p lift rv" data-cat="aula ia">
     <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.4-4.4M8.5 11h5"/></svg></span>
-    <span class="meta">Actividad · Pensamiento crítico</span>
+    <span class="meta">Situación de aprendizaje · 4.º ESO y 2.º Bach.</span>
     <h3>Cazadores de bulos históricos</h3>
-    <p>Un texto escrito por una IA sobre la caída de Málaga en 1937. El alumnado tiene que encontrar sus errores contrastando fuentes.</p>
-    <span class="soon">Enlace en camino</span>
+    <p>Una IA ha escrito un texto convincente sobre la caída de Málaga en 1937, con nueve errores. Ocho se cazan con el tema estudiado; el noveno, razonando.</p>
+    <a class="dl" href="assets/pdf/cazadores-de-bulos.pdf" download>Descargar PDF <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg></a>
    </article>
 
    <a class="t p lift rv" data-cat="aula ia" href="https://www.canva.com/M/MAHWHcl2XB0" rel="noopener">
@@ -373,18 +377,20 @@ footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;color:v
     </svg>
    </a>
 
-   <article class="t p ice lift rv" data-cat="aula" data-pending="nube">
+   <article class="t p ice lift rv" data-cat="aula">
     <span class="ico" style="background:#fff" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 18h10a4 4 0 0 0 .6-7.95A5.5 5.5 0 0 0 7 9.5 4.25 4.25 0 0 0 7 18z"/><path d="M12 18v3M9 21h6"/></svg></span>
     <span class="meta">Actividad · 2.º ESO</span>
     <h3>La nube pesa</h3>
     <p>Cada equipo reconstruye un eslabón de lo que hay detrás de un gesto digital: cobalto, fábrica, centro de datos y residuo. Y cierra con una regla: «Proponemos ___. Esto lo paga ___».</p>
+    <a class="dl" href="assets/pdf/la-nube-pesa.pdf" download>Descargar PDF <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg></a>
    </article>
 
-   <article class="t p lift rv" data-cat="aula" data-pending="1812">
+   <article class="t p lift rv" data-cat="aula">
     <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 3.5h9l3 3V20.5H6z"/><path d="M9 9h6M9 12.5h6M9 16h3.5"/><path d="M17.5 14.5 20 12l1.5 1.5L19 16z"/></svg></span>
-    <span class="meta">Hypothes.is · Historia de España</span>
-    <h3>La Constitución de 1812, anotada</h3>
-    <p>Lectura colaborativa del texto: el alumnado marca cada fragmento como #APOYA, #LIMITA o #PREGUNTA.</p>
+    <span class="meta">Hypothes.is · 4.º ESO</span>
+    <h3>¿Fue liberal la Constitución de 1812?</h3>
+    <p>Comentario de texto colaborativo: por parejas, el alumnado anota los artículos y marca cada fragmento como #APOYA, #LIMITA o #PREGUNTA.</p>
+    <a class="dl" href="assets/pdf/constitucion-1812-hypothesis.pdf" download>Descargar PDF <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg></a>
    </article>
 
    <article class="t p lift rv" data-cat="prof ia" data-pending="audita">
