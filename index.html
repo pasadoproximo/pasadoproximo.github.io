@@ -407,12 +407,18 @@ a.t.p:hover .arrow{transform:rotate(45deg);background:var(--navy)!important;colo
 .v-esc:has(>.made),.v-bombo:has(>.made){padding-top:30px}
 /* portada: botones a la misma altura en los dos bloques azules */
 .h-clio>div:first-child{display:flex;flex-direction:column;height:100%}
-.h-clio .cta{margin-top:auto;padding-top:20px}
+.h-clio .cta{margin-top:0;padding-top:20px}
+.h-clio h2{margin-top:auto!important;padding-top:10px}
+.h-clio .council{margin-bottom:auto}
 .h-clio{align-items:stretch}
 .h-clio .phone{align-self:center}
 .btn,.dl{white-space:nowrap}
 .h-name .lab,.h-clio .lab{display:block;line-height:1.45}
 @media (max-width:1180px){.h-name .cta .btn,.h-clio .cta .btn{padding:10px 13px!important;font-size:15px!important}.h-name h1{font-size:44px}}
+.evo-chips{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.evo-top{grid-template-columns:minmax(0,1fr) 200px!important}
+@media (max-width:620px){.evo-top{grid-template-columns:1fr!important}}
+.contact{align-items:start!important}
 .projs .p.hide{display:none}
 .projs .p.pop{animation:pop .45s cubic-bezier(.2,.7,.2,1)}
 @keyframes pop{from{opacity:0;transform:translateY(12px) scale(.98)}}
@@ -574,8 +580,7 @@ footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;color:v
     <div class="evo-top">
      <div class="evo-txt">
       <span class="year">Web de centro · 2024</span>
-      <div class="made"><span><img src="assets/tools/google-sites.png" alt="" width="20" height="20" loading="lazy">Google Sites</span></div>
-      <span class="badge">★ Presentado en el congreso Braining 2025</span>
+      <div class="evo-chips"><div class="made"><span><img src="assets/tools/google-sites.png" alt="" width="20" height="20" loading="lazy">Google Sites</span></div><span class="badge">★ Presentado en Braining 2025</span></div>
       <h3>Repositorio digital docente</h3>
       <p>Recursos digitales del Colegio Cerrado de Calderón organizados por etapas y por materias, con una ficha por herramienta y un tutorial en vídeo. El centro lo presentó en el IX Congreso Internacional de Creatividad Educativa (Valencia) como herramienta de autoformación del profesorado.</p>
       <div class="stages"><span>Infantil</span><span>Primaria</span><span>Secundaria</span><span>Bachillerato</span></div>
