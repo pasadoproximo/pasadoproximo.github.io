@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Caja de herramientas digitales · Secundaria</title>
-<meta name="description" content="Herramientas digitales para docentes de Secundaria y Bachillerato, revisadas en octubre de 2026: qué hace cada una, cómo usarla en el aula y qué ha cambiado. Por Jorge Delgado Aguilera.">
+<meta name="description" content="Herramientas digitales para Secundaria y Bachillerato, revisadas en octubre de 2026: para el aula, para el docente y recursos. Por Jorge Delgado Aguilera.">
 <meta property="og:title" content="Caja de herramientas digitales · Secundaria">
-<meta property="og:description" content="Una selección revisada de herramientas digitales para el aula de Secundaria, con usos concretos y lo que ha cambiado desde 2024.">
+<meta property="og:description" content="Herramientas para el aula y para el docente de Secundaria, con usos concretos y lo que ha cambiado desde 2024.">
 <meta property="og:image" content="https://pasadoproximo.github.io/assets/og.jpg">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 26 26'%3E%3Crect width='26' height='26' rx='7' fill='%23061033'/%3E%3Cpath d='M13 4 5 8h16z' fill='%23fff'/%3E%3Crect x='6' y='9' width='14' height='1.6' fill='%23fff'/%3E%3Crect x='7.4' y='11.4' width='1.8' height='7' fill='%23fff'/%3E%3Crect x='10.8' y='11.4' width='1.8' height='7' fill='%23fff'/%3E%3Crect x='14.2' y='11.4' width='1.8' height='7' fill='%23fff'/%3E%3Crect x='17.6' y='11.4' width='1.8' height='7' fill='%23fff'/%3E%3Crect x='5' y='19' width='16' height='1.8' fill='%23fff'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,21 +15,23 @@
 <style>
 :root{
  --navy:#061033;--navy2:#0E1B4A;--navy3:#1B2C6B;--sky:#9FB3FF;--ice:#DDE4F6;
- --bg:#F2F4F9;--tile:#FFFFFF;--line:#E1E6F0;--txt:#061033;--mut:#5A6480;--pale:#C9D0E2;--grn:#1B8A57;
+ --bg:#F2F4F9;--tile:#FFFFFF;--line:#E1E6F0;--txt:#061033;--mut:#5A6480;--pale:#C9D0E2;
  --r:24px;--gap:14px;
  --f-disp:"Bricolage Grotesque","Arial Black",system-ui,sans-serif;
  --f-sc:"Alegreya SC",Georgia,serif;
  --f-body:"Alegreya Sans","Gill Sans","Segoe UI",system-ui,sans-serif;
 }
 *{box-sizing:border-box;margin:0}
-html{scroll-behavior:smooth;scroll-padding-top:150px}
+html{scroll-behavior:smooth;scroll-padding-top:170px}
 body{background:var(--bg);color:var(--txt);font-family:var(--f-body);font-size:17px;line-height:1.5;-webkit-font-smoothing:antialiased}
 a{color:inherit}
 img{display:block;max-width:100%}
+button{font-family:inherit}
 :focus-visible{outline:3px solid var(--sky);outline-offset:3px;border-radius:8px}
 .wrap{max-width:1240px;margin:0 auto;padding-inline:20px}
 .lab{font:700 13px var(--f-body);letter-spacing:.14em;text-transform:uppercase;color:var(--mut)}
 .dark .lab{color:var(--pale)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
 
 /* barra superior */
 .top{position:sticky;top:12px;z-index:30;margin-top:12px}
@@ -45,7 +47,7 @@ img{display:block;max-width:100%}
 .bar .hire:hover{background:var(--navy3)}
 @media (max-width:780px){.bar nav a:not(.hire){display:none}}
 
-/* portada en mosaico */
+/* portada */
 .bento{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--gap)}
 .t{position:relative;background:var(--tile);border-radius:var(--r);padding:26px;overflow:hidden}
 .dark{background:var(--navy);color:#fff}
@@ -54,20 +56,35 @@ img{display:block;max-width:100%}
 .h-main h1{font:800 clamp(40px,5vw,68px)/.92 var(--f-disp);letter-spacing:-.035em;margin-top:14px}
 .h-main h1 span{color:var(--sky)}
 .h-main p{color:#DCE3F7;font-size:18.5px;max-width:46ch}
-.stat{display:flex;flex-direction:column;justify-content:space-between;gap:10px;min-height:150px}
+.stat{display:flex;flex-direction:column;justify-content:space-between;gap:10px;min-height:150px;text-decoration:none;transition:transform .3s cubic-bezier(.2,.7,.2,1),box-shadow .3s}
+a.stat:hover{transform:translateY(-3px);box-shadow:0 18px 38px rgba(6,16,51,.1)}
 .stat .n{font:800 60px/.85 var(--f-disp);letter-spacing:-.04em}
+.stat .s{font-size:15px;color:var(--mut)}
 .stat.ice{background:var(--ice)}
+.dark .s{color:var(--pale)}
 .h-orig{grid-column:1/-1;display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:center}
 .h-orig .seal{width:58px;height:58px;border-radius:16px;background:var(--navy);display:grid;place-items:center}
 .h-orig p{font-size:16.5px}
 .h-orig a{font-weight:700}
-@media (max-width:1020px){.bento{grid-template-columns:repeat(2,minmax(0,1fr))}.h-main,.h-orig{grid-column:1/-1}}
+@media (max-width:1020px){.bento{grid-template-columns:repeat(2,minmax(0,1fr))}.h-main{grid-column:1/-1}}
 @media (max-width:560px){.t{padding:22px}.stat .n{font-size:48px}.h-orig{grid-template-columns:1fr}}
 
-/* controles */
-.controls{position:sticky;top:80px;z-index:20;margin-top:40px;background:rgba(242,244,249,.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);padding:12px 0 10px;border-bottom:1px solid var(--line)}
-.row1{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
-.search{flex:1 1 280px;display:flex;align-items:center;gap:10px;background:#fff;border:1.5px solid var(--line);border-radius:999px;padding:0 16px;height:48px}
+/* pestañas y controles */
+.controls{position:sticky;top:80px;z-index:20;margin-top:40px;background:rgba(242,244,249,.94);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);padding:12px 0 10px;border-bottom:1px solid var(--line)}
+.tabs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.tabs button{display:flex;align-items:center;justify-content:space-between;gap:10px;text-align:left;background:#fff;border:1.5px solid var(--line);border-radius:18px;padding:12px 16px;cursor:pointer;color:var(--txt);transition:border-color .2s,background .2s}
+.tabs button:hover{border-color:var(--navy)}
+.tabs b{display:block;font:800 22px/1 var(--f-disp);letter-spacing:-.02em}
+.tabs small{display:block;font-size:14px;color:var(--mut);margin-top:4px}
+.tabs .num{font:800 15px var(--f-disp);background:var(--bg);border-radius:999px;padding:4px 10px;flex:none}
+.tabs button[aria-selected="true"]{background:var(--navy);border-color:var(--navy);color:#fff}
+.tabs button[aria-selected="true"] small{color:var(--pale)}
+.tabs button[aria-selected="true"] .num{background:var(--sky);color:var(--navy)}
+.tabs button>span:first-child{min-width:0}
+@media (max-width:640px){.tabs{gap:6px}.tabs small{display:none}.tabs b{font-size:16px}.tabs button{padding:9px 10px;flex-direction:column;align-items:flex-start;gap:4px}.tabs .num{font-size:13px;padding:2px 8px}}
+.row1{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:10px}
+.row1>*{min-width:0}
+.search{flex:1 1 280px;display:flex;align-items:center;gap:10px;background:#fff;border:1.5px solid var(--line);border-radius:999px;padding:0 16px;height:46px}
 .search:focus-within{border-color:var(--navy)}
 .search svg{width:20px;height:20px;stroke:var(--mut);fill:none;stroke-width:2.2;stroke-linecap:round;flex:none}
 .search input{flex:1;border:0;outline:0;font:500 17px var(--f-body);color:var(--txt);background:transparent;min-width:0}
@@ -77,9 +94,8 @@ img{display:block;max-width:100%}
 .seg button[aria-pressed="true"],.chips button[aria-pressed="true"]{background:var(--navy);color:#fff}
 .chips{display:flex;gap:6px;margin-top:10px;overflow-x:auto;scrollbar-width:thin;padding-bottom:4px}
 .chips button{background:#fff;border:1px solid var(--line)}
-.count{margin-top:8px;font-size:15px;color:var(--mut)}
-@media (max-width:780px){.controls{top:70px}.seg{width:100%;min-width:0;max-width:100%;overflow-x:auto;scrollbar-width:none}}
-.row1>*{min-width:0}
+.count{margin-top:6px;font-size:15px;color:var(--mut)}
+@media (max-width:780px){.controls{top:70px}.seg{width:100%;max-width:100%;overflow-x:auto;scrollbar-width:none}}
 
 /* secciones y fichas */
 .cat{margin-top:44px}
@@ -92,36 +108,47 @@ img{display:block;max-width:100%}
 .tool{background:#fff;border-radius:var(--r);padding:22px;display:flex;flex-direction:column;gap:12px;transition:transform .3s cubic-bezier(.2,.7,.2,1),box-shadow .3s}
 .tool:hover{transform:translateY(-3px);box-shadow:0 18px 38px rgba(6,16,51,.09)}
 .tool-h{display:grid;grid-template-columns:48px minmax(0,1fr) auto;gap:12px;align-items:center}
-.tool-h .lg{width:48px;height:48px;border-radius:14px;background:var(--bg);display:grid;place-items:center;overflow:hidden}
-.tool-h .lg img{width:30px;height:30px;object-fit:contain}
-.tool-h .lg b{font:800 22px var(--f-disp)}
+.lg{width:48px;height:48px;border-radius:14px;background:var(--bg);display:grid;place-items:center;overflow:hidden}
+.lg img{width:30px;height:30px;object-fit:contain}
+.lg b{font:800 22px var(--f-disp)}
 .tool h3{font:800 21px/1.08 var(--f-disp);letter-spacing:-.015em}
-.tool .who{font-size:13.5px;color:var(--mut);font-weight:700;margin-top:3px}
 .st{font:800 11.5px var(--f-body);letter-spacing:.06em;text-transform:uppercase;border-radius:999px;padding:4px 9px;white-space:nowrap;align-self:start}
 .st-nueva{background:var(--navy);color:#fff}
 .st-vigente{background:var(--ice);color:var(--navy)}
 .st-cambio{background:#FFF1D6;color:#7A4E00}
-.tool p{font-size:16px;color:#2A3352}
-.tool .uses{list-style:none;padding:0;display:grid;gap:6px;margin-top:2px}
-.tool .uses li{display:grid;grid-template-columns:18px 1fr;gap:8px;font-size:15.5px;line-height:1.4}
-.tool .uses li::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--sky);margin-top:7px;justify-self:center}
-.tool-f{margin-top:auto;padding-top:10px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:space-between}
-.curso{font-size:14px;font-weight:700;color:var(--mut);display:flex;align-items:center;gap:6px}
-.curso svg{width:16px;height:16px;stroke:var(--mut);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-.acts{display:flex;gap:6px}
-.btn{display:inline-flex;align-items:center;gap:6px;font:700 14.5px var(--f-body);padding:8px 14px;border-radius:999px;text-decoration:none;border:1.5px solid var(--navy);transition:background .2s,color .2s}
+.who{font:700 12.5px var(--f-body);letter-spacing:.1em;text-transform:uppercase;color:var(--mut)}
+.lead{font-size:16.5px;color:#1C2440}
+.ideas h4{font:700 12.5px var(--f-body);letter-spacing:.1em;text-transform:uppercase;color:var(--mut);margin-bottom:6px}
+.ideas ul{list-style:none;padding:0;display:grid;gap:6px}
+.ideas li{display:grid;grid-template-columns:18px 1fr;gap:8px;font-size:15.5px;line-height:1.4}
+.ideas li::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--sky);margin-top:7px;justify-self:center}
+.note{background:var(--ice);border-radius:12px;padding:8px 12px;font-size:14.5px;font-weight:500}
+.meta{display:grid;gap:6px;margin-top:2px}
+.meta div{display:grid;grid-template-columns:22px 1fr;gap:8px;align-items:start;font-size:14.5px;line-height:1.35;color:#2A3352}
+.meta svg{width:18px;height:18px;stroke:var(--mut);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;margin-top:1px}
+.tool-f{margin-top:auto;padding-top:12px;border-top:1px solid var(--line);display:flex;gap:6px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:6px;font:700 15px var(--f-body);padding:9px 15px;border-radius:999px;text-decoration:none;border:1.5px solid var(--navy);transition:background .2s,color .2s;white-space:nowrap}
 .btn.solid{background:var(--navy);color:#fff}
 .btn.solid:hover{background:var(--navy3)}
 .btn.line{color:var(--navy)}
 .btn.line:hover{background:var(--bg)}
 .btn svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+/* recursos: tarjetas compactas */
+.res{background:#fff;border-radius:var(--r);padding:20px 22px;display:grid;grid-template-columns:48px minmax(0,1fr) auto;gap:14px;align-items:center;text-decoration:none;transition:transform .3s cubic-bezier(.2,.7,.2,1),box-shadow .3s}
+.res:hover{transform:translateY(-3px);box-shadow:0 18px 38px rgba(6,16,51,.09)}
+.res h3{font:800 19px/1.1 var(--f-disp)}
+.res p{font-size:15px;color:#2A3352;margin-top:4px}
+.res .go{width:38px;height:38px;border-radius:50%;background:var(--bg);display:grid;place-items:center;transition:transform .3s,background .3s}
+.res .go svg{width:16px;height:16px;stroke:var(--navy);fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.res:hover .go{transform:rotate(45deg);background:var(--navy)}
+.res:hover .go svg{stroke:#fff}
 .empty{display:none;margin-top:40px;background:#fff;border-radius:var(--r);padding:30px;text-align:center;color:var(--mut)}
 
-/* qué ha cambiado */
+/* qué ha cambiado + criterios */
 .sec{margin-top:90px}
 .sec-h h2{font:800 clamp(34px,4.6vw,56px)/.95 var(--f-disp);letter-spacing:-.035em;margin-top:8px}
 .sec-h p{color:var(--mut);margin-top:10px;max-width:62ch}
-.changes{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:var(--gap);margin-top:22px}
+.changes{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,270px),1fr));gap:var(--gap);margin-top:22px}
 .ch{background:#fff;border-radius:var(--r);padding:22px;display:flex;flex-direction:column;gap:10px}
 .ch h3{font:800 22px var(--f-disp)}
 .ch .alt{margin-top:auto;background:var(--bg);border-radius:14px;padding:10px 14px;font-size:15.5px}
@@ -130,8 +157,6 @@ img{display:block;max-width:100%}
 .ch.dark p{color:#DCE3F7}
 .ch.dark .alt{background:rgba(255,255,255,.08)}
 .ch.dark .alt b{color:var(--pale)}
-
-/* criterios + aviso */
 .crit{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:var(--gap);margin-top:22px}
 .crit .t h3{font:800 20px var(--f-disp);margin-bottom:6px}
 .crit .t p{font-size:16px;color:#2A3352}
@@ -140,7 +165,6 @@ img{display:block;max-width:100%}
 
 footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;color:var(--mut);font-size:15px;padding:40px 4px 34px;margin-top:60px;border-top:1px solid var(--line)}
 footer a{font-weight:700}
-
 .rv{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s cubic-bezier(.2,.7,.2,1)}
 .rv.in{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.rv{opacity:1;transform:none}*{transition:none!important}}
@@ -168,27 +192,26 @@ footer a{font-weight:700}
     <span class="lab">Secundaria y Bachillerato · Revisión de octubre de 2026</span>
     <h1>Caja de herramientas <span>digitales</span></h1>
    </div>
-   <p>Una selección de herramientas para el aula de Secundaria. De cada una, qué hace y cómo usarla en clase, y además lo que ha dejado de existir desde la versión anterior.</p>
+   <p>Herramientas para llevar al aula y para el trabajo del docente, con ideas concretas de uso, qué necesita cada una y lo que ha dejado de existir desde la versión anterior.</p>
   </div>
-  <div class="t stat"><span class="lab">Herramientas</span><span class="n" id="s-total">0</span><span class="lab" style="letter-spacing:.04em;text-transform:none;font-weight:500;font-size:15px">en <span id="s-cats">0</span> categorías</span></div>
-  <div class="t stat ice"><span class="lab">Nuevas en 2026</span><span class="n" id="s-new">0</span><span style="font-size:15px;color:var(--mut)">sobre todo IA con cuenta del centro</span></div>
-  <div class="t stat"><span class="lab">Siguen de 2024</span><span class="n" id="s-old">0</span><span style="font-size:15px;color:var(--mut)">comprobadas y actualizadas</span></div>
-  <div class="t stat dark"><span class="lab">Han cerrado o cambiado</span><span class="n" id="s-chg">0</span><a href="#cambios" style="font-size:15px;color:var(--sky);font-weight:700">Ver qué pasó →</a></div>
+  <a class="t stat" href="#herramientas" data-go="aula"><span class="lab">Aula</span><span class="n" id="s-aula">0</span><span class="s">herramientas para usar en clase</span></a>
+  <a class="t stat ice" href="#herramientas" data-go="docente"><span class="lab">Docente</span><span class="n" id="s-docente">0</span><span class="s">para preparar, gestionar y evaluar</span></a>
+  <a class="t stat" href="#herramientas" data-go="recursos"><span class="lab">Recursos</span><span class="n" id="s-recursos">0</span><span class="s">bancos de materiales y webs</span></a>
+  <a class="t stat dark" href="#cambios"><span class="lab">Han cerrado o cambiado</span><span class="n" id="s-chg">0</span><span class="s" style="color:var(--sky);font-weight:700">Ver qué pasó →</span></a>
   <div class="t h-orig">
    <span class="seal" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5h6.5V19H4zM13.5 5.5H20V19h-6.5z"/><path d="M6.5 9h1.5M6.5 12h1.5M16 9h1.5M16 12h1.5"/></svg></span>
-   <p>Parte del <a href="https://sites.google.com/view/repositorio-digital-docente-cc/inicio" rel="noopener">repositorio digital que creé para el Colegio Cerrado de Calderón</a> en 2024, presentado por el centro en el congreso Braining 2025. Esta versión se centra solo en Secundaria y revisa qué sigue vigente.</p>
+   <p>Actualización del <a href="https://sites.google.com/view/repositorio-digital-docente-cc/inicio" rel="noopener">repositorio digital que creé para el Colegio Cerrado de Calderón</a> en 2024, presentado por el centro en el congreso Braining 2025. Esta versión se centra en Secundaria y revisa qué sigue vigente.</p>
   </div>
  </section>
 
  <div class="controls" id="herramientas">
+  <div class="tabs" role="tablist" aria-label="Secciones de la caja" id="tabs"></div>
   <div class="row1">
-   <label class="search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.4-4.4"/></svg><span class="sr" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Buscar herramienta</span><input id="q" type="search" placeholder="Busca una herramienta o un uso: mapas, rúbrica, vídeo…" autocomplete="off"></label>
-   <div class="seg" role="group" aria-label="Filtrar por estado">
+   <label class="search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.4-4.4"/></svg><span class="sr">Buscar</span><input id="q" type="search" placeholder="Busca una herramienta o un uso: mapas, rúbrica, vídeo…" autocomplete="off"></label>
+   <div class="seg" role="group" aria-label="Filtrar por estado" id="seg">
     <button type="button" data-st="all" aria-pressed="true">Todas</button>
     <button type="button" data-st="nueva" aria-pressed="false">Nuevas</button>
     <button type="button" data-st="vigente" aria-pressed="false">Siguen de 2024</button>
-    <button type="button" data-uso="docente" aria-pressed="false">Para el docente</button>
-    <button type="button" data-uso="aula" aria-pressed="false">Para el alumnado</button>
    </div>
   </div>
   <div class="chips" id="chips" role="group" aria-label="Categorías"></div>
@@ -196,7 +219,7 @@ footer a{font-weight:700}
  </div>
 
  <div id="list"></div>
- <p class="empty" id="empty">No hay herramientas con ese filtro. Prueba con otra palabra.</p>
+ <p class="empty" id="empty">No hay nada con ese filtro. Prueba con otra palabra.</p>
 
  <section class="sec" id="cambios">
   <div class="sec-h rv"><span class="lab">Desde la versión de 2024</span><h2>Qué ha cambiado</h2><p>En dos años algunas herramientas han cerrado, otras han cambiado de nombre y la IA ha entrado en las cuentas educativas de los centros.</p></div>
@@ -206,10 +229,10 @@ footer a{font-weight:700}
  <section class="sec" id="criterios">
   <div class="sec-h rv"><span class="lab">Cómo está hecha</span><h2>Criterios de la selección</h2></div>
   <div class="crit">
-   <div class="t rv"><span class="num">1</span><h3>Que siga viva</h3><p>He comprobado en octubre de 2026 que cada herramienta funciona y sigue activa. Las que han cerrado aparecen aparte, con una alternativa.</p></div>
-   <div class="t rv"><span class="num">2</span><h3>Usos concretos</h3><p>Cada ficha dice para qué sirve en el aula de Secundaria, no solo qué es. Igual que en el repositorio original.</p></div>
-   <div class="t rv"><span class="num">3</span><h3>Gratuita o con plan gratuito</h3><p>Todas se pueden empezar a usar sin pagar, aunque algunas limitan funciones en la versión gratuita.</p></div>
-   <div class="t dark rv"><span class="num">!</span><h3>Antes de usarla con alumnado</h3><p>Comprueba la edad mínima de cada servicio y que el centro la tenga autorizada. Con menores, mejor la cuenta educativa del centro que cuentas personales, y nunca datos personales en una IA.</p></div>
+   <div class="t rv"><span class="num">1</span><h3>Que siga viva</h3><p>He comprobado en octubre de 2026 que cada herramienta funciona. Las que han cerrado aparecen aparte, con una alternativa.</p></div>
+   <div class="t rv"><span class="num">2</span><h3>Pensada para quien la usa</h3><p>En Aula, qué hace el alumnado y qué necesita. En Docente, para qué te sirve, cuánto cuesta y qué pasa con los datos.</p></div>
+   <div class="t rv"><span class="num">3</span><h3>Gratuita o con plan gratuito</h3><p>Casi todas se pueden empezar a usar sin pagar, aunque algunas limitan funciones. Cuando no es así, lo indico.</p></div>
+   <div class="t dark rv"><span class="num">!</span><h3>Antes de usarla con alumnado</h3><p>Comprueba la edad mínima y que el centro la tenga autorizada. Con menores, mejor la cuenta educativa del centro que cuentas personales, y nunca datos personales en una IA.</p></div>
   </div>
  </section>
 </main>
@@ -221,60 +244,69 @@ footer a{font-weight:700}
 <script>
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const ST={nueva:'Nueva',vigente:'Sigue de 2024',cambio:'Ha cambiado'};
-const USO={docente:'Para el docente',aula:'Para el alumnado',ambos:'Docente y alumnado'};
-const LOGOS=new Set(["additio","ancientearth","appinventor","artsculture","audacity","blooket","bookcreator","brisk","canva","capcut","chatgpt","classdojo","classroom","classroomscreen","claude","clipchamp","codeorg","copilot","corubrics","cospaces","decktoys","desmos","diffit","earth","edpuzzle","educaplay","gamma","geacron","gemini","genially","geogebra","gizmos","idoceo","ilovepdf","immersive","kahoot","loom","magicschool","mentimeter","mindomo","moodle","nearpod","notebooklm","padlet","phet","plickers","rah","readwrite","schoolai","scratch","snorkl","storymap","teams","timetoast","tinkercad","trello","wakelet","wayground","wooclap"]);
-const cap='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 9 12 4l10 5-10 5z"/><path d="M6 11v5c3 2 9 2 12 0v-5"/></svg>';
-const ext='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>';
-const play='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>';
+const LOGOS=new Set(["academiaplay", "additio", "anatomy3d", "ancientearth", "appinventor", "artsculture", "audacity", "badge", "blockly", "blooket", "bodymaps", "bolsa", "bookcreator", "brisk", "canva", "capcut", "chatgpt", "chatpdf", "chatterpix", "classdojo", "classroom", "classroomscreen", "claude", "clipchamp", "codeorg", "coolors", "copilot", "corubrics", "cospaces", "decktoys", "desmos", "diffit", "earth", "edpuzzle", "edu30", "educagob", "educaplay", "exelearning", "fastboard", "feedly", "flaticon", "fliki", "freepik", "gamma", "geacron", "gemini", "genially", "geogebra", "gforms", "gizmos", "idoceo", "ilovepdf", "immersive", "incredibox", "intef", "jotform", "kahoot", "kgeography", "learningpaths", "lexica", "librecad", "loom", "loop", "magicschool", "mentimeter", "mindomo", "moodle", "msforms", "musescore", "musictheory", "nearpod", "notebooklm", "padlet", "pearltrees", "phet", "picsart", "pixabay", "plickers", "popplet", "procomun", "rah", "readwrite", "rosaliarte", "schoolai", "scratch", "sketchfab", "snap", "snatchbot", "snorkl", "stopmotion", "stormboard", "storymap", "suno", "sway", "symbaloo", "teams", "thunkable", "timetoast", "tinkercad", "trello", "wakelet", "wayground", "wooclap", "zencastr"]);
+const I={
+ ext:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>',
+ play:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>',
+ cap:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 9 12 4l10 5-10 5z"/><path d="M6 11v5c3 2 9 2 12 0v-5"/></svg>',
+ dev:'<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="12" rx="2"/><path d="M8 21h8M12 17v4"/></svg>',
+ key:'<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="8" cy="15" r="4"/><path d="m11 12 9-9M17 6l3 3M14 9l2 2"/></svg>',
+ eur:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17 7a6 6 0 1 0 0 10M4 10h9M4 14h9"/></svg>',
+ lock:'<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="10.5" width="14" height="10" rx="2"/><path d="M8 10.5V7.5a4 4 0 0 1 8 0v3"/></svg>'
+};
+const logo=t=>LOGOS.has(t.id)?`<img src="logos/${t.id}.png" alt="" width="30" height="30" loading="lazy">`:`<b>${esc(t.n[0])}</b>`;
+const yt=t=>'https://www.youtube.com/results?search_query='+encodeURIComponent(t.n.replace(/\s*\(.*\)/,'')+' tutorial español');
+const head=t=>`<div class="tool-h"><span class="lg">${logo(t)}</span><h3>${esc(t.n)}</h3><span class="st st-${t.st}">${ST[t.st]}</span></div>`;
+const ideas=(t,title)=>`<div class="ideas"><h4>${title}</h4><ul>${t.i.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></div>`;
+const foot=t=>`<div class="tool-f"><a class="btn solid" href="${t.url}" rel="noopener" target="_blank">Abrir ${I.ext}</a><a class="btn line" href="${yt(t)}" rel="noopener" target="_blank" aria-label="Tutoriales de ${esc(t.n)} en YouTube">${I.play}Tutoriales</a></div>`;
 function card(t){
- const logo=LOGOS.has(t.id)?`<img src="logos/${t.id}.png" alt="" width="30" height="30" loading="lazy">`:`<b>${esc(t.n[0])}</b>`;
- const yt='https://www.youtube.com/results?search_query='+encodeURIComponent(t.n.replace(/\s*\(.*\)/,'')+' tutorial español');
- return `<article class="tool" data-id="${t.id}">
-  <div class="tool-h"><span class="lg">${logo}</span><div><h3>${esc(t.n)}</h3><div class="who">${USO[t.uso]}</div></div><span class="st st-${t.st}">${ST[t.st]}</span></div>
-  <p>${esc(t.d)}</p>
-  <ul class="uses">${t.u.map(x=>`<li>${esc(x)}</li>`).join('')}</ul>
-  <div class="tool-f"><span class="curso">${cap}${esc(t.c)}</span><span class="acts"><a class="btn line" href="${yt}" rel="noopener" target="_blank" aria-label="Tutoriales de ${esc(t.n)} en YouTube">${play}Tutoriales</a><a class="btn solid" href="${t.url}" rel="noopener" target="_blank" aria-label="Abrir ${esc(t.n)}">Abrir ${ext}</a></span></div>
- </article>`;
+ if(t.s==='aula') return `<article class="tool" data-id="${t.id}">${head(t)}
+  <div><div class="who">Qué hace el alumnado</div><p class="lead">${esc(t.a)}</p></div>
+  ${ideas(t,'Ideas para clase')}
+  <div class="meta"><div>${I.cap}<span>${esc(t.c)}</span></div><div>${I.dev}<span>${esc(t.disp)}</span></div><div>${I.key}<span>${esc(t.cta)}</span></div></div>
+  ${foot(t)}</article>`;
+ if(t.s==='docente') return `<article class="tool" data-id="${t.id}">${head(t)}
+  <div><div class="who">Para qué te sirve</div><p class="lead">${esc(t.p)}</p></div>
+  ${ideas(t,'Ideas de uso')}
+  ${t.nota?`<p class="note">${esc(t.nota)}</p>`:''}
+  <div class="meta"><div>${I.eur}<span>${esc(t.coste)}</span></div><div>${I.lock}<span>${esc(t.datos)}</span></div></div>
+  ${foot(t)}</article>`;
+ return `<a class="res tool-r" data-id="${t.id}" href="${t.url}" rel="noopener" target="_blank"><span class="lg">${logo(t)}</span><span><h3>${esc(t.n)}</h3><p>${esc(t.d)}</p></span><span class="go" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></svg></span></a>`;
 }
-const list=document.getElementById('list');
-const order=Object.keys(CATS);
-list.innerHTML=order.map(k=>{const ts=TOOLS.filter(t=>t.cat===k);return `<section class="cat" data-cat="${k}"><div class="cat-h"><h2>${CATS[k]}</h2><span data-n>${ts.length}</span></div><div class="grid">${ts.map(card).join('')}</div></section>`}).join('');
-document.getElementById('chips').innerHTML='<button type="button" data-c="all" aria-pressed="true">Todas las categorías</button>'+order.map(k=>`<button type="button" data-c="${k}" aria-pressed="false">${CATS[k]}</button>`).join('');
-document.getElementById('changes').innerHTML=CHANGES.map((c,i)=>`<div class="ch ${i===CHANGES.length-1?'dark':''} rv"><span class="lab">${i===CHANGES.length-1?'Novedad':'Cierre o cambio'}</span><h3>${esc(c.n)}</h3><p>${esc(c.what)}</p><div class="alt"><b>Qué usar ahora</b>${esc(c.alt)}</div></div>`).join('');
-// cifras
-const cnt=(f)=>TOOLS.filter(f).length;
-const anim=(id,v)=>{const el=document.getElementById(id);let i=0;const st=Math.max(1,Math.round(v/20));const tm=setInterval(()=>{i=Math.min(v,i+st);el.textContent=i;if(i>=v)clearInterval(tm)},30)};
-anim('s-total',TOOLS.length);document.getElementById('s-cats').textContent=order.length;
-anim('s-new',cnt(t=>t.st==='nueva'));anim('s-old',cnt(t=>t.st==='vigente'));anim('s-chg',CHANGES.length-1);
-// filtros
-const state={q:'',st:'all',uso:null,c:'all'};
 const norm=s=>s.normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase();
-const IDX=Object.fromEntries(TOOLS.map(t=>[t.id,norm([t.n,t.d,t.u.join(' '),CATS[t.cat],t.c].join(' '))]));
-function apply(){
- let shown=0;
- document.querySelectorAll('.cat').forEach(sec=>{
-  let n=0;
-  sec.querySelectorAll('.tool').forEach(el=>{
-   const t=TOOLS.find(x=>x.id===el.dataset.id);
-   const ok=(state.c==='all'||t.cat===state.c)&&(state.st==='all'||t.st===state.st||(state.st==='vigente'&&t.st==='cambio'))&&(!state.uso||t.uso===state.uso||t.uso==='ambos')&&(!state.q||state.q.split(/\s+/).every(w=>IDX[t.id].includes(w)));
-   el.hidden=!ok;if(ok)n++;
-  });
-  sec.hidden=n===0;sec.querySelector('[data-n]').textContent=n;shown+=n;
- });
- document.getElementById('count').textContent=shown===TOOLS.length?`Mostrando las ${shown} herramientas`:`${shown} de ${TOOLS.length} herramientas`;
+const IDX=Object.fromEntries(TOOLS.map(t=>[t.id,norm([t.n,t.a,t.p,t.d,(t.i||[]).join(' '),SECTIONS[t.s].cats[t.cat],t.c,t.nota].filter(Boolean).join(' '))]));
+const state={sec:'aula',q:'',st:'all',c:'all'};
+const count=s=>TOOLS.filter(t=>t.s===s).length;
+
+document.getElementById('tabs').innerHTML=Object.entries(SECTIONS).map(([k,v])=>`<button type="button" role="tab" data-sec="${k}" aria-selected="${k==='aula'}"><span><b>${v.n}</b><small>${v.d}</small></span><span class="num">${count(k)}</span></button>`).join('');
+
+function render(){
+ const S=SECTIONS[state.sec];
+ document.getElementById('chips').innerHTML='<button type="button" data-c="all" aria-pressed="'+(state.c==='all')+'">Todas las categorías</button>'+Object.entries(S.cats).map(([k,v])=>`<button type="button" data-c="${k}" aria-pressed="${state.c===k}">${v}</button>`).join('');
+ document.getElementById('seg').style.display=state.sec==='recursos'?'none':'';
+ document.getElementById('q').placeholder=state.sec==='aula'?'Busca una herramienta o una actividad: mapas, pódcast, repaso…':state.sec==='docente'?'Busca una herramienta o una tarea: rúbrica, IA, notas…':'Busca un recurso: imágenes, situaciones de aprendizaje…';
+ const list=document.getElementById('list');let shown=0;
+ list.innerHTML=Object.entries(S.cats).map(([k,v])=>{
+  if(state.c!=='all'&&state.c!==k)return '';
+  const ts=TOOLS.filter(t=>t.s===state.sec&&t.cat===k&&(state.st==='all'||t.st===state.st||(state.st==='vigente'&&t.st==='cambio'))&&(!state.q||state.q.split(/\s+/).every(w=>IDX[t.id].includes(w))));
+  shown+=ts.length;if(!ts.length)return '';
+  return `<section class="cat"><div class="cat-h"><h2>${v}</h2><span>${ts.length}</span></div><div class="grid">${ts.map(card).join('')}</div></section>`;
+ }).join('');
+ const total=count(state.sec);
+ document.getElementById('count').textContent=shown===total?`${S.n}: ${total} ${state.sec==='recursos'?'recursos':'herramientas'}`:`${shown} de ${total}`;
  document.getElementById('empty').style.display=shown?'none':'block';
 }
-document.getElementById('q').addEventListener('input',e=>{state.q=norm(e.target.value.trim());apply()});
-document.querySelectorAll('.seg button').forEach(b=>b.addEventListener('click',()=>{
- document.querySelectorAll('.seg button').forEach(x=>x.setAttribute('aria-pressed',x===b));
- state.st=b.dataset.st||'all';state.uso=b.dataset.uso||null;apply();
-}));
-document.getElementById('chips').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;
- document.querySelectorAll('#chips button').forEach(x=>x.setAttribute('aria-pressed',x===b));state.c=b.dataset.c;apply();
- document.getElementById('herramientas').scrollIntoView({block:'start'});
-});
-apply();
-// aparición
+function setSec(k){state.sec=k;state.c='all';document.querySelectorAll('#tabs button').forEach(b=>b.setAttribute('aria-selected',b.dataset.sec===k));render();}
+document.getElementById('tabs').addEventListener('click',e=>{const b=e.target.closest('button');if(b)setSec(b.dataset.sec)});
+document.querySelectorAll('[data-go]').forEach(a=>a.addEventListener('click',()=>setSec(a.dataset.go)));
+document.getElementById('q').addEventListener('input',e=>{state.q=norm(e.target.value.trim());render()});
+document.getElementById('seg').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;document.querySelectorAll('#seg button').forEach(x=>x.setAttribute('aria-pressed',x===b));state.st=b.dataset.st;render()});
+document.getElementById('chips').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;state.c=b.dataset.c;render();document.getElementById('herramientas').scrollIntoView({block:'start'})});
+render();
+
+document.getElementById('changes').innerHTML=CHANGES.map((c,i)=>`<div class="ch ${i===CHANGES.length-1?'dark':''} rv"><span class="lab">${i===CHANGES.length-1?'Novedad':'Cierre o cambio'}</span><h3>${esc(c.n)}</h3><p>${esc(c.what)}</p><div class="alt"><b>Qué usar ahora</b>${esc(c.alt)}</div></div>`).join('');
+const anim=(id,v)=>{const el=document.getElementById(id);let i=0;const st=Math.max(1,Math.round(v/20));const tm=setInterval(()=>{i=Math.min(v,i+st);el.textContent=i;if(i>=v)clearInterval(tm)},30)};
+anim('s-aula',count('aula'));anim('s-docente',count('docente'));anim('s-recursos',count('recursos'));anim('s-chg',CHANGES.length-1);
 const io='IntersectionObserver' in window?new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.1}):null;
 document.querySelectorAll('.rv').forEach(el=>io?io.observe(el):el.classList.add('in'));
 </script>
