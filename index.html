@@ -195,6 +195,150 @@ a.p{display:flex}
 .lb img{max-width:min(100%,900px);max-height:90vh;border-radius:14px;box-shadow:0 30px 80px rgba(0,0,0,.5)}
 .lb button{position:absolute;right:18px;top:18px;width:44px;height:44px;border-radius:50%;border:0;background:#fff;color:var(--navy);font:800 22px var(--f-disp);cursor:pointer}
 @keyframes fade{from{opacity:0}}
+/* ---------- miniaturas animadas de los proyectos ---------- */
+.viz{position:relative;height:172px;border-radius:18px;background:var(--bg);overflow:hidden;margin-bottom:4px;font-family:var(--f-body)}
+.p:has(.viz) .dl{margin-top:auto}
+.p:has(.viz)>p:last-child{margin-bottom:0}
+.p:has(.viz) .arrow{top:34px;right:34px;background:#fff;box-shadow:0 4px 12px rgba(6,16,51,.12);z-index:3}
+.p-repo .arrow{top:20px;right:20px;color:var(--navy)}
+.v-bombo{padding-right:56px!important}
+.v-repo{margin-top:44px}
+.ice .viz{background:#fff}
+.viz *{animation-play-state:paused!important}
+.viz.play *{animation-play-state:running!important}
+.p:has(.viz) .meta{margin-top:16px}
+
+/* repositorio */
+.p-repo{display:grid!important;grid-template-columns:minmax(0,1fr) 250px;gap:22px;align-items:center}
+.p-repo .r-txt{display:flex;flex-direction:column;gap:10px}
+.v-repo{height:auto;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);padding:10px}
+.v-repo .tabs{display:flex;gap:4px}
+.v-repo .tabs span{flex:1;text-align:center;font-size:11px;font-weight:700;padding:5px 0;border-radius:8px;color:var(--pale);animation:tab 12s infinite}
+.v-repo .tabs span:nth-child(2){animation-delay:3s}.v-repo .tabs span:nth-child(3){animation-delay:6s}.v-repo .tabs span:nth-child(4){animation-delay:9s}
+@keyframes tab{0%,22%{background:var(--sky);color:var(--navy)}25%,100%{background:transparent;color:var(--pale)}}
+.v-repo .cards{display:grid;gap:7px;margin-top:10px}
+.v-repo .fc{display:grid;grid-template-columns:30px 1fr;gap:9px;align-items:center;background:#fff;border-radius:10px;padding:8px;animation:fc 3s infinite}
+.v-repo .fc:nth-child(2){animation-delay:.25s}.v-repo .fc:nth-child(3){animation-delay:.5s}
+@keyframes fc{0%{opacity:0;transform:translateY(8px)}12%,85%{opacity:1;transform:none}100%{opacity:0}}
+.v-repo .fc i{width:30px;height:30px;border-radius:8px;background:var(--ice);display:block}
+.v-repo .fc:nth-child(1) i{background:#C9D0E2}.v-repo .fc:nth-child(2) i{background:var(--sky)}.v-repo .fc:nth-child(3) i{background:#4A62B8}
+.v-repo .fc b{display:block;height:7px;width:70%;border-radius:4px;background:var(--navy)}
+.v-repo .fc em{display:block;height:6px;width:90%;border-radius:4px;background:var(--line);margin-top:5px}
+.v-repo .play-ico{font-size:10px;color:var(--mut);font-style:normal;font-weight:700}
+@media (max-width:1020px){.p-repo{grid-template-columns:1fr}}
+
+/* cazadores de bulos */
+.v-bulos{padding:14px 16px;background:#fff;border:1px solid var(--line)}
+.v-bulos p{font-size:12.5px!important;line-height:1.55;color:#2A3352!important;margin:0}
+.v-bulos mark{background:linear-gradient(transparent 55%,rgba(199,54,54,.28) 55%) no-repeat;background-size:0 100%;color:inherit;animation:hl 8s infinite}
+.v-bulos mark:nth-of-type(2){animation-delay:1.4s}.v-bulos mark:nth-of-type(3){animation-delay:2.8s}
+@keyframes hl{0%,8%{background-size:0 100%}16%,88%{background-size:100% 100%}100%{background-size:0 100%}}
+.v-bulos .cnt{position:absolute;right:10px;bottom:10px;background:var(--navy);color:#fff;font-weight:700;font-size:12px;border-radius:999px;padding:4px 10px}
+.v-bulos .cnt span{display:inline-block;min-width:.6em}
+.v-bulos .lupa{position:absolute;width:44px;height:44px;border-radius:50%;border:3px solid var(--navy);background:rgba(255,255,255,.25);left:20px;top:20px;animation:lupa 8s infinite}
+.v-bulos .lupa::after{content:"";position:absolute;width:16px;height:4px;background:var(--navy);border-radius:2px;right:-13px;bottom:-5px;transform:rotate(45deg)}
+@keyframes lupa{0%{transform:translate(60px,4px)}16%{transform:translate(150px,4px)}33%{transform:translate(40px,38px)}50%{transform:translate(120px,62px)}66%,100%{transform:translate(170px,80px)}}
+
+/* la nube pesa */
+.v-nube{display:flex;flex-direction:column;justify-content:center;padding:14px 12px}
+.v-nube .chain{position:relative;display:flex;justify-content:space-between;align-items:center;padding:0 6px}
+.v-nube .chain::before{content:"";position:absolute;left:18px;right:18px;top:50%;height:2px;background:repeating-linear-gradient(90deg,var(--navy) 0 5px,transparent 5px 9px)}
+.v-nube .n{position:relative;width:30px;height:30px;border-radius:50%;background:#fff;border:2px solid var(--navy);display:grid;place-items:center;font:800 13px var(--f-disp);animation:node 10s infinite}
+.v-nube .n:nth-child(2){animation-delay:2s}.v-nube .n:nth-child(3){animation-delay:4s}.v-nube .n:nth-child(4){animation-delay:6s}.v-nube .n:nth-child(5){animation-delay:8s}
+@keyframes node{0%,18%{background:var(--navy);color:#fff;transform:scale(1.15)}20%,100%{background:#fff;color:var(--navy);transform:none}}
+.v-nube .facts{position:relative;height:44px;margin-top:16px}
+.v-nube .facts span{position:absolute;inset:0;text-align:center;font-size:13.5px;line-height:1.3;opacity:0;animation:fact 10s infinite}
+.v-nube .facts b{display:block;font:800 15px var(--f-disp);color:var(--navy)}
+.v-nube .facts span:nth-child(2){animation-delay:2s}.v-nube .facts span:nth-child(3){animation-delay:4s}.v-nube .facts span:nth-child(4){animation-delay:6s}.v-nube .facts span:nth-child(5){animation-delay:8s}
+@keyframes fact{0%{opacity:0;transform:translateY(6px)}3%,17%{opacity:1;transform:none}20%,100%{opacity:0}}
+
+/* constitución 1812 */
+.v-1812{padding:10px 14px;display:grid;gap:8px;align-content:center;background:#fff;border:1px solid var(--line)}
+.v-1812 .art{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px;align-items:center;font-size:12.5px;line-height:1.35;color:#2A3352}
+.v-1812 .art span{overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+.v-1812 .art b{color:var(--navy)}
+.v-1812 em{font-style:normal;font-weight:800;font-size:11px;border-radius:6px;padding:3px 7px;opacity:0;transform:scale(.6);animation:tag 9s infinite}
+.v-1812 .art:nth-child(2) em{animation-delay:1.2s}.v-1812 .art:nth-child(3) em{animation-delay:2.4s}
+@keyframes tag{0%,6%{opacity:0;transform:scale(.6)}10%,85%{opacity:1;transform:none}92%,100%{opacity:0}}
+.t-apoya{background:var(--navy);color:#fff}.t-limita{background:#fff;color:var(--navy);border:1.5px solid var(--navy)}
+
+/* audita */
+.v-aud{padding:12px 14px;display:grid;gap:7px;align-content:center}
+.v-aud .row{display:grid;grid-template-columns:auto 1fr auto;gap:10px;align-items:center;background:#fff;border-radius:10px;padding:7px 10px;font-size:12.5px;opacity:0;animation:row 9s infinite}
+.v-aud .row:nth-child(2){animation-delay:.8s}.v-aud .row:nth-child(3){animation-delay:1.6s}
+@keyframes row{0%{opacity:0;transform:translateX(-10px)}8%,88%{opacity:1;transform:none}100%{opacity:0}}
+.v-aud .row b{font:800 13px var(--f-disp)}
+.v-aud .row small{color:var(--mut)}
+.v-aud .ok{color:#1B8A57;font-weight:800}
+.v-aud .stamp{font:800 10.5px var(--f-body);letter-spacing:.06em;color:#C73636;border:1.5px solid #C73636;border-radius:5px;padding:2px 5px;transform:rotate(-4deg)}
+
+/* bombo */
+.v-bombo{display:grid;grid-template-columns:120px 1fr;align-items:center;gap:6px;padding:0 14px}
+.drum{position:relative;width:110px;height:110px;border-radius:50%;border:4px solid var(--navy);background:#fff;animation:spin 3.2s linear infinite}
+.drum::before,.drum::after{content:"";position:absolute;left:50%;top:50%;width:100%;height:3px;background:var(--line);transform:translate(-50%,-50%)}
+.drum::after{transform:translate(-50%,-50%) rotate(90deg)}
+.drum i{position:absolute;width:20px;height:20px;border-radius:50%;background:var(--sky);font:800 9px/20px var(--f-disp);color:var(--navy);text-align:center;font-style:normal}
+@keyframes spin{to{transform:rotate(360deg)}}
+.v-bombo .out{display:flex;gap:8px;flex-wrap:wrap}
+.v-bombo .out span{width:34px;height:34px;border-radius:50%;background:var(--navy);color:#fff;font:800 14px/34px var(--f-disp);text-align:center;opacity:0;animation:ball 8s infinite}
+.v-bombo .out span:nth-child(2){animation-delay:1.5s}.v-bombo .out span:nth-child(3){animation-delay:3s}
+@keyframes ball{0%,4%{opacity:0;transform:translate(-40px,10px) scale(.4)}12%,85%{opacity:1;transform:none}95%,100%{opacity:0}}
+.v-bombo .out span.mine{background:var(--sky);color:var(--navy)}
+.v-bombo small{display:block;font-size:12px;color:var(--mut);margin-top:8px}
+
+/* TFM: conversación */
+.v-chat{padding:10px 12px;display:flex;flex-direction:column;gap:7px;justify-content:center;font-size:12px;line-height:1.35}
+.v-chat .u{align-self:flex-end;background:var(--navy);color:#fff;border-radius:12px 12px 3px 12px;padding:6px 10px;max-width:85%;opacity:0;animation:msg 10s infinite}
+.v-chat .typing{align-self:flex-start;display:flex;gap:3px;background:#fff;border-radius:12px;padding:8px 10px;opacity:0;animation:typ 10s infinite}
+.v-chat .typing i{width:5px;height:5px;border-radius:50%;background:var(--mut);animation:dot 1s infinite}
+.v-chat .typing i:nth-child(2){animation-delay:.15s}.v-chat .typing i:nth-child(3){animation-delay:.3s}
+.v-chat .a{align-self:flex-start;background:#fff;border-radius:12px 12px 12px 3px;padding:6px 10px;max-width:92%;color:#2A3352;opacity:0;animation:msg2 10s infinite;margin-top:-30px}
+@keyframes msg{0%,3%{opacity:0;transform:translateY(6px)}8%,90%{opacity:1;transform:none}100%{opacity:0}}
+@keyframes typ{0%,12%{opacity:0}15%,28%{opacity:1}30%,100%{opacity:0}}
+@keyframes msg2{0%,29%{opacity:0;transform:translateY(6px)}33%,90%{opacity:1;transform:none}100%{opacity:0}}
+@keyframes dot{50%{transform:translateY(-3px)}}
+
+/* escape room */
+.v-esc{display:flex;align-items:center;justify-content:center;gap:18px}
+.lock{position:relative;width:62px;height:52px;background:var(--navy);border-radius:10px;margin-top:22px}
+.lock::before{content:"";position:absolute;left:12px;top:-26px;width:38px;height:34px;border:6px solid var(--navy);border-bottom:0;border-radius:20px 20px 0 0;box-sizing:border-box;animation:shackle 6s infinite}
+@keyframes shackle{0%,70%{transform:none}78%,92%{transform:translateY(-9px) rotate(-12deg);transform-origin:right bottom}100%{transform:none}}
+.lock::after{content:"";position:absolute;left:27px;top:18px;width:8px;height:14px;border-radius:4px;background:#fff}
+.wheels{display:flex;gap:5px}
+.wheel{width:30px;height:40px;border-radius:8px;background:#fff;border:1.5px solid var(--line);overflow:hidden;font:800 20px/40px var(--f-disp);text-align:center;color:var(--navy)}
+.wheel span{display:block;animation:roll 6s infinite}
+.wheel:nth-child(2) span{animation-delay:.15s}.wheel:nth-child(3) span{animation-delay:.3s}.wheel:nth-child(4) span{animation-delay:.45s}
+@keyframes roll{0%{transform:translateY(0)}60%,95%{transform:translateY(calc(-40px * var(--n)))}100%{transform:translateY(0)}}
+
+/* rúbrica */
+.v-rub{padding:14px 16px;display:grid;gap:9px;align-content:center}
+.v-rub .r{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center;font-size:12.5px;font-weight:700}
+.v-rub .lv{display:flex;gap:4px}
+.v-rub .lv i{width:22px;height:10px;border-radius:5px;background:var(--line);animation:lv 7s infinite}
+.v-rub .r:nth-child(1) .lv i:nth-child(-n+3),.v-rub .r:nth-child(2) .lv i:nth-child(-n+4),.v-rub .r:nth-child(3) .lv i:nth-child(-n+2){--on:var(--navy)}
+.v-rub .lv i:nth-child(2){animation-delay:.3s}.v-rub .lv i:nth-child(3){animation-delay:.6s}.v-rub .lv i:nth-child(4){animation-delay:.9s}
+.v-rub .r:nth-child(2) .lv i{animation-delay:1.2s}.v-rub .r:nth-child(3) .lv i{animation-delay:2.2s}
+@keyframes lv{0%,10%{background:var(--line)}18%,88%{background:var(--on,var(--line))}100%{background:var(--line)}}
+
+/* e-portfolio */
+.v-epo{padding:10px;display:flex;flex-direction:column}
+.v-epo .bar2{display:flex;gap:4px;align-items:center;padding:4px 6px}
+.v-epo .bar2 i{width:7px;height:7px;border-radius:50%;background:var(--line)}
+.v-epo .bar2 span{flex:1;height:14px;border-radius:7px;background:var(--bg);margin-left:6px}
+.v-epo .pg{flex:1;background:var(--bg);border-radius:10px;padding:10px;display:grid;grid-template-columns:repeat(5,1fr);gap:6px;align-content:center}
+.v-epo .m{border-radius:8px;background:#fff;padding:8px 4px;text-align:center;font:800 11px var(--f-disp);color:var(--navy);animation:mod 10s infinite}
+.v-epo .m:nth-child(2){animation-delay:2s}.v-epo .m:nth-child(3){animation-delay:4s}.v-epo .m:nth-child(4){animation-delay:6s}.v-epo .m:nth-child(5){animation-delay:8s}
+@keyframes mod{0%,18%{background:var(--navy);color:#fff;transform:translateY(-3px)}20%,100%{background:#fff;color:var(--navy);transform:none}}
+.v-epo .m small{display:block;font:500 9px var(--f-body);opacity:.8;margin-top:2px}
+
+@media (prefers-reduced-motion:reduce){.viz *{animation:none!important;opacity:1!important;transform:none!important}}
+
+/* herramientas usadas */
+.made{display:flex;flex-wrap:wrap;gap:6px}
+.made span{display:inline-flex;align-items:center;gap:6px;background:#fff;border:1px solid var(--line);border-radius:999px;padding:3px 10px 3px 4px;font-size:13px;font-weight:700;color:var(--navy)}
+.made img{width:20px;height:20px;border-radius:6px;object-fit:contain;background:#fff}
+.viz .made{position:absolute;left:8px;top:8px;z-index:2}
+.dark .made span{background:rgba(255,255,255,.95)}
 .projs .p.hide{display:none}
 .projs .p.pop{animation:pop .45s cubic-bezier(.2,.7,.2,1)}
 @keyframes pop{from{opacity:0;transform:translateY(12px) scale(.98)}}
@@ -353,16 +497,20 @@ footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;color:v
   <div class="bento projs">
    <a class="t dark p p-repo lift rv" data-cat="prof" href="https://sites.google.com/view/repositorio-digital-docente-cc/inicio" rel="noopener">
     <span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
-    <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 5.5h6.5V19H4zM13.5 5.5H20V19h-6.5z"/><path d="M6.5 9h1.5M6.5 12h1.5M16 9h1.5M16 12h1.5"/></svg></span>
+    <div class="r-txt">
     <span class="badge">★ Presentado en el congreso Braining 2025</span>
     <h3>Repositorio digital docente</h3>
     <p>Recursos digitales del Colegio Cerrado de Calderón organizados por etapas, con una ficha por herramienta y un tutorial en vídeo. El centro lo presentó en el IX Congreso Internacional de Creatividad Educativa (Valencia) como herramienta de autoformación del profesorado.</p>
     <div class="stages"><span>Infantil</span><span>Primaria</span><span>Secundaria</span><span>Bachillerato</span></div>
+   
+    <div class="made"><span><img src="assets/tools/google-sites.png" alt="" width="20" height="20" loading="lazy">Google Sites</span></div></div>
+    <div class="viz v-repo" aria-hidden="true"><div class="tabs"><span>Infantil</span><span>Primaria</span><span>Secundaria</span><span>Bach.</span></div><div class="cards"><div class="fc"><i></i><div><b></b><em></em></div></div><div class="fc"><i></i><div><b></b><em></em></div></div><div class="fc"><i></i><div><b></b><em></em></div></div></div></div>
    </a>
 
    <article class="t p p-wide p-ia lift rv" data-cat="aula ia">
     <div class="ia-txt">
      <span class="meta">Serie quincenal · LinkedIn</span>
+     <div class="made"><span><img src="assets/tools/canva.png" alt="" width="20" height="20" loading="lazy">Canva</span><span><img src="assets/tools/claude.png" alt="" width="20" height="20" loading="lazy">Claude</span></div>
      <h3>La IA también miente</h3>
      <p>Escenas históricas generadas con IA con anacronismos escondidos. Y siempre una trampa: algo que parece imposible y sí es de la época.</p>
      <p class="ia-q" id="ia-q">Mercado medieval: busca los <b>cinco errores</b> y la trampa.</p>
@@ -378,8 +526,8 @@ footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;color:v
    <a class="t p p-wide p-map lift rv" data-cat="aula" href="https://claude.ai/artifact/YNDYutXDuViE2pPjahzvFm" rel="noopener">
     <span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
     <div class="map-txt">
-     <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m3 18 5-9 4 6 3-4 6 7z"/><circle cx="16.5" cy="6.5" r="1.8"/></svg></span>
      <span class="meta">Apoyo al estudio · Geografía de España</span>
+     <div class="made"><span><img src="assets/tools/claude.png" alt="" width="20" height="20" loading="lazy">Claude</span></div>
      <h3>Mapa de relieves de la Península Ibérica</h3>
      <p>Un mapa interactivo para estudiar el relieve: pulsas un tipo de relieve, una era geológica o un agente erosivo y el mapa lo localiza, con su ficha explicativa, imágenes y preguntas de repaso.</p>
      <div class="stages"><span>Evolución geológica</span><span>Estructuras</span><span>Roquedo</span><span>Erosión</span></div>
@@ -395,7 +543,9 @@ footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;color:v
    </a>
 
    <article class="t p lift rv" data-cat="aula ia">
-    <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.4-4.4M8.5 11h5"/></svg></span>
+    <div class="viz v-bulos" aria-hidden="true"><span class="lupa"></span>
+     <p>Málaga fue una de las ciudades que quedaron <mark>en manos del bando sublevado</mark> desde el mismo comienzo de la guerra. La defensa de la ciudad estuvo dirigida por <mark>el general José Miaja</mark>. Junto a las milicias combatieron varias unidades de <mark>las Brigadas Internacionales</mark>…</p>
+     <span class="cnt">9 errores escondidos</span></div>
     <span class="meta">4.º ESO · 2.º Bachillerato</span>
     <h3>Cazadores de bulos históricos</h3>
     <p>Una IA ha escrito un texto convincente sobre la caída de Málaga en 1937, con nueve errores. Ocho se cazan con el tema estudiado; el noveno, razonando.</p>
@@ -403,7 +553,9 @@ footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;color:v
    </article>
 
    <article class="t p ice lift rv" data-cat="aula">
-    <span class="ico" style="background:#fff" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 18h10a4 4 0 0 0 .6-7.95A5.5 5.5 0 0 0 7 9.5 4.25 4.25 0 0 0 7 18z"/><path d="M12 18v3M9 21h6"/></svg></span>
+    <div class="viz v-nube" aria-hidden="true"><div class="made"><span><img src="assets/tools/claude.png" alt="" width="20" height="20" loading="lazy">Claude</span></div>
+     <div class="chain" style="margin-top:22px"><span class="n">1</span><span class="n">2</span><span class="n">3</span><span class="n">4</span><span class="n">5</span></div>
+     <div class="facts"><span><b>Extracción</b>70 % del cobalto sale de la R. D. del Congo</span><span><b>Fabricación</b>unos 44 kg de recursos por cada móvil</span><span><b>Uso</b>un móvil se sustituye cada 20 meses de media</span><span><b>Centro de datos</b>100 MW ≈ lo que gastan 100.000 hogares</span><span><b>Residuo</b>el 90 % es reciclable… y casi nada se recicla</span></div></div>
     <span class="meta">Actividad · 2.º ESO</span>
     <h3>La nube pesa</h3>
     <p>Cada equipo reconstruye un eslabón de lo que hay detrás de un gesto digital: cobalto, fábrica, centro de datos y residuo. Y cierra con una regla: «Proponemos ___. Esto lo paga ___».</p>
@@ -411,7 +563,10 @@ footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;color:v
    </article>
 
    <article class="t p lift rv" data-cat="aula">
-    <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 3.5h9l3 3V20.5H6z"/><path d="M9 9h6M9 12.5h6M9 16h3.5"/><path d="M17.5 14.5 20 12l1.5 1.5L19 16z"/></svg></span>
+    <div class="viz v-1812" aria-hidden="true"><div class="made"><span><img src="assets/tools/hypothesis.png" alt="" width="20" height="20" loading="lazy">Hypothes.is</span></div>
+     <div class="art" style="margin-top:30px"><span><b>Art. 1.</b> La Nación española es la reunión de todos los españoles de ambos hemisferios.</span><em class="t-apoya">#APOYA</em></div>
+     <div class="art"><span><b>Art. 3.</b> La soberanía reside esencialmente en la Nación.</span><em class="t-apoya">#APOYA</em></div>
+     <div class="art"><span><b>Art. 12.</b> La religión de la Nación española es y será perpetuamente la católica…</span><em class="t-limita">#LIMITA</em></div></div>
     <span class="meta">Hypothes.is · 4.º ESO</span>
     <h3>¿Fue liberal la Constitución de 1812?</h3>
     <p>Comentario de texto colaborativo: por parejas, el alumnado anota los artículos y marca cada fragmento como #APOYA, #LIMITA o #PREGUNTA.</p>
@@ -419,7 +574,10 @@ footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;color:v
    </article>
 
    <article class="t p lift rv" data-cat="prof ia">
-    <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="4" y="3.5" width="12" height="16" rx="2"/><path d="M7 8h6M7 11h6M7 14h3"/><circle cx="17" cy="16" r="3"/><path d="m19.2 18.2 2 2"/></svg></span>
+    <div class="viz v-aud" aria-hidden="true"><div class="made"><span><img src="assets/tools/notebooklm.png" alt="" width="20" height="20" loading="lazy">NotebookLM</span></div>
+     <div class="row" style="margin-top:26px"><b>2.1</b><small>Actividad · UD 4, p. 18</small><span class="ok">✓</span></div>
+     <div class="row"><b>3.2</b><small>Solo en la tabla</small><span class="stamp">NO LOCALIZADO</span></div>
+     <div class="row"><b>5.1</b><small>Actividad · UD 7, p. 31</small><span class="ok">✓</span></div></div>
     <span class="meta">NotebookLM · Programación</span>
     <h3>Audita tu programación</h3>
     <p>Un método para encontrar criterios que están en la tabla de la programación pero no se evalúan en ninguna actividad, con cita y página.</p>
@@ -428,14 +586,19 @@ footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;color:v
 
    <a class="t p lift rv" data-cat="prof" href="https://claude.ai/artifact/QpKwMAWgRSBhUjUpAgk8LM" rel="noopener">
     <span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
-    <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="3"/><path d="M12 3.5v3M12 17.5v3M3.5 12h3M17.5 12h3"/></svg></span>
+    <div class="viz v-bombo" aria-hidden="true"><div class="made"><span><img src="assets/tools/claude.png" alt="" width="20" height="20" loading="lazy">Claude</span></div>
+     <div class="drum"><i style="left:14px;top:20px">7</i><i style="left:62px;top:16px">23</i><i style="left:40px;top:58px">51</i><i style="left:12px;top:66px">12</i><i style="left:70px;top:62px">40</i></div>
+     <div><div class="out"><span>18</span><span class="mine">4</span><span>66</span></div><small>¿Saldrá alguno de tus temas?</small></div></div>
     <span class="meta">Herramienta · Oposiciones</span>
     <h3>El bombo</h3>
     <p>Calcula la probabilidad de que salga alguno de tus temas en el sorteo. Sirve para cualquier especialidad y los datos no salen del navegador.</p>
    </a>
 
    <article class="t p lift rv" data-cat="aula ia">
-    <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3 4 6.5v5c0 4.6 3.4 8.4 8 9.5 4.6-1.1 8-4.9 8-9.5v-5z"/><path d="m8.5 12 2.4 2.4 4.6-4.8"/></svg></span>
+    <div class="viz v-chat" aria-hidden="true"><div class="made"><span><img src="assets/tools/chatgpt.png" alt="" width="20" height="20" loading="lazy">ChatGPT</span></div>
+     <span class="u" style="margin-top:22px">¿Puedes hacerme la actividad 2 del tema 1?</span>
+     <span class="typing"><i></i><i></i><i></i></span>
+     <span class="a">No puedo hacerla por ti, pero sí guiarte para que la completes. ¿En qué parte te atascas?</span></div>
     <span class="meta">TFM · Máster en Tecnología Educativa</span>
     <h3>PasadoPróximo-2ºESO</h3>
     <p>Un asistente GPT para la clase de 2.º ESO que guía sin dar la respuesta, prioriza los materiales del aula y dice siempre de dónde sale cada dato. Si lo ha generado la IA, avisa de que hay que comprobarlo. Propuesta pendiente de pilotaje.</p>
@@ -444,7 +607,9 @@ footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;color:v
 
    <a class="t p lift rv" data-cat="aula" href="https://view.genially.com/6673e6438bead80014745272/interactive-content-escape-room-barroco" rel="noopener">
     <span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
-    <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="5" y="10.5" width="14" height="10" rx="2"/><path d="M8 10.5V7.5a4 4 0 0 1 8 0v3M12 14.5v2.5"/></svg></span>
+    <div class="viz v-esc" aria-hidden="true"><div class="made"><span><img src="assets/tools/genially.png" alt="" width="20" height="20" loading="lazy">Genially</span><span><img src="assets/tools/chatgpt.png" alt="" width="20" height="20" loading="lazy">ChatGPT</span></div>
+     <div class="lock" style="margin-top:34px"></div>
+     <div class="wheels" style="margin-top:26px"><div class="wheel"><span style="--n:6">0<br>1<br>2<br>3<br>4<br>5<br>1<br>7</span></div><div class="wheel"><span style="--n:6">0<br>1<br>2<br>3<br>4<br>5<br>6<br>7</span></div><div class="wheel"><span style="--n:6">0<br>1<br>2<br>3<br>4<br>5<br>0<br>7</span></div><div class="wheel"><span style="--n:6">0<br>1<br>2<br>3<br>4<br>5<br>0<br>7</span></div></div></div>
     <span class="meta">Genially · 3.º ESO</span>
     <h3>Escape room del Barroco</h3>
     <p>Pruebas interactivas para repasar el Barroco, con retos preparados con ayuda de ChatGPT.</p>
@@ -452,7 +617,10 @@ footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;color:v
 
    <a class="t p lift rv" data-cat="prof" href="https://form.jotform.com/241185578598070" rel="noopener">
     <span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
-    <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="5" y="3.5" width="14" height="17" rx="2"/><path d="M9 3.5h6v3H9zM8.5 11l1.5 1.5 2.5-2.5M8.5 16l1.5 1.5 2.5-2.5M14.5 11.5h2M14.5 16.5h2"/></svg></span>
+    <div class="viz v-rub" aria-hidden="true"><div class="made"><span><img src="assets/tools/jotform.png" alt="" width="20" height="20" loading="lazy">Jotform</span></div>
+     <div class="r" style="margin-top:26px"><span>Calidad del contenido</span><span class="lv"><i></i><i></i><i></i><i></i></span></div>
+     <div class="r"><span>Accesibilidad</span><span class="lv"><i></i><i></i><i></i><i></i></span></div>
+     <div class="r"><span>Uso en el aula</span><span class="lv"><i></i><i></i><i></i><i></i></span></div></div>
     <span class="meta">Jotform · Profesorado</span>
     <h3>Rúbrica de materiales digitales</h3>
     <p>Una rúbrica en formulario para valorar un recurso digital con criterios comunes antes de llevarlo al aula.</p>
@@ -460,7 +628,9 @@ footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;color:v
 
    <a class="t p p-wide ice lift rv" data-cat="prof" href="https://sites.google.com/view/e-portfolio-jorge/inicio" rel="noopener">
     <span class="arrow" style="background:#fff" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
-    <span class="ico" style="background:#fff" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3.5" y="4" width="17" height="13" rx="2"/><path d="M8 21h8M12 17v4M7.5 8.5h9M7.5 12h5"/></svg></span>
+    <div class="viz v-epo" aria-hidden="true"><div class="made"><span><img src="assets/tools/google-sites.png" alt="" width="20" height="20" loading="lazy">Google Sites</span></div>
+     <div class="bar2" style="margin-top:28px"><i></i><i></i><i></i><span></span></div>
+     <div class="pg"><span class="m">M1<small>módulo</small></span><span class="m">M2<small>módulo</small></span><span class="m">M3<small>módulo</small></span><span class="m">M4<small>módulo</small></span><span class="m">M5<small>módulo</small></span></div></div>
     <span class="meta">Máster · 2024</span>
     <h3>e-Portfolio del máster</h3>
     <p>Los cinco módulos del Máster en Tecnología Educativa: curación de información, visualización, Aula del Futuro y más.</p>
@@ -604,6 +774,8 @@ document.querySelectorAll('.ia-open').forEach(b=>b.addEventListener('click',()=>
 const closeLb=()=>{lb.classList.remove('on');if(lastF)lastF.focus();};
 lb.addEventListener('click',closeLb);
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&lb.classList.contains('on'))closeLb();});
+// animaciones solo cuando se ven
+if('IntersectionObserver' in window){const vo=new IntersectionObserver(es=>es.forEach(e=>e.target.classList.toggle('play',e.isIntersecting)),{threshold:.2});document.querySelectorAll('.viz').forEach(v=>vo.observe(v));}else document.querySelectorAll('.viz').forEach(v=>v.classList.add('play'));
 </script>
 </body>
 </html>
