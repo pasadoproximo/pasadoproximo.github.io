@@ -310,6 +310,25 @@ a.p{display:flex}
 .wheel:nth-child(2) span{animation-delay:.15s}.wheel:nth-child(3) span{animation-delay:.3s}.wheel:nth-child(4) span{animation-delay:.45s}
 @keyframes roll{0%{transform:translateY(0)}60%,95%{transform:translateY(calc(-40px * var(--n)))}100%{transform:translateY(0)}}
 
+/* cospaces */
+.v-cos{display:flex;align-items:center;justify-content:center;perspective:520px}
+.v-cos .sc{position:relative;width:120px;height:96px;margin-top:-18px;transform-style:preserve-3d;animation:orbit 9s ease-in-out infinite}
+.v-cos .f{position:absolute;top:0;height:96px;display:flex;flex-direction:column}
+.v-cos .fr{left:0;width:120px;transform:translateZ(36px)}
+.v-cos .sd{left:24px;width:72px}
+.v-cos .sl{transform:rotateY(-90deg) translateZ(60px)}
+.v-cos .sr{transform:rotateY(90deg) translateZ(60px)}
+.v-cos .ped{height:26px;background:var(--navy);clip-path:polygon(50% 0,100% 100%,0 100%)}
+.v-cos .sd .ped{clip-path:none;height:8px;margin-top:18px;background:var(--navy3)}
+.v-cos .cols{flex:1;margin:0 5px;border-top:7px solid var(--navy);background:repeating-linear-gradient(90deg,var(--navy3) 0 8px,transparent 8px 18px)}
+.v-cos .sd .cols{border-top-color:var(--navy3);background:repeating-linear-gradient(90deg,#3A4C8E 0 7px,transparent 7px 15px)}
+.v-cos .base{height:11px;background:var(--navy)}
+.v-cos .sd .base{background:var(--navy3)}
+.v-cos .shadow{position:absolute;left:50%;bottom:26px;width:190px;height:26px;margin-left:-95px;border-radius:50%;background:radial-gradient(closest-side,rgba(6,16,51,.16),transparent)}
+.v-cos .deg{position:absolute;right:10px;bottom:10px;background:#fff;border-radius:999px;padding:3px 10px;font:800 12px var(--f-disp);color:var(--navy)}
+@keyframes orbit{0%,100%{transform:rotateX(-10deg) rotateY(-38deg)}50%{transform:rotateX(-10deg) rotateY(38deg)}}
+@media (prefers-reduced-motion:reduce){.v-cos .sc{animation:none;transform:rotateX(-10deg) rotateY(-25deg)}}
+
 /* rúbrica */
 .v-rub{padding:14px 16px;display:grid;gap:9px;align-content:center}
 .v-rub .r{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center;font-size:12.5px;font-weight:700}
@@ -723,6 +742,17 @@ footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;color:v
     <span class="meta">Jotform · Profesorado</span>
     <h3>Rúbrica de materiales digitales</h3>
     <p>Una rúbrica en formulario para valorar un recurso digital con criterios comunes antes de llevarlo al aula.</p>
+   </a>
+
+   <a class="t p p-full lift rv" data-cat="aula" href="https://edu.delightex.com/EXA-NNH" rel="noopener">
+    <span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+    <div class="viz v-cos" aria-hidden="true"><div class="made"><span><img src="assets/tools/delightex.png" alt="" width="20" height="20" loading="lazy">CoSpaces</span></div>
+     <span class="shadow"></span>
+     <div class="sc"><div class="f sd sl"><i class="ped"></i><i class="cols"></i><i class="base"></i></div><div class="f sd sr"><i class="ped"></i><i class="cols"></i><i class="base"></i></div><div class="f fr"><i class="ped"></i><i class="cols"></i><i class="base"></i></div></div>
+     <span class="deg">3D · 360°</span></div>
+    <span class="meta">CoSpaces · Antigua Roma</span>
+    <h3>Excursión a Roma en 3D</h3>
+    <p>Un mundo virtual con algunos de los edificios más representativos de Roma para recorrer su arquitectura y compararla después con la griega. En una habitación de la domus me encontraréis descansando.</p>
    </a>
 
    <a class="t p p-full ice lift rv" data-cat="prof" href="https://sites.google.com/view/e-portfolio-jorge/inicio" rel="noopener">
