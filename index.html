@@ -419,7 +419,12 @@ a.t.p:hover .arrow{transform:rotate(45deg);background:var(--navy)!important;colo
 .evo-top{grid-template-columns:minmax(0,1fr) 200px!important}
 @media (max-width:620px){.evo-top{grid-template-columns:1fr!important}}
 .contact{align-items:start!important}
-.projs .p.hide{display:none}
+.ia-made{position:absolute;left:10px;top:10px}
+.map-viz{position:relative}
+.map-viz>.made{position:absolute;left:0;top:0;z-index:2}
+.contact{align-items:center!important}
+.evo-bot .v-caja{flex:1 1 118px;height:auto!important;min-height:118px}
+.projs .p.hide{display:none!important}
 .projs .p.pop{animation:pop .45s cubic-bezier(.2,.7,.2,1)}
 @keyframes pop{from{opacity:0;transform:translateY(12px) scale(.98)}}
 /* experiencia */
@@ -527,7 +532,6 @@ footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;color:v
 
   <div class="t h-photo rv">
    <img src="assets/jorge.jpg" alt="Jorge Delgado Aguilera sonriendo en un aula, con una estantería de libros y un mapamundi al fondo" width="900" height="918">
-   <a class="chip" href="https://www.instagram.com/pasadoproximo/" rel="noopener"><i aria-hidden="true"><svg width="15" height="15" viewBox="0 0 26 26"><path d="M13 2 2 7h22L13 2Z" fill="#fff"/><rect x="3" y="8" width="20" height="2" fill="#fff"/><rect x="5" y="11" width="2.4" height="9" fill="#fff"/><rect x="9.6" y="11" width="2.4" height="9" fill="#fff"/><rect x="14" y="11" width="2.4" height="9" fill="#fff"/><rect x="18.6" y="11" width="2.4" height="9" fill="#fff"/><rect x="2" y="21" width="22" height="2.4" fill="#fff"/></svg></i>@pasadoproximo</a>
   </div>
 
   <div class="t dark h-clio rv">
@@ -572,11 +576,10 @@ footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;color:v
     <button type="button" class="on" data-f="all" aria-pressed="true">Todos</button>
     <button type="button" data-f="aula" aria-pressed="false">Para el aula</button>
     <button type="button" data-f="prof" aria-pressed="false">Para el profesorado</button>
-    <button type="button" data-f="ia" aria-pressed="false">Con IA</button>
    </div>
   </div>
   <div class="bento projs">
-   <article class="t dark p p-evo rv" data-cat="prof ia">
+   <article class="t dark p p-evo rv" data-cat="prof">
     <div class="evo-top">
      <div class="evo-txt">
       <span class="year">Web de centro · 2024</span>
@@ -590,7 +593,6 @@ footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;color:v
     </div>
     <div class="evo-bot">
      <span class="year">Web · Actualización 2026</span>
-     <div class="made"><span><img src="assets/tools/claude.png" alt="" width="20" height="20" loading="lazy">Claude</span></div>
      <h3>Caja de herramientas digitales</h3>
      <p>Dos años después, lo he revisado y rehecho para Secundaria: 60 herramientas con qué hace cada una y cómo usarla en el aula, qué ha cerrado desde 2024 y la IA que ya entra con la cuenta del centro.</p>
      <div class="evo-stats"><span><b>60</b>herramientas</span><span><b>22</b>nuevas</span><span><b>37</b>siguen de 2024</span><span><b>3</b>han cerrado</span></div>
@@ -599,10 +601,9 @@ footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;color:v
     </div>
    </article>
 
-   <article class="t p p-wide p-ia lift rv" data-cat="aula ia">
+   <article class="t p p-wide p-ia lift rv" data-cat="aula">
     <div class="ia-txt">
      <span class="meta">Serie quincenal · LinkedIn</span>
-     <div class="made"><span><img src="assets/tools/canva.png" alt="" width="20" height="20" loading="lazy">Canva</span><span><img src="assets/tools/claude.png" alt="" width="20" height="20" loading="lazy">Claude</span></div>
      <h3>La IA también miente</h3>
      <p>Escenas históricas generadas con IA con anacronismos escondidos. Y siempre una trampa: algo que parece imposible y sí es de la época.</p>
      <p class="ia-q" id="ia-q">Mercado medieval: busca los <b>cinco errores</b> y la trampa.</p>
@@ -610,6 +611,7 @@ footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;color:v
     </div>
     <button type="button" class="ia-img ia-open" data-img="assets/ia-miente/mercado.jpg" data-alt="Mercado medieval generado con IA, con anacronismos escondidos" aria-label="Ampliar la imagen del mercado medieval">
      <img src="assets/ia-miente/mercado.jpg" alt="Mercado medieval generado con IA, con anacronismos escondidos" width="800" height="533" loading="lazy">
+     <span class="ia-made"><div class="made"><span><img src="assets/tools/canva.png" alt="" width="20" height="20" loading="lazy">Canva</span><span><img src="assets/tools/claude.png" alt="" width="20" height="20" loading="lazy">Claude</span></div></span>
      <span class="ia-tag">Entrega 1 · Mercado medieval</span>
      <span class="ia-zoom" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.4-4.4M8.5 11h5M11 8.5v5"/></svg></span>
     </button>
@@ -619,22 +621,21 @@ footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;color:v
     <span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
     <div class="map-txt">
      <span class="meta">Apoyo al estudio · Geografía de España</span>
-     <div class="made"><span><img src="assets/tools/claude.png" alt="" width="20" height="20" loading="lazy">Claude</span></div>
      <h3>Mapa de relieves de la Península Ibérica</h3>
      <p>Un mapa interactivo para estudiar el relieve: pulsas un tipo de relieve, una era geológica o un agente erosivo y el mapa lo localiza, con su ficha explicativa, imágenes y preguntas de repaso.</p>
      <div class="stages"><span>Evolución geológica</span><span>Estructuras</span><span>Roquedo</span><span>Erosión</span></div>
     </div>
-    <svg class="mini-map" viewBox="30 25 680 470" aria-hidden="true">
+    <div class="map-viz"><div class="made"><span><img src="assets/tools/claude.png" alt="" width="20" height="20" loading="lazy">Claude</span></div><svg class="mini-map" viewBox="30 25 680 470" aria-hidden="true">
      <path d="M50 76 L112 36 L218 42 L314 50 L410 53 L460 70 L520 80 L650 88 L650 117 L602 146 L539 192 L520 221 L482 279 L506 322 L472 349 L458 390 L419 419 L400 439 L352 439 L285 442 L242 480 L194 453 L141 413 L69 424 L74 337 L40 323 L64 279 L78 204 L69 134 Z" class="land"/>
      <path d="M58 80 L200 62 L215 140 L208 250 L240 330 L190 385 L141 412 L72 420 L64 290 L74 160 Z" class="zocalo"/>
      <g class="cuencas"><ellipse cx="280" cy="152" rx="75" ry="40"/><ellipse cx="335" cy="300" rx="85" ry="34"/><ellipse cx="472" cy="160" rx="80" ry="26" transform="rotate(-35 472 160)"/><ellipse cx="256" cy="392" rx="80" ry="20" transform="rotate(-18 256 392)"/></g>
      <g class="alp"><path d="M424 76 L640 90"/><path d="M256 436 L352 419 L472 337"/></g>
      <g class="mid"><path d="M160 76 L328 74"/><path d="M342 123 L472 250"/></g>
      <g class="her"><path d="M136 238 L352 192"/><path d="M256 279 L328 285"/><path d="M160 366 L376 343"/></g>
-    </svg>
+    </svg></div>
    </a>
 
-   <article class="t p lift rv" data-cat="aula ia">
+   <article class="t p lift rv" data-cat="aula">
     <div class="viz v-bulos" aria-hidden="true"><span class="lupa"></span>
      <p>Málaga fue una de las ciudades que quedaron <mark>en manos del bando sublevado</mark> desde el mismo comienzo de la guerra. La defensa de la ciudad estuvo dirigida por <mark>el general José Miaja</mark>. Junto a las milicias combatieron varias unidades de <mark>las Brigadas Internacionales</mark>…</p>
      <span class="cnt">9 errores escondidos</span></div>
@@ -665,7 +666,7 @@ footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;color:v
     <a class="dl" href="assets/pdf/constitucion-1812-hypothesis.pdf" download>Descargar PDF <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg></a>
    </article>
 
-   <article class="t p lift rv" data-cat="prof ia">
+   <article class="t p lift rv" data-cat="prof">
     <div class="viz v-aud" aria-hidden="true"><div class="made"><span><img src="assets/tools/notebooklm.png" alt="" width="20" height="20" loading="lazy">NotebookLM</span></div>
      <div class="row"><b>2.1</b><small>Actividad · UD 4, p. 18</small><span class="ok">✓</span></div>
      <div class="row"><b>3.2</b><small>Solo en la tabla</small><span class="stamp">NO LOCALIZADO</span></div>
@@ -686,7 +687,7 @@ footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;color:v
     <p>Calcula la probabilidad de que salga alguno de tus temas en el sorteo. Sirve para cualquier especialidad y los datos no salen del navegador.</p>
    </a>
 
-   <article class="t p lift rv" data-cat="aula ia">
+   <article class="t p lift rv" data-cat="prof">
     <div class="viz v-chat" aria-hidden="true"><div class="made"><span><img src="assets/tools/chatgpt.png" alt="" width="20" height="20" loading="lazy">ChatGPT</span></div>
      <span class="u">¿Puedes hacerme la actividad 2 del tema 1?</span>
      <span class="typing"><i></i><i></i><i></i></span>
