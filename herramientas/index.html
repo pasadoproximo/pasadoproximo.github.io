@@ -235,7 +235,7 @@ footer a{font-weight:700}
 <footer><span>Jorge Delgado Aguilera · Profesor de Geografía e Historia</span><span>Revisado en octubre de 2026 · <a href="/">Volver al portfolio</a></span></footer>
 </div>
 
-<script src="tools.js"></script>
+<script src="tools.js?v=3"></script>
 <script>
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const ST={nueva:'Nueva',vigente:'Sigue de 2024',cambio:'Ha cambiado'};
@@ -249,7 +249,7 @@ const I={
  eur:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17 7a6 6 0 1 0 0 10M4 10h9M4 14h9"/></svg>',
  lock:'<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="10.5" width="14" height="10" rx="2"/><path d="M8 10.5V7.5a4 4 0 0 1 8 0v3"/></svg>'
 };
-const logo=t=>LOGOS.has(t.id)?`<img src="logos/${t.id}.png" alt="" width="30" height="30" loading="lazy">`:`<b>${esc(t.n[0])}</b>`;
+const logo=t=>LOGOS.has(t.id)?`<img src="logos/${t.id}.png?v=3" alt="" width="30" height="30" loading="lazy">`:`<b>${esc(t.n[0])}</b>`;
 const yt=t=>'https://www.youtube.com/results?search_query='+encodeURIComponent(t.n.replace(/\s*\(.*\)/,'')+' tutorial español');
 const head=t=>`<div class="tool-h"><span class="lg">${logo(t)}</span><h3>${esc(t.n)}</h3></div>`;
 const ideas=(t,title)=>`<div class="ideas"><h4>${title}</h4><ul>${t.i.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></div>`;
