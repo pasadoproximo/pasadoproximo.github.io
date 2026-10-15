@@ -339,6 +339,15 @@ a.p{display:flex}
 .made img{width:20px;height:20px;border-radius:6px;object-fit:contain;background:#fff}
 .viz .made{position:absolute;left:8px;top:8px;z-index:2}
 .dark .made span{background:rgba(255,255,255,.95)}
+.p-full{grid-column:1/-1;display:grid!important;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);column-gap:28px;align-items:center;min-height:0}
+.p-full .viz{grid-row:1/6;grid-column:2}
+@media (max-width:820px){.p-full{grid-template-columns:1fr}.p-full .viz{grid-row:auto;grid-column:auto}}
+.v-caja{display:flex;flex-direction:column;justify-content:center;gap:14px;background:var(--navy)}
+.v-caja .belt{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.v-caja .track{display:flex;gap:12px;width:max-content;animation:slide 30s linear infinite}
+.v-caja .rev .track{animation-direction:reverse;animation-duration:36s}
+.v-caja img{width:46px;height:46px;padding:8px;border-radius:14px;background:#fff;object-fit:contain}
+.p-caja .dl{margin-top:auto}
 .projs .p.hide{display:none}
 .projs .p.pop{animation:pop .45s cubic-bezier(.2,.7,.2,1)}
 @keyframes pop{from{opacity:0;transform:translateY(12px) scale(.98)}}
@@ -507,6 +516,15 @@ footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;color:v
     <div class="viz v-repo" aria-hidden="true"><div class="tabs"><span>Infantil</span><span>Primaria</span><span>Secundaria</span><span>Bach.</span></div><div class="cards"><div class="fc"><i></i><div><b></b><em></em></div></div><div class="fc"><i></i><div><b></b><em></em></div></div><div class="fc"><i></i><div><b></b><em></em></div></div></div></div>
    </a>
 
+   <a class="t p p-wide p-caja lift rv" data-cat="prof ia" href="/herramientas/">
+    <span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+    <div class="viz v-caja" aria-hidden="true"><div class="belt"><div class="track"><img src="herramientas/logos/gemini.png" alt="" width="34" height="34" loading="lazy"><img src="herramientas/logos/notebooklm.png" alt="" width="34" height="34" loading="lazy"><img src="herramientas/logos/genially.png" alt="" width="34" height="34" loading="lazy"><img src="herramientas/logos/canva.png" alt="" width="34" height="34" loading="lazy"><img src="herramientas/logos/kahoot.png" alt="" width="34" height="34" loading="lazy"><img src="herramientas/logos/padlet.png" alt="" width="34" height="34" loading="lazy"><img src="herramientas/logos/geogebra.png" alt="" width="34" height="34" loading="lazy"><img src="herramientas/logos/edpuzzle.png" alt="" width="34" height="34" loading="lazy"><img src="herramientas/logos/artsculture.png" alt="" width="34" height="34" loading="lazy"><img src="herramientas/logos/wayground.png" alt="" width="34" height="34" loading="lazy"><img src="herramientas/logos/copilot.png" alt="" width="34" height="34" loading="lazy"><img src="herramientas/logos/timetoast.png" alt="" width="34" height="34" loading="lazy"><img src="herramientas/logos/phet.png" alt="" width="34" height="34" loading="lazy"><img src="herramientas/logos/bookcreator.png" alt="" width="34" height="34" loading="lazy"><img src="herramientas/logos/wooclap.png" alt="" width="34" height="34" loading="lazy"><img src="herramientas/logos/scratch.png" alt="" width="34" height="34" loading="lazy"><img src="herramientas/logos/gemini.png" alt="" width="34" height="34" loading="lazy"><img src="herramientas/logos/notebooklm.png" alt="" width="34" height="34" loading="lazy"><img src="herramientas/logos/genially.png" alt="" width="34" height="34" loading="lazy"><img src="herramientas/logos/canva.png" alt="" width="34" height="34" loading="lazy"><img src="herramientas/logos/kahoot.png" alt="" width="34" height="34" loading="lazy"><img src="herramientas/logos/padlet.png" alt="" width="34" height="34" loading="lazy"><img src="herramientas/logos/geogebra.png" alt="" width="34" height="34" loading="lazy"><img src="herramientas/logos/edpuzzle.png" alt="" width="34" height="34" loading="lazy"><img src="herramientas/logos/artsculture.png" alt="" width="34" height="34" loading="lazy"><img src="herramientas/logos/wayground.png" alt="" width="34" height="34" loading="lazy"><img src="herramientas/logos/copilot.png" alt="" width="34" height="34" loading="lazy"><img src="herramientas/logos/timetoast.png" alt="" width="34" height="34" loading="lazy"><img src="herramientas/logos/phet.png" alt="" width="34" height="34" loading="lazy"><img src="herramientas/logos/bookcreator.png" alt="" width="34" height="34" loading="lazy"><img src="herramientas/logos/wooclap.png" alt="" width="34" height="34" loading="lazy"><img src="herramientas/logos/scratch.png" alt="" width="34" height="34" loading="lazy"></div></div><div class="belt rev"><div class="track"><img src="herramientas/logos/gemini.png" alt="" width="34" height="34" loading="lazy"><img src="herramientas/logos/notebooklm.png" alt="" width="34" height="34" loading="lazy"><img src="herramientas/logos/genially.png" alt="" width="34" height="34" loading="lazy"><img src="herramientas/logos/canva.png" alt="" width="34" height="34" loading="lazy"><img src="herramientas/logos/kahoot.png" alt="" width="34" height="34" loading="lazy"><img src="herramientas/logos/padlet.png" alt="" width="34" height="34" loading="lazy"><img src="herramientas/logos/geogebra.png" alt="" width="34" height="34" loading="lazy"><img src="herramientas/logos/edpuzzle.png" alt="" width="34" height="34" loading="lazy"><img src="herramientas/logos/artsculture.png" alt="" width="34" height="34" loading="lazy"><img src="herramientas/logos/wayground.png" alt="" width="34" height="34" loading="lazy"><img src="herramientas/logos/copilot.png" alt="" width="34" height="34" loading="lazy"><img src="herramientas/logos/timetoast.png" alt="" width="34" height="34" loading="lazy"><img src="herramientas/logos/phet.png" alt="" width="34" height="34" loading="lazy"><img src="herramientas/logos/bookcreator.png" alt="" width="34" height="34" loading="lazy"><img src="herramientas/logos/wooclap.png" alt="" width="34" height="34" loading="lazy"><img src="herramientas/logos/scratch.png" alt="" width="34" height="34" loading="lazy"><img src="herramientas/logos/gemini.png" alt="" width="34" height="34" loading="lazy"><img src="herramientas/logos/notebooklm.png" alt="" width="34" height="34" loading="lazy"><img src="herramientas/logos/genially.png" alt="" width="34" height="34" loading="lazy"><img src="herramientas/logos/canva.png" alt="" width="34" height="34" loading="lazy"><img src="herramientas/logos/kahoot.png" alt="" width="34" height="34" loading="lazy"><img src="herramientas/logos/padlet.png" alt="" width="34" height="34" loading="lazy"><img src="herramientas/logos/geogebra.png" alt="" width="34" height="34" loading="lazy"><img src="herramientas/logos/edpuzzle.png" alt="" width="34" height="34" loading="lazy"><img src="herramientas/logos/artsculture.png" alt="" width="34" height="34" loading="lazy"><img src="herramientas/logos/wayground.png" alt="" width="34" height="34" loading="lazy"><img src="herramientas/logos/copilot.png" alt="" width="34" height="34" loading="lazy"><img src="herramientas/logos/timetoast.png" alt="" width="34" height="34" loading="lazy"><img src="herramientas/logos/phet.png" alt="" width="34" height="34" loading="lazy"><img src="herramientas/logos/bookcreator.png" alt="" width="34" height="34" loading="lazy"><img src="herramientas/logos/wooclap.png" alt="" width="34" height="34" loading="lazy"><img src="herramientas/logos/scratch.png" alt="" width="34" height="34" loading="lazy"></div></div></div>
+    <span class="meta">Web · Revisión de octubre de 2026</span>
+    <h3>Caja de herramientas digitales</h3>
+    <p>60 herramientas para Secundaria con qué hace cada una, cómo usarla en el aula y qué ha cerrado desde 2024. Es la versión actualizada del repositorio del Cerrado de Calderón.</p>
+    <span class="dl">Abrir la caja de herramientas <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+   </a>
+
    <article class="t p p-wide p-ia lift rv" data-cat="aula ia">
     <div class="ia-txt">
      <span class="meta">Serie quincenal · LinkedIn</span>
@@ -626,7 +644,7 @@ footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;color:v
     <p>Una rúbrica en formulario para valorar un recurso digital con criterios comunes antes de llevarlo al aula.</p>
    </a>
 
-   <a class="t p p-wide ice lift rv" data-cat="prof" href="https://sites.google.com/view/e-portfolio-jorge/inicio" rel="noopener">
+   <a class="t p p-full ice lift rv" data-cat="prof" href="https://sites.google.com/view/e-portfolio-jorge/inicio" rel="noopener">
     <span class="arrow" style="background:#fff" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
     <div class="viz v-epo" aria-hidden="true"><div class="made"><span><img src="assets/tools/google-sites.png" alt="" width="20" height="20" loading="lazy">Google Sites</span></div>
      <div class="bar2" style="margin-top:28px"><i></i><i></i><i></i><span></span></div>
@@ -635,6 +653,7 @@ footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;color:v
     <h3>e-Portfolio del máster</h3>
     <p>Los cinco módulos del Máster en Tecnología Educativa: curación de información, visualización, Aula del Futuro y más.</p>
    </a>
+  
   
   </div>
  </section>
