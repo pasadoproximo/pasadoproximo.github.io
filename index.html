@@ -152,6 +152,14 @@ a.p{display:flex}
 .stages span{font-size:14px;border:1px solid rgba(255,255,255,.25);border-radius:999px;padding:3px 11px;color:#DCE3F7}
 @media (max-width:620px){.p{grid-column:1/3;min-height:0}.p .ico{margin-bottom:6px}}
 
+.filters{display:flex;flex-wrap:wrap;gap:6px;background:#fff;border:1px solid var(--line);border-radius:999px;padding:5px}
+.filters button{font:700 15px var(--f-body);color:var(--txt);background:transparent;border:0;border-radius:999px;padding:8px 15px;cursor:pointer;transition:background .2s,color .2s}
+.filters button:hover{background:var(--bg)}
+.filters button.on{background:var(--navy);color:#fff}
+@media (max-width:620px){.filters{border-radius:20px}}
+.projs .p.hide{display:none}
+.projs .p.pop{animation:pop .45s cubic-bezier(.2,.7,.2,1)}
+@keyframes pop{from{opacity:0;transform:translateY(12px) scale(.98)}}
 /* experiencia */
 .x{display:flex;flex-direction:column;gap:10px}
 .x .yr{font:800 54px/.85 var(--f-disp);letter-spacing:-.04em;color:var(--navy)}
@@ -297,10 +305,15 @@ footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;color:v
  <section class="sec" id="proyectos">
   <div class="sec-head rv">
    <div><span class="lab">Proyectos</span><h2>Lo que he construido</h2></div>
-   <p>Herramientas, materiales y actividades para el aula de Secundaria y para el profesorado.</p>
+   <div class="filters" role="group" aria-label="Filtrar proyectos">
+    <button type="button" class="on" data-f="all" aria-pressed="true">Todos</button>
+    <button type="button" data-f="aula" aria-pressed="false">Para el aula</button>
+    <button type="button" data-f="prof" aria-pressed="false">Para el profesorado</button>
+    <button type="button" data-f="ia" aria-pressed="false">Con IA</button>
+   </div>
   </div>
-  <div class="bento">
-   <a class="t dark p p-repo lift rv" href="https://sites.google.com/view/repositorio-digital-docente-cc/inicio" rel="noopener">
+  <div class="bento projs">
+   <a class="t dark p p-repo lift rv" data-cat="prof" href="https://sites.google.com/view/repositorio-digital-docente-cc/inicio" rel="noopener">
     <span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
     <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 5.5h6.5V19H4zM13.5 5.5H20V19h-6.5z"/><path d="M6.5 9h1.5M6.5 12h1.5M16 9h1.5M16 12h1.5"/></svg></span>
     <span class="badge">★ Presentado en el congreso Braining 2025</span>
@@ -309,7 +322,7 @@ footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;color:v
     <div class="stages"><span>Infantil</span><span>Primaria</span><span>Secundaria</span><span>Bachillerato</span></div>
    </a>
 
-   <article class="t p lift rv" data-pending="bulos">
+   <article class="t p lift rv" data-cat="aula ia" data-pending="bulos">
     <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.4-4.4M8.5 11h5"/></svg></span>
     <span class="meta">Actividad · Pensamiento crítico</span>
     <h3>Cazadores de bulos históricos</h3>
@@ -317,15 +330,44 @@ footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;color:v
     <span class="soon">Enlace en camino</span>
    </article>
 
-   <article class="t p lift rv" data-pending="ia-miente">
+   <a class="t p lift rv" data-cat="aula ia" href="https://www.canva.com/M/MAHWHcl2XB0" rel="noopener">
+    <span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
     <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="14" rx="2.5"/><path d="m3 15 5-5 4 4 3-3 6 6"/><circle cx="16" cy="8.5" r="1.5"/></svg></span>
-    <span class="meta">Serie quincenal · Redes</span>
+    <span class="meta">Serie quincenal · LinkedIn</span>
     <h3>La IA también miente</h3>
-    <p>Imágenes históricas generadas con IA que esconden anacronismos. El reto: encontrar la trampa y explicar por qué no encaja.</p>
-    <span class="soon">Enlace en camino</span>
+    <p>Imágenes históricas generadas con IA con anacronismos escondidos, y siempre una trampa: algo que parece imposible y sí es de la época.</p>
+   </a>
+
+   <article class="t p ice lift rv" data-cat="aula" data-pending="nube">
+    <span class="ico" style="background:#fff" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 18h10a4 4 0 0 0 .6-7.95A5.5 5.5 0 0 0 7 9.5 4.25 4.25 0 0 0 7 18z"/><path d="M12 18v3M9 21h6"/></svg></span>
+    <span class="meta">Actividad · 2.º ESO</span>
+    <h3>La nube pesa</h3>
+    <p>Cada equipo reconstruye un eslabón de lo que hay detrás de un gesto digital: cobalto, fábrica, centro de datos y residuo. Y cierra con una regla: «Proponemos ___. Esto lo paga ___».</p>
    </article>
 
-   <article class="t p lift rv" data-pending="tfm">
+   <article class="t p lift rv" data-cat="aula" data-pending="1812">
+    <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 3.5h9l3 3V20.5H6z"/><path d="M9 9h6M9 12.5h6M9 16h3.5"/><path d="M17.5 14.5 20 12l1.5 1.5L19 16z"/></svg></span>
+    <span class="meta">Hypothes.is · Historia de España</span>
+    <h3>La Constitución de 1812, anotada</h3>
+    <p>Lectura colaborativa del texto: el alumnado marca cada fragmento como #APOYA, #LIMITA o #PREGUNTA.</p>
+   </article>
+
+   <article class="t p lift rv" data-cat="prof ia" data-pending="audita">
+    <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="4" y="3.5" width="12" height="16" rx="2"/><path d="M7 8h6M7 11h6M7 14h3"/><circle cx="17" cy="16" r="3"/><path d="m19.2 18.2 2 2"/></svg></span>
+    <span class="meta">NotebookLM · Programación</span>
+    <h3>Audita tu programación</h3>
+    <p>Un método para encontrar criterios que están en la tabla de la programación pero no se evalúan en ninguna actividad, con cita y página.</p>
+   </article>
+
+   <a class="t p lift rv" data-cat="prof" href="https://claude.ai/artifact/QpKwMAWgRSBhUjUpAgk8LM" rel="noopener">
+    <span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+    <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="3"/><path d="M12 3.5v3M12 17.5v3M3.5 12h3M17.5 12h3"/></svg></span>
+    <span class="meta">Herramienta · Oposiciones</span>
+    <h3>El bombo</h3>
+    <p>Calcula la probabilidad de que salga alguno de tus temas en el sorteo. Sirve para cualquier especialidad y los datos no salen del navegador.</p>
+   </a>
+
+   <article class="t p lift rv" data-cat="aula ia" data-pending="tfm">
     <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3 4 6.5v5c0 4.6 3.4 8.4 8 9.5 4.6-1.1 8-4.9 8-9.5v-5z"/><path d="m8.5 12 2.4 2.4 4.6-4.8"/></svg></span>
     <span class="meta">TFM · 2024</span>
     <h3>Asistente GPT para 2.º ESO</h3>
@@ -333,7 +375,7 @@ footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;color:v
     <span class="soon">Enlace en camino</span>
    </article>
 
-   <a class="t p lift rv" href="https://view.genially.com/6673e6438bead80014745272/interactive-content-escape-room-barroco" rel="noopener">
+   <a class="t p lift rv" data-cat="aula" href="https://view.genially.com/6673e6438bead80014745272/interactive-content-escape-room-barroco" rel="noopener">
     <span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
     <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="5" y="10.5" width="14" height="10" rx="2"/><path d="M8 10.5V7.5a4 4 0 0 1 8 0v3M12 14.5v2.5"/></svg></span>
     <span class="meta">Genially · 3.º ESO</span>
@@ -341,7 +383,7 @@ footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;color:v
     <p>Pruebas interactivas para repasar el Barroco, con retos preparados con ayuda de ChatGPT.</p>
    </a>
 
-   <a class="t p lift rv" href="https://form.jotform.com/241185578598070" rel="noopener">
+   <a class="t p lift rv" data-cat="prof" href="https://form.jotform.com/241185578598070" rel="noopener">
     <span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
     <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="5" y="3.5" width="14" height="17" rx="2"/><path d="M9 3.5h6v3H9zM8.5 11l1.5 1.5 2.5-2.5M8.5 16l1.5 1.5 2.5-2.5M14.5 11.5h2M14.5 16.5h2"/></svg></span>
     <span class="meta">Jotform · Profesorado</span>
@@ -349,7 +391,7 @@ footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;color:v
     <p>Una rúbrica en formulario para valorar un recurso digital con criterios comunes antes de llevarlo al aula.</p>
    </a>
 
-   <a class="t p ice lift rv" href="https://sites.google.com/view/e-portfolio-jorge/inicio" rel="noopener">
+   <a class="t p ice lift rv" data-cat="prof" href="https://sites.google.com/view/e-portfolio-jorge/inicio" rel="noopener">
     <span class="arrow" style="background:#fff" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
     <span class="ico" style="background:#fff" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3.5" y="4" width="17" height="13" rx="2"/><path d="M8 21h8M12 17v4M7.5 8.5h9M7.5 12h5"/></svg></span>
     <span class="meta">Máster · 2024</span>
@@ -358,7 +400,6 @@ footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;color:v
    </a>
   </div>
  </section>
-
  <!-- EXPERIENCIA -->
  <section class="sec" id="experiencia">
   <div class="sec-head rv">
@@ -476,6 +517,17 @@ if('IntersectionObserver' in window){
 // foco que sigue al ratón dentro de cada tarjeta
 document.querySelectorAll('.t').forEach(t=>t.addEventListener('pointermove',e=>{
  const r=t.getBoundingClientRect();t.style.setProperty('--mx',(e.clientX-r.left)+'px');t.style.setProperty('--my',(e.clientY-r.top)+'px');
+}));
+// filtro de proyectos
+const fb=[...document.querySelectorAll('.filters button')];
+fb.forEach(b=>b.addEventListener('click',()=>{
+ fb.forEach(x=>{x.classList.toggle('on',x===b);x.setAttribute('aria-pressed',x===b)});
+ const f=b.dataset.f;
+ document.querySelectorAll('.projs .p').forEach(c=>{
+  const show=f==='all'||c.dataset.cat.split(' ').includes(f);
+  c.classList.toggle('hide',!show);c.classList.add('in');
+  if(show){c.classList.remove('pop');void c.offsetWidth;c.classList.add('pop')}
+ });
 }));
 </script>
 </body>
