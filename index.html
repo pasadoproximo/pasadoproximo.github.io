@@ -430,6 +430,11 @@ a.t.p:hover .arrow{transform:rotate(45deg);background:var(--navy)!important;colo
 .h-quote{grid-column:1/4}
 @media (max-width:1020px){.h-quote{grid-column:1/-1}.h-place{grid-column:1/-1}}
 @media (max-width:620px){.mh,.lang{grid-column:1/-1}.mh .big{font-size:34px}}
+.qline{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 14px}
+.h-quote .qline q{font-size:clamp(20px,2vw,25.5px)}
+.qline .author{font:700 14px var(--f-body);letter-spacing:.12em;text-transform:uppercase;color:var(--mut);white-space:nowrap}
+.qline .author::before{content:"— "}
+.h-quote p.mut{font-size:17px;color:#2A3352}
 .projs .p.hide{display:none!important}
 .projs .p.pop{animation:pop .45s cubic-bezier(.2,.7,.2,1)}
 @keyframes pop{from{opacity:0;transform:translateY(12px) scale(.98)}}
@@ -557,8 +562,8 @@ footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;color:v
   </div>
 
   <div class="t h-quote rv">
-   <q>Los textos no hablan sino cuando se sabe interrogarlos.</q>
-   <p class="mut">Marc Bloch. Con la tecnología pasa lo mismo: por eso empiezo por el objetivo didáctico y no por la aplicación.</p>
+   <p class="qline"><q>Los textos no hablan sino cuando se sabe interrogarlos.</q> <span class="author">Marc Bloch</span></p>
+   <p class="mut">En la era de la IA, el conocimiento ya no reside en tener la información, sino en saber formular la pregunta.</p>
   </div>
 
   <div class="t h-place rv">
