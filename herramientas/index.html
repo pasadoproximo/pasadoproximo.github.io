@@ -172,7 +172,7 @@ footer a{font-weight:700}
 /* barra compacta al bajar (ordenador) */
 .top{transition:transform .35s cubic-bezier(.2,.7,.2,1)}
 .controls{transition:top .35s cubic-bezier(.2,.7,.2,1)}
-@media (min-width:768px){
+@media all{
  body.hide-top .top{transform:translateY(-140%)}
  body.hide-top .controls{top:0}
  .controls.compact{display:flex;align-items:center;gap:10px;padding:10px 0;box-shadow:0 10px 24px -18px rgba(6,16,51,.35)}
@@ -188,6 +188,15 @@ footer a{font-weight:700}
  .controls.compact .chips{margin:0;flex:1;min-width:0;padding:0}
  .controls.compact .chips button{padding:6px 12px;font-size:14px}
  .controls.compact .count{display:none}
+}
+@media (max-width:767px){
+ .controls.compact{flex-wrap:wrap;row-gap:8px;padding:8px 0}
+ .controls.compact .tabs button{padding:6px 12px}
+ .controls.compact .tabs b{font-size:14px}
+ .controls.compact .row1{flex:1;display:flex;justify-content:flex-end}
+ .controls.compact .search:focus-within,.controls.compact .search.has-q{flex-basis:100%;width:100%}
+ .controls.compact .chips{flex:0 0 100%;flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none}
+ .controls.compact .chips button{white-space:nowrap;flex:none}
 }
 </style>
 </head>
@@ -326,10 +335,10 @@ anim('s-aula',count('aula'));anim('s-docente',count('docente'));anim('s-recursos
 const io='IntersectionObserver' in window?new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.1}):null;
 document.querySelectorAll('.rv').forEach(el=>io?io.observe(el):el.classList.add('in'));
 
-// barra compacta y cabecera que se oculta al bajar (solo ordenador)
+// barra compacta y cabecera que se oculta al bajar (ordenador y móvil)
 (()=>{
  const ctl=document.getElementById('herramientas'),sp=document.getElementById('ctl-spacer'),sen=document.getElementById('ctl-sentinel'),srch=ctl.querySelector('.search'),q=document.getElementById('q');
- const mq=window.matchMedia('(min-width:768px)');let last=window.scrollY,ticking=false;
+ const mq=window.matchMedia('all');let last=window.scrollY,ticking=false;
  q.addEventListener('input',()=>srch.classList.toggle('has-q',!!q.value));
  function update(){
   ticking=false;
