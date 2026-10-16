@@ -467,6 +467,33 @@ a.t.p:hover .arrow{transform:rotate(45deg);background:var(--navy)!important;colo
 .qline .author{font:700 14px var(--f-body);letter-spacing:.12em;text-transform:uppercase;color:var(--mut);white-space:nowrap}
 .qline .author::before{content:"— "}
 .h-quote p.mut{font-size:17px;color:#2A3352}
+
+/* menos cajones: lo informativo va sobre el fondo */
+.x:not(.x-main),.e-list,.lang,.extra,.tools{background:transparent!important;box-shadow:none!important;border-radius:0}
+.x:not(.x-main)::before,.e-list::before,.lang::before,.extra::before,.tools::before{display:none}
+.x:not(.x-main){padding:22px 6px 6px 26px;border-left:1.5px solid #D3DAEA}
+.e-list{padding:4px 28px 4px 4px}
+.e-list li{border-top-color:#D3DAEA}
+.lang{padding:22px 6px 22px 26px;border-left:1.5px solid #D3DAEA}
+.lang .lvl i{background:#DCE2EE}
+.lang .lvl i.half{background:linear-gradient(90deg,var(--sky) 50%,#DCE2EE 50%)}
+.extra{padding:24px 6px 6px 26px;border-left:1.5px solid #D3DAEA}
+.tools{padding:44px 0 0;margin-top:20px}
+.tools .head{padding-inline:0}
+.tools .head .big{font:800 clamp(36px,5vw,64px)/.95 var(--f-disp)!important;letter-spacing:-.035em}
+.marq{margin-inline:-4px}
+.marq span{background:#fff;border:1px solid #DCE2EE}
+.marq span.k{border-color:var(--navy)}
+.t.tools{padding:44px 0 0!important}
+.t.tools .head{padding:0!important}
+@media (max-width:1020px){.x:not(.x-main),.lang,.extra{border-left:0;border-top:1.5px solid #D3DAEA;padding:20px 4px 6px}}
+@media (max-width:620px){.e-list{padding:4px}}
+/* cita y Málaga sin cajón: directamente sobre el fondo */
+.h-quote,.h-place{background:transparent!important;box-shadow:none!important}
+.h-quote::before,.h-place::before{display:none}
+.h-quote{padding:30px 4px 24px}
+.h-place{padding:30px 4px 24px 28px;border-left:1.5px solid #D3DAEA;border-radius:0}
+@media (max-width:1020px){.h-place{border-left:0;border-top:1.5px solid #D3DAEA;padding:22px 4px 8px}}
 .projs .p.hide{display:none!important}
 .projs .p.pop{animation:pop .45s cubic-bezier(.2,.7,.2,1)}
 @keyframes pop{from{opacity:0;transform:translateY(12px) scale(.98)}}
