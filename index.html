@@ -482,12 +482,20 @@ a.t.p:hover .arrow{transform:rotate(45deg);background:var(--navy)!important;colo
 .tools .head{padding-inline:0}
 .tools .head .big{font:800 clamp(36px,5vw,64px)/.95 var(--f-disp)!important;letter-spacing:-.035em}
 .marq{margin-inline:-4px}
-.marq span{background:#fff;border:1px solid #DCE2EE}
+.marq span{background:transparent;border:1.5px solid #CFD7E8}
 .marq span.k{border-color:var(--navy)}
 .t.tools{padding:44px 0 0!important}
 .t.tools .head{padding:0!important}
 @media (max-width:1020px){.x:not(.x-main),.lang,.extra{border-left:0;border-top:1.5px solid #D3DAEA;padding:20px 4px 6px}}
 @media (max-width:620px){.e-list{padding:4px}}
+.mh{background:transparent!important;border-radius:0;padding:22px 6px 22px 26px;border-left:1.5px solid #D3DAEA}
+.mh::before{display:none}
+.mh .mut{color:var(--mut)}
+@media (max-width:1020px){.mh{border-left:0;border-top:1.5px solid #D3DAEA;padding:20px 4px 6px}}
+/* logos de herramientas en proyectos sin cajita */
+#proyectos .p:not(.p-evo) .made span{background:transparent;border:0;padding:0;gap:6px}
+#proyectos .p:not(.p-evo) .made{gap:12px}
+#proyectos .p:not(.p-evo) .made img{background:transparent}
 /* cita y Málaga sin cajón: directamente sobre el fondo */
 .h-quote,.h-place{background:transparent!important;box-shadow:none!important}
 .h-quote::before,.h-place::before{display:none}
@@ -864,7 +872,7 @@ footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;color:v
      <li><span class="y">2012-14</span><div><b>Técnico Superior en Administración y Finanzas</b><span>IES Politécnico Jesús Marín</span></div></li>
     </ol>
    </div>
-   <div class="t dark mh rv">
+   <div class="t mh rv">
     <span class="lab">Máster de Profesorado</span>
     <span class="big">Matrícula de Honor</span>
     <span class="mut">en el Trabajo Fin de Máster</span>
