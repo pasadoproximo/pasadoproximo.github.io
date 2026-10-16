@@ -482,11 +482,11 @@ a.t.p:hover .arrow{transform:rotate(45deg);background:var(--navy)!important;colo
 .tools .head{padding-inline:0}
 .tools .head .big{font:800 clamp(36px,5vw,64px)/.95 var(--f-disp)!important;letter-spacing:-.035em}
 .marq{margin-inline:-4px}
-.marq span{background:#fff;border:0;box-shadow:0 1px 2px rgba(6,16,51,.05)}
+.marq span{background:#fff!important;border:1px solid #E3E8F2!important;box-shadow:0 2px 6px rgba(6,16,51,.06)}
 /* cintas a todo el ancho de la pantalla, con el fundido en los bordes */
 html,body{overflow-x:clip}
 .marq{margin-inline:calc(50% - 50vw)!important;-webkit-mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent)}
-.marq span.k{border-color:var(--navy)}
+.marq span.k{background:var(--navy)!important;color:#fff;border-color:var(--navy)!important}
 .t.tools{padding:44px 0 0!important;overflow:visible!important}
 .t.tools .head{padding:0!important}
 @media (max-width:1020px){.x:not(.x-main),.lang,.extra{border-left:0;border-top:1.5px solid #D3DAEA;padding:20px 4px 6px}}
