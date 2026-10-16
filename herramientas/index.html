@@ -200,6 +200,11 @@ footer a{font-weight:700}
  .controls.compact .chips{flex:0 0 100%;flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none}
  .controls.compact .chips button{white-space:nowrap;flex:none}
 }
+/* foco que sigue al ratón, como en el portfolio */
+.tool,.res,.t{position:relative;overflow:hidden;isolation:isolate}
+.tool::before,.res::before,.t::before{content:"";position:absolute;inset:0;z-index:-1;opacity:0;transition:opacity .3s;pointer-events:none;
+ background:radial-gradient(420px circle at var(--mx,50%) var(--my,50%),rgba(159,179,255,.20),transparent 60%)}
+.tool:hover::before,.res:hover::before,.t:hover::before{opacity:1}
 </style>
 </head>
 <body>
@@ -357,5 +362,6 @@ document.querySelectorAll('.rv').forEach(el=>io?io.observe(el):el.classList.add(
 })();
 </script>
 <script>(()=>{const f=()=>document.body.classList.toggle('stuck',scrollY>8);addEventListener('scroll',f,{passive:true});f()})();</script>
+<script>document.addEventListener('pointermove',e=>{const t=e.target.closest&&e.target.closest('.tool,.res,.t');if(!t)return;const r=t.getBoundingClientRect();t.style.setProperty('--mx',(e.clientX-r.left)+'px');t.style.setProperty('--my',(e.clientY-r.top)+'px');},{passive:true});</script>
 </body>
 </html>
