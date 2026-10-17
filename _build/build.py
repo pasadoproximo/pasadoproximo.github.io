@@ -100,7 +100,7 @@ def topbar(active=""):
     return f'''
 <header class="top">
  <div class="bar">
-  <a class="brand" href="/"><span class="logo" aria-hidden="true">{LOGO}</span><span><b>Jorge Delgado</b><small>Geografía e Historia</small></span></a>
+  <a class="brand" href="/"><span class="logo" aria-hidden="true">{LOGO}</span><span><b>Jorge Delgado</b><small>Materiales educativos digitales</small></span></a>
   <nav aria-label="Principal">
    {a("/proyectos/", "Proyectos", "proyectos").replace("<a ", "<a class=\"nav-key\" ",1)}
    {a("/#sobre-mi", "Sobre mí", "sobre")}
@@ -171,7 +171,7 @@ def home():
 <main id="contenido">
  <section class="bento hero2" aria-label="Presentación">
   <div class="t dark h2-main rv">
-   <span class="lab">Profesor de Geografía e Historia · Málaga</span>
+   <span class="lab">Diseño de materiales educativos digitales · Profesor de Geografía e Historia</span>
    <h1>Jorge Delgado Aguilera</h1>
    <p class="value">Diseño actividades, herramientas y formación para que la tecnología, y en especial la IA, ayude al alumnado a hacer lo que pide la Historia: <b>leer fuentes, contrastar y argumentar.</b></p>
    <div class="cta">
@@ -209,8 +209,8 @@ def home():
 {form}
 {contact}
 </main>'''
-    out = head("Jorge Delgado Aguilera · Profesor de Geografía e Historia",
-               "Profesor de Geografía e Historia en Málaga. Diseño actividades, herramientas y formación para que la tecnología y la IA ayuden a leer fuentes, contrastar y argumentar.",
+    out = head("Jorge Delgado Aguilera · Diseño de materiales educativos digitales",
+               "Diseñador de materiales educativos digitales y profesor de Geografía e Historia en Málaga. Diseño actividades, herramientas y formación para que la tecnología y la IA ayuden a leer fuentes, contrastar y argumentar.",
                "/") + topbar("") + body + foot()
     write("/", out)
 
