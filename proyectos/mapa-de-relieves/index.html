@@ -16,7 +16,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alegreya+SC:wght@700&family=Alegreya+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&display=swap">
-<link rel="stylesheet" href="/assets/site.css?v=4">
+<link rel="stylesheet" href="/assets/site.css?v=5">
 </head>
 <body>
 <a class="skip" href="#contenido">Saltar al contenido</a>
@@ -25,10 +25,10 @@
  <div class="bar">
   <a class="brand" href="/"><span class="logo" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 26 26"><path d="M13 2 2 7h22L13 2Z" fill="#fff"/><rect x="3" y="8" width="20" height="2" fill="#fff"/><rect x="5" y="11" width="2.4" height="9" fill="#fff"/><rect x="9.6" y="11" width="2.4" height="9" fill="#fff"/><rect x="14" y="11" width="2.4" height="9" fill="#fff"/><rect x="18.6" y="11" width="2.4" height="9" fill="#fff"/><rect x="2" y="21" width="22" height="2.4" fill="#fff"/></svg></span><span><b>Jorge Delgado</b><small>Geografía e Historia</small></span></a>
   <nav aria-label="Principal">
-   <a href="/proyectos/" aria-current="page">Proyectos</a>
+   <a class="nav-key" href="/proyectos/" aria-current="page">Proyectos</a>
    <a href="/#sobre-mi">Sobre mí</a>
-   <a href="/herramientas/">Herramientas</a>
-   <a href="/assets/pdf/CV-Jorge-Delgado-Aguilera.pdf" download>CV</a>
+   <a href="/herramientas/">Caja de herramientas</a>
+   <a class="cv" href="/assets/pdf/CV-Jorge-Delgado-Aguilera.pdf" download aria-label="Descargar CV (PDF)">CV <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg></a>
    <a class="hire" href="/#contacto">Contacto</a>
   </nav>
  </div>
@@ -38,7 +38,7 @@
  <nav class="crumbs" aria-label="Ruta"><a href="/proyectos/">Proyectos</a><span aria-hidden="true">/</span><a href="/proyectos/#herramientas">Herramientas y asistentes</a></nav>
  <section class="bento phead" aria-labelledby="ph1">
   <div class="t dark ph-main rv">
-   <span class="lab">Geografía de España · Apoyo al estudio · 2026</span>
+   <span class="lab">Ficha · Aplicación web · Bachillerato · 2026</span>
    <h1 id="ph1">Mapa de relieves de la Península Ibérica</h1>
    <p class="lede">Una herramienta de estudio para el tema de relieve de Geografía de España. En lugar de memorizar una lista de unidades, el alumnado pulsa sobre lo que quiere repasar y el mapa le señala dónde está, con una ficha explicativa, imágenes y preguntas.</p>
    <div class="cta"><a class="btn solid" href="https://claude.ai/artifact/YNDYutXDuViE2pPjahzvFm" rel="noopener" target="_blank">Abrir el mapa <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg><span class="vh"> (se abre en otra pestaña)</span></a></div>
@@ -63,20 +63,19 @@
 <li><b>Erosión:</b> los agentes que han modelado el paisaje.</li>
 </ul>
 <p>Cada elemento tiene su ficha, imágenes y preguntas de repaso. Así se puede usar para estudiar en casa o en clase, proyectado, para explicar.</p></section>
- <section class="psec rv"><h2>Qué demuestra</h2><ul class="pl"><li>Convertir un tema memorístico en una herramienta de consulta visual.</li><li>Diseñar y construir una aplicación sencilla con IA, revisando el contenido.</li></ul></section>
  </div>
  <section class="sec related" aria-labelledby="rel-h">
   <div class="sec-head rv"><div><span class="lab">Sigue explorando</span><h2 id="rel-h">Proyectos relacionados</h2></div>
   <a class="dl" href="/proyectos/">Todos los proyectos <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
   <div class="pgrid g3">
-<a class="t pc lift rv" href="/consejo-de-clio/">
+<a class="t pc lift rv" href="/proyectos/el-bombo/">
  <span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
- <div class="viz v-council" aria-hidden="true"><div class="council">
-     <span style="--c:#B07410" title="Heródoto"><svg class="avatar" viewBox="0 0 120 120" aria-hidden="true"><circle class="halo" cx="60" cy="60" r="58"/><g class="body"><path class="robe" d="M18 120c2-24 18-36 42-36s40 12 42 36z"/><path class="cloth" d="M44 88l16 22 16-22c-5-2-10-3-16-3s-11 1-16 3z" opacity=".55"/><rect class="shade" x="52" y="66" width="16" height="16" rx="4"/><ellipse class="skin" cx="60" cy="50" rx="21" ry="24"/><path class="whair" d="M40 52c0 22 9 34 20 34s20-12 20-34c-4 8-10 11-20 11s-16-3-20-11z"/><path class="whair" d="M40 44c2-14 10-20 20-20s18 6 20 20c-6-6-12-8-20-8s-14 2-20 8z"/><g class="leaf"><ellipse cx="40" cy="40" rx="6" ry="3" transform="rotate(-50 40 40)"/><ellipse cx="45" cy="31" rx="6" ry="3" transform="rotate(-30 45 31)"/><ellipse cx="53" cy="26" rx="6" ry="3" transform="rotate(-10 53 26)"/><ellipse cx="67" cy="26" rx="6" ry="3" transform="rotate(10 67 26)"/><ellipse cx="75" cy="31" rx="6" ry="3" transform="rotate(30 75 31)"/><ellipse cx="80" cy="40" rx="6" ry="3" transform="rotate(50 80 40)"/></g><ellipse class="eye" cx="52" cy="49" rx="2.3" ry="2.6"/><ellipse class="eye" cx="68" cy="49" rx="2.3" ry="2.6"/><ellipse class="mouth" cx="60" cy="66" rx="4.5" ry="2.6"/>      </g></svg></span><span style="--c:#24429A" title="Tucídides"><svg class="avatar" viewBox="0 0 120 120" aria-hidden="true"><circle class="halo" cx="60" cy="60" r="58"/><g class="body"><path class="robe" d="M18 120c2-24 18-36 42-36s40 12 42 36z"/><circle class="gold" cx="80" cy="94" r="4"/><rect class="shade" x="52" y="66" width="16" height="16" rx="4"/><ellipse class="skin" cx="60" cy="52" rx="20" ry="23"/><path class="dhair" d="M41 56c0 18 8 28 19 28s19-10 19-28c-4 6-10 9-19 9s-15-3-19-9z"/><path class="metal" d="M38 44c0-17 10-27 22-27s22 10 22 27c-6-4-13-6-22-6s-16 2-22 6z"/><path class="crest" d="M42 22c6-12 30-12 36 0l-4 4c-6-6-22-6-28 0z"/><ellipse class="eye" cx="52" cy="51" rx="2.3" ry="2.6"/><ellipse class="eye" cx="68" cy="51" rx="2.3" ry="2.6"/><ellipse class="mouth" cx="60" cy="67" rx="4.5" ry="2.6"/>      </g></svg></span><span style="--c:#55642A" title="Hannah Arendt"><svg class="avatar" viewBox="0 0 120 120" aria-hidden="true"><circle class="halo" cx="60" cy="60" r="58"/><g class="body"><path class="robe" d="M18 120c2-24 18-36 42-36s40 12 42 36z"/><path class="cloth" d="M46 86l14 16 14-16c-4-2-9-3-14-3s-10 1-14 3z"/><rect class="shade" x="53" y="66" width="14" height="16" rx="4"/><ellipse class="skin" cx="60" cy="52" rx="18" ry="22"/><path class="dhair" d="M41 56c-5-22 4-36 19-36s25 13 19 36c-1-9-4-15-8-19-7 5-19 6-27 2-2 4-3 10-3 17z"/><circle class="dhair" cx="42" cy="46" r="5"/><circle class="dhair" cx="78" cy="46" r="5"/><ellipse class="eye" cx="53" cy="52" rx="2.2" ry="2.6"/><ellipse class="eye" cx="67" cy="52" rx="2.2" ry="2.6"/><ellipse class="mouth" cx="60" cy="66" rx="4" ry="2.4"/>      </g></svg></span><span style="--c:#0F7A6E" title="Clío"><svg class="avatar" viewBox="0 0 120 120" aria-hidden="true"><circle class="halo" cx="60" cy="60" r="58"/><g class="body"><path class="dhair" d="M36 50c-4 26 0 46 8 54h32c8-8 12-28 8-54z"/><path class="robe" d="M18 120c2-24 18-36 42-36s40 12 42 36z"/><rect class="cloth" x="70" y="96" width="24" height="10" rx="5"/><rect class="shade" x="53" y="66" width="14" height="16" rx="4"/><ellipse class="skin" cx="60" cy="52" rx="19" ry="23"/><path class="dhair" d="M40 50c0-18 9-27 20-27s20 9 20 27c-5-9-12-13-20-13s-15 4-20 13z"/><g class="gold"><ellipse cx="42" cy="40" rx="6" ry="2.6" transform="rotate(-50 42 40)"/><ellipse cx="48" cy="32" rx="6" ry="2.6" transform="rotate(-25 48 32)"/><ellipse cx="72" cy="32" rx="6" ry="2.6" transform="rotate(25 72 32)"/><ellipse cx="78" cy="40" rx="6" ry="2.6" transform="rotate(50 78 40)"/></g><ellipse class="eye" cx="52" cy="52" rx="2.3" ry="2.8"/><ellipse class="eye" cx="68" cy="52" rx="2.3" ry="2.8"/><ellipse class="mouth" cx="60" cy="66" rx="4" ry="2.4"/>      </g></svg></span><span style="--c:#6B3E7A" title="Sócrates"><svg class="avatar" viewBox="0 0 120 120" aria-hidden="true"><circle class="halo" cx="60" cy="60" r="58"/><g class="body"><path class="robe" d="M18 120c2-24 18-36 42-36s40 12 42 36z"/><path class="cloth" d="M60 86l-22 34h12l10-22z" opacity=".5"/><rect class="shade" x="52" y="66" width="16" height="16" rx="4"/><ellipse class="skin" cx="60" cy="50" rx="22" ry="24"/><path class="whair" d="M38 46c-3 6-2 14 2 18 0-8 2-12 4-14zM82 46c3 6 2 14-2 18 0-8-2-12-4-14z"/><path class="whair" d="M39 56c0 24 10 36 21 36s21-12 21-36c-5 8-11 12-21 12s-16-4-21-12z"/><ellipse class="shade" cx="60" cy="58" rx="5" ry="3.5"/><path d="M47 43q5-3 10 0M63 43q5-3 10 0" stroke="var(--white-hair)" stroke-width="2.2" fill="none" stroke-linecap="round"/><ellipse class="eye" cx="52" cy="48" rx="2.4" ry="2.7"/><ellipse class="eye" cx="68" cy="48" rx="2.4" ry="2.7"/><ellipse class="mouth" cx="60" cy="68" rx="4.5" ry="2.6"/>      </g></svg></span><span style="--c:#7A4A2A" title="Ibn Jaldún"><svg class="avatar" viewBox="0 0 120 120" aria-hidden="true"><circle class="halo" cx="60" cy="60" r="58"/><g class="body"><path class="robe" d="M18 120c2-24 18-36 42-36s40 12 42 36z"/><path class="robe" d="M34 92c4-30 12-50 26-50s22 20 26 50c-8-6-16-8-26-8s-18 2-26 8z" opacity=".75"/><rect class="shade" x="52" y="66" width="16" height="16" rx="4"/><ellipse class="skin" cx="60" cy="54" rx="19" ry="22"/><path class="dhair" d="M42 58c0 17 8 27 18 27s18-10 18-27c-4 5-9 8-18 8s-14-3-18-8z"/><ellipse class="cloth" cx="60" cy="34" rx="25" ry="14"/><path d="M36 38c8 6 40 6 48 0" stroke="var(--metal)" stroke-width="1.2" fill="none" opacity=".6"/><path d="M38 31c10 5 34 5 44 0" stroke="var(--metal)" stroke-width="1.2" fill="none" opacity=".6"/><ellipse class="eye" cx="52" cy="53" rx="2.3" ry="2.6"/><ellipse class="eye" cx="68" cy="53" rx="2.3" ry="2.6"/><ellipse class="mouth" cx="60" cy="68" rx="4.5" ry="2.6"/>      </g></svg></span>
-    </div></div>
- <div class="pc-tags">IA en el aula · Proyecto propio</div>
- <h3>El Consejo de Clío</h3>
- <p>Seis agentes de IA convierten una noticia de hoy en una sesión de clase, y uno revisa a todos.</p>
+ <div class="viz v-bombo" aria-hidden="true"><div class="made"><span><img src="/assets/tools/claude.png" alt="" width="20" height="20" loading="lazy">Claude</span></div>
+     <div class="drum"><i style="left:14px;top:20px">7</i><i style="left:62px;top:16px">23</i><i style="left:40px;top:58px">51</i><i style="left:12px;top:66px">12</i><i style="left:70px;top:62px">40</i></div>
+     <div><div class="out"><span>18</span><span class="mine">4</span><span>66</span></div><small>¿Saldrá alguno de tus temas?</small></div></div>
+ <div class="pc-tags">Aplicación web · Opositores</div>
+ <h3>El bombo</h3>
+ <p>Calcula la probabilidad de que salga alguno de tus temas en el sorteo de las oposiciones.</p>
 </a>
 <a class="t pc lift rv" href="/proyectos/excursion-roma-3d/">
  <span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
@@ -84,25 +83,24 @@
      <span class="shadow"></span>
      <div class="sc"><div class="f sd sl"><i class="ped"></i><i class="cols"></i><i class="base"></i></div><div class="f sd sr"><i class="ped"></i><i class="cols"></i><i class="base"></i></div><div class="f fr"><i class="ped"></i><i class="cols"></i><i class="base"></i></div></div>
      <span class="deg">3D · 360°</span></div>
- <div class="pc-tags">Antigua Roma · Realidad virtual</div>
+ <div class="pc-tags">Mundo 3D · ESO</div>
  <h3>Excursión a Roma en 3D</h3>
  <p>Un mundo 3D con edificios de la Antigua Roma para recorrer su arquitectura.</p>
 </a>
-<a class="t pc lift rv" href="/proyectos/asistente-gpt-2eso/">
+<a class="t pc lift rv" href="/consejo-de-clio/">
  <span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
- <div class="viz v-chat" aria-hidden="true"><div class="made"><span><img src="/assets/tools/chatgpt.png" alt="" width="20" height="20" loading="lazy">ChatGPT</span></div>
-     <span class="u">¿Puedes hacerme la actividad 2 del tema 1?</span>
-     <span class="typing"><i></i><i></i><i></i></span>
-     <span class="a">No puedo hacerla por ti, pero sí guiarte para que la completes. ¿En qué parte te atascas?</span></div>
- <div class="pc-tags">TFM · IA en el aula</div>
- <h3>Asistente de IA para 2.º ESO</h3>
- <p>Un GPT que guía al alumnado sin darle la respuesta y dice siempre de dónde sale cada dato.</p>
+ <div class="viz v-council" aria-hidden="true"><div class="council">
+     <span style="--c:#B07410" title="Heródoto"><svg class="avatar" viewBox="0 0 120 120" aria-hidden="true"><circle class="halo" cx="60" cy="60" r="58"/><g class="body"><path class="robe" d="M18 120c2-24 18-36 42-36s40 12 42 36z"/><path class="cloth" d="M44 88l16 22 16-22c-5-2-10-3-16-3s-11 1-16 3z" opacity=".55"/><rect class="shade" x="52" y="66" width="16" height="16" rx="4"/><ellipse class="skin" cx="60" cy="50" rx="21" ry="24"/><path class="whair" d="M40 52c0 22 9 34 20 34s20-12 20-34c-4 8-10 11-20 11s-16-3-20-11z"/><path class="whair" d="M40 44c2-14 10-20 20-20s18 6 20 20c-6-6-12-8-20-8s-14 2-20 8z"/><g class="leaf"><ellipse cx="40" cy="40" rx="6" ry="3" transform="rotate(-50 40 40)"/><ellipse cx="45" cy="31" rx="6" ry="3" transform="rotate(-30 45 31)"/><ellipse cx="53" cy="26" rx="6" ry="3" transform="rotate(-10 53 26)"/><ellipse cx="67" cy="26" rx="6" ry="3" transform="rotate(10 67 26)"/><ellipse cx="75" cy="31" rx="6" ry="3" transform="rotate(30 75 31)"/><ellipse cx="80" cy="40" rx="6" ry="3" transform="rotate(50 80 40)"/></g><ellipse class="eye" cx="52" cy="49" rx="2.3" ry="2.6"/><ellipse class="eye" cx="68" cy="49" rx="2.3" ry="2.6"/><ellipse class="mouth" cx="60" cy="66" rx="4.5" ry="2.6"/>      </g></svg></span><span style="--c:#24429A" title="Tucídides"><svg class="avatar" viewBox="0 0 120 120" aria-hidden="true"><circle class="halo" cx="60" cy="60" r="58"/><g class="body"><path class="robe" d="M18 120c2-24 18-36 42-36s40 12 42 36z"/><circle class="gold" cx="80" cy="94" r="4"/><rect class="shade" x="52" y="66" width="16" height="16" rx="4"/><ellipse class="skin" cx="60" cy="52" rx="20" ry="23"/><path class="dhair" d="M41 56c0 18 8 28 19 28s19-10 19-28c-4 6-10 9-19 9s-15-3-19-9z"/><path class="metal" d="M38 44c0-17 10-27 22-27s22 10 22 27c-6-4-13-6-22-6s-16 2-22 6z"/><path class="crest" d="M42 22c6-12 30-12 36 0l-4 4c-6-6-22-6-28 0z"/><ellipse class="eye" cx="52" cy="51" rx="2.3" ry="2.6"/><ellipse class="eye" cx="68" cy="51" rx="2.3" ry="2.6"/><ellipse class="mouth" cx="60" cy="67" rx="4.5" ry="2.6"/>      </g></svg></span><span style="--c:#55642A" title="Hannah Arendt"><svg class="avatar" viewBox="0 0 120 120" aria-hidden="true"><circle class="halo" cx="60" cy="60" r="58"/><g class="body"><path class="robe" d="M18 120c2-24 18-36 42-36s40 12 42 36z"/><path class="cloth" d="M46 86l14 16 14-16c-4-2-9-3-14-3s-10 1-14 3z"/><rect class="shade" x="53" y="66" width="14" height="16" rx="4"/><ellipse class="skin" cx="60" cy="52" rx="18" ry="22"/><path class="dhair" d="M41 56c-5-22 4-36 19-36s25 13 19 36c-1-9-4-15-8-19-7 5-19 6-27 2-2 4-3 10-3 17z"/><circle class="dhair" cx="42" cy="46" r="5"/><circle class="dhair" cx="78" cy="46" r="5"/><ellipse class="eye" cx="53" cy="52" rx="2.2" ry="2.6"/><ellipse class="eye" cx="67" cy="52" rx="2.2" ry="2.6"/><ellipse class="mouth" cx="60" cy="66" rx="4" ry="2.4"/>      </g></svg></span><span style="--c:#0F7A6E" title="Clío"><svg class="avatar" viewBox="0 0 120 120" aria-hidden="true"><circle class="halo" cx="60" cy="60" r="58"/><g class="body"><path class="dhair" d="M36 50c-4 26 0 46 8 54h32c8-8 12-28 8-54z"/><path class="robe" d="M18 120c2-24 18-36 42-36s40 12 42 36z"/><rect class="cloth" x="70" y="96" width="24" height="10" rx="5"/><rect class="shade" x="53" y="66" width="14" height="16" rx="4"/><ellipse class="skin" cx="60" cy="52" rx="19" ry="23"/><path class="dhair" d="M40 50c0-18 9-27 20-27s20 9 20 27c-5-9-12-13-20-13s-15 4-20 13z"/><g class="gold"><ellipse cx="42" cy="40" rx="6" ry="2.6" transform="rotate(-50 42 40)"/><ellipse cx="48" cy="32" rx="6" ry="2.6" transform="rotate(-25 48 32)"/><ellipse cx="72" cy="32" rx="6" ry="2.6" transform="rotate(25 72 32)"/><ellipse cx="78" cy="40" rx="6" ry="2.6" transform="rotate(50 78 40)"/></g><ellipse class="eye" cx="52" cy="52" rx="2.3" ry="2.8"/><ellipse class="eye" cx="68" cy="52" rx="2.3" ry="2.8"/><ellipse class="mouth" cx="60" cy="66" rx="4" ry="2.4"/>      </g></svg></span><span style="--c:#6B3E7A" title="Sócrates"><svg class="avatar" viewBox="0 0 120 120" aria-hidden="true"><circle class="halo" cx="60" cy="60" r="58"/><g class="body"><path class="robe" d="M18 120c2-24 18-36 42-36s40 12 42 36z"/><path class="cloth" d="M60 86l-22 34h12l10-22z" opacity=".5"/><rect class="shade" x="52" y="66" width="16" height="16" rx="4"/><ellipse class="skin" cx="60" cy="50" rx="22" ry="24"/><path class="whair" d="M38 46c-3 6-2 14 2 18 0-8 2-12 4-14zM82 46c3 6 2 14-2 18 0-8-2-12-4-14z"/><path class="whair" d="M39 56c0 24 10 36 21 36s21-12 21-36c-5 8-11 12-21 12s-16-4-21-12z"/><ellipse class="shade" cx="60" cy="58" rx="5" ry="3.5"/><path d="M47 43q5-3 10 0M63 43q5-3 10 0" stroke="var(--white-hair)" stroke-width="2.2" fill="none" stroke-linecap="round"/><ellipse class="eye" cx="52" cy="48" rx="2.4" ry="2.7"/><ellipse class="eye" cx="68" cy="48" rx="2.4" ry="2.7"/><ellipse class="mouth" cx="60" cy="68" rx="4.5" ry="2.6"/>      </g></svg></span><span style="--c:#7A4A2A" title="Ibn Jaldún"><svg class="avatar" viewBox="0 0 120 120" aria-hidden="true"><circle class="halo" cx="60" cy="60" r="58"/><g class="body"><path class="robe" d="M18 120c2-24 18-36 42-36s40 12 42 36z"/><path class="robe" d="M34 92c4-30 12-50 26-50s22 20 26 50c-8-6-16-8-26-8s-18 2-26 8z" opacity=".75"/><rect class="shade" x="52" y="66" width="16" height="16" rx="4"/><ellipse class="skin" cx="60" cy="54" rx="19" ry="22"/><path class="dhair" d="M42 58c0 17 8 27 18 27s18-10 18-27c-4 5-9 8-18 8s-14-3-18-8z"/><ellipse class="cloth" cx="60" cy="34" rx="25" ry="14"/><path d="M36 38c8 6 40 6 48 0" stroke="var(--metal)" stroke-width="1.2" fill="none" opacity=".6"/><path d="M38 31c10 5 34 5 44 0" stroke="var(--metal)" stroke-width="1.2" fill="none" opacity=".6"/><ellipse class="eye" cx="52" cy="53" rx="2.3" ry="2.6"/><ellipse class="eye" cx="68" cy="53" rx="2.3" ry="2.6"/><ellipse class="mouth" cx="60" cy="68" rx="4.5" ry="2.6"/>      </g></svg></span>
+    </div></div>
+ <div class="pc-tags">Aplicación con IA · Secundaria</div>
+ <h3>El Consejo de Clío</h3>
+ <p>Seis agentes de IA convierten una noticia de hoy en una sesión de clase, y uno revisa a todos.</p>
 </a>
   </div>
  </section>
 </main>
 <footer><span>© 2026 Jorge Delgado Aguilera</span><span>Campanillas, Málaga</span></footer>
 </div>
-<script src="/assets/site.js?v=4" defer></script>
+<script src="/assets/site.js?v=5" defer></script>
 </body>
 </html>

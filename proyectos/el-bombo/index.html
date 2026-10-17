@@ -16,7 +16,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alegreya+SC:wght@700&family=Alegreya+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&display=swap">
-<link rel="stylesheet" href="/assets/site.css?v=4">
+<link rel="stylesheet" href="/assets/site.css?v=5">
 </head>
 <body>
 <a class="skip" href="#contenido">Saltar al contenido</a>
@@ -25,10 +25,10 @@
  <div class="bar">
   <a class="brand" href="/"><span class="logo" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 26 26"><path d="M13 2 2 7h22L13 2Z" fill="#fff"/><rect x="3" y="8" width="20" height="2" fill="#fff"/><rect x="5" y="11" width="2.4" height="9" fill="#fff"/><rect x="9.6" y="11" width="2.4" height="9" fill="#fff"/><rect x="14" y="11" width="2.4" height="9" fill="#fff"/><rect x="18.6" y="11" width="2.4" height="9" fill="#fff"/><rect x="2" y="21" width="22" height="2.4" fill="#fff"/></svg></span><span><b>Jorge Delgado</b><small>Geografía e Historia</small></span></a>
   <nav aria-label="Principal">
-   <a href="/proyectos/" aria-current="page">Proyectos</a>
+   <a class="nav-key" href="/proyectos/" aria-current="page">Proyectos</a>
    <a href="/#sobre-mi">Sobre mí</a>
-   <a href="/herramientas/">Herramientas</a>
-   <a href="/assets/pdf/CV-Jorge-Delgado-Aguilera.pdf" download>CV</a>
+   <a href="/herramientas/">Caja de herramientas</a>
+   <a class="cv" href="/assets/pdf/CV-Jorge-Delgado-Aguilera.pdf" download aria-label="Descargar CV (PDF)">CV <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg></a>
    <a class="hire" href="/#contacto">Contacto</a>
   </nav>
  </div>
@@ -38,7 +38,7 @@
  <nav class="crumbs" aria-label="Ruta"><a href="/proyectos/">Proyectos</a><span aria-hidden="true">/</span><a href="/proyectos/#profesorado">Para el profesorado</a></nav>
  <section class="bento phead" aria-labelledby="ph1">
   <div class="t dark ph-main rv">
-   <span class="lab">Oposiciones · Herramienta · 2026</span>
+   <span class="lab">Ficha · Aplicación web · Opositores · 2026</span>
    <h1 id="ph1">El bombo</h1>
    <p class="lede">Una calculadora para opositores: calcula la probabilidad de que en el sorteo salga al menos uno de los temas que llevas preparados. Sirve para cualquier especialidad.</p>
    <div class="cta"><a class="btn solid" href="https://claude.ai/artifact/QpKwMAWgRSBhUjUpAgk8LM" rel="noopener" target="_blank">Abrir El bombo <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg><span class="vh"> (se abre en otra pestaña)</span></a></div>
@@ -51,7 +51,6 @@
  <div class="pbody">
  <section class="psec rv"><h2>Para qué sirve</h2>
 <p>Decidir cuántos temas preparar es una de las dudas más habituales al opositar. Ver la probabilidad real ayuda a planificar el estudio con datos en lugar de intuiciones.</p></section>
- <section class="psec rv"><h2>Qué demuestra</h2><ul class="pl"><li>Resolver una necesidad concreta con una herramienta sencilla y sin pedir datos.</li></ul></section>
  </div>
  <section class="sec related" aria-labelledby="rel-h">
   <div class="sec-head rv"><div><span class="lab">Sigue explorando</span><h2 id="rel-h">Proyectos relacionados</h2></div>
@@ -63,28 +62,24 @@
      <div class="row"><b>2.1</b><small>Actividad · UD 4, p. 18</small><span class="ok">✓</span></div>
      <div class="row"><b>3.2</b><small>Solo en la tabla</small><span class="stamp">NO LOCALIZADO</span></div>
      <div class="row"><b>5.1</b><small>Actividad · UD 7, p. 31</small><span class="ok">✓</span></div></div>
- <div class="pc-tags">Guía docente · IA para el docente</div>
+ <div class="pc-tags">Guía (PDF) · Profesorado</div>
  <h3>Audita tu programación</h3>
  <p>Un método con NotebookLM para encontrar criterios de evaluación que no se evalúan en ninguna actividad.</p>
 </a>
-<a class="t pc lift rv" href="/proyectos/mapa-de-relieves/">
+<a class="t pc lift rv" href="/proyectos/rubrica-materiales-digitales/">
  <span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
- <div class="viz v-map" aria-hidden="true"><div class="made"><span><img src="/assets/tools/claude.png" alt="" width="20" height="20" loading="lazy">Claude</span></div><svg class="mini-map" viewBox="30 25 680 470" aria-hidden="true">
-     <path d="M50 76 L112 36 L218 42 L314 50 L410 53 L460 70 L520 80 L650 88 L650 117 L602 146 L539 192 L520 221 L482 279 L506 322 L472 349 L458 390 L419 419 L400 439 L352 439 L285 442 L242 480 L194 453 L141 413 L69 424 L74 337 L40 323 L64 279 L78 204 L69 134 Z" class="land"/>
-     <path d="M58 80 L200 62 L215 140 L208 250 L240 330 L190 385 L141 412 L72 420 L64 290 L74 160 Z" class="zocalo"/>
-     <g class="cuencas"><ellipse cx="280" cy="152" rx="75" ry="40"/><ellipse cx="335" cy="300" rx="85" ry="34"/><ellipse cx="472" cy="160" rx="80" ry="26" transform="rotate(-35 472 160)"/><ellipse cx="256" cy="392" rx="80" ry="20" transform="rotate(-18 256 392)"/></g>
-     <g class="alp"><path d="M424 76 L640 90"/><path d="M256 436 L352 419 L472 337"/></g>
-     <g class="mid"><path d="M160 76 L328 74"/><path d="M342 123 L472 250"/></g>
-     <g class="her"><path d="M136 238 L352 192"/><path d="M256 279 L328 285"/><path d="M160 366 L376 343"/></g>
-    </svg></div>
- <div class="pc-tags">Geografía de España · Apoyo al estudio</div>
- <h3>Mapa de relieves de la Península Ibérica</h3>
- <p>Un mapa interactivo que localiza cada relieve, era geológica o agente erosivo y lo explica.</p>
+ <div class="viz v-rub" aria-hidden="true"><div class="made"><span><img src="/assets/tools/jotform.png" alt="" width="20" height="20" loading="lazy">Jotform</span></div>
+     <div class="r"><span>Calidad del contenido</span><span class="lv"><i></i><i></i><i></i><i></i></span></div>
+     <div class="r"><span>Accesibilidad</span><span class="lv"><i></i><i></i><i></i><i></i></span></div>
+     <div class="r"><span>Uso en el aula</span><span class="lv"><i></i><i></i><i></i><i></i></span></div></div>
+ <div class="pc-tags">Formulario · Profesorado</div>
+ <h3>Rúbrica de materiales digitales</h3>
+ <p>Una rúbrica en formulario para valorar un recurso digital antes de llevarlo al aula.</p>
 </a>
 <a class="t pc lift rv" href="/proyectos/repositorio-digital/">
  <span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
  <div class="viz v-caja" aria-hidden="true"><div class="belt"><div class="track"><img src="/herramientas/logos/gemini.png" alt="" width="34" height="34" loading="lazy"><img src="/herramientas/logos/notebooklm.png" alt="" width="34" height="34" loading="lazy"><img src="/herramientas/logos/genially.png" alt="" width="34" height="34" loading="lazy"><img src="/herramientas/logos/canva.png" alt="" width="34" height="34" loading="lazy"><img src="/herramientas/logos/kahoot.png" alt="" width="34" height="34" loading="lazy"><img src="/herramientas/logos/padlet.png" alt="" width="34" height="34" loading="lazy"><img src="/herramientas/logos/geogebra.png" alt="" width="34" height="34" loading="lazy"><img src="/herramientas/logos/edpuzzle.png" alt="" width="34" height="34" loading="lazy"><img src="/herramientas/logos/artsculture.png" alt="" width="34" height="34" loading="lazy"><img src="/herramientas/logos/wayground.png" alt="" width="34" height="34" loading="lazy"><img src="/herramientas/logos/copilot.png" alt="" width="34" height="34" loading="lazy"><img src="/herramientas/logos/timetoast.png" alt="" width="34" height="34" loading="lazy"><img src="/herramientas/logos/phet.png" alt="" width="34" height="34" loading="lazy"><img src="/herramientas/logos/bookcreator.png" alt="" width="34" height="34" loading="lazy"><img src="/herramientas/logos/wooclap.png" alt="" width="34" height="34" loading="lazy"><img src="/herramientas/logos/scratch.png" alt="" width="34" height="34" loading="lazy"><img src="/herramientas/logos/gemini.png" alt="" width="34" height="34" loading="lazy"><img src="/herramientas/logos/notebooklm.png" alt="" width="34" height="34" loading="lazy"><img src="/herramientas/logos/genially.png" alt="" width="34" height="34" loading="lazy"><img src="/herramientas/logos/canva.png" alt="" width="34" height="34" loading="lazy"><img src="/herramientas/logos/kahoot.png" alt="" width="34" height="34" loading="lazy"><img src="/herramientas/logos/padlet.png" alt="" width="34" height="34" loading="lazy"><img src="/herramientas/logos/geogebra.png" alt="" width="34" height="34" loading="lazy"><img src="/herramientas/logos/edpuzzle.png" alt="" width="34" height="34" loading="lazy"><img src="/herramientas/logos/artsculture.png" alt="" width="34" height="34" loading="lazy"><img src="/herramientas/logos/wayground.png" alt="" width="34" height="34" loading="lazy"><img src="/herramientas/logos/copilot.png" alt="" width="34" height="34" loading="lazy"><img src="/herramientas/logos/timetoast.png" alt="" width="34" height="34" loading="lazy"><img src="/herramientas/logos/phet.png" alt="" width="34" height="34" loading="lazy"><img src="/herramientas/logos/bookcreator.png" alt="" width="34" height="34" loading="lazy"><img src="/herramientas/logos/wooclap.png" alt="" width="34" height="34" loading="lazy"><img src="/herramientas/logos/scratch.png" alt="" width="34" height="34" loading="lazy"></div></div><div class="belt rev"><div class="track"><img src="/herramientas/logos/gemini.png" alt="" width="34" height="34" loading="lazy"><img src="/herramientas/logos/notebooklm.png" alt="" width="34" height="34" loading="lazy"><img src="/herramientas/logos/genially.png" alt="" width="34" height="34" loading="lazy"><img src="/herramientas/logos/canva.png" alt="" width="34" height="34" loading="lazy"><img src="/herramientas/logos/kahoot.png" alt="" width="34" height="34" loading="lazy"><img src="/herramientas/logos/padlet.png" alt="" width="34" height="34" loading="lazy"><img src="/herramientas/logos/geogebra.png" alt="" width="34" height="34" loading="lazy"><img src="/herramientas/logos/edpuzzle.png" alt="" width="34" height="34" loading="lazy"><img src="/herramientas/logos/artsculture.png" alt="" width="34" height="34" loading="lazy"><img src="/herramientas/logos/wayground.png" alt="" width="34" height="34" loading="lazy"><img src="/herramientas/logos/copilot.png" alt="" width="34" height="34" loading="lazy"><img src="/herramientas/logos/timetoast.png" alt="" width="34" height="34" loading="lazy"><img src="/herramientas/logos/phet.png" alt="" width="34" height="34" loading="lazy"><img src="/herramientas/logos/bookcreator.png" alt="" width="34" height="34" loading="lazy"><img src="/herramientas/logos/wooclap.png" alt="" width="34" height="34" loading="lazy"><img src="/herramientas/logos/scratch.png" alt="" width="34" height="34" loading="lazy"><img src="/herramientas/logos/gemini.png" alt="" width="34" height="34" loading="lazy"><img src="/herramientas/logos/notebooklm.png" alt="" width="34" height="34" loading="lazy"><img src="/herramientas/logos/genially.png" alt="" width="34" height="34" loading="lazy"><img src="/herramientas/logos/canva.png" alt="" width="34" height="34" loading="lazy"><img src="/herramientas/logos/kahoot.png" alt="" width="34" height="34" loading="lazy"><img src="/herramientas/logos/padlet.png" alt="" width="34" height="34" loading="lazy"><img src="/herramientas/logos/geogebra.png" alt="" width="34" height="34" loading="lazy"><img src="/herramientas/logos/edpuzzle.png" alt="" width="34" height="34" loading="lazy"><img src="/herramientas/logos/artsculture.png" alt="" width="34" height="34" loading="lazy"><img src="/herramientas/logos/wayground.png" alt="" width="34" height="34" loading="lazy"><img src="/herramientas/logos/copilot.png" alt="" width="34" height="34" loading="lazy"><img src="/herramientas/logos/timetoast.png" alt="" width="34" height="34" loading="lazy"><img src="/herramientas/logos/phet.png" alt="" width="34" height="34" loading="lazy"><img src="/herramientas/logos/bookcreator.png" alt="" width="34" height="34" loading="lazy"><img src="/herramientas/logos/wooclap.png" alt="" width="34" height="34" loading="lazy"><img src="/herramientas/logos/scratch.png" alt="" width="34" height="34" loading="lazy"></div></div></div>
- <div class="pc-tags">Web de centro · Presentado en Braining 2025</div>
+ <div class="pc-tags">Web de recursos · Profesorado</div>
  <h3>Repositorio digital docente</h3>
  <p>La web de herramientas que creé para un centro en 2024 y su revisión de 2026 para Secundaria.</p>
 </a>
@@ -93,6 +88,6 @@
 </main>
 <footer><span>© 2026 Jorge Delgado Aguilera</span><span>Campanillas, Málaga</span></footer>
 </div>
-<script src="/assets/site.js?v=4" defer></script>
+<script src="/assets/site.js?v=5" defer></script>
 </body>
 </html>

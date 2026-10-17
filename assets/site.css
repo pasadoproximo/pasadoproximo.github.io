@@ -682,3 +682,27 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var
 .pnote{font-size:16px!important;color:var(--mut)!important;margin-top:16px!important;padding-left:14px;border-left:3px solid var(--sky)}
 .related{margin-top:80px}
 .related .sec-head h2{font-size:clamp(30px,3.6vw,44px)}
+
+/* ---- segunda revisión ---- */
+/* navegación: el CV se presenta como descarga y en móvil se ven Proyectos y Contacto */
+.bar nav a.cv{display:inline-flex;align-items:center;gap:6px}
+.bar nav a.cv svg{width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+@media (max-width:780px){.bar nav a.nav-key{display:inline-flex}.bar nav{gap:4px}.bar nav a{padding:8px 12px}}
+@media (max-width:380px){.brand small{display:none}}
+/* transición portada → destacados */
+.hero2+#proyectos{margin-top:72px}
+/* filtros del índice */
+.catnav button{display:inline-flex;align-items:center;gap:8px;font:700 16px var(--f-body);color:var(--navy);background:#fff;border:1px solid #E3E8F2;border-radius:999px;padding:9px 16px;cursor:pointer;transition:background .2s,color .2s}
+.catnav button span{font:800 13px var(--f-disp);background:var(--bg);border-radius:999px;padding:2px 9px}
+.catnav button:hover{border-color:var(--navy)}
+.catnav button[aria-pressed="true"]{background:var(--navy);color:#fff;border-color:var(--navy)}
+.catnav button[aria-pressed="true"] span{background:var(--navy3);color:#fff}
+.pcat[hidden]{display:none}
+/* enlaces dentro de formación y experiencia */
+.e-list em a{color:inherit;text-decoration:underline;text-underline-offset:2px}
+.x ul a{color:inherit;font-weight:700;text-decoration:underline;text-underline-offset:2px}
+/* menos movimiento: las cintas se quedan quietas y se ven enteras */
+@media (prefers-reduced-motion:reduce){.marq .track{animation:none!important;flex-wrap:wrap;width:auto}.marq{-webkit-mask-image:none;mask-image:none}.marq span[aria-hidden="true"]{display:none}}
+@media (max-width:780px){.bar nav a.cv{display:none}}
+@media (max-width:440px){.brand small{display:none}.brand b{white-space:nowrap}.bar nav a{padding:8px 10px;font-size:15px}}
+.steps+p,.pl+p{margin-top:16px!important}

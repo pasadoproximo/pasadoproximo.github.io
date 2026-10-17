@@ -24,19 +24,19 @@ P = []
 # ---------------------------------------------------------------- HERRAMIENTAS
 P.append(dict(
     slug="consejo-de-clio", ext="/consejo-de-clio/", cat="herramientas", year="2026",
-    title="El Consejo de Clío", tags=["IA en el aula", "Proyecto propio"],
+    title="El Consejo de Clío", tags=["Aplicación con IA", "Secundaria"], kind="caso",
     card="Seis agentes de IA convierten una noticia de hoy en una sesión de clase, y uno revisa a todos.",
     viz="council",
 ))
 
 P.append(dict(
     slug="asistente-gpt-2eso", cat="herramientas", year="2024",
-    title="Asistente de IA para 2.º ESO", tags=["TFM", "IA en el aula"],
+    title="Asistente de IA para 2.º ESO", tags=["Trabajo Fin de Máster", "2.º ESO"], kind="caso",
     card="Un GPT que guía al alumnado sin darle la respuesta y dice siempre de dónde sale cada dato.",
     viz="v-chat",
     h1="PasadoPróximo-2ºESO: un asistente de IA para la clase de Historia",
     lede="Trabajo Fin del Máster en Tecnología Educativa y Competencias Digitales (Universidad Europea, curso 2023-2024). Propone un asistente creado con los GPT personalizados de ChatGPT para acompañar a un grupo de 2.º de ESO en Geografía e Historia, dentro y fuera del aula.",
-    meta=[("Para quién", "Un grupo de 2.º de ESO y su docente de Geografía e Historia"),
+    meta=[("Para quién", "Un grupo de 2.º ESO y su docente de Geografía e Historia"),
           ("Tipo", "Trabajo Fin de Máster · propuesta didáctica"),
           ("Herramientas", "GPT personalizado (GPT-4o) y Google Classroom"),
           ("Estado", "Diseñado y probado en simulación. Pendiente de pilotaje con alumnado")],
@@ -83,7 +83,7 @@ P.append(dict(
 
 P.append(dict(
     slug="mapa-de-relieves", cat="herramientas", year="2026",
-    title="Mapa de relieves de la Península Ibérica", tags=["Geografía de España", "Apoyo al estudio"],
+    title="Mapa de relieves de la Península Ibérica", tags=["Aplicación web", "Bachillerato"], kind="ficha",
     card="Un mapa interactivo que localiza cada relieve, era geológica o agente erosivo y lo explica.",
     viz="map",
     lede="Una herramienta de estudio para el tema de relieve de Geografía de España. En lugar de memorizar una lista de unidades, el alumnado pulsa sobre lo que quiere repasar y el mapa le señala dónde está, con una ficha explicativa, imágenes y preguntas.",
@@ -104,17 +104,17 @@ P.append(dict(
     ],
     value=["Convertir un tema memorístico en una herramienta de consulta visual.",
            "Diseñar y construir una aplicación sencilla con IA, revisando el contenido."],
-    related=["consejo-de-clio", "excursion-roma-3d", "asistente-gpt-2eso"],
+    related=["el-bombo", "excursion-roma-3d", "consejo-de-clio"],
 ))
 
 # ---------------------------------------------------------------- AULA
 P.append(dict(
     slug="cazadores-de-bulos", cat="aula", year="2026",
-    title="Cazadores de bulos históricos", tags=["4.º ESO · 2.º Bach.", "Pensamiento crítico"],
+    title="Cazadores de bulos históricos", tags=["Actividad (PDF)", "4.º ESO y 2.º Bachillerato"], kind="ficha",
     card="Un texto escrito por una IA sobre la caída de Málaga en 1937, convincente y con nueve errores.",
     viz="v-bulos",
     lede="Una inteligencia artificial ha escrito un texto sobre la caída de Málaga en 1937. Está bien redactado, suena convincente y tiene nueve errores. Ocho se cazan con el tema estudiado; el noveno, razonando.",
-    meta=[("Nivel", "4.º de ESO y 2.º de Bachillerato"),
+    meta=[("Nivel", "4.º ESO y 2.º Bachillerato"),
           ("Cuándo", "Al final de la unidad de la Guerra Civil, como repaso"),
           ("Duración", "Una sesión de 55 minutos, ampliable a dos"),
           ("Agrupamiento", "Parejas o grupos de 3")],
@@ -139,7 +139,7 @@ P.append(dict(
 
 P.append(dict(
     slug="la-ia-tambien-miente", cat="aula", year="2026",
-    title="La IA también miente", tags=["Serie", "Pensamiento crítico"],
+    title="La IA también miente", tags=["Serie de imágenes", "Cualquier nivel"], kind="ficha",
     card="Escenas históricas generadas con IA con anacronismos escondidos y una trampa en cada una.",
     viz="img:/assets/ia-miente/mercado.jpg",
     lede="Una serie quincenal que publico en LinkedIn. Cada entrega es una escena histórica generada con IA que esconde anacronismos. Y siempre hay una trampa: algo que parece imposible y sí es de la época.",
@@ -154,16 +154,16 @@ P.append(dict(
     gallery=[("/assets/ia-miente/mercado.jpg", "Entrega 1 · Mercado medieval. Hay cinco errores y una trampa.")],
     spoiler=("/assets/ia-miente/mercado-solucion.jpg", "Ver la solución", "Solución: el cartel impreso, el maíz, los tomates, las patatas y los girasoles son anacronismos. Las gafas de lectura sí son de la época."),
     value=["Llevar la alfabetización visual y sobre IA a algo que se resuelve en cinco minutos."],
-    related=["cazadores-de-bulos", "escape-room-siglo-xix", "asistente-gpt-2eso"],
+    related=["cazadores-de-bulos", "consejo-de-clio", "asistente-gpt-2eso"],
 ))
 
 P.append(dict(
     slug="la-nube-pesa", cat="aula", year="2026",
-    title="La nube pesa", tags=["2.º ESO", "Ecosocial"],
+    title="La nube pesa", tags=["Actividad (PDF)", "2.º ESO"], kind="ficha",
     card="Cada equipo reconstruye un eslabón de lo que hay detrás de un gesto digital y propone una medida.",
     viz="v-nube",
     lede="¿De dónde sale y qué consume un gesto digital? Cinco equipos reconstruyen la cadena que hay detrás de mandar una foto o hacer una pregunta a un asistente: del mineral al residuo.",
-    meta=[("Nivel", "2.º de ESO, adaptable a 3.º"),
+    meta=[("Nivel", "2.º ESO, adaptable a 3.º ESO"),
           ("Cuándo", "Al cerrar el tema de recursos naturales y desigualdad"),
           ("Duración", "Una sesión de 55 minutos"),
           ("Agrupamiento", "Cinco equipos de 4 o 5")],
@@ -188,11 +188,11 @@ P.append(dict(
 
 P.append(dict(
     slug="constitucion-1812", cat="aula", year="2026",
-    title="¿Fue liberal la Constitución de 1812?", tags=["4.º ESO", "Análisis de fuentes"],
+    title="¿Fue liberal la Constitución de 1812?", tags=["Actividad (PDF)", "4.º ESO"], kind="ficha",
     card="Comentario de texto colaborativo: las parejas anotan los artículos y debaten con el texto delante.",
     viz="v-1812",
     lede="Un comentario de texto colaborativo con Hypothes.is. Por parejas, el alumnado anota artículos de la Constitución de 1812 y marca cada fragmento como #APOYA, #LIMITA o #PREGUNTA. Después debate con una condición: nada de lo que se diga vale si no está anclado a un fragmento.",
-    meta=[("Nivel", "4.º de ESO, adaptable a 2.º de Bachillerato"),
+    meta=[("Nivel", "4.º ESO, adaptable a 2.º Bachillerato"),
           ("Cuándo", "Tras la Guerra de la Independencia y las Cortes de Cádiz"),
           ("Duración", "Una sesión de 55 minutos"),
           ("Herramientas", "Hypothes.is (o Google Docs con comentarios)")],
@@ -214,11 +214,11 @@ P.append(dict(
 
 P.append(dict(
     slug="escape-room-siglo-xix", cat="aula", year="2024",
-    title="Escape room del siglo XIX", tags=["4.º ESO", "Gamificación"],
+    title="Escape room del siglo XIX", tags=["Escape room", "4.º ESO"], kind="ficha",
     card="Repaso del siglo XIX español ambientado en El Ministerio del Tiempo, con una caja fuerte al final.",
     viz="v-esc",
     lede="Un escape room digital para repasar el siglo XIX español. Ambientado en <i>El Ministerio del Tiempo</i>, el alumnado actúa como agentes que deben impedir que se altere el 2 de mayo de 1808.",
-    meta=[("Nivel", "4.º de ESO"),
+    meta=[("Nivel", "4.º ESO"),
           ("Tipo", "Escape room digital de repaso"),
           ("Herramientas", "Genially")],
     links=[("Jugar al escape room", "https://view.genially.com/65f972b6e99bde00148864ea", "ext")],
@@ -233,7 +233,7 @@ P.append(dict(
 
 P.append(dict(
     slug="excursion-roma-3d", cat="aula", year="2024",
-    title="Excursión a Roma en 3D", tags=["Antigua Roma", "Realidad virtual"],
+    title="Excursión a Roma en 3D", tags=["Mundo 3D", "ESO"], kind="ficha",
     card="Un mundo 3D con edificios de la Antigua Roma para recorrer su arquitectura.",
     viz="v-cos",
     lede="Un mundo virtual con algunos de los edificios más representativos de la Antigua Roma, creado para recorrerlo en clase. Es una actividad de introducción: primero una visita guiada y después se comparan la arquitectura romana y la griega.",
@@ -251,14 +251,15 @@ P.append(dict(
 # ---------------------------------------------------------------- PROFESORADO
 P.append(dict(
     slug="repositorio-digital", cat="profesorado", year="2024 · 2026",
-    title="Repositorio digital docente", tags=["Web de centro", "Presentado en Braining 2025"],
+    title="Repositorio digital docente", tags=["Web de recursos", "Profesorado"], kind="caso",
     card="La web de herramientas que creé para un centro en 2024 y su revisión de 2026 para Secundaria.",
     viz="v-caja",
     h1="Del repositorio de centro a la caja de herramientas",
     lede="En las prácticas del Máster en Tecnología Educativa, como coordinador TIC en prácticas del Colegio Cerrado de Calderón (Málaga), creé un repositorio de herramientas digitales para todo el claustro. El centro lo presentó en el IX Congreso Internacional de Creatividad Educativa (Braining, Valencia, abril de 2025). En 2026 lo he revisado y rehecho para Secundaria.",
     meta=[("Para quién", "El claustro del centro (2024) y docentes de Secundaria (2026)"),
           ("Tipo", "Web de recursos y autoformación"),
-          ("Herramientas", "Google Sites (2024) · web propia (2026)")],
+          ("Herramientas", "Google Sites (2024) · web propia (2026)"),
+          ("Reconocimiento", "Presentado por el centro en Braining 2025")],
     links=[("Abrir la caja de herramientas", "/herramientas/", "int"),
            ("Ver el repositorio original", "https://sites.google.com/view/repositorio-digital-docente-cc/inicio", "ext"),
            ("Noticia de Braining", "https://colegiocerradodecalderon.es/braining/", "ext")],
@@ -283,7 +284,7 @@ P.append(dict(
 
 P.append(dict(
     slug="audita-tu-programacion", cat="profesorado", year="2026",
-    title="Audita tu programación", tags=["Guía docente", "IA para el docente"],
+    title="Audita tu programación", tags=["Guía (PDF)", "Profesorado"], kind="ficha",
     card="Un método con NotebookLM para encontrar criterios de evaluación que no se evalúan en ninguna actividad.",
     viz="v-aud",
     lede="Una programación didáctica tiene decenas de páginas y nadie la sostiene entera en la cabeza. El fallo típico es un criterio de evaluación que está en la tabla y luego no se evalúa en ninguna actividad. Esta guía usa NotebookLM para localizar esos huecos, con cita y página.",
@@ -308,7 +309,7 @@ P.append(dict(
 
 P.append(dict(
     slug="el-bombo", cat="profesorado", year="2026",
-    title="El bombo", tags=["Oposiciones", "Herramienta"],
+    title="El bombo", tags=["Aplicación web", "Opositores"], kind="ficha",
     card="Calcula la probabilidad de que salga alguno de tus temas en el sorteo de las oposiciones.",
     viz="v-bombo",
     lede="Una calculadora para opositores: calcula la probabilidad de que en el sorteo salga al menos uno de los temas que llevas preparados. Sirve para cualquier especialidad.",
@@ -322,12 +323,12 @@ P.append(dict(
 <p>Decidir cuántos temas preparar es una de las dudas más habituales al opositar. Ver la probabilidad real ayuda a planificar el estudio con datos en lugar de intuiciones.</p>"""),
     ],
     value=["Resolver una necesidad concreta con una herramienta sencilla y sin pedir datos."],
-    related=["audita-tu-programacion", "mapa-de-relieves", "repositorio-digital"],
+    related=["audita-tu-programacion", "rubrica-materiales-digitales", "repositorio-digital"],
 ))
 
 P.append(dict(
     slug="rubrica-materiales-digitales", cat="profesorado", year="2024",
-    title="Rúbrica de materiales digitales", tags=["Evaluación", "Formulario"],
+    title="Rúbrica de materiales digitales", tags=["Formulario", "Profesorado"], kind="ficha",
     card="Una rúbrica en formulario para valorar un recurso digital antes de llevarlo al aula.",
     viz="v-rub",
     lede="Una rúbrica en formulario para valorar un recurso digital con criterios comunes antes de llevarlo al aula: la calidad del contenido, la accesibilidad y el uso que se le puede dar en clase.",
@@ -342,7 +343,7 @@ P.append(dict(
 
 P.append(dict(
     slug="e-portfolio-master", cat="profesorado", year="2024",
-    title="e-Portfolio del máster", tags=["Máster", "Formación"],
+    title="e-Portfolio del máster", tags=["Portfolio", "Máster"], kind="ficha",
     card="Los cinco módulos del Máster en Tecnología Educativa reunidos en una web.",
     viz="v-epo",
     lede="El portfolio digital del Máster en Tecnología Educativa y Competencias Digitales (Universidad Europea, 2023-2024). Recoge el trabajo de los cinco módulos: curación de información, visualización, Aula del Futuro y más.",

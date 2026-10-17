@@ -20,4 +20,13 @@ const f=()=>document.body.classList.toggle('stuck',scrollY>8);addEventListener('
 // los personajes del Consejo hablan por turnos
 const m=document.querySelectorAll('.council span');
 if(m.length&&!reduce){let i=0;setInterval(()=>{m.forEach(e=>e.classList.remove('talk'));m[i%m.length].classList.add('talk');i++},1400)}
+// filtros del índice de proyectos
+const fb=[...document.querySelectorAll('.catnav button')];
+if(fb.length){const st=document.getElementById('filtro-estado');fb.forEach(b=>b.addEventListener('click',()=>{
+ fb.forEach(x=>x.setAttribute('aria-pressed',x===b));const c=b.dataset.cat;
+ document.querySelectorAll('.pcat').forEach(s=>{s.hidden=!(c==='all'||s.id===c);if(!s.hidden)s.querySelectorAll('.rv').forEach(r=>r.classList.add('in'))});
+ if(st)st.textContent=c==='all'?'Mostrando todos los proyectos':'Mostrando: '+b.firstChild.textContent.trim();
+}));
+// si se llega con #categoría, se aplica ese filtro
+const h=location.hash.slice(1);const pre=fb.find(b=>b.dataset.cat===h);if(pre)pre.click();}
 })();

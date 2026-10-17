@@ -64,7 +64,7 @@ FAVICON = re.search(r'<link rel="icon"[^>]*>', SRC).group(0)
 FONTS = '''<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alegreya+SC:wght@700&family=Alegreya+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&display=swap">'''
-CSSV = "4"
+CSSV = "5"
 
 
 def head(title, desc, path, og="/assets/og.jpg"):
@@ -102,10 +102,10 @@ def topbar(active=""):
  <div class="bar">
   <a class="brand" href="/"><span class="logo" aria-hidden="true">{LOGO}</span><span><b>Jorge Delgado</b><small>Geografía e Historia</small></span></a>
   <nav aria-label="Principal">
-   {a("/proyectos/", "Proyectos", "proyectos")}
+   {a("/proyectos/", "Proyectos", "proyectos").replace("<a ", "<a class=\"nav-key\" ",1)}
    {a("/#sobre-mi", "Sobre mí", "sobre")}
-   {a("/herramientas/", "Herramientas", "herr")}
-   <a href="/assets/pdf/CV-Jorge-Delgado-Aguilera.pdf" download>CV</a>
+   {a("/herramientas/", "Caja de herramientas", "herr")}
+   <a class="cv" href="/assets/pdf/CV-Jorge-Delgado-Aguilera.pdf" download aria-label="Descargar CV (PDF)">CV <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg></a>
    <a class="hire" href="/#contacto">Contacto</a>
   </nav>
  </div>
@@ -154,6 +154,16 @@ def home():
     # dentro de «Sobre mí» los bloques usan h3 en vez de h2
     exp = exp.replace('<span class="lab">Experiencia docente</span><h2>En el aula</h2>', '<span class="lab">Experiencia docente</span><h3 class="h3big">En el aula</h3>')
     form = form.replace('<span class="lab">Formación</span><h2>De la Historia al aula digital</h2>', '<span class="lab">Formación</span><h3 class="h3big">De la Historia al aula digital</h3>')
+    form = form.replace('<br><em>Matrícula de Honor en el TFM</em>', '')
+    form = form.replace('<em>TFM: asistente GPT para 2.º ESO</em>', '<em><a href="/proyectos/asistente-gpt-2eso/">TFM: asistente de IA para 2.º ESO</a></em>')
+    exp = exp.replace('<li>Repositorio digital para todo el claustro.</li>', '<li><a href="/proyectos/repositorio-digital/">Repositorio digital</a> para todo el claustro.</li>')
+    # cintas de herramientas: la animación se oculta a lectores de pantalla y se ofrece la lista una sola vez
+    items = []
+    for row in re.findall(r'<div class="marq[^"]*"[^>]*><div class="track">(.*?)</div></div>', form, re.S):
+        for t in re.findall(r'<span(?: class="k")?>([^<]+)</span>', row):
+            if t not in items: items.append(t)
+    form = re.sub(r'<div class="marq( rev)?" aria-label="[^"]*">', lambda m: f'<div class="marq{m.group(1) or ""}" aria-hidden="true">', form)
+    form = form.replace('<div class="marq"', '<ul class="vh">' + "".join(f"<li>{t}</li>" for t in items) + '</ul>\n    <div class="marq"', 1)
     form = form.replace('<h3 class="big" style="margin-top:8px">Con qué trabajo</h3>', '<h3 class="big h3big" style="margin-top:8px">Con qué trabajo</h3>')
     feat = "\n".join(card(BY[s]) for s in FEATURED)
     body = f'''
@@ -177,7 +187,7 @@ def home():
  <section class="sec" id="proyectos" aria-labelledby="dest-h">
   <div class="sec-head rv">
    <div><span class="lab">Proyectos destacados</span><h2 id="dest-h">Lo que he construido</h2></div>
-   <p>Cuatro trabajos que muestran lo que hago: una herramienta con IA, un recurso para todo un claustro, una investigación académica y una actividad de aula.</p>
+   <p>Cuatro trabajos que muestran lo que hago: una herramienta con IA, un recurso para todo un claustro, un trabajo académico y una actividad de aula.</p>
   </div>
   <div class="pgrid">
 {feat}
@@ -206,7 +216,7 @@ def home():
 
 # ================================================================= ÍNDICE
 def index():
-    nav = "".join(f'<a href="#{k}">{c["name"]} <span>{sum(1 for p in P if p["cat"]==k)}</span></a>' for k, c in CATS.items())
+    nav = f'<button type="button" data-cat="all" aria-pressed="true">Todos <span>{len(P)}</span></button>' + "".join(f'<button type="button" data-cat="{k}" aria-pressed="false">{c["name"]} <span>{sum(1 for p in P if p["cat"]==k)}</span></button>' for k, c in CATS.items())
     secs = ""
     for k, c in CATS.items():
         cards = "\n".join(card(p) for p in P if p["cat"] == k)
@@ -222,9 +232,10 @@ def index():
  <section class="sec first">
   <div class="sec-head rv">
    <div><span class="lab">Proyectos</span><h1 class="h1page">Todo lo que he construido</h1></div>
-   <p>{len(P)} trabajos agrupados por para qué sirven. Cada uno tiene su página con el problema que resuelve, cómo está hecho y el enlace al recurso.</p>
+   <p>{len(P)} trabajos agrupados por para qué sirven. Los proyectos más grandes se explican a fondo; las actividades y recursos tienen una ficha breve con su descarga o su enlace.</p>
   </div>
-  <nav class="catnav rv" aria-label="Categorías">{nav}</nav>
+  <div class="catnav rv" role="group" aria-label="Filtrar por categoría">{nav}</div>
+  <p class="vh" aria-live="polite" id="filtro-estado"></p>
  </section>
 {secs}
 </main>'''
@@ -258,7 +269,7 @@ def project(p):
             gal += f'<details class="spoiler"><summary>{lab}</summary><figure><img src="{s}" alt="{html.escape(txt)}" loading="lazy"><figcaption>{txt}</figcaption></figure></details>'
         gal += "</section>"
     val = ""
-    if p.get("value"):
+    if p.get("value") and p.get("kind") == "caso":
         val = '\n <section class="psec rv"><h2>Qué demuestra</h2><ul class="pl">' + "".join(f"<li>{v}</li>" for v in p["value"]) + "</ul>"
         if p.get("note"):
             val += f'<p class="pnote">{p["note"]}</p>'
@@ -270,7 +281,7 @@ def project(p):
  <nav class="crumbs" aria-label="Ruta"><a href="/proyectos/">Proyectos</a><span aria-hidden="true">/</span><a href="/proyectos/#{p["cat"]}">{c["name"]}</a></nav>
  <section class="bento phead" aria-labelledby="ph1">
   <div class="t dark ph-main rv">
-   <span class="lab">{" · ".join(html.escape(t) for t in p["tags"][:2])} · {p["year"]}</span>
+   <span class="lab">{"Caso de estudio" if p.get("kind")=="caso" else "Ficha"} · {" · ".join(html.escape(t) for t in p["tags"][:2])} · {p["year"]}</span>
    <h1 id="ph1">{h1}</h1>
    <p class="lede">{p["lede"]}</p>
    {f'<div class="cta">{links}</div>' if links else ''}
