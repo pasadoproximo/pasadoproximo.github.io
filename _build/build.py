@@ -188,7 +188,7 @@ def home():
  <section class="sec" id="proyectos" aria-labelledby="dest-h">
   <div class="sec-head rv">
    <div><span class="lab">Proyectos destacados</span><h2 id="dest-h">Lo que he construido</h2></div>
-   <p>Cuatro trabajos que muestran lo que hago: una herramienta con IA, un recurso para todo un claustro, un trabajo académico y una actividad de aula.</p>
+   <p>Cuatro trabajos que muestran lo que hago: un recurso para todo un claustro, un trabajo académico, una herramienta con IA y una actividad de aula.</p>
   </div>
   <div class="pgrid">
 {feat}

@@ -378,6 +378,6 @@ P.append(dict(
     related=["asistente-gpt-2eso", "repositorio-digital", "rubrica-materiales-digitales"],
 ))
 
-FEATURED = ["consejo-de-clio", "repositorio-digital", "asistente-gpt-2eso", "cazadores-de-bulos"]
+FEATURED = ["repositorio-digital", "asistente-gpt-2eso", "consejo-de-clio", "cazadores-de-bulos"]
 
 BY = {p["slug"]: p for p in P}
