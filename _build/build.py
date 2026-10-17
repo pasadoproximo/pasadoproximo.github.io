@@ -64,7 +64,7 @@ FAVICON = re.search(r'<link rel="icon"[^>]*>', SRC).group(0)
 FONTS = '''<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alegreya+SC:wght@700&family=Alegreya+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&display=swap">'''
-CSSV = "5"
+CSSV = "7"
 
 
 def head(title, desc, path, og="/assets/og.jpg"):
@@ -157,13 +157,14 @@ def home():
     form = form.replace('<br><em>Matrícula de Honor en el TFM</em>', '')
     form = form.replace('<em>TFM: asistente GPT para 2.º ESO</em>', '<em><a href="/proyectos/asistente-gpt-2eso/">TFM: asistente de IA para 2.º ESO</a></em>')
     exp = exp.replace('<li>Repositorio digital para todo el claustro.</li>', '<li><a href="/proyectos/repositorio-digital/">Repositorio digital</a> para todo el claustro.</li>')
-    # cintas de herramientas: la animación se oculta a lectores de pantalla y se ofrece la lista una sola vez
-    items = []
-    for row in re.findall(r'<div class="marq[^"]*"[^>]*><div class="track">(.*?)</div></div>', form, re.S):
-        for t in re.findall(r'<span(?: class="k")?>([^<]+)</span>', row):
-            if t not in items: items.append(t)
-    form = re.sub(r'<div class="marq( rev)?" aria-label="[^"]*">', lambda m: f'<div class="marq{m.group(1) or ""}" aria-hidden="true">', form)
-    form = form.replace('<div class="marq"', '<ul class="vh">' + "".join(f"<li>{t}</li>" for t in items) + '</ul>\n    <div class="marq"', 1)
+    # cintas de herramientas: una sola copia en el HTML, como lista; el script duplica la cinta
+    # (con aria-hidden) solo para la animación continua
+    def lista(m):
+        rev, label, inner = m.group(1) or "", m.group(2), m.group(3)
+        items = re.findall(r'<span( class="k")?>([^<]+)</span>', inner)
+        lis = "".join(f'<li><span{k}>{t}</span></li>' for k, t in items)
+        return f'<div class="marq{rev}"><ul class="track" aria-label="{label}">{lis}</ul></div>'
+    form = re.sub(r'<div class="marq( rev)?" aria-label="([^"]*)"><div class="track">(.*?)</div></div>', lista, form, flags=re.S)
     form = form.replace('<h3 class="big" style="margin-top:8px">Con qué trabajo</h3>', '<h3 class="big h3big" style="margin-top:8px">Con qué trabajo</h3>')
     feat = "\n".join(card(BY[s]) for s in FEATURED)
     body = f'''

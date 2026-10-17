@@ -20,6 +20,8 @@ const f=()=>document.body.classList.toggle('stuck',scrollY>8);addEventListener('
 // los personajes del Consejo hablan por turnos
 const m=document.querySelectorAll('.council span');
 if(m.length&&!reduce){let i=0;setInterval(()=>{m.forEach(e=>e.classList.remove('talk'));m[i%m.length].classList.add('talk');i++},1400)}
+// cintas de «Con qué trabajo»: se duplica la lista solo para el bucle visual, oculta a lectores de pantalla
+if(!reduce)document.querySelectorAll('.marq .track').forEach(t=>{[...t.children].forEach(li=>{const c=li.cloneNode(true);c.setAttribute('aria-hidden','true');t.appendChild(c)});t.closest('.marq').classList.add('loop')});
 // filtros del índice de proyectos
 const fb=[...document.querySelectorAll('.catnav button')];
 if(fb.length){const st=document.getElementById('filtro-estado');fb.forEach(b=>b.addEventListener('click',()=>{

@@ -706,3 +706,11 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var
 @media (max-width:780px){.bar nav a.cv{display:none}}
 @media (max-width:440px){.brand small{display:none}.brand b{white-space:nowrap}.bar nav a{padding:8px 10px;font-size:15px}}
 .steps+p,.pl+p{margin-top:16px!important}
+/* cintas: una sola lista en el HTML; la animación solo se activa cuando el script ha duplicado la cinta */
+.marq ul{list-style:none;margin:0;padding:0}
+.marq .track{animation:none}
+.marq:not(.loop) .track{flex-wrap:wrap;width:auto;row-gap:10px}
+.marq:not(.loop){-webkit-mask-image:none!important;mask-image:none!important}
+.marq.loop .track{animation:slide 48s linear infinite}
+.marq.loop.rev .track{animation:slide 56s linear infinite reverse}
+.marq li{display:flex}.marq li>span{display:inline-block}.marq{padding-block:4px}

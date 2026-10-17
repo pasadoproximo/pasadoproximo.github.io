@@ -11,8 +11,8 @@ CATS = {
         "desc": "Situaciones de aprendizaje listas para llevar a clase, con su guía docente y sus materiales.",
     },
     "profesorado": {
-        "name": "Para el profesorado",
-        "desc": "Recursos, guías y formación pensados para el trabajo del docente, no para el del alumnado.",
+        "name": "Profesorado y formación",
+        "desc": "Recursos y guías para el trabajo del docente, y el portfolio de mi propia formación.",
     },
 }
 
