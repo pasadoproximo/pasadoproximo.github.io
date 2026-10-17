@@ -64,7 +64,7 @@ FAVICON = re.search(r'<link rel="icon"[^>]*>', SRC).group(0)
 FONTS = '''<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alegreya+SC:wght@700&family=Alegreya+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&display=swap">'''
-CSSV = "8"
+CSSV = "11"
 
 
 def head(title, desc, path, og="/assets/og.jpg"):
@@ -100,7 +100,7 @@ def topbar(active=""):
     return f'''
 <header class="top">
  <div class="bar">
-  <a class="brand" href="/"><span class="logo" aria-hidden="true">{LOGO}</span><span><b>Jorge Delgado</b><small>Materiales educativos digitales</small></span></a>
+  <a class="brand" href="/" aria-label="Inicio · Jorge Delgado Aguilera"><span class="logo" aria-hidden="true">{LOGO}</span></a>
   <nav aria-label="Principal">
    {a("/proyectos/", "Proyectos", "proyectos").replace("<a ", "<a class=\"nav-key\" ",1)}
    {a("/#sobre-mi", "Sobre mí", "sobre")}
@@ -157,27 +157,33 @@ def home():
     form = form.replace('<br><em>Matrícula de Honor en el TFM</em>', '')
     form = form.replace('<em>TFM: asistente GPT para 2.º ESO</em>', '<em><a href="/proyectos/asistente-gpt-2eso/">TFM: asistente de IA para 2.º ESO</a></em>')
     exp = exp.replace('<li>Repositorio digital para todo el claustro.</li>', '<li><a href="/proyectos/repositorio-digital/">Repositorio digital</a> para todo el claustro.</li>')
-    # cintas de herramientas: una sola copia en el HTML, como lista; el script duplica la cinta
-    # (con aria-hidden) solo para la animación continua
-    def lista(m):
-        rev, label, inner = m.group(1) or "", m.group(2), m.group(3)
-        items = re.findall(r'<span( class="k")?>([^<]+)</span>', inner)
-        lis = "".join(f'<li><span{k}>{t}</span></li>' for k, t in items)
-        return f'<div class="marq{rev}"><ul class="track" aria-label="{label}">{lis}</ul></div>'
-    form = re.sub(r'<div class="marq( rev)?" aria-label="([^"]*)"><div class="track">(.*?)</div></div>', lista, form, flags=re.S)
+    # «Con qué trabajo»: en vez de las cintas de texto, una rejilla fija de logos agrupada por uso
+    def grupo(titulo, items, nota=""):
+        lis = "".join(f'<li><img src="/herramientas/logos/{f}.png" alt="" width="40" height="40" loading="lazy"><span>{n}</span></li>' for n, f in items)
+        extra = f'<p class="tg-note">{nota}</p>' if nota else ""
+        return f'<div class="tg"><span class="lab">{titulo}</span><ul>{lis}</ul>{extra}</div>'
+    tools = '<div class="tgrid">' + "".join([
+        grupo("Inteligencia artificial", [("Claude", "claude"), ("ChatGPT", "chatgpt"), ("Gemini", "gemini"), ("Copilot", "copilot")],
+              "También GPT personalizados y agentes de IA."),
+        grupo("Aula virtual", [("Moodle", "moodle"), ("Classroom", "classroom"), ("Teams", "teams")]),
+        grupo("Crear y evaluar", [("Genially", "genially"), ("Canva", "canva"), ("Book Creator", "bookcreator"), ("CapCut", "capcut"),
+                                  ("Kahoot", "kahoot"), ("Mentimeter", "mentimeter"), ("Wooclap", "wooclap"), ("Edpuzzle", "edpuzzle"), ("Jotform", "jotform")]),
+        grupo("Geografía e Historia", [("Arts &amp; Culture", "artsculture"), ("GeaCron", "geacron"), ("Timetoast", "timetoast"),
+                                       ("KGeography", "kgeography"), ("Visitas 360º", "visitas")]),
+    ]) + '</div>'
+    form = re.sub(r'(<div class="marq( rev)?" aria-label="[^"]*"><div class="track">.*?</div></div>\s*)+', tools, form, count=1, flags=re.S)
     form = form.replace('<h3 class="big" style="margin-top:8px">Con qué trabajo</h3>', '<h3 class="big h3big" style="margin-top:8px">Con qué trabajo</h3>')
     feat = "\n".join(card(BY[s]) for s in FEATURED)
     body = f'''
 <main id="contenido">
  <section class="bento hero2" aria-label="Presentación">
   <div class="t dark h2-main rv">
-   <span class="lab">Diseño de materiales educativos digitales · Profesor de Geografía e Historia</span>
+   <span class="live"><span class="dot" aria-hidden="true"></span>Abierto a proyectos</span>
    <h1>Jorge Delgado Aguilera</h1>
-   <p class="value">Diseño actividades, herramientas y formación para que la tecnología, y en especial la IA, ayude al alumnado a hacer lo que pide la Historia: <b>leer fuentes, contrastar y argumentar.</b></p>
+   <p class="value">Diseño materiales educativos digitales y soy profesor de Geografía e Historia. Creo actividades, herramientas y formación para que la tecnología, y en especial la IA, ayude al alumnado a <b>leer fuentes, contrastar y argumentar.</b></p>
    <div class="cta">
     <a class="btn solid" href="/proyectos/">Ver proyectos <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
     <a class="btn line" href="#contacto">Contactar</a>
-    <span class="live"><span class="dot" aria-hidden="true"></span>Abierto a proyectos</span>
    </div>
   </div>
   <div class="t h-photo rv">
@@ -281,7 +287,8 @@ def render_section(x):
     after = re.sub(r"FIG:([^|]+)\|([^|]+)\|([^<]+)", lambda m: fig(m.group(1), m.group(2), m.group(3)), x.get("after", ""))
     head = f'<h2>{x["title"]}</h2>' if x.get("title") else ""
     cont = " cont" if not x.get("title") else ""
-    gal = f'<div class="gal{cols}">{figs}</div>' if figs else ""
+    frame = " frame" if x.get("frame") else ""
+    gal = f'<div class="gal{cols}{frame}">{figs}</div>' if figs else ""
     return f'\n <section class="psec{wide}{cont} rv">{head}{intro}{gal}{after}</section>'
 
 
@@ -321,7 +328,7 @@ def project(p):
   <div class="t ph-vis rv">{viz(p)}</div>
  </section>
  {f'<dl class="pmeta rv">{meta}</dl>' if meta else ''}
- <div class="pbody">{secs}{gal}{val}
+ <div class="pbody{' caso' if p.get('kind')=='caso' else ''}">{secs}{gal}{val}
  </div>
  <section class="sec related" aria-labelledby="rel-h">
   <div class="sec-head rv"><div><span class="lab">Sigue explorando</span><h2 id="rel-h">Proyectos relacionados</h2></div>

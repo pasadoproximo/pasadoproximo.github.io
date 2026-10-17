@@ -16,14 +16,14 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alegreya+SC:wght@700&family=Alegreya+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&display=swap">
-<link rel="stylesheet" href="/assets/site.css?v=8">
+<link rel="stylesheet" href="/assets/site.css?v=11">
 </head>
 <body>
 <a class="skip" href="#contenido">Saltar al contenido</a>
 <div class="wrap">
 <header class="top">
  <div class="bar">
-  <a class="brand" href="/"><span class="logo" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 26 26"><path d="M13 2 2 7h22L13 2Z" fill="#fff"/><rect x="3" y="8" width="20" height="2" fill="#fff"/><rect x="5" y="11" width="2.4" height="9" fill="#fff"/><rect x="9.6" y="11" width="2.4" height="9" fill="#fff"/><rect x="14" y="11" width="2.4" height="9" fill="#fff"/><rect x="18.6" y="11" width="2.4" height="9" fill="#fff"/><rect x="2" y="21" width="22" height="2.4" fill="#fff"/></svg></span><span><b>Jorge Delgado</b><small>Materiales educativos digitales</small></span></a>
+  <a class="brand" href="/" aria-label="Inicio · Jorge Delgado Aguilera"><span class="logo" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 26 26"><path d="M13 2 2 7h22L13 2Z" fill="#fff"/><rect x="3" y="8" width="20" height="2" fill="#fff"/><rect x="5" y="11" width="2.4" height="9" fill="#fff"/><rect x="9.6" y="11" width="2.4" height="9" fill="#fff"/><rect x="14" y="11" width="2.4" height="9" fill="#fff"/><rect x="18.6" y="11" width="2.4" height="9" fill="#fff"/><rect x="2" y="21" width="22" height="2.4" fill="#fff"/></svg></span></a>
   <nav aria-label="Principal">
    <a class="nav-key" href="/proyectos/" aria-current="page">Proyectos</a>
    <a href="/#sobre-mi">Sobre mí</a>
@@ -40,7 +40,7 @@
   <div class="t dark ph-main rv">
    <span class="lab">Caso de estudio · Trabajo Fin de Máster · 2.º ESO · 2024</span>
    <h1 id="ph1">PasadoPróximo-2ºESO: un asistente de IA que guía sin resolver</h1>
-   <p class="lede">Mi Trabajo Fin del Máster en Tecnología Educativa (Universidad Europea, 2023-2024): un asistente creado con los GPT personalizados de ChatGPT para acompañar a un grupo de 2.º ESO en Geografía e Historia. No hace la tarea por el alumno: le ayuda a hacerla y le dice de dónde sale cada respuesta.</p>
+   <p class="lede">Mi TFM del Máster en Tecnología Educativa (Universidad Europea, 2023-2024): un GPT personalizado que acompaña a un grupo de 2.º ESO en Geografía e Historia. No hace la tarea: ayuda a hacerla y dice de dónde sale cada respuesta.</p>
    <div class="cta"><a class="btn solid" href="/assets/pdf/tfm-asistente-gpt-2eso.pdf" download>Leer el TFM completo (PDF) <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg></a></div>
    
   </div>
@@ -50,37 +50,37 @@
      <span class="a">No puedo hacerla por ti, pero sí guiarte para que la completes. ¿En qué parte te atascas?</span></div></div>
  </section>
  <dl class="pmeta rv"><div><dt>Para quién</dt><dd>Un grupo de 2.º ESO y su docente de Geografía e Historia</dd></div><div><dt>Tipo</dt><dd>Trabajo Fin de Máster · propuesta didáctica</dd></div><div><dt>Herramientas</dt><dd>GPT personalizado (GPT-4o) y Google Classroom</dd></div><div><dt>Estado</dt><dd>Configurado y probado en simulación. Sin pilotar con alumnado</dd></div></dl>
- <div class="pbody">
+ <div class="pbody caso">
  <section class="psec rv"><h2>El problema</h2>
-<p>Un instituto público de una barriada de Málaga y un grupo de 2.º ESO heterogéneo, con alumnado desenganchado y varios casos que necesitan apoyos distintos. El TFM parte de siete necesidades:</p>
-<ul class="pl two">
-<li><b>Aulas llenas:</b> 25 a 30 estudiantes por grupo.</li>
-<li><b>Retroalimentación tardía:</b> el error se descubre cuando ya ha pasado.</li>
-<li><b>Recursos poco adaptados</b> a cada alumno.</li>
-<li><b>Dudas en casa</b> sin nadie a quien preguntar.</li>
-<li><b>Desinformación:</b> hace falta aprender a contrastar.</li>
-<li><b>Mal uso de ChatGPT</b> para que haga la tarea.</li>
-<li><b>Recelo docente</b> ante la IA sin haberla probado.</li>
+<p class="psub">Un grupo heterogéneo de 2.º ESO en un instituto público de una barriada de Málaga. El TFM parte de siete necesidades.</p>
+<ul class="needs">
+<li><b>Aulas llenas</b><span>25 a 30 estudiantes por grupo.</span></li>
+<li><b>Retroalimentación tardía</b><span>El error se ve cuando ya ha pasado.</span></li>
+<li><b>Recursos poco adaptados</b><span>Iguales para alumnos que necesitan apoyos distintos.</span></li>
+<li><b>Dudas en casa</b><span>Sin nadie a quien preguntar.</span></li>
+<li><b>Desinformación</b><span>Hace falta aprender a contrastar.</span></li>
+<li><b>Mal uso de ChatGPT</b><span>Para que haga la tarea.</span></li>
+<li><b>Recelo docente</b><span>Ante la IA, sin haberla probado.</span></li>
+<li class="needs-out"><b>La respuesta</b><span>Un asistente que guíe, no que resuelva.</span></li>
 </ul></section>
- <section class="psec wide rv"><h2>La decisión clave: guiar, no resolver</h2><p>En las pruebas apareció el fallo más importante: cuando se le pedía una actividad, el asistente la resolvía. Así perdía todo su valor didáctico. Lo reconfiguré para que se negara a hacerla y ofreciera ayuda para llegar a la respuesta.</p><div class="vs">
-<div class="vs-a"><span class="vs-l">Antes del ajuste</span><p class="vs-q">«¿Puedes hacerme la actividad 2 del tema 1?»</p><p>El asistente <b>resolvía la actividad</b>. Lo documenté en las pruebas del TFM; no conservo captura de esa versión.</p></div>
+ <section class="psec wide rv"><h2>La decisión clave: guiar, no resolver</h2><p class="psub">En las pruebas, cuando se le pedía una actividad, la resolvía. Lo reconfiguré para que se niegue y ayude a llegar a la respuesta.</p><div class="vs">
+<div class="vs-a"><span class="vs-l">Antes del ajuste</span><p class="vs-q">«¿Puedes hacerme la actividad 2 del tema 1?»</p><p>El asistente <b>resolvía la actividad</b>. Está documentado en las pruebas del TFM; no conservo captura de esa versión.</p></div>
 <div class="vs-b"><span class="vs-l">Después del ajuste</span><figure><a href="/assets/proyectos/tfm/guia-sin-resolver.png" target="_blank" rel="noopener" aria-label="Ver la imagen a tamaño completo: El alumno pide «¿Puedes hacerme la actividad 2 del tema 1?» y el asistente responde que no puede realizarla por él, pero que puede guiarle para completarla"><img src="/assets/proyectos/tfm/guia-sin-resolver.png" alt="El alumno pide «¿Puedes hacerme la actividad 2 del tema 1?» y el asistente responde que no puede realizarla por él, pero que puede guiarle para completarla" loading="lazy" decoding="async" width="817" height="353"></a><figcaption>El asistente se niega y ofrece ayuda para hacerla.</figcaption></figure></div>
 </div></section>
- <section class="psec wide rv"><h2>Dice de dónde sale cada respuesta</h2><p>Prioriza los materiales de clase. Cuando la información no está en ellos, lo dice y avisa de que hay que comprobarla.</p><div class="gal"><figure><a href="/assets/proyectos/tfm/fuente-archivos.png" target="_blank" rel="noopener" aria-label="Ver la imagen a tamaño completo: Respuesta del asistente sobre la sociedad de la Península Ibérica medieval que termina indicando que la información sale del documento de la Unidad 5"><img src="/assets/proyectos/tfm/fuente-archivos.png" alt="Respuesta del asistente sobre la sociedad de la Península Ibérica medieval que termina indicando que la información sale del documento de la Unidad 5" loading="lazy" decoding="async" width="753" height="503"></a><figcaption>Si sale de los materiales, cita la unidad.</figcaption></figure><figure><a href="/assets/proyectos/tfm/fuente-ia.png" target="_blank" rel="noopener" aria-label="Ver la imagen a tamaño completo: Respuesta del asistente sobre Abderramán III que avisa de que la información ha sido generada por inteligencia artificial y debe verificarse"><img src="/assets/proyectos/tfm/fuente-ia.png" alt="Respuesta del asistente sobre Abderramán III que avisa de que la información ha sido generada por inteligencia artificial y debe verificarse" loading="lazy" decoding="async" width="1160" height="399"></a><figcaption>Si no, avisa de que la ha generado la IA y hay que verificarla.</figcaption></figure></div></section>
- <section class="psec rv"><h2>También sirve para repasar</h2><p>Tiene un banco de preguntas de cada unidad. El alumno responde y el asistente corrige lo que no ha entendido.</p><div class="gal one"><figure><a href="/assets/proyectos/tfm/correccion.png" target="_blank" rel="noopener" aria-label="Ver la imagen a tamaño completo: El alumno escribe que taifa significa impuesto sobre la tierra y el asistente le corrige: era un pequeño reino musulmán surgido tras la desintegración del Califato de Córdoba"><img src="/assets/proyectos/tfm/correccion.png" alt="El alumno escribe que taifa significa impuesto sobre la tierra y el asistente le corrige: era un pequeño reino musulmán surgido tras la desintegración del Califato de Córdoba" loading="lazy" decoding="async" width="877" height="631"></a><figcaption>Corrección de dos definiciones del tema de la Península Ibérica en la Edad Media.</figcaption></figure></div></section>
+ <section class="psec wide rv"><h2>Qué hace en la práctica</h2><p class="psub">Tres comportamientos configurados y probados. Pulsa una captura para verla completa.</p><div class="gal three frame"><figure><a href="/assets/proyectos/tfm/fuente-archivos.png" target="_blank" rel="noopener" aria-label="Ver la imagen a tamaño completo: Respuesta del asistente sobre la sociedad de la Península Ibérica medieval que termina indicando que la información sale del documento de la Unidad 5"><img src="/assets/proyectos/tfm/fuente-archivos.png" alt="Respuesta del asistente sobre la sociedad de la Península Ibérica medieval que termina indicando que la información sale del documento de la Unidad 5" loading="lazy" decoding="async" width="753" height="503"></a><figcaption><b>Cita la unidad.</b> Si la respuesta sale de los materiales de clase, dice de cuál.</figcaption></figure><figure><a href="/assets/proyectos/tfm/fuente-ia.png" target="_blank" rel="noopener" aria-label="Ver la imagen a tamaño completo: Respuesta del asistente sobre Abderramán III que avisa de que la información ha sido generada por inteligencia artificial y debe verificarse"><img src="/assets/proyectos/tfm/fuente-ia.png" alt="Respuesta del asistente sobre Abderramán III que avisa de que la información ha sido generada por inteligencia artificial y debe verificarse" loading="lazy" decoding="async" width="1160" height="399"></a><figcaption><b>Avisa si es IA.</b> Si no está en los materiales, lo dice y pide verificarlo.</figcaption></figure><figure><a href="/assets/proyectos/tfm/correccion.png" target="_blank" rel="noopener" aria-label="Ver la imagen a tamaño completo: El alumno escribe que taifa significa impuesto sobre la tierra y el asistente le corrige: era un pequeño reino musulmán surgido tras la desintegración del Califato de Córdoba"><img src="/assets/proyectos/tfm/correccion.png" alt="El alumno escribe que taifa significa impuesto sobre la tierra y el asistente le corrige: era un pequeño reino musulmán surgido tras la desintegración del Califato de Córdoba" loading="lazy" decoding="async" width="877" height="631"></a><figcaption><b>Corrige el repaso.</b> Con un banco de preguntas por unidad, explica lo que no se ha entendido.</figcaption></figure></div></section>
  <section class="psec rv"><h2>Cómo se hizo</h2>
-<ol class="steps">
-<li><b>Necesidades y objetivos</b> del grupo, con el marco de la LOMLOE, el currículo andaluz, el DUA y la protección de datos.</li>
-<li><b>Materiales:</b> nueve unidades del curso, guías (comentario de texto, resumen, línea del tiempo…), banco de preguntas, rúbricas y un tablón de anuncios.</li>
-<li><b>Configuración:</b> contexto del grupo sin datos personales, prioridad a los materiales, fuentes académicas y aviso de origen en cada respuesta.</li>
-<li><b>Pruebas simuladas y ajustes</b>, recogidas en el anexo del TFM.</li>
-<li><b>Plan para el aula:</b> cuestionario inicial, sesión de uso ético, reunión con familias, cinco actividades de ejemplo y evaluación con rúbricas y revisión de conversaciones.</li>
+<ol class="hsteps">
+<li><b>Necesidades</b><span>Objetivos del grupo con la LOMLOE, el currículo andaluz, el DUA y la protección de datos.</span></li>
+<li><b>Materiales</b><span>Nueve unidades, guías de trabajo, banco de preguntas, rúbricas y tablón de anuncios.</span></li>
+<li><b>Configuración</b><span>Sin datos personales, con prioridad a los materiales y aviso de origen.</span></li>
+<li><b>Pruebas</b><span>Simulaciones y ajustes, recogidos en el anexo del TFM.</span></li>
+<li><b>Plan de aula</b><span>Cuestionario inicial, sesión de uso ético, familias, cinco actividades y rúbricas.</span></li>
 </ol></section>
  <section class="psec rv"><h2>Lo comprobado y lo pendiente</h2>
 <div class="status">
-<div><span class="st-l ok">Comprobado</span><p>Que el asistente se puede configurar para guiar sin resolver, priorizar los materiales y avisar del origen de cada dato. Lo muestran las capturas, que son de las pruebas de configuración.</p></div>
-<div><span class="st-l exp">Esperado, sin evaluar</span><p>Más comprensión de los contenidos, autonomía y pensamiento crítico. El TFM lo plantea como objetivos y propone cómo medirlos, pero no hay datos.</p></div>
-<div><span class="st-l pend">Pendiente</span><p>Pilotarlo con un grupo real y pasar el cuestionario de efectividad. Riesgos a vigilar: dependencia tecnológica, sobrecarga de información y formación docente.</p></div>
+<div class="s-ok"><span class="st-l ok">Comprobado</span><p>Guía sin resolver, prioriza los materiales y avisa del origen de cada dato. Lo muestran las capturas de las pruebas.</p></div>
+<div class="s-exp"><span class="st-l exp">Esperado, sin evaluar</span><p>Más comprensión, autonomía y pensamiento crítico. El TFM propone cómo medirlo, pero aún no hay datos.</p></div>
+<div class="s-pend"><span class="st-l pend">Pendiente</span><p>Pilotarlo con un grupo real. Riesgos a vigilar: dependencia, sobrecarga de información y formación docente.</p></div>
 </div></section>
  </div>
  <section class="sec related" aria-labelledby="rel-h">
@@ -118,6 +118,6 @@
 </main>
 <footer><span>© 2026 Jorge Delgado Aguilera</span><span>Campanillas, Málaga</span></footer>
 </div>
-<script src="/assets/site.js?v=8" defer></script>
+<script src="/assets/site.js?v=11" defer></script>
 </body>
 </html>

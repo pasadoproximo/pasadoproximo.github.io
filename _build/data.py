@@ -36,7 +36,7 @@ P.append(dict(
     card="Un GPT que guía al alumnado sin darle la respuesta y dice siempre de dónde sale cada dato.",
     viz="v-chat",
     h1="PasadoPróximo-2ºESO: un asistente de IA que guía sin resolver",
-    lede="Mi Trabajo Fin del Máster en Tecnología Educativa (Universidad Europea, 2023-2024): un asistente creado con los GPT personalizados de ChatGPT para acompañar a un grupo de 2.º ESO en Geografía e Historia. No hace la tarea por el alumno: le ayuda a hacerla y le dice de dónde sale cada respuesta.",
+    lede="Mi TFM del Máster en Tecnología Educativa (Universidad Europea, 2023-2024): un GPT personalizado que acompaña a un grupo de 2.º ESO en Geografía e Historia. No hace la tarea: ayuda a hacerla y dice de dónde sale cada respuesta.",
     meta=[("Para quién", "Un grupo de 2.º ESO y su docente de Geografía e Historia"),
           ("Tipo", "Trabajo Fin de Máster · propuesta didáctica"),
           ("Herramientas", "GPT personalizado (GPT-4o) y Google Classroom"),
@@ -44,46 +44,44 @@ P.append(dict(
     links=[("Leer el TFM completo (PDF)", "/assets/pdf/tfm-asistente-gpt-2eso.pdf", "dl")],
     sections=[
         ("El problema", """
-<p>Un instituto público de una barriada de Málaga y un grupo de 2.º ESO heterogéneo, con alumnado desenganchado y varios casos que necesitan apoyos distintos. El TFM parte de siete necesidades:</p>
-<ul class="pl two">
-<li><b>Aulas llenas:</b> 25 a 30 estudiantes por grupo.</li>
-<li><b>Retroalimentación tardía:</b> el error se descubre cuando ya ha pasado.</li>
-<li><b>Recursos poco adaptados</b> a cada alumno.</li>
-<li><b>Dudas en casa</b> sin nadie a quien preguntar.</li>
-<li><b>Desinformación:</b> hace falta aprender a contrastar.</li>
-<li><b>Mal uso de ChatGPT</b> para que haga la tarea.</li>
-<li><b>Recelo docente</b> ante la IA sin haberla probado.</li>
+<p class="psub">Un grupo heterogéneo de 2.º ESO en un instituto público de una barriada de Málaga. El TFM parte de siete necesidades.</p>
+<ul class="needs">
+<li><b>Aulas llenas</b><span>25 a 30 estudiantes por grupo.</span></li>
+<li><b>Retroalimentación tardía</b><span>El error se ve cuando ya ha pasado.</span></li>
+<li><b>Recursos poco adaptados</b><span>Iguales para alumnos que necesitan apoyos distintos.</span></li>
+<li><b>Dudas en casa</b><span>Sin nadie a quien preguntar.</span></li>
+<li><b>Desinformación</b><span>Hace falta aprender a contrastar.</span></li>
+<li><b>Mal uso de ChatGPT</b><span>Para que haga la tarea.</span></li>
+<li><b>Recelo docente</b><span>Ante la IA, sin haberla probado.</span></li>
+<li class="needs-out"><b>La respuesta</b><span>Un asistente que guíe, no que resuelva.</span></li>
 </ul>"""),
         dict(title="La decisión clave: guiar, no resolver",
-             intro="<p>En las pruebas apareció el fallo más importante: cuando se le pedía una actividad, el asistente la resolvía. Así perdía todo su valor didáctico. Lo reconfiguré para que se negara a hacerla y ofreciera ayuda para llegar a la respuesta.</p>",
+             intro='<p class="psub">En las pruebas, cuando se le pedía una actividad, la resolvía. Lo reconfiguré para que se niegue y ayude a llegar a la respuesta.</p>',
              cols=2,
              figs=[],
              after="""<div class="vs">
-<div class="vs-a"><span class="vs-l">Antes del ajuste</span><p class="vs-q">«¿Puedes hacerme la actividad 2 del tema 1?»</p><p>El asistente <b>resolvía la actividad</b>. Lo documenté en las pruebas del TFM; no conservo captura de esa versión.</p></div>
+<div class="vs-a"><span class="vs-l">Antes del ajuste</span><p class="vs-q">«¿Puedes hacerme la actividad 2 del tema 1?»</p><p>El asistente <b>resolvía la actividad</b>. Está documentado en las pruebas del TFM; no conservo captura de esa versión.</p></div>
 <div class="vs-b"><span class="vs-l">Después del ajuste</span>""" + FIG_GUIA + """</div>
 </div>"""),
-        dict(title="Dice de dónde sale cada respuesta",
-             intro="<p>Prioriza los materiales de clase. Cuando la información no está en ellos, lo dice y avisa de que hay que comprobarla.</p>",
-             cols=2,
-             figs=[("/assets/proyectos/tfm/fuente-archivos.png", "Respuesta del asistente sobre la sociedad de la Península Ibérica medieval que termina indicando que la información sale del documento de la Unidad 5", "Si sale de los materiales, cita la unidad."),
-                   ("/assets/proyectos/tfm/fuente-ia.png", "Respuesta del asistente sobre Abderramán III que avisa de que la información ha sido generada por inteligencia artificial y debe verificarse", "Si no, avisa de que la ha generado la IA y hay que verificarla.")]),
-        dict(title="También sirve para repasar",
-             intro="<p>Tiene un banco de preguntas de cada unidad. El alumno responde y el asistente corrige lo que no ha entendido.</p>",
-             cols=1,
-             figs=[("/assets/proyectos/tfm/correccion.png", "El alumno escribe que taifa significa impuesto sobre la tierra y el asistente le corrige: era un pequeño reino musulmán surgido tras la desintegración del Califato de Córdoba", "Corrección de dos definiciones del tema de la Península Ibérica en la Edad Media.")]),
+        dict(title="Qué hace en la práctica",
+             intro='<p class="psub">Tres comportamientos configurados y probados. Pulsa una captura para verla completa.</p>',
+             cols=3, frame=True,
+             figs=[("/assets/proyectos/tfm/fuente-archivos.png", "Respuesta del asistente sobre la sociedad de la Península Ibérica medieval que termina indicando que la información sale del documento de la Unidad 5", "<b>Cita la unidad.</b> Si la respuesta sale de los materiales de clase, dice de cuál."),
+                   ("/assets/proyectos/tfm/fuente-ia.png", "Respuesta del asistente sobre Abderramán III que avisa de que la información ha sido generada por inteligencia artificial y debe verificarse", "<b>Avisa si es IA.</b> Si no está en los materiales, lo dice y pide verificarlo."),
+                   ("/assets/proyectos/tfm/correccion.png", "El alumno escribe que taifa significa impuesto sobre la tierra y el asistente le corrige: era un pequeño reino musulmán surgido tras la desintegración del Califato de Córdoba", "<b>Corrige el repaso.</b> Con un banco de preguntas por unidad, explica lo que no se ha entendido.")]),
         ("Cómo se hizo", """
-<ol class="steps">
-<li><b>Necesidades y objetivos</b> del grupo, con el marco de la LOMLOE, el currículo andaluz, el DUA y la protección de datos.</li>
-<li><b>Materiales:</b> nueve unidades del curso, guías (comentario de texto, resumen, línea del tiempo…), banco de preguntas, rúbricas y un tablón de anuncios.</li>
-<li><b>Configuración:</b> contexto del grupo sin datos personales, prioridad a los materiales, fuentes académicas y aviso de origen en cada respuesta.</li>
-<li><b>Pruebas simuladas y ajustes</b>, recogidas en el anexo del TFM.</li>
-<li><b>Plan para el aula:</b> cuestionario inicial, sesión de uso ético, reunión con familias, cinco actividades de ejemplo y evaluación con rúbricas y revisión de conversaciones.</li>
+<ol class="hsteps">
+<li><b>Necesidades</b><span>Objetivos del grupo con la LOMLOE, el currículo andaluz, el DUA y la protección de datos.</span></li>
+<li><b>Materiales</b><span>Nueve unidades, guías de trabajo, banco de preguntas, rúbricas y tablón de anuncios.</span></li>
+<li><b>Configuración</b><span>Sin datos personales, con prioridad a los materiales y aviso de origen.</span></li>
+<li><b>Pruebas</b><span>Simulaciones y ajustes, recogidos en el anexo del TFM.</span></li>
+<li><b>Plan de aula</b><span>Cuestionario inicial, sesión de uso ético, familias, cinco actividades y rúbricas.</span></li>
 </ol>"""),
         ("Lo comprobado y lo pendiente", """
 <div class="status">
-<div><span class="st-l ok">Comprobado</span><p>Que el asistente se puede configurar para guiar sin resolver, priorizar los materiales y avisar del origen de cada dato. Lo muestran las capturas, que son de las pruebas de configuración.</p></div>
-<div><span class="st-l exp">Esperado, sin evaluar</span><p>Más comprensión de los contenidos, autonomía y pensamiento crítico. El TFM lo plantea como objetivos y propone cómo medirlos, pero no hay datos.</p></div>
-<div><span class="st-l pend">Pendiente</span><p>Pilotarlo con un grupo real y pasar el cuestionario de efectividad. Riesgos a vigilar: dependencia tecnológica, sobrecarga de información y formación docente.</p></div>
+<div class="s-ok"><span class="st-l ok">Comprobado</span><p>Guía sin resolver, prioriza los materiales y avisa del origen de cada dato. Lo muestran las capturas de las pruebas.</p></div>
+<div class="s-exp"><span class="st-l exp">Esperado, sin evaluar</span><p>Más comprensión, autonomía y pensamiento crítico. El TFM propone cómo medirlo, pero aún no hay datos.</p></div>
+<div class="s-pend"><span class="st-l pend">Pendiente</span><p>Pilotarlo con un grupo real. Riesgos a vigilar: dependencia, sobrecarga de información y formación docente.</p></div>
 </div>"""),
     ],
     related=["consejo-de-clio", "la-ia-tambien-miente", "audita-tu-programacion"],
@@ -99,7 +97,6 @@ P.append(dict(
           ("Tipo", "Aplicación web interactiva"),
           ("Herramientas", "Claude (artefacto web)")],
     links=[("Abrir el mapa", "/apps/mapa-de-relieves/", "int")],
-cta_note="Se abre en Claude. Puede pedir que inicies sesión.",
     sections=[
         ("Para qué sirve", """
 <p>El relieve de la Península se suele estudiar como una lista de nombres. El problema es que esa lista no dice dónde está cada cosa ni por qué está ahí. El mapa organiza el tema en cuatro bloques y une cada concepto con su lugar:</p>
@@ -340,7 +337,6 @@ P.append(dict(
           ("Herramientas", "Claude (artefacto web)"),
           ("Privacidad", "Los datos no salen del navegador")],
     links=[("Abrir El bombo", "/apps/el-bombo/", "int")],
-cta_note="Se abre en Claude. Puede pedir que inicies sesión.",
     sections=[
         ("Para qué sirve", """
 <p>Decidir cuántos temas preparar es una de las dudas más habituales al opositar. Ver la probabilidad real ayuda a planificar el estudio con datos en lugar de intuiciones.</p>"""),
