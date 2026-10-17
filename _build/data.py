@@ -17,6 +17,7 @@ CATS = {
 }
 
 ICON_EXT = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>'
+FIG_GUIA = "FIG:/assets/proyectos/tfm/guia-sin-resolver.png|El alumno pide «¿Puedes hacerme la actividad 2 del tema 1?» y el asistente responde que no puede realizarla por él, pero que puede guiarle para completarla|El asistente se niega y ofrece ayuda para hacerla."
 ICON_DL = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg>'
 
 P = []
@@ -34,50 +35,57 @@ P.append(dict(
     title="Asistente de IA para 2.º ESO", tags=["Trabajo Fin de Máster", "2.º ESO"], kind="caso",
     card="Un GPT que guía al alumnado sin darle la respuesta y dice siempre de dónde sale cada dato.",
     viz="v-chat",
-    h1="PasadoPróximo-2ºESO: un asistente de IA para la clase de Historia",
-    lede="Trabajo Fin del Máster en Tecnología Educativa y Competencias Digitales (Universidad Europea, curso 2023-2024). Propone un asistente creado con los GPT personalizados de ChatGPT para acompañar a un grupo de 2.º de ESO en Geografía e Historia, dentro y fuera del aula.",
+    h1="PasadoPróximo-2ºESO: un asistente de IA que guía sin resolver",
+    lede="Mi Trabajo Fin del Máster en Tecnología Educativa (Universidad Europea, 2023-2024): un asistente creado con los GPT personalizados de ChatGPT para acompañar a un grupo de 2.º ESO en Geografía e Historia. No hace la tarea por el alumno: le ayuda a hacerla y le dice de dónde sale cada respuesta.",
     meta=[("Para quién", "Un grupo de 2.º ESO y su docente de Geografía e Historia"),
           ("Tipo", "Trabajo Fin de Máster · propuesta didáctica"),
           ("Herramientas", "GPT personalizado (GPT-4o) y Google Classroom"),
-          ("Estado", "Diseñado y probado en simulación. Pendiente de pilotaje con alumnado")],
-    links=[("Leer el TFM completo", "/assets/pdf/tfm-asistente-gpt-2eso.pdf", "dl")],
+          ("Estado", "Configurado y probado en simulación. Sin pilotar con alumnado")],
+    links=[("Leer el TFM completo (PDF)", "/assets/pdf/tfm-asistente-gpt-2eso.pdf", "dl")],
     sections=[
         ("El problema", """
-<p>El punto de partida es un instituto público de una barriada de Málaga y un grupo de 2.º de ESO heterogéneo: alumnado que va bien, alumnado desenganchado de la materia y varios casos que necesitan apoyos distintos (dificultades con el idioma, discapacidad visual, altas capacidades). En ese contexto el TFM identifica siete necesidades concretas:</p>
-<ul class="pl">
-<li><b>Aulas llenas.</b> Con 25 a 30 estudiantes es muy difícil atender los ritmos de cada uno.</li>
-<li><b>Retroalimentación tardía.</b> El alumnado se entera de lo que no ha entendido cuando ya ha pasado.</li>
-<li><b>Recursos poco adaptados.</b> Preparar un material distinto para cada caso no es realista.</li>
-<li><b>Desconexión fuera del aula.</b> Muchos problemas aparecen en casa, al hacer la tarea sin nadie a quien preguntar.</li>
-<li><b>Desinformación.</b> Hace falta aprender a contrastar lo que se lee.</li>
-<li><b>Mal uso de ChatGPT.</b> Se usa para que haga la tarea, sin esfuerzo cognitivo.</li>
-<li><b>Recelo docente.</b> Parte del departamento rechaza la IA sin haberla probado.</li>
+<p>Un instituto público de una barriada de Málaga y un grupo de 2.º ESO heterogéneo, con alumnado desenganchado y varios casos que necesitan apoyos distintos. El TFM parte de siete necesidades:</p>
+<ul class="pl two">
+<li><b>Aulas llenas:</b> 25 a 30 estudiantes por grupo.</li>
+<li><b>Retroalimentación tardía:</b> el error se descubre cuando ya ha pasado.</li>
+<li><b>Recursos poco adaptados</b> a cada alumno.</li>
+<li><b>Dudas en casa</b> sin nadie a quien preguntar.</li>
+<li><b>Desinformación:</b> hace falta aprender a contrastar.</li>
+<li><b>Mal uso de ChatGPT</b> para que haga la tarea.</li>
+<li><b>Recelo docente</b> ante la IA sin haberla probado.</li>
 </ul>"""),
-        ("Qué se propone", """
-<p>Un asistente de clase que se nutre de los materiales del curso y no sustituye al docente. Las decisiones de diseño más importantes fueron estas:</p>
-<ol class="steps">
-<li><b>Primero, los materiales del aula.</b> Se le cargaron nueve unidades del curso, guías para hacer comentarios de texto, resúmenes o líneas del tiempo, un banco de preguntas de repaso, los enunciados y rúbricas de las actividades y un tablón de anuncios. Solo recurre a internet cuando el alumno quiere ampliar.</li>
-<li><b>Guía, no resuelve.</b> Si se le pide hacer una actividad, se niega y ofrece ayuda para que el alumno la haga.</li>
-<li><b>Dice de dónde sale cada respuesta.</b> Al final de cada respuesta indica si viene de los materiales de clase, de una fuente externa académica o institucional, o si la ha generado la IA. En ese último caso avisa de que puede tener errores y hay que comprobarla.</li>
-<li><b>Pensado para incluir.</b> Puede traducir, simplificar un texto, atender por voz desde el móvil o proponer retos a quien va más rápido.</li>
-<li><b>Acceso controlado.</b> Se comparte por enlace en Google Classroom, con la cuenta educativa, y sin introducir datos personales del alumnado.</li>
-</ol>"""),
+        dict(title="La decisión clave: guiar, no resolver",
+             intro="<p>En las pruebas apareció el fallo más importante: cuando se le pedía una actividad, el asistente la resolvía. Así perdía todo su valor didáctico. Lo reconfiguré para que se negara a hacerla y ofreciera ayuda para llegar a la respuesta.</p>",
+             cols=2,
+             figs=[],
+             after="""<div class="vs">
+<div class="vs-a"><span class="vs-l">Antes del ajuste</span><p class="vs-q">«¿Puedes hacerme la actividad 2 del tema 1?»</p><p>El asistente <b>resolvía la actividad</b>. Lo documenté en las pruebas del TFM; no conservo captura de esa versión.</p></div>
+<div class="vs-b"><span class="vs-l">Después del ajuste</span>""" + FIG_GUIA + """</div>
+</div>"""),
+        dict(title="Dice de dónde sale cada respuesta",
+             intro="<p>Prioriza los materiales de clase. Cuando la información no está en ellos, lo dice y avisa de que hay que comprobarla.</p>",
+             cols=2,
+             figs=[("/assets/proyectos/tfm/fuente-archivos.png", "Respuesta del asistente sobre la sociedad de la Península Ibérica medieval que termina indicando que la información sale del documento de la Unidad 5", "Si sale de los materiales, cita la unidad."),
+                   ("/assets/proyectos/tfm/fuente-ia.png", "Respuesta del asistente sobre Abderramán III que avisa de que la información ha sido generada por inteligencia artificial y debe verificarse", "Si no, avisa de que la ha generado la IA y hay que verificarla.")]),
+        dict(title="También sirve para repasar",
+             intro="<p>Tiene un banco de preguntas de cada unidad. El alumno responde y el asistente corrige lo que no ha entendido.</p>",
+             cols=1,
+             figs=[("/assets/proyectos/tfm/correccion.png", "El alumno escribe que taifa significa impuesto sobre la tierra y el asistente le corrige: era un pequeño reino musulmán surgido tras la desintegración del Califato de Córdoba", "Corrección de dos definiciones del tema de la Península Ibérica en la Edad Media.")]),
         ("Cómo se hizo", """
-<p>Primero, definir las necesidades y los objetivos. Después, preparar los materiales y configurar el GPT: contexto del centro y del grupo, funciones, niveles de acceso a la información y cuidado con las fuentes. Luego vinieron las pruebas simuladas. En ellas apareció el fallo más importante: cuando se le pedía una actividad, la resolvía. Se reconfiguró para que se negara a hacerlo, y también se reforzó que diera prioridad a los materiales de clase.</p>
-<p>La propuesta se completa con lo que hace falta para llevarla al aula: un cuestionario inicial sobre lo que el alumnado sabe de la IA, una sesión sobre su uso ético, una reunión informativa con las familias, cinco actividades de ejemplo (de un mapa mental colaborativo sobre la Edad Media a un debate sobre el término «Reconquista») y un plan de evaluación con rúbricas, autoevaluación, portfolio y revisión de las conversaciones.</p>"""),
+<ol class="steps">
+<li><b>Necesidades y objetivos</b> del grupo, con el marco de la LOMLOE, el currículo andaluz, el DUA y la protección de datos.</li>
+<li><b>Materiales:</b> nueve unidades del curso, guías (comentario de texto, resumen, línea del tiempo…), banco de preguntas, rúbricas y un tablón de anuncios.</li>
+<li><b>Configuración:</b> contexto del grupo sin datos personales, prioridad a los materiales, fuentes académicas y aviso de origen en cada respuesta.</li>
+<li><b>Pruebas simuladas y ajustes</b>, recogidas en el anexo del TFM.</li>
+<li><b>Plan para el aula:</b> cuestionario inicial, sesión de uso ético, reunión con familias, cinco actividades de ejemplo y evaluación con rúbricas y revisión de conversaciones.</li>
+</ol>"""),
+        ("Lo comprobado y lo pendiente", """
+<div class="status">
+<div><span class="st-l ok">Comprobado</span><p>Que el asistente se puede configurar para guiar sin resolver, priorizar los materiales y avisar del origen de cada dato. Lo muestran las capturas, que son de las pruebas de configuración.</p></div>
+<div><span class="st-l exp">Esperado, sin evaluar</span><p>Más comprensión de los contenidos, autonomía y pensamiento crítico. El TFM lo plantea como objetivos y propone cómo medirlos, pero no hay datos.</p></div>
+<div><span class="st-l pend">Pendiente</span><p>Pilotarlo con un grupo real y pasar el cuestionario de efectividad. Riesgos a vigilar: dependencia tecnológica, sobrecarga de información y formación docente.</p></div>
+</div>"""),
     ],
-    gallery=[
-        ("/assets/proyectos/tfm/guia-sin-resolver.png", "Se le pide que haga una actividad y responde que no puede hacerla, pero ofrece ayuda para completarla."),
-        ("/assets/proyectos/tfm/fuente-archivos.png", "La respuesta indica que la información sale de los materiales de clase, en este caso de la Unidad 5."),
-        ("/assets/proyectos/tfm/fuente-ia.png", "Cuando la información no está en los materiales, avisa de que la ha generado la IA y que hay que verificarla."),
-        ("/assets/proyectos/tfm/correccion.png", "Repaso: el alumno responde y el asistente corrige los conceptos mal entendidos."),
-    ],
-    gallery_title="Cómo responde",
-    value=["Detectar necesidades reales de un aula y convertirlas en objetivos.",
-           "Diseñar una herramienta de IA con criterios pedagógicos (DUA, LOMLOE) y de protección de datos.",
-           "Probar, encontrar fallos y corregirlos antes de llevarla al aula.",
-           "Plantear cómo se evaluaría, también sus riesgos: dependencia tecnológica, sobrecarga de información y falta de formación docente."],
-    note="Es una propuesta: no se ha probado con alumnado real, así que no hay resultados de aprendizaje que mostrar. Las capturas son de las pruebas que hice al configurar el asistente.",
     related=["consejo-de-clio", "la-ia-tambien-miente", "audita-tu-programacion"],
 ))
 
@@ -91,6 +99,7 @@ P.append(dict(
           ("Tipo", "Aplicación web interactiva"),
           ("Herramientas", "Claude (artefacto web)")],
     links=[("Abrir el mapa", "https://claude.ai/artifact/YNDYutXDuViE2pPjahzvFm", "ext")],
+cta_note="Se abre en Claude. Puede pedir que inicies sesión.",
     sections=[
         ("Para qué sirve", """
 <p>El relieve de la Península se suele estudiar como una lista de nombres. El problema es que esa lista no dice dónde está cada cosa ni por qué está ahí. El mapa organiza el tema en cuatro bloques y une cada concepto con su lugar:</p>
@@ -113,27 +122,34 @@ P.append(dict(
     title="Cazadores de bulos históricos", tags=["Actividad (PDF)", "4.º ESO y 2.º Bachillerato"], kind="ficha",
     card="Un texto escrito por una IA sobre la caída de Málaga en 1937, convincente y con nueve errores.",
     viz="v-bulos",
-    lede="Una inteligencia artificial ha escrito un texto sobre la caída de Málaga en 1937. Está bien redactado, suena convincente y tiene nueve errores. Ocho se cazan con el tema estudiado; el noveno, razonando.",
+    lede="Una IA ha escrito un texto sobre la caída de Málaga en 1937. Suena convincente y tiene nueve errores: ocho se cazan con el tema estudiado y el noveno, razonando. Sirve a la vez para repasar y para aprender a no fiarse de un texto solo porque está bien escrito.",
     meta=[("Nivel", "4.º ESO y 2.º Bachillerato"),
           ("Cuándo", "Al final de la unidad de la Guerra Civil, como repaso"),
           ("Duración", "Una sesión de 55 minutos, ampliable a dos"),
           ("Agrupamiento", "Parejas o grupos de 3")],
     links=[("Descargar la actividad (PDF)", "/assets/pdf/cazadores-de-bulos.pdf", "dl")],
     sections=[
-        ("Por qué funciona", """
-<p>Los errores no están escondidos en detalles de especialista: caen justo sobre lo que el alumnado acaba de estudiar. El mapa de julio de 1936, quién apoyó a cada bando, qué fueron las Brigadas Internacionales y dónde combatieron, la cronología de Madrid y Guernica. Quien ha seguido el tema los caza sin buscar nada. Quien no, descubre en veinte minutos qué no se sabía.</p>
-<p>Por eso sirve a la vez para dos cosas: aprender a no fiarse de un texto solo porque suena bien, y repasar. Al corregir la hoja se ve de un vistazo qué contenidos han quedado flojos.</p>"""),
+        ("Así empieza el texto", """
+<p>Un fragmento real del documento que recibe el alumnado. Te enseño dos de los nueve errores; los demás están en el PDF, con el solucionario para el docente.</p>
+<blockquote class="excerpt">
+<p><mark class="err" id="e1">Málaga fue una de las ciudades que quedaron en manos del bando sublevado desde el mismo comienzo de la guerra</mark><sup aria-hidden="true">1</sup>, en julio de 1936. Aun así, durante el invierno de 1937 se convirtió en uno de los frentes más activos del sur peninsular […]</p>
+<p>La defensa de la ciudad estuvo dirigida por <mark class="err" id="e2">el general José Miaja</mark><sup aria-hidden="true">2</sup>, el mismo que unos meses antes había organizado la resistencia de Madrid. […]</p>
+</blockquote>
+<dl class="errs">
+<div><dt><span>1</span> Málaga, sublevada desde julio de 1936</dt><dd>Falso. Málaga fue republicana hasta febrero de 1937. <b>Se comprueba</b> con el mapa de España en julio de 1936.</dd></div>
+<div><dt><span>2</span> El general Miaja dirigía la defensa</dt><dd>Falso. Miaja dirigió la defensa de Madrid; en Málaga el responsable era el coronel José Villalba. <b>Se comprueba</b> con el epígrafe de la batalla de Madrid.</dd></div>
+</dl>"""),
         ("Cómo se hace", """
 <ol class="steps">
-<li><b>Se reparte sin avisar (5 min).</b> Que lo lean como un texto cualquiera. Lo normal es que nadie sospeche.</li>
-<li><b>Se destapa la trampa (5 min).</b> Lo ha escrito una IA y tiene nueve errores. No se dice cuáles.</li>
-<li><b>A cazar en grupos (25 min).</b> Primero de memoria y después con el libro y el atlas. Un error solo cuenta si dicen dónde lo han comprobado.</li>
-<li><b>Puesta en común (20 min).</b> Y la pregunta que importa: ¿cuál te habrías creído si nadie te avisa?</li>
-</ol>
-<p>Se puede ajustar: más fácil, diciendo cuántos errores hay en cada párrafo; más difícil, sin decir cuántos hay. Y en una sesión extra, cada grupo fabrica su propio texto falso para el grupo de al lado.</p>"""),
+<li><b>Se reparte sin avisar (5 min).</b> Lo normal es que nadie sospeche.</li>
+<li><b>Se destapa la trampa (5 min):</b> lo ha escrito una IA y tiene nueve errores.</li>
+<li><b>A cazar en grupos (25 min),</b> primero de memoria y luego con el libro y el atlas. Un error solo cuenta si dicen dónde lo han comprobado.</li>
+<li><b>Puesta en común (20 min):</b> ¿cuál te habrías creído si nadie te avisa?</li>
+</ol>"""),
+        dict(title="El material", cols=2, intro="<p>El PDF trae la guía docente, el texto, la hoja de registro y el solucionario con su rúbrica.</p>",
+             figs=[("/assets/proyectos/cazadores-de-bulos/pagina-2.jpg", "Página 2 del PDF: el Documento A, «La caída de Málaga y la huida por la carretera», con el aviso de que es un texto falso de uso didáctico y pistas para repasar", "Página 2: el texto con los nueve errores y las pistas."),
+                   ("/assets/proyectos/cazadores-de-bulos/pagina-3.jpg", "Página 3 del PDF: hoja de registro con columnas para lo que dice el texto, lo que pasó en realidad y dónde se ha comprobado", "Página 3: la hoja de registro del alumnado.")]),
     ],
-    value=["Diseñar una actividad que trabaja a la vez el contenido y la lectura crítica.",
-           "Usar la IA como objeto de análisis, no como atajo."],
     related=["la-ia-tambien-miente", "constitucion-1812", "la-nube-pesa"],
 ))
 
@@ -180,6 +196,7 @@ P.append(dict(
 <li><b>La medida (10 min).</b> Cada equipo escribe su frase. Las que no tienen segunda mitad se devuelven.</li>
 </ol>
 <p>Funciona también sin dispositivos, con una cartulina por equipo. Los datos están verificados a septiembre de 2026 y la guía recuerda comprobarlos antes de usarla.</p>"""),
+        dict(title="El material", cols=2, intro="<p>El PDF trae la guía docente cronometrada, las fichas, la hoja de la cadena y el solucionario con las fuentes de los datos.</p>", figs=[("/assets/proyectos/la-nube-pesa/pagina-2.jpg", "Página 2 del PDF: cinco fichas de eslabón (extracción, fabricación y transporte, uso y vida útil, centro de datos y residuo) con datos y preguntas", "Página 2: las cinco fichas de eslabón, para recortar y repartir."), ("/assets/proyectos/la-nube-pesa/pagina-3.jpg", "Página 3 del PDF: hoja de la cadena con columnas de dato y fuente, lugar en el mapa, quién gana y quién pierde, y el espacio para la medida", "Página 3: la hoja de la cadena que completa cada equipo.")]),
     ],
     value=["Unir un tema de Geografía con algo que el alumnado hace cada día.",
            "Evaluar la argumentación con una regla sencilla y clara."],
@@ -206,6 +223,7 @@ P.append(dict(
 <li><b>Cierre (10 min).</b> Votación razonada y una pregunta: ¿por qué un mismo texto puede sostener las dos posturas?</li>
 </ol>
 <p>Incluye un plan B sin cuentas, con Google Docs, y variantes para subir o bajar el nivel.</p>"""),
+        dict(title="El material", cols=2, intro="<p>El PDF trae la guía docente, el dosier de artículos, la hoja de registro y el solucionario con rúbrica.</p>", figs=[("/assets/proyectos/constitucion-1812/pagina-2.jpg", "Página 2 del PDF: dosier de trabajo con artículos de la Constitución de 1812 y el protocolo de anotación #APOYA, #LIMITA y #PREGUNTA", "Página 2: el dosier de artículos y el protocolo de marcas."), ("/assets/proyectos/constitucion-1812/pagina-3.jpg", "Página 3 del PDF: hoja de registro con tabla de anotaciones, respuesta a otra pareja y votación razonada", "Página 3: la hoja de registro de la pareja.")]),
     ],
     value=["Trabajar fuentes primarias con una herramienta digital que hace visible el razonamiento.",
            "Diseñar un debate en el que se argumenta con evidencias, no con opiniones."],
@@ -226,6 +244,7 @@ P.append(dict(
         ("Qué hay dentro", """
 <p>Las pruebas recorren el siglo: las Pinturas Negras de Goya, textos para completar sobre la Guerra de la Independencia, el Trienio Liberal, el Bienio Progresista y La Gloriosa. Al final hay una caja fuerte con un código que solo se abre con lo aprendido.</p>
 <p>Un tema largo y con muchas fechas se convierte en una misión con un orden y una meta.</p>"""),
+        dict(title="Así se ve", cols=1, figs=[("/assets/proyectos/escape-room-siglo-xix/portada.jpg", "Pantalla de inicio del escape room en Genially, con el logotipo de El Ministerio del Tiempo sobre una mesa de despacho y el botón Empezar", "La pantalla de inicio en Genially.")]),
     ],
     value=["Diseñar un repaso gamificado con una narrativa que el alumnado reconoce."],
     related=["excursion-roma-3d", "la-ia-tambien-miente", "constitucion-1812"],
@@ -243,6 +262,7 @@ P.append(dict(
     sections=[
         ("La idea", """
 <p>La idea es motivar al alumnado a través de la inmersión: que se sitúe en el espacio antes de entrar en los conceptos. En una de las habitaciones de la domus me encontraréis descansando: un guiño para que la visita tenga algo de juego.</p>"""),
+        dict(title="Así se ve", cols=1, figs=[("/assets/proyectos/excursion-roma-3d/delightex.jpg", "Página pública del mundo «Excursión a Roma» en Delightex: una habitación de la domus con un avatar y la descripción de la actividad", "La página del mundo en Delightex, con una habitación de la domus.")]),
     ],
     value=["Usar la realidad virtual al servicio de un objetivo concreto: comparar dos arquitecturas."],
     related=["escape-room-siglo-xix", "mapa-de-relieves", "la-ia-tambien-miente"],
@@ -255,30 +275,31 @@ P.append(dict(
     card="La web de herramientas que creé para un centro en 2024 y su revisión de 2026 para Secundaria.",
     viz="v-caja",
     h1="Del repositorio de centro a la caja de herramientas",
-    lede="En las prácticas del Máster en Tecnología Educativa, como coordinador TIC en prácticas del Colegio Cerrado de Calderón (Málaga), creé un repositorio de herramientas digitales para todo el claustro. El centro lo presentó en el IX Congreso Internacional de Creatividad Educativa (Braining, Valencia, abril de 2025). En 2026 lo he revisado y rehecho para Secundaria.",
+    lede="Una web para que el profesorado encuentre rápido qué herramienta digital usar, para qué edad y cómo. La creé en 2024 para el Colegio Cerrado de Calderón (Málaga), en las prácticas del Máster en Tecnología Educativa, y en 2026 la he rehecho para Secundaria.",
     meta=[("Para quién", "El claustro del centro (2024) y docentes de Secundaria (2026)"),
           ("Tipo", "Web de recursos y autoformación"),
           ("Herramientas", "Google Sites (2024) · web propia (2026)"),
-          ("Reconocimiento", "Presentado por el centro en Braining 2025")],
+          ("Reconocimiento", "Presentada por el centro en Braining 2025")],
     links=[("Abrir la caja de herramientas", "/herramientas/", "int"),
            ("Ver el repositorio original", "https://sites.google.com/view/repositorio-digital-docente-cc/inicio", "ext"),
            ("Noticia de Braining", "https://colegiocerradodecalderon.es/braining/", "ext")],
     sections=[
-        ("La necesidad", """
-<p>Hay cientos de herramientas digitales y muy poco tiempo para elegir. Un docente necesita saber rápido qué hace cada una, para qué edad sirve y cómo usarla en su materia, sin tener que probarlas todas.</p>"""),
-        ("2024 · El repositorio del centro", """
-<p>Una web organizada por etapas (Infantil, los tres ciclos de Primaria, Secundaria y Bachillerato por departamentos) y un área de apoyo al profesorado. Cada herramienta tiene su ficha con la función, la edad recomendada, ideas de uso en el aula y un tutorial en vídeo. El centro la usa como herramienta de autoformación.</p>"""),
-        ("2026 · La caja de herramientas", """
-<p>Dos años después muchas cosas habían cambiado, así que la he rehecho para Secundaria:</p>
-<ul class="pl">
-<li><b>Separada por quién la usa:</b> 64 herramientas para el aula, 34 para el trabajo del docente y 20 bancos de recursos.</li>
-<li><b>Revisada una a una</b> en octubre de 2026, con un apartado para las que han cerrado o cambiado y su alternativa.</li>
-<li><b>La IA que ya llega con la cuenta del centro</b> (Gemini, NotebookLM, Copilot) y cómo usarla con alumnado.</li>
-<li><b>Criterios claros:</b> gratuita o con plan gratuito, edad mínima y autorización del centro.</li>
-</ul>"""),
+        ("La necesidad", "<p>Hay cientos de herramientas y poco tiempo para probarlas. Un docente necesita saber de un vistazo qué hace cada una, para qué edad sirve y cómo usarla en su materia.</p>"),
+        dict(title="2024 · La web del centro",
+             intro="<p>Organizada por etapas y, en Secundaria y Bachillerato, por departamentos, con un apartado de apoyo al profesorado. Cada herramienta tiene una ficha con su función, la edad recomendada, ideas de uso y un tutorial en vídeo. El centro la presentó en el IX Congreso Internacional de Creatividad Educativa (Braining, Valencia, abril de 2025) como herramienta de autoformación.</p>",
+             cols=1,
+             figs=[("/assets/proyectos/repositorio-digital/inicio-2024.jpg", "Portada del repositorio en Google Sites: menú por etapas (Infantil, Primaria, Secundaria y Bachillerato, Apoyo docente, Recursos) y los objetivos del repositorio", "La portada, con el menú por etapas y los objetivos.")],
+             after=""),
+        dict(title="", cols=2, intro="",
+             figs=[("/assets/proyectos/repositorio-digital/sociales-2024.jpg", "Página de Sociales del repositorio: lista de herramientas específicas (StopMotion, realidad virtual, mapas, cronogramas, debates…) y la ficha de StopMotion", "Sociales: herramientas específicas de la materia y su ficha."),
+                   ("/assets/proyectos/repositorio-digital/apoyo-docente-2024.jpg", "Página de Apoyo docente del repositorio con su índice: edición de PDF, inteligencia artificial, curación de contenido y evaluación", "Apoyo docente: herramientas para el trabajo del profesor.")]),
+        dict(title="2026 · La caja de herramientas",
+             intro="<p>Dos años después muchas herramientas habían cerrado o cambiado. La he rehecho para Secundaria: separada por quién la usa (aula, docente y recursos), revisada una a una en octubre de 2026, con lo que ha cerrado y su alternativa, y con la IA que ya llega con la cuenta del centro.</p>",
+             cols=2,
+             figs=[("/assets/proyectos/repositorio-digital/caja-2026.jpg", "Portada de la Caja de herramientas digitales: 64 herramientas para el aula, 34 para el docente, 20 recursos y 7 que han cerrado o cambiado", "La portada: qué hay y qué ha cambiado desde 2024."),
+                   ("/assets/proyectos/repositorio-digital/caja-fichas-2026.jpg", "Fichas de la caja con qué hace el alumnado, ideas para clase, nivel, dispositivos y cuenta necesaria, y botones de abrir y tutoriales", "Cada ficha dice qué hace el alumnado, ideas para clase y qué necesita.")]),
+        ("Lo que puedo afirmar", "<p>El centro la usa y la presentó en Braining. No tengo datos de visitas ni de uso por parte del profesorado, así que no los incluyo.</p>"),
     ],
-    value=["Seleccionar y organizar información para que otros docentes la usen.",
-           "Mantener un recurso vivo: revisarlo, retirar lo que ya no sirve y explicar por qué."],
     related=["audita-tu-programacion", "rubrica-materiales-digitales", "e-portfolio-master"],
 ))
 
@@ -301,6 +322,7 @@ P.append(dict(
 <li><b>Ocho prompts en orden:</b> del inventario de criterios a la cobertura, cada uno apoyado en el anterior.</li>
 <li><b>Una hoja de registro</b> para anotar el veredicto, porque la herramienta no lo guarda.</li>
 </ul>"""),
+        dict(title="El material", cols=2, intro="<p>La guía tiene cuatro páginas: montaje del cuaderno, los ocho prompts, la hoja de auditoría y qué hacer cuando la herramienta se equivoca.</p>", figs=[("/assets/proyectos/audita-tu-programacion/pagina-2.jpg", "Página 2 del PDF: los ocho prompts numerados (inventario, cobertura, los huecos, nombrar no es evaluar, sobrecarga, instrumentos, contraste con el decreto y la defensa)", "Página 2: los ocho prompts, para copiar tal cual."), ("/assets/proyectos/audita-tu-programacion/pagina-3.jpg", "Página 3 del PDF: hoja de auditoría con columnas para criterio, qué dice la herramienta, fragmento citado y comprobación", "Página 3: la hoja de auditoría donde se anota el veredicto.")]),
     ],
     value=["Usar la IA para una tarea docente real y comprobable.",
            "Escribir instrucciones que otro docente puede seguir sin ayuda."],
@@ -318,6 +340,7 @@ P.append(dict(
           ("Herramientas", "Claude (artefacto web)"),
           ("Privacidad", "Los datos no salen del navegador")],
     links=[("Abrir El bombo", "https://claude.ai/artifact/QpKwMAWgRSBhUjUpAgk8LM", "ext")],
+cta_note="Se abre en Claude. Puede pedir que inicies sesión.",
     sections=[
         ("Para qué sirve", """
 <p>Decidir cuántos temas preparar es una de las dudas más habituales al opositar. Ver la probabilidad real ayuda a planificar el estudio con datos en lugar de intuiciones.</p>"""),
@@ -331,12 +354,12 @@ P.append(dict(
     title="Rúbrica de materiales digitales", tags=["Formulario", "Profesorado"], kind="ficha",
     card="Una rúbrica en formulario para valorar un recurso digital antes de llevarlo al aula.",
     viz="v-rub",
-    lede="Una rúbrica en formulario para valorar un recurso digital con criterios comunes antes de llevarlo al aula: la calidad del contenido, la accesibilidad y el uso que se le puede dar en clase.",
+    lede="Un formulario de 17 preguntas para valorar un material educativo digital antes de llevarlo al aula, basado en la norma UNE 71362:2020 de calidad de los materiales educativos digitales.",
     meta=[("Para quién", "Docentes que eligen recursos digitales"),
           ("Tipo", "Rúbrica en formulario"),
           ("Herramientas", "Jotform")],
     links=[("Abrir la rúbrica", "https://form.jotform.com/241185578598070", "ext")],
-    sections=[],
+    sections=[dict(title="Así se ve", cols=1, figs=[("/assets/proyectos/rubrica-materiales-digitales/formulario.jpg", "Pantalla de inicio del formulario en Jotform: Instrumento de evaluación digital, basado en la normativa 71362:2020, 17 preguntas", "La pantalla de inicio del formulario.")])],
     value=["Convertir la selección de recursos en una decisión con criterios compartidos."],
     related=["repositorio-digital", "audita-tu-programacion", "e-portfolio-master"],
 ))
@@ -350,7 +373,7 @@ P.append(dict(
     meta=[("Tipo", "Portfolio académico"),
           ("Herramientas", "Google Sites")],
     links=[("Ver el e-Portfolio", "https://sites.google.com/view/e-portfolio-jorge/inicio", "ext")],
-    sections=[],
+    sections=[dict(title="Así se ve", cols=1, figs=[("/assets/proyectos/e-portfolio-master/inicio.jpg", "Portada del e-Portfolio en Google Sites con el menú de los cinco módulos, galería de imágenes y sobre mí", "La portada, con un apartado por módulo.")])],
     value=["Documentar el propio aprendizaje y las evidencias de cada módulo."],
     related=["asistente-gpt-2eso", "repositorio-digital", "rubrica-materiales-digitales"],
 ))

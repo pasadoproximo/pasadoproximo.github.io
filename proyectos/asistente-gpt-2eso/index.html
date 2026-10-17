@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>PasadoPróximo-2ºESO: un asistente de IA para la clase de Historia · Jorge Delgado Aguilera</title>
+<title>PasadoPróximo-2ºESO: un asistente de IA que guía sin resolver · Jorge Delgado Aguilera</title>
 <meta name="description" content="Un GPT que guía al alumnado sin darle la respuesta y dice siempre de dónde sale cada dato.">
 <link rel="canonical" href="https://pasadoproximo.github.io/proyectos/asistente-gpt-2eso/">
-<meta property="og:title" content="PasadoPróximo-2ºESO: un asistente de IA para la clase de Historia · Jorge Delgado Aguilera">
+<meta property="og:title" content="PasadoPróximo-2ºESO: un asistente de IA que guía sin resolver · Jorge Delgado Aguilera">
 <meta property="og:description" content="Un GPT que guía al alumnado sin darle la respuesta y dice siempre de dónde sale cada dato.">
 <meta property="og:image" content="https://pasadoproximo.github.io/assets/og.jpg">
 <meta property="og:url" content="https://pasadoproximo.github.io/proyectos/asistente-gpt-2eso/">
@@ -16,7 +16,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alegreya+SC:wght@700&family=Alegreya+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&display=swap">
-<link rel="stylesheet" href="/assets/site.css?v=7">
+<link rel="stylesheet" href="/assets/site.css?v=8">
 </head>
 <body>
 <a class="skip" href="#contenido">Saltar al contenido</a>
@@ -39,42 +39,49 @@
  <section class="bento phead" aria-labelledby="ph1">
   <div class="t dark ph-main rv">
    <span class="lab">Caso de estudio · Trabajo Fin de Máster · 2.º ESO · 2024</span>
-   <h1 id="ph1">PasadoPróximo-2ºESO: un asistente de IA para la clase de Historia</h1>
-   <p class="lede">Trabajo Fin del Máster en Tecnología Educativa y Competencias Digitales (Universidad Europea, curso 2023-2024). Propone un asistente creado con los GPT personalizados de ChatGPT para acompañar a un grupo de 2.º de ESO en Geografía e Historia, dentro y fuera del aula.</p>
-   <div class="cta"><a class="btn solid" href="/assets/pdf/tfm-asistente-gpt-2eso.pdf" download>Leer el TFM completo <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg></a></div>
+   <h1 id="ph1">PasadoPróximo-2ºESO: un asistente de IA que guía sin resolver</h1>
+   <p class="lede">Mi Trabajo Fin del Máster en Tecnología Educativa (Universidad Europea, 2023-2024): un asistente creado con los GPT personalizados de ChatGPT para acompañar a un grupo de 2.º ESO en Geografía e Historia. No hace la tarea por el alumno: le ayuda a hacerla y le dice de dónde sale cada respuesta.</p>
+   <div class="cta"><a class="btn solid" href="/assets/pdf/tfm-asistente-gpt-2eso.pdf" download>Leer el TFM completo (PDF) <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg></a></div>
+   
   </div>
   <div class="t ph-vis rv"><div class="viz v-chat" aria-hidden="true"><div class="made"><span><img src="/assets/tools/chatgpt.png" alt="" width="20" height="20" loading="lazy">ChatGPT</span></div>
      <span class="u">¿Puedes hacerme la actividad 2 del tema 1?</span>
      <span class="typing"><i></i><i></i><i></i></span>
      <span class="a">No puedo hacerla por ti, pero sí guiarte para que la completes. ¿En qué parte te atascas?</span></div></div>
  </section>
- <dl class="pmeta rv"><div><dt>Para quién</dt><dd>Un grupo de 2.º ESO y su docente de Geografía e Historia</dd></div><div><dt>Tipo</dt><dd>Trabajo Fin de Máster · propuesta didáctica</dd></div><div><dt>Herramientas</dt><dd>GPT personalizado (GPT-4o) y Google Classroom</dd></div><div><dt>Estado</dt><dd>Diseñado y probado en simulación. Pendiente de pilotaje con alumnado</dd></div></dl>
+ <dl class="pmeta rv"><div><dt>Para quién</dt><dd>Un grupo de 2.º ESO y su docente de Geografía e Historia</dd></div><div><dt>Tipo</dt><dd>Trabajo Fin de Máster · propuesta didáctica</dd></div><div><dt>Herramientas</dt><dd>GPT personalizado (GPT-4o) y Google Classroom</dd></div><div><dt>Estado</dt><dd>Configurado y probado en simulación. Sin pilotar con alumnado</dd></div></dl>
  <div class="pbody">
  <section class="psec rv"><h2>El problema</h2>
-<p>El punto de partida es un instituto público de una barriada de Málaga y un grupo de 2.º de ESO heterogéneo: alumnado que va bien, alumnado desenganchado de la materia y varios casos que necesitan apoyos distintos (dificultades con el idioma, discapacidad visual, altas capacidades). En ese contexto el TFM identifica siete necesidades concretas:</p>
-<ul class="pl">
-<li><b>Aulas llenas.</b> Con 25 a 30 estudiantes es muy difícil atender los ritmos de cada uno.</li>
-<li><b>Retroalimentación tardía.</b> El alumnado se entera de lo que no ha entendido cuando ya ha pasado.</li>
-<li><b>Recursos poco adaptados.</b> Preparar un material distinto para cada caso no es realista.</li>
-<li><b>Desconexión fuera del aula.</b> Muchos problemas aparecen en casa, al hacer la tarea sin nadie a quien preguntar.</li>
-<li><b>Desinformación.</b> Hace falta aprender a contrastar lo que se lee.</li>
-<li><b>Mal uso de ChatGPT.</b> Se usa para que haga la tarea, sin esfuerzo cognitivo.</li>
-<li><b>Recelo docente.</b> Parte del departamento rechaza la IA sin haberla probado.</li>
+<p>Un instituto público de una barriada de Málaga y un grupo de 2.º ESO heterogéneo, con alumnado desenganchado y varios casos que necesitan apoyos distintos. El TFM parte de siete necesidades:</p>
+<ul class="pl two">
+<li><b>Aulas llenas:</b> 25 a 30 estudiantes por grupo.</li>
+<li><b>Retroalimentación tardía:</b> el error se descubre cuando ya ha pasado.</li>
+<li><b>Recursos poco adaptados</b> a cada alumno.</li>
+<li><b>Dudas en casa</b> sin nadie a quien preguntar.</li>
+<li><b>Desinformación:</b> hace falta aprender a contrastar.</li>
+<li><b>Mal uso de ChatGPT</b> para que haga la tarea.</li>
+<li><b>Recelo docente</b> ante la IA sin haberla probado.</li>
 </ul></section>
- <section class="psec rv"><h2>Qué se propone</h2>
-<p>Un asistente de clase que se nutre de los materiales del curso y no sustituye al docente. Las decisiones de diseño más importantes fueron estas:</p>
-<ol class="steps">
-<li><b>Primero, los materiales del aula.</b> Se le cargaron nueve unidades del curso, guías para hacer comentarios de texto, resúmenes o líneas del tiempo, un banco de preguntas de repaso, los enunciados y rúbricas de las actividades y un tablón de anuncios. Solo recurre a internet cuando el alumno quiere ampliar.</li>
-<li><b>Guía, no resuelve.</b> Si se le pide hacer una actividad, se niega y ofrece ayuda para que el alumno la haga.</li>
-<li><b>Dice de dónde sale cada respuesta.</b> Al final de cada respuesta indica si viene de los materiales de clase, de una fuente externa académica o institucional, o si la ha generado la IA. En ese último caso avisa de que puede tener errores y hay que comprobarla.</li>
-<li><b>Pensado para incluir.</b> Puede traducir, simplificar un texto, atender por voz desde el móvil o proponer retos a quien va más rápido.</li>
-<li><b>Acceso controlado.</b> Se comparte por enlace en Google Classroom, con la cuenta educativa, y sin introducir datos personales del alumnado.</li>
-</ol></section>
+ <section class="psec wide rv"><h2>La decisión clave: guiar, no resolver</h2><p>En las pruebas apareció el fallo más importante: cuando se le pedía una actividad, el asistente la resolvía. Así perdía todo su valor didáctico. Lo reconfiguré para que se negara a hacerla y ofreciera ayuda para llegar a la respuesta.</p><div class="vs">
+<div class="vs-a"><span class="vs-l">Antes del ajuste</span><p class="vs-q">«¿Puedes hacerme la actividad 2 del tema 1?»</p><p>El asistente <b>resolvía la actividad</b>. Lo documenté en las pruebas del TFM; no conservo captura de esa versión.</p></div>
+<div class="vs-b"><span class="vs-l">Después del ajuste</span><figure><a href="/assets/proyectos/tfm/guia-sin-resolver.png" target="_blank" rel="noopener" aria-label="Ver la imagen a tamaño completo: El alumno pide «¿Puedes hacerme la actividad 2 del tema 1?» y el asistente responde que no puede realizarla por él, pero que puede guiarle para completarla"><img src="/assets/proyectos/tfm/guia-sin-resolver.png" alt="El alumno pide «¿Puedes hacerme la actividad 2 del tema 1?» y el asistente responde que no puede realizarla por él, pero que puede guiarle para completarla" loading="lazy" decoding="async" width="817" height="353"></a><figcaption>El asistente se niega y ofrece ayuda para hacerla.</figcaption></figure></div>
+</div></section>
+ <section class="psec wide rv"><h2>Dice de dónde sale cada respuesta</h2><p>Prioriza los materiales de clase. Cuando la información no está en ellos, lo dice y avisa de que hay que comprobarla.</p><div class="gal"><figure><a href="/assets/proyectos/tfm/fuente-archivos.png" target="_blank" rel="noopener" aria-label="Ver la imagen a tamaño completo: Respuesta del asistente sobre la sociedad de la Península Ibérica medieval que termina indicando que la información sale del documento de la Unidad 5"><img src="/assets/proyectos/tfm/fuente-archivos.png" alt="Respuesta del asistente sobre la sociedad de la Península Ibérica medieval que termina indicando que la información sale del documento de la Unidad 5" loading="lazy" decoding="async" width="753" height="503"></a><figcaption>Si sale de los materiales, cita la unidad.</figcaption></figure><figure><a href="/assets/proyectos/tfm/fuente-ia.png" target="_blank" rel="noopener" aria-label="Ver la imagen a tamaño completo: Respuesta del asistente sobre Abderramán III que avisa de que la información ha sido generada por inteligencia artificial y debe verificarse"><img src="/assets/proyectos/tfm/fuente-ia.png" alt="Respuesta del asistente sobre Abderramán III que avisa de que la información ha sido generada por inteligencia artificial y debe verificarse" loading="lazy" decoding="async" width="1160" height="399"></a><figcaption>Si no, avisa de que la ha generado la IA y hay que verificarla.</figcaption></figure></div></section>
+ <section class="psec rv"><h2>También sirve para repasar</h2><p>Tiene un banco de preguntas de cada unidad. El alumno responde y el asistente corrige lo que no ha entendido.</p><div class="gal one"><figure><a href="/assets/proyectos/tfm/correccion.png" target="_blank" rel="noopener" aria-label="Ver la imagen a tamaño completo: El alumno escribe que taifa significa impuesto sobre la tierra y el asistente le corrige: era un pequeño reino musulmán surgido tras la desintegración del Califato de Córdoba"><img src="/assets/proyectos/tfm/correccion.png" alt="El alumno escribe que taifa significa impuesto sobre la tierra y el asistente le corrige: era un pequeño reino musulmán surgido tras la desintegración del Califato de Córdoba" loading="lazy" decoding="async" width="877" height="631"></a><figcaption>Corrección de dos definiciones del tema de la Península Ibérica en la Edad Media.</figcaption></figure></div></section>
  <section class="psec rv"><h2>Cómo se hizo</h2>
-<p>Primero, definir las necesidades y los objetivos. Después, preparar los materiales y configurar el GPT: contexto del centro y del grupo, funciones, niveles de acceso a la información y cuidado con las fuentes. Luego vinieron las pruebas simuladas. En ellas apareció el fallo más importante: cuando se le pedía una actividad, la resolvía. Se reconfiguró para que se negara a hacerlo, y también se reforzó que diera prioridad a los materiales de clase.</p>
-<p>La propuesta se completa con lo que hace falta para llevarla al aula: un cuestionario inicial sobre lo que el alumnado sabe de la IA, una sesión sobre su uso ético, una reunión informativa con las familias, cinco actividades de ejemplo (de un mapa mental colaborativo sobre la Edad Media a un debate sobre el término «Reconquista») y un plan de evaluación con rúbricas, autoevaluación, portfolio y revisión de las conversaciones.</p></section>
- <section class="psec wide rv"><h2>Cómo responde</h2><div class="gal"><figure><img src="/assets/proyectos/tfm/guia-sin-resolver.png" alt="Se le pide que haga una actividad y responde que no puede hacerla, pero ofrece ayuda para completarla." loading="lazy"><figcaption>Se le pide que haga una actividad y responde que no puede hacerla, pero ofrece ayuda para completarla.</figcaption></figure><figure><img src="/assets/proyectos/tfm/fuente-archivos.png" alt="La respuesta indica que la información sale de los materiales de clase, en este caso de la Unidad 5." loading="lazy"><figcaption>La respuesta indica que la información sale de los materiales de clase, en este caso de la Unidad 5.</figcaption></figure><figure><img src="/assets/proyectos/tfm/fuente-ia.png" alt="Cuando la información no está en los materiales, avisa de que la ha generado la IA y que hay que verificarla." loading="lazy"><figcaption>Cuando la información no está en los materiales, avisa de que la ha generado la IA y que hay que verificarla.</figcaption></figure><figure><img src="/assets/proyectos/tfm/correccion.png" alt="Repaso: el alumno responde y el asistente corrige los conceptos mal entendidos." loading="lazy"><figcaption>Repaso: el alumno responde y el asistente corrige los conceptos mal entendidos.</figcaption></figure></div></section>
- <section class="psec rv"><h2>Qué demuestra</h2><ul class="pl"><li>Detectar necesidades reales de un aula y convertirlas en objetivos.</li><li>Diseñar una herramienta de IA con criterios pedagógicos (DUA, LOMLOE) y de protección de datos.</li><li>Probar, encontrar fallos y corregirlos antes de llevarla al aula.</li><li>Plantear cómo se evaluaría, también sus riesgos: dependencia tecnológica, sobrecarga de información y falta de formación docente.</li></ul><p class="pnote">Es una propuesta: no se ha probado con alumnado real, así que no hay resultados de aprendizaje que mostrar. Las capturas son de las pruebas que hice al configurar el asistente.</p></section>
+<ol class="steps">
+<li><b>Necesidades y objetivos</b> del grupo, con el marco de la LOMLOE, el currículo andaluz, el DUA y la protección de datos.</li>
+<li><b>Materiales:</b> nueve unidades del curso, guías (comentario de texto, resumen, línea del tiempo…), banco de preguntas, rúbricas y un tablón de anuncios.</li>
+<li><b>Configuración:</b> contexto del grupo sin datos personales, prioridad a los materiales, fuentes académicas y aviso de origen en cada respuesta.</li>
+<li><b>Pruebas simuladas y ajustes</b>, recogidas en el anexo del TFM.</li>
+<li><b>Plan para el aula:</b> cuestionario inicial, sesión de uso ético, reunión con familias, cinco actividades de ejemplo y evaluación con rúbricas y revisión de conversaciones.</li>
+</ol></section>
+ <section class="psec rv"><h2>Lo comprobado y lo pendiente</h2>
+<div class="status">
+<div><span class="st-l ok">Comprobado</span><p>Que el asistente se puede configurar para guiar sin resolver, priorizar los materiales y avisar del origen de cada dato. Lo muestran las capturas, que son de las pruebas de configuración.</p></div>
+<div><span class="st-l exp">Esperado, sin evaluar</span><p>Más comprensión de los contenidos, autonomía y pensamiento crítico. El TFM lo plantea como objetivos y propone cómo medirlos, pero no hay datos.</p></div>
+<div><span class="st-l pend">Pendiente</span><p>Pilotarlo con un grupo real y pasar el cuestionario de efectividad. Riesgos a vigilar: dependencia tecnológica, sobrecarga de información y formación docente.</p></div>
+</div></section>
  </div>
  <section class="sec related" aria-labelledby="rel-h">
   <div class="sec-head rv"><div><span class="lab">Sigue explorando</span><h2 id="rel-h">Proyectos relacionados</h2></div>
@@ -111,6 +118,6 @@
 </main>
 <footer><span>© 2026 Jorge Delgado Aguilera</span><span>Campanillas, Málaga</span></footer>
 </div>
-<script src="/assets/site.js?v=7" defer></script>
+<script src="/assets/site.js?v=8" defer></script>
 </body>
 </html>

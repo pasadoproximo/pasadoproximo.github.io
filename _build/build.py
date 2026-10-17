@@ -64,7 +64,7 @@ FAVICON = re.search(r'<link rel="icon"[^>]*>', SRC).group(0)
 FONTS = '''<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alegreya+SC:wght@700&family=Alegreya+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&display=swap">'''
-CSSV = "7"
+CSSV = "8"
 
 
 def head(title, desc, path, og="/assets/og.jpg"):
@@ -255,14 +255,44 @@ def btn(label, href, kind, first):
     return f'<a class="{cls}" href="{href}">{label} {ICON_EXT}</a>'
 
 
+from PIL import Image as _Img
+
+
+def fig(src, alt, cap=""):
+    """Figura con tamaño real (evita saltos al cargar) y enlace a la imagen completa."""
+    w = h = None
+    fp = os.path.join(ROOT, src.lstrip("/").split("?")[0])
+    if os.path.exists(fp):
+        w, h = _Img.open(fp).size
+    dims = f' width="{w}" height="{h}"' if w else ""
+    capt = f"<figcaption>{cap}</figcaption>" if cap else ""
+    return f'<figure><a href="{src}" target="_blank" rel="noopener" aria-label="Ver la imagen a tamaño completo: {html.escape(re.sub("<[^>]+>","",alt))}"><img src="{src}" alt="{html.escape(alt)}" loading="lazy" decoding="async"{dims}></a>{capt}</figure>'
+
+
+def render_section(x):
+    if isinstance(x, tuple):
+        h, b = x
+        return f'\n <section class="psec rv"><h2>{h}</h2>{b}</section>'
+    # bloque de evidencias: {"title", "intro", "figs":[(src, alt, cap)], "cols", "after"}
+    figs = "".join(fig(*f) for f in x["figs"])
+    cols = {1: " one", 2: "", 3: " three"}.get(x.get("cols", 2), "")
+    wide = " wide" if x.get("cols", 2) != 1 else ""
+    intro = x.get("intro", "")
+    after = re.sub(r"FIG:([^|]+)\|([^|]+)\|([^<]+)", lambda m: fig(m.group(1), m.group(2), m.group(3)), x.get("after", ""))
+    head = f'<h2>{x["title"]}</h2>' if x.get("title") else ""
+    cont = " cont" if not x.get("title") else ""
+    gal = f'<div class="gal{cols}">{figs}</div>' if figs else ""
+    return f'\n <section class="psec{wide}{cont} rv">{head}{intro}{gal}{after}</section>'
+
+
 def project(p):
     c = CATS[p["cat"]]
     meta = "".join(f"<div><dt>{a}</dt><dd>{b}</dd></div>" for a, b in p.get("meta", []))
     links = "".join(btn(l, h, k, i == 0) for i, (l, h, k) in enumerate(p.get("links", [])))
-    secs = "".join(f'\n <section class="psec rv"><h2>{h}</h2>{b}</section>' for h, b in p.get("sections", []))
+    secs = "".join(render_section(x) for x in p.get("sections", []))
     gal = ""
     if p.get("gallery"):
-        figs = "".join(f'<figure><img src="{s}" alt="{html.escape(cap)}" loading="lazy"><figcaption>{cap}</figcaption></figure>' for s, cap in p["gallery"])
+        figs = "".join(fig(s, cap, cap) for s, cap in p["gallery"])
         one = " one" if len(p["gallery"]) == 1 else ""
         gal = f'\n <section class="psec wide rv"><h2>{p.get("gallery_title","El resultado")}</h2><div class="gal{one}">{figs}</div>'
         if p.get("spoiler"):
@@ -286,6 +316,7 @@ def project(p):
    <h1 id="ph1">{h1}</h1>
    <p class="lede">{p["lede"]}</p>
    {f'<div class="cta">{links}</div>' if links else ''}
+   {f'<p class="cta-note">{p["cta_note"]}</p>' if p.get("cta_note") else ''}
   </div>
   <div class="t ph-vis rv">{viz(p)}</div>
  </section>
