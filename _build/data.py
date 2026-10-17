@@ -98,7 +98,7 @@ P.append(dict(
     meta=[("Para quién", "Alumnado que estudia el relieve peninsular"),
           ("Tipo", "Aplicación web interactiva"),
           ("Herramientas", "Claude (artefacto web)")],
-    links=[("Abrir el mapa", "https://claude.ai/artifact/YNDYutXDuViE2pPjahzvFm", "ext")],
+    links=[("Abrir el mapa", "/apps/mapa-de-relieves/", "int")],
 cta_note="Se abre en Claude. Puede pedir que inicies sesión.",
     sections=[
         ("Para qué sirve", """
@@ -339,7 +339,7 @@ P.append(dict(
           ("Tipo", "Aplicación web"),
           ("Herramientas", "Claude (artefacto web)"),
           ("Privacidad", "Los datos no salen del navegador")],
-    links=[("Abrir El bombo", "https://claude.ai/artifact/QpKwMAWgRSBhUjUpAgk8LM", "ext")],
+    links=[("Abrir El bombo", "/apps/el-bombo/", "int")],
 cta_note="Se abre en Claude. Puede pedir que inicies sesión.",
     sections=[
         ("Para qué sirve", """

@@ -1,0 +1,643 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>El bombo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=JetBrains+Mono:wght@500;700&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&display=swap">
+<style>
+:root{
+  --bg:#EDEDE8; --surface:#FFFFFF; --sunk:#F5F4EF; --line:#DAD9D0; --line-2:#BFBDB1;
+  --ink:#1C1B17; --ink-2:#575549; --ink-3:#86847A;
+  --accent:#B4531A; --accent-soft:#F0DCCD;
+  --good:#2F6B4F; --warn:#8A6100;
+  --r0:#E4E3DC; --r1:#E8C99B; --r2:#D99A52; --r3:#B4531A; --r4:#6E7A46; --r5:#2F6B4F;
+  --shadow:0 1px 1px rgba(30,28,22,.05), 0 8px 22px -14px rgba(30,28,22,.45);
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#16161A; --surface:#1F1F25; --sunk:#26262D; --line:#33333C; --line-2:#474753;
+    --ink:#ECEAE3; --ink-2:#B3B0A6; --ink-3:#85837B;
+    --accent:#E8843E; --accent-soft:#3A2A1E;
+    --good:#5CB98C; --warn:#D9A83C;
+    --r0:#2C2C34; --r1:#7A5A33; --r2:#B57B36; --r3:#E8843E; --r4:#8FA35C; --r5:#5CB98C;
+    --shadow:0 1px 1px rgba(0,0,0,.4), 0 12px 26px -16px rgba(0,0,0,.85);
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#16161A; --surface:#1F1F25; --sunk:#26262D; --line:#33333C; --line-2:#474753;
+  --ink:#ECEAE3; --ink-2:#B3B0A6; --ink-3:#85837B;
+  --accent:#E8843E; --accent-soft:#3A2A1E;
+  --good:#5CB98C; --warn:#D9A83C;
+  --r0:#2C2C34; --r1:#7A5A33; --r2:#B57B36; --r3:#E8843E; --r4:#8FA35C; --r5:#5CB98C;
+  --shadow:0 1px 1px rgba(0,0,0,.4), 0 12px 26px -16px rgba(0,0,0,.85);
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{
+  background:var(--bg); color:var(--ink); margin:0;
+  font-family:"Source Sans 3",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  font-size:15.5px; line-height:1.5; -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1180px;margin:0 auto;padding-block:0 56px;padding-left:18px;padding-right:18px}
+h1,h2,h3{font-family:Fraunces,Georgia,serif;font-weight:700;margin:0;text-wrap:balance;letter-spacing:-.01em}
+.mono{font-family:"JetBrains Mono",ui-monospace,monospace;font-variant-numeric:tabular-nums}
+.eyebrow{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3)}
+a{color:var(--accent)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:4px}
+
+header.top{border-bottom:1px solid var(--line);background:var(--surface)}
+.top-in{max-width:1180px;margin:0 auto;padding:20px 18px;display:flex;align-items:flex-end;gap:16px;flex-wrap:wrap}
+.top-in>div:first-child{flex:1 1 420px;min-width:0}
+.top h1{font-size:27px;line-height:1.05}
+.top .lede{font-size:14px;color:var(--ink-2);max-width:46ch}
+.top .right{margin-left:auto;display:flex;gap:8px;flex-wrap:wrap}
+
+.demo{margin-top:16px;display:flex;gap:10px;align-items:flex-start;padding:11px 13px;border-radius:9px;
+  background:var(--accent-soft);border:1px solid color-mix(in srgb,var(--accent) 35%,var(--line));font-size:13.5px;color:var(--ink-2)}
+.demo b{color:var(--ink)}
+.demo button{margin-left:auto;flex:none}
+
+.tiles{display:grid;grid-template-columns:1.35fr 1fr 1fr;gap:14px;margin-top:20px}
+.tile{background:var(--surface);border:1px solid var(--line);border-radius:11px;padding:16px 17px;box-shadow:var(--shadow);min-width:0}
+.tile .k{font-family:Fraunces,Georgia,serif;font-weight:700;font-size:30px;line-height:1;letter-spacing:-.025em;
+  font-variant-numeric:tabular-nums;display:flex;align-items:baseline;gap:6px;margin-top:9px}
+.tile .k small{font-family:"Source Sans 3",sans-serif;font-size:14px;font-weight:600;color:var(--ink-3);letter-spacing:0}
+.tile.hero{grid-row:span 1;background:var(--ink);border-color:var(--ink)}
+.tile.hero .k{font-size:58px;color:var(--bg)}
+.tile.hero .k small{color:color-mix(in srgb,var(--bg) 66%,var(--ink))}
+.tile.hero .eyebrow,.tile.hero .cap{color:color-mix(in srgb,var(--bg) 64%,var(--ink))}
+.tile .cap{font-size:13px;color:var(--ink-2);margin-top:9px;line-height:1.4}
+.tile .cap b{color:var(--ink);font-weight:600}
+.tile.hero .cap b{color:var(--bg)}
+.gauge{height:7px;border-radius:99px;background:var(--sunk);border:1px solid var(--line);overflow:hidden;margin-top:12px}
+.gauge i{display:block;height:100%;background:var(--accent)}
+.tile.hero .gauge{background:color-mix(in srgb,var(--bg) 18%,var(--ink));border-color:color-mix(in srgb,var(--bg) 30%,var(--ink))}
+.tile.hero .gauge i{background:var(--r1)}
+
+.board{display:grid;grid-template-columns:minmax(0,1fr) 336px;gap:18px;margin-top:18px;align-items:start}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:11px;box-shadow:var(--shadow)}
+.panel>header{padding:13px 16px;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.panel>header h2{font-size:16px}
+.panel>header .hint{margin-left:auto;font-size:12px;color:var(--ink-3)}
+.panel .body{padding:15px 16px}
+.panel+.panel{margin-top:18px}
+
+.bombo{display:grid;grid-template-columns:repeat(auto-fill,minmax(42px,1fr));gap:7px}
+.bola{position:relative;aspect-ratio:1;border-radius:50%;border:1px solid var(--line-2);background:var(--r0);
+  color:var(--ink-2);font-family:"JetBrains Mono",monospace;font-variant-numeric:tabular-nums;
+  font-size:13px;font-weight:700;cursor:pointer;padding:0;display:flex;align-items:center;justify-content:center;
+  transition:transform .12s ease}
+.bola:hover{transform:translateY(-2px)}
+.bola[data-v="1"]{background:var(--r1);border-color:var(--r1);color:#231A0E}
+.bola[data-v="2"]{background:var(--r2);border-color:var(--r2);color:#231A0E}
+.bola[data-v="3"]{background:var(--r3);border-color:var(--r3);color:#FFF}
+.bola[data-v="4"]{background:var(--r4);border-color:var(--r4);color:#FFF}
+.bola[data-v="5"]{background:var(--r5);border-color:var(--r5);color:#FFF}
+.bola.sale{box-shadow:0 0 0 3px var(--bg),0 0 0 5px var(--ink)}
+.bola .t{position:absolute;inset:0;border-radius:50%}
+.escala{display:flex;gap:12px;flex-wrap:wrap;align-items:center;font-size:12px;color:var(--ink-3);margin-top:14px}
+.escala .s{display:inline-flex;align-items:center;gap:6px}
+.escala .s i{width:13px;height:13px;border-radius:50%;border:1px solid var(--line-2);display:block}
+
+.sorteo .fila{display:grid;grid-template-columns:34px minmax(0,1fr) auto;gap:10px;align-items:center;
+  padding:7px 0;border-bottom:1px dashed var(--line)}
+.sorteo .fila:last-of-type{border-bottom:0}
+.sorteo .n{width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  font-family:"JetBrains Mono",monospace;font-weight:700;font-size:13px;background:var(--sunk);border:1px solid var(--line-2);color:var(--ink-2)}
+.sorteo .fila.tuyo .n{background:var(--good);border-color:var(--good);color:#fff}
+.sorteo .tt{font-size:13.5px;color:var(--ink-2);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.sorteo .fila.tuyo .tt{color:var(--ink);font-weight:600}
+.sorteo .v{font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--ink-3);white-space:nowrap}
+.veredicto{margin-top:13px;padding:11px 12px;border-radius:9px;background:var(--sunk);border:1px solid var(--line);font-size:13.5px;line-height:1.45}
+.veredicto b{color:var(--ink)}
+
+.curva{width:100%;height:auto;display:block}
+.curva .rejilla{stroke:var(--line);stroke-width:1;fill:none}
+.curva .area{fill:var(--accent);opacity:.13}
+.curva .linea{fill:none;stroke:var(--accent);stroke-width:2;stroke-linejoin:round}
+.curva .aqui{fill:var(--ink);stroke:var(--surface);stroke-width:2}
+.curva text{fill:var(--ink-3);font-family:"JetBrains Mono",monospace;font-size:11px}
+.curva text.dest{fill:var(--ink);font-weight:700;font-size:13px}
+
+table.tabla{width:100%;border-collapse:collapse;font-size:13.5px}
+table.tabla th,table.tabla td{padding:6px 8px;text-align:right;border-bottom:1px solid var(--line)}
+table.tabla th:first-child,table.tabla td:first-child{text-align:left}
+table.tabla th{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);font-weight:600}
+table.tabla td{font-family:"JetBrains Mono",monospace;font-variant-numeric:tabular-nums;color:var(--ink-2)}
+table.tabla tr.aqui td{background:var(--accent-soft);color:var(--ink);font-weight:700}
+.tabla-wrap{overflow-x:auto}
+
+.ajustes{display:grid;grid-template-columns:repeat(auto-fit,minmax(168px,1fr));gap:13px}
+.campo{display:flex;flex-direction:column;gap:5px}
+.campo label{font-size:12px;color:var(--ink-2);font-weight:600}
+input,select,textarea,button{font:inherit;color:var(--ink)}
+input[type=number],input[type=date],select,textarea{
+  background:var(--sunk);border:1px solid var(--line);border-radius:7px;padding:7px 9px;width:100%}
+textarea{min-height:110px;font-family:"JetBrains Mono",monospace;font-size:12px;line-height:1.5;resize:vertical}
+.btn{font-size:13.5px;font-weight:600;padding:7px 13px;border-radius:8px;border:1px solid var(--line-2);
+  background:var(--surface);color:var(--ink);cursor:pointer}
+.btn:hover{border-color:var(--accent);color:var(--accent)}
+.btn.principal{background:var(--accent);border-color:var(--accent);color:#fff}
+.btn.principal:hover{color:#fff;filter:brightness(1.07)}
+.acciones{display:flex;gap:9px;flex-wrap:wrap;margin-top:13px}
+.nota{font-size:12.5px;color:var(--ink-3);line-height:1.5;margin:11px 0 0}
+.nota b{color:var(--ink-2)}
+.ok{color:var(--good);font-weight:600}
+
+.cierre{margin-top:26px;padding:18px 20px;border:1px solid var(--line);border-radius:11px;background:var(--sunk)}
+.cierre h2{font-size:18px;margin-bottom:8px}
+.cierre p{margin:0 0 9px;max-width:70ch;font-size:14px;color:var(--ink-2)}
+.cierre p:last-child{margin-bottom:0}
+
+@media (max-width:920px){
+  .tiles{grid-template-columns:1fr 1fr}
+  .tile.hero{grid-column:span 2}
+  .board{grid-template-columns:1fr}
+}
+@media (max-width:520px){
+  .tiles{grid-template-columns:1fr}
+  .tile.hero{grid-column:span 1}
+  .tile.hero .k{font-size:46px}
+  .bombo{grid-template-columns:repeat(auto-fill,minmax(38px,1fr))}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+
+<header class="top">
+  <div class="top-in">
+    <div>
+      <h1>El bombo</h1>
+      <p class="lede">Cuántos temas llevas no es la pregunta. La pregunta es qué probabilidad tienes de que el sorteo toque uno de los tuyos.</p>
+    </div>
+    <div class="right">
+      <button class="btn" id="btnEjemplo" type="button">Ver ejemplo</button>
+      <button class="btn" id="btnCero" type="button">Empezar de cero</button>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="demo" id="avisoDemo">
+    <span><b>Estos son datos de ejemplo.</b> Pulsa cualquier bola para subirle una vuelta de repaso; con <span class="mono">Mayús</span> + clic, se la bajas. Todo se guarda en tu navegador y no lo ve nadie más.</span>
+    <button class="btn" id="btnCerrarAviso" type="button">Vale</button>
+  </div>
+
+  <section class="tiles">
+    <div class="tile hero">
+      <div class="eyebrow">Cobertura del sorteo</div>
+      <div class="k"><span id="kCob">0</span><small>%</small></div>
+      <p class="cap" id="capCob">—</p>
+      <div class="gauge"><i id="gaugeCob" style="width:0%"></i></div>
+    </div>
+    <div class="tile">
+      <div class="eyebrow">Temas preparados</div>
+      <div class="k"><span id="kPrep">0</span><small id="kPrepDe">de 72</small></div>
+      <p class="cap" id="capPrep">—</p>
+    </div>
+    <div class="tile">
+      <div class="eyebrow">Salen dos o más</div>
+      <div class="k"><span id="kDos">0</span><small>%</small></div>
+      <p class="cap">La diferencia entre tener algo que escribir y poder elegir.</p>
+    </div>
+  </section>
+
+  <div class="board">
+    <main>
+      <section class="panel">
+        <header>
+          <h2>El bombo</h2>
+          <span class="hint" id="hintBombo">—</span>
+        </header>
+        <div class="body">
+          <div class="bombo" id="bombo"></div>
+          <div class="escala" id="escala"></div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <header><h2>Cuántas bolas cubres</h2></header>
+        <div class="body">
+          <svg class="curva" id="curva" viewBox="0 0 640 336" role="img" aria-label="Curva de cobertura del sorteo según el número de temas preparados"></svg>
+          <div class="tabla-wrap">
+            <table class="tabla" id="tabla">
+              <thead><tr><th>Temas preparados</th><th>Sale al menos uno</th><th>Salen dos o más</th></tr></thead>
+              <tbody id="tablaBody"></tbody>
+            </table>
+          </div>
+          <p class="nota">Con <span class="mono" id="notaT">72</span> temas y <span class="mono" id="notaB">5</span> bolas, la probabilidad de que <b>ninguno</b> de los tuyos salga es la de extraer las cinco bolas de entre los que no llevas. La cobertura es lo que queda.</p>
+        </div>
+      </section>
+    </main>
+
+    <aside>
+      <section class="panel sorteo">
+        <header><h2>Saca las bolas</h2></header>
+        <div class="body">
+          <div id="bolas"></div>
+          <div class="veredicto" id="veredicto">Pulsa el botón y mira qué te habría tocado hoy.</div>
+          <div class="acciones"><button class="btn principal" id="btnSortear" type="button">Sacar bolas</button></div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <header><h2>Tu convocatoria</h2></header>
+        <div class="body">
+          <div class="ajustes">
+            <div class="campo"><label for="cfgTotal">Temas del temario</label>
+              <input type="number" id="cfgTotal" min="5" max="200" step="1"></div>
+            <div class="campo"><label for="cfgBolas">Bolas que se sacan</label>
+              <input type="number" id="cfgBolas" min="1" max="12" step="1"></div>
+            <div class="campo"><label for="cfgMeta">Vueltas para dominar uno</label>
+              <input type="number" id="cfgMeta" min="1" max="10" step="1"></div>
+            <div class="campo"><label for="cfgUmbral">Vueltas para darlo por preparado</label>
+              <input type="number" id="cfgUmbral" min="1" max="10" step="1"></div>
+          </div>
+          <p class="nota">De 1 a 10 vueltas, las que tú des por buenas. Cámbialos y sirve para cualquier especialidad: Primaria, Lengua, Inglés, Matemáticas. Solo cambian el tamaño del bombo y cuántas bolas salen.</p>
+        </div>
+      </section>
+
+      <section class="panel">
+        <header><h2>Tus títulos</h2></header>
+        <div class="body">
+          <label class="nota" style="margin:0 0 8px;display:block" for="pegaTemas">Pega aquí los títulos de tu temario, uno por línea, en orden. Puedes copiarlos directamente de tu hoja de cálculo.</label>
+          <textarea id="pegaTemas" placeholder="1. El relieve de la Península Ibérica&#10;2. Climas y paisajes&#10;3. …"></textarea>
+          <div class="acciones">
+            <button class="btn principal" id="btnCargarTemas" type="button">Cargar títulos</button>
+            <button class="btn" id="btnCopiar" type="button">Copiar mis datos</button>
+          </div>
+          <p class="nota" id="notaGuardado">—</p>
+        </div>
+      </section>
+    </aside>
+  </div>
+
+  <section class="cierre">
+    <h2>Cómo se lee esto</h2>
+    <p><b>La cobertura no es una estrategia, es una medida.</b> Dice qué probabilidad hay de que el sorteo toque un tema tuyo, y nada más. No dice que ese tema lo vayas a escribir bien, ni cubre el práctico, ni la programación, ni la defensa.</p>
+    <p>Lo interesante está en la forma de la curva: sube muy deprisa al principio y se aplana pronto. Los primeros temas te compran casi toda la probabilidad de <em>tener algo que escribir</em>. Los siguientes ya no compran eso, compran otra cosa: <em>poder elegir</em> entre dos, que el día del examen no es lo mismo.</p>
+    <p>Hazlo tuyo: cambia el número de temas, las bolas, tus títulos y cuántas vueltas das por suficientes. Se guarda en tu navegador, en tu máquina, y no sale de ahí.</p>
+  </section>
+</div>
+
+<script>
+(function(){
+  "use strict";
+  var LS = "elbombo.v1";
+  var EJEMPLO_TITULOS = [
+    "El relieve de la Península Ibérica","Climas y paisajes de España","El agua como recurso","Riesgos naturales y territorio",
+    "Población mundial y transición demográfica","La población española","El espacio urbano","La ciudad y sus retos",
+    "Sectores productivos","Agricultura y mundo rural","Industria y energía","Servicios y turismo",
+    "Comercio y flujos globales","Medio ambiente y sostenibilidad","Desigualdad y desarrollo","Geopolítica de los recursos",
+    "Cartografía y representación","Geografía de Andalucía","Ordenación del territorio",
+    "Prehistoria: procesos de hominización","Las primeras civilizaciones","El mundo griego","Roma: república e imperio",
+    "Hispania romana","La Alta Edad Media","El Islam y Al-Ándalus","Los reinos cristianos peninsulares",
+    "Feudalismo y sociedad estamental","El renacer urbano medieval","La crisis del siglo XIV","Las monarquías autoritarias",
+    "Humanismo y Renacimiento","Reforma y Contrarreforma","Los descubrimientos atlánticos","América precolombina",
+    "Conquista y colonización","Los Austrias mayores","Los Austrias menores","El absolutismo europeo",
+    "La revolución científica","La Ilustración","El reformismo borbónico","Revolución industrial",
+    "Revoluciones liberales","La España del siglo XIX","Nacionalismos e imperialismo","La Primera Guerra Mundial",
+    "El período de entreguerras","La Segunda República","La Guerra Civil","La Segunda Guerra Mundial",
+    "El franquismo","La Guerra Fría","Descolonización","La Transición española",
+    "Arte griego y romano","Arte paleocristiano y bizantino","Arte islámico","Románico","Gótico",
+    "Renacimiento italiano","Renacimiento español","Barroco","Goya y el siglo XVIII","Vanguardias históricas",
+    "Arte contemporáneo","La Unión Europea","Globalización","Migraciones contemporáneas",
+    "Cambio climático","Derechos humanos","Sociedad digital","Los ODS"
+  ];
+  var estado = null, guardadoOk = true;
+
+  function porDefecto(demo){
+    var cfg = {total:72, bolas:5, meta:5, umbral:2, demo:!!demo};
+    var v = [], t = [];
+    for(var i=0;i<cfg.total;i++){ v.push(0); t.push(EJEMPLO_TITULOS[i] || ""); }
+    if(demo){
+      // Un opositor a mitad de camino: 24 temas tocados, unos pocos dominados.
+      var reparto = [5,5,5,4,4,4,4,3,3,3,3,3,2,2,2,2,2,2,1,1,1,1,1,1];
+      var idx = [1,2,5,20,21,22,25,3,6,23,26,30,7,8,27,31,38,50,10,12,33,44,55,66];
+      for(var j=0;j<idx.length;j++){ v[idx[j]-1] = reparto[j]; }
+    }
+    return {cfg:cfg, vueltas:v, titulos:t};
+  }
+  try{
+    var raw = localStorage.getItem(LS);
+    if(raw){ var p = JSON.parse(raw); if(p && p.cfg && p.vueltas) estado = p; }
+  }catch(e){ guardadoOk = false; }
+  if(!estado) estado = porDefecto(true);
+
+  function guardar(){
+    try{ localStorage.setItem(LS, JSON.stringify(estado)); }
+    catch(e){ guardadoOk = false; }
+    pintarNotaGuardado();
+  }
+  function $(id){ return document.getElementById(id); }
+
+  /* ---------- probabilidad ---------- */
+  function comb(n,k){
+    if(k<0||k>n) return 0;
+    k = Math.min(k, n-k);
+    var r = 1;
+    for(var i=1;i<=k;i++){ r = r*(n-k+i)/i; }
+    return r;
+  }
+  function pAlMenosUno(k){
+    var T = estado.cfg.total, B = estado.cfg.bolas;
+    if(k<=0) return 0;
+    if(T-k < B) return 1;
+    return 1 - comb(T-k,B)/comb(T,B);
+  }
+  function pDosOMas(k){
+    var T = estado.cfg.total, B = estado.cfg.bolas;
+    if(k<2) return 0;
+    var total = comb(T,B);
+    if(!total) return 0;
+    var p0 = (T-k>=B) ? comb(T-k,B)/total : 0;
+    var p1 = (T-k>=B-1) ? comb(k,1)*comb(T-k,B-1)/total : 0;
+    return Math.max(0, 1 - p0 - p1);
+  }
+  function preparados(){
+    var c = 0, u = estado.cfg.umbral;
+    for(var i=0;i<estado.vueltas.length;i++){ if(estado.vueltas[i] >= u) c++; }
+    return c;
+  }
+  function tocados(){
+    var c = 0;
+    for(var i=0;i<estado.vueltas.length;i++){ if(estado.vueltas[i] > 0) c++; }
+    return c;
+  }
+  function dominados(){
+    var c = 0, m = estado.cfg.meta;
+    for(var i=0;i<estado.vueltas.length;i++){ if(estado.vueltas[i] >= m) c++; }
+    return c;
+  }
+  function pct(x){ return Math.round(x*100); }
+
+  /* ---------- bombo ---------- */
+  var bombo = $("bombo");
+  function construirBombo(){
+    bombo.textContent = "";
+    for(var i=1;i<=estado.cfg.total;i++){
+      var b = document.createElement("button");
+      b.type = "button";
+      b.className = "bola";
+      b.dataset.n = String(i);
+      b.textContent = String(i);
+      bombo.appendChild(b);
+    }
+  }
+  function nivel(v){
+    var m = estado.cfg.meta;
+    if(v<=0) return 0;
+    if(v>=m) return 5;
+    return Math.max(1, Math.min(4, Math.round(v/m*5)));
+  }
+  function pintarBombo(){
+    var hijos = bombo.children;
+    for(var i=0;i<hijos.length;i++){
+      var v = estado.vueltas[i] || 0;
+      hijos[i].dataset.v = String(nivel(v));
+      var tit = estado.titulos[i] ? (i+1) + ". " + estado.titulos[i] : "Tema " + (i+1);
+      hijos[i].title = tit + " — " + (v===1 ? "1 vuelta" : v + " vueltas") + " de " + estado.cfg.meta;
+      hijos[i].setAttribute("aria-label", hijos[i].title);
+    }
+    $("hintBombo").textContent = tocados() + " empezados · " + dominados() + " al máximo";
+  }
+  bombo.addEventListener("click", function(ev){
+    var b = ev.target.closest(".bola");
+    if(!b) return;
+    var i = parseInt(b.dataset.n,10) - 1, m = estado.cfg.meta;
+    var v = estado.vueltas[i] || 0;
+    v = ev.shiftKey ? (v<=0 ? m : v-1) : (v>=m ? 0 : v+1);
+    estado.vueltas[i] = v;
+    estado.cfg.demo = false;
+    guardar(); pintarTodo();
+  });
+
+  function pintarEscala(){
+    var e = $("escala"), m = estado.cfg.meta;
+    e.textContent = "";
+    var pasos = [];
+    if(m <= 6){
+      for(var v=0; v<=m; v++) pasos.push(v);
+    } else {
+      pasos = [0, 1, Math.round(m/3), Math.round(2*m/3), m];
+      pasos = pasos.filter(function(x,i,a){ return a.indexOf(x) === i; });
+    }
+    pasos.forEach(function(k){
+      var etiqueta = (k === 0) ? "sin tocar" : (k === m) ? "dominado"
+                   : k + (k === 1 ? " vuelta" : " vueltas");
+      var sp = document.createElement("span");
+      sp.className = "s";
+      var i2 = document.createElement("i");
+      i2.style.background = "var(--r" + nivel(k) + ")";
+      sp.appendChild(i2);
+      sp.appendChild(document.createTextNode(etiqueta));
+      e.appendChild(sp);
+    });
+  }
+
+  /* ---------- tiles ---------- */
+  function pintarTiles(){
+    var k = preparados(), T = estado.cfg.total, u = estado.cfg.umbral;
+    var c = pAlMenosUno(k);
+    $("kCob").textContent = pct(c);
+    $("gaugeCob").style.width = pct(c) + "%";
+    $("capCob").innerHTML = "Probabilidad de que al menos una de las <b>" + estado.cfg.bolas +
+      "</b> bolas caiga en uno de tus <b>" + k + "</b> temas preparados.";
+    $("kPrep").textContent = k;
+    $("kPrepDe").textContent = "de " + T;
+    $("capPrep").innerHTML = "Cuentan los que llevan <b>" + u + (u===1?" vuelta":" vueltas") +
+      "</b> o más. " + tocados() + " empezados, " + dominados() + " al máximo.";
+    $("kDos").textContent = pct(pDosOMas(k));
+  }
+
+  /* ---------- curva y tabla ---------- */
+  function pintarCurva(){
+    var svg = $("curva"), T = estado.cfg.total, k = preparados();
+    var W = 640, H = 336, L = 62, R = 22, TOP = 26, BOT = 50;
+    var x = function(n){ return L + (n/T)*(W-L-R); };
+    var y = function(p){ return TOP + (1-p)*(H-TOP-BOT); };
+    var s = "";
+    // rejilla + eje Y
+    [0,.25,.5,.75,1].forEach(function(p){
+      s += '<line class="rejilla" x1="'+L+'" y1="'+y(p).toFixed(1)+'" x2="'+(W-R)+'" y2="'+y(p).toFixed(1)+'"/>';
+      s += '<text x="'+(L-9)+'" y="'+(y(p)+4).toFixed(1)+'" text-anchor="end">'+Math.round(p*100)+'%</text>';
+    });
+    var pts = [], i;
+    for(i=0;i<=T;i++){ pts.push([x(i), y(pAlMenosUno(i))]); }
+    var d = pts.map(function(p,j){ return (j?"L":"M") + p[0].toFixed(1) + " " + p[1].toFixed(1); }).join(" ");
+    s += '<path class="area" d="'+d+' L '+x(T).toFixed(1)+' '+y(0).toFixed(1)+' L '+x(0).toFixed(1)+' '+y(0).toFixed(1)+' Z"/>';
+    s += '<path class="linea" d="'+d+'"/>';
+    // eje X
+    [0, Math.round(T/4), Math.round(T/2), Math.round(3*T/4), T].forEach(function(n){
+      s += '<text x="'+x(n).toFixed(1)+'" y="'+(H-24)+'" text-anchor="middle">'+n+'</text>';
+    });
+    s += '<text x="'+((L+W-R)/2).toFixed(1)+'" y="'+(H-6)+'" text-anchor="middle">temas preparados</text>';
+    if(k>0){
+      var px = x(k), py = y(pAlMenosUno(k));
+      s += '<line class="rejilla" x1="'+px.toFixed(1)+'" y1="'+py.toFixed(1)+'" x2="'+px.toFixed(1)+'" y2="'+y(0).toFixed(1)+'"/>';
+      s += '<circle class="aqui" cx="'+px.toFixed(1)+'" cy="'+py.toFixed(1)+'" r="6"/>';
+      var anc = (k > T*0.7) ? "end" : "start";
+      var dx = (anc === "end") ? -11 : 11;
+      s += '<text class="dest" x="'+(px+dx).toFixed(1)+'" y="'+(py-11).toFixed(1)+'" text-anchor="'+anc+'">'+
+           k+' → '+pct(pAlMenosUno(k))+'%</text>';
+    }
+    svg.innerHTML = s;
+  }
+  function pintarTabla(){
+    var T = estado.cfg.total, k = preparados(), body = $("tablaBody");
+    var paso = Math.max(1, Math.round(T/12));
+    var filas = [], n;
+    for(n=paso;n<=T;n+=paso){ filas.push(n); }
+    if(filas[filas.length-1] !== T) filas.push(T);
+    if(k>0 && filas.indexOf(k)<0){ filas.push(k); filas.sort(function(a,b){return a-b;}); }
+    body.textContent = "";
+    filas.forEach(function(n2){
+      var tr = document.createElement("tr");
+      if(n2 === k) tr.className = "aqui";
+      var c1 = document.createElement("td"); c1.textContent = n2 + (n2===k ? "  ← tú" : "");
+      var c2 = document.createElement("td"); c2.textContent = pct(pAlMenosUno(n2)) + " %";
+      var c3 = document.createElement("td"); c3.textContent = pct(pDosOMas(n2)) + " %";
+      tr.appendChild(c1); tr.appendChild(c2); tr.appendChild(c3);
+      body.appendChild(tr);
+    });
+    $("notaT").textContent = T;
+    $("notaB").textContent = estado.cfg.bolas;
+  }
+
+  /* ---------- sorteo ---------- */
+  function sortear(){
+    var T = estado.cfg.total, B = Math.min(estado.cfg.bolas, T), u = estado.cfg.umbral;
+    var saco = [], i;
+    for(i=1;i<=T;i++) saco.push(i);
+    for(i=saco.length-1;i>0;i--){
+      var j = Math.floor(Math.random()*(i+1));
+      var tmp = saco[i]; saco[i] = saco[j]; saco[j] = tmp;
+    }
+    var salen = saco.slice(0,B).sort(function(a,b){return a-b;});
+    var cont = $("bolas");
+    cont.textContent = "";
+    var mios = 0, mejor = null;
+    salen.forEach(function(n){
+      var v = estado.vueltas[n-1] || 0, tuyo = v >= u;
+      if(tuyo){ mios++; if(mejor===null || v > (estado.vueltas[mejor-1]||0)) mejor = n; }
+      var fila = document.createElement("div");
+      fila.className = "fila" + (tuyo ? " tuyo" : "");
+      var bn = document.createElement("span"); bn.className = "n"; bn.textContent = String(n);
+      var tt = document.createElement("span"); tt.className = "tt";
+      tt.textContent = estado.titulos[n-1] || ("Tema " + n);
+      var vv = document.createElement("span"); vv.className = "v";
+      vv.textContent = v ? v + "/" + estado.cfg.meta : "—";
+      fila.appendChild(bn); fila.appendChild(tt); fila.appendChild(vv);
+      cont.appendChild(fila);
+    });
+    Array.prototype.forEach.call(bombo.children, function(b,idx){
+      b.classList.toggle("sale", salen.indexOf(idx+1) >= 0);
+    });
+    var v = $("veredicto");
+    if(mios === 0){
+      v.innerHTML = "<b>Ninguna es tuya.</b> Con " + preparados() + " temas preparados esto pasa " +
+        (100 - pct(pAlMenosUno(preparados()))) + " de cada 100 veces.";
+    } else if(mios === 1){
+      v.innerHTML = "<b>Una sola.</b> El tema " + mejor + ", con " + (estado.vueltas[mejor-1]||0) +
+        " de " + estado.cfg.meta + " vueltas. Sin alternativa: sale esa o ninguna.";
+    } else {
+      v.innerHTML = "<b>" + mios + " tuyas.</b> Puedes elegir, que es justo lo que compran los temas de la segunda mitad.";
+    }
+  }
+
+  /* ---------- ajustes ---------- */
+  function leerAjustes(){
+    var T = Math.max(5, Math.min(200, parseInt($("cfgTotal").value,10) || 72));
+    var B = Math.max(1, Math.min(12, parseInt($("cfgBolas").value,10) || 5));
+    var M = Math.max(1, Math.min(10, parseInt($("cfgMeta").value,10) || 5));
+    var U = Math.max(1, Math.min(M, parseInt($("cfgUmbral").value,10) || 2));
+    var cambiaTotal = (T !== estado.cfg.total);
+    estado.cfg.total = T; estado.cfg.bolas = Math.min(B,T); estado.cfg.meta = M; estado.cfg.umbral = U;
+    if(cambiaTotal){
+      while(estado.vueltas.length < T){ estado.vueltas.push(0); estado.titulos.push(""); }
+      estado.vueltas.length = T; estado.titulos.length = T;
+      construirBombo();
+    }
+    for(var i=0;i<estado.vueltas.length;i++){ if(estado.vueltas[i] > M) estado.vueltas[i] = M; }
+    guardar(); escribirAjustes(); pintarTodo();
+  }
+  function escribirAjustes(){
+    $("cfgTotal").value = estado.cfg.total;
+    $("cfgBolas").value = estado.cfg.bolas;
+    $("cfgMeta").value = estado.cfg.meta;
+    $("cfgUmbral").value = estado.cfg.umbral;
+    $("cfgUmbral").max = estado.cfg.meta;
+  }
+  ["cfgTotal","cfgBolas","cfgMeta","cfgUmbral"].forEach(function(id){
+    $(id).addEventListener("change", leerAjustes);
+  });
+
+  $("btnSortear").addEventListener("click", sortear);
+  $("btnCerrarAviso").addEventListener("click", function(){ $("avisoDemo").hidden = true; });
+  $("btnEjemplo").addEventListener("click", function(){
+    estado = porDefecto(true); guardar(); construirBombo(); escribirAjustes(); pintarTodo();
+    $("avisoDemo").hidden = false;
+  });
+  $("btnCero").addEventListener("click", function(){
+    var t = estado.cfg.total;
+    estado = porDefecto(false);
+    estado.cfg.total = t;
+    estado.vueltas = []; estado.titulos = [];
+    for(var i=0;i<t;i++){ estado.vueltas.push(0); estado.titulos.push(""); }
+    guardar(); construirBombo(); escribirAjustes(); pintarTodo();
+    $("avisoDemo").hidden = true;
+  });
+  $("btnCargarTemas").addEventListener("click", function(){
+    var lineas = $("pegaTemas").value.split("\n").map(function(l){
+      return l.replace(/^\s*\d+\s*[.\-)]?\s*/, "").trim();
+    }).filter(function(l){ return l.length > 0; });
+    if(!lineas.length){ $("notaGuardado").innerHTML = "No he encontrado ninguna línea con texto."; return; }
+    if(lineas.length !== estado.cfg.total){
+      estado.cfg.total = Math.max(5, Math.min(200, lineas.length));
+      estado.vueltas.length = estado.cfg.total;
+      for(var i=0;i<estado.cfg.total;i++){ if(typeof estado.vueltas[i] !== "number") estado.vueltas[i] = 0; }
+      construirBombo(); escribirAjustes();
+    }
+    estado.titulos = lineas.slice(0, estado.cfg.total);
+    estado.cfg.demo = false;
+    guardar(); pintarTodo();
+    $("notaGuardado").innerHTML = '<span class="ok">' + estado.titulos.length + " títulos cargados.</span> El bombo ya es el tuyo.";
+  });
+  $("btnCopiar").addEventListener("click", function(){
+    var txt = JSON.stringify(estado);
+    var nota = $("notaGuardado");
+    function aMano(){
+      $("pegaTemas").value = txt;
+      $("pegaTemas").select();
+      nota.innerHTML = "Te lo he puesto en el cuadro de arriba, ya seleccionado: cópialo con el teclado y guárdalo donde quieras.";
+    }
+    try{
+      if(navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(txt).then(function(){
+          nota.innerHTML = '<span class="ok">Copiado.</span> Pégalo en una nota y tendrás una copia de seguridad.';
+        }).catch(aMano);
+      } else { aMano(); }
+    }catch(e){ aMano(); }
+  });
+
+  function pintarNotaGuardado(){
+    $("notaGuardado").innerHTML = guardadoOk
+      ? "Se guarda solo, en este navegador. Si cambias de equipo, empiezas de cero."
+      : "Tu navegador no me deja guardar (ventana privada o cookies bloqueadas). Puedes usarlo igual, pero al recargar se pierde.";
+  }
+
+  function pintarTodo(){
+    pintarBombo(); pintarEscala(); pintarTiles(); pintarCurva(); pintarTabla();
+  }
+
+  construirBombo();
+  escribirAjustes();
+  pintarTodo();
+  pintarNotaGuardado();
+  sortear();
+  if(!estado.cfg.demo) $("avisoDemo").hidden = true;
+})();
+</script>
+
+</body></html>
