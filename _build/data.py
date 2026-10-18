@@ -323,9 +323,9 @@ P.append(dict(
         ("La necesidad", """
 <p class="psub">El profesorado del centro tenía dificultades para encontrar las herramientas digitales adecuadas para sus clases y para ayudarse en su labor docente. Faltaba un sitio común claro y adaptado al centro que permitiera su autoformación.</p>
 <ul class="needs three">
-<li><b>Qué hace</b><span>Saber la función de cada herramienta sin tener que probarla antes.</span></li>
-<li><b>Para qué edad</b><span>Ver en qué etapa o nivel tiene sentido usarla.</span></li>
-<li><b>Cómo usarla</b><span>Tener ideas para su materia y un tutorial para empezar.</span></li>
+<li><b>Qué hice</b><span>Realizar una curación de las herramientas digitales apropiadas para el centro.</span></li>
+<li><b>Cómo lo hice</b><span>Dividí las herramientas por etapas (Infantil, Primaria y Secundaria y Bachillerato), edades y materias. De cada una expliqué ejemplos de actividades, el grupo de edad recomendado y un tutorial de uso.</span></li>
+<li><b>Para qué lo hice</b><span>Para que cada docente encontrara rápido qué herramientas podía usar, las comprendiera y supiera en qué nivel aplicarlas.</span></li>
 </ul>"""),
         dict(title="Dos versiones, dos años después",
              intro='<p class="psub">La primera la creé en las prácticas del máster. La segunda la he rehecho porque muchas herramientas habían cerrado o cambiado.</p>',
