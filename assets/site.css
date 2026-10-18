@@ -857,7 +857,8 @@ mark.err{background:#FCE3E3;color:inherit;border-bottom:2px solid #C73636;paddin
 .ph-vis .v-caja .belt{-webkit-mask-image:none;mask-image:none;overflow:visible}
 .ph-vis .v-caja .track{display:grid;grid-template-columns:repeat(3,46px);gap:12px;width:auto;animation:none}
 .ph-vis .v-caja .track img{width:46px;height:46px;padding:8px}
-.ph-vis .v-caja .track>*:nth-child(n+7){display:none}
+.ph-vis .v-caja .track>*:nth-child(n+13){display:none}
+.ph-vis .v-caja .belt+.belt{display:none}
 /* Repositorio: la misma ficha en 2024 y en 2026 */
 .ficha2{display:grid;grid-template-columns:minmax(0,1.75fr) minmax(0,1fr);gap:28px;align-items:start}
 .ficha2 figure{margin:0}
