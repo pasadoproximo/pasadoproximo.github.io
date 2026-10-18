@@ -163,7 +163,7 @@ def home():
         extra = f'<p class="tg-note">{nota}</p>' if nota else ""
         return f'<div class="tg"><span class="lab">{titulo}</span><ul>{lis}</ul>{extra}</div>'
     tools = '<div class="tgrid">' + "".join([
-        grupo("Inteligencia artificial", [("Claude", "claude"), ("ChatGPT", "chatgpt"), ("Gemini", "gemini"), ("Copilot", "copilot")]),
+        grupo("Inteligencia artificial", [("Claude", "claude"), ("ChatGPT", "chatgpt"), ("Gemini", "gemini"), ("Copilot", "copilot"), ("NotebookLM", "notebooklm")]),
         grupo("Aula virtual", [("Moodle", "moodle"), ("Classroom", "classroom"), ("Teams", "teams")]),
         grupo("Crear y evaluar", [("Genially", "genially"), ("Canva", "canva"), ("Book Creator", "bookcreator"), ("CapCut", "capcut"),
                                   ("Kahoot", "kahoot"), ("Mentimeter", "mentimeter"), ("Wooclap", "wooclap"), ("Edpuzzle", "edpuzzle"), ("Jotform", "jotform")]),
