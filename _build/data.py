@@ -127,11 +127,12 @@ P.append(dict(
 
 P.append(dict(
     slug="mapa-de-relieves", cat="herramientas", year="2026",
-    title="Mapa de relieves de la Península Ibérica", tags=["Aplicación web", "Bachillerato"], kind="ficha",
+    title="Mapa de relieves de la Península Ibérica", tags=["Aplicación web", "2.º Bachillerato"], kind="ficha",
     card="Un mapa interactivo que localiza cada relieve, era geológica o agente erosivo y lo explica.",
     viz="map",
     lede="Una herramienta de estudio para el tema de relieve de Geografía de España. En lugar de memorizar una lista de unidades, el alumnado pulsa sobre lo que quiere repasar y el mapa le señala dónde está, con una ficha explicativa, imágenes y preguntas.",
-    meta=[("Para quién", "Alumnado que estudia el relieve peninsular"),
+    meta=[("Nivel", "2.º Bachillerato · Geografía de España"),
+          ("Para quién", "Alumnado que estudia el relieve peninsular"),
           ("Tipo", "Aplicación web interactiva"),
           ("Herramientas", "Claude (artefacto web)")],
     links=[("Abrir el mapa", "/apps/mapa-de-relieves/", "int")],
@@ -287,11 +288,12 @@ P.append(dict(
 
 P.append(dict(
     slug="excursion-roma-3d", cat="aula", year="2024",
-    title="Excursión a Roma en 3D", tags=["Mundo 3D", "ESO"], kind="ficha",
+    title="Excursión a Roma en 3D", tags=["Mundo 3D", "1.º ESO"], kind="ficha",
     card="Un mundo 3D con edificios de la Antigua Roma para recorrer su arquitectura.",
     viz="v-cos",
     lede="Un mundo virtual con algunos de los edificios más representativos de la Antigua Roma, creado para recorrerlo en clase. Es una actividad de introducción: primero una visita guiada y después se comparan la arquitectura romana y la griega.",
-    meta=[("Tipo", "Mundo 3D para una visita guiada"),
+    meta=[("Nivel", "1.º ESO"),
+          ("Tipo", "Mundo 3D para una visita guiada"),
           ("Herramientas", "CoSpaces Edu (hoy Delightex)")],
     links=[("Visitar el mundo 3D", "https://edu.delightex.com/EXA-NNH", "ext")],
     sections=[

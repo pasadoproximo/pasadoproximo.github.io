@@ -17,6 +17,7 @@ Cada push a `main` se publica solo en 1-2 minutos. El Consejo de Clío vive en o
   (`index.html` + `tools.js` con los datos; logos en `herramientas/logos/`).
 - `apps/` → el Mapa de relieves y El bombo, recuperados de claude.ai y alojados aquí (no dependen de Claude).
 - `anterior/` → copia de la portada antigua (sin indexar). No tocar.
+- `_build/cv.html` → fuente del CV. Para regenerar el PDF: Chrome headless con `--print-to-pdf` (comando al inicio del archivo).
 - `assets/pdf/` → materiales descargables y el CV. `assets/proyectos/<slug>/` → capturas reales de cada proyecto.
 
 ## Flujo de trabajo
@@ -62,5 +63,3 @@ Cada push a `main` se publica solo en 1-2 minutos. El Consejo de Clío vive en o
 ## Pendiente
 
 - «Probar el consejo» sigue en claude.ai (usa la IA de Claude): pide iniciar sesión, es inevitable.
-- Confirmar cursos del Mapa de relieves (puesto: Bachillerato) y Roma 3D (puesto: ESO).
-- El CV en PDF aún dice «Profesor de Geografía e Historia · Tecnología educativa»: alinearlo con el titular.

@@ -1,0 +1,206 @@
+<!doctype html>
+<!-- Fuente del CV. Para regenerar el PDF:
+     chrome --headless --no-pdf-header-footer --print-to-pdf=assets/pdf/CV-Jorge-Delgado-Aguilera.pdf _build/cv.html -->
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Jorge Delgado Aguilera · Curriculum vitae</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&display=swap">
+<style>
+@page{size:A4;margin:0}
+:root{--navy:#061033;--navy3:#1B2C6B;--sky:#9FB3FF;--ice:#DDE4F6;--side:#EEF1F7;--mut:#5A6480;--line:#D3DAEA}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:#fff}
+body{font:400 10.4pt/1.42 "Alegreya Sans",sans-serif;color:var(--navy);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.page{width:210mm;height:297mm;position:relative;overflow:hidden;page-break-after:always;display:flex;flex-direction:column}
+.page:last-child{page-break-after:auto}
+/* cabecera de la página 1 */
+.hd{background:radial-gradient(700px 300px at 100% 0%,var(--navy3),var(--navy) 65%);color:#fff;padding:10mm 16mm 7mm;display:flex;justify-content:space-between;align-items:flex-end;gap:10mm}
+.logo{width:12mm;height:12mm;border-radius:3.4mm;background:#fff;display:grid;place-items:center;margin-bottom:4.5mm}
+.logo svg{width:7.4mm;height:7.4mm}
+.logo svg path,.logo svg rect{fill:var(--navy)}
+h1{font:800 25pt/.98 "Bricolage Grotesque",sans-serif;letter-spacing:-.03em}
+.role{font:700 8.4pt "Alegreya Sans";letter-spacing:.18em;text-transform:uppercase;color:var(--sky);margin-top:3.5mm;max-width:118mm;line-height:1.5}
+.contact{text-align:right;font-size:9.4pt;line-height:1.7;color:#DCE3F7;white-space:nowrap}
+.contact b{color:#fff}
+/* cabecera de la página 2 */
+.hd2{display:flex;justify-content:space-between;align-items:baseline;padding:8mm 16mm 4mm;border-bottom:1px solid #E6EAF2}
+.hd2 b{font:800 14pt "Bricolage Grotesque",sans-serif;letter-spacing:-.02em}
+.hd2 span{font-size:9pt;color:var(--mut)}
+/* cuerpo a dos columnas */
+.body{flex:1;display:grid;grid-template-columns:minmax(0,1fr) 55mm;gap:8mm;padding:5.5mm 16mm 0}
+.lab{font:700 8.4pt "Alegreya Sans";letter-spacing:.24em;text-transform:uppercase;color:var(--mut);padding-bottom:2mm;border-bottom:1.3px solid var(--navy);margin:4mm 0 2.8mm}
+.main>.lab:first-child,.side>.lab:first-child{margin-top:0}
+.side .lab{border-bottom-color:var(--mut)}
+p{margin-bottom:2mm}
+.job{margin-top:3mm}
+.job:first-of-type{margin-top:0}
+h3{font:700 11.4pt/1.2 "Bricolage Grotesque",sans-serif;letter-spacing:-.01em}
+.where{font:italic 400 9.6pt "Alegreya Sans";color:var(--mut);margin:.4mm 0 1.4mm}
+ul.b{list-style:none}
+ul.b li{position:relative;padding-left:4mm;margin-bottom:.7mm;line-height:1.38}
+ul.b li::before{content:"";position:absolute;left:.6mm;top:.62em;width:1.3mm;height:1.3mm;border-radius:50%;background:var(--navy3)}
+.pill{display:inline-block;font:700 8.6pt "Alegreya Sans";background:var(--ice);color:var(--navy);padding:.4mm 2.6mm;border-radius:99px;margin-left:1.5mm}
+.side{background:var(--side);border-radius:5mm;padding:5mm 4.5mm 4.5mm;align-self:start;margin-top:2mm}
+.ed{margin-bottom:2.8mm}
+.ed b{display:block;font-weight:700;font-size:10.4pt;line-height:1.3}
+.ed span{display:block;font-size:9pt;color:var(--mut);line-height:1.5}
+.side ul.b li{font-size:9.4pt}
+.tg{font-weight:700;font-size:9.4pt;margin:2.2mm 0 1.1mm;line-height:1.25}
+.tg:first-of-type{margin-top:0}
+.chips{display:flex;flex-wrap:wrap;gap:1mm}
+.chips span{font-size:8.3pt;background:#fff;border-radius:99px;padding:.3mm 2.2mm;line-height:1.45}
+.ft{display:flex;justify-content:space-between;margin:0 16mm;padding:2.6mm 0 6mm;border-top:1px solid #E6EAF2;font-size:8.4pt;color:var(--mut)}
+</style>
+</head>
+<body>
+
+<section class="page">
+ <header class="hd">
+  <div>
+   <div class="logo"><svg viewBox="0 0 26 26"><path d="M13 2 2 7h22L13 2Z"/><rect x="3" y="8" width="20" height="2"/><rect x="5" y="11" width="2.4" height="9"/><rect x="9.6" y="11" width="2.4" height="9"/><rect x="14" y="11" width="2.4" height="9"/><rect x="18.6" y="11" width="2.4" height="9"/><rect x="2" y="21" width="22" height="2.4"/></svg></div>
+   <h1>Jorge Delgado<br>Aguilera</h1>
+   <div class="role">Diseño de materiales educativos digitales · Profesor de Geografía e Historia</div>
+  </div>
+  <div class="contact">Campanillas (Málaga)<br><b>jorgedelagui@gmail.com</b><br>pasadoproximo.github.io<br>linkedin.com/in/jorgedelgadoaguilera<br>Instagram @pasadoproximo</div>
+ </header>
+ <div class="body">
+  <div class="main">
+   <div class="lab">Perfil</div>
+   <p>Diseño materiales educativos digitales y soy profesor de Geografía e Historia, con Máster de Profesorado (UMA) y Máster en Tecnología Educativa y Competencias Digitales. Dos cursos de docencia del ámbito sociolingüístico en el programa <b>PROA+</b> de la Junta de Andalucía, con alumnado de ESO y Bachillerato, y experiencia previa en 2.º ESO, Bachillerato y PMAR. Diseño situaciones de aprendizaje y evalúo por competencias en el marco LOMLOE, he creado un repositorio digital de centro y trabajo el uso pedagógico, crítico y seguro de la IA generativa en el aula.</p>
+
+   <div class="lab">Experiencia docente</div>
+   <div class="job">
+    <h3>Profesor de refuerzo educativo · Programa PROA+</h3>
+    <div class="where">Sertudema, S. L. · Residencia Escolar Andalucía (Málaga) · Cursos 2023-2024 y 2024-2025</div>
+    <ul class="b">
+     <li>Refuerzo educativo a alumnado residente de ESO y Bachillerato en grupos de 10 a 15 estudiantes: 3 h diarias, 4 días por semana.</li>
+     <li>Docencia del ámbito sociolingüístico (Lengua Castellana y Geografía e Historia) y de Matemáticas de ESO, con distintos cursos en la misma sesión.</li>
+     <li>Elaboración y adaptación de material propio para alumnado con dificultades de aprendizaje.</li>
+     <li>Metodologías activas y aprendizaje cooperativo con alumnado en riesgo de abandono escolar.</li>
+     <li>Asistencia alta y clima de trabajo estable durante los dos cursos, con mejora de las calificaciones del grupo.</li>
+    </ul>
+   </div>
+   <div class="job">
+    <h3>Coordinación TIC · Prácticas del Máster en Tecnología Educativa</h3>
+    <div class="where">Colegio Cerrado de Calderón (Málaga) · 2024</div>
+    <ul class="b">
+     <li>Creación del repositorio digital docente del centro, organizado por etapas y materias, para todo el claustro.</li>
+     <li>Docencia en Tecnología y Digitalización, 3.º ESO.</li>
+     <li>Soporte técnico y acondicionamiento del parque de dispositivos del centro.</li>
+    </ul>
+   </div>
+   <div class="job">
+    <h3>Prácticas del Máster de Profesorado</h3>
+    <div class="where">IES Campanillas (Málaga) · 2019</div>
+    <ul class="b">
+     <li>Intervención docente en 2.º ESO, Bachillerato y PMAR, con metodologías activas para elevar la participación.</li>
+     <li>Mejora de las calificaciones en 2.º ESO y PMAR. <span class="pill">Matrícula de Honor en el TFM</span></li>
+    </ul>
+   </div>
+  </div>
+
+  <aside class="side">
+   <div class="lab">Formación</div>
+   <div class="ed"><b>Máster en Tecnología Educativa y Competencias Digitales</b><span>Universidad Europea · 2023-2024</span></div>
+   <div class="ed"><b>Máster en Formación del Profesorado de Secundaria</b><span>Universidad de Málaga · 2018-2019</span></div>
+   <div class="ed"><b>Grado en Historia</b><span>Universidad de Málaga · 2014-2017</span></div>
+   <div class="ed"><b>Técnico Superior en Administración y Finanzas</b><span>IES Politécnico Jesús Marín · 2012-2014</span></div>
+   <div class="ed"><b>Preparación de oposiciones de Geografía e Historia</b><span>Dedicación completa · 2021-2022</span></div>
+   <div class="lab">Complementaria</div>
+   <div class="ed"><b>Aprendizaje Cooperativo</b><span>150 h · Universidad de Nebrija</span></div>
+   <div class="ed"><b>Actividades Extraescolares</b><span>150 h · Universidad de Nebrija</span></div>
+   <div class="lab">Idiomas</div>
+   <div class="ed"><b>Inglés B1 (Cambridge)</b><span>Uso profesional diario · preparando B2</span></div>
+  </aside>
+ </div>
+ <footer class="ft"><span>Jorge Delgado Aguilera · Curriculum vitae</span><span>1 / 2</span></footer>
+</section>
+
+<section class="page">
+ <header class="hd2"><b>Jorge Delgado Aguilera</b><span>pasadoproximo.github.io</span></header>
+ <div class="body">
+  <div class="main">
+   <div class="lab">Proyectos</div>
+   <div class="job">
+    <h3>El Consejo de Clío</h3>
+    <div class="where">Proyecto propio · 2026</div>
+    <ul class="b">
+     <li>Equipo de agentes de IA con seis pensadores de la historia que convierte una noticia de actualidad en una sesión de clase relacionada con el temario del curso.</li>
+     <li>Cada agente tiene una sola tarea y uno de ellos revisa el trabajo de todos antes de darlo por bueno.</li>
+    </ul>
+   </div>
+   <div class="job">
+    <h3>Caja de herramientas digitales</h3>
+    <div class="where">Actualización del repositorio de centro · 2026</div>
+    <ul class="b">
+     <li>Revisión del repositorio de 2024 para Secundaria: herramientas para el aula y para el docente, bancos de recursos y qué ha cerrado o cambiado desde entonces.</li>
+    </ul>
+   </div>
+   <div class="job">
+    <h3>Repositorio digital de centro</h3>
+    <div class="where">Colegio Cerrado de Calderón · 2024</div>
+    <ul class="b">
+     <li>Web de centro con recursos digitales por etapas y materias, y ficha por herramienta: función, edad recomendada, usos en el aula y tutorial en vídeo.</li>
+     <li>Presentado por el centro en el IX Congreso Internacional de Creatividad Educativa (Braining, Valencia, abril de 2025) como herramienta de autoformación del profesorado.</li>
+    </ul>
+   </div>
+   <div class="job">
+    <h3>PasadoPróximo-2ºESO · asistente GPT para el aula</h3>
+    <div class="where">TFM del Máster en Tecnología Educativa · 2024</div>
+    <ul class="b">
+     <li>Asistente que guía sin dar la respuesta, prioriza los materiales del aula e indica de dónde sale cada dato.</li>
+     <li>Marco de uso seguro de la IA generativa en Secundaria. Propuesta pendiente de pilotaje.</li>
+    </ul>
+   </div>
+   <div class="job">
+    <h3>Actividades de aula</h3>
+    <div class="where">Materiales propios</div>
+    <ul class="b">
+     <li><b>La IA también miente:</b> escenas históricas generadas con IA con anacronismos escondidos.</li>
+     <li><b>Cazadores de bulos históricos</b>, <b>La nube pesa</b> y comentario colaborativo de la Constitución de 1812 con Hypothes.is.</li>
+     <li><b>Mapa de relieves de la Península Ibérica:</b> aplicación web de estudio para 2.º Bachillerato.</li>
+     <li>Escape room del siglo XIX (Genially, 4.º ESO) y excursión a Roma en 3D (CoSpaces, 1.º ESO).</li>
+    </ul>
+   </div>
+   <div class="job">
+    <h3>PasadoPróximo</h3>
+    <div class="where">Divulgación histórica en Instagram</div>
+    <ul class="b"><li>Proyecto propio que relaciona el pasado con la actualidad.</li></ul>
+   </div>
+   <div class="lab">Otra experiencia</div>
+   <p>Atención al público y coordinación de equipos en hostelería (2015-actualidad), con uso diario del inglés y gestión de incidencias. Apoyo administrativo en gestoría (2013-2014).</p>
+  </div>
+
+  <aside class="side">
+   <div class="lab">Competencias</div>
+   <ul class="b">
+    <li>Situaciones de aprendizaje y evaluación por competencias (LOMLOE)</li>
+    <li>Atención a la diversidad y refuerzo educativo</li>
+    <li>Curación de recursos digitales y formación de profesorado</li>
+    <li>Uso crítico y seguro de la IA en el aula</li>
+   </ul>
+   <div class="lab">Herramientas</div>
+   <div class="tg">Diseño instruccional y herramientas de autor</div>
+   <div class="chips"><span>Articulate Rise 360</span><span>Articulate Storyline 360</span><span>H5P</span></div>
+   <div class="tg">Entornos virtuales</div>
+   <div class="chips"><span>Moodle</span><span>Google Classroom</span><span>Teams</span><span>Google Workspace</span><span>Google Sites</span></div>
+   <div class="tg">Creación de contenido</div>
+   <div class="chips"><span>Genially</span><span>Canva</span><span>Book Creator</span><span>Sway</span><span>CapCut</span><span>StopMotion Studio</span><span>ChatterPix</span></div>
+   <div class="tg">Evaluación e interacción</div>
+   <div class="chips"><span>Kahoot</span><span>Mentimeter</span><span>Wooclap</span><span>Edpuzzle</span><span>Hypothes.is</span></div>
+   <div class="tg">Geografía e Historia</div>
+   <div class="chips"><span>Google Arts &amp; Culture</span><span>GeaCron</span><span>KGeography</span><span>Timetoast</span><span>Historia Hispánica</span><span>Visitas 360º</span><span>CoSpaces</span></div>
+   <div class="tg">IA</div>
+   <div class="chips"><span>Claude</span><span>ChatGPT y GPT personalizados</span><span>NotebookLM</span></div>
+   <div class="tg">Otros</div>
+   <div class="chips"><span>Office</span><span>Contaplus</span><span>Contasol</span></div>
+  </aside>
+ </div>
+ <footer class="ft"><span>Jorge Delgado Aguilera · Curriculum vitae</span><span>2 / 2</span></footer>
+</section>
+
+</body>
+</html>
