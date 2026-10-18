@@ -323,7 +323,7 @@ P.append(dict(
         ("La necesidad", """
 <p class="psub">El profesorado del centro tenía dificultades para encontrar las herramientas digitales adecuadas para sus clases y para ayudarse en su labor docente. Faltaba un sitio común claro y adaptado al centro que permitiera su autoformación.</p>
 <ul class="needs three">
-<li><b>Qué hice</b><span>Realizar una curación de las herramientas digitales apropiadas para el centro.</span></li>
+<li><b>Qué hice</b><span>Realicé una curación de las herramientas digitales apropiadas para el centro.</span></li>
 <li><b>Cómo lo hice</b><span>Dividí las herramientas por etapas (Infantil, Primaria y Secundaria y Bachillerato), edades y materias. De cada una expliqué ejemplos de actividades, el grupo de edad recomendado y un tutorial de uso.</span></li>
 <li><b>Para qué lo hice</b><span>Para que cada docente encontrara rápido qué herramientas podía usar, las comprendiera y supiera en qué nivel aplicarlas.</span></li>
 </ul>"""),
@@ -344,10 +344,10 @@ FIG:/assets/proyectos/repositorio-digital/ficha-2024.jpg|Ficha de StopMotion en 
              after="""<div class="versions">
 <div class="ver"><span class="ver-y">2024</span><h3>La web del centro</h3>
 <ul class="ver-l"><li>Google Sites para el Colegio Cerrado de Calderón (Málaga).</li><li>Por etapas, edades y materias, con un apartado de Apoyo docente.</li><li>Presentada por el centro en Braining (Valencia, abril de 2025).</li></ul>
-FIG:/assets/proyectos/repositorio-digital/inicio-2024.jpg|Portada del repositorio en Google Sites: menú por etapas (Infantil, Primaria, Secundaria y Bachillerato, Apoyo docente, Recursos) y los objetivos del repositorio|La portada, con el menú por etapas.</div></div>
+FIG:/assets/proyectos/repositorio-digital/inicio-2024.jpg|Portada del repositorio en Google Sites: menú por etapas (Infantil, Primaria, Secundaria y Bachillerato, Apoyo docente, Recursos) y los objetivos del repositorio|La portada, con el menú por etapas.</div>
 <div class="ver ver-new"><span class="ver-y">2026</span><h3>La caja de herramientas</h3>
 <ul class="ver-l"><li>Web propia, pensada para Secundaria.</li><li>Separada por quién la usa: aula, docente y recursos.</li><li>Revisada una a una en octubre de 2026.</li><li>Con lo que ha cerrado, su alternativa y la IA que llega con la cuenta del centro.</li></ul>
-FIG:/assets/proyectos/repositorio-digital/caja-2026.jpg|Portada de la Caja de herramientas digitales: 64 herramientas para el aula, 34 para el docente, 20 recursos y 7 que han cerrado o cambiado|La portada: qué hay y qué ha cambiado.</div></div>
+FIG:/assets/proyectos/repositorio-digital/caja-2026.jpg|Portada de la Caja de herramientas digitales: 64 herramientas para el aula, 34 para el docente, 20 recursos y 7 que han cerrado o cambiado|La portada: qué hay y qué ha cambiado.</div>
 </div>
 <div class="ficha-new">
 <div><span class="ver-y">2026</span><h3>La misma ficha, dos años después</h3><p>StopMotion sigue, pero la ficha cambia: dice qué hace el alumnado, da ideas para clase y aclara nivel, dispositivos y si hace falta cuenta.</p></div>
