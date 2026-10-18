@@ -873,3 +873,5 @@ mark.err{background:#FCE3E3;color:inherit;border-bottom:2px solid #C73636;paddin
 .ficha-new .ver-y{background:var(--navy);color:#fff}
 .ficha-new figure{margin:0}
 @media (max-width:760px){.ficha-new{grid-template-columns:1fr;gap:20px}.ficha-new figure{max-width:340px}}
+.ficha1.two{max-width:none;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px;align-items:start}
+@media (max-width:760px){.ficha1.two{grid-template-columns:1fr}}

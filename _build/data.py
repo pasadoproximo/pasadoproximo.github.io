@@ -328,10 +328,11 @@ P.append(dict(
 <li><b>Para qué lo hice</b><span>Para que cada docente encontrara rápido qué herramientas podía usar, las comprendiera y supiera en qué nivel aplicarlas.</span></li>
 </ul>"""),
         dict(title="Así era cada ficha",
-             intro='<p class="psub">Un ejemplo: StopMotion, en las herramientas de Sociales de Secundaria y Bachillerato. Pulsa la captura para verla completa.</p>',
+             intro='<p class="psub">Dos ejemplos de etapas distintas: una herramienta de Infantil y otra de Secundaria. Pulsa una captura para verla completa.</p>',
              cols=1, figs=[],
-             after="""<div class="ficha1">
-FIG:/assets/proyectos/repositorio-digital/ficha-2024.jpg|Ficha de StopMotion en el repositorio de 2024: videotutorial de YouTube, explicación de la técnica, tres usos en el aula, «Todas las edades» y botón a la app|<b>2024 · Google Sites.</b> Videotutorial, qué es, usos en el aula, edad y enlace a la app.
+             after="""<div class="ficha1 two">
+FIG:/assets/proyectos/repositorio-digital/ficha-infantil-2024.jpg|Ficha de ChatterPix Kids en Infantil (5 años): videotutorial de YouTube, qué es la aplicación, cuatro usos en clase y botón a la app|<b>Infantil · 5 años · Expresión oral.</b> ChatterPix Kids: videotutorial, qué es, usos en clase y enlace a la app.
+FIG:/assets/proyectos/repositorio-digital/ficha-2024.jpg|Ficha de StopMotion en el repositorio de 2024: videotutorial de YouTube, explicación de la técnica, tres usos en el aula, «Todas las edades» y botón a la app|<b>Secundaria y Bachillerato · Sociales.</b> StopMotion: videotutorial, qué es, usos en el aula, edad y enlace a la app.
 </div>"""),
         ("Lo que puedo afirmar", """
 <div class="status two">
