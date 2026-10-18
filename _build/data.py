@@ -332,7 +332,7 @@ P.append(dict(
              cols=2, figs=[],
              after="""<div class="versions">
 <div class="ver"><span class="ver-y">2024</span><h3>La web del centro</h3>
-<ul class="ver-l"><li>Google Sites para el Colegio Cerrado de Calderón (Málaga).</li><li><b>Herramientas para clase por etapas del centro:</b> Infantil, Primaria y Secundaria y Bachillerato (aquí, por departamentos).</li><li><b>Un apartado general, Apoyo docente,</b> con herramientas que facilitan el trabajo del profesorado.</li><li><b>Cada herramienta explicada</b> con ejemplos de actividades, grupo de edad recomendado, tutorial de uso y sus pros y contras.</li></ul>
+<ul class="ver-l"><li>Google Sites para el Colegio Cerrado de Calderón (Málaga).</li><li><b>Herramientas para clase por etapas del centro:</b> Infantil, Primaria y Secundaria y Bachillerato (aquí, por departamentos).</li><li><b>Un apartado general, Apoyo docente,</b> con herramientas que facilitan el trabajo del profesorado.</li><li><b>Cada herramienta explicada</b> con ejemplos de actividades, grupo de edad recomendado y un tutorial de uso.</li></ul>
 FIG:/assets/proyectos/repositorio-digital/inicio-2024.jpg|Portada del repositorio en Google Sites: menú por etapas (Infantil, Primaria, Secundaria y Bachillerato, Apoyo docente, Recursos) y los objetivos del repositorio|La portada, con el menú por etapas.</div>
 <div class="ver ver-new"><span class="ver-y">2026</span><h3>La caja de herramientas</h3>
 <ul class="ver-l"><li>Web propia, pensada para Secundaria.</li><li>Separada por quién la usa: aula, docente y recursos.</li><li>Revisada una a una en octubre de 2026.</li><li>Con lo que ha cerrado, su alternativa y la IA que llega con la cuenta del centro.</li></ul>
