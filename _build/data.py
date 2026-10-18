@@ -318,36 +318,36 @@ P.append(dict(
           ("Herramientas", "Google Sites (2024) · web propia (2026)"),
           ("Reconocimiento", "Presentada por el centro en Braining 2025")],
     links=[("Abrir la caja de herramientas", "/herramientas/", "int"),
-           ("Ver el repositorio original", "https://sites.google.com/view/repositorio-digital-docente-cc/inicio", "ext"),
-           ("Noticia de Braining", "https://colegiocerradodecalderon.es/braining/", "ext")],
+           ("Ver el repositorio original", "https://sites.google.com/view/repositorio-digital-docente-cc/inicio", "ext")],
     sections=[
         ("La necesidad", """
-<p class="psub">Hay cientos de herramientas y poco tiempo para probarlas. Un docente necesita saber de un vistazo tres cosas.</p>
+<p class="psub">En el centro, el profesorado tenía dificultades para encontrar la herramienta digital adecuada para cada clase. Hay cientos, cambian a menudo y no hay tiempo para probarlas una a una. Faltaba un sitio común donde verlas de forma clara y de un vistazo.</p>
 <ul class="needs three">
-<li><b>Qué hace</b><span>La función de cada herramienta, sin tener que probarla.</span></li>
-<li><b>Para qué edad</b><span>La etapa o el nivel en el que tiene sentido.</span></li>
-<li><b>Cómo usarla</b><span>Ideas concretas para su materia y un tutorial.</span></li>
+<li><b>Qué hace</b><span>Saber la función de cada herramienta sin tener que probarla antes.</span></li>
+<li><b>Para qué edad</b><span>Ver en qué etapa o nivel tiene sentido usarla.</span></li>
+<li><b>Cómo usarla</b><span>Tener ideas para su materia y un tutorial para empezar.</span></li>
 </ul>"""),
         dict(title="Dos versiones, dos años después",
              intro='<p class="psub">La primera la creé en las prácticas del máster. La segunda la he rehecho porque muchas herramientas habían cerrado o cambiado.</p>',
              cols=2, figs=[],
              after="""<div class="versions">
 <div class="ver"><span class="ver-y">2024</span><h3>La web del centro</h3>
-<ul class="ver-l"><li>Google Sites para el Colegio Cerrado de Calderón (Málaga).</li><li>Por etapas y, en Secundaria y Bachillerato, por departamentos.</li><li>Cada herramienta con su función, edad, ideas de uso y tutorial en vídeo.</li><li>Presentada por el centro en Braining (Valencia, abril de 2025).</li></ul>
+<ul class="ver-l"><li>Google Sites para el Colegio Cerrado de Calderón (Málaga).</li><li><b>Herramientas para clase por etapas del centro:</b> Infantil, Primaria y Secundaria y Bachillerato (aquí, por departamentos).</li><li><b>Un apartado general, Apoyo docente,</b> con herramientas que facilitan el trabajo del profesorado.</li><li><b>Cada herramienta explicada</b> con ejemplos de actividades, grupo de edad recomendado, tutorial de uso y sus pros y contras.</li></ul>
 FIG:/assets/proyectos/repositorio-digital/inicio-2024.jpg|Portada del repositorio en Google Sites: menú por etapas (Infantil, Primaria, Secundaria y Bachillerato, Apoyo docente, Recursos) y los objetivos del repositorio|La portada, con el menú por etapas.</div>
 <div class="ver ver-new"><span class="ver-y">2026</span><h3>La caja de herramientas</h3>
 <ul class="ver-l"><li>Web propia, pensada para Secundaria.</li><li>Separada por quién la usa: aula, docente y recursos.</li><li>Revisada una a una en octubre de 2026.</li><li>Con lo que ha cerrado, su alternativa y la IA que llega con la cuenta del centro.</li></ul>
 FIG:/assets/proyectos/repositorio-digital/caja-2026.jpg|Portada de la Caja de herramientas digitales: 64 herramientas para el aula, 34 para el docente, 20 recursos y 7 que han cerrado o cambiado|La portada: qué hay y qué ha cambiado.</div>
 </div>"""),
-        dict(title="Por dentro",
-             intro='<p class="psub">Cómo se organiza cada versión. Pulsa una captura para verla completa.</p>',
-             cols=3, frame=True,
-             figs=[("/assets/proyectos/repositorio-digital/sociales-2024.jpg", "Página de Sociales del repositorio: lista de herramientas específicas (StopMotion, realidad virtual, mapas, cronogramas, debates…) y la ficha de StopMotion", "<b>2024 · Sociales.</b> Herramientas de la materia, cada una con su ficha."),
-                   ("/assets/proyectos/repositorio-digital/apoyo-docente-2024.jpg", "Página de Apoyo docente del repositorio con su índice: edición de PDF, inteligencia artificial, curación de contenido y evaluación", "<b>2024 · Apoyo docente.</b> Herramientas para el trabajo del profesor."),
-                   ("/assets/proyectos/repositorio-digital/caja-fichas-2026.jpg", "Fichas de la caja con qué hace el alumnado, ideas para clase, nivel, dispositivos y cuenta necesaria, y botones de abrir y tutoriales", "<b>2026 · Fichas.</b> Qué hace el alumnado, ideas para clase y qué necesita.")]),
+        dict(title="Una ficha, antes y después",
+             intro='<p class="psub">La misma herramienta, StopMotion, en las dos versiones. Pulsa una captura para verla completa.</p>',
+             cols=2, figs=[],
+             after="""<div class="ficha2">
+FIG:/assets/proyectos/repositorio-digital/ficha-2024.jpg|Ficha de StopMotion en el repositorio de 2024: videotutorial de YouTube, explicación de la técnica, tres usos en el aula, «Todas las edades» y botón a la app|<b>2024 · Google Sites.</b> Videotutorial, qué es, usos en el aula, edad y enlace a la app.
+FIG:/assets/proyectos/repositorio-digital/ficha-2026.jpg|Ficha de Stop Motion Studio en la Caja de herramientas de 2026: qué hace el alumnado, tres ideas para clase, toda la etapa, tablet o móvil por equipo, sin cuenta, y botones Abrir y Tutoriales|<b>2026 · Caja de herramientas.</b> Qué hace el alumnado, ideas para clase, nivel, dispositivos, cuenta y tutoriales.
+</div>"""),
         ("Lo que puedo afirmar", """
 <div class="status two">
-<div class="s-ok"><span class="st-l ok">Comprobado</span><p>El centro la usa y la presentó en el IX Congreso Internacional de Creatividad Educativa (Braining 2025).</p></div>
+<div class="s-ok"><span class="st-l ok">Comprobado</span><p>El centro la usa y la presentó en el IX Congreso Internacional de Creatividad Educativa (Braining 2025). <a href="https://colegiocerradodecalderon.es/braining/" rel="noopener" target="_blank">Ver la noticia del centro</a>.</p></div>
 <div class="s-pend"><span class="st-l pend">Sin datos</span><p>No tengo datos de visitas ni de uso por parte del profesorado, así que no los incluyo.</p></div>
 </div>"""),
     ],
