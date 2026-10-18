@@ -875,3 +875,6 @@ mark.err{background:#FCE3E3;color:inherit;border-bottom:2px solid #C73636;paddin
 @media (max-width:760px){.ficha-new{grid-template-columns:1fr;gap:20px}.ficha-new figure{max-width:340px}}
 .ficha1.two{max-width:none;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px;align-items:start}
 @media (max-width:760px){.ficha1.two{grid-template-columns:1fr}}
+.caso .status.four{grid-template-columns:repeat(4,minmax(0,1fr))}
+@media (max-width:1020px){.caso .status.four{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:560px){.caso .status.four{grid-template-columns:1fr}}

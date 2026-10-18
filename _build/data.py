@@ -335,9 +335,11 @@ FIG:/assets/proyectos/repositorio-digital/ficha-infantil-2024.jpg|Ficha de Chatt
 FIG:/assets/proyectos/repositorio-digital/ficha-2024.jpg|Ficha de StopMotion en el repositorio de 2024: videotutorial de YouTube, explicación de la técnica, tres usos en el aula, «Todas las edades» y botón a la app|<b>Secundaria y Bachillerato · Sociales.</b> StopMotion: videotutorial, qué es, usos en el aula, edad y enlace a la app.
 </div>"""),
         ("Lo que puedo afirmar", """
-<div class="status two">
-<div class="s-ok"><span class="st-l ok">Comprobado</span><p>El centro la usa y la presentó en el IX Congreso Internacional de Creatividad Educativa (Braining 2025). <a href="https://colegiocerradodecalderon.es/braining/" rel="noopener" target="_blank">Ver la noticia del centro</a>.</p></div>
-<div class="s-pend"><span class="st-l pend">Sin datos</span><p>No tengo datos de visitas ni de uso por parte del profesorado, así que no los incluyo.</p></div>
+<div class="status four">
+<div class="s-ok"><span class="st-l ok">En uso</span><p>El centro la usó con su claustro como herramienta de autoformación.</p></div>
+<div class="s-exp"><span class="st-l exp">Congreso</span><p>El centro la presentó en el IX Congreso Internacional de Creatividad Educativa (Braining, Valencia, abril de 2025). <a href="https://colegiocerradodecalderon.es/braining/" rel="noopener" target="_blank">Ver la noticia</a>.</p></div>
+<div class="s-exp"><span class="st-l exp">Todo el centro</span><p>Infantil por edades (3, 4 y 5 años), Primaria por ciclos y Secundaria y Bachillerato en ocho departamentos, más Apoyo docente y Recursos.</p></div>
+<div class="s-pend"><span class="st-l pend">Al día en 2026</span><p>64 herramientas para el aula, 34 para el docente y 20 recursos, revisados uno a uno, y 7 que han cerrado o cambiado.</p></div>
 </div>"""),
         dict(title="Mantenerlo al día",
              intro='<p class="psub">La tecnología educativa evoluciona muy rápido: dos años después, muchas herramientas habían cerrado o cambiado. Por eso en 2026 la he rehecho para Secundaria.</p>',
