@@ -167,7 +167,7 @@ def home():
         grupo("Aula virtual", [("Moodle", "moodle"), ("Classroom", "classroom"), ("Teams", "teams")]),
         grupo("Crear y evaluar", [("Genially", "genially"), ("Canva", "canva"), ("Book Creator", "bookcreator"), ("CapCut", "capcut"),
                                   ("Kahoot", "kahoot"), ("Mentimeter", "mentimeter"), ("Wooclap", "wooclap"), ("Edpuzzle", "edpuzzle"), ("Jotform", "jotform")]),
-        grupo("Diseño instruccional y herramientas de autor", [("Articulate Rise 360", "articulate"), ("Articulate Storyline 360", "articulate"), ("H5P", "h5p")]),
+        grupo("E-learning", [("Articulate Rise 360", "articulate"), ("Articulate Storyline 360", "articulate"), ("H5P", "h5p")]),
     ]) + '</div>'
     form = re.sub(r'(<div class="marq( rev)?" aria-label="[^"]*"><div class="track">.*?</div></div>\s*)+', tools, form, count=1, flags=re.S)
     form = form.replace('<h3 class="big" style="margin-top:8px">Con qué trabajo</h3>', '<h3 class="big h3big" style="margin-top:8px">Con qué trabajo</h3>')
