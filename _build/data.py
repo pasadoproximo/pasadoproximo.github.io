@@ -321,7 +321,7 @@ P.append(dict(
            ("Ver el repositorio original", "https://sites.google.com/view/repositorio-digital-docente-cc/inicio", "ext")],
     sections=[
         ("La necesidad", """
-<p class="psub">En el centro, el profesorado tenía dificultades para encontrar la herramienta digital adecuada para cada clase. Hay cientos, cambian a menudo y no hay tiempo para probarlas una a una. Faltaba un sitio común donde verlas de forma clara y de un vistazo.</p>
+<p class="psub">El profesorado del centro tenía dificultades para encontrar las herramientas digitales adecuadas tanto para sus clases como para ayudarse en su labor docente. Faltaba un sitio común para cada clase que permitiera la autoformación.</p>
 <ul class="needs three">
 <li><b>Qué hace</b><span>Saber la función de cada herramienta sin tener que probarla antes.</span></li>
 <li><b>Para qué edad</b><span>Ver en qué etapa o nivel tiene sentido usarla.</span></li>
