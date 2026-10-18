@@ -327,28 +327,31 @@ P.append(dict(
 <li><b>Cómo lo hice</b><span>Dividí las herramientas por etapas (Infantil, Primaria y Secundaria y Bachillerato), edades y materias. De cada una expliqué ejemplos de actividades, el grupo de edad recomendado y un tutorial de uso.</span></li>
 <li><b>Para qué lo hice</b><span>Para que cada docente encontrara rápido qué herramientas podía usar, las comprendiera y supiera en qué nivel aplicarlas.</span></li>
 </ul>"""),
-        dict(title="Dos versiones, dos años después",
-             intro='<p class="psub">La primera la creé en las prácticas del máster. La segunda la he rehecho porque muchas herramientas habían cerrado o cambiado.</p>',
-             cols=2, figs=[],
-             after="""<div class="versions">
-<div class="ver"><span class="ver-y">2024</span><h3>La web del centro</h3>
-<ul class="ver-l"><li>Google Sites para el Colegio Cerrado de Calderón (Málaga).</li><li><b>Herramientas para clase por etapas del centro:</b> Infantil, Primaria y Secundaria y Bachillerato (aquí, por departamentos).</li><li><b>Un apartado general, Apoyo docente,</b> con herramientas que facilitan el trabajo del profesorado.</li><li><b>Cada herramienta explicada</b> con ejemplos de actividades, grupo de edad recomendado y un tutorial de uso.</li></ul>
-FIG:/assets/proyectos/repositorio-digital/inicio-2024.jpg|Portada del repositorio en Google Sites: menú por etapas (Infantil, Primaria, Secundaria y Bachillerato, Apoyo docente, Recursos) y los objetivos del repositorio|La portada, con el menú por etapas.</div>
-<div class="ver ver-new"><span class="ver-y">2026</span><h3>La caja de herramientas</h3>
-<ul class="ver-l"><li>Web propia, pensada para Secundaria.</li><li>Separada por quién la usa: aula, docente y recursos.</li><li>Revisada una a una en octubre de 2026.</li><li>Con lo que ha cerrado, su alternativa y la IA que llega con la cuenta del centro.</li></ul>
-FIG:/assets/proyectos/repositorio-digital/caja-2026.jpg|Portada de la Caja de herramientas digitales: 64 herramientas para el aula, 34 para el docente, 20 recursos y 7 que han cerrado o cambiado|La portada: qué hay y qué ha cambiado.</div>
-</div>"""),
-        dict(title="Una ficha, antes y después",
-             intro='<p class="psub">La misma herramienta, StopMotion, en las dos versiones. Pulsa una captura para verla completa.</p>',
-             cols=2, figs=[],
-             after="""<div class="ficha2">
+        dict(title="Así era cada ficha",
+             intro='<p class="psub">Un ejemplo: StopMotion, en las herramientas de Sociales de Secundaria y Bachillerato. Pulsa la captura para verla completa.</p>',
+             cols=1, figs=[],
+             after="""<div class="ficha1">
 FIG:/assets/proyectos/repositorio-digital/ficha-2024.jpg|Ficha de StopMotion en el repositorio de 2024: videotutorial de YouTube, explicación de la técnica, tres usos en el aula, «Todas las edades» y botón a la app|<b>2024 · Google Sites.</b> Videotutorial, qué es, usos en el aula, edad y enlace a la app.
-FIG:/assets/proyectos/repositorio-digital/ficha-2026.jpg|Ficha de Stop Motion Studio en la Caja de herramientas de 2026: qué hace el alumnado, tres ideas para clase, toda la etapa, tablet o móvil por equipo, sin cuenta, y botones Abrir y Tutoriales|<b>2026 · Caja de herramientas.</b> Qué hace el alumnado, ideas para clase, nivel, dispositivos, cuenta y tutoriales.
 </div>"""),
         ("Lo que puedo afirmar", """
 <div class="status two">
 <div class="s-ok"><span class="st-l ok">Comprobado</span><p>El centro la usa y la presentó en el IX Congreso Internacional de Creatividad Educativa (Braining 2025). <a href="https://colegiocerradodecalderon.es/braining/" rel="noopener" target="_blank">Ver la noticia del centro</a>.</p></div>
 <div class="s-pend"><span class="st-l pend">Sin datos</span><p>No tengo datos de visitas ni de uso por parte del profesorado, así que no los incluyo.</p></div>
+</div>"""),
+        dict(title="Mantenerlo al día",
+             intro='<p class="psub">La tecnología educativa evoluciona muy rápido: dos años después, muchas herramientas habían cerrado o cambiado. Por eso en 2026 la he rehecho para Secundaria.</p>',
+             cols=2, figs=[],
+             after="""<div class="versions">
+<div class="ver"><span class="ver-y">2024</span><h3>La web del centro</h3>
+<ul class="ver-l"><li>Google Sites para el Colegio Cerrado de Calderón (Málaga).</li><li>Por etapas, edades y materias, con un apartado de Apoyo docente.</li><li>Presentada por el centro en Braining (Valencia, abril de 2025).</li></ul>
+FIG:/assets/proyectos/repositorio-digital/inicio-2024.jpg|Portada del repositorio en Google Sites: menú por etapas (Infantil, Primaria, Secundaria y Bachillerato, Apoyo docente, Recursos) y los objetivos del repositorio|La portada, con el menú por etapas.</div></div>
+<div class="ver ver-new"><span class="ver-y">2026</span><h3>La caja de herramientas</h3>
+<ul class="ver-l"><li>Web propia, pensada para Secundaria.</li><li>Separada por quién la usa: aula, docente y recursos.</li><li>Revisada una a una en octubre de 2026.</li><li>Con lo que ha cerrado, su alternativa y la IA que llega con la cuenta del centro.</li></ul>
+FIG:/assets/proyectos/repositorio-digital/caja-2026.jpg|Portada de la Caja de herramientas digitales: 64 herramientas para el aula, 34 para el docente, 20 recursos y 7 que han cerrado o cambiado|La portada: qué hay y qué ha cambiado.</div></div>
+</div>
+<div class="ficha-new">
+<div><span class="ver-y">2026</span><h3>La misma ficha, dos años después</h3><p>StopMotion sigue, pero la ficha cambia: dice qué hace el alumnado, da ideas para clase y aclara nivel, dispositivos y si hace falta cuenta.</p></div>
+FIG:/assets/proyectos/repositorio-digital/ficha-2026.jpg|Ficha de Stop Motion Studio en la Caja de herramientas de 2026: qué hace el alumnado, tres ideas para clase, toda la etapa, tablet o móvil por equipo, sin cuenta, y botones Abrir y Tutoriales|<b>2026 · Caja de herramientas.</b> Qué hace el alumnado, ideas para clase, nivel, dispositivos, cuenta y tutoriales.
 </div>"""),
     ],
     related=["audita-tu-programacion", "rubrica-materiales-digitales", "e-portfolio-master"],

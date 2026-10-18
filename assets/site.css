@@ -861,3 +861,15 @@ mark.err{background:#FCE3E3;color:inherit;border-bottom:2px solid #C73636;paddin
 @media (max-width:760px){.ficha2{grid-template-columns:1fr}.ficha2 figure:last-child{max-width:340px}}
 .status a{color:var(--navy3);font-weight:700}
 .ver-l b{color:var(--navy)}
+/* Repositorio: ficha de 2024 sola y ficha de 2026 al final */
+.ficha1{max-width:900px}
+.ficha1 figure{margin:0}
+.ficha1 img,.ficha-new img{width:100%;height:auto;border-radius:14px;border:1px solid #E3E8F2;background:#fff;box-shadow:0 6px 20px rgba(6,16,51,.06)}
+.ficha1 figcaption,.ficha-new figcaption{font-size:16px;color:#2A3352;margin-top:12px;line-height:1.45}
+.ficha1 figcaption b,.ficha-new figcaption b{color:var(--navy)}
+.ficha-new{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:40px;align-items:center;margin-top:40px;padding-top:32px;border-top:1.5px solid #D3DAEA}
+.ficha-new h3{font:800 24px/1.1 var(--f-disp);letter-spacing:-.02em;color:var(--navy);margin-top:12px}
+.ficha-new p{margin-top:10px!important}
+.ficha-new .ver-y{background:var(--navy);color:#fff}
+.ficha-new figure{margin:0}
+@media (max-width:760px){.ficha-new{grid-template-columns:1fr;gap:20px}.ficha-new figure{max-width:340px}}
