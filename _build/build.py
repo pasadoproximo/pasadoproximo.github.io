@@ -64,7 +64,7 @@ FAVICON = re.search(r'<link rel="icon"[^>]*>', SRC).group(0)
 FONTS = '''<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alegreya+SC:wght@700&family=Alegreya+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&display=swap">'''
-CSSV = "11"
+CSSV = "12"
 
 
 def head(title, desc, path, og="/assets/og.jpg"):
@@ -168,8 +168,7 @@ def home():
         grupo("Aula virtual", [("Moodle", "moodle"), ("Classroom", "classroom"), ("Teams", "teams")]),
         grupo("Crear y evaluar", [("Genially", "genially"), ("Canva", "canva"), ("Book Creator", "bookcreator"), ("CapCut", "capcut"),
                                   ("Kahoot", "kahoot"), ("Mentimeter", "mentimeter"), ("Wooclap", "wooclap"), ("Edpuzzle", "edpuzzle"), ("Jotform", "jotform")]),
-        grupo("Geografía e Historia", [("Arts &amp; Culture", "artsculture"), ("GeaCron", "geacron"), ("Timetoast", "timetoast"),
-                                       ("KGeography", "kgeography"), ("Visitas 360º", "visitas")]),
+        grupo("Diseño instruccional y herramientas de autor", [("Articulate Rise 360", "articulate"), ("Articulate Storyline 360", "articulate"), ("H5P", "h5p")]),
     ]) + '</div>'
     form = re.sub(r'(<div class="marq( rev)?" aria-label="[^"]*"><div class="track">.*?</div></div>\s*)+', tools, form, count=1, flags=re.S)
     form = form.replace('<h3 class="big" style="margin-top:8px">Con qué trabajo</h3>', '<h3 class="big h3big" style="margin-top:8px">Con qué trabajo</h3>')

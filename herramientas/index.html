@@ -224,6 +224,14 @@ footer a{font-weight:700}
 .tool::before,.res::before,.t::before{content:"";position:absolute;inset:0;z-index:-1;opacity:0;transition:opacity .3s;pointer-events:none;
  background:radial-gradient(420px circle at var(--mx,50%) var(--my,50%),rgba(159,179,255,.20),transparent 60%)}
 .tool:hover::before,.res:hover::before,.t:hover::before{opacity:1}
+/* Barra: la misma que el portfolio */
+.brand{margin-left:8px}
+.bar nav{margin-right:8px}
+.bar nav a[aria-current="page"]{background:var(--bg);font-weight:700}
+.bar nav a.cv{display:inline-flex;align-items:center;gap:6px}
+.bar nav a.cv svg{width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+@media (max-width:780px){.bar nav a.nav-key{display:inline-flex}.bar nav{gap:4px}.bar nav a{padding:8px 12px}.bar nav a.cv{display:none}}
+@media (max-width:440px){.bar nav a{padding:8px 10px;font-size:15px}}
 </style>
 </head>
 <body>
@@ -232,11 +240,12 @@ footer a{font-weight:700}
 <header class="top">
  <div class="bar">
   <a class="brand" href="/" aria-label="Inicio · Jorge Delgado Aguilera"><span class="logo" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 26 26"><path d="M13 2 2 7h22L13 2Z" fill="#fff"/><rect x="3" y="8" width="20" height="2" fill="#fff"/><rect x="5" y="11" width="2.4" height="9" fill="#fff"/><rect x="9.6" y="11" width="2.4" height="9" fill="#fff"/><rect x="14" y="11" width="2.4" height="9" fill="#fff"/><rect x="18.6" y="11" width="2.4" height="9" fill="#fff"/><rect x="2" y="21" width="22" height="2.4" fill="#fff"/></svg></span></a>
-  <nav aria-label="Secciones">
-   <a href="#herramientas">Herramientas</a>
-   <a href="#cambios">Qué ha cambiado</a>
-   <a href="#criterios">Criterios</a>
-   <a class="hire" href="/">Portfolio</a>
+  <nav aria-label="Principal">
+   <a class="nav-key" href="/proyectos/">Proyectos</a>
+   <a href="/#sobre-mi">Sobre mí</a>
+   <a href="/herramientas/" aria-current="page">Caja de herramientas</a>
+   <a class="cv" href="/assets/pdf/CV-Jorge-Delgado-Aguilera.pdf" download aria-label="Descargar CV (PDF)">CV <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg></a>
+   <a class="hire" href="/#contacto">Contacto</a>
   </nav>
  </div>
 </header>

@@ -15,13 +15,14 @@ Cada push a `main` se publica solo en 1-2 minutos. El Consejo de Clío vive en o
   (rompe la caché del navegador).
 - `herramientas/` → la «Caja de herramientas digitales». Página propia, se edita directamente
   (`index.html` + `tools.js` con los datos; logos en `herramientas/logos/`).
+- `apps/` → el Mapa de relieves y El bombo, recuperados de claude.ai y alojados aquí (no dependen de Claude).
 - `anterior/` → copia de la portada antigua (sin indexar). No tocar.
 - `assets/pdf/` → materiales descargables y el CV. `assets/proyectos/<slug>/` → capturas reales de cada proyecto.
 
 ## Flujo de trabajo
 
 1. Editar `_build/data.py` (o `build.py` / `source_old.html` / `assets/`).
-2. `python3 _build/build.py` (necesita Python 3 y Pillow).
+2. `python3 _build/build.py` (necesita Python 3 y Pillow; en este equipo: `%LOCALAPPDATA%/Programs/Python/Python312/python.exe`).
 3. Probar en local: `python3 -m http.server 8000` y abrir http://localhost:8000. Revisar escritorio y móvil (390 px):
    que nada se salga por los lados y que los enlaces internos funcionen.
 4. Commit con autor `Jorge Delgado Aguilera <jorgedelagui@gmail.com>` y mensaje en español que diga qué cambia.
@@ -50,14 +51,16 @@ Cada push a `main` se publica solo en 1-2 minutos. El Consejo de Clío vive en o
 
 ## Proyectos
 
-- Casos de estudio (`kind="caso"`): repositorio digital, asistente TFM. El Consejo de Clío tiene su propia web.
+- Casos de estudio (`kind="caso"`): repositorio digital, asistente TFM y Consejo de Clío. Usan todo el ancho y bloques
+  horizontales (`needs`, `hsteps`, `gal frame`, `status`). El Consejo tiene además su web completa en `/consejo-de-clio/`,
+  con la misma barra que el portfolio.
+- Todas las páginas (portfolio, Caja de herramientas y Consejo) comparten la misma barra: solo logo + menú.
 - El resto son fichas breves (`kind="ficha"`): descripción, material real, nivel y enlace.
 - Destacados en portada, en este orden: repositorio, asistente, Consejo de Clío, Cazadores de bulos.
 - En Cazadores de bulos solo se muestran 2 de los 9 errores (no revelar el resto).
 
 ## Pendiente
 
-- Los artefactos de Claude (Mapa de relieves, El bombo, «Probarlo» del Consejo) dan «Page not found» sin sesión:
-  comprobar si son públicos y conseguir capturas.
+- «Probar el consejo» sigue en claude.ai (usa la IA de Claude): pide iniciar sesión, es inevitable.
 - Confirmar cursos del Mapa de relieves (puesto: Bachillerato) y Roma 3D (puesto: ESO).
 - El CV en PDF aún dice «Profesor de Geografía e Historia · Tecnología educativa»: alinearlo con el titular.

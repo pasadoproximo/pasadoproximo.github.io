@@ -24,10 +24,48 @@ P = []
 
 # ---------------------------------------------------------------- HERRAMIENTAS
 P.append(dict(
-    slug="consejo-de-clio", ext="/consejo-de-clio/", cat="herramientas", year="2026",
+    slug="consejo-de-clio", cat="herramientas", year="2026",
     title="El Consejo de Clío", tags=["Aplicación con IA", "Secundaria"], kind="caso",
     card="Seis agentes de IA convierten una noticia de hoy en una sesión de clase, y uno revisa a todos.",
     viz="council",
+    h1="El Consejo de Clío: seis pensadores preparan una clase con la noticia de hoy",
+    lede="Una herramienta con IA para docentes: pegas una noticia, eliges el curso y seis personajes de la historia preparan una sesión para el aula. Cada uno tiene su papel, y uno existe solo para buscar errores.",
+    meta=[("Para quién", "Docentes de Geografía e Historia, de 1.º ESO a Bachillerato"),
+          ("Tipo", "Aplicación con IA · material de libre uso"),
+          ("Herramientas", "Claude (artefacto con agentes de IA)"),
+          ("Estado", "Publicada. Funciona con una cuenta de Claude, también la gratuita")],
+    links=[("Probar el consejo", "https://claude.ai/artifact/7fyLPT3yg45X1Wr4Mu9rjx", "ext"),
+           ("Ver la web del consejo", "/consejo-de-clio/", "int")],
+    cta_note="«Probar el consejo» se abre en Claude y pide iniciar sesión (sirve la cuenta gratuita).",
+    sections=[
+        ("Seis pensadores, un equipo", """
+<p class="psub">Un pequeño equipo de agentes de IA: cada miembro hace una sola tarea y le pasa su trabajo al siguiente.</p>
+<ol class="hsteps six">
+<li><b>Heródoto</b><span>Lee la noticia y la resume.</span></li>
+<li><b>Tucídides</b><span>La sitúa en el temario del curso.</span></li>
+<li><b>Hannah Arendt</b><span>La conecta con el presente.</span></li>
+<li><b>Clío</b><span>Se la cuenta al alumnado.</span></li>
+<li><b>Sócrates</b><span>Plantea el debate.</span></li>
+<li><b>Ibn Jaldún</b><span>Revisa el trabajo de todos.</span></li>
+</ol>"""),
+        ("Una sesión real", """
+<p class="psub">Generada para 4.º ESO con una noticia del 14 de octubre de 2026: la NASA y el Departamento de Energía acuerdan el primer reactor nuclear para misiones espaciales.</p>
+<div class="session">
+<div class="session-media"><video src="/consejo-de-clio/assets/reel.mp4" poster="/consejo-de-clio/assets/reel-poster.jpg" muted loop playsinline controls preload="none" aria-label="Vídeo: una sesión del Consejo de Clío"></video></div>
+<ul class="needs session-list">
+<li><b>Tucídides · el temario</b><span>UD 11. La Guerra Fría: carrera armamentística y espacial. Avisa de que el encaje es parcial, porque hoy el escenario no es bipolar.</span></li>
+<li><b>Sócrates · el debate</b><span>«En 1957 el Sputnik llevó a EE. UU. a responder. ¿Qué empuja hoy a un país a replicar el hito tecnológico de otro?»</span></li>
+<li class="needs-out"><b>Ibn Jaldún · la revisión</b><span>Clío presentaba como hecho el uso militar, que en la noticia era opinión de la autora. Lo corrigió antes de que llegara a clase.</span></li>
+</ul>
+</div>"""),
+        ("Cómo funciona", """
+<ul class="needs three">
+<li><b>Una noticia y un curso</b><span>El docente pega la noticia y elige el curso. Tucídides solo puede relacionarla con las unidades de ese curso.</span></li>
+<li><b>Cada uno, su papel</b><span>Resumir, encajar en el temario, conectar pasado y presente, contarlo y plantear el debate. Respuestas cortas y claras.</span></li>
+<li><b>Nada sin revisar</b><span>Ibn Jaldún revisa a todos antes de dar la sesión por buena, porque lo que dice una IA también hay que revisarlo.</span></li>
+</ul>"""),
+    ],
+    related=["asistente-gpt-2eso", "la-ia-tambien-miente", "cazadores-de-bulos"],
 ))
 
 P.append(dict(
@@ -281,21 +319,35 @@ P.append(dict(
            ("Ver el repositorio original", "https://sites.google.com/view/repositorio-digital-docente-cc/inicio", "ext"),
            ("Noticia de Braining", "https://colegiocerradodecalderon.es/braining/", "ext")],
     sections=[
-        ("La necesidad", "<p>Hay cientos de herramientas y poco tiempo para probarlas. Un docente necesita saber de un vistazo qué hace cada una, para qué edad sirve y cómo usarla en su materia.</p>"),
-        dict(title="2024 · La web del centro",
-             intro="<p>Organizada por etapas y, en Secundaria y Bachillerato, por departamentos, con un apartado de apoyo al profesorado. Cada herramienta tiene una ficha con su función, la edad recomendada, ideas de uso y un tutorial en vídeo. El centro la presentó en el IX Congreso Internacional de Creatividad Educativa (Braining, Valencia, abril de 2025) como herramienta de autoformación.</p>",
-             cols=1,
-             figs=[("/assets/proyectos/repositorio-digital/inicio-2024.jpg", "Portada del repositorio en Google Sites: menú por etapas (Infantil, Primaria, Secundaria y Bachillerato, Apoyo docente, Recursos) y los objetivos del repositorio", "La portada, con el menú por etapas y los objetivos.")],
-             after=""),
-        dict(title="", cols=2, intro="",
-             figs=[("/assets/proyectos/repositorio-digital/sociales-2024.jpg", "Página de Sociales del repositorio: lista de herramientas específicas (StopMotion, realidad virtual, mapas, cronogramas, debates…) y la ficha de StopMotion", "Sociales: herramientas específicas de la materia y su ficha."),
-                   ("/assets/proyectos/repositorio-digital/apoyo-docente-2024.jpg", "Página de Apoyo docente del repositorio con su índice: edición de PDF, inteligencia artificial, curación de contenido y evaluación", "Apoyo docente: herramientas para el trabajo del profesor.")]),
-        dict(title="2026 · La caja de herramientas",
-             intro="<p>Dos años después muchas herramientas habían cerrado o cambiado. La he rehecho para Secundaria: separada por quién la usa (aula, docente y recursos), revisada una a una en octubre de 2026, con lo que ha cerrado y su alternativa, y con la IA que ya llega con la cuenta del centro.</p>",
-             cols=2,
-             figs=[("/assets/proyectos/repositorio-digital/caja-2026.jpg", "Portada de la Caja de herramientas digitales: 64 herramientas para el aula, 34 para el docente, 20 recursos y 7 que han cerrado o cambiado", "La portada: qué hay y qué ha cambiado desde 2024."),
-                   ("/assets/proyectos/repositorio-digital/caja-fichas-2026.jpg", "Fichas de la caja con qué hace el alumnado, ideas para clase, nivel, dispositivos y cuenta necesaria, y botones de abrir y tutoriales", "Cada ficha dice qué hace el alumnado, ideas para clase y qué necesita.")]),
-        ("Lo que puedo afirmar", "<p>El centro la usa y la presentó en Braining. No tengo datos de visitas ni de uso por parte del profesorado, así que no los incluyo.</p>"),
+        ("La necesidad", """
+<p class="psub">Hay cientos de herramientas y poco tiempo para probarlas. Un docente necesita saber de un vistazo tres cosas.</p>
+<ul class="needs three">
+<li><b>Qué hace</b><span>La función de cada herramienta, sin tener que probarla.</span></li>
+<li><b>Para qué edad</b><span>La etapa o el nivel en el que tiene sentido.</span></li>
+<li><b>Cómo usarla</b><span>Ideas concretas para su materia y un tutorial.</span></li>
+</ul>"""),
+        dict(title="Dos versiones, dos años después",
+             intro='<p class="psub">La primera la creé en las prácticas del máster. La segunda la he rehecho porque muchas herramientas habían cerrado o cambiado.</p>',
+             cols=2, figs=[],
+             after="""<div class="versions">
+<div class="ver"><span class="ver-y">2024</span><h3>La web del centro</h3>
+<ul class="ver-l"><li>Google Sites para el Colegio Cerrado de Calderón (Málaga).</li><li>Por etapas y, en Secundaria y Bachillerato, por departamentos.</li><li>Cada herramienta con su función, edad, ideas de uso y tutorial en vídeo.</li><li>Presentada por el centro en Braining (Valencia, abril de 2025).</li></ul>
+FIG:/assets/proyectos/repositorio-digital/inicio-2024.jpg|Portada del repositorio en Google Sites: menú por etapas (Infantil, Primaria, Secundaria y Bachillerato, Apoyo docente, Recursos) y los objetivos del repositorio|La portada, con el menú por etapas.</div>
+<div class="ver ver-new"><span class="ver-y">2026</span><h3>La caja de herramientas</h3>
+<ul class="ver-l"><li>Web propia, pensada para Secundaria.</li><li>Separada por quién la usa: aula, docente y recursos.</li><li>Revisada una a una en octubre de 2026.</li><li>Con lo que ha cerrado, su alternativa y la IA que llega con la cuenta del centro.</li></ul>
+FIG:/assets/proyectos/repositorio-digital/caja-2026.jpg|Portada de la Caja de herramientas digitales: 64 herramientas para el aula, 34 para el docente, 20 recursos y 7 que han cerrado o cambiado|La portada: qué hay y qué ha cambiado.</div>
+</div>"""),
+        dict(title="Por dentro",
+             intro='<p class="psub">Cómo se organiza cada versión. Pulsa una captura para verla completa.</p>',
+             cols=3, frame=True,
+             figs=[("/assets/proyectos/repositorio-digital/sociales-2024.jpg", "Página de Sociales del repositorio: lista de herramientas específicas (StopMotion, realidad virtual, mapas, cronogramas, debates…) y la ficha de StopMotion", "<b>2024 · Sociales.</b> Herramientas de la materia, cada una con su ficha."),
+                   ("/assets/proyectos/repositorio-digital/apoyo-docente-2024.jpg", "Página de Apoyo docente del repositorio con su índice: edición de PDF, inteligencia artificial, curación de contenido y evaluación", "<b>2024 · Apoyo docente.</b> Herramientas para el trabajo del profesor."),
+                   ("/assets/proyectos/repositorio-digital/caja-fichas-2026.jpg", "Fichas de la caja con qué hace el alumnado, ideas para clase, nivel, dispositivos y cuenta necesaria, y botones de abrir y tutoriales", "<b>2026 · Fichas.</b> Qué hace el alumnado, ideas para clase y qué necesita.")]),
+        ("Lo que puedo afirmar", """
+<div class="status two">
+<div class="s-ok"><span class="st-l ok">Comprobado</span><p>El centro la usa y la presentó en el IX Congreso Internacional de Creatividad Educativa (Braining 2025).</p></div>
+<div class="s-pend"><span class="st-l pend">Sin datos</span><p>No tengo datos de visitas ni de uso por parte del profesorado, así que no los incluyo.</p></div>
+</div>"""),
     ],
     related=["audita-tu-programacion", "rubrica-materiales-digitales", "e-portfolio-master"],
 ))

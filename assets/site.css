@@ -763,6 +763,7 @@ mark.err{background:#FCE3E3;color:inherit;border-bottom:2px solid #C73636;paddin
 @media (max-width:620px){.h2-main{padding:30px 22px}.h2-main .live{width:auto}.h2-main h1{margin-top:24px}.h2-main .cta{padding-top:28px}}
 /* Barra: solo el logo como enlace a inicio */
 .brand{margin-left:8px}
+.bar nav{margin-right:8px}
 /* Más aire entre bloques: título de sección ↔ contenido, y entre secciones */
 .sec{margin-top:128px}
 .sec-head{margin-bottom:44px}
@@ -822,3 +823,29 @@ mark.err{background:#FCE3E3;color:inherit;border-bottom:2px solid #C73636;paddin
 @media (max-width:1020px){.needs{grid-template-columns:repeat(2,minmax(0,1fr))}.hsteps{grid-template-columns:repeat(3,minmax(0,1fr));row-gap:32px}.hsteps::before{display:none}}
 @media (max-width:760px){.caso .vs{grid-template-columns:1fr;gap:24px}.gal.frame figure a{height:auto}.caso .psec{margin-top:64px}}
 @media (max-width:560px){.needs{grid-template-columns:1fr;gap:20px}.hsteps{grid-template-columns:1fr}}
+/* Variantes para el caso del Consejo de Clío */
+.hsteps.six{grid-template-columns:repeat(6,minmax(0,1fr))}
+.needs.three{grid-template-columns:repeat(3,minmax(0,1fr))}
+.session{display:grid;grid-template-columns:280px minmax(0,1fr);gap:48px;align-items:start}
+.session-media video{width:100%;aspect-ratio:9/16;object-fit:cover;border-radius:22px;background:#fff;border:1px solid #E3E8F2;box-shadow:0 10px 30px rgba(6,16,51,.08);display:block}
+.session-list{grid-template-columns:1fr;gap:24px}
+.session-list span{font-size:17px}
+@media (max-width:1020px){.hsteps.six{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:760px){.session{grid-template-columns:1fr;gap:28px}.session-media{max-width:280px}.needs.three{grid-template-columns:1fr}}
+@media (max-width:560px){.hsteps.six{grid-template-columns:1fr}}
+/* Repositorio: 2024 frente a 2026 */
+.versions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px}
+.ver{border:1.5px solid #D3DAEA;border-radius:22px;padding:26px;background:#fff;display:flex;flex-direction:column}
+.ver-new{border-color:var(--navy3)}
+.ver-y{align-self:flex-start;font:800 15px var(--f-disp);padding:4px 12px;border-radius:999px;background:var(--ice);color:var(--navy3)}
+.ver-new .ver-y{background:var(--navy);color:#fff}
+.ver h3{font:800 26px/1.05 var(--f-disp);letter-spacing:-.02em;color:var(--navy);margin-top:14px}
+.ver-l{list-style:none;padding:0;margin:16px 0 22px;display:grid;gap:8px}
+.ver-l li{position:relative;padding-left:20px;font-size:16.5px;line-height:1.45;color:#2A3352}
+.ver-l li::before{content:"";position:absolute;left:0;top:.6em;width:8px;height:8px;border-radius:50%;background:var(--sky)}
+.ver figure{margin:auto 0 0}
+.ver figure a{display:block;height:240px;overflow:hidden;border-radius:14px;border:1px solid #E3E8F2}
+.ver img{width:100%;height:auto;display:block}
+.ver figcaption{font-size:15px;color:var(--mut);margin-top:8px}
+.caso .status.two{grid-template-columns:repeat(2,minmax(0,1fr))}
+@media (max-width:760px){.versions,.caso .status.two{grid-template-columns:1fr}.ver{padding:20px}.ver figure a{height:200px}}
