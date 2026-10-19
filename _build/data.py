@@ -430,11 +430,23 @@ P.append(dict(
     title="e-Portfolio del máster", tags=["Portfolio", "Máster"], kind="ficha",
     card="Los cinco módulos del Máster en Tecnología Educativa reunidos en una web.",
     viz="v-epo",
-    lede="El portfolio digital del Máster en Tecnología Educativa y Competencias Digitales (Universidad Europea, 2023-2024). Recoge el trabajo de los cinco módulos: curación de información, visualización, Aula del Futuro y más.",
+    lede="El portfolio que hice durante el Máster en Tecnología Educativa y Competencias Digitales (Universidad Europea, 2023-2024). Reúne los trabajos de los cinco módulos y, en cada uno, lo que aprendí.",
     meta=[("Tipo", "Portfolio académico"),
+          ("Máster", "Tecnología Educativa y Competencias Digitales"),
           ("Herramientas", "Google Sites")],
     links=[("Ver el e-Portfolio", "https://sites.google.com/view/e-portfolio-jorge/inicio", "ext")],
-    sections=[dict(title="Así se ve", cols=1, figs=[("/assets/proyectos/e-portfolio-master/inicio.jpg", "Portada del e-Portfolio en Google Sites con el menú de los cinco módulos, galería de imágenes y sobre mí", "La portada, con un apartado por módulo.")])],
+    sections=[
+        ("Qué puedes ver en él", """
+<p class="psub">Si buscas a alguien para diseñar formación o materiales digitales, aquí están las pruebas de lo que sé hacer, con un ejemplo real de cada cosa.</p>
+<ul class="epo-sk">
+<li><b>Diseño de materiales digitales</b><span>Un vídeo con stop motion, un pódcast en grupo, un material interactivo y una situación de aprendizaje STEAM.</span><em>Módulos 1 y 4</em></li>
+<li><b>Búsqueda y curación de información</b><span>Ecuaciones de búsqueda, organización de fuentes y curación de contenidos para el aula.</span><em>Módulos 2 y 3</em></li>
+<li><b>Trabajo colaborativo</b><span>Una actividad colaborativa diseñada para el aula y la planificación de sus espacios.</span><em>Módulo 3</em></li>
+<li><b>Evaluación digital</b><span>Instrumentos de evaluación según la norma UNE 71362:2020, con Jotform, CoRubrics y SELFIE.</span><em>Módulo 5</em></li>
+<li><b>Reflexión sobre la práctica</b><span>Cada trabajo termina con qué aprendió y cómo lo llevaría a clase.</span><em>Todos los módulos</em></li>
+</ul>"""),
+        dict(title="Así se ve", cols=1, figs=[("/assets/proyectos/e-portfolio-master/inicio.jpg", "Portada del e-Portfolio en Google Sites con el menú de los cinco módulos, galería de imágenes y sobre mí", "La portada, con un apartado por módulo.")]),
+    ],
     value=["Documentar el propio aprendizaje y las evidencias de cada módulo."],
     related=["asistente-gpt-2eso", "repositorio-digital", "rubrica-materiales-digitales"],
 ))

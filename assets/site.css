@@ -1010,3 +1010,11 @@ mark.err{background:#FCE3E3;color:inherit;border-bottom:2px solid #C73636;paddin
 .cdf-i svg{width:19px;height:19px;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 @media (max-width:900px){.cdf{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:420px){.cdf{grid-template-columns:minmax(0,1fr)}}
+
+/* e-Portfolio: competencias con su prueba, en filas sobre el fondo */
+.epo-sk{list-style:none;padding:0;margin:24px 0 0;border-top:1.5px solid #D3DAEA}
+.epo-sk li{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.6fr) 150px;gap:8px 28px;align-items:baseline;padding:18px 0;border-bottom:1px solid #D3DAEA;margin:0}
+.epo-sk b{font:800 19px/1.2 var(--f-disp);letter-spacing:-.01em;color:var(--navy)}
+.epo-sk span{font-size:17px;line-height:1.5;color:#2A3352}
+.epo-sk em{font:700 12.5px var(--f-body);letter-spacing:.08em;text-transform:uppercase;font-style:normal;color:var(--navy3);background:var(--ice);border-radius:999px;padding:4px 11px;white-space:nowrap;justify-self:end}
+@media (max-width:760px){.epo-sk li{grid-template-columns:minmax(0,1fr)}.epo-sk em{justify-self:start}}
