@@ -406,39 +406,65 @@ const SYN={
  cuestionario:['quiz','test','preguntas','encuesta'], quiz:['cuestionario','test','preguntas'], test:['cuestionario','quiz','preguntas'],
  video:['audiovisual','grabar'], mapa:['cartografia'],
  imagen:['foto','fotografia','ilustracion'], foto:['imagen','fotografia'],
- ia:['inteligencia artificial','chatbot'], podcast:['audio','radio'],
+ podcast:['audio','radio'],
  presentacion:['diapositivas','exposicion'], diapositivas:['presentacion'],
  cronologia:['linea del tiempo','eje cronologico'],
  equipo:['colaborar','colaborativo','cooperativo'], colaborar:['equipo','colaborativo','cooperativo'],
- programar:['programacion','codigo','robotica'], robotica:['programar','programacion']
+ programar:['informatica'],
+ gratis:['gratuito','gratuita','sin coste','libre'], gratuito:['gratis','gratuita','sin coste','libre'],
+ gamificacion:['juego','jugar','concurso','gamificado'], juego:['jugar','concurso','gamificado'],
+ dislexia:['lectura en voz alta','dificultades de lectura','dificultades de escritura','accesibilidad'],
+ accesibilidad:['lectura en voz alta','dictado','dificultades'],
+ familia:['familias']
 };
+// expresiones de varias palabras que equivalen a una
+const PHRASES=[['inteligencia artificial','ia'],['realidad aumentada','ra'],['tres dimensiones','3d'],['no necesita cuenta','nocuenta'],['sin cuenta','nocuenta'],['sin registro','nocuenta'],['sin registrarse','nocuenta'],['educacion fisica','educacionfisica']];
 const SYNS=Object.fromEntries(Object.entries(SYN).map(([k,v])=>[stem(k),v]));
 const words=s=>norm(s).split(/[^a-z0-9ñ]+/).filter(Boolean);
-const IDXT={},IDXW={};
+// categorías que mezclan materias no cuentan para buscar (se busca en la descripción);
+// la de Aula «IA y apoyo al aprendizaje» cuenta solo como «apoyo al aprendizaje»
+const CATKW={'aula:ia':'apoyo al aprendizaje','aula:cienc':'','aula:arte':''};
+// materia de cada herramienta de esas categorías, sacada de su descripción (solo para buscar)
+const PROG='tecnologia informatica programar programacion';
+const SUBJ={geogebra:'matematicas geometria',desmos:'matematicas',phet:'ciencias fisica quimica biologia matematicas',gizmos:'ciencias fisica quimica biologia matematicas',
+ bodymaps:'ciencias biologia anatomia',anatomy3d:'ciencias biologia anatomia',vertebrados:'ciencias biologia',bolsa:'economia',
+ tinkercad:PROG+' robotica arduino',scratch:PROG,snap:PROG,blockly:PROG,codeorg:PROG,appinventor:PROG,cospaces:PROG,coppelia:PROG+' robotica',thunkable:'tecnologia informatica',snatchbot:'tecnologia informatica',
+ musescore:'musica',incredibox:'musica',musictheory:'musica',librecad:'dibujo tecnico tecnologia'};
+const IDX={};
+const flat=s=>' '+s.replace(/[^a-z0-9ñ]+/g,' ')+' ';
+const joinPh=s=>{let r=' '+s.replace(/[^a-z0-9ñ]+/g,' ')+' ';PHRASES.forEach(([a,b])=>{r=r.split(' '+a+' ').join(' '+b+' ')});return r.trim();};
 TOOLS.forEach(t=>{
- const txt=norm([t.n,t.a,t.p,t.d,(t.i||[]).join(' '),SECTIONS[t.s].n,SECTIONS[t.s].cats[t.cat],t.c,t.nota,t.coste,t.cta].filter(Boolean).join(' '));
- IDXT[t.id]=' '+txt.replace(/[^a-z0-9ñ]+/g,' ')+' ';
- IDXW[t.id]=[...new Set(words(txt).map(stem))];
+ const k=t.s+':'+t.cat;
+ const core=norm([t.n,t.a,t.p,t.d,SECTIONS[t.s].n,k in CATKW?CATKW[k]:SECTIONS[t.s].cats[t.cat],SUBJ[t.id],t.c,t.nota,t.coste,t.cta,t.s==='aula'&&/^no necesita/i.test(t.cta)?'nocuenta':''].filter(Boolean).join(' '));
+ const ideas=joinPh(norm((t.i||[]).join(' ')));
+ const coreJ=joinPh(core);
+ IDX[t.id]={ct:flat(coreJ),it:flat(ideas),nw:words(t.n),cw:new Set(words(coreJ).map(stem)),iw:new Set(words(ideas).map(stem))};
 });
 const forms=w=>[w,...(SYNS[stem(w)]||[])];
-const hit=(id,w)=>forms(w).some(f=>{
- if(f.includes(' '))return IDXT[id].includes(' '+f+' ');
- const sf=stem(f);
- return sf.length<3?IDXW[id].includes(sf):IDXW[id].some(x=>x.startsWith(sf));
-});
-const query=raw=>words(raw).filter(w=>!STOP.has(w));
-const match=(t,qs)=>!qs.length||qs.every(w=>hit(t.id,w));
+// palabras cortas (IA, 3D…) solo en nombre y descripción: así «una IA» en un ejemplo no convierte la herramienta en una de IA
+const hit=(id,w,last)=>{
+ const X=IDX[id];
+ if(last&&w.length>=2&&X.nw.some(x=>x.startsWith(w)))return true; // escribir el principio del nombre
+ return forms(w).some(f=>{
+  if(f.includes(' '))return X.ct.includes(' '+f+' ')||X.it.includes(' '+f+' ');
+  const sf=stem(f);
+  return X.cw.has(sf)||(sf.length>3&&X.iw.has(sf));
+ });
+};
+const query=raw=>{let r=' '+norm(raw).replace(/[^a-z0-9ñ]+/g,' ')+' ';PHRASES.forEach(([a,b])=>{r=r.split(' '+a+' ').join(' '+b+' ')});return words(r).filter(w=>!STOP.has(w));};
+const match=(t,qs)=>!qs.length||qs.every((w,i)=>hit(t.id,w,i===qs.length-1));
 
 // ---------- filtros por necesidad (en «Todo») y por categoría (en cada sección)
 const TASKS=[
  ['Repasar y participar',['aula:part']],['Evaluar',['docente:eval']],['Crear y presentar',['aula:crear','docente:crear']],
- ['IA',['aula:ia','docente:ia']],['Geografía e Historia',['aula:geohis']],['Trabajar en equipo',['aula:equipo']],
+ ['IA',t=>(t.s==='docente'&&t.cat==='ia')||usesAI(t)],['Lectura y accesibilidad',t=>t.s==='aula'&&t.cat==='ia'&&!usesAI(t)],['Geografía e Historia',['aula:geohis']],['Trabajar en equipo',['aula:equipo']],
  ['Ciencias y Matemáticas',['aula:cienc']],['Música y Arte',['aula:arte']],['Gestionar el aula',['docente:gestion']],
- ['Organizar recursos',['docente:org']],['Materiales e imágenes',['recursos:sa','recursos:img','recursos:form']]
+ ['Organizar recursos',['docente:org']],['Materiales e imágenes',['recursos:sa','recursos:img']],['Formación docente',['recursos:form']]
 ];
 const SECS=Object.keys(SECTIONS);
 const state={sec:'all',raw:'',c:'all'};
-const inChip=t=>state.c==='all'||(state.sec==='all'?TASKS[state.c][1].includes(t.s+':'+t.cat):t.cat===state.c);
+const inTask=(t,k)=>typeof k==='function'?k(t):k.includes(t.s+':'+t.cat);
+const inChip=t=>state.c==='all'||(state.sec==='all'?inTask(t,TASKS[state.c][1]):t.cat===state.c);
 const unit=(n,k)=>k==='recursos'?(n===1?'recurso':'recursos'):k==='all'?(n===1?'herramienta o recurso':'herramientas y recursos'):(n===1?'herramienta':'herramientas');
 
 const $=id=>document.getElementById(id);
