@@ -880,12 +880,12 @@ mark.err{background:#FCE3E3;color:inherit;border-bottom:2px solid #C73636;paddin
 @media (max-width:560px){.caso .status.four{grid-template-columns:1fr}}
 /* «Así se usa la caja»: animación con la caja actual y sus datos reales (assets/caja-demo.js) */
 .caja-demo{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.5fr);gap:48px;align-items:start;margin-top:64px;padding-top:56px;border-top:1.5px solid #D3DAEA}
-.caja-demo h3{font:800 24px/1.1 var(--f-disp);letter-spacing:-.02em;color:var(--navy);margin-top:12px}
+.caja-demo h3{font:800 24px/1.1 var(--f-disp);letter-spacing:-.02em;color:var(--navy)}
 .psec .caja-demo>div>p{margin-top:12px}
 .caja-demo .ver-y{background:var(--navy);color:#fff}
 .cd{position:relative}
 .cd[hidden]{display:none}
-.cd .cd-win{background:var(--bg);border:1px solid #D3DAEA;border-radius:22px;padding:14px;overflow:hidden}
+.cd .cd-win{background:#fff;border:1px solid #E3E8F2;border-radius:22px;padding:16px;overflow:hidden;box-shadow:0 14px 34px -22px rgba(6,16,51,.25)}
 .cd .cd-sbox{background:var(--navy);border-radius:16px;padding:12px}
 .cd .cd-search{display:flex;align-items:center;gap:8px;height:38px;padding:0 13px;background:#fff;border-radius:999px;font:500 14.5px/1 var(--f-body);color:var(--navy)}
 .cd .cd-search svg{width:15px;height:15px;stroke:#5A6480;fill:none;stroke-width:2.2;stroke-linecap:round;flex:none}
