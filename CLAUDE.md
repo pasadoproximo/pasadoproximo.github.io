@@ -24,10 +24,12 @@ Cada push a `main` se publica solo en 1-2 minutos. El Consejo de Clío vive en o
   su categoría (`s:cat`); siempre visibles, desactivados si no tienen resultados; (3) recuento + filtros activos (solo cuando hay alguno; sin filtros no se muestra el total). Hero editorial sin demostración: etiqueta, título (dos líneas en
   escritorio) y a su lado descripción + «Revisada en octubre de 2026» como metadato; debajo, el único buscador visible (`#q`,
   con etiqueta visible «Busca en la caja»). `#q2` es el de la barra fina: está sincronizado y solo aparece cuando `#q` sale de pantalla.
-  Listado: cuatro categorías plegables = los cuatro objetivos de `TASKS` (botón con `aria-expanded` + región); dentro, subgrupos
-  por categoría de los datos con su tipo (Aula/Docente/Recursos), 80px entre ellos. Sin búsqueda ni filtros: todas plegadas al
-  entrar y solo una abierta a la vez (`browseOpen`); con búsqueda o filtros se abren todas las que tienen resultados y las vacías
-  no se pintan; al quitarlo todo vuelve el estado de exploración. Al abrir/cerrar, el encabezado pulsado no se mueve. Fichas compactas:
+  Catálogo: los cuatro botones de «¿Qué quieres hacer?» (`TASKS`) son las categorías; cada uno despliega debajo su panel
+  `.gp` unido al botón «en lágrima» (fondo ice). Escritorio: 4 columnas y los paneles debajo de la fila (orden por CSS `order`);
+  ≤900px: una columna y cada panel justo bajo su botón. Dentro, subgrupos por categoría de los datos con su tipo. Sin búsqueda
+  ni filtros: plegadas al entrar y solo una abierta (`browseOpen`); con búsqueda o filtros se abren todas las que tienen
+  resultados y las vacías se desactivan. Ya no hay filtro por objetivo (`state.p` eliminado). «Más filtros» y los filtros
+  activos van bajo el buscador. La barra fina observa el buscador, no la sección. Al abrir/cerrar, el botón no se mueve. Fichas compactas:
   frase de uso + primer ejemplo (`i[0]`) + etiquetas; el resto va en «Detalles». Las etiquetas salen solo de los datos.
   Lo que ha cerrado o cambiado sale de `CHANGES` en `tools.js` (el último elemento es la novedad destacada);
   el balance (siguen, nuevas, otro nombre, cerradas) se calcula con el campo `st`.
