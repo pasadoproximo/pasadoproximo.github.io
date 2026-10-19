@@ -140,18 +140,23 @@ footer a{font-weight:700}
 body.hide-top .top{transform:translateY(-140%)}
 body.hide-top .controls{transform:translateY(calc(-100% - 80px))}
 
-/* nivel 2: finalidad, sin barra lateral: 6 principales + «Más opciones» */
-.purpose{margin-top:14px}
+/* nivel 2: «¿Qué quieres hacer?» — cuatro objetivos, siempre visibles */
+.purpose{margin-top:16px}
 .purpose-l{font:700 12.5px var(--f-body);letter-spacing:.12em;text-transform:uppercase;color:var(--mut);margin-bottom:8px}
-.chips{display:flex;flex-wrap:wrap;gap:6px}
-.chips button{display:inline-flex;align-items:center;gap:6px;font:600 14.5px var(--f-body);color:var(--navy);background:#fff;border:1px solid #CDD5E5;border-radius:999px;padding:6px 12px;cursor:pointer}
-.chips button:hover{border-color:var(--navy)}
-.chips .num{font:700 12px var(--f-body);color:var(--mut)}
-.chips button[aria-pressed="true"]{background:var(--navy);border-color:var(--navy);color:#fff}
-.chips button[aria-pressed="true"] .num{color:var(--sky)}
-.chips button[aria-pressed="true"]::before{content:"";width:12px;height:7px;border-left:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(-45deg) translateY(-2px);margin-right:2px}
-.chips .more{background:transparent;border-style:dashed;color:var(--navy3);font-weight:700}
-
+.chips{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.goal{display:flex;flex-direction:column;align-items:flex-start;gap:4px;text-align:left;font-family:var(--f-body);color:var(--navy);background:#fff;border:1px solid #CDD5E5;border-radius:16px;padding:12px 14px;cursor:pointer;transition:border-color .2s,background .2s}
+.goal b{font:800 17px/1.15 var(--f-disp);letter-spacing:-.01em}
+.goal .gd{font-size:14px;line-height:1.35;color:#3A4466}
+.goal .num{margin-top:auto;padding-top:4px;font:700 12.5px var(--f-body);color:var(--mut)}
+.goal:hover{border-color:var(--navy)}
+.goal[aria-pressed="true"]{background:var(--navy);border-color:var(--navy);color:#fff}
+.goal[aria-pressed="true"] .gd{color:#DCE3F7}
+.goal[aria-pressed="true"] .num{color:var(--sky)}
+.goal[aria-pressed="true"] b::before{content:"✓ ";color:var(--sky)}
+.goal:disabled{opacity:.5;cursor:not-allowed}
+.goal:disabled:hover{border-color:#CDD5E5}
+@media (max-width:900px){.chips{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:560px){.goal .gd{display:none}.goal{padding:10px 12px}.goal b{font-size:16px}}
 /* nivel 3: resultados y filtros activos */
 .state{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:18px;padding-top:14px;border-top:1px solid var(--line);min-height:44px}
 .state .count{margin:0;font:700 15px var(--f-body);color:var(--navy)}
@@ -320,8 +325,8 @@ body.hide-top .controls{transform:translateY(calc(-100% - 80px))}
   <div class="row1">
    <div class="search" role="search">
     <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.4-4.4"/></svg>
-    <label class="sr" for="q">Buscar por herramienta o por lo que necesitas hacer</label>
-    <input id="q" type="text" placeholder="Busca por herramienta o por lo que necesitas hacer…" autocomplete="off" enterkeyhint="search">
+    <label class="sr" for="q">Busca una herramienta o qué necesitas hacer</label>
+    <input id="q" type="text" placeholder="Busca una herramienta o qué necesitas hacer…" autocomplete="off" enterkeyhint="search">
     <button type="button" class="clear" id="q-clear" aria-label="Borrar la búsqueda" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
    </div>
    <div class="seg" role="group" aria-label="Sección de la caja" id="tabs"></div>
@@ -330,7 +335,7 @@ body.hide-top .controls{transform:translateY(calc(-100% - 80px))}
  <div id="ctl-spacer" aria-hidden="true"></div>
 
  <div class="purpose" role="group" aria-labelledby="purpose-l">
-  <h2 class="purpose-l" id="purpose-l">¿Para qué la necesitas?</h2>
+  <h2 class="purpose-l" id="purpose-l">¿Qué quieres hacer?</h2>
   <div class="chips" id="chips"></div>
  </div>
  <div class="state" id="state" aria-live="polite" tabindex="-1"></div>
@@ -482,19 +487,18 @@ const hit=(id,w,last)=>{
 const query=raw=>{let r=' '+norm(raw).replace(/[^a-z0-9ñ]+/g,' ')+' ';PHRASES.forEach(([a,b])=>{r=r.split(' '+a+' ').join(' '+b+' ')});return words(r).filter(w=>!STOP.has(w));};
 const match=(t,qs)=>!qs.length||qs.every((w,i)=>hit(t.id,w,i===qs.length-1));
 
-// ---------- finalidades: un solo filtro, igual en todas las secciones (las 6 primeras son las principales)
+// ---------- «¿Qué quieres hacer?»: cuatro objetivos; cada herramienta está en uno solo (según su categoría)
 const TASKS=[
- ['Repasar y participar',['aula:part']],['Evaluar',['docente:eval']],['Crear y presentar',['aula:crear','docente:crear']],
- ['IA',t=>(t.s==='docente'&&t.cat==='ia')||usesAI(t)],['Geografía e Historia',['aula:geohis']],['Ciencias y Matemáticas',['aula:cienc']],
- ['Trabajar en equipo',['aula:equipo']],['Música y Arte',['aula:arte']],['Lectura y accesibilidad',t=>t.s==='aula'&&t.cat==='ia'&&!usesAI(t)],
- ['Gestionar el aula',['docente:gestion']],['Organizar recursos',['docente:org']],['Materiales e imágenes',['recursos:sa','recursos:img']],['Formación docente',['recursos:form']]
+ ['Enseñar y aprender','Explorar contenidos, programar, trabajar en equipo y formarse',['aula:geohis','aula:cienc','aula:arte','aula:ia','aula:equipo','recursos:sa','recursos:form']],
+ ['Crear materiales','Presentaciones, vídeos, imágenes y materiales con IA',['aula:crear','docente:crear','docente:ia','recursos:img']],
+ ['Evaluar y participar','Cuestionarios, encuestas, repasos y rúbricas',['aula:part','docente:eval']],
+ ['Organizar y gestionar','Aula virtual, cuaderno del profesor y tus recursos',['docente:gestion','docente:org']]
 ];
-const MAIN=6;
 const SECS=Object.keys(SECTIONS);
-const state={sec:'all',raw:'',p:null,more:false};
-const inTask=(t,k)=>typeof k==='function'?k(t):k.includes(t.s+':'+t.cat);
+const state={sec:'all',raw:'',p:null};
+const inTask=(t,k)=>k.includes(t.s+':'+t.cat);
 const inSec=t=>state.sec==='all'||t.s===state.sec;
-const inP=t=>state.p===null||inTask(t,TASKS[state.p][1]);
+const inP=t=>state.p===null||inTask(t,TASKS[state.p][2]);
 const unit=(n,k)=>k==='recursos'?(n===1?'recurso':'recursos'):k==='all'?(n===1?'herramienta o recurso':'herramientas y recursos'):(n===1?'herramienta':'herramientas');
 const X='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>';
 
@@ -507,14 +511,10 @@ function render(){
  const counts=Object.fromEntries(SECS.map(k=>[k,byP.filter(t=>t.s===k).length]));
  $('tabs').innerHTML=[['all','Todo',byP.length],...SECS.map(k=>[k,SECTIONS[k].n,counts[k]])]
   .map(([k,n,c])=>`<button type="button" data-sec="${k}" aria-pressed="${state.sec===k}">${n}<span class="num"><span class="sr">, </span>${c}</span></button>`).join('');
- // finalidad: solo las que tienen algo en la sección y búsqueda actuales
+ // objetivos: siempre los cuatro en el mismo sitio; sin resultados, desactivados (no desaparecen)
  const base=hits.filter(inSec);
- const opts=TASKS.map(([n,k],i)=>({i,n,c:base.filter(t=>inTask(t,k)).length})).filter(o=>o.c||o.i===state.p);
- // si caben (7 o menos), se muestran todas; si no, las principales + «Más opciones»
- const few=opts.length<=MAIN+1;
- const mainO=few?opts:opts.filter(o=>o.i<MAIN||o.i===state.p), rest=few?[]:opts.filter(o=>!(o.i<MAIN||o.i===state.p));
- const chip=o=>`<button type="button" data-p="${o.i}" aria-pressed="${state.p===o.i}">${o.n}<span class="num"><span class="sr">, </span>${o.c}</span></button>`;
- $('chips').innerHTML=mainO.map(chip).join('')+(rest.length?(state.more?rest.map(chip).join('')+`<button type="button" class="more" data-more aria-expanded="true">Menos opciones</button>`:`<button type="button" class="more" data-more aria-expanded="false">Más opciones (${rest.length})</button>`):'');
+ $('chips').innerHTML=TASKS.map(([n,d,k],i)=>{const c=base.filter(t=>inTask(t,k)).length,on=state.p===i;
+  return `<button type="button" class="goal" data-p="${i}" aria-pressed="${on}"${!c&&!on?' disabled':''}><b>${n}</b><span class="gd">${d}</span><span class="num">${c} ${c===1?'resultado':'resultados'}</span></button>`;}).join('');
  // listado
  const list=byP.filter(inSec);
  $('list').innerHTML=(state.sec==='all'?SECS:[state.sec]).map(sk=>{
@@ -528,7 +528,7 @@ function render(){
  const act=[];
  if(raw)act.push(`<button type="button" class="tagx" data-rm="q">«${esc(raw)}»${X}<span class="sr"> Quitar la búsqueda</span></button>`);
  if(state.sec!=='all')act.push(`<button type="button" class="tagx" data-rm="sec">${SECTIONS[state.sec].n}${X}<span class="sr"> Quitar la sección</span></button>`);
- if(state.p!==null)act.push(`<button type="button" class="tagx" data-rm="p">${TASKS[state.p][0]}${X}<span class="sr"> Quitar la finalidad</span></button>`);
+ if(state.p!==null)act.push(`<button type="button" class="tagx" data-rm="p">${TASKS[state.p][0]}${X}<span class="sr"> Quitar el objetivo</span></button>`);
  const what=raw||state.sec!=='all'||state.p!==null?`${shown} ${shown===1?'resultado':'resultados'}`:`${shown} ${unit(shown,'all')}`;
  $('state').innerHTML=`<p class="count">${what}</p>`+(act.length?`<div class="active"><span class="sr">Filtros activos:</span>${act.join('')}${act.length>1?'<button type="button" class="clearall" data-rm="all">Limpiar todo</button>':''}</div>`:'');
  $('q-clear').hidden=!state.raw;
@@ -544,7 +544,7 @@ function render(){
 const qEl=$('q');
 // en pantallas estrechas, el texto de ayuda corto para que no se corte
 const mqN=matchMedia('(max-width:560px)');
-const ph=()=>{qEl.placeholder=mqN.matches?'Busca una herramienta o tarea…':'Busca por herramienta o por lo que necesitas hacer…'};
+const ph=()=>{qEl.placeholder=mqN.matches?'Busca una herramienta o tarea…':'Busca una herramienta o qué necesitas hacer…'};
 ph();mqN.addEventListener('change',ph);
 const toList=()=>{const y=$('list').getBoundingClientRect().top+scrollY-140;if(scrollY>y)scrollTo({top:y})};
 const setQ=v=>{qEl.value=v;state.raw=v;};
@@ -560,7 +560,6 @@ qEl.addEventListener('input',()=>{state.raw=qEl.value;render()});
 qEl.addEventListener('keydown',e=>{if(e.key==='Escape'&&qEl.value){setQ('');render()}});
 $('q-clear').addEventListener('click',()=>{setQ('');render();qEl.focus()});
 $('chips').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;
- if(b.hasAttribute('data-more')){state.more=!state.more;render();$('chips').querySelector('[data-more]')?.focus();return;}
  const i=+b.dataset.p;state.p=state.p===i?null:i;render();toList();});
 document.addEventListener('click',e=>{const b=e.target.closest('[data-rm],[data-act]');if(!b||!b.closest('#state,#empty'))return;
  if(b.dataset.act==='sec')setSec(b.dataset.sec);else{remove(b.dataset.rm);$('state').focus({preventScroll:true});}});
