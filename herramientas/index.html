@@ -223,6 +223,7 @@ body.mini-on .top{transform:translateY(-140%)}
 .lg img{width:26px;height:26px;object-fit:contain}
 .lg b{font:800 19px var(--f-disp)}
 .tool h4{font:800 18px/1.1 var(--f-disp);letter-spacing:-.01em}
+.tool h4 small{display:block;font:600 13px/1.3 var(--f-body);letter-spacing:0;color:var(--mut);margin-top:2px}
 .tool .lead{font-size:15.5px;line-height:1.42;color:#1C2440}
 .tool .ex{font-size:14.5px;line-height:1.4;color:#2A3352;padding-left:10px;border-left:3px solid var(--sky)}
 .tool .ex b{color:var(--navy)}
@@ -447,7 +448,12 @@ const short=n=>n.replace(/\s*\(.*\)/,'');
 const logo=t=>LOGOS.has(t.id)?`<img src="logos/${t.id}.png?v=3" alt="" width="26" height="26" loading="lazy">`:`<b aria-hidden="true">${esc(t.n[0])}</b>`;
 const yt=t=>'https://www.youtube.com/results?search_query='+encodeURIComponent(short(t.n)+' tutorial español');
 const usesAI=t=>t.s==='aula'&&/(^|[^a-z])ia([^a-z]|$)/.test(norm(t.a));
-const fact=(icon,txt,cls='',lab='')=>`<span class="fact ${cls}">${icon}${lab?`<span class="sr">${lab}: </span>`:''}${esc(txt)}</span>`;
+// la etiqueta muestra lo esencial; el texto completo queda en «Detalles» y en el title
+const SHORT=[[/^no necesita.*/i,'Sin cuenta'],[/^código.*/i,'Código de clase'],[/^solo para guardar.*/i,'Cuenta solo para guardar'],[/^entra con el enlace del docente$/i,'Enlace del docente'],
+ [/^integrado en edge.*/i,'Integrado en Microsoft 365'],[/^cuenta microsoft del centro$/i,'Cuenta del centro'],[/^sin coste adicional con microsoft 365.*/i,'Incluido en Microsoft 365'],
+ [/^incluido en google workspace.*/i,'Incluido en Google Workspace'],[/^incluido en microsoft 365.*/i,'Incluido en Microsoft 365'],[/, con supervisión$/i,'']];
+const shorten=t=>{let r=String(t);for(const[re,v]of SHORT){if(re.test(r)){r=r.replace(re,v);break;}}return r.split(/;| \(/)[0].trim();};
+const fact=(icon,txt,cls='',lab='')=>{const sh=shorten(txt);return `<span class="fact ${cls}"${sh!==txt?` title="${esc(txt)}"`:''}>${icon}${lab?`<span class="sr">${lab}: </span>`:''}${esc(sh)}</span>`;};
 
 function card(t){
  if(t.s==='recursos') return `<a class="res tool-r" data-id="${t.id}" href="${t.url}" rel="noopener" target="_blank"><span class="lg">${logo(t)}</span><span><h4>${esc(t.n)}</h4><p>${esc(t.d)}</p></span><span class="go" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></svg></span><span class="sr"> (se abre en otra pestaña)</span></a>`;
@@ -463,7 +469,7 @@ function card(t){
   :ownAccount?`<div><dt>Edad mínima</dt><dd>Consulta las condiciones de la herramienta antes de que el alumnado cree una cuenta.</dd></div>`:'';
  const safe=usesAI(t)?`<p class="safe">${I.warn}<span>El alumnado trabaja con una IA: usa la cuenta del centro, comprueba la edad mínima en sus condiciones y no introduzcas datos personales.</span></p>`:'';
  return `<article class="tool" data-id="${t.id}">
-  <div class="tool-h"><span class="lg">${logo(t)}</span><h4>${esc(t.n)}</h4></div>
+  <div class="tool-h"><span class="lg">${logo(t)}</span>${(m=>m?`<h4>${esc(m[1])}<small>${esc(m[2])}</small></h4>`:`<h4>${esc(t.n)}</h4>`)(t.n.match(/^(.+?)\s*\((.+)\)$/))}</div>
   <p class="lead"><span class="sr">${aula?'Qué hace el alumnado: ':'Para qué te sirve: '}</span>${esc(lead)}</p>
   <p class="ex"><b>Ejemplo:</b> ${esc(t.i[0])}</p>
   <div class="facts">${facts}</div>
