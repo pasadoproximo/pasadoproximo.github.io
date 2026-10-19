@@ -339,7 +339,7 @@ FIG:/assets/proyectos/repositorio-digital/ficha-2024.jpg?v=2|Ficha de StopMotion
 <div class="status four">
 <div class="s-ok"><span class="st-l ok">En uso</span><p>El centro la usó con su claustro como herramienta de autoformación.</p></div>
 <div class="s-exp"><span class="st-l exp">Congreso</span><p>El centro la presentó en el IX Congreso Internacional de Creatividad Educativa (Braining, Valencia, abril de 2025). <a href="https://colegiocerradodecalderon.es/braining/" rel="noopener" target="_blank">Ver la noticia</a>.</p></div>
-<div class="s-exp"><span class="st-l exp">Todo el centro</span><p>Se unificó el criterio de herramientas usadas entre todos los docentes del centro.</p></div>
+<div class="s-exp"><span class="st-l exp">Todo el centro</span><p>Se unificó el criterio de herramientas usadas en el centro.</p></div>
 <div class="s-pend"><span class="st-l pend">Más de 100</span><p>Más de 100 herramientas y recursos distintos a disposición del centro, cada uno con su ficha y su videotutorial.</p></div>
 </div>"""),
         dict(title="Mantenerlo al día",
