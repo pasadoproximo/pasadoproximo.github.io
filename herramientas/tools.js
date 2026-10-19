@@ -517,3 +517,14 @@ const CHANGES = [
   { n:"EarTeach", what:"La versión web ya no está disponible.", alt:"musictheory.net" },
   { n:"La IA en las cuentas del centro", what:"En 2025, Gemini y NotebookLM pasaron a estar incluidos en Google Workspace for Education, y Microsoft abrió Copilot Chat al alumnado de 13 años o más.", alt:"Usar la IA con la cuenta del centro, no con cuentas personales" }
 ];
+
+// MATERIAS (filtro «Materia» en «Más filtros»). Solo las herramientas propias de una materia, según su descripción;
+// las generales (Kahoot, Canva…) sirven para cualquiera y no llevan materia. Una herramienta puede tener dos.
+// Revisado en octubre de 2026. Añadir aquí el id cuando una herramienta nueva sea específica de una materia.
+const AREAS = {
+  geohis: { n:"Geografía e Historia", ids:["artsculture","visitas","earth","geacron","rah","delmundo","kgeography","ancientearth","europeana","sketchfab","academiaplay"] },
+  ciencias: { n:"Ciencias y Matemáticas", ids:["geogebra","desmos","phet","gizmos","bodymaps","anatomy3d","vertebrados"] },
+  tecno: { n:"Tecnología y Programación", ids:["tinkercad","scratch","snap","blockly","codeorg","appinventor","thunkable","cospaces","coppelia","snatchbot","librecad"] },
+  arte: { n:"Música y Arte", ids:["musescore","incredibox","musictheory","suno","artsculture","visitas","europeana","sketchfab","academiaplay"] },
+  econ: { n:"Economía", ids:["bolsa"] }
+};

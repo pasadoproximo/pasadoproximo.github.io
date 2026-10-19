@@ -117,31 +117,20 @@ footer a{font-weight:700}
 .head-p{font-size:clamp(17px,1.6vw,19px);color:#2A3352;margin-top:12px;max-width:62ch}
 .head-p a{font-weight:700;color:var(--navy3)}
 
-/* nivel 1: búsqueda y sección, en una fila compacta (lo único fijo al bajar) */
-.controls{position:sticky;top:70px;z-index:20;margin-top:26px;background:rgba(242,244,249,.96);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);padding:10px 0;transition:top .3s cubic-bezier(.2,.7,.2,1),transform .3s cubic-bezier(.2,.7,.2,1)}
-.row1{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin:0}
-.search{flex:1 1 320px;display:flex;align-items:center;gap:10px;background:#fff;border:1px solid #CDD5E5;border-radius:999px;padding:0 6px 0 16px;height:46px}
+/* buscador: primer nivel = búsqueda + «¿Qué quieres hacer?» */
+.finder{margin-top:24px}
+.search{display:flex;align-items:center;gap:10px;background:#fff;border:1px solid #CDD5E5;border-radius:999px;padding:0 6px 0 18px;height:52px}
 .search:focus-within{border-color:var(--navy);box-shadow:0 0 0 3px rgba(159,179,255,.45)}
-.search>svg{width:19px;height:19px;stroke:var(--mut);fill:none;stroke-width:2.2;stroke-linecap:round;flex:none}
-.search input{flex:1;border:0;outline:0;font:500 16.5px var(--f-body);color:var(--txt);background:transparent;min-width:0;height:100%}
+.search>svg{width:20px;height:20px;stroke:var(--mut);fill:none;stroke-width:2.2;stroke-linecap:round;flex:none}
+.search input{flex:1;border:0;outline:0;font:500 17px var(--f-body);color:var(--txt);background:transparent;min-width:0;height:100%}
 .search input::placeholder{color:#6B7591}
-.search .clear{flex:none;width:34px;height:34px;border-radius:50%;border:0;background:var(--bg);display:grid;place-items:center;cursor:pointer}
+.search .clear{flex:none;width:40px;height:40px;border-radius:50%;border:0;background:var(--bg);display:grid;place-items:center;cursor:pointer}
 .search .clear svg{width:14px;height:14px;stroke:var(--navy);fill:none;stroke-width:2.4;stroke-linecap:round}
 .search .clear:hover{background:var(--ice)}
 .search .clear[hidden]{display:none}
-.seg{display:flex;gap:2px;background:#fff;border:1px solid #CDD5E5;border-radius:999px;padding:3px;flex:none}
-.seg button{display:inline-flex;align-items:center;gap:6px;font:700 15px var(--f-body);color:var(--txt);background:transparent;border:0;border-radius:999px;padding:8px 14px;cursor:pointer;white-space:nowrap}
-.seg button:hover{background:var(--bg)}
-.seg .num{font:700 12.5px var(--f-body);color:var(--mut)}
-.seg button[aria-pressed="true"]{background:var(--navy);color:#fff}
-.seg button[aria-pressed="true"] .num{color:var(--sky)}
-@media (max-width:780px){.controls{top:62px}.seg{width:100%}.seg button{flex:1 1 0;justify-content:center;padding:8px 6px;gap:4px}}
-@media (max-width:380px){.seg button{font-size:14px}.seg .num{display:none}}
-body.hide-top .top{transform:translateY(-140%)}
-body.hide-top .controls{transform:translateY(calc(-100% - 80px))}
 
-/* nivel 2: «¿Qué quieres hacer?» — cuatro objetivos, siempre visibles */
-.purpose{margin-top:16px}
+/* «¿Qué quieres hacer?»: cuatro objetivos */
+.purpose{margin-top:18px}
 .purpose-l{font:700 12.5px var(--f-body);letter-spacing:.12em;text-transform:uppercase;color:var(--mut);margin-bottom:8px}
 .chips{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
 .goal{display:flex;flex-direction:column;align-items:flex-start;gap:4px;text-align:left;font-family:var(--f-body);color:var(--navy);background:#fff;border:1px solid #CDD5E5;border-radius:16px;padding:12px 14px;cursor:pointer;transition:border-color .2s,background .2s}
@@ -156,19 +145,60 @@ body.hide-top .controls{transform:translateY(calc(-100% - 80px))}
 .goal:disabled{opacity:.5;cursor:not-allowed}
 .goal:disabled:hover{border-color:#CDD5E5}
 @media (max-width:900px){.chips{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media (max-width:560px){.goal .gd{display:none}.goal{padding:10px 12px}.goal b{font-size:16px}}
-/* nivel 3: resultados y filtros activos */
-.state{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:18px;padding-top:14px;border-top:1px solid var(--line);min-height:44px}
+@media (max-width:560px){.goal .gd{display:none}.goal{padding:10px 12px;min-height:64px}.goal b{font-size:16px}}
+
+/* «Más filtros»: secundario, se despliega dentro de la página */
+.mf-wrap{margin-top:12px}
+.mf-t{display:inline-flex;align-items:center;gap:8px;font:700 15px var(--f-body);color:var(--navy3);background:none;border:0;padding:8px 2px;min-height:40px;cursor:pointer}
+.mf-t::after{content:"";width:7px;height:7px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg) translateY(-2px);transition:transform .2s}
+.mf-t[aria-expanded="true"]::after{transform:rotate(-135deg) translateY(-1px)}
+.mf-t:hover{color:var(--navy)}
+.mf-n{font:700 12.5px var(--f-body);background:var(--navy);color:#fff;border-radius:999px;padding:2px 8px}
+.mf-n:empty{display:none}
+.mf{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.6fr);gap:14px 32px;margin-top:6px;padding:16px 18px;background:#fff;border:1px solid var(--line);border-radius:16px}
+.mf[hidden]{display:none}
+.mf-h{font:700 12.5px var(--f-body);letter-spacing:.12em;text-transform:uppercase;color:var(--mut);margin-bottom:8px}
+.opts{display:flex;flex-wrap:wrap;gap:6px}
+.opts button{display:inline-flex;align-items:center;gap:6px;font:600 14.5px var(--f-body);color:var(--navy);background:var(--bg);border:1px solid transparent;border-radius:999px;padding:7px 12px;min-height:36px;cursor:pointer}
+.opts button:hover{border-color:var(--navy)}
+.opts .num{font:700 12px var(--f-body);color:var(--mut)}
+.opts button[aria-pressed="true"]{background:var(--navy);color:#fff}
+.opts button[aria-pressed="true"] .num{color:var(--sky)}
+.opts button[aria-pressed="true"]::before{content:"✓";color:var(--sky);font-weight:800}
+.opts button:disabled{opacity:.45;cursor:not-allowed}
+.opts button:disabled:hover{border-color:transparent}
+.mf-note{font-size:13.5px;color:var(--mut);margin-top:8px}
+@media (max-width:760px){.mf{grid-template-columns:1fr}}
+
+/* resultados y filtros activos */
+.state{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:16px;padding-top:14px;border-top:1px solid var(--line);min-height:44px}
 .state .count{margin:0;font:700 15px var(--f-body);color:var(--navy)}
 .active{display:flex;flex-wrap:wrap;align-items:center;gap:6px}
-.tagx{display:inline-flex;align-items:center;gap:6px;font:600 14px var(--f-body);color:var(--navy);background:var(--ice);border:0;border-radius:999px;padding:5px 8px 5px 12px;cursor:pointer}
+.tagx{display:inline-flex;align-items:center;gap:6px;font:600 14px var(--f-body);color:var(--navy);background:var(--ice);border:0;border-radius:999px;padding:6px 8px 6px 12px;min-height:34px;cursor:pointer}
 .tagx svg{width:12px;height:12px;stroke:currentColor;fill:none;stroke-width:2.6;stroke-linecap:round}
 .tagx:hover{background:#C9D3F0}
-.clearall{font:700 14px var(--f-body);color:var(--navy3);background:none;border:0;text-decoration:underline;text-underline-offset:3px;cursor:pointer;padding:5px 4px}
+.clearall{font:700 14px var(--f-body);color:var(--navy3);background:none;border:0;text-decoration:underline;text-underline-offset:3px;cursor:pointer;padding:6px 4px;min-height:34px}
 .state:focus{outline:none}
 .state:focus-visible{outline:3px solid var(--sky);outline-offset:4px;border-radius:8px}
-.nojs{margin-top:18px;background:#fff;border-radius:16px;padding:16px 18px}
-.nojs a{font-weight:700;color:var(--navy3)}
+.nojs,.loaderr{margin-top:18px;background:#fff;border-radius:16px;padding:18px 20px}
+.nojs a,.loaderr a{font-weight:700;color:var(--navy3)}
+.loaderr p{font:800 20px/1.2 var(--f-disp);color:var(--navy)}
+.loaderr small{display:block;font-size:16px;color:var(--mut);margin-top:6px}
+.loaderr .empty-acts{justify-content:flex-start;align-items:center}
+
+/* barra fina al bajar: buscador + filtros, siempre en el mismo sitio mientras recorres el catálogo */
+.minibar{position:fixed;top:0;left:0;right:0;z-index:40;display:flex;align-items:center;gap:10px;padding:8px max(20px,calc((100vw - 1200px)/2));background:rgba(242,244,249,.96);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.minibar[hidden]{display:none}
+.search.mini{flex:0 1 420px;height:42px;padding:0 14px}
+.search.mini input{font-size:16px}
+.mb-f{display:inline-flex;align-items:center;gap:6px;font:700 15px var(--f-body);color:#fff;background:var(--navy);border:0;border-radius:999px;padding:0 16px;height:42px;cursor:pointer}
+.mb-f:hover{background:var(--navy3)}
+.mb-n{font:700 12.5px var(--f-body);background:var(--sky);color:var(--navy);border-radius:999px;padding:1px 7px}
+.mb-n:empty{display:none}
+.mb-c{font:600 14.5px var(--f-body);color:var(--mut);white-space:nowrap}
+body.mini-on .top{transform:translateY(-140%)}
+@media (max-width:560px){.minibar{padding:8px 16px}.search.mini{flex:1 1 auto}.mb-c{display:none}}
+@media (prefers-reduced-motion:reduce){.goal,.mf-t::after,.top{transition:none}}
 
 /* listado */
 .secblock{margin-top:44px}
@@ -320,26 +350,36 @@ body.hide-top .controls{transform:translateY(calc(-100% - 80px))}
   <p class="head-p"><b id="s-total">118</b> herramientas y recursos elegidos y comprobados, con un ejemplo de uso, qué necesita cada uno y <a href="#cambios">qué ha cerrado desde 2024</a>.</p>
  </section>
 
- <div id="ctl-sentinel" aria-hidden="true"></div>
- <div class="controls" id="herramientas">
-  <div class="row1">
-   <div class="search" role="search">
-    <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.4-4.4"/></svg>
-    <label class="sr" for="q">Busca una herramienta o qué necesitas hacer</label>
-    <input id="q" type="text" placeholder="Busca una herramienta o qué necesitas hacer…" autocomplete="off" enterkeyhint="search">
-    <button type="button" class="clear" id="q-clear" aria-label="Borrar la búsqueda" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
-   </div>
-   <div class="seg" role="group" aria-label="Sección de la caja" id="tabs"></div>
+ <section class="finder" id="herramientas" aria-label="Buscar en la caja">
+  <div class="search" role="search">
+   <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.4-4.4"/></svg>
+   <label class="sr" for="q">Busca una herramienta o qué necesitas hacer</label>
+   <input id="q" type="text" placeholder="Busca una herramienta o qué necesitas hacer…" autocomplete="off" enterkeyhint="search">
+   <button type="button" class="clear" id="q-clear" aria-label="Borrar la búsqueda" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
   </div>
- </div>
- <div id="ctl-spacer" aria-hidden="true"></div>
-
- <div class="purpose" role="group" aria-labelledby="purpose-l">
-  <h2 class="purpose-l" id="purpose-l">¿Qué quieres hacer?</h2>
-  <div class="chips" id="chips"></div>
- </div>
+  <div class="purpose" role="group" aria-labelledby="purpose-l">
+   <h2 class="purpose-l" id="purpose-l">¿Qué quieres hacer?</h2>
+   <div class="chips" id="chips"></div>
+  </div>
+  <div class="mf-wrap">
+   <button type="button" class="mf-t" id="mf-t" aria-expanded="false" aria-controls="mf">Más filtros<span class="mf-n" id="mf-n"></span></button>
+   <div class="mf" id="mf" hidden>
+    <div class="mf-g" role="group" aria-labelledby="mf-s"><h3 class="mf-h" id="mf-s">Tipo de recurso</h3><div class="opts" id="tabs"></div></div>
+    <div class="mf-g" role="group" aria-labelledby="mf-a"><h3 class="mf-h" id="mf-a">Materia</h3><div class="opts" id="areas"></div><p class="mf-note">Solo las herramientas propias de cada materia; las generales sirven para todas.</p></div>
+   </div>
+  </div>
+ </section>
  <div class="state" id="state" aria-live="polite" tabindex="-1"></div>
  <noscript><p class="nojs">El catálogo necesita JavaScript para mostrarse y filtrarse. Si no puedes activarlo, consulta el <a href="https://sites.google.com/view/repositorio-digital-docente-cc/inicio">repositorio original de 2024</a>.</p></noscript>
+ <div class="minibar" id="minibar" hidden>
+  <div class="search mini" role="search">
+   <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.4-4.4"/></svg>
+   <label class="sr" for="q2">Buscar en la caja</label>
+   <input id="q2" type="text" placeholder="Buscar…" autocomplete="off" enterkeyhint="search">
+  </div>
+  <button type="button" class="mb-f" id="mb-f">Filtros<span class="mb-n" id="mb-n"></span></button>
+  <span class="mb-c" id="mb-c"></span>
+ </div>
  <div id="list"></div>
  <div class="empty" id="empty" role="status" hidden></div>
 
@@ -379,8 +419,15 @@ body.hide-top .controls{transform:translateY(calc(-100% - 80px))}
 <footer><span>Jorge Delgado Aguilera · Diseño de materiales educativos digitales</span><span>Revisado en octubre de 2026 · <a href="/">Volver al portfolio</a></span></footer>
 </div>
 
-<script src="tools.js?v=5"></script>
+<script src="tools.js?v=6"></script>
 <script>
+// si los datos no llegan o algo falla al pintar, se avisa en lugar de mostrar un catálogo vacío
+function loadFail(why){
+ const L=document.getElementById('list'),F=document.getElementById('herramientas'),S=document.getElementById('state');
+ if(F)F.hidden=true; if(S)S.hidden=true;
+ L.innerHTML=`<div class="loaderr" role="alert"><p>No se ha podido cargar el catálogo.</p><small>${why} Comprueba la conexión y vuelve a intentarlo.</small><div class="empty-acts"><button type="button" class="solid" onclick="location.reload()">Volver a intentarlo</button><a href="https://sites.google.com/view/repositorio-digital-docente-cc/inicio">Ver el repositorio de 2024</a></div></div>`;
+}
+if(typeof TOOLS==='undefined'||typeof SECTIONS==='undefined'){loadFail('Los datos de las herramientas no han llegado.');throw new Error('tools.js no se ha cargado');}
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const LOGOS=new Set(["articulate", "h5p", "academiaplay", "visitas", "vocaroo", "vertebrados", "coppelia", "profeprod", "delmundo", "additio", "anatomy3d", "ancientearth", "appinventor", "artsculture", "audacity", "badge", "blockly", "blooket", "bodymaps", "bolsa", "bookcreator", "brisk", "canva", "capcut", "chatgpt", "chatpdf", "chatterpix", "classdojo", "classroom", "classroomscreen", "claude", "clipchamp", "codeorg", "coolors", "copilot", "corubrics", "cospaces", "decktoys", "desmos", "diffit", "earth", "edia", "edpuzzle", "edu30", "educagob", "educaplay", "europeana", "exelearning", "fastboard", "feedly", "flaticon", "fliki", "gamma", "geacron", "gemini", "genially", "geogebra", "gforms", "gizmos", "idoceo", "ilovepdf", "immersive", "incredibox", "intef", "jotform", "kahoot", "kgeography", "learningpaths", "lexica", "librecad", "loom", "loop", "magicschool", "magnific", "mentimeter", "metmuseum", "mindomo", "moodle", "msforms", "musescore", "musictheory", "nearpod", "notebooklm", "openverse", "padlet", "pearltrees", "pexels", "phet", "picsart", "pixabay", "plickers", "popplet", "procomun", "rah", "readua", "readwrite", "rosaliarte", "schoolai", "scratch", "sketchfab", "snap", "snatchbot", "snorkl", "stopmotion", "stormboard", "storymap", "suno", "sway", "symbaloo", "teams", "thunkable", "timetoast", "tinkercad", "trello", "unsplash", "wakelet", "wayground", "wikicommons", "wooclap", "zencastr"]);
 const I={
@@ -495,28 +542,33 @@ const TASKS=[
  ['Organizar y gestionar','Aula virtual, cuaderno del profesor y tus recursos',['docente:gestion','docente:org']]
 ];
 const SECS=Object.keys(SECTIONS);
-const state={sec:'all',raw:'',p:null};
-const inTask=(t,k)=>k.includes(t.s+':'+t.cat);
-const inSec=t=>state.sec==='all'||t.s===state.sec;
-const inP=t=>state.p===null||inTask(t,TASKS[state.p][2]);
-const unit=(n,k)=>k==='recursos'?(n===1?'recurso':'recursos'):k==='all'?(n===1?'herramienta o recurso':'herramientas y recursos'):(n===1?'herramienta':'herramientas');
+const AR=typeof AREAS==='undefined'?{}:AREAS;
+const ARK=Object.keys(AR);
+// estado: búsqueda, objetivo, tipo de recurso y materia (cuatro dimensiones que se combinan)
+const state={raw:'',p:null,sec:'all',area:null};
+const inGoal=(t,i)=>i===null||TASKS[i][2].includes(t.s+':'+t.cat);
+const inSec=(t,k)=>k==='all'||t.s===k;
+const inArea=(t,a)=>a===null||AR[a].ids.includes(t.id);
+// cada recuento aplica todos los filtros salvo el suyo, así coincide con lo que obtendrías al pulsarlo
+const pass=(t,qs,skip)=>match(t,qs)&&(skip==='p'||inGoal(t,state.p))&&(skip==='sec'||inSec(t,state.sec))&&(skip==='area'||inArea(t,state.area));
+const unit=n=>n===1?'herramienta o recurso':'herramientas y recursos';
 const X='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>';
+const opt=(attr,val,label,c,on)=>`<button type="button" ${attr}="${val}" aria-pressed="${on}"${!c&&!on?' disabled':''}>${label}<span class="num"><span class="sr">, </span>${c}</span></button>`;
 
 const $=id=>document.getElementById(id);
 function render(){
  const qs=query(state.raw), raw=state.raw.trim();
- const hits=TOOLS.filter(t=>match(t,qs));
- // sección: los números cuentan lo que queda con la búsqueda y la finalidad elegidas
- const byP=hits.filter(inP);
- const counts=Object.fromEntries(SECS.map(k=>[k,byP.filter(t=>t.s===k).length]));
- $('tabs').innerHTML=[['all','Todo',byP.length],...SECS.map(k=>[k,SECTIONS[k].n,counts[k]])]
-  .map(([k,n,c])=>`<button type="button" data-sec="${k}" aria-pressed="${state.sec===k}">${n}<span class="num"><span class="sr">, </span>${c}</span></button>`).join('');
- // objetivos: siempre los cuatro en el mismo sitio; sin resultados, desactivados (no desaparecen)
- const base=hits.filter(inSec);
- $('chips').innerHTML=TASKS.map(([n,d,k],i)=>{const c=base.filter(t=>inTask(t,k)).length,on=state.p===i;
+ const cnt=(skip,f)=>TOOLS.filter(t=>pass(t,qs,skip)&&f(t)).length;
+ // objetivos
+ $('chips').innerHTML=TASKS.map(([n,d],i)=>{const c=cnt('p',t=>inGoal(t,i)),on=state.p===i;
   return `<button type="button" class="goal" data-p="${i}" aria-pressed="${on}"${!c&&!on?' disabled':''}><b>${n}</b><span class="gd">${d}</span><span class="num">${c} ${c===1?'resultado':'resultados'}</span></button>`;}).join('');
- // listado
- const list=byP.filter(inSec);
+ // más filtros: tipo de recurso y materia
+ $('tabs').innerHTML=[['all','Todo'],...SECS.map(k=>[k,SECTIONS[k].n])].map(([k,n])=>opt('data-sec',k,n,cnt('sec',t=>inSec(t,k)),state.sec===k)).join('');
+ $('areas').innerHTML=opt('data-area','','Todas',cnt('area',()=>true),state.area===null)+ARK.map(k=>opt('data-area',k,AR[k].n,cnt('area',t=>inArea(t,k)),state.area===k)).join('');
+ const sec2=(state.sec!=='all')+(state.area!==null);
+ $('mf-n').textContent=sec2?`${sec2} ${sec2===1?'activo':'activos'}`:'';
+ // listado (cada herramienta aparece una sola vez)
+ const list=TOOLS.filter(t=>pass(t,qs,''));
  $('list').innerHTML=(state.sec==='all'?SECS:[state.sec]).map(sk=>{
   const SS=SECTIONS[sk], ts0=list.filter(t=>t.s===sk);
   if(!ts0.length)return '';
@@ -524,48 +576,63 @@ function render(){
   return `<section class="secblock" aria-labelledby="h-${sk}"><div class="sec-t"><h2 id="h-${sk}">${SS.n}</h2><span class="n">${ts0.length}</span><p>${SS.d}</p></div>${cats}</section>`;
  }).join('');
  const shown=list.length;
- // estado: recuento + filtros activos, cada uno se puede quitar
+ // recuento + filtros activos (cada uno se puede quitar)
  const act=[];
  if(raw)act.push(`<button type="button" class="tagx" data-rm="q">«${esc(raw)}»${X}<span class="sr"> Quitar la búsqueda</span></button>`);
- if(state.sec!=='all')act.push(`<button type="button" class="tagx" data-rm="sec">${SECTIONS[state.sec].n}${X}<span class="sr"> Quitar la sección</span></button>`);
  if(state.p!==null)act.push(`<button type="button" class="tagx" data-rm="p">${TASKS[state.p][0]}${X}<span class="sr"> Quitar el objetivo</span></button>`);
- const what=raw||state.sec!=='all'||state.p!==null?`${shown} ${shown===1?'resultado':'resultados'}`:`${shown} ${unit(shown,'all')}`;
+ if(state.sec!=='all')act.push(`<button type="button" class="tagx" data-rm="sec">${SECTIONS[state.sec].n}${X}<span class="sr"> Quitar el tipo de recurso</span></button>`);
+ if(state.area!==null)act.push(`<button type="button" class="tagx" data-rm="area">${AR[state.area].n}${X}<span class="sr"> Quitar la materia</span></button>`);
+ const what=act.length?`${shown} ${shown===1?'resultado':'resultados'}`:`${shown} ${unit(shown)}`;
  $('state').innerHTML=`<p class="count">${what}</p>`+(act.length?`<div class="active"><span class="sr">Filtros activos:</span>${act.join('')}${act.length>1?'<button type="button" class="clearall" data-rm="all">Limpiar todo</button>':''}</div>`:'');
  $('q-clear').hidden=!state.raw;
+ $('mb-n').textContent=(state.p!==null)+sec2||'';
+ $('mb-c').textContent=what;
  // estado vacío: solo si de verdad no hay resultados (el texto no existe en la página hasta entonces)
  const E=$('empty');
  if(shown){E.hidden=true;E.innerHTML='';return;}
  const acts=[];
- if(state.sec!=='all') SECS.filter(k=>k!==state.sec&&counts[k]).forEach(k=>acts.push(`<button type="button" class="solid" data-act="sec" data-sec="${k}">Ver ${counts[k]} en ${SECTIONS[k].n}</button>`));
+ if(state.sec!=='all'){const k=SECS.find(k=>k!==state.sec&&TOOLS.some(t=>pass(t,qs,'sec')&&t.s===k));if(k)acts.push(`<button type="button" class="solid" data-act="sec" data-sec="${k}">Ver en ${SECTIONS[k].n}</button>`);}
  acts.push('<button type="button" class="solid" data-rm="all">Limpiar todo</button>');
  E.innerHTML=`<p>${raw?`No hay resultados para «${esc(raw)}»`:'No hay resultados'} con estos filtros.</p><small>Prueba con otra palabra o quita algún filtro.</small><div class="empty-acts">${acts.join('')}</div>`;
  E.hidden=false;
 }
-const qEl=$('q');
+const qEl=$('q'), q2=$('q2');
 // en pantallas estrechas, el texto de ayuda corto para que no se corte
 const mqN=matchMedia('(max-width:560px)');
 const ph=()=>{qEl.placeholder=mqN.matches?'Busca una herramienta o tarea…':'Busca una herramienta o qué necesitas hacer…'};
 ph();mqN.addEventListener('change',ph);
-const toList=()=>{const y=$('list').getBoundingClientRect().top+scrollY-140;if(scrollY>y)scrollTo({top:y})};
-const setQ=v=>{qEl.value=v;state.raw=v;};
-function setSec(k){state.sec=k;render();toList();}
+const toList=()=>{const y=$('state').getBoundingClientRect().top+scrollY-70;if(scrollY>y)scrollTo({top:y})};
+const setQ=v=>{qEl.value=v;q2.value=v;state.raw=v;};
 function remove(what){
  if(what==='q'||what==='all')setQ('');
- if(what==='sec'||what==='all')state.sec='all';
  if(what==='p'||what==='all')state.p=null;
+ if(what==='sec'||what==='all')state.sec='all';
+ if(what==='area'||what==='all')state.area=null;
  render();
 }
-$('tabs').addEventListener('click',e=>{const b=e.target.closest('button');if(b)setSec(b.dataset.sec)});
-qEl.addEventListener('input',()=>{state.raw=qEl.value;render()});
-qEl.addEventListener('keydown',e=>{if(e.key==='Escape'&&qEl.value){setQ('');render()}});
+[qEl,q2].forEach(el=>{
+ el.addEventListener('input',()=>{setQ(el.value);render()});
+ el.addEventListener('keydown',e=>{if(e.key==='Escape'&&el.value){setQ('');render()}});
+});
 $('q-clear').addEventListener('click',()=>{setQ('');render();qEl.focus()});
-$('chips').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;
- const i=+b.dataset.p;state.p=state.p===i?null:i;render();toList();});
+$('chips').addEventListener('click',e=>{const b=e.target.closest('button');if(!b||b.disabled)return;const i=+b.dataset.p;state.p=state.p===i?null:i;render();toList();});
+$('tabs').addEventListener('click',e=>{const b=e.target.closest('button');if(!b||b.disabled)return;state.sec=b.dataset.sec;render();});
+$('areas').addEventListener('click',e=>{const b=e.target.closest('button');if(!b||b.disabled)return;state.area=b.dataset.area||null;render();});
+// «Más filtros»: se abre y se cierra en su sitio (sin capas por encima)
+const mfT=$('mf-t');
+const setMF=open=>{mfT.setAttribute('aria-expanded',open);$('mf').hidden=!open;};
+mfT.addEventListener('click',()=>setMF(mfT.getAttribute('aria-expanded')!=='true'));
 document.addEventListener('click',e=>{const b=e.target.closest('[data-rm],[data-act]');if(!b||!b.closest('#state,#empty'))return;
- if(b.dataset.act==='sec')setSec(b.dataset.sec);else{remove(b.dataset.rm);$('state').focus({preventScroll:true});}});
+ if(b.dataset.act==='sec'){state.sec=b.dataset.sec;render();}else{remove(b.dataset.rm);$('state').focus({preventScroll:true});}});
 $('list').addEventListener('click',e=>{const b=e.target.closest('.more-t');if(!b)return;const open=b.getAttribute('aria-expanded')!=='true';b.setAttribute('aria-expanded',open);$(b.getAttribute('aria-controls')).hidden=!open;});
+// barra fina: aparece cuando el buscador queda por encima de la pantalla y desaparece al volver a él
+$('mb-f').addEventListener('click',()=>{$('herramientas').scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'});setTimeout(()=>$('chips').querySelector('button:not(:disabled)')?.focus({preventScroll:true}),400);});
+if('IntersectionObserver' in window){
+ const io2=new IntersectionObserver(([e])=>{const past=!e.isIntersecting&&e.boundingClientRect.top<0;$('minibar').hidden=!past;document.body.classList.toggle('mini-on',past);});
+ io2.observe($('herramientas'));
+}
 $('s-total').textContent=TOOLS.length;
-render();
+try{render();}catch(err){console.error(err);loadFail('Ha fallado al mostrarse.');}
 
 // ---------- qué ha cambiado: balance con los datos de la caja
 const st=k=>TOOLS.filter(t=>t.st===k).length;
@@ -583,19 +650,7 @@ $('chnew').innerHTML=`<div><span class="lab">Novedad</span><h3>${esc(last.n)}</h
 const io='IntersectionObserver' in window?new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.1}):null;
 document.querySelectorAll('.rv').forEach(el=>io?io.observe(el):el.classList.add('in'));
 
-// al bajar leyendo se esconden la cabecera y la barra; al subir vuelven
-(()=>{
- let last=scrollY,ticking=false;
- function update(){
-  ticking=false;const y=scrollY;
-  const typing=document.activeElement===qEl;
-  if(!typing&&y>last+6&&y>400)document.body.classList.add('hide-top');
-  else if(y<last-6||y<=400)document.body.classList.remove('hide-top');
-  last=y;
- }
- addEventListener('scroll',()=>{if(!ticking){ticking=true;requestAnimationFrame(update)}},{passive:true});
- qEl.addEventListener('focus',()=>document.body.classList.remove('hide-top'));
-})();
+
 </script>
 <script>(()=>{const f=()=>document.body.classList.toggle('stuck',scrollY>8);addEventListener('scroll',f,{passive:true});f()})();</script>
 <script>document.addEventListener('pointermove',e=>{const t=e.target.closest&&e.target.closest('.tool,.res,.t');if(!t)return;const r=t.getBoundingClientRect();t.style.setProperty('--mx',(e.clientX-r.left)+'px');t.style.setProperty('--my',(e.clientY-r.top)+'px');},{passive:true});</script>
