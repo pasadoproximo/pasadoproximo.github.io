@@ -414,7 +414,7 @@ body.mini-on .top{transform:translateY(-140%)}
   <div class="sec-h rv"><span class="lab">Curación</span><h2>Cómo está hecha</h2></div>
   <ol class="steps2 rv">
    <li><b>Partí del repositorio de 2024</b><span>Más de 100 herramientas para todo un colegio, de Infantil a Bachillerato.</span></li>
-   <li><b>Me quedé con Secundaria</b><span>Solo lo que tiene sentido en ESO y Bachillerato, ordenado por quién lo usa (alumnado, docente o recurso) y por lo que necesitas hacer.</span></li>
+   <li><b>Me quedé con Secundaria</b><span>Solo lo que tiene sentido en ESO y Bachillerato, ordenado por lo que necesitas hacer: enseñar, crear materiales, evaluar u organizar.</span></li>
    <li><b>Las comprobé una a una</b><span>En octubre de 2026: que funcione, qué pide para empezar y qué ha cerrado o cambiado.</span></li>
    <li><b>Añadí lo nuevo</b><span id="steps-new">Herramientas que no existían o no estaban en 2024.</span></li>
   </ol>
@@ -422,7 +422,7 @@ body.mini-on .top{transform:translateY(-140%)}
   <div class="crit2 rv">
    <div><h3>Vigencia</h3><p>Solo entra lo que funciona hoy. Lo que ha cerrado no ocupa sitio en el catálogo.</p></div>
    <div><h3>Utilidad</h3><p>Cada ficha responde a una tarea de clase o del docente, con un ejemplo concreto.</p></div>
-   <div><h3>Acceso</h3><p>Se puede empezar gratis. Cada ficha dice si el alumnado necesita cuenta y, en Docente, cuánto cuesta.</p></div>
+   <div><h3>Acceso</h3><p>Se puede empezar gratis. Cada ficha dice si el alumnado necesita cuenta y, en las herramientas para el docente, cuánto cuesta.</p></div>
    <div class="warn"><h3>Privacidad</h3><p>Antes de usarla con alumnado, comprueba la edad mínima y que el centro la tenga autorizada. Con menores, la cuenta del centro, y nunca datos personales en una IA.</p></div>
   </div>
  </section>
@@ -626,8 +626,8 @@ function render(){
  if(shown){E.hidden=true;E.innerHTML='';return;}
  const acts=[];
  if(state.sec!=='all'){const k=SECS.find(k=>k!==state.sec&&TOOLS.some(t=>pass(t,qs,'sec')&&t.s===k));if(k)acts.push(`<button type="button" class="solid" data-act="sec" data-sec="${k}">Ver en ${SECTIONS[k].n}</button>`);}
- acts.push('<button type="button" class="solid" data-rm="all">Limpiar todo</button>');
- E.innerHTML=`<p>${raw?`No hay resultados para «${esc(raw)}»`:'No hay resultados'} con estos filtros.</p><small>Prueba con otra palabra o quita algún filtro.</small><div class="empty-acts">${acts.join('')}</div>`;
+ acts.push('<button type="button" class="solid" data-rm="all">Borrar la búsqueda</button>');
+ E.innerHTML=`<p>${raw?`No hay resultados para «${esc(raw)}»`:'No hay resultados'}.</p><small>Prueba con otra palabra o con lo que quieres hacer, por ejemplo «evaluar» o «vídeo».</small><div class="empty-acts">${acts.join('')}</div>`;
  E.hidden=false;
 }
 const qEl=$('q'), q2=$('q2');

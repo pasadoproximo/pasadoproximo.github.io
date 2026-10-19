@@ -995,3 +995,9 @@ mark.err{background:#FCE3E3;color:inherit;border-bottom:2px solid #C73636;paddin
 .upd-ar{width:40px;height:40px;border-radius:50%;background:var(--navy);display:grid;place-items:center}
 .upd-ar svg{width:17px;height:17px;stroke:#fff;fill:none;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
 @media (max-width:760px){.upd-h{display:none}.upd-r{grid-template-columns:minmax(0,1fr);gap:14px;padding:22px 0}.upd-ar{width:30px;height:30px;transform:rotate(90deg)}.upd-ar svg{width:14px;height:14px}.upd-search{white-space:normal}}
+
+/* «Antes»: los iconos originales en gris y el nombre tachado */
+.upd-old{display:inline-flex;align-items:center;gap:8px;font:600 15.5px var(--f-body);color:#8A93AD}
+.upd-old img,.upd-old b{width:34px;height:34px;padding:6px;border-radius:10px;background:#fff;object-fit:contain;filter:grayscale(1);opacity:.6;box-shadow:0 4px 12px -8px rgba(6,16,51,.25)}
+.upd-old b{display:grid;place-items:center;padding:0;font:800 15px var(--f-disp);color:#5A6480}
+.upd-old s{text-decoration-thickness:2px;text-decoration-color:#C0392B}
