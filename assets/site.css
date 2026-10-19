@@ -879,7 +879,7 @@ mark.err{background:#FCE3E3;color:inherit;border-bottom:2px solid #C73636;paddin
 @media (max-width:1020px){.caso .status.four{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:560px){.caso .status.four{grid-template-columns:1fr}}
 /* «Así se usa la caja»: animación con la caja actual y sus datos reales (assets/caja-demo.js) */
-.caja-demo{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.5fr);gap:48px;align-items:center;margin-top:40px;padding-top:32px;border-top:1.5px solid #D3DAEA}
+.caja-demo{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.5fr);gap:48px;align-items:start;margin-top:64px;padding-top:56px;border-top:1.5px solid #D3DAEA}
 .caja-demo h3{font:800 24px/1.1 var(--f-disp);letter-spacing:-.02em;color:var(--navy);margin-top:12px}
 .psec .caja-demo>div>p{margin-top:12px}
 .caja-demo .ver-y{background:var(--navy);color:#fff}
