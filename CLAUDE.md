@@ -20,8 +20,9 @@ Cada push a `main` se publica solo en 1-2 minutos. El Consejo de Clío vive en o
   falla, aviso con reintento. `AREAS` (materias) sigue en `tools.js` pero ya no tiene interfaz.
   «¿Qué quieres hacer?» = `TASKS`, cuatro objetivos
   (Enseñar y aprender, Crear materiales, Evaluar y participar, Organizar y gestionar); cada herramienta cae en uno solo según
-  su categoría (`s:cat`); recuento + búsqueda activa solo cuando se busca. Hero: etiqueta, título y a la derecha un sello circular «Revisada
-  octubre 2026». Debajo, el buscador en un bloque azul marino (`.find-box`, «Busca en la caja»): ahí empieza la aplicación.
+  su categoría (`s:cat`); recuento + búsqueda activa solo cuando se busca. Hero y buscador forman un solo bloque azul marino (`.head` +
+  `.find-box`): etiqueta, título, sello circular «Revisada octubre 2026», dos cintas de logos como el hero del Repositorio
+  (cada cinta lleva el juego de logos 4 veces para que no quede hueco) y el buscador (etiqueta solo para lector de pantalla).
   Ya no hay «Más filtros» (tipo/materia): `state.sec`/`state.area` quedan sin interfaz. Con búsqueda solo se ven las
   fichas que coinciden (`#list`), sin categorías. `#q2` es el de la barra fina (botón «Categorías»): sincronizado, solo
   aparece cuando `#q` sale de pantalla.
