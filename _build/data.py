@@ -324,9 +324,9 @@ P.append(dict(
         ("La necesidad", """
 <p class="psub">El profesorado del centro tenía dificultades para encontrar las herramientas digitales adecuadas para sus clases y para ayudarse en su labor docente. Faltaba un sitio común claro y adaptado al centro que permitiera su autoformación.</p>
 <ul class="needs three">
-<li><b>Qué hice</b><span>Realicé una curación de las herramientas digitales apropiadas para el centro por etapas y materias.</span></li>
-<li><b>Cómo lo hice</b><span>Dividí las herramientas por etapas (Infantil, Primaria, Secundaria y Bachillerato) y materias. En cada una expliqué cómo se podía usar, el grupo de edad recomendado y le adjunté un tutorial.</span></li>
-<li><b>Para qué lo hice</b><span>Para que cada docente encontrara rápido qué herramientas podía usar, las comprendiera y supiera en qué nivel aplicarlas.</span></li>
+<li><b>Qué hice</b><span>Elaboré una web mediante Google Sites donde se recogían todas las herramientas digitales que los docentes podían usar en sus clases. Se organizaba por etapas y materias.</span></li>
+<li><b>Cómo lo hice</b><span>Realicé una curación de herramientas digitales específica tras detectar mediante entrevistas las necesidades del centro y de los propios docentes.</span></li>
+<li><b>Para qué lo hice</b><span>Para fomentar la autoformación del profesorado y estandarizar los criterios de selección de herramientas digitales de acuerdo a lo que demandaba el centro.</span></li>
 </ul>"""),
         dict(title="Así era cada ficha",
              intro='<p class="psub">Dos ejemplos de etapas distintas: una herramienta de Infantil y otra de Secundaria. Pulsa una captura para verla completa.</p>',
