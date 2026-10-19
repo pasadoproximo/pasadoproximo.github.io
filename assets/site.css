@@ -1001,3 +1001,12 @@ mark.err{background:#FCE3E3;color:inherit;border-bottom:2px solid #C73636;paddin
 .upd-old img,.upd-old b{width:34px;height:34px;padding:6px;border-radius:10px;background:#fff;object-fit:contain;filter:grayscale(1);opacity:.6;box-shadow:0 4px 12px -8px rgba(6,16,51,.25)}
 .upd-old b{display:grid;place-items:center;padding:0;font:800 15px var(--f-disp);color:#5A6480}
 .upd-old s{text-decoration-thickness:2px;text-decoration-color:#C0392B}
+
+/* «Así se usa la caja»: lo que trae cada ficha, con iconos y sin cajas */
+.psec .caja-demo>div>p.cdf-t{margin-top:28px;font:700 12.5px var(--f-body);letter-spacing:.12em;text-transform:uppercase;color:var(--mut)}
+.cdf{list-style:none;padding:0;margin:12px 0 0;display:grid;gap:12px}
+.cdf li{display:flex;align-items:center;gap:14px;font:700 17px var(--f-body);color:var(--navy);margin:0}
+.cdf-i{flex:none;width:40px;height:40px;border-radius:50%;background:var(--navy);display:grid;place-items:center}
+.cdf-i svg{width:19px;height:19px;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+@media (max-width:900px){.cdf{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:420px){.cdf{grid-template-columns:minmax(0,1fr)}}
