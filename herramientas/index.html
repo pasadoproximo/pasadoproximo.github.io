@@ -157,7 +157,11 @@ body.hide-top .controls{transform:translateY(calc(-100% - 80px))}
 .cat-h{display:flex;align-items:baseline;gap:10px;margin-bottom:12px}
 .cat-h h3{font:800 21px/1.1 var(--f-disp);letter-spacing:-.015em}
 .cat-h span{color:var(--mut);font-weight:700;font-size:15px}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,272px),1fr));gap:12px;align-items:start}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,272px),1fr));gap:12px;align-items:stretch}
+.grid>.tool,.grid>.res{height:100%}
+.tool .facts{margin-top:auto}
+.grid{grid-auto-rows:1fr}
+.grid.has-open{grid-auto-rows:auto}
 
 /* ficha compacta */
 .tool{background:#fff;border-radius:20px;padding:18px;display:flex;flex-direction:column;gap:10px;border:1px solid transparent;transition:box-shadow .25s,border-color .25s}
@@ -365,15 +369,15 @@ const short=n=>n.replace(/\s*\(.*\)/,'');
 const logo=t=>LOGOS.has(t.id)?`<img src="logos/${t.id}.png?v=3" alt="" width="26" height="26" loading="lazy">`:`<b aria-hidden="true">${esc(t.n[0])}</b>`;
 const yt=t=>'https://www.youtube.com/results?search_query='+encodeURIComponent(short(t.n)+' tutorial español');
 const usesAI=t=>t.s==='aula'&&/(^|[^a-z])ia([^a-z]|$)/.test(norm(t.a));
-const fact=(icon,txt,cls='')=>`<span class="fact ${cls}">${icon}${esc(txt)}</span>`;
+const fact=(icon,txt,cls='',lab='')=>`<span class="fact ${cls}">${icon}${lab?`<span class="sr">${lab}: </span>`:''}${esc(txt)}</span>`;
 
 function card(t){
  if(t.s==='recursos') return `<a class="res tool-r" data-id="${t.id}" href="${t.url}" rel="noopener" target="_blank"><span class="lg">${logo(t)}</span><span><h4>${esc(t.n)}</h4><p>${esc(t.d)}</p></span><span class="go" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></svg></span><span class="sr"> (se abre en otra pestaña)</span></a>`;
  const aula=t.s==='aula';
  const lead=aula?t.a:t.p;
  const facts=aula
-  ? fact(I.cap,t.c)+fact(I.key,t.cta,/^no necesita/i.test(t.cta)?'ok':'')+(usesAI(t)?fact(I.warn,'Usa IA','warn'):'')
-  : fact(I.eur,t.coste,/gratu|incluido|sin coste/i.test(t.coste)?'ok':'')+(t.datos==='No necesita datos del alumnado'?fact(I.lock,'Sin datos del alumnado','ok'):'');
+  ? fact(I.cap,t.c,'','Nivel')+fact(I.key,t.cta,/^no necesita/i.test(t.cta)?'ok':'','Cuenta del alumnado')+(usesAI(t)?fact(I.warn,'Usa IA','warn','Aviso'):'')
+  : fact(I.eur,t.coste,/gratu|incluido|sin coste/i.test(t.coste)?'ok':'','Coste')+(t.datos==='No necesita datos del alumnado'?fact(I.lock,'Sin datos del alumnado','ok','Privacidad'):'');
  const more=t.i.slice(1);
  const rows=aula?[['Nivel',t.c],['Dispositivos',t.disp],['Cuenta',t.cta]]:[['Coste',t.coste],['Datos',t.datos]];
  const safe=usesAI(t)?`<p class="safe">${I.warn}<span>El alumnado trabaja con una IA: usa la cuenta del centro, comprueba la edad mínima en sus condiciones y no introduzcas datos personales.</span></p>`:'';
@@ -488,7 +492,7 @@ $('empty-acts').addEventListener('click',e=>{const b=e.target.closest('button');
  else if(a==='clear'){qEl.value='';state.raw='';render();qEl.focus();}
  else if(a==='all'){setSec('all');}
 });
-$('list').addEventListener('click',e=>{const b=e.target.closest('.more-t');if(!b)return;const open=b.getAttribute('aria-expanded')!=='true';b.setAttribute('aria-expanded',open);$(b.getAttribute('aria-controls')).hidden=!open;});
+$('list').addEventListener('click',e=>{const b=e.target.closest('.more-t');if(!b)return;const open=b.getAttribute('aria-expanded')!=='true';b.setAttribute('aria-expanded',open);$(b.getAttribute('aria-controls')).hidden=!open;const g=b.closest('.grid');g.classList.toggle('has-open',!!g.querySelector('.more-t[aria-expanded="true"]'));});
 $('s-total').textContent=TOOLS.length;
 render();
 
