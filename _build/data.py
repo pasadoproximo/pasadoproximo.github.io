@@ -350,12 +350,12 @@ FIG:/assets/proyectos/repositorio-digital/ficha-2024.jpg?v=2|Ficha de StopMotion
 <ul class="ver-l"><li>Google Sites para el Colegio Cerrado de Calderón (Málaga).</li><li>Por etapas y materias, con un apartado de Apoyo docente.</li><li>Presentada por el centro en Braining (Valencia, abril de 2025).</li></ul>
 FIG:/assets/proyectos/repositorio-digital/inicio-2024.jpg|Portada del repositorio en Google Sites: menú por etapas (Infantil, Primaria, Secundaria y Bachillerato, Apoyo docente, Recursos) y los objetivos del repositorio|La portada, con el menú por etapas.</div>
 <div class="ver ver-new"><span class="ver-y">2026</span><h3>La caja de herramientas</h3>
-<ul class="ver-l"><li>Web propia, pensada para Secundaria.</li><li>Herramientas digitales para el aula y el docente. Recursos disponibles.</li><li>Revisada una a una en octubre de 2026.</li><li>Lo que ha cerrado, su alternativa y la IA con cuenta de centro.</li></ul>
-FIG:/assets/proyectos/repositorio-digital/caja-2026.jpg|Portada de la Caja de herramientas digitales: 64 herramientas para el aula, 34 para el docente, 20 recursos y 7 que han cerrado o cambiado|La portada: qué hay y qué ha cambiado.</div>
+<ul class="ver-l"><li>Web propia, pensada para Secundaria.</li><li>Herramientas digitales para el aula y el docente. Recursos disponibles.</li><li>Se busca por lo que necesitas hacer: enseñar, crear materiales, evaluar u organizar.</li><li>Revisada una a una en octubre de 2026.</li><li>Lo que ha cerrado, su alternativa y la IA con cuenta de centro.</li></ul>
+FIG:/assets/proyectos/repositorio-digital/caja-2026.jpg?v=3|Portada de la Caja de herramientas digitales: buscador, secciones Todo, Aula, Docente y Recursos y la pregunta «¿Qué quieres hacer?» con cuatro objetivos|La portada: buscador y «¿Qué quieres hacer?».</div>
 </div>
 <div class="ficha-new">
 <div><span class="ver-y">2026</span><h3>La misma ficha, dos años después</h3><p>StopMotion sigue, pero la ficha cambia: dice qué hace el alumnado, da ideas para clase y aclara nivel, dispositivos y si hace falta cuenta.</p></div>
-FIG:/assets/proyectos/repositorio-digital/ficha-2026.jpg|Ficha de Stop Motion Studio en la Caja de herramientas de 2026: qué hace el alumnado, tres ideas para clase, toda la etapa, tablet o móvil por equipo, sin cuenta, y botones Abrir y Tutoriales|<b>2026 · Caja de herramientas.</b> Qué hace el alumnado, ideas para clase, nivel, dispositivos, cuenta y tutoriales.
+FIG:/assets/proyectos/repositorio-digital/ficha-2026.jpg?v=3|Ficha de Stop Motion Studio en la Caja de herramientas de 2026, con los detalles abiertos: qué hace el alumnado, un ejemplo, toda la etapa, sin cuenta, más ideas para clase, dispositivos y enlace a tutoriales|<b>2026 · Caja de herramientas.</b> Qué hace el alumnado, ideas para clase, nivel, dispositivos, cuenta y tutoriales.
 </div>"""),
     ],
     related=["audita-tu-programacion", "rubrica-materiales-digitales", "e-portfolio-master"],
