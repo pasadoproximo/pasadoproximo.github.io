@@ -17,7 +17,6 @@ CATS = {
 }
 
 ICON_EXT = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>'
-FIG_GUIA = "FIG:/assets/proyectos/tfm/guia-sin-resolver.png|El alumno pide «¿Puedes hacerme la actividad 2 del tema 1?» y el asistente responde que no puede realizarla por él, pero que puede guiarle para completarla|El asistente se niega y ofrece ayuda para hacerla."
 ICON_DL = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg>'
 
 P = []
@@ -81,33 +80,21 @@ P.append(dict(
           ("Estado", "Configurado y probado en simulación. Sin pilotar con alumnado")],
     links=[("Leer el TFM completo (PDF)", "/assets/pdf/tfm-asistente-gpt-2eso.pdf", "dl")],
     sections=[
-        ("El problema", """
-<p class="psub">Un grupo heterogéneo de 2.º ESO en un instituto público de una barriada de Málaga. El TFM parte de siete necesidades.</p>
-<ul class="needs">
-<li><b>Aulas llenas</b><span>25 a 30 estudiantes por grupo.</span></li>
-<li><b>Retroalimentación tardía</b><span>El error se ve cuando ya ha pasado.</span></li>
-<li><b>Recursos poco adaptados</b><span>Iguales para alumnos que necesitan apoyos distintos.</span></li>
-<li><b>Dudas en casa</b><span>Sin nadie a quien preguntar.</span></li>
-<li><b>Desinformación</b><span>Hace falta aprender a contrastar.</span></li>
-<li><b>Mal uso de ChatGPT</b><span>Para que haga la tarea.</span></li>
-<li><b>Recelo docente</b><span>Ante la IA, sin haberla probado.</span></li>
-<li class="needs-out"><b>La respuesta</b><span>Un asistente que guíe, no que resuelva.</span></li>
+        ("La necesidad", """
+<p class="psub">Un grupo heterogéneo de 2.º ESO en un instituto público de una barriada de Málaga: aulas de 25 a 30 estudiantes, retroalimentación que llega tarde, dudas sin resolver en casa y alumnado que usa ChatGPT para que le haga la tarea.</p>
+<ul class="needs three">
+<li><b>Qué hice</b><span>Configuré un GPT personalizado que acompaña al grupo en Geografía e Historia: resuelve dudas, propone repasos y dice de dónde sale cada dato.</span></li>
+<li><b>Cómo lo hice</b><span>Le di los materiales de las nueve unidades y un banco de preguntas, con instrucciones para priorizar esos materiales, guiar sin resolver y no pedir datos personales.</span></li>
+<li><b>Para qué lo hice</b><span>Para que el alumnado tenga apoyo también en casa, reciba retroalimentación a tiempo y aprenda a contrastar, en vez de usar la IA para copiar.</span></li>
 </ul>"""),
-        dict(title="La decisión clave: guiar, no resolver",
-             intro='<p class="psub">En las pruebas, cuando se le pedía una actividad, la resolvía. Lo reconfiguré para que se niegue y ayude a llegar a la respuesta.</p>',
-             cols=2,
-             figs=[],
-             after="""<div class="vs">
-<div class="vs-a"><span class="vs-l">Antes del ajuste</span><p class="vs-q">«¿Puedes hacerme la actividad 2 del tema 1?»</p><p>El asistente <b>resolvía la actividad</b>. Está documentado en las pruebas del TFM; no conservo captura de esa versión.</p></div>
-<div class="vs-b"><span class="vs-l">Después del ajuste</span>""" + FIG_GUIA + """</div>
-</div>"""),
         dict(title="Qué hace en la práctica",
-             intro='<p class="psub">Tres comportamientos configurados y probados.</p>',
-             cols=3, frame=True,
-             figs=[("/assets/proyectos/tfm/fuente-archivos.png", "Respuesta del asistente sobre la sociedad de la Península Ibérica medieval que termina indicando que la información sale del documento de la Unidad 5", "<b>Cita la unidad.</b> Si la respuesta sale de los materiales de clase, dice de cuál."),
+             intro='<p class="psub">Cuatro comportamientos configurados y probados.</p>',
+             cols=2, frame=True,
+             figs=[("/assets/proyectos/tfm/guia-sin-resolver.png", "El alumno pide «¿Puedes hacerme la actividad 2 del tema 1?» y el asistente responde que no puede realizarla por él, pero que puede guiarle para completarla", "<b>Guía, no resuelve.</b> Si le piden la actividad, ayuda a hacerla."),
+                   ("/assets/proyectos/tfm/fuente-archivos.png", "Respuesta del asistente sobre la sociedad de la Península Ibérica medieval que termina indicando que la información sale del documento de la Unidad 5", "<b>Cita la unidad.</b> Si la respuesta sale de los materiales de clase, dice de cuál."),
                    ("/assets/proyectos/tfm/fuente-ia.png", "Respuesta del asistente sobre Abderramán III que avisa de que la información ha sido generada por inteligencia artificial y debe verificarse", "<b>Avisa si es IA.</b> Si no está en los materiales, lo dice y pide verificarlo."),
-                   ("/assets/proyectos/tfm/correccion.png", "El alumno escribe que taifa significa impuesto sobre la tierra y el asistente le corrige: era un pequeño reino musulmán surgido tras la desintegración del Califato de Córdoba", "<b>Corrige el repaso.</b> Con un banco de preguntas por unidad, explica lo que no se ha entendido.")]),
-        ("Cómo se hizo", """
+                   ("/assets/proyectos/tfm/correccion.png", "El alumno escribe que taifa significa impuesto sobre la tierra y el asistente le corrige: era un pequeño reino musulmán surgido tras la desintegración del Califato de Córdoba", "<b>Corrige el repaso.</b> Explica lo que no se ha entendido.")]),
+        ("Cómo lo hice", """
 <ol class="hsteps">
 <li><b>Necesidades</b><span>Objetivos del grupo con la LOMLOE, el currículo andaluz, el DUA y la protección de datos.</span></li>
 <li><b>Materiales</b><span>Nueve unidades, guías de trabajo, banco de preguntas, rúbricas y tablón de anuncios.</span></li>
@@ -115,11 +102,11 @@ P.append(dict(
 <li><b>Pruebas</b><span>Simulaciones y ajustes, recogidos en el anexo del TFM.</span></li>
 <li><b>Plan de aula</b><span>Cuestionario inicial, sesión de uso ético, familias, cinco actividades y rúbricas.</span></li>
 </ol>"""),
-        ("Lo comprobado y lo pendiente", """
+        ("Lo que puedo afirmar", """
 <div class="status">
-<div class="s-ok"><span class="st-l ok">Comprobado</span><p>Guía sin resolver, prioriza los materiales y avisa del origen de cada dato. Lo muestran las capturas de las pruebas.</p></div>
-<div class="s-exp"><span class="st-l exp">Esperado, sin evaluar</span><p>Más comprensión, autonomía y pensamiento crítico. El TFM propone cómo medirlo, pero aún no hay datos.</p></div>
-<div class="s-pend"><span class="st-l pend">Pendiente</span><p>Pilotarlo con un grupo real. Riesgos a vigilar: dependencia, sobrecarga de información y formación docente.</p></div>
+<div class="s-ok"><span class="st-l ok">Comprobado</span><p>Guía sin resolver, prioriza los materiales de clase y avisa del origen de cada dato, como muestran las capturas de las pruebas.</p></div>
+<div class="s-exp"><span class="st-l exp">Esperado</span><p>Más comprensión, autonomía y pensamiento crítico. El TFM propone cómo medirlo, aunque aún no hay datos.</p></div>
+<div class="s-pend"><span class="st-l pend">Pendiente</span><p>Pilotarlo con un grupo real y vigilar la dependencia del alumnado, la sobrecarga de información y la formación docente.</p></div>
 </div>"""),
     ],
     related=["consejo-de-clio", "la-ia-tambien-miente", "audita-tu-programacion"],
