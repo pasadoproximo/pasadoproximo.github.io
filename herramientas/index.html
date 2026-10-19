@@ -112,47 +112,20 @@ footer a{font-weight:700}
 @media (max-width:780px){.bar nav a.nav-key{display:inline-flex}.bar nav{gap:4px}.bar nav a{padding:8px 12px}.bar nav a.cv{display:none}}
 @media (max-width:440px){.bar nav a{padding:8px 10px;font-size:15px}}
 /* cabecera breve */
-/* cabecera: el título manda; a la derecha, un ejemplo de búsqueda (no es un buscador) */
-.head{margin-top:48px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,420px);gap:32px 64px;align-items:center}
-.head-t .lab{display:block;font-size:12.5px;line-height:1.5}
-.head h1{font:800 clamp(38px,5vw,64px)/.98 var(--f-disp);letter-spacing:-.035em;margin-top:12px}
+/* cabecera editorial: etiqueta, título y, a su lado, la descripción con la fecha de revisión; debajo, el buscador */
+.head{margin-top:56px;display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);column-gap:56px;align-items:end}
+.head .lab{grid-column:1/-1;display:block;font-size:12.5px;line-height:1.5}
+.head h1{font:800 clamp(40px,4.6vw,64px)/.97 var(--f-disp);letter-spacing:-.035em;margin-top:14px}
 .head h1 span{color:var(--navy3)}
-.head-p{font-size:clamp(16.5px,1.5vw,18.5px);line-height:1.5;color:#2A3352;margin-top:16px;max-width:52ch}
-.demo{position:relative}
-.demo[hidden]{display:none}
-.d-top{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:6px}
-.d-cap{font:700 12px var(--f-body);letter-spacing:.12em;text-transform:uppercase;color:var(--mut)}
-.d-ql{font:500 17px/1.3 var(--f-body);color:var(--mut);margin-bottom:12px;min-height:23px;white-space:nowrap;overflow:hidden}
-.d-ql b{color:var(--navy);font-weight:700}
-#d-q:not(:empty)::before{content:"«"}
-#d-q:not(:empty)::after{content:"»"}
-.d-caret{display:inline-block;width:2px;height:17px;background:var(--navy);margin-left:1px;vertical-align:-2px;animation:blink 1s steps(1) infinite}
-@keyframes blink{50%{opacity:0}}
-.d-card{background:#fff;border-radius:20px;padding:16px;display:grid;gap:9px;box-shadow:0 14px 30px -18px rgba(6,16,51,.22);opacity:.35;filter:saturate(0);transform:translateY(6px);transition:opacity .45s,transform .45s,filter .45s}
-.head[data-s="2"] .d-card,.head[data-s="3"] .d-card{opacity:1;filter:none;transform:none}
-.d-card .tool-h{grid-template-columns:36px minmax(0,1fr);gap:10px}
-.d-card .lg{width:36px;height:36px;border-radius:10px}
-.d-card .lg img{width:23px;height:23px}
-.d-card h4{font:800 17px/1.1 var(--f-disp)}
-.d-card .ex{font-size:14px;line-height:1.35;color:#2A3352;padding-left:9px;border-left:3px solid var(--sky)}
-.d-card .ex b{color:var(--navy)}
-.d-card .facts{gap:4px}
-.d-card .fact{font-size:12.5px;padding:3px 7px}
-.d-foot{display:flex;align-items:center;justify-content:space-between;padding-top:9px;border-top:1px solid var(--line)}
-.d-open{display:inline-flex;align-items:center;gap:6px;font:700 14px var(--f-body);color:#fff;background:var(--navy);border-radius:999px;padding:7px 15px;transition:transform .3s,box-shadow .3s}
-.d-open svg{width:12px;height:12px;stroke:currentColor;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
-.d-det{font:700 14px var(--f-body);color:var(--navy3)}
-.head[data-s="3"] .d-open{transform:scale(1.06);box-shadow:0 0 0 5px rgba(159,179,255,.55)}
-.d-pause{flex:none;width:30px;height:30px;border-radius:50%;border:1px solid var(--line);background:#fff;display:grid;place-items:center;cursor:pointer}
-.d-pause svg{width:10px;height:10px;fill:var(--navy)}
-.d-pause[hidden]{display:none}
-@media (max-width:900px){.head{grid-template-columns:1fr;gap:28px;margin-top:36px}.demo{max-width:460px}}
-@media (max-width:560px){.d-card .ex,.d-foot{display:none}.d-card{padding:14px}.d-ql{font-size:16px;margin-bottom:10px}}
-@media (prefers-reduced-motion:reduce){.d-card,.d-open{transition:none}.d-caret{animation:none}}
+.head-c{padding-bottom:6px}
+.head-p{font-size:clamp(17px,1.45vw,19px);line-height:1.5;color:#2A3352;max-width:44ch}
+.head-m{font:600 14px var(--f-body);color:var(--mut);margin-top:12px}
+@media (max-width:900px){.head{grid-template-columns:1fr;margin-top:40px}.head-c{padding-bottom:0}.head-p{margin-top:16px;max-width:56ch}}
 
 /* buscador: primer nivel = búsqueda + «¿Qué quieres hacer?» */
-.finder{margin-top:48px}
-@media (max-width:640px){.finder{margin-top:32px}}
+.finder{margin-top:44px}
+.find-l{display:block;font:700 12.5px var(--f-body);letter-spacing:.12em;text-transform:uppercase;color:var(--navy);margin:0 0 8px 2px}
+@media (max-width:640px){.finder{margin-top:28px}}
 .search{display:flex;align-items:center;gap:10px;background:#fff;border:1px solid #CDD5E5;border-radius:999px;padding:0 6px 0 18px;height:52px}
 .search:focus-within{border-color:var(--navy);box-shadow:0 0 0 3px rgba(159,179,255,.45)}
 .search>svg{width:20px;height:20px;stroke:var(--mut);fill:none;stroke-width:2.2;stroke-linecap:round;flex:none}
@@ -404,23 +377,19 @@ body.mini-on .top{transform:translateY(-140%)}
 </header>
 
 <main>
- <section class="head" id="hero" data-s="1" aria-labelledby="ph1">
-  <div class="head-t">
-   <span class="lab">Para docentes de Secundaria y Bachillerato</span>
-   <h1 id="ph1">Caja de herramientas <span>digitales</span></h1>
-   <p class="head-p">Herramientas elegidas y revisadas una a una para usar en clase. Cada ficha te dice qué hace, cómo usarla con un ejemplo y si el alumnado necesita cuenta. Revisada en octubre de 2026.</p>
-  </div>
-  <div class="demo" id="demo" hidden>
-   <div class="d-top"><span class="d-cap" aria-hidden="true">Así funciona</span><button type="button" class="d-pause" id="d-pause" aria-label="Pausar la animación" hidden></button></div>
-   <p class="d-ql" aria-hidden="true">Buscas <b id="d-q"></b><span class="d-caret"></span></p>
-   <div class="d-card" id="d-card" aria-hidden="true"></div>
+ <section class="head" id="hero" aria-labelledby="ph1">
+  <span class="lab">Para docentes de Secundaria y Bachillerato</span>
+  <h1 id="ph1">Caja de herramientas <span>digitales</span></h1>
+  <div class="head-c">
+   <p class="head-p">Herramientas seleccionadas y revisadas para usar en clase, con fichas que explican qué hace cada una, un ejemplo de uso y si el alumnado necesita cuenta.</p>
+   <p class="head-m"><time datetime="2026-10">Revisada en octubre de 2026</time></p>
   </div>
  </section>
 
  <section class="finder" id="herramientas" aria-label="Buscar en la caja">
+  <label class="find-l" for="q">Busca en la caja</label>
   <div class="search" role="search">
    <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.4-4.4"/></svg>
-   <label class="sr" for="q">Busca una herramienta o qué necesitas hacer</label>
    <input id="q" type="text" placeholder="Busca una herramienta o qué necesitas hacer…" autocomplete="off" enterkeyhint="search">
    <button type="button" class="clear" id="q-clear" aria-label="Borrar la búsqueda" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
   </div>
@@ -736,41 +705,6 @@ $('changes').innerHTML=CHANGES.slice(0,-1).map(c=>{
 }).join('');
 $('chnew').innerHTML=`<div><span class="lab">Novedad</span><h3>${esc(last.n)}</h3><p>${esc(last.what)}</p></div><div class="alt"><b>Qué hacer</b><p>${esc(last.alt)}</p></div>`;
 
-// ---------- ejemplo del hero: búsquedas reales y la primera ficha que devuelve el propio buscador
-(()=>{
- const H=$('hero'),D=$('demo'),Q=$('d-q'),C=$('d-card'),B=$('d-pause');
- const scenes=['línea del tiempo','cuestionario','geometría','programar'].map(q=>{const r=TOOLS.filter(t=>t.s!=='recursos'&&match(t,query(q)));return r.length?{q,t:r[0]}:null}).filter(Boolean);
- if(!scenes.length)return;
- D.hidden=false;
- const draw=sc=>{const t=sc.t,aula=t.s==='aula',m=t.n.match(/^(.+?)\s*\((.+)\)$/);
-  const facts=aula?fact(I.cap,t.c)+fact(I.key,t.cta,/^no necesita/i.test(t.cta)?'ok':''):fact(I.eur,t.coste,/gratu|incluido|sin coste/i.test(t.coste)?'ok':'');
-  C.innerHTML=`<div class="tool-h"><span class="lg">${logo(t)}</span><h4>${esc(m?m[1]:t.n)}</h4></div><p class="ex"><b>Ejemplo:</b> ${esc(t.i[0])}</p><div class="facts">${facts}</div><div class="d-foot"><span class="d-open">Abrir ${I.ext}</span><span class="d-det">Detalles</span></div>`;};
- // se reserva la altura de la ficha más alta, para que la página no salte al cambiar de ejemplo
- const reserve=()=>{C.style.minHeight='';const keep=C.innerHTML;let mx=0;scenes.forEach(sc=>{draw(sc);mx=Math.max(mx,C.offsetHeight);});C.innerHTML=keep;C.style.minHeight=mx+'px';};
- const still=matchMedia('(prefers-reduced-motion: reduce)');
- let i=0,timers=[],paused=false,seen=true;
- const clear=()=>{timers.forEach(clearTimeout);timers=[];};
- const at=(ms,f)=>timers.push(setTimeout(f,ms));
- const play=()=>{clear();const sc=scenes[i%scenes.length];H.dataset.s='1';Q.textContent='';
-  [...sc.q].forEach((ch,k)=>at(400+k*75,()=>{Q.textContent+=ch}));
-  const t0=400+sc.q.length*75+300;
-  at(t0,()=>{draw(sc);H.dataset.s='2'});
-  at(t0+2600,()=>{H.dataset.s='3'});
-  at(t0+4200,()=>{i++;if(!paused&&seen)play();});};
- const showStill=()=>{clear();const sc=scenes[0];draw(sc);Q.textContent=sc.q;H.dataset.s='2';};
- const icon=p=>p?'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5v14l12-7z"/></svg>':'<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>';
- const setPause=p=>{paused=p;B.innerHTML=icon(p);B.setAttribute('aria-label',p?'Reanudar la animación':'Pausar la animación');if(p)clear();else play();};
- const start=()=>{if(still.matches){B.hidden=true;showStill();}else{B.hidden=false;paused=false;B.innerHTML=icon(false);play();}};
- B.addEventListener('click',()=>setPause(!paused));
- still.addEventListener('change',start);
- draw(scenes[0]);reserve();
- let rz;addEventListener('resize',()=>{clearTimeout(rz);rz=setTimeout(reserve,200)});
- if(document.fonts)document.fonts.ready.then(reserve);
- // fuera de la pantalla o con la pestaña oculta, se detiene
- if('IntersectionObserver' in window)new IntersectionObserver(([e])=>{const was=seen;seen=e.isIntersecting;if(seen&&!was&&!paused&&!still.matches)play();if(!seen)clear();}).observe(D);
- document.addEventListener('visibilitychange',()=>{if(document.hidden)clear();else if(seen&&!paused&&!still.matches)play();});
- start();
-})();
 
 const io='IntersectionObserver' in window?new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.1}):null;
 document.querySelectorAll('.rv').forEach(el=>io?io.observe(el):el.classList.add('in'));
