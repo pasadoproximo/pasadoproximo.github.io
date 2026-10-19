@@ -117,34 +117,51 @@ footer a{font-weight:700}
 .head-p{font-size:clamp(17px,1.6vw,19px);color:#2A3352;margin-top:12px;max-width:62ch}
 .head-p a{font-weight:700;color:var(--navy3)}
 
-/* controles: una fila ligera + filtros por necesidad */
-.controls{position:sticky;top:70px;z-index:20;margin-top:26px;background:rgba(242,244,249,.95);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);padding:10px 0;border-bottom:1px solid var(--line);transition:top .3s cubic-bezier(.2,.7,.2,1),transform .3s cubic-bezier(.2,.7,.2,1)}
+/* nivel 1: búsqueda y sección, en una fila compacta (lo único fijo al bajar) */
+.controls{position:sticky;top:70px;z-index:20;margin-top:26px;background:rgba(242,244,249,.96);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);padding:10px 0;transition:top .3s cubic-bezier(.2,.7,.2,1),transform .3s cubic-bezier(.2,.7,.2,1)}
 .row1{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin:0}
-.search{flex:1 1 300px;display:flex;align-items:center;gap:10px;background:#fff;border:1.5px solid var(--line);border-radius:999px;padding:0 6px 0 16px;height:44px;box-shadow:none}
-.search:focus-within{border-color:var(--navy)}
+.search{flex:1 1 320px;display:flex;align-items:center;gap:10px;background:#fff;border:1px solid #CDD5E5;border-radius:999px;padding:0 6px 0 16px;height:46px}
+.search:focus-within{border-color:var(--navy);box-shadow:0 0 0 3px rgba(159,179,255,.45)}
 .search>svg{width:19px;height:19px;stroke:var(--mut);fill:none;stroke-width:2.2;stroke-linecap:round;flex:none}
 .search input{flex:1;border:0;outline:0;font:500 16.5px var(--f-body);color:var(--txt);background:transparent;min-width:0;height:100%}
-.search .clear{flex:none;width:32px;height:32px;border-radius:50%;border:0;background:var(--bg);display:grid;place-items:center;cursor:pointer}
+.search input::placeholder{color:#6B7591}
+.search .clear{flex:none;width:34px;height:34px;border-radius:50%;border:0;background:var(--bg);display:grid;place-items:center;cursor:pointer}
 .search .clear svg{width:14px;height:14px;stroke:var(--navy);fill:none;stroke-width:2.4;stroke-linecap:round}
 .search .clear:hover{background:var(--ice)}
 .search .clear[hidden]{display:none}
-.seg{display:flex;gap:2px;background:#fff;border:1.5px solid var(--line);border-radius:999px;padding:3px;flex:none;max-width:100%;overflow-x:auto;scrollbar-width:none}
-.seg button{display:inline-flex;align-items:center;gap:6px;font:700 15px var(--f-body);color:var(--txt);background:transparent;border:0;border-radius:999px;padding:7px 13px;cursor:pointer;white-space:nowrap}
+.seg{display:flex;gap:2px;background:#fff;border:1px solid #CDD5E5;border-radius:999px;padding:3px;flex:none}
+.seg button{display:inline-flex;align-items:center;gap:6px;font:700 15px var(--f-body);color:var(--txt);background:transparent;border:0;border-radius:999px;padding:8px 14px;cursor:pointer;white-space:nowrap}
 .seg button:hover{background:var(--bg)}
-.seg button .num{font:700 12.5px var(--f-body);color:var(--mut)}
+.seg .num{font:700 12.5px var(--f-body);color:var(--mut)}
 .seg button[aria-pressed="true"]{background:var(--navy);color:#fff}
 .seg button[aria-pressed="true"] .num{color:var(--sky)}
-.chips-wrap{display:flex;align-items:center;gap:10px;margin-top:10px;min-width:0}
-.chips-l{font:700 12.5px var(--f-body);letter-spacing:.1em;text-transform:uppercase;color:var(--mut);white-space:nowrap;flex:none}
-.chips{display:flex;gap:6px;overflow-x:auto;scrollbar-width:thin;padding-bottom:3px;min-width:0;margin:0}
-.chips button{font:700 14px var(--f-body);color:var(--txt);background:#fff;border:1px solid var(--line);border-radius:999px;padding:6px 12px;cursor:pointer;white-space:nowrap}
-.chips button:hover{border-color:var(--navy)}
-.chips button[aria-pressed="true"]{background:var(--navy);border-color:var(--navy);color:#fff}
-@media (max-width:780px){.controls{top:62px}.chips{scrollbar-width:none}.chips-l{display:none}.seg{width:100%}.seg button{flex:1;justify-content:center;padding:7px 8px}}
-/* al bajar leyendo se esconden la cabecera y la barra; al subir vuelven */
+@media (max-width:780px){.controls{top:62px}.seg{width:100%}.seg button{flex:1 1 0;justify-content:center;padding:8px 6px;gap:4px}}
+@media (max-width:380px){.seg button{font-size:14px}.seg .num{display:none}}
 body.hide-top .top{transform:translateY(-140%)}
 body.hide-top .controls{transform:translateY(calc(-100% - 80px))}
-.count{margin-top:18px;font-size:15px;color:var(--mut)}
+
+/* nivel 2: finalidad, sin barra lateral: 6 principales + «Más opciones» */
+.purpose{margin-top:14px}
+.purpose-l{font:700 12.5px var(--f-body);letter-spacing:.12em;text-transform:uppercase;color:var(--mut);margin-bottom:8px}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chips button{display:inline-flex;align-items:center;gap:6px;font:600 14.5px var(--f-body);color:var(--navy);background:#fff;border:1px solid #CDD5E5;border-radius:999px;padding:6px 12px;cursor:pointer}
+.chips button:hover{border-color:var(--navy)}
+.chips .num{font:700 12px var(--f-body);color:var(--mut)}
+.chips button[aria-pressed="true"]{background:var(--navy);border-color:var(--navy);color:#fff}
+.chips button[aria-pressed="true"] .num{color:var(--sky)}
+.chips button[aria-pressed="true"]::before{content:"";width:12px;height:7px;border-left:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(-45deg) translateY(-2px);margin-right:2px}
+.chips .more{background:transparent;border-style:dashed;color:var(--navy3);font-weight:700}
+
+/* nivel 3: resultados y filtros activos */
+.state{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:18px;padding-top:14px;border-top:1px solid var(--line);min-height:44px}
+.state .count{margin:0;font:700 15px var(--f-body);color:var(--navy)}
+.active{display:flex;flex-wrap:wrap;align-items:center;gap:6px}
+.tagx{display:inline-flex;align-items:center;gap:6px;font:600 14px var(--f-body);color:var(--navy);background:var(--ice);border:0;border-radius:999px;padding:5px 8px 5px 12px;cursor:pointer}
+.tagx svg{width:12px;height:12px;stroke:currentColor;fill:none;stroke-width:2.6;stroke-linecap:round}
+.tagx:hover{background:#C9D3F0}
+.clearall{font:700 14px var(--f-body);color:var(--navy3);background:none;border:0;text-decoration:underline;text-underline-offset:3px;cursor:pointer;padding:5px 4px}
+.nojs{margin-top:18px;background:#fff;border-radius:16px;padding:16px 18px}
+.nojs a{font-weight:700;color:var(--navy3)}
 
 /* listado */
 .secblock{margin-top:44px}
@@ -301,17 +318,21 @@ body.hide-top .controls{transform:translateY(calc(-100% - 80px))}
   <div class="row1">
    <div class="search" role="search">
     <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.4-4.4"/></svg>
-    <label class="sr" for="q">Buscar herramientas o actividades</label>
-    <input id="q" type="text" placeholder="Busca herramientas o actividades…" autocomplete="off" enterkeyhint="search">
+    <label class="sr" for="q">Buscar por herramienta o por lo que necesitas hacer</label>
+    <input id="q" type="text" placeholder="Busca por herramienta o por lo que necesitas hacer…" autocomplete="off" enterkeyhint="search">
     <button type="button" class="clear" id="q-clear" aria-label="Borrar la búsqueda" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
    </div>
-   <div class="seg" role="group" aria-label="Secciones" id="tabs"></div>
+   <div class="seg" role="group" aria-label="Sección de la caja" id="tabs"></div>
   </div>
-  <div class="chips-wrap"><span class="chips-l" id="chips-l">¿Para qué la necesitas?</span><div class="chips" id="chips" role="group" aria-labelledby="chips-l"></div></div>
  </div>
  <div id="ctl-spacer" aria-hidden="true"></div>
 
- <p class="count" id="count" aria-live="polite"></p>
+ <div class="purpose" role="group" aria-labelledby="purpose-l">
+  <h2 class="purpose-l" id="purpose-l">¿Para qué la necesitas?</h2>
+  <div class="chips" id="chips"></div>
+ </div>
+ <div class="state" id="state" aria-live="polite"></div>
+ <noscript><p class="nojs">El catálogo necesita JavaScript para mostrarse y filtrarse. Si no puedes activarlo, consulta el <a href="https://sites.google.com/view/repositorio-digital-docente-cc/inicio">repositorio original de 2024</a>.</p></noscript>
  <div id="list"></div>
  <div class="empty" id="empty" role="status" hidden></div>
 
@@ -459,71 +480,88 @@ const hit=(id,w,last)=>{
 const query=raw=>{let r=' '+norm(raw).replace(/[^a-z0-9ñ]+/g,' ')+' ';PHRASES.forEach(([a,b])=>{r=r.split(' '+a+' ').join(' '+b+' ')});return words(r).filter(w=>!STOP.has(w));};
 const match=(t,qs)=>!qs.length||qs.every((w,i)=>hit(t.id,w,i===qs.length-1));
 
-// ---------- filtros por necesidad (en «Todo») y por categoría (en cada sección)
+// ---------- finalidades: un solo filtro, igual en todas las secciones (las 6 primeras son las principales)
 const TASKS=[
  ['Repasar y participar',['aula:part']],['Evaluar',['docente:eval']],['Crear y presentar',['aula:crear','docente:crear']],
- ['IA',t=>(t.s==='docente'&&t.cat==='ia')||usesAI(t)],['Lectura y accesibilidad',t=>t.s==='aula'&&t.cat==='ia'&&!usesAI(t)],['Geografía e Historia',['aula:geohis']],['Trabajar en equipo',['aula:equipo']],
- ['Ciencias y Matemáticas',['aula:cienc']],['Música y Arte',['aula:arte']],['Gestionar el aula',['docente:gestion']],
- ['Organizar recursos',['docente:org']],['Materiales e imágenes',['recursos:sa','recursos:img']],['Formación docente',['recursos:form']]
+ ['IA',t=>(t.s==='docente'&&t.cat==='ia')||usesAI(t)],['Geografía e Historia',['aula:geohis']],['Ciencias y Matemáticas',['aula:cienc']],
+ ['Trabajar en equipo',['aula:equipo']],['Música y Arte',['aula:arte']],['Lectura y accesibilidad',t=>t.s==='aula'&&t.cat==='ia'&&!usesAI(t)],
+ ['Gestionar el aula',['docente:gestion']],['Organizar recursos',['docente:org']],['Materiales e imágenes',['recursos:sa','recursos:img']],['Formación docente',['recursos:form']]
 ];
+const MAIN=6;
 const SECS=Object.keys(SECTIONS);
-const state={sec:'all',raw:'',c:'all'};
+const state={sec:'all',raw:'',p:null,more:false};
 const inTask=(t,k)=>typeof k==='function'?k(t):k.includes(t.s+':'+t.cat);
-const inChip=t=>state.c==='all'||(state.sec==='all'?inTask(t,TASKS[state.c][1]):t.cat===state.c);
+const inSec=t=>state.sec==='all'||t.s===state.sec;
+const inP=t=>state.p===null||inTask(t,TASKS[state.p][1]);
 const unit=(n,k)=>k==='recursos'?(n===1?'recurso':'recursos'):k==='all'?(n===1?'herramienta o recurso':'herramientas y recursos'):(n===1?'herramienta':'herramientas');
+const X='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>';
 
 const $=id=>document.getElementById(id);
 function render(){
  const qs=query(state.raw), raw=state.raw.trim();
  const hits=TOOLS.filter(t=>match(t,qs));
- const counts=Object.fromEntries(SECS.map(k=>[k,hits.filter(t=>t.s===k).length]));
- // pestañas
- $('tabs').innerHTML=[['all','Todo',hits.length],...SECS.map(k=>[k,SECTIONS[k].n,counts[k]])]
-  .map(([k,n,c])=>`<button type="button" data-sec="${k}" aria-pressed="${state.sec===k}">${n}<span class="num" aria-label="(${c})">${c}</span></button>`).join('');
- // filtros
- const S=state.sec==='all'?null:SECTIONS[state.sec];
- $('chips-l').textContent=S?'Categorías':'¿Para qué la necesitas?';
- const chips=S?Object.entries(S.cats):TASKS.map((t,i)=>[i,t[0]]);
- $('chips').innerHTML=`<button type="button" data-c="all" aria-pressed="${state.c==='all'}">Todo</button>`+chips.map(([k,v])=>`<button type="button" data-c="${k}" aria-pressed="${String(state.c)===String(k)}">${v}</button>`).join('');
+ // sección: los números cuentan lo que queda con la búsqueda y la finalidad elegidas
+ const byP=hits.filter(inP);
+ const counts=Object.fromEntries(SECS.map(k=>[k,byP.filter(t=>t.s===k).length]));
+ $('tabs').innerHTML=[['all','Todo',byP.length],...SECS.map(k=>[k,SECTIONS[k].n,counts[k]])]
+  .map(([k,n,c])=>`<button type="button" data-sec="${k}" aria-pressed="${state.sec===k}">${n}<span class="num"><span class="sr">, </span>${c}</span></button>`).join('');
+ // finalidad: solo las que tienen algo en la sección y búsqueda actuales
+ const base=hits.filter(inSec);
+ const opts=TASKS.map(([n,k],i)=>({i,n,c:base.filter(t=>inTask(t,k)).length})).filter(o=>o.c||o.i===state.p);
+ // si caben (7 o menos), se muestran todas; si no, las principales + «Más opciones»
+ const few=opts.length<=MAIN+1;
+ const mainO=few?opts:opts.filter(o=>o.i<MAIN||o.i===state.p), rest=few?[]:opts.filter(o=>!(o.i<MAIN||o.i===state.p));
+ const chip=o=>`<button type="button" data-p="${o.i}" aria-pressed="${state.p===o.i}">${o.n}<span class="num"><span class="sr">, </span>${o.c}</span></button>`;
+ $('chips').innerHTML=mainO.map(chip).join('')+(rest.length?(state.more?rest.map(chip).join('')+`<button type="button" class="more" data-more aria-expanded="true">Menos opciones</button>`:`<button type="button" class="more" data-more aria-expanded="false">Más opciones (${rest.length})</button>`):'');
  // listado
- const shownList=hits.filter(t=>(!S||t.s===state.sec)&&inChip(t));
- $('list').innerHTML=(S?[state.sec]:SECS).map(sk=>{
-  const SS=SECTIONS[sk], inSec=shownList.filter(t=>t.s===sk);
-  if(!inSec.length)return '';
-  const cats=Object.entries(SS.cats).map(([k,v])=>{const ts=inSec.filter(t=>t.cat===k);return ts.length?`<section class="cat"><div class="cat-h"><h3>${v}</h3><span>${ts.length}</span></div><div class="grid">${ts.map(card).join('')}</div></section>`:''}).join('');
-  return `<section class="secblock" aria-labelledby="h-${sk}"><div class="sec-t"><h2 id="h-${sk}">${SS.n}</h2><span class="n">${inSec.length}</span><p>${SS.d}</p></div>${cats}</section>`;
+ const list=byP.filter(inSec);
+ $('list').innerHTML=(state.sec==='all'?SECS:[state.sec]).map(sk=>{
+  const SS=SECTIONS[sk], ts0=list.filter(t=>t.s===sk);
+  if(!ts0.length)return '';
+  const cats=Object.entries(SS.cats).map(([k,v])=>{const ts=ts0.filter(t=>t.cat===k);return ts.length?`<section class="cat"><div class="cat-h"><h3>${v}</h3><span>${ts.length}</span></div><div class="grid">${ts.map(card).join('')}</div></section>`:''}).join('');
+  return `<section class="secblock" aria-labelledby="h-${sk}"><div class="sec-t"><h2 id="h-${sk}">${SS.n}</h2><span class="n">${ts0.length}</span><p>${SS.d}</p></div>${cats}</section>`;
  }).join('');
- const shown=shownList.length;
- const filt=state.c!=='all'?` · ${S?S.cats[state.c]:TASKS[state.c][0]}`:'';
- $('count').textContent=shown?(raw?`${shown} ${shown===1?'resultado':'resultados'} para «${raw}»${S?' en '+S.n:''}${filt}`:`${shown} ${unit(shown,S?state.sec:'all')}${S&&state.sec!=='recursos'?' de '+S.n:''}${filt}`):'';
+ const shown=list.length;
+ // estado: recuento + filtros activos, cada uno se puede quitar
+ const act=[];
+ if(raw)act.push(`<button type="button" class="tagx" data-rm="q">«${esc(raw)}»${X}<span class="sr"> Quitar la búsqueda</span></button>`);
+ if(state.sec!=='all')act.push(`<button type="button" class="tagx" data-rm="sec">${SECTIONS[state.sec].n}${X}<span class="sr"> Quitar la sección</span></button>`);
+ if(state.p!==null)act.push(`<button type="button" class="tagx" data-rm="p">${TASKS[state.p][0]}${X}<span class="sr"> Quitar la finalidad</span></button>`);
+ const what=raw||state.sec!=='all'||state.p!==null?`${shown} ${shown===1?'resultado':'resultados'}`:`${shown} ${unit(shown,'all')}`;
+ $('state').innerHTML=`<p class="count">${what}</p>`+(act.length?`<div class="active"><span class="sr">Filtros activos:</span>${act.join('')}${act.length>1?'<button type="button" class="clearall" data-rm="all">Limpiar todo</button>':''}</div>`:'');
  $('q-clear').hidden=!state.raw;
  // estado vacío: solo si de verdad no hay resultados (el texto no existe en la página hasta entonces)
  const E=$('empty');
  if(shown){E.hidden=true;E.innerHTML='';return;}
- const msg=raw?`No hay resultados para «${esc(raw)}»${S?' en '+S.n:''}${filt}.`:`No hay nada en ${S?S.n:'la caja'}${filt}.`;
  const acts=[];
- if(S&&state.c==='all') SECS.filter(k=>k!==state.sec&&counts[k]).forEach(k=>acts.push(`<button type="button" class="solid" data-act="sec" data-sec="${k}">Ver ${counts[k]} en ${SECTIONS[k].n}</button>`));
- if(state.c!=='all') acts.push('<button type="button" class="solid" data-act="chip">Quitar el filtro</button>');
- if(raw) acts.push('<button type="button" data-act="clear">Borrar la búsqueda</button>');
- if(S) acts.push('<button type="button" data-act="all">Ver todo</button>');
- E.innerHTML=`<p>${msg}</p><small>Prueba con otra palabra o quita el filtro.</small><div class="empty-acts">${acts.join('')}</div>`;
+ if(state.sec!=='all') SECS.filter(k=>k!==state.sec&&counts[k]).forEach(k=>acts.push(`<button type="button" class="solid" data-act="sec" data-sec="${k}">Ver ${counts[k]} en ${SECTIONS[k].n}</button>`));
+ acts.push('<button type="button" class="solid" data-rm="all">Limpiar todo</button>');
+ E.innerHTML=`<p>${raw?`No hay resultados para «${esc(raw)}»`:'No hay resultados'} con estos filtros.</p><small>Prueba con otra palabra o quita algún filtro.</small><div class="empty-acts">${acts.join('')}</div>`;
  E.hidden=false;
 }
 const qEl=$('q');
-const toList=()=>{const y=$('herramientas').getBoundingClientRect().top+scrollY-80;if(scrollY>y)scrollTo({top:y})};
-function setSec(k){state.sec=k;state.c='all';render();toList();}
+// en pantallas estrechas, el texto de ayuda corto para que no se corte
+const mqN=matchMedia('(max-width:560px)');
+const ph=()=>{qEl.placeholder=mqN.matches?'Busca una herramienta o tarea…':'Busca por herramienta o por lo que necesitas hacer…'};
+ph();mqN.addEventListener('change',ph);
+const toList=()=>{const y=$('list').getBoundingClientRect().top+scrollY-140;if(scrollY>y)scrollTo({top:y})};
+const setQ=v=>{qEl.value=v;state.raw=v;};
+function setSec(k){state.sec=k;render();toList();}
+function remove(what){
+ if(what==='q'||what==='all')setQ('');
+ if(what==='sec'||what==='all')state.sec='all';
+ if(what==='p'||what==='all')state.p=null;
+ render();
+}
 $('tabs').addEventListener('click',e=>{const b=e.target.closest('button');if(b)setSec(b.dataset.sec)});
 qEl.addEventListener('input',()=>{state.raw=qEl.value;render()});
-qEl.addEventListener('keydown',e=>{if(e.key==='Escape'&&qEl.value){qEl.value='';state.raw='';render()}});
-$('q-clear').addEventListener('click',()=>{qEl.value='';state.raw='';render();qEl.focus()});
-$('chips').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;state.c=b.dataset.c==='all'?'all':(state.sec==='all'?+b.dataset.c:b.dataset.c);render();toList()});
-$('empty').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;
- const a=b.dataset.act;
- if(a==='sec')setSec(b.dataset.sec);
- else if(a==='chip'){state.c='all';render();}
- else if(a==='clear'){qEl.value='';state.raw='';render();qEl.focus();}
- else if(a==='all'){setSec('all');}
-});
+qEl.addEventListener('keydown',e=>{if(e.key==='Escape'&&qEl.value){setQ('');render()}});
+$('q-clear').addEventListener('click',()=>{setQ('');render();qEl.focus()});
+$('chips').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;
+ if(b.hasAttribute('data-more')){state.more=!state.more;render();$('chips').querySelector('[data-more]')?.focus();return;}
+ const i=+b.dataset.p;state.p=state.p===i?null:i;render();toList();});
+document.addEventListener('click',e=>{const b=e.target.closest('[data-rm],[data-act]');if(!b||!b.closest('#state,#empty'))return;
+ if(b.dataset.act==='sec')setSec(b.dataset.sec);else{remove(b.dataset.rm);qEl.focus();}});
 $('list').addEventListener('click',e=>{const b=e.target.closest('.more-t');if(!b)return;const open=b.getAttribute('aria-expanded')!=='true';b.setAttribute('aria-expanded',open);$(b.getAttribute('aria-controls')).hidden=!open;});
 $('s-total').textContent=TOOLS.length;
 render();
