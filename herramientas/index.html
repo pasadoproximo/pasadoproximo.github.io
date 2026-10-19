@@ -54,80 +54,7 @@ body.stuck .bar{border-top-left-radius:0;border-top-right-radius:0;border-top-co
 .t{position:relative;background:var(--tile);border-radius:var(--r);padding:26px;overflow:hidden}
 .dark{background:var(--navy);color:#fff}
 
-/* pestañas y controles */
-.controls{position:sticky;top:70px;z-index:20;margin-top:40px;background:rgba(242,244,249,.94);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);padding:12px 0 10px;border-bottom:1px solid var(--line)}
-.tabs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin-top:12px}
-.tabs button{display:flex;align-items:center;justify-content:space-between;gap:10px;text-align:left;background:#fff;border:1.5px solid var(--line);border-radius:18px;padding:12px 16px;cursor:pointer;color:var(--txt);transition:border-color .2s,background .2s}
-.tabs button:hover{border-color:var(--navy)}
-.tabs b{display:block;font:800 22px/1 var(--f-disp);letter-spacing:-.02em}
-.tabs small{display:block;font-size:14px;color:var(--mut);margin-top:4px}
-.tabs .num{font:800 15px var(--f-disp);background:var(--bg);border-radius:999px;padding:4px 10px;flex:none}
-.tabs button[aria-pressed="true"]{background:var(--navy);border-color:var(--navy);color:#fff}
-.tabs button[aria-pressed="true"] small{color:var(--pale)}
-.tabs button[aria-pressed="true"] .num{background:var(--sky);color:var(--navy)}
-.tabs button>span:first-child{min-width:0}
-@media (max-width:640px){.tabs{gap:6px}.tabs small{display:none}.tabs b{font-size:16px}.tabs button{padding:9px 10px;flex-direction:column;align-items:flex-start;gap:4px}.tabs .num{font-size:13px;padding:2px 8px}}
-.row1{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:10px}
-.row1>*{min-width:0}
-.search{flex:1 1 280px;display:flex;align-items:center;gap:10px;background:#fff;border:1.5px solid var(--line);border-radius:999px;padding:0 16px;height:46px}
-.search:focus-within{border-color:var(--navy)}
-.search svg{width:20px;height:20px;stroke:var(--mut);fill:none;stroke-width:2.2;stroke-linecap:round;flex:none}
-.search input{flex:1;border:0;outline:0;font:500 17px var(--f-body);color:var(--txt);background:transparent;min-width:0}
-.seg{display:flex;gap:4px;background:#fff;border:1px solid var(--line);border-radius:999px;padding:4px}
-.seg button,.chips button{font:700 15px var(--f-body);color:var(--txt);background:transparent;border:0;border-radius:999px;padding:8px 14px;cursor:pointer;white-space:nowrap}
-.seg button:hover,.chips button:hover{background:var(--bg)}
-.seg button[aria-pressed="true"],.chips button[aria-pressed="true"]{background:var(--navy);color:#fff}
-.chips{display:flex;gap:6px;margin-top:10px;overflow-x:auto;scrollbar-width:thin;padding-bottom:4px}
-.chips button{background:#fff;border:1px solid var(--line)}
-.count{margin-top:8px;padding-left:17px;font-size:15px;color:var(--mut)}
-@media (max-width:780px){.controls{top:62px}.seg{width:100%;max-width:100%;overflow-x:auto;scrollbar-width:none}}
-
-/* secciones y fichas */
-.cat{margin-top:44px}
-.cat-h{display:flex;align-items:baseline;gap:14px;margin-bottom:16px}
-.cat-h h3{font:800 clamp(24px,2.6vw,30px)/1.05 var(--f-disp);letter-spacing:-.02em}
-.cat-h span{color:var(--mut);font-weight:700}
-.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--gap)}
-@media (max-width:1020px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media (max-width:640px){.grid{grid-template-columns:minmax(0,1fr)}}
-.tool{background:#fff;border-radius:var(--r);padding:22px;display:flex;flex-direction:column;gap:12px;transition:transform .3s cubic-bezier(.2,.7,.2,1),box-shadow .3s}
-.tool:hover{transform:translateY(-3px);box-shadow:0 18px 38px rgba(6,16,51,.09)}
-.tool-h{display:grid;grid-template-columns:48px minmax(0,1fr);gap:12px;align-items:center}
-.lg{width:48px;height:48px;border-radius:14px;background:var(--bg);display:grid;place-items:center;overflow:hidden}
-.lg img{width:30px;height:30px;object-fit:contain}
-.lg b{font:800 22px var(--f-disp)}
-.tool h4{font:800 21px/1.08 var(--f-disp);letter-spacing:-.015em}
-.st{font:800 11.5px var(--f-body);letter-spacing:.06em;text-transform:uppercase;border-radius:999px;padding:4px 9px;white-space:nowrap;align-self:start}
-.st-nueva{background:var(--navy);color:#fff}
-.st-vigente{background:var(--ice);color:var(--navy)}
-.st-cambio{background:#FFF1D6;color:#7A4E00}
-.who{font:700 12.5px var(--f-body);letter-spacing:.1em;text-transform:uppercase;color:var(--mut)}
-.lead{font-size:16.5px;color:#1C2440}
-.ideas .who{margin-bottom:6px}
-.ideas ul{list-style:none;padding:0;display:grid;gap:6px}
-.ideas li{display:grid;grid-template-columns:18px 1fr;gap:8px;font-size:15.5px;line-height:1.4}
-.ideas li::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--sky);margin-top:7px;justify-self:center}
-.note{background:var(--ice);border-radius:12px;padding:8px 12px;font-size:14.5px;font-weight:500}
-.meta{display:grid;gap:6px;margin-top:2px}
-.meta div{display:grid;grid-template-columns:22px 1fr;gap:8px;align-items:start;font-size:14.5px;line-height:1.35;color:#2A3352}
-.meta svg{width:18px;height:18px;stroke:var(--mut);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;margin-top:1px}
-.tool-f{margin-top:auto;padding-top:12px;border-top:1px solid var(--line);display:flex;gap:6px;flex-wrap:wrap}
-.btn{display:inline-flex;align-items:center;gap:6px;font:700 15px var(--f-body);padding:9px 15px;border-radius:999px;text-decoration:none;border:1.5px solid var(--navy);transition:background .2s,color .2s;white-space:nowrap}
-.btn.solid{background:var(--navy);color:#fff}
-.btn.solid:hover{background:var(--navy3)}
-.btn.line{color:var(--navy)}
-.btn.line:hover{background:var(--bg)}
-.btn svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
-/* recursos: tarjetas compactas */
-.res{background:#fff;border-radius:var(--r);padding:20px 22px;display:grid;grid-template-columns:48px minmax(0,1fr) auto;gap:14px;align-items:center;text-decoration:none;transition:transform .3s cubic-bezier(.2,.7,.2,1),box-shadow .3s}
-.res:hover{transform:translateY(-3px);box-shadow:0 18px 38px rgba(6,16,51,.09)}
-.res h4{font:800 19px/1.1 var(--f-disp)}
-.res p{font-size:15px;color:#2A3352;margin-top:4px}
-.res .go{width:38px;height:38px;border-radius:50%;background:var(--bg);display:grid;place-items:center;transition:transform .3s,background .3s}
-.res .go svg{width:16px;height:16px;stroke:var(--navy);fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
-.res:hover .go{transform:rotate(45deg);background:var(--navy)}
-.res:hover .go svg{stroke:#fff}
-
+.top{transition:transform .35s cubic-bezier(.2,.7,.2,1)}
 /* qué ha cambiado + criterios */
 .sec{margin-top:90px}
 .sec-h h2{font:800 clamp(34px,4.6vw,56px)/.95 var(--f-disp);letter-spacing:-.035em;margin-top:8px}
@@ -153,35 +80,6 @@ footer a{font-weight:700}
 .rv.in{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.rv{opacity:1;transform:none}*{transition:none!important}}
 
-/* barra compacta al bajar (ordenador) */
-.top{transition:transform .35s cubic-bezier(.2,.7,.2,1)}
-.controls{transition:top .35s cubic-bezier(.2,.7,.2,1)}
-@media all{
- body.hide-top .top{transform:translateY(-140%)}
- body.hide-top .controls{top:0}
- .controls.compact{display:flex;align-items:center;gap:10px;padding:10px 0;box-shadow:0 10px 24px -18px rgba(6,16,51,.35)}
- .controls.compact .tabs{display:flex;gap:4px;flex:none}
- .controls.compact .tabs button{padding:7px 14px;border-radius:999px;border-width:1px}
- .controls.compact .tabs small,.controls.compact .tabs .num{display:none}
- .controls.compact .tabs b{font-size:15px;letter-spacing:-.01em}
- .controls.compact .row1{margin:0;flex:none}
- .controls.compact .search{flex:0 0 40px;width:40px;height:38px;padding:0 10px;gap:0;cursor:text;transition:flex-basis .3s,width .3s}
- .controls.compact .search input{width:0;opacity:0}
- .controls.compact .search:focus-within,.controls.compact .search.has-q{flex-basis:260px;width:260px;gap:8px}
- .controls.compact .search:focus-within input,.controls.compact .search.has-q input{width:auto;opacity:1}
- .controls.compact .chips{margin:0;flex:1;min-width:0;padding:0}
- .controls.compact .chips button{padding:6px 12px;font-size:14px}
- .controls.compact .count{display:none}
-}
-@media (max-width:767px){
- .controls.compact{flex-wrap:wrap;row-gap:8px;padding:8px 0}
- .controls.compact .tabs button{padding:6px 12px}
- .controls.compact .tabs b{font-size:14px}
- .controls.compact .row1{flex:1;display:flex;justify-content:flex-end}
- .controls.compact .search:focus-within,.controls.compact .search.has-q{flex-basis:100%;width:100%}
- .controls.compact .chips{flex:0 0 100%;flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none}
- .controls.compact .chips button{white-space:nowrap;flex:none}
-}
 /* menos cajones, como en el portfolio */
 .ch,.ch.dark{background:transparent;border-radius:0;padding:18px 4px 4px;border-top:1.5px solid #D3DAEA;color:var(--navy)}
 .ch.dark p{color:inherit}
@@ -213,75 +111,162 @@ footer a{font-weight:700}
 @media (max-width:780px){.bar nav a.nav-key{display:inline-flex}.bar nav{gap:4px}.bar nav a{padding:8px 12px}.bar nav a.cv{display:none}}
 @media (max-width:440px){.bar nav a{padding:8px 10px;font-size:15px}}
 /* cabecera breve */
-.head{margin-top:44px}
-.head h1{font:800 clamp(40px,5.4vw,72px)/.95 var(--f-disp);letter-spacing:-.035em;margin-top:12px}
+.head{margin-top:40px}
+.head h1{font:800 clamp(38px,5.2vw,68px)/.95 var(--f-disp);letter-spacing:-.035em;margin-top:12px}
 .head h1 span{color:var(--navy3)}
-.head-p{font-size:clamp(17px,1.6vw,19.5px);color:#2A3352;margin-top:14px;max-width:62ch}
+.head-p{font-size:clamp(17px,1.6vw,19px);color:#2A3352;margin-top:12px;max-width:62ch}
 .head-p a{font-weight:700;color:var(--navy3)}
-/* buscador destacado */
-.controls{margin-top:28px}
-.search{height:58px;padding:0 20px;border-width:2px;box-shadow:0 10px 30px -18px rgba(6,16,51,.35)}
-.search svg{width:22px;height:22px}
-.search input{font-size:18.5px}
-.help{margin-top:10px;padding-left:4px;font-size:15px;color:var(--mut);display:flex;flex-wrap:wrap;align-items:center;gap:6px}
-.help button{font:700 14px var(--f-body);color:var(--navy);background:#fff;border:1px solid var(--line);border-radius:999px;padding:4px 11px;cursor:pointer}
-.help button:hover{border-color:var(--navy)}
-.controls.compact .help{display:none}
-.controls.compact .search{height:38px;border-width:1.5px;box-shadow:none}
-.controls.compact .search input{font-size:16px}
-/* secciones del listado */
-.secblock{margin-top:56px}
-.secblock:first-child{margin-top:32px}
-.sec-t{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;padding-bottom:12px;border-bottom:2px solid var(--navy)}
-.sec-t h2{font:800 clamp(32px,4vw,48px)/1 var(--f-disp);letter-spacing:-.03em}
-.sec-t .n{font:800 15px var(--f-disp);background:var(--navy);color:#fff;border-radius:999px;padding:3px 11px;align-self:center}
-.sec-t p{color:var(--mut);font-size:16px;flex-basis:100%}
-.secblock .cat{margin-top:30px}
-.tool .safe{display:grid;grid-template-columns:22px 1fr;gap:8px;font-size:14px;line-height:1.35;color:#7A4E00;background:#FFF6E3;border-radius:10px;padding:8px 10px}
-.tool .safe svg{width:18px;height:18px;stroke:#7A4E00;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
+/* controles: una fila ligera + filtros por necesidad */
+.controls{position:sticky;top:70px;z-index:20;margin-top:26px;background:rgba(242,244,249,.95);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);padding:10px 0;border-bottom:1px solid var(--line);transition:top .3s cubic-bezier(.2,.7,.2,1),transform .3s cubic-bezier(.2,.7,.2,1)}
+.row1{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin:0}
+.search{flex:1 1 300px;display:flex;align-items:center;gap:10px;background:#fff;border:1.5px solid var(--line);border-radius:999px;padding:0 6px 0 16px;height:44px;box-shadow:none}
+.search:focus-within{border-color:var(--navy)}
+.search>svg{width:19px;height:19px;stroke:var(--mut);fill:none;stroke-width:2.2;stroke-linecap:round;flex:none}
+.search input{flex:1;border:0;outline:0;font:500 16.5px var(--f-body);color:var(--txt);background:transparent;min-width:0;height:100%}
+.search .clear{flex:none;width:32px;height:32px;border-radius:50%;border:0;background:var(--bg);display:grid;place-items:center;cursor:pointer}
+.search .clear svg{width:14px;height:14px;stroke:var(--navy);fill:none;stroke-width:2.4;stroke-linecap:round}
+.search .clear:hover{background:var(--ice)}
+.search .clear[hidden]{display:none}
+.seg{display:flex;gap:2px;background:#fff;border:1.5px solid var(--line);border-radius:999px;padding:3px;flex:none;max-width:100%;overflow-x:auto;scrollbar-width:none}
+.seg button{display:inline-flex;align-items:center;gap:6px;font:700 15px var(--f-body);color:var(--txt);background:transparent;border:0;border-radius:999px;padding:7px 13px;cursor:pointer;white-space:nowrap}
+.seg button:hover{background:var(--bg)}
+.seg button .num{font:700 12.5px var(--f-body);color:var(--mut)}
+.seg button[aria-pressed="true"]{background:var(--navy);color:#fff}
+.seg button[aria-pressed="true"] .num{color:var(--sky)}
+.chips-wrap{display:flex;align-items:center;gap:10px;margin-top:10px;min-width:0}
+.chips-l{font:700 12.5px var(--f-body);letter-spacing:.1em;text-transform:uppercase;color:var(--mut);white-space:nowrap;flex:none}
+.chips{display:flex;gap:6px;overflow-x:auto;scrollbar-width:thin;padding-bottom:3px;min-width:0;margin:0}
+.chips button{font:700 14px var(--f-body);color:var(--txt);background:#fff;border:1px solid var(--line);border-radius:999px;padding:6px 12px;cursor:pointer;white-space:nowrap}
+.chips button:hover{border-color:var(--navy)}
+.chips button[aria-pressed="true"]{background:var(--navy);border-color:var(--navy);color:#fff}
+@media (max-width:780px){.controls{top:62px}.chips{scrollbar-width:none}.chips-l{display:none}.seg{width:100%}.seg button{flex:1;justify-content:center;padding:7px 8px}}
+/* al bajar leyendo se esconden la cabecera y la barra; al subir vuelven */
+body.hide-top .top{transform:translateY(-140%)}
+body.hide-top .controls{transform:translateY(calc(-100% - 80px))}
+.count{margin-top:18px;font-size:15px;color:var(--mut)}
+
+/* listado */
+.secblock{margin-top:44px}
+.secblock:first-child{margin-top:22px}
+.sec-t{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;padding-bottom:10px;border-bottom:2px solid var(--navy)}
+.sec-t h2{font:800 clamp(30px,3.6vw,44px)/1 var(--f-disp);letter-spacing:-.03em}
+.sec-t .n{font:800 14px var(--f-disp);background:var(--navy);color:#fff;border-radius:999px;padding:3px 10px;align-self:center}
+.sec-t p{color:var(--mut);font-size:16px}
+.cat{margin-top:26px}
+.cat-h{display:flex;align-items:baseline;gap:10px;margin-bottom:12px}
+.cat-h h3{font:800 21px/1.1 var(--f-disp);letter-spacing:-.015em}
+.cat-h span{color:var(--mut);font-weight:700;font-size:15px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,272px),1fr));gap:12px;align-items:start}
+
+/* ficha compacta */
+.tool{background:#fff;border-radius:20px;padding:18px;display:flex;flex-direction:column;gap:10px;border:1px solid transparent;transition:box-shadow .25s,border-color .25s}
+.tool:hover{transform:none;box-shadow:0 14px 30px -14px rgba(6,16,51,.22)}
+.tool-h{display:grid;grid-template-columns:40px minmax(0,1fr);gap:11px;align-items:center}
+.lg{width:40px;height:40px;border-radius:12px;background:var(--bg);display:grid;place-items:center;overflow:hidden}
+.lg img{width:26px;height:26px;object-fit:contain}
+.lg b{font:800 19px var(--f-disp)}
+.tool h4{font:800 18px/1.1 var(--f-disp);letter-spacing:-.01em}
+.tool .lead{font-size:15.5px;line-height:1.42;color:#1C2440}
+.tool .ex{font-size:14.5px;line-height:1.4;color:#2A3352;padding-left:10px;border-left:3px solid var(--sky)}
+.tool .ex b{color:var(--navy)}
+.facts{display:flex;flex-wrap:wrap;gap:5px}
+.fact{display:inline-flex;align-items:center;gap:5px;font:600 13px/1.25 var(--f-body);color:var(--navy);background:var(--bg);border-radius:8px;padding:4px 8px}
+.fact svg{width:14px;height:14px;stroke:var(--mut);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.fact.ok{background:#E3F4EA;color:#17633F}.fact.ok svg{stroke:#17633F}
+.fact.warn{background:#FFF1D6;color:#7A4E00}.fact.warn svg{stroke:#7A4E00}
+.tool-f{margin-top:auto;padding-top:10px;border-top:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:6px;font:700 14.5px var(--f-body);padding:8px 14px;border-radius:999px;text-decoration:none;border:1.5px solid var(--navy);white-space:nowrap}
+.btn.solid{background:var(--navy);color:#fff}
+.btn.solid:hover{background:var(--navy3)}
+.btn svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.more-t{font:700 14.5px var(--f-body);color:var(--navy3);background:none;border:0;cursor:pointer;display:inline-flex;align-items:center;gap:4px;padding:6px 4px}
+.more-t::after{content:"";width:7px;height:7px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg) translateY(-2px);margin-left:4px;transition:transform .2s}
+.more-t[aria-expanded="true"]::after{transform:rotate(-135deg) translateY(-1px)}
+.more-t:hover{color:var(--navy)}
+.more-b{display:grid;gap:10px;padding-top:10px;border-top:1px solid var(--line)}
+.more-b[hidden]{display:none}
+.more-b h5{font:700 12px var(--f-body);letter-spacing:.1em;text-transform:uppercase;color:var(--mut);margin-bottom:4px}
+.more-b ul{list-style:none;padding:0;display:grid;gap:5px}
+.more-b li{display:grid;grid-template-columns:14px 1fr;gap:7px;font-size:14.5px;line-height:1.4}
+.more-b li::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--sky);margin-top:7px}
+.more-b dl{display:grid;gap:6px;margin:0}
+.more-b dl div{display:grid;grid-template-columns:96px 1fr;gap:8px;font-size:14.5px;line-height:1.35}
+.more-b dt{font-weight:700;color:var(--mut)}
+.more-b dd{margin:0;color:#1C2440}
+.more-b .note{background:var(--ice);border-radius:10px;padding:8px 10px;font-size:14px;font-weight:500}
+.more-b .safe{display:grid;grid-template-columns:18px 1fr;gap:8px;font-size:14px;line-height:1.35;color:#7A4E00;background:#FFF6E3;border-radius:10px;padding:8px 10px}
+.more-b .safe svg{width:16px;height:16px;stroke:#7A4E00;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;margin-top:1px}
+.more-b .tut{font-weight:700;color:var(--navy3);font-size:14.5px}
+/* recursos: tarjeta de enlace */
+.res{background:#fff;border-radius:20px;padding:16px 18px;display:grid;grid-template-columns:40px minmax(0,1fr) auto;gap:12px;align-items:center;text-decoration:none;transition:box-shadow .25s}
+.res:hover{transform:none;box-shadow:0 14px 30px -14px rgba(6,16,51,.22)}
+.res h4{font:800 17px/1.1 var(--f-disp)}
+.res p{font-size:14.5px;color:#2A3352;margin-top:3px;line-height:1.4}
+
+.res .go{width:34px;height:34px;border-radius:50%;background:var(--bg);display:grid;place-items:center;transition:transform .3s,background .3s}
+.res .go svg{width:15px;height:15px;stroke:var(--navy);fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.res:hover .go{transform:rotate(45deg);background:var(--navy)}
+.res:hover .go svg{stroke:#fff}
 /* estado vacío */
-.empty{display:none;margin-top:40px;background:#fff;border-radius:var(--r);padding:34px 26px;text-align:center}
-.empty p{font:800 22px/1.2 var(--f-disp);color:var(--navy)}
+.empty{display:none;margin-top:30px;background:#fff;border-radius:var(--r);padding:32px 24px;text-align:center}
+.empty p{font:800 21px/1.2 var(--f-disp);color:var(--navy)}
 .empty small{display:block;font-size:16px;color:var(--mut);margin-top:6px}
-.empty-acts{display:flex;justify-content:center;flex-wrap:wrap;gap:8px;margin-top:18px}
+.empty-acts{display:flex;justify-content:center;flex-wrap:wrap;gap:8px;margin-top:16px}
 .empty-acts button{font:700 15px var(--f-body);padding:9px 16px;border-radius:999px;border:1.5px solid var(--navy);background:#fff;color:var(--navy);cursor:pointer}
 .empty-acts button.solid{background:var(--navy);color:#fff}
-/* qué ha cerrado o cambiado: antes → ahora */
-.chlist{margin-top:26px;border-top:1.5px solid #D3DAEA}
-.chrow{display:grid;grid-template-columns:minmax(0,1fr) 40px minmax(0,1fr);gap:22px;align-items:start;padding:22px 4px;border-bottom:1.5px solid #D3DAEA}
-.chrow h3{font:800 22px/1.1 var(--f-disp);color:var(--navy)}
+
+/* qué ha cambiado */
+.balance{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:24px}
+.balance div{background:#fff;border-radius:18px;padding:18px}
+.balance b{display:block;font:800 40px/1 var(--f-disp);letter-spacing:-.03em;color:var(--navy)}
+.balance span{display:block;font-size:15px;color:#2A3352;margin-top:6px;line-height:1.35}
+.balance .bad b{color:#8F2B2B}
+@media (max-width:760px){.balance{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.chlist{margin-top:22px;border-top:1.5px solid #D3DAEA}
+.chrow{display:grid;grid-template-columns:minmax(0,1fr) 36px minmax(0,1fr);gap:20px;align-items:start;padding:20px 4px;border-bottom:1.5px solid #D3DAEA}
+.chrow h3{font:800 21px/1.1 var(--f-disp);color:var(--navy)}
 .chrow p{font-size:16px;color:#2A3352;margin-top:6px}
-.chrow .tag{display:inline-block;font:800 11.5px var(--f-body);letter-spacing:.08em;text-transform:uppercase;border-radius:999px;padding:3px 9px;margin-bottom:8px}
-.tag.cierre{background:#FBE3E3;color:#8F2B2B}.tag.nombre{background:#FFF1D6;color:#7A4E00}
-.chrow .arrow{width:40px;height:40px;border-radius:50%;background:var(--navy);display:grid;place-items:center;margin-top:24px}
-.chrow .arrow svg{width:18px;height:18px;stroke:#fff;fill:none;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+.chrow .tagc{display:inline-block;font:800 11.5px var(--f-body);letter-spacing:.08em;text-transform:uppercase;border-radius:999px;padding:3px 9px;margin-bottom:8px}
+.tagc.cierre{background:#FBE3E3;color:#8F2B2B}.tagc.nombre{background:#FFF1D6;color:#7A4E00}
+.chrow .arrow{width:36px;height:36px;border-radius:50%;background:var(--navy);display:grid;place-items:center;margin-top:24px}
+.chrow .arrow svg{width:16px;height:16px;stroke:#fff;fill:none;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
 .chrow .now .lab{display:block;margin:4px 0 8px}
 .chrow .now p{font-size:17px;font-weight:500;color:var(--navy);margin-top:0}
 .chnew{margin-top:22px;background:var(--navy);color:#fff;border-radius:var(--r);padding:26px;display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:24px}
 .chnew .lab{color:var(--sky)}
-.chnew h3{font:800 24px/1.1 var(--f-disp);margin-top:8px}
+.chnew h3{font:800 23px/1.1 var(--f-disp);margin-top:8px}
 .chnew p{color:#DCE3F7;margin-top:8px}
 .chnew .alt b{display:block;font:700 12.5px var(--f-body);letter-spacing:.1em;text-transform:uppercase;color:var(--pale);margin-bottom:6px}
-@media (max-width:760px){.chrow{grid-template-columns:1fr;gap:10px}.chrow .arrow{margin-top:0;transform:rotate(90deg);width:32px;height:32px}.chnew{grid-template-columns:1fr}}
-/* criterios compactos */
-.crit2{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:26px;margin-top:24px}
+@media (max-width:760px){.chrow{grid-template-columns:1fr;gap:10px}.chrow .arrow{margin-top:0;transform:rotate(90deg);width:30px;height:30px}.chnew{grid-template-columns:1fr}}
+
+/* cómo está hecha */
+.steps2{list-style:none;padding:0;margin:24px 0 0;counter-reset:s;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:22px;position:relative}
+.steps2::before{content:"";position:absolute;left:18px;right:18px;top:18px;height:2px;background:#D3DAEA}
+.steps2 li{counter-increment:s;position:relative;display:flex;flex-direction:column;gap:6px}
+.steps2 li::before{content:counter(s);display:grid;place-items:center;width:38px;height:38px;border-radius:12px;background:var(--navy);color:#fff;font:800 17px var(--f-disp);margin-bottom:10px;box-shadow:0 0 0 6px var(--bg)}
+.steps2 b{font:800 18px/1.15 var(--f-disp);color:var(--navy)}
+.steps2 span{font-size:15.5px;line-height:1.45;color:#2A3352}
+@media (max-width:900px){.steps2{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:28px}.steps2::before{display:none}}
+@media (max-width:520px){.steps2{grid-template-columns:1fr}}
+.crit2{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px;margin-top:40px}
 .crit2>div{padding-top:16px;border-top:1.5px solid #D3DAEA}
-.crit2 h3{font:800 19px/1.15 var(--f-disp);color:var(--navy)}
+.crit2 h3{font:800 18px/1.15 var(--f-disp);color:var(--navy)}
 .crit2 p{font-size:15.5px;color:#2A3352;margin-top:6px}
 .crit2 .warn{background:var(--navy);border:0;border-radius:18px;padding:18px 20px}
 .crit2 .warn h3{color:#fff}.crit2 .warn p{color:#DCE3F7}
 @media (max-width:1020px){.crit2{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:560px){.crit2{grid-template-columns:1fr}}
+
 /* origen */
 .orig{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:32px;margin-top:24px;align-items:start}
 .orig p{font-size:17px;color:#2A3352}
-.orig p+p{margin-top:12px}
 .orig p a{font-weight:700;color:var(--navy3)}
 .orig-l{border-top:1.5px solid #D3DAEA}
 .orig-l a{display:flex;justify-content:space-between;gap:10px;text-decoration:none;font-weight:700;color:var(--navy);padding:14px 2px;border-bottom:1px solid var(--line)}
 .orig-l a:hover{color:var(--navy3)}
 @media (max-width:760px){.orig{grid-template-columns:1fr}}
-@media (max-width:640px){.tabs{grid-template-columns:repeat(2,minmax(0,1fr))}.search{height:52px;padding:0 16px}.search input{font-size:17px}.head{margin-top:30px}}
+@media (max-width:640px){.head{margin-top:28px}}
 </style>
 </head>
 <body>
@@ -304,44 +289,55 @@ footer a{font-weight:700}
  <section class="head" aria-labelledby="ph1">
   <span class="lab">Para docentes de Secundaria y Bachillerato · Revisión de octubre de 2026</span>
   <h1 id="ph1">Caja de herramientas <span>digitales</span></h1>
-  <p class="head-p"><b id="s-total">118</b> herramientas y recursos con usos concretos, qué necesita cada uno y <a href="#cambios">qué ha cerrado o cambiado desde 2024</a>.</p>
+  <p class="head-p"><b id="s-total">118</b> herramientas y recursos elegidos y comprobados, con un ejemplo de uso, qué necesita cada uno y <a href="#cambios">qué ha cerrado desde 2024</a>.</p>
  </section>
 
  <div id="ctl-sentinel" aria-hidden="true"></div>
  <div class="controls" id="herramientas">
   <div class="row1">
-   <label class="search" for="q"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.4-4.4"/></svg><span class="sr">Buscar herramientas y recursos</span><input id="q" type="search" placeholder="Busca una herramienta o un uso" autocomplete="off" aria-describedby="q-help"></label>
+   <div class="search" role="search">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.4-4.4"/></svg>
+    <label class="sr" for="q">Buscar herramientas o actividades</label>
+    <input id="q" type="text" placeholder="Busca herramientas o actividades…" autocomplete="off" enterkeyhint="search">
+    <button type="button" class="clear" id="q-clear" aria-label="Borrar la búsqueda" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+   </div>
+   <div class="seg" role="group" aria-label="Secciones" id="tabs"></div>
   </div>
-  <p class="help" id="q-help">Busca por nombre, tarea o uso. Prueba con <button type="button" data-try="rúbrica">rúbrica</button><button type="button" data-try="mapas">mapas</button><button type="button" data-try="vídeo">vídeo</button><button type="button" data-try="cuestionario">cuestionario</button><button type="button" data-try="IA">IA</button></p>
-  <div class="tabs" role="group" aria-label="Secciones de la caja" id="tabs"></div>
-  <div class="chips" id="chips" role="group" aria-label="Categorías"></div>
-  <p class="count" id="count" aria-live="polite"></p>
+  <div class="chips-wrap"><span class="chips-l" id="chips-l">¿Para qué la necesitas?</span><div class="chips" id="chips" role="group" aria-labelledby="chips-l"></div></div>
  </div>
  <div id="ctl-spacer" aria-hidden="true"></div>
 
+ <p class="count" id="count" aria-live="polite"></p>
  <div id="list"></div>
- <div class="empty" id="empty" role="status"><p id="empty-msg"></p><small>Prueba con otra palabra o mira en otra sección.</small><div class="empty-acts" id="empty-acts"></div></div>
+ <div class="empty" id="empty" role="status"><p id="empty-msg"></p><small>Prueba con otra palabra o quita el filtro.</small><div class="empty-acts" id="empty-acts"></div></div>
 
  <section class="sec" id="cambios">
-  <div class="sec-h rv"><span class="lab">Desde la versión de 2024</span><h2>Qué ha cerrado o cambiado</h2><p>En dos años algunas herramientas han cerrado y otras han cambiado de nombre. Para cada una, qué pasó y qué usar ahora. Una alternativa no siempre hace lo mismo: revísala antes de llevarla a clase.</p></div>
+  <div class="sec-h rv"><span class="lab">De 2024 a 2026</span><h2>Qué ha cambiado</h2><p>La caja parte del repositorio de 2024. Esto es lo que ha pasado con aquellas herramientas y qué usar ahora cuando una ha desaparecido.</p></div>
+  <div class="balance rv" id="balance"></div>
   <div class="chlist" id="changes"></div>
   <div class="chnew rv" id="chnew"></div>
  </section>
 
  <section class="sec" id="criterios">
-  <div class="sec-h rv"><span class="lab">Cómo está hecha</span><h2>Criterios de la selección</h2></div>
+  <div class="sec-h rv"><span class="lab">Curación</span><h2>Cómo está hecha</h2></div>
+  <ol class="steps2 rv">
+   <li><b>Partí del repositorio de 2024</b><span>Más de 100 herramientas para todo un colegio, de Infantil a Bachillerato.</span></li>
+   <li><b>Me quedé con Secundaria</b><span>Solo lo que tiene sentido en ESO y Bachillerato, separado por quién lo usa: el alumnado, el docente o como recurso.</span></li>
+   <li><b>Las comprobé una a una</b><span>En octubre de 2026: que funcione, qué pide para empezar y qué ha cerrado o cambiado.</span></li>
+   <li><b>Añadí lo nuevo</b><span id="steps-new">Herramientas que no existían o no estaban en 2024.</span></li>
+  </ol>
   <div class="crit2 rv">
-   <div><h3>Que siga viva</h3><p>Cada herramienta, comprobada en octubre de 2026. Las que han cerrado van aparte, con una alternativa.</p></div>
-   <div><h3>Pensada para quien la usa</h3><p>En Aula, qué hace el alumnado y qué necesita. En Docente, para qué te sirve, cuánto cuesta y qué pasa con los datos.</p></div>
-   <div><h3>Gratuita o con plan gratuito</h3><p>Casi todas se pueden empezar a usar sin pagar, aunque algunas limitan funciones. Cuando no es así, lo indico.</p></div>
-   <div class="warn"><h3>Antes de usarla con alumnado</h3><p>Comprueba la edad mínima y que el centro la tenga autorizada. Con menores, mejor la cuenta educativa del centro que cuentas personales, y nunca datos personales en una IA.</p></div>
+   <div><h3>Que siga viva</h3><p>Lo que ha cerrado no está en el catálogo: va en «Qué ha cambiado», con una alternativa.</p></div>
+   <div><h3>Útil para quien la usa</h3><p>En Aula, qué hace el alumnado, en qué curso y si necesita cuenta. En Docente, para qué te sirve, cuánto cuesta y qué pasa con los datos.</p></div>
+   <div><h3>Gratis para empezar</h3><p>Casi todas tienen plan gratuito, aunque algunas limitan funciones. El coste aparece en cada ficha de Docente.</p></div>
+   <div class="warn"><h3>Antes de usarla con alumnado</h3><p>Comprueba la edad mínima en las condiciones de la herramienta y que el centro la tenga autorizada. Con menores, mejor la cuenta del centro, y nunca datos personales en una IA.</p></div>
   </div>
  </section>
 
  <section class="sec" id="origen">
   <div class="sec-h rv"><span class="lab">Origen</span><h2>De dónde viene</h2></div>
   <div class="orig rv">
-   <div><p>Es la actualización del <a href="https://sites.google.com/view/repositorio-digital-docente-cc/inicio" rel="noopener">repositorio digital que creé para el Colegio Cerrado de Calderón</a> en 2024, que el centro <a href="https://colegiocerradodecalderon.es/braining/" rel="noopener">presentó en el IX Congreso Internacional de Creatividad Educativa (Braining, Valencia, abril de 2025)</a>.</p><p>Esta versión se centra en Secundaria y Bachillerato: revisa qué sigue vigente, separa lo que usa el alumnado de lo que usa el docente y recoge lo que ha cerrado o cambiado.</p></div>
+   <div><p>Es la actualización del <a href="https://sites.google.com/view/repositorio-digital-docente-cc/inicio" rel="noopener">repositorio digital que creé para el Colegio Cerrado de Calderón</a> en 2024, que el centro <a href="https://colegiocerradodecalderon.es/braining/" rel="noopener">presentó en el IX Congreso Internacional de Creatividad Educativa (Braining, Valencia, abril de 2025)</a>.</p></div>
    <div class="orig-l"><a href="/proyectos/repositorio-digital/">Cómo la hice: el proyecto completo <span aria-hidden="true">→</span></a><a href="https://sites.google.com/view/repositorio-digital-docente-cc/inicio" rel="noopener">El repositorio original de 2024 <span aria-hidden="true">↗</span></a></div>
   </div>
  </section>
@@ -358,50 +354,55 @@ const I={
  ext:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>',
  play:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>',
  cap:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 9 12 4l10 5-10 5z"/><path d="M6 11v5c3 2 9 2 12 0v-5"/></svg>',
- dev:'<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="12" rx="2"/><path d="M8 21h8M12 17v4"/></svg>',
  key:'<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="8" cy="15" r="4"/><path d="m11 12 9-9M17 6l3 3M14 9l2 2"/></svg>',
  eur:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17 7a6 6 0 1 0 0 10M4 10h9M4 14h9"/></svg>',
  lock:'<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="10.5" width="14" height="10" rx="2"/><path d="M8 10.5V7.5a4 4 0 0 1 8 0v3"/></svg>',
  warn:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 2 20h20z"/><path d="M12 10v4M12 17h.01"/></svg>',
  arrow:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>'
 };
-const logo=t=>LOGOS.has(t.id)?`<img src="logos/${t.id}.png?v=3" alt="" width="30" height="30" loading="lazy">`:`<b aria-hidden="true">${esc(t.n[0])}</b>`;
-const yt=t=>'https://www.youtube.com/results?search_query='+encodeURIComponent(t.n.replace(/\s*\(.*\)/,'')+' tutorial español');
-const head=t=>`<div class="tool-h"><span class="lg">${logo(t)}</span><h4>${esc(t.n)}</h4></div>`;
-const ideas=(t,title)=>`<div class="ideas"><h5 class="sr">${title}</h5><div class="who" aria-hidden="true">${title}</div><ul>${t.i.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></div>`;
-const foot=t=>`<div class="tool-f"><a class="btn solid" href="${t.url}" rel="noopener" target="_blank">Abrir ${esc(t.n.replace(/\s*\(.*\)/,''))}<span class="sr"> (se abre en otra pestaña)</span> ${I.ext}</a><a class="btn line" href="${yt(t)}" rel="noopener" target="_blank" aria-label="Tutoriales de ${esc(t.n)} en YouTube (se abre en otra pestaña)">${I.play}Tutoriales</a></div>`;
-// aviso de seguridad cuando el alumnado trabaja con una IA (según «qué hace el alumnado»)
-const usesAI=t=>t.s==='aula'&&/(^|[^a-z])ia([^a-z]|$)/.test(String(t.a).normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase());
-const safe=t=>usesAI(t)?`<div class="safe">${I.warn}<span>Con alumnado: cuenta del centro, edad mínima comprobada y nunca datos personales.</span></div>`:'';
+const norm=s=>String(s).normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase();
+const short=n=>n.replace(/\s*\(.*\)/,'');
+const logo=t=>LOGOS.has(t.id)?`<img src="logos/${t.id}.png?v=3" alt="" width="26" height="26" loading="lazy">`:`<b aria-hidden="true">${esc(t.n[0])}</b>`;
+const yt=t=>'https://www.youtube.com/results?search_query='+encodeURIComponent(short(t.n)+' tutorial español');
+const usesAI=t=>t.s==='aula'&&/(^|[^a-z])ia([^a-z]|$)/.test(norm(t.a));
+const fact=(icon,txt,cls='')=>`<span class="fact ${cls}">${icon}${esc(txt)}</span>`;
+
 function card(t){
- if(t.s==='aula') return `<article class="tool" data-id="${t.id}">${head(t)}
-  <div><div class="who">Qué hace el alumnado</div><p class="lead">${esc(t.a)}</p></div>
-  ${ideas(t,'Ideas para clase')}
-  <div class="meta"><div>${I.cap}<span><span class="sr">Nivel: </span>${esc(t.c)}</span></div><div>${I.dev}<span><span class="sr">Dispositivos: </span>${esc(t.disp)}</span></div><div>${I.key}<span><span class="sr">Cuenta: </span>${esc(t.cta)}</span></div></div>
-  ${safe(t)}${foot(t)}</article>`;
- if(t.s==='docente') return `<article class="tool" data-id="${t.id}">${head(t)}
-  <div><div class="who">Para qué te sirve</div><p class="lead">${esc(t.p)}</p></div>
-  ${ideas(t,'Ideas de uso')}
-  ${t.nota?`<p class="note">${esc(t.nota)}</p>`:''}
-  <div class="meta"><div>${I.eur}<span><span class="sr">Coste: </span>${esc(t.coste)}</span></div><div>${I.lock}<span><span class="sr">Datos: </span>${esc(t.datos)}</span></div></div>
-  ${foot(t)}</article>`;
- return `<a class="res tool-r" data-id="${t.id}" href="${t.url}" rel="noopener" target="_blank"><span class="lg">${logo(t)}</span><span><h4>${esc(t.n)}</h4><p>${esc(t.d)}</p></span><span class="go" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></svg></span><span class="sr"> (se abre en otra pestaña)</span></a>`;
+ if(t.s==='recursos') return `<a class="res tool-r" data-id="${t.id}" href="${t.url}" rel="noopener" target="_blank"><span class="lg">${logo(t)}</span><span><h4>${esc(t.n)}</h4><p>${esc(t.d)}</p></span><span class="go" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></svg></span><span class="sr"> (se abre en otra pestaña)</span></a>`;
+ const aula=t.s==='aula';
+ const lead=aula?t.a:t.p;
+ const facts=aula
+  ? fact(I.cap,t.c)+fact(I.key,t.cta,/^no necesita/i.test(t.cta)?'ok':'')+(usesAI(t)?fact(I.warn,'Usa IA','warn'):'')
+  : fact(I.eur,t.coste,/gratu|incluido|sin coste/i.test(t.coste)?'ok':'')+(t.datos==='No necesita datos del alumnado'?fact(I.lock,'Sin datos del alumnado','ok'):'');
+ const more=t.i.slice(1);
+ const rows=aula?[['Nivel',t.c],['Dispositivos',t.disp],['Cuenta',t.cta]]:[['Coste',t.coste],['Datos',t.datos]];
+ const safe=usesAI(t)?`<p class="safe">${I.warn}<span>El alumnado trabaja con una IA: usa la cuenta del centro, comprueba la edad mínima en sus condiciones y no introduzcas datos personales.</span></p>`:'';
+ return `<article class="tool" data-id="${t.id}">
+  <div class="tool-h"><span class="lg">${logo(t)}</span><h4>${esc(t.n)}</h4></div>
+  <p class="lead"><span class="sr">${aula?'Qué hace el alumnado: ':'Para qué te sirve: '}</span>${esc(lead)}</p>
+  <p class="ex"><b>Ejemplo:</b> ${esc(t.i[0])}</p>
+  <div class="facts">${facts}</div>
+  <div class="more-b" id="m-${t.id}" hidden>
+   ${more.length?`<div><h5>${aula?'Más ideas para clase':'Más ideas de uso'}</h5><ul>${more.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></div>`:''}
+   <dl>${rows.map(([k,v])=>`<div><dt>${k}</dt><dd>${esc(v)}</dd></div>`).join('')}</dl>
+   ${t.nota?`<p class="note">${esc(t.nota)}</p>`:''}${safe}
+   <a class="tut" href="${yt(t)}" rel="noopener" target="_blank">Buscar tutoriales en YouTube<span class="sr"> (se abre en otra pestaña)</span> ↗</a>
+  </div>
+  <div class="tool-f"><a class="btn solid" href="${t.url}" rel="noopener" target="_blank">Abrir<span class="sr"> ${esc(t.n)} (se abre en otra pestaña)</span> ${I.ext}</a><button type="button" class="more-t" aria-expanded="false" aria-controls="m-${t.id}">Detalles<span class="sr"> de ${esc(t.n)}</span></button></div>
+ </article>`;
 }
 
 // ---------- búsqueda: palabras completas, plurales y términos relacionados
-const norm=s=>String(s).normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase();
 const stem=w=>w.length>4&&w.endsWith('es')?w.slice(0,-2):w.length>3&&w.endsWith('s')?w.slice(0,-1):w;
-const STOP=new Set('de la el los las un una unos unas y o a en con para por del al que se su sus mi me lo'.split(' '));
-// términos relacionados: lo que se escribe (izquierda) también busca lo de la derecha
+const STOP=new Set('de la el los las un una unos unas y o a en con para por del al que se su sus mi me lo como'.split(' '));
+// lo que se escribe (izquierda) también busca lo de la derecha
 const SYN={
  evaluacion:['evaluar','rubrica','calificar','corregir'], evaluar:['evaluacion','rubrica','calificar','corregir'],
  rubrica:['evaluacion','evaluar'],
  cuestionario:['quiz','test','preguntas','encuesta'], quiz:['cuestionario','test','preguntas'], test:['cuestionario','quiz','preguntas'],
- video:['audiovisual','grabar'],
- mapa:['cartografia'],
+ video:['audiovisual','grabar'], mapa:['cartografia'],
  imagen:['foto','fotografia','ilustracion'], foto:['imagen','fotografia'],
- ia:['inteligencia artificial','chatbot'],
- podcast:['audio','radio'],
+ ia:['inteligencia artificial','chatbot'], podcast:['audio','radio'],
  presentacion:['diapositivas','exposicion'], diapositivas:['presentacion'],
  cronologia:['linea del tiempo','eje cronologico'],
  equipo:['colaborar','colaborativo','cooperativo'], colaborar:['equipo','colaborativo','cooperativo'],
@@ -416,106 +417,109 @@ TOOLS.forEach(t=>{
  IDXW[t.id]=[...new Set(words(txt).map(stem))];
 });
 const forms=w=>[w,...(SYNS[stem(w)]||[])];
-function hit(id,w){
- return forms(w).some(f=>{
-  if(f.includes(' '))return IDXT[id].includes(' '+f+' ');
-  const sf=stem(f);
-  return sf.length<3?IDXW[id].includes(sf):IDXW[id].some(x=>x.startsWith(sf));
- });
-}
+const hit=(id,w)=>forms(w).some(f=>{
+ if(f.includes(' '))return IDXT[id].includes(' '+f+' ');
+ const sf=stem(f);
+ return sf.length<3?IDXW[id].includes(sf):IDXW[id].some(x=>x.startsWith(sf));
+});
 const query=raw=>words(raw).filter(w=>!STOP.has(w));
 const match=(t,qs)=>!qs.length||qs.every(w=>hit(t.id,w));
 
-// ---------- estado y pintado
-const state={sec:'all',q:'',raw:'',c:'all'};
+// ---------- filtros por necesidad (en «Todo») y por categoría (en cada sección)
+const TASKS=[
+ ['Repasar y participar',['aula:part']],['Evaluar',['docente:eval']],['Crear y presentar',['aula:crear','docente:crear']],
+ ['IA',['aula:ia','docente:ia']],['Geografía e Historia',['aula:geohis']],['Trabajar en equipo',['aula:equipo']],
+ ['Ciencias y Matemáticas',['aula:cienc']],['Música y Arte',['aula:arte']],['Gestionar el aula',['docente:gestion']],
+ ['Organizar recursos',['docente:org']],['Materiales e imágenes',['recursos:sa','recursos:img','recursos:form']]
+];
 const SECS=Object.keys(SECTIONS);
+const state={sec:'all',raw:'',c:'all'};
+const inChip=t=>state.c==='all'||(state.sec==='all'?TASKS[state.c][1].includes(t.s+':'+t.cat):t.cat===state.c);
 const unit=(n,k)=>k==='recursos'?(n===1?'recurso':'recursos'):k==='all'?(n===1?'herramienta o recurso':'herramientas y recursos'):(n===1?'herramienta':'herramientas');
-const tabsEl=document.getElementById('tabs');
-function paintTabs(counts){
- const total=TOOLS.length;
- const items=[['all','Todo','Las tres secciones',state.q?SECS.reduce((a,k)=>a+counts[k],0):total],...SECS.map(k=>[k,SECTIONS[k].n,SECTIONS[k].d,state.q?counts[k]:TOOLS.filter(t=>t.s===k).length])];
- tabsEl.innerHTML=items.map(([k,n,d,c])=>`<button type="button" data-sec="${k}" aria-pressed="${state.sec===k}"><span><b>${n}</b><small>${d}</small></span><span class="num" aria-label="${c} ${unit(c,k)}">${c}</span></button>`).join('');
-}
+
+const $=id=>document.getElementById(id);
 function render(){
- const qs=query(state.raw);state.q=qs.join(' ');
+ const qs=query(state.raw), raw=state.raw.trim();
  const hits=TOOLS.filter(t=>match(t,qs));
  const counts=Object.fromEntries(SECS.map(k=>[k,hits.filter(t=>t.s===k).length]));
- paintTabs(counts);
+ // pestañas
+ $('tabs').innerHTML=[['all','Todo',hits.length],...SECS.map(k=>[k,SECTIONS[k].n,counts[k]])]
+  .map(([k,n,c])=>`<button type="button" data-sec="${k}" aria-pressed="${state.sec===k}">${n}<span class="num" aria-label="(${c})">${c}</span></button>`).join('');
+ // filtros
  const S=state.sec==='all'?null:SECTIONS[state.sec];
- const chips=document.getElementById('chips');
- chips.innerHTML=S?'<button type="button" data-c="all" aria-pressed="'+(state.c==='all')+'">Todas las categorías</button>'+Object.entries(S.cats).map(([k,v])=>`<button type="button" data-c="${k}" aria-pressed="${state.c===k}">${v}</button>`).join(''):'';
- chips.hidden=!S;
- const secs=S?[state.sec]:SECS;let shown=0;
- document.getElementById('list').innerHTML=secs.map(sk=>{
-  const SS=SECTIONS[sk];
-  const cats=Object.entries(SS.cats).map(([k,v])=>{
-   if(S&&state.c!=='all'&&state.c!==k)return '';
-   const ts=hits.filter(t=>t.s===sk&&t.cat===k);
-   shown+=ts.length;if(!ts.length)return '';
-   return `<section class="cat"><div class="cat-h"><h3>${v}</h3><span>${ts.length}</span></div><div class="grid">${ts.map(card).join('')}</div></section>`;
-  }).join('');
-  if(!cats)return '';
-  const n=hits.filter(t=>t.s===sk&&(!S||state.c==='all'||t.cat===state.c)).length;
-  return `<section class="secblock" aria-labelledby="h-${sk}"><div class="sec-t"><h2 id="h-${sk}">${SS.n}</h2><span class="n">${n}</span><p>${SS.d}</p></div>${cats}</section>`;
+ $('chips-l').textContent=S?'Categorías':'¿Para qué la necesitas?';
+ const chips=S?Object.entries(S.cats):TASKS.map((t,i)=>[i,t[0]]);
+ $('chips').innerHTML=`<button type="button" data-c="all" aria-pressed="${state.c==='all'}">Todo</button>`+chips.map(([k,v])=>`<button type="button" data-c="${k}" aria-pressed="${String(state.c)===String(k)}">${v}</button>`).join('');
+ // listado
+ const shownList=hits.filter(t=>(!S||t.s===state.sec)&&inChip(t));
+ $('list').innerHTML=(S?[state.sec]:SECS).map(sk=>{
+  const SS=SECTIONS[sk], inSec=shownList.filter(t=>t.s===sk);
+  if(!inSec.length)return '';
+  const cats=Object.entries(SS.cats).map(([k,v])=>{const ts=inSec.filter(t=>t.cat===k);return ts.length?`<section class="cat"><div class="cat-h"><h3>${v}</h3><span>${ts.length}</span></div><div class="grid">${ts.map(card).join('')}</div></section>`:''}).join('');
+  return `<section class="secblock" aria-labelledby="h-${sk}"><div class="sec-t"><h2 id="h-${sk}">${SS.n}</h2><span class="n">${inSec.length}</span><p>${SS.d}</p></div>${cats}</section>`;
  }).join('');
- const where=S?` en ${S.n}`:'';
- const cnt=document.getElementById('count');
- if(state.raw.trim()) cnt.textContent=shown?`${shown} ${shown===1?'resultado':'resultados'} para «${state.raw.trim()}»${where}`:'';
- else cnt.textContent=!S?`Mostrando ${shown} ${unit(shown,'all')}`:state.sec==='recursos'?`Mostrando ${shown} ${unit(shown,'recursos')}`:`Mostrando ${shown} ${unit(shown,state.sec)} de ${S.n}`;
+ const shown=shownList.length;
+ const filt=state.c!=='all'?` · ${S?S.cats[state.c]:TASKS[state.c][0]}`:'';
+ $('count').textContent=shown?(raw?`${shown} ${shown===1?'resultado':'resultados'} para «${raw}»${S?' en '+S.n:''}${filt}`:`${shown} ${unit(shown,S?state.sec:'all')}${S&&state.sec!=='recursos'?' de '+S.n:''}${filt}`):'';
+ $('q-clear').hidden=!state.raw;
  // estado vacío: solo si de verdad no hay resultados
- const empty=document.getElementById('empty');
- if(shown){empty.style.display='none';return;}
- empty.style.display='block';
- document.getElementById('empty-msg').textContent=state.raw.trim()?`No hay resultados para «${state.raw.trim()}»${where}.`:'No hay nada en esta categoría.';
+ if(shown){$('empty').style.display='none';return;}
+ $('empty').style.display='block';
+ $('empty-msg').textContent=raw?`No hay resultados para «${raw}»${S?' en '+S.n:''}${filt}.`:`No hay nada en ${S?S.n:'la caja'}${filt}.`;
  const acts=[];
- if(S) SECS.filter(k=>k!==state.sec&&counts[k]).forEach(k=>acts.push(`<button type="button" class="solid" data-act="sec" data-sec="${k}">Ver ${counts[k]} en ${SECTIONS[k].n}</button>`));
- if(state.raw.trim()) acts.push('<button type="button" data-act="clear">Borrar la búsqueda</button>');
+ if(S&&state.c==='all') SECS.filter(k=>k!==state.sec&&counts[k]).forEach(k=>acts.push(`<button type="button" class="solid" data-act="sec" data-sec="${k}">Ver ${counts[k]} en ${SECTIONS[k].n}</button>`));
+ if(state.c!=='all') acts.push('<button type="button" class="solid" data-act="chip">Quitar el filtro</button>');
+ if(raw) acts.push('<button type="button" data-act="clear">Borrar la búsqueda</button>');
  if(S) acts.push('<button type="button" data-act="all">Ver todo</button>');
- document.getElementById('empty-acts').innerHTML=acts.join('');
+ $('empty-acts').innerHTML=acts.join('');
 }
-const qEl=document.getElementById('q');
-function setSec(k){state.sec=k;state.c='all';render();}
-function setQ(v){qEl.value=v;state.raw=v;qEl.dispatchEvent(new Event('qchange'));render();}
-tabsEl.addEventListener('click',e=>{const b=e.target.closest('button');if(b)setSec(b.dataset.sec)});
-qEl.addEventListener('input',e=>{state.raw=e.target.value;render()});
-document.getElementById('q-help').addEventListener('click',e=>{const b=e.target.closest('[data-try]');if(!b)return;setQ(b.dataset.try);qEl.focus()});
-document.getElementById('chips').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;state.c=b.dataset.c;render();document.getElementById('herramientas').scrollIntoView({block:'start'})});
-document.getElementById('empty-acts').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;
- if(b.dataset.act==='sec')setSec(b.dataset.sec);
- else if(b.dataset.act==='clear'){setQ('');qEl.focus();}
- else if(b.dataset.act==='all'){state.c='all';setSec('all');}
+const qEl=$('q');
+const toList=()=>{const y=$('herramientas').getBoundingClientRect().top+scrollY-80;if(scrollY>y)scrollTo({top:y})};
+function setSec(k){state.sec=k;state.c='all';render();toList();}
+$('tabs').addEventListener('click',e=>{const b=e.target.closest('button');if(b)setSec(b.dataset.sec)});
+qEl.addEventListener('input',()=>{state.raw=qEl.value;render()});
+qEl.addEventListener('keydown',e=>{if(e.key==='Escape'&&qEl.value){qEl.value='';state.raw='';render()}});
+$('q-clear').addEventListener('click',()=>{qEl.value='';state.raw='';render();qEl.focus()});
+$('chips').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;state.c=b.dataset.c==='all'?'all':(state.sec==='all'?+b.dataset.c:b.dataset.c);render();toList()});
+$('empty-acts').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;
+ const a=b.dataset.act;
+ if(a==='sec')setSec(b.dataset.sec);
+ else if(a==='chip'){state.c='all';render();}
+ else if(a==='clear'){qEl.value='';state.raw='';render();qEl.focus();}
+ else if(a==='all'){setSec('all');}
 });
-document.getElementById('s-total').textContent=TOOLS.length;
+$('list').addEventListener('click',e=>{const b=e.target.closest('.more-t');if(!b)return;const open=b.getAttribute('aria-expanded')!=='true';b.setAttribute('aria-expanded',open);$(b.getAttribute('aria-controls')).hidden=!open;});
+$('s-total').textContent=TOOLS.length;
 render();
 
-// ---------- qué ha cerrado o cambiado
+// ---------- qué ha cambiado: balance con los datos de la caja
+const st=k=>TOOLS.filter(t=>t.st===k).length;
+const closed=CHANGES.slice(0,-1).filter(c=>!/cambi[oó] su nombre/i.test(c.what)).length;
+$('balance').innerHTML=[[st('vigente'),'siguen de 2024 y funcionan'],[st('nueva'),'nuevas en 2026'],[st('cambio'),'siguen con otro nombre'],[closed,'han cerrado o ya no responden','bad']]
+ .map(([n,l,c])=>`<div class="${c||''}"><b>${n}</b><span>${l}</span></div>`).join('');
+$('steps-new').textContent=`${st('nueva')} herramientas que no estaban en 2024, como las IA que ya incluyen las cuentas educativas de los centros.`;
 const last=CHANGES[CHANGES.length-1];
-document.getElementById('changes').innerHTML=CHANGES.slice(0,-1).map(c=>{
+$('changes').innerHTML=CHANGES.slice(0,-1).map(c=>{
  const rename=/cambi[oó] su nombre/i.test(c.what);
- return `<div class="chrow rv"><div><span class="tag ${rename?'nombre':'cierre'}">${rename?'Cambio de nombre':'Ha cerrado'}</span><h3>${esc(c.n)}</h3><p>${esc(c.what)}</p></div><span class="arrow" aria-hidden="true">${I.arrow}</span><div class="now"><span class="lab">${rename?'Dónde está ahora':'Alternativa'}</span><p>${esc(c.alt)}</p></div></div>`;
+ return `<div class="chrow rv"><div><span class="tagc ${rename?'nombre':'cierre'}">${rename?'Cambio de nombre':'Ha cerrado'}</span><h3>${esc(c.n)}</h3><p>${esc(c.what)}</p></div><span class="arrow" aria-hidden="true">${I.arrow}</span><div class="now"><span class="lab">${rename?'Dónde está ahora':'Qué usar ahora'}</span><p>${esc(c.alt)}</p></div></div>`;
 }).join('');
-document.getElementById('chnew').innerHTML=`<div><span class="lab">Novedad</span><h3>${esc(last.n)}</h3><p>${esc(last.what)}</p></div><div class="alt"><b>Qué hacer</b><p>${esc(last.alt)}</p></div>`;
+$('chnew').innerHTML=`<div><span class="lab">Novedad</span><h3>${esc(last.n)}</h3><p>${esc(last.what)}</p></div><div class="alt"><b>Qué hacer</b><p>${esc(last.alt)}</p></div>`;
 
 const io='IntersectionObserver' in window?new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.1}):null;
 document.querySelectorAll('.rv').forEach(el=>io?io.observe(el):el.classList.add('in'));
 
-// barra compacta y cabecera que se oculta al bajar (ordenador y móvil)
+// al bajar leyendo se esconden la cabecera y la barra; al subir vuelven
 (()=>{
- const ctl=document.getElementById('herramientas'),sp=document.getElementById('ctl-spacer'),sen=document.getElementById('ctl-sentinel'),srch=ctl.querySelector('.search'),q=document.getElementById('q');
- let last=window.scrollY,ticking=false;
- const flag=()=>srch.classList.toggle('has-q',!!q.value);
- q.addEventListener('input',flag);q.addEventListener('qchange',flag);
+ let last=scrollY,ticking=false;
  function update(){
-  ticking=false;
-  const y=window.scrollY,past=sen.getBoundingClientRect().top<60;
-  if(past&&!ctl.classList.contains('compact')){const h=ctl.offsetHeight;ctl.classList.add('compact');sp.style.height=(h-ctl.offsetHeight)+'px';}
-  else if(!past&&ctl.classList.contains('compact')){ctl.classList.remove('compact');sp.style.height='';}
-  if(y>last+4&&y>300)document.body.classList.add('hide-top');
-  else if(y<last-4||y<=300)document.body.classList.remove('hide-top');
+  ticking=false;const y=scrollY;
+  const typing=document.activeElement===qEl;
+  if(!typing&&y>last+6&&y>400)document.body.classList.add('hide-top');
+  else if(y<last-6||y<=400)document.body.classList.remove('hide-top');
   last=y;
  }
- window.addEventListener('scroll',()=>{if(!ticking){ticking=true;requestAnimationFrame(update)}},{passive:true});
- update();
+ addEventListener('scroll',()=>{if(!ticking){ticking=true;requestAnimationFrame(update)}},{passive:true});
+ qEl.addEventListener('focus',()=>document.body.classList.remove('hide-top'));
 })();
 </script>
 <script>(()=>{const f=()=>document.body.classList.toggle('stuck',scrollY>8);addEventListener('scroll',f,{passive:true});f()})();</script>
