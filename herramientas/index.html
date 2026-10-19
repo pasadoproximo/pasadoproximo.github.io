@@ -160,6 +160,8 @@ body.hide-top .controls{transform:translateY(calc(-100% - 80px))}
 .tagx svg{width:12px;height:12px;stroke:currentColor;fill:none;stroke-width:2.6;stroke-linecap:round}
 .tagx:hover{background:#C9D3F0}
 .clearall{font:700 14px var(--f-body);color:var(--navy3);background:none;border:0;text-decoration:underline;text-underline-offset:3px;cursor:pointer;padding:5px 4px}
+.state:focus{outline:none}
+.state:focus-visible{outline:3px solid var(--sky);outline-offset:4px;border-radius:8px}
 .nojs{margin-top:18px;background:#fff;border-radius:16px;padding:16px 18px}
 .nojs a{font-weight:700;color:var(--navy3)}
 
@@ -331,7 +333,7 @@ body.hide-top .controls{transform:translateY(calc(-100% - 80px))}
   <h2 class="purpose-l" id="purpose-l">¿Para qué la necesitas?</h2>
   <div class="chips" id="chips"></div>
  </div>
- <div class="state" id="state" aria-live="polite"></div>
+ <div class="state" id="state" aria-live="polite" tabindex="-1"></div>
  <noscript><p class="nojs">El catálogo necesita JavaScript para mostrarse y filtrarse. Si no puedes activarlo, consulta el <a href="https://sites.google.com/view/repositorio-digital-docente-cc/inicio">repositorio original de 2024</a>.</p></noscript>
  <div id="list"></div>
  <div class="empty" id="empty" role="status" hidden></div>
@@ -561,7 +563,7 @@ $('chips').addEventListener('click',e=>{const b=e.target.closest('button');if(!b
  if(b.hasAttribute('data-more')){state.more=!state.more;render();$('chips').querySelector('[data-more]')?.focus();return;}
  const i=+b.dataset.p;state.p=state.p===i?null:i;render();toList();});
 document.addEventListener('click',e=>{const b=e.target.closest('[data-rm],[data-act]');if(!b||!b.closest('#state,#empty'))return;
- if(b.dataset.act==='sec')setSec(b.dataset.sec);else{remove(b.dataset.rm);qEl.focus();}});
+ if(b.dataset.act==='sec')setSec(b.dataset.sec);else{remove(b.dataset.rm);$('state').focus({preventScroll:true});}});
 $('list').addEventListener('click',e=>{const b=e.target.closest('.more-t');if(!b)return;const open=b.getAttribute('aria-expanded')!=='true';b.setAttribute('aria-expanded',open);$(b.getAttribute('aria-controls')).hidden=!open;});
 $('s-total').textContent=TOOLS.length;
 render();

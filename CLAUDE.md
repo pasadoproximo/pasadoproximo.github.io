@@ -16,7 +16,8 @@ Cada push a `main` se publica solo en 1-2 minutos. El Consejo de Clío vive en o
 - `herramientas/` → la «Caja de herramientas digitales». Página propia, se edita directamente
   (`index.html` + `tools.js` con los datos; logos en `herramientas/logos/`). Al entrar muestra las 118 (pestaña «Todo»);
   el buscador busca en todas las secciones, entiende plurales y los términos relacionados de `SYN` en `index.html`.
-  Filtros «¿Para qué la necesitas?» = `TASKS` (agrupan categorías de Aula, Docente y Recursos). Fichas compactas:
+  Búsqueda en tres niveles: (1) buscador + sección, lo único fijo; (2) «¿Para qué la necesitas?» = `TASKS`, el mismo
+  filtro en todas las secciones, las `MAIN` primeras visibles y el resto en «Más opciones»; (3) recuento + filtros activos. Fichas compactas:
   frase de uso + primer ejemplo (`i[0]`) + etiquetas; el resto va en «Detalles». Las etiquetas salen solo de los datos.
   Lo que ha cerrado o cambiado sale de `CHANGES` en `tools.js` (el último elemento es la novedad destacada);
   el balance (siguen, nuevas, otro nombre, cerradas) se calcula con el campo `st`.
