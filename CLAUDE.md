@@ -21,7 +21,9 @@ Cada push a `main` se publica solo en 1-2 minutos. El Consejo de Clío vive en o
   al bajar, barra fina fija con buscador + «Filtros» (aparece al pasar el buscador). Si `tools.js` falla, aviso con reintento.
   Antes: (2) «¿Qué quieres hacer?» = `TASKS`, cuatro objetivos
   (Enseñar y aprender, Crear materiales, Evaluar y participar, Organizar y gestionar); cada herramienta cae en uno solo según
-  su categoría (`s:cat`); siempre visibles, desactivados si no tienen resultados; (3) recuento + filtros activos. Fichas compactas:
+  su categoría (`s:cat`); siempre visibles, desactivados si no tienen resultados; (3) recuento + filtros activos (solo cuando hay alguno; sin filtros no se muestra el total). Hero sin texto: animación
+  `#demo` que escribe búsquedas reales y muestra la primera ficha que devuelve el buscador (con pausa; quieta con movimiento
+  reducido; se detiene fuera de pantalla). Espacios: 80px entre categorías, 120px entre secciones. Fichas compactas:
   frase de uso + primer ejemplo (`i[0]`) + etiquetas; el resto va en «Detalles». Las etiquetas salen solo de los datos.
   Lo que ha cerrado o cambiado sale de `CHANGES` en `tools.js` (el último elemento es la novedad destacada);
   el balance (siguen, nuevas, otro nombre, cerradas) se calcula con el campo `st`.

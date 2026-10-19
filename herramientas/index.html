@@ -115,8 +115,38 @@ footer a{font-weight:700}
 .head{margin-top:32px}
 .head h1{font:800 clamp(34px,4.4vw,56px)/1 var(--f-disp);letter-spacing:-.03em;margin-top:10px}
 .head h1 span{color:var(--navy3)}
-.head-p{font-size:clamp(16.5px,1.5vw,18.5px);color:#2A3352;margin-top:10px;max-width:62ch}
-.head-p a{font-weight:700;color:var(--navy3)}
+.head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,440px);gap:24px 48px;align-items:center}
+/* demostración animada: una búsqueda real y la ficha que devuelve, en tres pasos */
+.demo{position:relative;background:#fff;border:1px solid var(--line);border-radius:22px;padding:16px;box-shadow:0 18px 40px -24px rgba(6,16,51,.25)}
+.d-search{display:flex;align-items:center;gap:8px;height:40px;padding:0 14px;border:1px solid #CDD5E5;border-radius:999px;font:500 15px var(--f-body);color:var(--txt)}
+.d-search svg{width:16px;height:16px;stroke:var(--mut);fill:none;stroke-width:2.2;stroke-linecap:round;flex:none}
+.d-q{white-space:nowrap;overflow:hidden}
+.d-caret{width:2px;height:18px;background:var(--navy);animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.d-n{font:700 12.5px var(--f-body);color:var(--mut);margin:10px 4px 8px;min-height:16px;opacity:0;transition:opacity .3s}
+.d-card{border:1px solid var(--line);border-radius:16px;padding:12px 14px;display:grid;gap:8px;opacity:0;transform:translateY(10px);transition:opacity .45s,transform .45s}
+.demo.s2 .d-n,.demo.s3 .d-n,.demo.s2 .d-card,.demo.s3 .d-card{opacity:1;transform:none}
+.d-card .tool-h{grid-template-columns:34px minmax(0,1fr);gap:10px}
+.d-card .lg{width:34px;height:34px;border-radius:10px}
+.d-card .lg img{width:22px;height:22px}
+.d-card h4{font:800 16.5px/1.1 var(--f-disp)}
+.d-card .ex{font-size:13.5px;line-height:1.35;color:#2A3352;padding-left:9px;border-left:3px solid var(--sky)}
+.d-card .ex b{color:var(--navy)}
+.d-card .facts{gap:4px}
+.d-card .fact{font-size:12.5px;padding:3px 7px}
+.d-open{justify-self:start;display:inline-flex;align-items:center;gap:6px;font:700 13.5px var(--f-body);color:#fff;background:var(--navy);border-radius:999px;padding:6px 14px;transition:transform .3s,box-shadow .3s}
+.d-open svg{width:12px;height:12px;stroke:currentColor;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.demo.s3 .d-open{transform:scale(1.06);box-shadow:0 0 0 5px rgba(159,179,255,.55)}
+.d-steps{list-style:none;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;margin-top:12px;counter-reset:d}
+.d-steps li{counter-increment:d;font:700 12.5px/1.25 var(--f-body);color:var(--mut);padding-top:8px;border-top:3px solid var(--line);transition:color .3s,border-color .3s}
+.d-steps li::before{content:counter(d) ". "}
+.demo.s1 .d-steps li:nth-child(1),.demo.s2 .d-steps li:nth-child(2),.demo.s3 .d-steps li:nth-child(3){color:var(--navy);border-color:var(--navy)}
+.d-pause{position:absolute;top:-12px;right:-12px;width:32px;height:32px;border-radius:50%;border:1px solid var(--line);background:#fff;display:grid;place-items:center;cursor:pointer;box-shadow:0 4px 12px rgba(6,16,51,.08)}
+.d-pause svg{width:12px;height:12px;fill:var(--navy)}
+.d-pause[hidden]{display:none}
+@media (max-width:900px){.head{grid-template-columns:1fr}.demo{max-width:520px}}
+@media (max-width:560px){.demo{padding:12px}.d-card .ex{display:none}.d-pause{top:-10px;right:-6px}}
+@media (prefers-reduced-motion:reduce){.d-card,.d-n,.d-steps li,.d-open{transition:none}.d-caret{animation:none}}
 
 /* buscador: primer nivel = búsqueda + «¿Qué quieres hacer?» */
 .finder{margin-top:24px}
@@ -173,6 +203,7 @@ footer a{font-weight:700}
 
 /* resultados y filtros activos */
 .state{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:16px;padding-top:14px;border-top:1px solid var(--line);min-height:44px}
+.state:empty{min-height:0;padding:0;border:0}
 .state .count{margin:0;font:700 15px var(--f-body);color:var(--navy)}
 .active{display:flex;flex-wrap:wrap;align-items:center;gap:6px}
 .tagx{display:inline-flex;align-items:center;gap:6px;font:600 14px var(--f-body);color:var(--navy);background:var(--ice);border:0;border-radius:999px;padding:6px 8px 6px 12px;min-height:34px;cursor:pointer}
@@ -202,15 +233,15 @@ body.mini-on .top{transform:translateY(-140%)}
 @media (prefers-reduced-motion:reduce){.goal,.mf-t::after,.top{transition:none}}
 
 /* listado */
-.secblock{margin-top:88px}
+.secblock{margin-top:120px}
 .secblock:first-child{margin-top:28px}
 .sec-t{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;padding-bottom:10px;border-bottom:2px solid var(--navy)}
 .sec-t h2{font:800 clamp(26px,2.6vw,32px)/1 var(--f-disp);letter-spacing:-.02em}
 .sec-t .n{font:800 14px var(--f-disp);background:var(--navy);color:#fff;border-radius:999px;padding:3px 10px;align-self:center}
 .sec-t p{color:var(--mut);font-size:16px}
-.cat{margin-top:52px}
-.secblock .cat:first-of-type{margin-top:28px}
-.cat-h{display:flex;align-items:baseline;gap:10px;margin-bottom:16px}
+.cat{margin-top:80px}
+.secblock .cat:first-of-type{margin-top:40px}
+.cat-h{display:flex;align-items:baseline;gap:10px;margin-bottom:20px}
 .cat-h h3{font:800 21px/1.1 var(--f-disp);letter-spacing:-.015em}
 .cat-h span{color:var(--mut);font-weight:700;font-size:15px}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,272px),1fr));gap:16px;align-items:stretch}
@@ -348,9 +379,20 @@ body.mini-on .top{transform:translateY(-140%)}
 
 <main>
  <section class="head" aria-labelledby="ph1">
-  <span class="lab">Para docentes de Secundaria y Bachillerato · Revisión de octubre de 2026</span>
-  <h1 id="ph1">Caja de herramientas <span>digitales</span></h1>
-  <p class="head-p"><b id="s-total">118</b> herramientas y recursos elegidos y comprobados, con un ejemplo de uso, qué necesita cada uno y <a href="#cambios">qué ha cerrado desde 2024</a>.</p>
+  <div class="head-t">
+   <span class="lab">Para docentes de Secundaria y Bachillerato · Revisión de octubre de 2026</span>
+   <h1 id="ph1">Caja de herramientas <span>digitales</span></h1>
+   <p class="sr">Herramientas y recursos elegidos y comprobados. Busca lo que necesitas, mira cómo usarlo en clase con un ejemplo y ábrelo.</p>
+  </div>
+  <div class="demo s1" id="demo">
+   <div aria-hidden="true">
+    <div class="d-search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.4-4.4"/></svg><span class="d-q" id="d-q"></span><span class="d-caret"></span></div>
+    <p class="d-n" id="d-n"></p>
+    <div class="d-card" id="d-card"></div>
+    <ol class="d-steps"><li>Busca lo que necesitas</li><li>Mira cómo usarla en clase</li><li>Ábrela</li></ol>
+   </div>
+   <button type="button" class="d-pause" id="d-pause" aria-label="Pausar la animación" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg></button>
+  </div>
  </section>
 
  <section class="finder" id="herramientas" aria-label="Buscar en la caja">
@@ -422,7 +464,7 @@ body.mini-on .top{transform:translateY(-140%)}
 <footer><span>Jorge Delgado Aguilera · Diseño de materiales educativos digitales</span><span>Revisado en octubre de 2026 · <a href="/">Volver al portfolio</a></span></footer>
 </div>
 
-<script src="tools.js?v=6"></script>
+<script src="tools.js?v=7"></script>
 <script>
 // si los datos no llegan o algo falla al pintar, se avisa en lugar de mostrar un catálogo vacío
 function loadFail(why){
@@ -591,10 +633,10 @@ function render(){
  if(state.sec!=='all')act.push(`<button type="button" class="tagx" data-rm="sec">${SECTIONS[state.sec].n}${X}<span class="sr"> Quitar el tipo de recurso</span></button>`);
  if(state.area!==null)act.push(`<button type="button" class="tagx" data-rm="area">${AR[state.area].n}${X}<span class="sr"> Quitar la materia</span></button>`);
  const what=act.length?`${shown} ${shown===1?'resultado':'resultados'}`:`${shown} ${unit(shown)}`;
- $('state').innerHTML=`<p class="count">${what}</p>`+(act.length?`<div class="active"><span class="sr">Filtros activos:</span>${act.join('')}${act.length>1?'<button type="button" class="clearall" data-rm="all">Limpiar todo</button>':''}</div>`:'');
+ $('state').innerHTML=!act.length?'':`<p class="count">${what}</p>`+(act.length?`<div class="active"><span class="sr">Filtros activos:</span>${act.join('')}${act.length>1?'<button type="button" class="clearall" data-rm="all">Limpiar todo</button>':''}</div>`:'');
  $('q-clear').hidden=!state.raw;
  $('mb-n').textContent=(state.p!==null)+sec2||'';
- $('mb-c').textContent=what;
+ $('mb-c').textContent=act.length?what:'';
  // estado vacío: solo si de verdad no hay resultados (el texto no existe en la página hasta entonces)
  const E=$('empty');
  if(shown){E.hidden=true;E.innerHTML='';return;}
@@ -640,7 +682,6 @@ if('IntersectionObserver' in window){
  const io2=new IntersectionObserver(([e])=>{const past=!e.isIntersecting&&e.boundingClientRect.top<0;$('minibar').hidden=!past;document.body.classList.toggle('mini-on',past);});
  io2.observe($('herramientas'));
 }
-$('s-total').textContent=TOOLS.length;
 try{render();}catch(err){console.error(err);loadFail('Ha fallado al mostrarse.');}
 
 // ---------- qué ha cambiado: balance con los datos de la caja
@@ -655,6 +696,34 @@ $('changes').innerHTML=CHANGES.slice(0,-1).map(c=>{
  return `<div class="chrow rv"><div><span class="tagc ${rename?'nombre':'cierre'}">${rename?'Cambio de nombre':'Ha cerrado'}</span><h3>${esc(c.n)}</h3><p>${esc(c.what)}</p></div><span class="arrow" aria-hidden="true">${I.arrow}</span><div class="now"><span class="lab">${rename?'Dónde está ahora':'Qué usar ahora'}</span><p>${esc(c.alt)}</p></div></div>`;
 }).join('');
 $('chnew').innerHTML=`<div><span class="lab">Novedad</span><h3>${esc(last.n)}</h3><p>${esc(last.what)}</p></div><div class="alt"><b>Qué hacer</b><p>${esc(last.alt)}</p></div>`;
+
+// ---------- demostración del hero: búsquedas reales y la primera ficha que devuelve el propio buscador
+(()=>{
+ const D=$('demo'),Q=$('d-q'),N=$('d-n'),C=$('d-card'),B=$('d-pause');
+ const scenes=['línea del tiempo','cuestionario','geometría','programar'].map(q=>{const r=TOOLS.filter(t=>t.s!=='recursos'&&match(t,query(q)));return r.length?{q,n:r.length,t:r[0]}:null}).filter(Boolean);
+ if(!scenes.length){D.hidden=true;return;}
+ const draw=sc=>{const t=sc.t,aula=t.s==='aula',m=t.n.match(/^(.+?)\s*\((.+)\)$/);
+  N.textContent=`${sc.n} ${sc.n===1?'resultado':'resultados'}`;
+  C.innerHTML=`<div class="tool-h"><span class="lg">${logo(t)}</span><h4>${esc(m?m[1]:t.n)}</h4></div><p class="ex"><b>Ejemplo:</b> ${esc(t.i[0])}</p><div class="facts">${aula?fact(I.cap,t.c)+fact(I.key,t.cta,/^no necesita/i.test(t.cta)?'ok':''):fact(I.eur,t.coste,/gratu|incluido|sin coste/i.test(t.coste)?'ok':'')}</div><span class="d-open">Abrir ${I.ext}</span>`;};
+ const still=matchMedia('(prefers-reduced-motion: reduce)');
+ let i=0,timers=[],paused=false,seen=true;
+ const clear=()=>{timers.forEach(clearTimeout);timers=[];};
+ const at=(ms,f)=>timers.push(setTimeout(f,ms));
+ const play=()=>{clear();const sc=scenes[i%scenes.length];D.className='demo s1';Q.textContent='';draw(sc);
+  [...sc.q].forEach((ch,k)=>at(400+k*75,()=>{Q.textContent+=ch}));
+  const t0=400+sc.q.length*75+350;
+  at(t0,()=>{D.className='demo s2'});at(t0+2600,()=>{D.className='demo s3'});at(t0+4200,()=>{i++;if(!paused&&seen)play();});};
+ const showStill=()=>{clear();const sc=scenes[0];draw(sc);Q.textContent=sc.q;D.className='demo s2';};
+ const icon=p=>p?'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5v14l12-7z"/></svg>':'<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>';
+ const setPause=p=>{paused=p;B.innerHTML=icon(p);B.setAttribute('aria-label',p?'Reanudar la animación':'Pausar la animación');if(p)clear();else play();};
+ const start=()=>{if(still.matches){B.hidden=true;showStill();}else{B.hidden=false;paused=false;B.innerHTML=icon(false);play();}};
+ B.addEventListener('click',()=>setPause(!paused));
+ still.addEventListener('change',start);
+ // fuera de la pantalla o con la pestaña oculta, se detiene
+ if('IntersectionObserver' in window)new IntersectionObserver(([e])=>{const was=seen;seen=e.isIntersecting;if(seen&&!was&&!paused&&!still.matches)play();if(!seen)clear();}).observe(D);
+ document.addEventListener('visibilitychange',()=>{if(document.hidden)clear();else if(seen&&!paused&&!still.matches)play();});
+ start();
+})();
 
 const io='IntersectionObserver' in window?new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.1}):null;
 document.querySelectorAll('.rv').forEach(el=>io?io.observe(el):el.classList.add('in'));
