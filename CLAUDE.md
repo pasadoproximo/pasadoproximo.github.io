@@ -21,8 +21,8 @@ Cada push a `main` se publica solo en 1-2 minutos. El Consejo de Clío vive en o
   «¿Qué quieres hacer?» = `TASKS`, cuatro objetivos
   (Enseñar y aprender, Crear materiales, Evaluar y participar, Organizar y gestionar); cada herramienta cae en uno solo según
   su categoría (`s:cat`); recuento + búsqueda activa solo cuando se busca. Hero y buscador forman un solo bloque azul marino (`.head` +
-  `.find-box`): etiqueta, título, sello circular «Revisada octubre 2026», dos cintas de logos como el hero del Repositorio
-  (cada cinta lleva el juego de logos 4 veces para que no quede hueco) y el buscador (etiqueta solo para lector de pantalla).
+  `.find-box`): etiqueta, título, sello circular «Revisada octubre 2026» y el buscador (etiqueta solo para lector de pantalla).
+  Al pasar el cursor, foco azulado como en los hero del portfolio; cubre los dos elementos a la vez (`body.hero-hot`).
   Ya no hay «Más filtros» (tipo/materia): `state.sec`/`state.area` quedan sin interfaz. Con búsqueda solo se ven las
   fichas que coinciden (`#list`), sin categorías. `#q2` es el de la barra fina (botón «Categorías»): sincronizado, solo
   aparece cuando `#q` sale de pantalla.
