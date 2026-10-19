@@ -87,7 +87,7 @@ Cada push a `main` se publica solo en 1-2 minutos. El Consejo de Clío vive en o
 - Índice `/proyectos/`: las tres categorías son botones que despliegan sus proyectos debajo «en lágrima», como la Caja.
   Orden: Profesorado y formación (la del repositorio, abierta al entrar), Herramientas y asistentes, Actividades de aula.
   Una abierta a la vez; `/proyectos/#aula` abre esa. Sin JavaScript se ven todas.
-- Repositorio digital, «Mantenerlo al día»: filas problema → qué hicimos (`.upd`, sin tarjeta) y debajo la animación
+- Repositorio digital, «Mantenerlo al día»: filas antes → ahora (`.upd`, sin cajas): nombres tachados de lo que había y logos reales de lo que hay y debajo la animación
   «Así se usa la caja». Ya no hay bloques 2024/2026 ni capturas de las portadas.
 - Títulos de sección: la descripción va siempre debajo del título, nunca a la derecha (`.sec-head` en columna).
 - El resto son fichas breves (`kind="ficha"`): descripción, material real, nivel y enlace.
