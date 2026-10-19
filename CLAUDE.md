@@ -20,6 +20,10 @@ Cada push a `main` se publica solo en 1-2 minutos. El Consejo de Clío vive en o
   frase de uso + primer ejemplo (`i[0]`) + etiquetas; el resto va en «Detalles». Las etiquetas salen solo de los datos.
   Lo que ha cerrado o cambiado sale de `CHANGES` en `tools.js` (el último elemento es la novedad destacada);
   el balance (siguen, nuevas, otro nombre, cerradas) se calcula con el campo `st`.
+  Buscador: palabras cortas (IA, 3D) solo cuentan en nombre y descripción, no en los ejemplos; materias de Ciencias,
+  Música y Programación en `SUBJ` (solo para buscar). Edad mínima en `tools.js` (`edad`, `edadTxt`, `edadUrl`) solo con
+  fuente oficial; si no la hay, la ficha dice que se consulten las condiciones. Fichas: sin alturas fijas; cada fila se
+  iguala sola y las etiquetas + botones se apoyan abajo (margin-top:auto solo en `.facts`).
 - `apps/` → el Mapa de relieves y El bombo, recuperados de claude.ai y alojados aquí (no dependen de Claude).
 - `anterior/` → copia de la portada antigua (sin indexar). No tocar.
 - `_build/cv.html` → fuente del CV. Para regenerar el PDF: Chrome headless con `--print-to-pdf` (comando al inicio del archivo).
