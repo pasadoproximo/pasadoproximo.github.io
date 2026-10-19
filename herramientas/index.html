@@ -56,7 +56,7 @@ body.stuck .bar{border-top-left-radius:0;border-top-right-radius:0;border-top-co
 
 .top{transition:transform .35s cubic-bezier(.2,.7,.2,1)}
 /* qué ha cambiado + criterios */
-.sec{margin-top:90px}
+.sec{margin-top:140px}
 .sec-h h2{font:800 clamp(34px,4.6vw,56px)/.95 var(--f-disp);letter-spacing:-.035em;margin-top:8px}
 .sec-h p{color:var(--mut);margin-top:10px;max-width:62ch}
 .changes{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,270px),1fr));gap:var(--gap);margin-top:22px}
@@ -111,10 +111,10 @@ footer a{font-weight:700}
 @media (max-width:780px){.bar nav a.nav-key{display:inline-flex}.bar nav{gap:4px}.bar nav a{padding:8px 12px}.bar nav a.cv{display:none}}
 @media (max-width:440px){.bar nav a{padding:8px 10px;font-size:15px}}
 /* cabecera breve */
-.head{margin-top:40px}
-.head h1{font:800 clamp(38px,5.2vw,68px)/.95 var(--f-disp);letter-spacing:-.035em;margin-top:12px}
+.head{margin-top:32px}
+.head h1{font:800 clamp(34px,4.4vw,56px)/1 var(--f-disp);letter-spacing:-.03em;margin-top:10px}
 .head h1 span{color:var(--navy3)}
-.head-p{font-size:clamp(17px,1.6vw,19px);color:#2A3352;margin-top:12px;max-width:62ch}
+.head-p{font-size:clamp(16.5px,1.5vw,18.5px);color:#2A3352;margin-top:10px;max-width:62ch}
 .head-p a{font-weight:700;color:var(--navy3)}
 
 /* buscador: primer nivel = búsqueda + «¿Qué quieres hacer?» */
@@ -201,17 +201,18 @@ body.mini-on .top{transform:translateY(-140%)}
 @media (prefers-reduced-motion:reduce){.goal,.mf-t::after,.top{transition:none}}
 
 /* listado */
-.secblock{margin-top:44px}
-.secblock:first-child{margin-top:22px}
+.secblock{margin-top:88px}
+.secblock:first-child{margin-top:28px}
 .sec-t{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;padding-bottom:10px;border-bottom:2px solid var(--navy)}
-.sec-t h2{font:800 clamp(30px,3.6vw,44px)/1 var(--f-disp);letter-spacing:-.03em}
+.sec-t h2{font:800 clamp(26px,2.6vw,32px)/1 var(--f-disp);letter-spacing:-.02em}
 .sec-t .n{font:800 14px var(--f-disp);background:var(--navy);color:#fff;border-radius:999px;padding:3px 10px;align-self:center}
 .sec-t p{color:var(--mut);font-size:16px}
-.cat{margin-top:26px}
-.cat-h{display:flex;align-items:baseline;gap:10px;margin-bottom:12px}
+.cat{margin-top:52px}
+.secblock .cat:first-of-type{margin-top:28px}
+.cat-h{display:flex;align-items:baseline;gap:10px;margin-bottom:16px}
 .cat-h h3{font:800 21px/1.1 var(--f-disp);letter-spacing:-.015em}
 .cat-h span{color:var(--mut);font-weight:700;font-size:15px}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,272px),1fr));gap:12px;align-items:stretch}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,272px),1fr));gap:16px;align-items:stretch}
 .tool .facts{margin-top:auto}
 
 /* ficha compacta */
@@ -274,13 +275,13 @@ body.mini-on .top{transform:translateY(-140%)}
 .empty[hidden]{display:none}
 
 /* qué ha cambiado */
-.balance{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:24px}
+.balance{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:28px}
 .balance div{background:#fff;border-radius:18px;padding:18px}
 .balance b{display:block;font:800 40px/1 var(--f-disp);letter-spacing:-.03em;color:var(--navy)}
 .balance span{display:block;font-size:15px;color:#2A3352;margin-top:6px;line-height:1.35}
 .balance .bad b{color:#8F2B2B}
 @media (max-width:760px){.balance{grid-template-columns:repeat(2,minmax(0,1fr))}}
-.chlist{margin-top:22px;border-top:1.5px solid #D3DAEA}
+.chlist{margin-top:40px;border-top:1.5px solid #D3DAEA}
 .chrow{display:grid;grid-template-columns:minmax(0,1fr) 36px minmax(0,1fr);gap:20px;align-items:start;padding:20px 4px;border-bottom:1.5px solid #D3DAEA}
 .chrow h3{font:800 21px/1.1 var(--f-disp);color:var(--navy)}
 .chrow p{font-size:16px;color:#2A3352;margin-top:6px}
@@ -290,7 +291,7 @@ body.mini-on .top{transform:translateY(-140%)}
 .chrow .arrow svg{width:16px;height:16px;stroke:#fff;fill:none;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
 .chrow .now .lab{display:block;margin:4px 0 8px}
 .chrow .now p{font-size:17px;font-weight:500;color:var(--navy);margin-top:0}
-.chnew{margin-top:22px;background:var(--navy);color:#fff;border-radius:var(--r);padding:26px;display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:24px}
+.chnew{margin-top:36px;background:var(--navy);color:#fff;border-radius:var(--r);padding:26px;display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:24px}
 .chnew .lab{color:var(--sky)}
 .chnew h3{font:800 23px/1.1 var(--f-disp);margin-top:8px}
 .chnew p{color:#DCE3F7;margin-top:8px}
@@ -306,7 +307,7 @@ body.mini-on .top{transform:translateY(-140%)}
 .steps2 span{font-size:15.5px;line-height:1.45;color:#2A3352}
 @media (max-width:900px){.steps2{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:28px}.steps2::before{display:none}}
 @media (max-width:520px){.steps2{grid-template-columns:1fr}}
-.crit-t{font:700 13px var(--f-body);letter-spacing:.14em;text-transform:uppercase;color:var(--mut);margin-top:44px}
+.crit-t{font:700 13px var(--f-body);letter-spacing:.14em;text-transform:uppercase;color:var(--mut);margin-top:64px}
 .crit2{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px;margin-top:14px}
 .crit2>div{padding-top:16px;border-top:1.5px solid #D3DAEA}
 .crit2 h3{font:800 18px/1.15 var(--f-disp);color:var(--navy)}
@@ -317,13 +318,13 @@ body.mini-on .top{transform:translateY(-140%)}
 @media (max-width:560px){.crit2{grid-template-columns:1fr}}
 
 /* origen */
-.orig{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:32px;margin-top:24px;align-items:start}
+.orig{margin-top:22px;max-width:70ch}
 .orig p{font-size:17px;color:#2A3352}
 .orig p a{font-weight:700;color:var(--navy3)}
-.orig-l{border-top:1.5px solid #D3DAEA}
-.orig-l a{display:flex;justify-content:space-between;gap:10px;text-decoration:none;font-weight:700;color:var(--navy);padding:14px 2px;border-bottom:1px solid var(--line)}
-.orig-l a:hover{color:var(--navy3)}
-@media (max-width:760px){.orig{grid-template-columns:1fr}}
+.orig-acts{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.orig-acts .btn{min-height:44px;padding:10px 18px}
+.btn.line{color:var(--navy);background:transparent}
+.btn.line:hover{background:#fff}
 @media (max-width:640px){.head{margin-top:28px}}
 </style>
 </head>
@@ -410,8 +411,8 @@ body.mini-on .top{transform:translateY(-140%)}
  <section class="sec" id="origen">
   <div class="sec-h rv"><span class="lab">Origen</span><h2>De dónde viene</h2></div>
   <div class="orig rv">
-   <div><p>Es la actualización del <a href="https://sites.google.com/view/repositorio-digital-docente-cc/inicio" rel="noopener">repositorio digital que creé para el Colegio Cerrado de Calderón</a> en 2024, que el centro <a href="https://colegiocerradodecalderon.es/braining/" rel="noopener">presentó en el IX Congreso Internacional de Creatividad Educativa (Braining, Valencia, abril de 2025)</a>.</p></div>
-   <div class="orig-l"><a href="/proyectos/repositorio-digital/">Cómo la hice: el proyecto completo <span aria-hidden="true">→</span></a><a href="https://sites.google.com/view/repositorio-digital-docente-cc/inicio" rel="noopener">El repositorio original de 2024 <span aria-hidden="true">↗</span></a></div>
+   <p>Es la actualización del repositorio digital que creé para el Colegio Cerrado de Calderón en 2024, que el centro <a href="https://colegiocerradodecalderon.es/braining/" rel="noopener">presentó en el IX Congreso Internacional de Creatividad Educativa (Braining, Valencia, abril de 2025)</a>.</p>
+   <div class="orig-acts"><a class="btn solid" href="/proyectos/repositorio-digital/">Cómo la hice <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a class="btn line" href="https://sites.google.com/view/repositorio-digital-docente-cc/inicio" rel="noopener">El repositorio de 2024 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div>
   </div>
  </section>
 </main>
