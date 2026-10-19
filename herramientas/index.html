@@ -112,20 +112,26 @@ footer a{font-weight:700}
 @media (max-width:780px){.bar nav a.nav-key{display:inline-flex}.bar nav{gap:4px}.bar nav a{padding:8px 12px}.bar nav a.cv{display:none}}
 @media (max-width:440px){.bar nav a{padding:8px 10px;font-size:15px}}
 /* cabecera breve */
-/* cabecera editorial: etiqueta, título y, a su lado, la descripción con la fecha de revisión; debajo, el buscador */
-.head{margin-top:56px;display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);column-gap:56px;align-items:end}
+/* cabecera: etiqueta, título y, a la derecha, el sello de la revisión */
+.head{margin-top:72px;display:grid;grid-template-columns:minmax(0,1fr) auto;column-gap:48px;align-items:center}
 .head .lab{grid-column:1/-1;display:block;font-size:12.5px;line-height:1.5}
-.head h1{font:800 clamp(40px,4.6vw,64px)/.97 var(--f-disp);letter-spacing:-.035em;margin-top:14px}
+.head h1{font:800 clamp(40px,5vw,72px)/.96 var(--f-disp);letter-spacing:-.035em;margin-top:14px}
 .head h1 span{color:var(--navy3)}
-.head-c{padding-bottom:6px}
-.head-p{font-size:clamp(17px,1.45vw,19px);line-height:1.5;color:#2A3352;max-width:44ch}
-.head-m{font:600 14px var(--f-body);color:var(--mut);margin-top:12px}
-@media (max-width:900px){.head{grid-template-columns:1fr;margin-top:40px}.head-c{padding-bottom:0}.head-p{margin-top:16px;max-width:56ch}}
+.seal{width:150px;height:150px;border-radius:50%;border:2px solid var(--navy3);display:grid;place-items:center;text-align:center;color:var(--navy3);transform:rotate(-8deg);position:relative;margin:10px 12px 0 0}
+.seal::before{content:"";position:absolute;inset:7px;border-radius:50%;border:1.5px dashed rgba(27,44,107,.45)}
+.seal time{display:grid;gap:2px;line-height:1}
+.seal small{font:700 11px var(--f-body);letter-spacing:.16em;text-transform:uppercase}
+.seal b{font:800 21px var(--f-disp);letter-spacing:-.01em}
+.seal strong{font:800 32px var(--f-disp);letter-spacing:-.02em;color:var(--navy)}
+@media (max-width:640px){.head{margin-top:44px;display:block;position:relative}.head .lab{padding-right:96px}.seal{position:absolute;top:-6px;right:0;width:84px;height:84px;margin:0}.seal::before{inset:5px}.seal small{font-size:8px;letter-spacing:.12em}.seal b{font-size:13px}.seal strong{font-size:19px}.head h1{margin-top:22px}}
 
 /* buscador: primer nivel = búsqueda + «¿Qué quieres hacer?» */
-.finder{margin-top:44px}
-.find-l{display:block;font:700 12.5px var(--f-body);letter-spacing:.12em;text-transform:uppercase;color:var(--navy);margin:0 0 8px 2px}
-@media (max-width:640px){.finder{margin-top:28px}}
+.finder{margin-top:72px}
+.find-box{background:var(--navy);border-radius:28px;padding:28px 28px 30px}
+.find-l{display:block;font:800 clamp(22px,2.4vw,28px)/1.15 var(--f-disp);letter-spacing:-.02em;color:#fff;margin:0 0 16px 4px}
+.find-box .search{border-color:transparent;height:56px}
+.find-box .search:focus-within{box-shadow:0 0 0 3px var(--sky)}
+@media (max-width:640px){.finder{margin-top:44px}.find-box{padding:20px 16px 18px;border-radius:22px}.find-l{margin-bottom:12px}}
 .search{display:flex;align-items:center;gap:10px;background:#fff;border:1px solid #CDD5E5;border-radius:999px;padding:0 6px 0 18px;height:52px}
 .search:focus-within{border-color:var(--navy);box-shadow:0 0 0 3px rgba(159,179,255,.45)}
 .search>svg{width:20px;height:20px;stroke:var(--mut);fill:none;stroke-width:2.2;stroke-linecap:round;flex:none}
@@ -137,9 +143,9 @@ footer a{font-weight:700}
 .search .clear[hidden]{display:none}
 
 /* «¿Qué quieres hacer?»: las cuatro categorías. Cada botón despliega debajo su panel, unido a él como una lágrima */
-.purpose{margin-top:36px}
-.purpose-l{font:700 12.5px var(--f-body);letter-spacing:.12em;text-transform:uppercase;color:var(--mut);margin-bottom:8px}
-.chips{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;overflow-anchor:none}
+.purpose{margin-top:64px}
+.purpose-l{font:800 clamp(24px,2.6vw,32px)/1.1 var(--f-disp);letter-spacing:-.02em;color:var(--navy);margin-bottom:20px}
+.chips{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;overflow-anchor:none}
 .goal-h{margin:0;order:var(--i);display:flex}
 .goal{position:relative;width:100%;display:grid;grid-template-columns:minmax(0,1fr) auto;grid-template-rows:auto 1fr auto;column-gap:10px;row-gap:4px;text-align:left;font-family:var(--f-body);color:var(--navy);background:#fff;border:1px solid #CDD5E5;border-radius:16px;padding:14px 14px 12px 16px;cursor:pointer;transition:border-color .2s,background .2s}
 .goal b{font:800 18px/1.15 var(--f-disp);letter-spacing:-.01em}
@@ -149,46 +155,31 @@ footer a{font-weight:700}
 .goal .gi svg{width:12px;height:12px;stroke:var(--navy);fill:none;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round}
 .goal:hover{border-color:var(--navy)}
 .goal[aria-expanded="true"]{background:var(--ice);border-color:var(--ice);border-radius:16px 16px 0 0}
-.goal[aria-expanded="true"]::after{content:"";position:absolute;left:-1px;right:-1px;bottom:-12px;height:12px;background:var(--ice)}
+.goal[aria-expanded="true"]::after{content:"";position:absolute;left:-1px;right:-1px;bottom:-16px;height:16px;background:var(--ice)}
 .goal[aria-expanded="true"] .gi{background:var(--navy);border-color:var(--navy);transform:rotate(180deg)}
 .goal[aria-expanded="true"] .gi svg{stroke:#fff}
 .goal[aria-expanded="true"] .num{background:var(--navy);color:#fff}
 .goal:disabled{opacity:.5;cursor:not-allowed}
 .goal:disabled:hover{border-color:#CDD5E5}
-.gp{order:calc(10 + var(--i));grid-column:1/-1;background:var(--ice);border-radius:20px;padding:8px 24px 40px}
+.gp{order:calc(10 + var(--i));grid-column:1/-1;background:var(--ice);border-radius:20px;padding:24px 24px 40px}
 .gp[hidden]{display:none}
 .chips:has(#g-0[aria-expanded="true"]) .gp{border-top-left-radius:0}
 .chips:has(#g-3[aria-expanded="true"]) .gp{border-top-right-radius:0}
 .gp:not([hidden]){animation:gpIn .25s ease-out}
 @keyframes gpIn{from{opacity:0;transform:translateY(-6px)}}
-.gp-h{font:800 22px/1.15 var(--f-disp);letter-spacing:-.015em;margin-top:24px}
+.st{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px}
+.st button{display:inline-flex;align-items:center;gap:8px;font:700 15px var(--f-body);color:var(--navy);background:#fff;border:1px solid transparent;border-radius:999px;padding:8px 15px;min-height:42px;cursor:pointer}
+.st button:hover{border-color:var(--navy)}
+.st button span{font:800 12.5px var(--f-disp);color:var(--mut)}
+.st button[aria-selected="true"]{background:var(--navy);color:#fff}
+.st button[aria-selected="true"] span{color:var(--sky)}
+.sp[hidden]{display:none}
+.gp-h{font:800 22px/1.15 var(--f-disp);letter-spacing:-.015em;margin-top:8px}
 .gp-h span{font:700 15px var(--f-body);color:var(--mut);margin-left:6px}
-@media (max-width:900px){.chips{grid-template-columns:1fr}.goal-h,.gp{order:0}.gp,.chips .gp{padding:4px 16px 32px;border-radius:0 0 20px 20px}.gp-h{display:none}}
+@media (max-width:900px){.chips{grid-template-columns:minmax(0,1fr);gap:10px}.goal[aria-expanded="true"]::after{bottom:-10px;height:10px}.goal-h,.gp{order:0}.gp,.chips .gp{padding:18px 14px 28px;border-radius:0 0 20px 20px}.gp-h{display:none}.st{flex-wrap:nowrap;overflow-x:auto;margin:0 -14px 22px;padding:0 14px 4px;scrollbar-width:none}.st button{flex:none}}
 @media (max-width:560px){.goal{padding:12px 12px 10px 14px}.goal b{font-size:17px}.goal .gd{font-size:13.5px}}
 @media (prefers-reduced-motion:reduce){.gp:not([hidden]){animation:none}.goal .gi{transition:none}}
 
-/* «Más filtros»: secundario, se despliega dentro de la página */
-.mf-wrap{margin-top:10px}
-.mf-t{display:inline-flex;align-items:center;gap:8px;font:700 15px var(--f-body);color:var(--navy3);background:none;border:0;padding:8px 2px;min-height:40px;cursor:pointer}
-.mf-t::after{content:"";width:7px;height:7px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg) translateY(-2px);transition:transform .2s}
-.mf-t[aria-expanded="true"]::after{transform:rotate(-135deg) translateY(-1px)}
-.mf-t:hover{color:var(--navy)}
-.mf-n{font:700 12.5px var(--f-body);background:var(--navy);color:#fff;border-radius:999px;padding:2px 8px}
-.mf-n:empty{display:none}
-.mf{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.6fr);gap:14px 32px;margin-top:6px;padding:16px 18px;background:#fff;border:1px solid var(--line);border-radius:16px}
-.mf[hidden]{display:none}
-.mf-h{font:700 12.5px var(--f-body);letter-spacing:.12em;text-transform:uppercase;color:var(--mut);margin-bottom:8px}
-.opts{display:flex;flex-wrap:wrap;gap:6px}
-.opts button{display:inline-flex;align-items:center;gap:6px;font:600 14.5px var(--f-body);color:var(--navy);background:var(--bg);border:1px solid transparent;border-radius:999px;padding:7px 12px;min-height:36px;cursor:pointer}
-.opts button:hover{border-color:var(--navy)}
-.opts .num{font:700 12px var(--f-body);color:var(--mut)}
-.opts button[aria-pressed="true"]{background:var(--navy);color:#fff}
-.opts button[aria-pressed="true"] .num{color:var(--sky)}
-.opts button[aria-pressed="true"]::before{content:"✓";color:var(--sky);font-weight:800}
-.opts button:disabled{opacity:.45;cursor:not-allowed}
-.opts button:disabled:hover{border-color:transparent}
-.mf-note{font-size:13.5px;color:var(--mut);margin-top:8px}
-@media (max-width:760px){.mf{grid-template-columns:1fr}}
 
 /* resultados y filtros activos */
 .state{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:16px;padding-top:14px;border-top:1px solid var(--line);min-height:44px}
@@ -220,18 +211,17 @@ footer a{font-weight:700}
 .search.mini input{font-size:16px}
 .mb-f{display:inline-flex;align-items:center;gap:6px;font:700 15px var(--f-body);color:#fff;background:var(--navy);border:0;border-radius:999px;padding:0 16px;height:42px;cursor:pointer}
 .mb-f:hover{background:var(--navy3)}
-.mb-n{font:700 12.5px var(--f-body);background:var(--sky);color:var(--navy);border-radius:999px;padding:1px 7px}
-.mb-n:empty{display:none}
 .mb-c{font:600 14.5px var(--f-body);color:var(--mut);white-space:nowrap;margin-right:8px}
 body.mini-on .top{transform:translateY(-140%)}
 @media (max-width:560px){.minibar{gap:8px}.minibar .brand{margin-left:0;margin-right:0}.mb-f{padding:0 14px;flex:none}.search.mini{flex:1 1 auto}.mb-c,.mb-sp{display:none}}
 @media (prefers-reduced-motion:reduce){.goal,.mf-t::after,.top{transition:none}}
 
 /* listado */
+#list{margin-top:24px}
 #list:empty{display:none}
+.purpose[hidden]{display:none}
 .cat{margin-top:64px}
 .gp .cat:first-child,.gp .gp-h+.cat{margin-top:24px}
-.cat-s{display:block;width:100%;font:700 12px var(--f-body);letter-spacing:.12em;text-transform:uppercase;color:var(--mut);margin-bottom:2px}
 .cat-h{flex-wrap:wrap}
 .cat-h{display:flex;align-items:baseline;gap:10px;margin-bottom:20px}
 .cat-h h4{font:800 21px/1.1 var(--f-disp);letter-spacing:-.015em}
@@ -373,24 +363,16 @@ body.mini-on .top{transform:translateY(-140%)}
  <section class="head" id="hero" aria-labelledby="ph1">
   <span class="lab">Para docentes de Secundaria y Bachillerato</span>
   <h1 id="ph1">Caja de herramientas <span>digitales</span></h1>
-  <div class="head-c">
-   <p class="head-p">Herramientas seleccionadas y revisadas para usar en clase, con fichas que explican qué hace cada una, un ejemplo de uso y si el alumnado necesita cuenta.</p>
-   <p class="head-m"><time datetime="2026-10">Revisada en octubre de 2026</time></p>
-  </div>
+  <p class="seal"><time datetime="2026-10"><small>Revisada</small><b>octubre</b><strong>2026</strong><span class="sr"> Revisada en octubre de 2026</span></time></p>
  </section>
 
  <section class="finder" id="herramientas" aria-label="Buscar en la caja">
-  <label class="find-l" for="q">Busca en la caja</label>
-  <div class="search" role="search">
-   <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.4-4.4"/></svg>
-   <input id="q" type="text" placeholder="Busca una herramienta o qué necesitas hacer…" autocomplete="off" enterkeyhint="search">
-   <button type="button" class="clear" id="q-clear" aria-label="Borrar la búsqueda" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
-  </div>
-  <div class="mf-wrap">
-   <button type="button" class="mf-t" id="mf-t" aria-expanded="false" aria-controls="mf">Más filtros<span class="mf-n" id="mf-n"></span></button>
-   <div class="mf" id="mf" hidden>
-    <div class="mf-g" role="group" aria-labelledby="mf-s"><h3 class="mf-h" id="mf-s">Tipo de recurso</h3><div class="opts" id="tabs"></div></div>
-    <div class="mf-g" role="group" aria-labelledby="mf-a"><h3 class="mf-h" id="mf-a">Materia</h3><div class="opts" id="areas"></div><p class="mf-note">Solo las herramientas propias de cada materia; las generales sirven para todas.</p></div>
+  <div class="find-box">
+   <label class="find-l" for="q">Busca en la caja</label>
+   <div class="search" role="search">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.4-4.4"/></svg>
+    <input id="q" type="text" placeholder="Busca una herramienta o qué necesitas hacer…" autocomplete="off" enterkeyhint="search">
+    <button type="button" class="clear" id="q-clear" aria-label="Borrar la búsqueda" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
    </div>
   </div>
   <div class="state" id="state" aria-live="polite" tabindex="-1"></div>
@@ -407,7 +389,7 @@ body.mini-on .top{transform:translateY(-140%)}
    <label class="sr" for="q2">Buscar en la caja</label>
    <input id="q2" type="text" placeholder="Buscar…" autocomplete="off" enterkeyhint="search">
   </div>
-  <button type="button" class="mb-f" id="mb-f">Filtros<span class="mb-n" id="mb-n"></span></button>
+  <button type="button" class="mb-f" id="mb-f">Categorías</button>
   <span class="mb-sp"></span>
   <span class="mb-c" id="mb-c"></span>
  </div>
@@ -450,7 +432,7 @@ body.mini-on .top{transform:translateY(-140%)}
 <footer><span>Jorge Delgado Aguilera · Diseño de materiales educativos digitales</span><span>Revisado en octubre de 2026 · <a href="/">Volver al portfolio</a></span></footer>
 </div>
 
-<script src="tools.js?v=7"></script>
+<script src="tools.js?v=8"></script>
 <script>
 // si los datos no llegan o algo falla al pintar, se avisa en lugar de mostrar un catálogo vacío
 function loadFail(why){
@@ -584,6 +566,8 @@ const ARK=Object.keys(AR);
 const state={raw:'',sec:'all',area:null};
 // categoría abierta mientras se explora sin búsqueda ni filtros (solo una a la vez; al entrar, ninguna)
 let browseOpen=null;
+// pestaña de categoría elegida dentro de cada objetivo (se recuerda al cerrar y volver a abrir)
+const subOpen={};
 const inGoal=(t,i)=>i===null||TASKS[i][2].includes(t.s+':'+t.cat);
 const inSec=(t,k)=>k==='all'||t.s===k;
 const inArea=(t,a)=>a===null||AR[a].ids.includes(t.id);
@@ -597,25 +581,29 @@ const $=id=>document.getElementById(id);
 function render(){
  const qs=query(state.raw), raw=state.raw.trim();
  const cnt=(skip,f)=>TOOLS.filter(t=>pass(t,qs,skip)&&f(t)).length;
- // más filtros: tipo de recurso y materia
- $('tabs').innerHTML=[['all','Todo'],...SECS.map(k=>[k,SECTIONS[k].n])].map(([k,n])=>opt('data-sec',k,n,cnt('sec',t=>inSec(t,k)),state.sec===k)).join('');
- $('areas').innerHTML=opt('data-area','','Todas',cnt('area',()=>true),state.area===null)+ARK.map(k=>opt('data-area',k,AR[k].n,cnt('area',t=>inArea(t,k)),state.area===k)).join('');
  const sec2=(state.sec!=='all')+(state.area!==null);
- $('mf-n').textContent=sec2?`${sec2} ${sec2===1?'activo':'activos'}`:'';
  // listado (cada herramienta aparece una sola vez)
  const list=TOOLS.filter(t=>pass(t,qs,''));
  // las cuatro categorías: cada botón despliega su panel. Con búsqueda o filtros se abren todas las que tienen
  // resultados y las vacías quedan desactivadas; sin nada activo, plegadas al entrar y solo una abierta a la vez
  const filtered=!!raw||sec2>0;
- $('chips').innerHTML=TASKS.map(([n,d,keys],k)=>{
+ $('chips').innerHTML=filtered?'':TASKS.map(([n,d,keys],k)=>{
   const ts0=list.filter(t=>inGoal(t,k)),c=ts0.length;
   const open=c>0&&(filtered||browseOpen===k);
   const lab=filtered?(c===1?'resultado':'resultados'):unit(c);
-  const cats=keys.map(key=>{const [sk,ct]=key.split(':'),ts=ts0.filter(t=>t.s===sk&&t.cat===ct);
-   return ts.length?`<section class="cat"><div class="cat-h"><span class="cat-s">${SECTIONS[sk].n}</span><h4>${SECTIONS[sk].cats[ct]}</h4><span>${ts.length}</span></div><div class="grid">${ts.map(card).join('')}</div></section>`:''}).join('');
+  // sin búsqueda: cada categoría de los datos es una pestaña y solo se ve la elegida; con búsqueda, todas las que coinciden
+  const groups=keys.map(key=>{const [sk,ct]=key.split(':');return {key,name:SECTIONS[sk].cats[ct],ts:ts0.filter(t=>t.s===sk&&t.cat===ct)};}).filter(g=>g.ts.length);
+  let cats;
+  if(filtered)cats=groups.map(g=>`<section class="cat"><div class="cat-h"><h4>${g.name}</h4><span>${g.ts.length}</span></div><div class="grid">${g.ts.map(card).join('')}</div></section>`).join('');
+  else{const sel=groups.some(g=>g.key===subOpen[k])?subOpen[k]:groups[0]&&groups[0].key;
+   cats=`<div class="st" role="tablist" aria-label="Categorías de ${n}">${groups.map((g,j)=>{const on=g.key===sel;return `<button type="button" role="tab" id="st-${k}-${j}" aria-selected="${on}" aria-controls="sp-${k}-${j}" tabindex="${on?0:-1}" data-key="${g.key}">${g.name}<span>${g.ts.length}</span></button>`;}).join('')}</div>`+
+    groups.map((g,j)=>`<div class="sp" role="tabpanel" id="sp-${k}-${j}" aria-labelledby="st-${k}-${j}" tabindex="0"${g.key===sel?'':' hidden'}><div class="grid">${g.ts.map(card).join('')}</div></div>`).join('');}
   return `<h3 class="goal-h" style="--i:${k}"><button type="button" class="goal" id="g-${k}" data-k="${k}" aria-expanded="${open}" aria-controls="gp-${k}"${c?'':' disabled'}><b>${n}</b><span class="gi" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></span><span class="gd">${d}</span><span class="num">${c}<span class="sr"> ${lab}</span></span></button></h3>`+
    `<div class="gp" id="gp-${k}" role="region" aria-labelledby="g-${k}" style="--i:${k}"${open?'':' hidden'}>${filtered?`<p class="gp-h" aria-hidden="true">${n}<span>${c} ${lab}</span></p>`:''}${cats}</div>`;
  }).join('');
+ // con búsqueda solo se ven las fichas que coinciden, sin categorías ni desplegables
+ $('chips').closest('.purpose').hidden=filtered;
+ $('list').innerHTML=filtered&&list.length?`<div class="grid">${list.map(card).join('')}</div>`:'';
  const shown=list.length;
  // recuento + filtros activos (cada uno se puede quitar)
  const act=[];
@@ -625,8 +613,7 @@ function render(){
  const what=act.length?`${shown} ${shown===1?'resultado':'resultados'}`:`${shown} ${unit(shown)}`;
  $('state').innerHTML=!act.length?'':`<p class="count">${what}</p>`+(act.length?`<div class="active"><span class="sr">Filtros activos:</span>${act.join('')}${act.length>1?'<button type="button" class="clearall" data-rm="all">Limpiar todo</button>':''}</div>`:'');
  $('q-clear').hidden=!state.raw;
- $('mb-n').textContent=sec2||'';
- $('mb-c').textContent=act.length?what:'';
+  $('mb-c').textContent=act.length?what:'';
  // estado vacío: solo si de verdad no hay resultados (el texto no existe en la página hasta entonces)
  const E=$('empty');
  if(shown){E.hidden=true;E.innerHTML='';return;}
@@ -654,12 +641,15 @@ function remove(what){
  el.addEventListener('keydown',e=>{if(e.key==='Escape'&&el.value){setQ('');render()}});
 });
 $('q-clear').addEventListener('click',()=>{setQ('');render();qEl.focus()});
-$('tabs').addEventListener('click',e=>{const b=e.target.closest('button');if(!b||b.disabled)return;state.sec=b.dataset.sec;render();});
-$('areas').addEventListener('click',e=>{const b=e.target.closest('button');if(!b||b.disabled)return;state.area=b.dataset.area||null;render();});
-// «Más filtros»: se abre y se cierra en su sitio (sin capas por encima)
-const mfT=$('mf-t');
-const setMF=open=>{mfT.setAttribute('aria-expanded',open);$('mf').hidden=!open;};
-mfT.addEventListener('click',()=>setMF(mfT.getAttribute('aria-expanded')!=='true'));
+// pestañas de categoría: clic o flechas (patrón de pestañas accesible); cambian sin volver a pintar
+const selTab=(b,focus)=>{const list=b.parentElement,k=+list.closest('.gp').id.split('-')[1];
+ list.querySelectorAll('[role=tab]').forEach(x=>{const on=x===b;x.setAttribute('aria-selected',on);x.tabIndex=on?0:-1;$(x.getAttribute('aria-controls')).hidden=!on;});
+ subOpen[k]=b.dataset.key;if(focus)b.focus();b.scrollIntoView({block:'nearest',inline:'nearest'});};
+$('chips').addEventListener('click',e=>{const b=e.target.closest('[role=tab]');if(b)selTab(b,false);});
+$('chips').addEventListener('keydown',e=>{const b=e.target.closest('[role=tab]');if(!b)return;
+ const tabs=[...b.parentElement.querySelectorAll('[role=tab]')],i=tabs.indexOf(b);
+ const to={ArrowRight:i+1,ArrowLeft:i-1,Home:0,End:tabs.length-1}[e.key];
+ if(to===undefined)return;e.preventDefault();selTab(tabs[(to+tabs.length)%tabs.length],true);});
 document.addEventListener('click',e=>{const b=e.target.closest('[data-rm],[data-act]');if(!b||!b.closest('#state,#empty'))return;
  if(b.dataset.act==='sec'){state.sec=b.dataset.sec;render();}else{remove(b.dataset.rm);$('state').focus({preventScroll:true});}});
 // abrir y cerrar sin volver a pintar; el botón pulsado no se mueve de su sitio
@@ -671,7 +661,7 @@ $('chips').addEventListener('click',e=>{const b=e.target.closest('.goal');if(!b|
  set(b,open);
  const dy=b.getBoundingClientRect().top-y0;if(Math.abs(dy)>1)scrollBy({top:dy,behavior:'instant'});
 });
-$('chips').addEventListener('click',e=>{const b=e.target.closest('.more-t');if(!b)return;const open=b.getAttribute('aria-expanded')!=='true';b.setAttribute('aria-expanded',open);$(b.getAttribute('aria-controls')).hidden=!open;});
+document.addEventListener('click',e=>{const b=e.target.closest('#chips .more-t,#list .more-t');if(!b)return;const open=b.getAttribute('aria-expanded')!=='true';b.setAttribute('aria-expanded',open);$(b.getAttribute('aria-controls')).hidden=!open;});
 // barra fina: aparece cuando el buscador queda por encima de la pantalla y desaparece al volver a él
 $('mb-f').addEventListener('click',()=>{$('herramientas').scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'});setTimeout(()=>$('chips').querySelector('button:not(:disabled)')?.focus({preventScroll:true}),400);});
 if('IntersectionObserver' in window){

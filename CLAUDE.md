@@ -14,22 +14,23 @@ Cada push a `main` se publica solo en 1-2 minutos. El Consejo de Clío vive en o
 - `assets/site.css`, `assets/site.js` → estilos y scripts comunes. Si cambian, subir `CSSV` en `build.py`
   (rompe la caché del navegador).
 - `herramientas/` → la «Caja de herramientas digitales». Página propia, se edita directamente
-  (`index.html` + `tools.js` con los datos; logos en `herramientas/logos/`). Al entrar muestra las 118 (pestaña «Todo»);
+  (`index.html` + `tools.js` con los datos; logos en `herramientas/logos/`). Al entrar, las cuatro categorías plegadas;
   el buscador busca en todas las secciones, entiende plurales y los términos relacionados de `SYN` en `index.html`.
-  Búsqueda: (1) buscador + «¿Qué quieres hacer?»; «Más filtros» (desplegable) con Tipo de recurso (Todo/Aula/Docente/
-  Recursos) y Materia (`AREAS` en `tools.js`: solo herramientas propias de una materia, decisiones documentadas allí);
-  al bajar, barra fina fija con el mismo aspecto que la barra del menú pegada (logo, buscador + «Filtros») (aparece al pasar el buscador). Si `tools.js` falla, aviso con reintento.
-  Antes: (2) «¿Qué quieres hacer?» = `TASKS`, cuatro objetivos
+  Al bajar, barra fina fija con el mismo aspecto que la barra del menú pegada (logo, buscador + «Categorías»). Si `tools.js`
+  falla, aviso con reintento. `AREAS` (materias) sigue en `tools.js` pero ya no tiene interfaz.
+  «¿Qué quieres hacer?» = `TASKS`, cuatro objetivos
   (Enseñar y aprender, Crear materiales, Evaluar y participar, Organizar y gestionar); cada herramienta cae en uno solo según
-  su categoría (`s:cat`); siempre visibles, desactivados si no tienen resultados; (3) recuento + filtros activos (solo cuando hay alguno; sin filtros no se muestra el total). Hero editorial sin demostración: etiqueta, título (dos líneas en
-  escritorio) y a su lado descripción + «Revisada en octubre de 2026» como metadato; debajo, el único buscador visible (`#q`,
-  con etiqueta visible «Busca en la caja»). `#q2` es el de la barra fina: está sincronizado y solo aparece cuando `#q` sale de pantalla.
+  su categoría (`s:cat`); recuento + búsqueda activa solo cuando se busca. Hero: etiqueta, título y a la derecha un sello circular «Revisada
+  octubre 2026». Debajo, el buscador en un bloque azul marino (`.find-box`, «Busca en la caja»): ahí empieza la aplicación.
+  Ya no hay «Más filtros» (tipo/materia): `state.sec`/`state.area` quedan sin interfaz. Con búsqueda solo se ven las
+  fichas que coinciden (`#list`), sin categorías. `#q2` es el de la barra fina (botón «Categorías»): sincronizado, solo
+  aparece cuando `#q` sale de pantalla.
   Catálogo: los cuatro botones de «¿Qué quieres hacer?» (`TASKS`) son las categorías; cada uno despliega debajo su panel
   `.gp` unido al botón «en lágrima» (fondo ice). Escritorio: 4 columnas y los paneles debajo de la fila (orden por CSS `order`);
-  ≤900px: una columna y cada panel justo bajo su botón. Dentro, subgrupos por categoría de los datos con su tipo. Sin búsqueda
-  ni filtros: plegadas al entrar y solo una abierta (`browseOpen`); con búsqueda o filtros se abren todas las que tienen
-  resultados y las vacías se desactivan. Ya no hay filtro por objetivo (`state.p` eliminado). «Más filtros» y los filtros
-  activos van bajo el buscador. La barra fina observa el buscador, no la sección. Al abrir/cerrar, el botón no se mueve. Fichas compactas:
+  ≤900px: una columna y cada panel justo bajo su botón. Dentro, las categorías de los datos son pestañas (`role=tab`,
+  flechas para moverse; `subOpen` recuerda la elegida) y solo se ven sus fichas. Sin etiqueta Aula/Docente: por eso
+  «Explorar Geografía e Historia» pasó a «Geografía e Historia» y docente:crear a «Materiales para tu clase». Plegadas
+  al entrar y solo una abierta (`browseOpen`). Ya no hay filtro por objetivo (`state.p` eliminado). La barra fina observa el buscador, no la sección. Al abrir/cerrar, el botón no se mueve. Fichas compactas:
   frase de uso + primer ejemplo (`i[0]`) + etiquetas; el resto va en «Detalles». Las etiquetas salen solo de los datos.
   Lo que ha cerrado o cambiado sale de `CHANGES` en `tools.js` (el último elemento es la novedad destacada);
   el balance (siguen, nuevas, otro nombre, cerradas) se calcula con el campo `st`.
@@ -37,6 +38,9 @@ Cada push a `main` se publica solo en 1-2 minutos. El Consejo de Clío vive en o
   Música y Programación en `SUBJ` (solo para buscar). Edad mínima en `tools.js` (`edad`, `edadTxt`, `edadUrl`) solo con
   fuente oficial; si no la hay, la ficha dice que se consulten las condiciones. Fichas: sin alturas fijas; cada fila se
   iguala sola y las etiquetas + botones se apoyan abajo (margin-top:auto solo en `.facts`).
+- `assets/caja-demo.js` → animación «Así se usa la caja» del Repositorio digital: carga `/herramientas/tools.js` y
+  reproduce la caja (buscar → solo fichas; elegir → lágrima con pestañas → ficha → Detalles → Abrir). Copia las cuatro
+  categorías de `TASKS`: si cambian, actualizarla.
 - `apps/` → el Mapa de relieves y El bombo, recuperados de claude.ai y alojados aquí (no dependen de Claude).
 - `anterior/` → copia de la portada antigua (sin indexar). No tocar.
 - `_build/cv.html` → fuente del CV. Para regenerar el PDF: Chrome headless con `--print-to-pdf` (comando al inicio del archivo).

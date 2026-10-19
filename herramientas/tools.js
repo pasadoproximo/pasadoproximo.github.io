@@ -11,7 +11,7 @@ const SECTIONS = {
     d: "Herramientas que usa el alumnado en clase",
     cats: {
       part: "Participar y repasar",
-      geohis: "Explorar Geografía e Historia",
+      geohis: "Geografía e Historia",
       crear: "Crear y presentar",
       equipo: "Trabajar en equipo",
       cienc: "Ciencias, Matemáticas y Tecnología",
@@ -24,7 +24,7 @@ const SECTIONS = {
     d: "Herramientas para el trabajo del profesor",
     cats: {
       ia: "IA para preparar clase",
-      crear: "Crear materiales",
+      crear: "Materiales para tu clase",
       gestion: "Gestionar el aula",
       eval: "Evaluar y motivar",
       org: "Organizar recursos"
