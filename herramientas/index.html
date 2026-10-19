@@ -227,6 +227,7 @@ body.mini-on .top{transform:translateY(-140%)}
 .cat-h h4{font:800 21px/1.1 var(--f-disp);letter-spacing:-.015em}
 .cat-h span{color:var(--mut);font-weight:700;font-size:15px}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,272px),1fr));gap:16px;align-items:stretch}
+.grid.lock{align-items:start}
 .tool .facts{margin-top:auto}
 
 /* ficha compacta */
@@ -661,7 +662,16 @@ $('chips').addEventListener('click',e=>{const b=e.target.closest('.goal');if(!b|
  set(b,open);
  const dy=b.getBoundingClientRect().top-y0;if(Math.abs(dy)>1)scrollBy({top:dy,behavior:'instant'});
 });
-document.addEventListener('click',e=>{const b=e.target.closest('#chips .more-t,#list .more-t');if(!b)return;const open=b.getAttribute('aria-expanded')!=='true';b.setAttribute('aria-expanded',open);$(b.getAttribute('aria-controls')).hidden=!open;});
+// «Detalles»: la ficha abierta crece sola; las demás de su fila conservan su altura (no se estiran con ella)
+const lockGrid=g=>{g.classList.remove('lock');const cs=[...g.children];cs.forEach(c=>c.style.minHeight='');
+ const open=cs.filter(c=>c.querySelector('.more-b:not([hidden])'));
+ if(!open.length)return;
+ open.forEach(c=>c.querySelector('.more-b').hidden=true);
+ const hs=cs.map(c=>c.offsetHeight);
+ open.forEach(c=>c.querySelector('.more-b').hidden=false);
+ cs.forEach((c,i)=>c.style.minHeight=hs[i]+'px');g.classList.add('lock');};
+document.addEventListener('click',e=>{const b=e.target.closest('#chips .more-t,#list .more-t');if(!b)return;const open=b.getAttribute('aria-expanded')!=='true';b.setAttribute('aria-expanded',open);$(b.getAttribute('aria-controls')).hidden=!open;lockGrid(b.closest('.grid'));});
+let rzG;addEventListener('resize',()=>{clearTimeout(rzG);rzG=setTimeout(()=>document.querySelectorAll('.grid.lock').forEach(lockGrid),150)});
 // barra fina: aparece cuando el buscador queda por encima de la pantalla y desaparece al volver a él
 $('mb-f').addEventListener('click',()=>{$('herramientas').scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'});setTimeout(()=>$('chips').querySelector('button:not(:disabled)')?.focus({preventScroll:true}),400);});
 if('IntersectionObserver' in window){

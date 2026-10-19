@@ -37,7 +37,8 @@ Cada push a `main` se publica solo en 1-2 minutos. El Consejo de Clío vive en o
   Buscador: palabras cortas (IA, 3D) solo cuentan en nombre y descripción, no en los ejemplos; materias de Ciencias,
   Música y Programación en `SUBJ` (solo para buscar). Edad mínima en `tools.js` (`edad`, `edadTxt`, `edadUrl`) solo con
   fuente oficial; si no la hay, la ficha dice que se consulten las condiciones. Fichas: sin alturas fijas; cada fila se
-  iguala sola y las etiquetas + botones se apoyan abajo (margin-top:auto solo en `.facts`).
+  iguala sola y las etiquetas + botones se apoyan abajo (margin-top:auto solo en `.facts`). Al abrir «Detalles», `lockGrid`
+  fija la altura de las demás fichas de esa cuadrícula (`.grid.lock`): solo crece la abierta.
 - `assets/caja-demo.js` → animación «Así se usa la caja» del Repositorio digital: carga `/herramientas/tools.js` y
   reproduce la caja (buscar → solo fichas; elegir → lágrima con pestañas → ficha → Detalles → Abrir). Copia las cuatro
   categorías de `TASKS`: si cambian, actualizarla.
