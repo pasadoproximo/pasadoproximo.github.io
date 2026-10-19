@@ -322,7 +322,7 @@ P.append(dict(
            ("Ver el repositorio original", "https://sites.google.com/view/repositorio-digital-docente-cc/inicio", "ext")],
     sections=[
         ("La necesidad", """
-<p class="psub">El profesorado del centro tenía dificultades para encontrar las herramientas digitales adecuadas para sus clases y para ayudarse en su labor docente. Faltaba un sitio común claro y adaptado al centro que permitiera su autoformación.</p>
+<p class="psub">La dirección estaba intentando fomentar la digitalización del centro y el claustro tenía dificultades para encontrar las herramientas digitales adecuadas. Faltaba un sitio común claro y adaptado al centro que permitiera la autoformación del profesorado.</p>
 <ul class="needs three">
 <li><b>Qué hice</b><span>Elaboré una web mediante Google Sites donde se recogían todas las herramientas digitales que los docentes podían usar en sus clases. Se organizaba por etapas y materias.</span></li>
 <li><b>Cómo lo hice</b><span>Realicé una curación de herramientas digitales específica tras detectar mediante entrevistas las necesidades del centro y de los propios docentes.</span></li>
