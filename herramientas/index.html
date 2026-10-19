@@ -27,7 +27,8 @@ body{background:var(--bg);color:var(--txt);font-family:var(--f-body);font-size:1
 a{color:inherit}
 img{display:block;max-width:100%}
 button{font-family:inherit}
-:focus-visible{outline:3px solid var(--sky);outline-offset:3px;border-radius:8px}
+:focus-visible{outline:3px solid var(--navy3);outline-offset:3px;border-radius:8px}
+.dark :focus-visible,.goal[aria-pressed="true"]:focus-visible,.minibar .mb-f:focus-visible{outline-color:var(--sky)}
 .wrap{max-width:1240px;margin:0 auto;padding-inline:20px}
 .lab{font:700 13px var(--f-body);letter-spacing:.14em;text-transform:uppercase;color:var(--mut)}
 .dark .lab{color:var(--pale)}
@@ -179,7 +180,7 @@ footer a{font-weight:700}
 .tagx:hover{background:#C9D3F0}
 .clearall{font:700 14px var(--f-body);color:var(--navy3);background:none;border:0;text-decoration:underline;text-underline-offset:3px;cursor:pointer;padding:6px 4px;min-height:34px}
 .state:focus{outline:none}
-.state:focus-visible{outline:3px solid var(--sky);outline-offset:4px;border-radius:8px}
+.state:focus-visible{outline:3px solid var(--navy3);outline-offset:4px;border-radius:8px}
 .nojs,.loaderr{margin-top:18px;background:#fff;border-radius:16px;padding:18px 20px}
 .nojs a,.loaderr a{font-weight:700;color:var(--navy3)}
 .loaderr p{font:800 20px/1.2 var(--f-disp);color:var(--navy)}
@@ -233,11 +234,11 @@ body.mini-on .top{transform:translateY(-140%)}
 .fact.ok{background:#E3F4EA;color:#17633F}.fact.ok svg{stroke:#17633F}
 .fact.warn{background:#FFF1D6;color:#7A4E00}.fact.warn svg{stroke:#7A4E00}
 .tool-f{padding-top:10px;border-top:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap}
-.btn{display:inline-flex;align-items:center;gap:6px;font:700 14.5px var(--f-body);padding:8px 14px;border-radius:999px;text-decoration:none;border:1.5px solid var(--navy);white-space:nowrap}
+.btn{display:inline-flex;align-items:center;gap:6px;font:700 14.5px var(--f-body);padding:8px 16px;min-height:40px;border-radius:999px;text-decoration:none;border:1.5px solid var(--navy);white-space:nowrap}
 .btn.solid{background:var(--navy);color:#fff}
 .btn.solid:hover{background:var(--navy3)}
 .btn svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
-.more-t{font:700 14.5px var(--f-body);color:var(--navy3);background:none;border:0;cursor:pointer;display:inline-flex;align-items:center;gap:4px;padding:6px 4px}
+.more-t{font:700 14.5px var(--f-body);color:var(--navy3);background:none;border:0;cursor:pointer;display:inline-flex;align-items:center;gap:4px;padding:6px 8px;min-height:44px;margin-right:-8px}
 .more-t::after{content:"";width:7px;height:7px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg) translateY(-2px);margin-left:4px;transition:transform .2s}
 .more-t[aria-expanded="true"]::after{transform:rotate(-135deg) translateY(-1px)}
 .more-t:hover{color:var(--navy)}
@@ -606,8 +607,9 @@ function render(){
 const qEl=$('q'), q2=$('q2');
 // en pantallas estrechas, el texto de ayuda corto para que no se corte
 const mqN=matchMedia('(max-width:560px)');
-const ph=()=>{qEl.placeholder=mqN.matches?'Busca una herramienta o tarea…':'Busca una herramienta o qué necesitas hacer…'};
-ph();mqN.addEventListener('change',ph);
+const mqXS=matchMedia('(max-width:360px)');
+const ph=()=>{qEl.placeholder=mqXS.matches?'Busca una herramienta…':mqN.matches?'Busca una herramienta o tarea…':'Busca una herramienta o qué necesitas hacer…'};
+ph();mqN.addEventListener('change',ph);mqXS.addEventListener('change',ph);
 const toList=()=>{const y=$('state').getBoundingClientRect().top+scrollY-70;if(scrollY>y)scrollTo({top:y})};
 const setQ=v=>{qEl.value=v;q2.value=v;state.raw=v;};
 function remove(what){
