@@ -313,7 +313,7 @@ P.append(dict(
     card="La web de herramientas que creé para un centro en 2024 y su revisión de 2026 para Secundaria.",
     viz="v-caja",
     h1="Del repositorio de centro a la caja de herramientas",
-    lede="Una web para que el profesorado encuentre rápido qué herramienta digital usar, para qué edad y cómo. La creé en 2024 para el Colegio Cerrado de Calderón (Málaga), en las prácticas del Máster en Tecnología Educativa, y en 2026 la he rehecho para Secundaria.",
+    lede="Una web para que el profesorado encuentre rápido qué herramienta digital usar. La creé en 2024 para el Colegio Cerrado de Calderón (Málaga), en las prácticas del Máster en Tecnología Educativa. En 2026 la he actualizado para Secundaria.",
     meta=[("Para quién", "El claustro del centro (2024) y docentes de Secundaria (2026)"),
           ("Tipo", "Web de recursos y autoformación"),
           ("Herramientas", "Google Sites (2024) · web propia (2026)"),
