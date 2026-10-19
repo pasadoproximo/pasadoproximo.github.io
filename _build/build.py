@@ -317,7 +317,7 @@ def project(p):
  <nav class="crumbs" aria-label="Ruta"><a href="/proyectos/">Proyectos</a><span aria-hidden="true">/</span><a href="/proyectos/#{p["cat"]}">{c["name"]}</a></nav>
  <section class="bento phead" aria-labelledby="ph1">
   <div class="t dark ph-main rv">
-   <span class="lab">{"Caso de estudio" if p.get("kind")=="caso" else "Ficha"} · {" · ".join(html.escape(t) for t in p["tags"][:2])} · {p["year"]}</span>
+   <span class="lab">{p.get("lab") or (("Caso de estudio" if p.get("kind")=="caso" else "Ficha") + " · " + " · ".join(html.escape(t) for t in p["tags"][:2]) + " · " + p["year"])}</span>
    <h1 id="ph1">{h1}</h1>
    <p class="lede">{p["lede"]}</p>
    {f'<div class="cta">{links}</div>' if links else ''}

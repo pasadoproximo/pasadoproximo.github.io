@@ -309,6 +309,7 @@ P.append(dict(
 P.append(dict(
     slug="repositorio-digital", cat="profesorado", year="2024 · 2026",
     title="Repositorio digital docente", tags=["Web de recursos", "Profesorado"], kind="caso",
+    lab="Web de recursos",
     card="La web de herramientas que creé para un centro en 2024 y su revisión de 2026 para Secundaria.",
     viz="v-caja",
     h1="Del repositorio de centro a la caja de herramientas",
