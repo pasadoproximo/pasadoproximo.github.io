@@ -112,10 +112,13 @@ footer a{font-weight:700}
 @media (max-width:780px){.bar nav a.nav-key{display:inline-flex}.bar nav{gap:4px}.bar nav a{padding:8px 12px}.bar nav a.cv{display:none}}
 @media (max-width:440px){.bar nav a{padding:8px 10px;font-size:15px}}
 /* cabecera breve */
-.head{margin-top:32px}
+.head{margin-top:52px}
 .head h1{font:800 clamp(34px,4.4vw,56px)/1 var(--f-disp);letter-spacing:-.03em;margin-top:10px}
 .head h1 span{color:var(--navy3)}
 .head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,460px);gap:28px 56px;align-items:start}
+/* la etiqueta va sola arriba; debajo, el título y la animación empiezan a la misma altura */
+.head-l{grid-column:1/-1;margin-bottom:-6px}
+.head-t h1{margin-top:0}
 /* pasos a la izquierda, bajo el título: se marcan al ritmo de la animación */
 .d-steps{list-style:none;padding:0;margin-top:30px;display:grid;gap:4px;max-width:360px;counter-reset:d}
 .d-steps li{counter-increment:d;display:grid;grid-template-columns:34px 1fr;gap:12px;align-items:center;font:700 17px/1.25 var(--f-body);color:var(--mut);padding:8px 0;transition:color .3s}
@@ -164,7 +167,8 @@ footer a{font-weight:700}
 @media (prefers-reduced-motion:reduce){.d-card,.d-n,.d-steps li,.d-steps li::before,.d-open,.d-det,.d-det::after{transition:none}.d-card.open .more-b{animation:none}.d-caret{animation:none}}
 
 /* buscador: primer nivel = búsqueda + «¿Qué quieres hacer?» */
-.finder{margin-top:24px}
+.finder{margin-top:72px}
+@media (max-width:640px){.finder{margin-top:48px}}
 .search{display:flex;align-items:center;gap:10px;background:#fff;border:1px solid #CDD5E5;border-radius:999px;padding:0 6px 0 18px;height:52px}
 .search:focus-within{border-color:var(--navy);box-shadow:0 0 0 3px rgba(159,179,255,.45)}
 .search>svg{width:20px;height:20px;stroke:var(--mut);fill:none;stroke-width:2.2;stroke-linecap:round;flex:none}
@@ -400,8 +404,8 @@ body.mini-on .top{transform:translateY(-140%)}
 
 <main>
  <section class="head" id="hero" data-s="1" aria-labelledby="ph1">
+  <span class="lab head-l">Para docentes de Secundaria y Bachillerato · Revisión de octubre de 2026</span>
   <div class="head-t">
-   <span class="lab">Para docentes de Secundaria y Bachillerato · Revisión de octubre de 2026</span>
    <h1 id="ph1">Caja de herramientas <span>digitales</span></h1>
    <p class="sr">Herramientas y recursos elegidos y comprobados. Busca lo que necesitas, mira cómo usarlo en clase con un ejemplo y ábrelo.</p>
    <ol class="d-steps" aria-hidden="true"><li>Busca lo que necesitas</li><li>Mira cómo usarla en clase</li><li>Ábrela</li></ol>
