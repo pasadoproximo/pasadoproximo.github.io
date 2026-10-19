@@ -972,3 +972,16 @@ mark.err{background:#FCE3E3;color:inherit;border-bottom:2px solid #C73636;paddin
 .cgrid:has(.cg-h:nth-of-type(3) .cg[aria-expanded="true"]) .cgp{border-top-right-radius:0}
 @media (max-width:900px){.cgrid{grid-template-columns:minmax(0,1fr);gap:10px}.cg-h,.cgp{order:0}.cgp,.cgrid .cgp{padding:16px;border-radius:0 0 22px 22px}.cg[aria-expanded="true"]::after{bottom:-10px;height:10px}}
 @media (prefers-reduced-motion:reduce){.cg .gi{transition:none}}
+
+/* «Mantenerlo al día»: problema → qué hicimos, en filas sobre el fondo (sin tarjeta) */
+.upd{margin-top:28px;border-top:1.5px solid #D3DAEA}
+.upd-h{display:grid;grid-template-columns:minmax(0,1fr) 40px minmax(0,1fr);gap:24px;padding:14px 0 10px;font:700 12.5px var(--f-body);letter-spacing:.12em;text-transform:uppercase;color:var(--mut);border-bottom:1px solid #D3DAEA}
+.upd-r{display:grid;grid-template-columns:minmax(0,1fr) 40px minmax(0,1fr);gap:24px;align-items:center;padding:20px 0;border-bottom:1px solid #D3DAEA}
+.psec .upd p{margin:0;max-width:none;font-size:17px;line-height:1.5}
+.upd-a{color:var(--mut)}
+.upd-a b{display:block;font:800 19px/1.2 var(--f-disp);letter-spacing:-.01em;color:var(--navy);margin-bottom:4px}
+.psec .upd p.upd-b{color:var(--navy);font-weight:600}
+.upd-ar{width:36px;height:36px;border-radius:50%;background:var(--navy);display:grid;place-items:center}
+.upd-ar svg{width:16px;height:16px;stroke:#fff;fill:none;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+@media (max-width:700px){.upd-h{display:none}.upd-r{grid-template-columns:minmax(0,1fr);gap:10px}.upd-ar{width:28px;height:28px;transform:rotate(90deg)}}
+.upd-r:last-child{border-bottom:0}

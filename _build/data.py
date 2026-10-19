@@ -344,14 +344,13 @@ FIG:/assets/proyectos/repositorio-digital/ficha-2024.jpg?v=2|Ficha de StopMotion
 </div>"""),
         dict(title="Mantenerlo al día",
              intro='<p class="psub">La tecnología educativa evoluciona muy rápido: dos años después, muchas herramientas habían cerrado o cambiado. Por eso en 2026 la he rehecho para Secundaria.</p>',
-             cols=2, figs=[],
-             after="""<div class="versions">
-<div class="ver"><span class="ver-y">2024</span><h3>La web del centro</h3>
-<ul class="ver-l"><li>Google Sites para el Colegio Cerrado de Calderón (Málaga).</li><li>Por etapas y materias, con un apartado de Apoyo docente.</li><li>Presentada por el centro en Braining (Valencia, abril de 2025).</li></ul>
-FIG:/assets/proyectos/repositorio-digital/inicio-2024.jpg|Portada del repositorio en Google Sites: menú por etapas (Infantil, Primaria, Secundaria y Bachillerato, Apoyo docente, Recursos) y los objetivos del repositorio|La portada, con el menú por etapas.</div>
-<div class="ver ver-new"><span class="ver-y">2026</span><h3>La caja de herramientas</h3>
-<ul class="ver-l"><li>Web propia, pensada para Secundaria.</li><li>Herramientas digitales para el aula y el docente. Recursos disponibles.</li><li>Se busca por lo que necesitas hacer: enseñar, crear materiales, evaluar u organizar.</li><li>Filtros secundarios por tipo de recurso y por materia.</li><li>Revisada una a una en octubre de 2026.</li><li>Lo que ha cerrado, su alternativa y la IA con cuenta de centro.</li></ul>
-FIG:/assets/proyectos/repositorio-digital/caja-2026.jpg?v=12|Portada de la Caja de herramientas digitales: un bloque azul marino con el título, una breve descripción, el sello «Revisada octubre 2026» y el buscador; debajo, «¿Qué quieres hacer?» con sus cuatro categorías, la primera desplegada con sus pestañas|La portada: título, buscador y «¿Qué quieres hacer?».</div>
+             cols=1, figs=[],
+             after="""<div class="upd">
+<div class="upd-h" aria-hidden="true"><span>El problema</span><span></span><span>Qué hicimos</span></div>
+<div class="upd-r"><p class="upd-a"><b>Herramientas cerradas</b>Cinco ya no funcionaban.</p><span class="upd-ar" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span><p class="upd-b"><span class="vh">Qué hicimos: </span>Cada una tiene ahora una alternativa.</p></div>
+<div class="upd-r"><p class="upd-a"><b>Nombres que cambiaron</b>Quizizz y Freepik ya no se llaman así.</p><span class="upd-ar" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span><p class="upd-b"><span class="vh">Qué hicimos: </span>Aparecen con su nombre actual: Wayground y Magnific.</p></div>
+<div class="upd-r"><p class="upd-a"><b>Faltaba la IA de los centros</b>No estaban las IA que ya incluyen las cuentas educativas.</p><span class="upd-ar" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span><p class="upd-b"><span class="vh">Qué hicimos: </span>Están Gemini, NotebookLM y Copilot, para usarlas con la cuenta del centro.</p></div>
+<div class="upd-r"><p class="upd-a"><b>Difícil de encontrar</b>Había que saber en qué etapa y materia buscar.</p><span class="upd-ar" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span><p class="upd-b"><span class="vh">Qué hicimos: </span>Se busca por nombre o por lo que necesitas hacer.</p></div>
 </div>
 <div class="caja-demo">
 <div><span class="ver-y">2026</span><h3>Así se usa la caja</h3><p>Buscas una herramienta o eliges qué quieres hacer. La categoría se despliega con sus herramientas, cada ficha explica qué hace el alumnado con un ejemplo y qué necesita, en «Detalles» hay más ideas para clase, y desde ahí la abres.</p></div>
