@@ -64,7 +64,7 @@ FAVICON = re.search(r'<link rel="icon"[^>]*>', SRC).group(0)
 FONTS = '''<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alegreya+SC:wght@700&family=Alegreya+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&display=swap">'''
-CSSV = "20"
+CSSV = "21"
 
 
 def head(title, desc, path, og="/assets/og.jpg"):
@@ -221,16 +221,24 @@ def home():
 
 # ================================================================= ÍNDICE
 def index():
-    nav = f'<button type="button" data-cat="all" aria-pressed="true">Todos <span>{len(P)}</span></button>' + "".join(f'<button type="button" data-cat="{k}" aria-pressed="false">{c["name"]} <span>{sum(1 for p in P if p["cat"]==k)}</span></button>' for k, c in CATS.items())
-    secs = ""
-    for k, c in CATS.items():
+    # las categorías son botones que despliegan sus proyectos debajo, como en la Caja de herramientas;
+    # la del repositorio va primera y abierta al entrar, y solo hay una abierta a la vez
+    order = ["profesorado", "herramientas", "aula"]
+    chev = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>'
+    goals = ""
+    for i, k in enumerate(order):
+        c = CATS[k]; n = sum(1 for p in P if p["cat"] == k); op = i == 0
         cards = "\n".join(card(p) for p in P if p["cat"] == k)
-        secs += f'''
- <section class="pcat" id="{k}" aria-labelledby="h-{k}">
-  <div class="pcat-head rv"><h2 id="h-{k}">{c["name"]}</h2><p>{c["desc"]}</p></div>
-  <div class="pgrid g3">
+        goals += f'''
+  <h2 class="cg-h" id="{k}" style="--i:{i}"><button type="button" class="cg" id="cg-{k}" aria-expanded="{str(op).lower()}" aria-controls="cp-{k}"><b>{c["name"]}</b><span class="gi">{chev}</span><span class="gd">{c["desc"]}</span><span class="num">{n}<span class="vh"> proyectos</span></span></button></h2>
+  <div class="cgp" id="cp-{k}" role="region" aria-labelledby="cg-{k}" style="--i:{i}"{"" if op else " hidden"}><div class="pgrid g3">
 {cards}
+  </div></div>'''
+    secs = f'''
+ <section class="pcats" aria-label="Proyectos por categoría">
+  <div class="cgrid">{goals}
   </div>
+  <noscript><style>.cgp[hidden]{{display:block}}</style></noscript>
  </section>'''
     body = f'''
 <main id="contenido">
@@ -239,8 +247,6 @@ def index():
    <div><span class="lab">Proyectos</span><h1 class="h1page">Todo lo que he construido</h1></div>
    <p>{len(P)} trabajos agrupados por para qué sirven. Los proyectos más grandes se explican a fondo; las actividades y recursos tienen una ficha breve con su descarga o su enlace.</p>
   </div>
-  <div class="catnav rv" role="group" aria-label="Filtrar por categoría">{nav}</div>
-  <p class="vh" aria-live="polite" id="filtro-estado"></p>
  </section>
 {secs}
 </main>'''

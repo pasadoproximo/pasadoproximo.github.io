@@ -21,7 +21,7 @@ Cada push a `main` se publica solo en 1-2 minutos. El Consejo de Clío vive en o
   «¿Qué quieres hacer?» = `TASKS`, cuatro objetivos
   (Enseñar y aprender, Crear materiales, Evaluar y participar, Organizar y gestionar); cada herramienta cae en uno solo según
   su categoría (`s:cat`); recuento + búsqueda activa solo cuando se busca. Hero y buscador forman un solo bloque azul marino (`.head` +
-  `.find-box`): etiqueta, título, sello circular «Revisada octubre 2026» y el buscador (etiqueta solo para lector de pantalla).
+  `.find-box`): etiqueta, título, descripción breve (`.head-d`), sello circular «Revisada octubre 2026» y el buscador (etiqueta solo para lector de pantalla).
   Al pasar el cursor, foco azulado como en los hero del portfolio; cubre los dos elementos a la vez (`body.hero-hot`).
   Ya no hay «Más filtros» (tipo/materia): `state.sec`/`state.area` quedan sin interfaz. Con búsqueda solo se ven las
   fichas que coinciden (`#list`), sin categorías. `#q2` es el de la barra fina (botón «Categorías»): sincronizado, solo
@@ -84,6 +84,10 @@ Cada push a `main` se publica solo en 1-2 minutos. El Consejo de Clío vive en o
   horizontales (`needs`, `hsteps`, `gal frame`, `status`). El Consejo tiene además su web completa en `/consejo-de-clio/`,
   con la misma barra que el portfolio.
 - Todas las páginas (portfolio, Caja de herramientas y Consejo) comparten la misma barra: solo logo + menú.
+- Índice `/proyectos/`: las tres categorías son botones que despliegan sus proyectos debajo «en lágrima», como la Caja.
+  Orden: Profesorado y formación (la del repositorio, abierta al entrar), Herramientas y asistentes, Actividades de aula.
+  Una abierta a la vez; `/proyectos/#aula` abre esa. Sin JavaScript se ven todas.
+- Títulos de sección: la descripción va siempre debajo del título, nunca a la derecha (`.sec-head` en columna).
 - El resto son fichas breves (`kind="ficha"`): descripción, material real, nivel y enlace.
 - Destacados en portada, en este orden: repositorio, asistente, Consejo de Clío, Cazadores de bulos.
 - En Cazadores de bulos solo se muestran 2 de los 9 errores (no revelar el resto).

@@ -117,7 +117,8 @@ footer a{font-weight:700}
 .head .lab{grid-column:1/-1;display:block;font-size:12.5px;line-height:1.5;color:var(--pale)}
 .head h1{font:800 clamp(40px,5vw,72px)/.96 var(--f-disp);letter-spacing:-.035em;margin-top:14px;color:#fff}
 .head h1 span{color:var(--sky)}
-.seal{width:150px;height:150px;border-radius:50%;border:2px solid var(--sky);display:grid;place-items:center;text-align:center;color:var(--sky);transform:rotate(-8deg);position:relative;margin:4px 6px 0 0}
+.head-d{grid-column:1;font-size:clamp(16.5px,1.5vw,18.5px);line-height:1.5;color:#DCE3F7;margin-top:16px;max-width:58ch}
+.seal{grid-column:2;grid-row:2/4;width:150px;height:150px;border-radius:50%;border:2px solid var(--sky);display:grid;place-items:center;text-align:center;color:var(--sky);transform:rotate(-8deg);position:relative;margin:4px 6px 0 0}
 .seal::before{content:"";position:absolute;inset:7px;border-radius:50%;border:1.5px dashed rgba(159,179,255,.5)}
 /* foco azulado que sigue al cursor, como en el hero del Repositorio; cubre título y buscador como un solo bloque */
 .head,.find-box{position:relative;isolation:isolate}
@@ -368,6 +369,7 @@ body.mini-on .top{transform:translateY(-140%)}
  <section class="head" id="hero" aria-labelledby="ph1">
   <span class="lab">Para docentes de Secundaria y Bachillerato</span>
   <h1 id="ph1">Caja de herramientas <span>digitales</span></h1>
+  <p class="head-d">Herramientas digitales seleccionadas y revisadas para usar en clase. Busca la que necesitas o elige qué quieres hacer: cada ficha explica cómo usarla, con un ejemplo, y qué hace falta.</p>
   <p class="seal"><time datetime="2026-10"><small>Revisada</small><b>octubre</b><strong>2026</strong><span class="sr"> Revisada en octubre de 2026</span></time></p>
  </section>
 

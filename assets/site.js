@@ -22,13 +22,13 @@ const m=document.querySelectorAll('.council span');
 if(m.length&&!reduce){let i=0;setInterval(()=>{m.forEach(e=>e.classList.remove('talk'));m[i%m.length].classList.add('talk');i++},1400)}
 // cintas de «Con qué trabajo»: se duplica la lista solo para el bucle visual, oculta a lectores de pantalla
 if(!reduce)document.querySelectorAll('.marq .track').forEach(t=>{[...t.children].forEach(li=>{const c=li.cloneNode(true);c.setAttribute('aria-hidden','true');t.appendChild(c)});t.closest('.marq').classList.add('loop')});
-// filtros del índice de proyectos
-const fb=[...document.querySelectorAll('.catnav button')];
-if(fb.length){const st=document.getElementById('filtro-estado');fb.forEach(b=>b.addEventListener('click',()=>{
- fb.forEach(x=>x.setAttribute('aria-pressed',x===b));const c=b.dataset.cat;
- document.querySelectorAll('.pcat').forEach(s=>{s.hidden=!(c==='all'||s.id===c);if(!s.hidden)s.querySelectorAll('.rv').forEach(r=>r.classList.add('in'))});
- if(st)st.textContent=c==='all'?'Mostrando todos los proyectos':'Mostrando: '+b.firstChild.textContent.trim();
-}));
-// si se llega con #categoría, se aplica ese filtro
-const h=location.hash.slice(1);const pre=fb.find(b=>b.dataset.cat===h);if(pre)pre.click();}
+// categorías del índice de proyectos: cada botón despliega sus proyectos debajo; solo una abierta a la vez
+const cg=[...document.querySelectorAll('.cg')];
+if(cg.length){
+ const set=(b,o)=>{b.setAttribute('aria-expanded',o);const p=document.getElementById(b.getAttribute('aria-controls'));p.hidden=!o;if(o)p.querySelectorAll('.rv').forEach(r=>r.classList.add('in'));};
+ const open=(b,o)=>{const y=b.getBoundingClientRect().top;if(o)cg.forEach(x=>{if(x!==b)set(x,false)});set(b,o);
+  const dy=b.getBoundingClientRect().top-y;if(Math.abs(dy)>1)scrollBy({top:dy,behavior:'instant'});};
+ cg.forEach(b=>b.addEventListener('click',()=>open(b,b.getAttribute('aria-expanded')!=='true')));
+ // si se llega con #categoría, se abre esa
+ const h=location.hash.slice(1),pre=cg.find(b=>b.id==='cg-'+h);if(pre)set(pre,true),cg.forEach(x=>{if(x!==pre)set(x,false)});}
 })();
