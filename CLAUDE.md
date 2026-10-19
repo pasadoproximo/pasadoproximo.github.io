@@ -24,7 +24,11 @@ Cada push a `main` se publica solo en 1-2 minutos. El Consejo de Clío vive en o
   su categoría (`s:cat`); siempre visibles, desactivados si no tienen resultados; (3) recuento + filtros activos (solo cuando hay alguno; sin filtros no se muestra el total). Hero: a la izquierda etiqueta corta, título dominante y
   descripción breve (`.head-p`); a la derecha `#demo` «Así funciona»: «Buscas «…»» como texto (no es un buscador, para no
   duplicar el real) y la primera ficha que devuelve el buscador (sin pasos ni detalles; con pausa; quieta con movimiento
-  reducido; se detiene fuera de pantalla; oculta sin JavaScript). En móvil: título, descripción, ejemplo reducido, buscador. Espacios: 80px entre categorías, 120px entre secciones. Fichas compactas:
+  reducido; se detiene fuera de pantalla; oculta sin JavaScript). En móvil: título, descripción, ejemplo reducido, buscador.
+  Listado: cuatro categorías plegables = los cuatro objetivos de `TASKS` (botón con `aria-expanded` + región); dentro, subgrupos
+  por categoría de los datos con su tipo (Aula/Docente/Recursos), 80px entre ellos. Sin búsqueda ni filtros: todas plegadas al
+  entrar y solo una abierta a la vez (`browseOpen`); con búsqueda o filtros se abren todas las que tienen resultados y las vacías
+  no se pintan; al quitarlo todo vuelve el estado de exploración. Al abrir/cerrar, el encabezado pulsado no se mueve. Fichas compactas:
   frase de uso + primer ejemplo (`i[0]`) + etiquetas; el resto va en «Detalles». Las etiquetas salen solo de los datos.
   Lo que ha cerrado o cambiado sale de `CHANGES` en `tools.js` (el último elemento es la novedad destacada);
   el balance (siguen, nuevas, otro nombre, cerradas) se calcula con el campo `st`.
