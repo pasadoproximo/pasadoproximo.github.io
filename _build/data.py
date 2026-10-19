@@ -102,7 +102,7 @@ P.append(dict(
 <div class="vs-b"><span class="vs-l">Después del ajuste</span>""" + FIG_GUIA + """</div>
 </div>"""),
         dict(title="Qué hace en la práctica",
-             intro='<p class="psub">Tres comportamientos configurados y probados. Pulsa una captura para verla completa.</p>',
+             intro='<p class="psub">Tres comportamientos configurados y probados.</p>',
              cols=3, frame=True,
              figs=[("/assets/proyectos/tfm/fuente-archivos.png", "Respuesta del asistente sobre la sociedad de la Península Ibérica medieval que termina indicando que la información sale del documento de la Unidad 5", "<b>Cita la unidad.</b> Si la respuesta sale de los materiales de clase, dice de cuál."),
                    ("/assets/proyectos/tfm/fuente-ia.png", "Respuesta del asistente sobre Abderramán III que avisa de que la información ha sido generada por inteligencia artificial y debe verificarse", "<b>Avisa si es IA.</b> Si no está en los materiales, lo dice y pide verificarlo."),
@@ -329,7 +329,7 @@ P.append(dict(
 <li><b>Para qué lo hice</b><span>Para fomentar la autoformación del profesorado y estandarizar los criterios de selección de herramientas digitales de acuerdo a lo que demandaba el centro.</span></li>
 </ul>"""),
         dict(title="Así era cada ficha",
-             intro='<p class="psub">Dos ejemplos de etapas distintas: una herramienta de Infantil y otra de Secundaria. Pulsa una captura para verla completa.</p>',
+             intro='<p class="psub">Dos ejemplos de etapas distintas: una herramienta de Infantil y otra de Secundaria.</p>',
              cols=1, figs=[],
              after="""<div class="ficha1 two">
 FIG:/assets/proyectos/repositorio-digital/ficha-infantil-2024.jpg?v=2|Ficha de Cokitos en Infantil (5 años): videotutorial de YouTube, qué es la plataforma, las áreas que trabaja (Matemáticas, Lengua, Ciencias, Arte y música) y botón a la web|<b>Infantil · 5 años · Matemáticas.</b> Cokitos: videotutorial, qué es, áreas que trabaja y enlace a la web.
@@ -337,10 +337,10 @@ FIG:/assets/proyectos/repositorio-digital/ficha-2024.jpg?v=2|Ficha de StopMotion
 </div>"""),
         ("Lo que puedo afirmar", """
 <div class="status four">
-<div class="s-ok"><span class="st-l ok">En uso</span><p>El centro la usó con su claustro como herramienta de autoformación.</p></div>
-<div class="s-exp"><span class="st-l exp">Congreso</span><p>El centro la presentó en el IX Congreso Internacional de Creatividad Educativa (Braining, Valencia, abril de 2025). <a href="https://colegiocerradodecalderon.es/braining/" rel="noopener" target="_blank">Ver la noticia</a>.</p></div>
-<div class="s-exp"><span class="st-l exp">Todo el centro</span><p>Se unificó el criterio de herramientas usadas en el centro.</p></div>
-<div class="s-pend"><span class="st-l pend">Más de 100</span><p>Más de 100 herramientas y recursos distintos a disposición del centro, cada uno con su ficha y su videotutorial.</p></div>
+<div class="s-ok"><span class="st-l ok">En uso</span><p>El centro la usó con su claustro como herramienta de autoformación del profesorado.</p></div>
+<div class="s-exp"><span class="st-l exp">Congreso</span><p>El centro la presentó en Braining, IX Congreso de Creatividad Educativa (Valencia, abril de 2025). <a href="https://colegiocerradodecalderon.es/braining/" rel="noopener" target="_blank">Ver la noticia</a>.</p></div>
+<div class="s-exp"><span class="st-l exp">Todo el centro</span><p>Se unificó el criterio para elegir las herramientas digitales que se usan en el centro.</p></div>
+<div class="s-pend"><span class="st-l pend">Más de 100</span><p>Más de 100 herramientas y recursos para el centro, cada uno con su ficha y su videotutorial.</p></div>
 </div>"""),
         dict(title="Mantenerlo al día",
              intro='<p class="psub">La tecnología educativa evoluciona muy rápido: dos años después, muchas herramientas habían cerrado o cambiado. Por eso en 2026 la he rehecho para Secundaria.</p>',
