@@ -18,11 +18,11 @@ Cada push a `main` se publica solo en 1-2 minutos. El Consejo de Clío vive en o
   el buscador busca en todas las secciones, entiende plurales y los términos relacionados de `SYN` en `index.html`.
   Búsqueda: (1) buscador + «¿Qué quieres hacer?»; «Más filtros» (desplegable) con Tipo de recurso (Todo/Aula/Docente/
   Recursos) y Materia (`AREAS` en `tools.js`: solo herramientas propias de una materia, decisiones documentadas allí);
-  al bajar, barra fina fija con buscador + «Filtros» (aparece al pasar el buscador). Si `tools.js` falla, aviso con reintento.
+  al bajar, barra fina fija con el mismo aspecto que la barra del menú pegada (logo, buscador + «Filtros») (aparece al pasar el buscador). Si `tools.js` falla, aviso con reintento.
   Antes: (2) «¿Qué quieres hacer?» = `TASKS`, cuatro objetivos
   (Enseñar y aprender, Crear materiales, Evaluar y participar, Organizar y gestionar); cada herramienta cae en uno solo según
-  su categoría (`s:cat`); siempre visibles, desactivados si no tienen resultados; (3) recuento + filtros activos (solo cuando hay alguno; sin filtros no se muestra el total). Hero sin texto: animación
-  `#demo` que escribe búsquedas reales y muestra la primera ficha que devuelve el buscador (con pausa; quieta con movimiento
+  su categoría (`s:cat`); siempre visibles, desactivados si no tienen resultados; (3) recuento + filtros activos (solo cuando hay alguno; sin filtros no se muestra el total). Hero sin texto: título + tres pasos a la izquierda y animación
+  `#demo` (sin marco) que escribe búsquedas reales, muestra la primera ficha que devuelve el buscador y abre sus Detalles (con pausa; quieta con movimiento
   reducido; se detiene fuera de pantalla). Espacios: 80px entre categorías, 120px entre secciones. Fichas compactas:
   frase de uso + primer ejemplo (`i[0]`) + etiquetas; el resto va en «Detalles». Las etiquetas salen solo de los datos.
   Lo que ha cerrado o cambiado sale de `CHANGES` en `tools.js` (el último elemento es la novedad destacada);

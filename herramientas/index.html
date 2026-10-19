@@ -115,38 +115,53 @@ footer a{font-weight:700}
 .head{margin-top:32px}
 .head h1{font:800 clamp(34px,4.4vw,56px)/1 var(--f-disp);letter-spacing:-.03em;margin-top:10px}
 .head h1 span{color:var(--navy3)}
-.head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,440px);gap:24px 48px;align-items:center}
-/* demostración animada: una búsqueda real y la ficha que devuelve, en tres pasos */
-.demo{position:relative;background:#fff;border:1px solid var(--line);border-radius:22px;padding:16px;box-shadow:0 18px 40px -24px rgba(6,16,51,.25)}
-.d-search{display:flex;align-items:center;gap:8px;height:40px;padding:0 14px;border:1px solid #CDD5E5;border-radius:999px;font:500 15px var(--f-body);color:var(--txt)}
-.d-search svg{width:16px;height:16px;stroke:var(--mut);fill:none;stroke-width:2.2;stroke-linecap:round;flex:none}
+.head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,460px);gap:28px 56px;align-items:start}
+/* pasos a la izquierda, bajo el título: se marcan al ritmo de la animación */
+.d-steps{list-style:none;padding:0;margin-top:30px;display:grid;gap:4px;max-width:360px;counter-reset:d}
+.d-steps li{counter-increment:d;display:grid;grid-template-columns:34px 1fr;gap:12px;align-items:center;font:700 17px/1.25 var(--f-body);color:var(--mut);padding:8px 0;transition:color .3s}
+.d-steps li::before{content:counter(d);width:34px;height:34px;border-radius:50%;display:grid;place-items:center;font:800 15px var(--f-disp);background:#fff;color:var(--mut);border:1px solid var(--line);transition:background .3s,color .3s,border-color .3s}
+.head[data-s="1"] .d-steps li:nth-child(1),.head[data-s="2"] .d-steps li:nth-child(2),.head[data-s="3"] .d-steps li:nth-child(3){color:var(--navy)}
+.head[data-s="1"] .d-steps li:nth-child(1)::before,.head[data-s="2"] .d-steps li:nth-child(2)::before,.head[data-s="3"] .d-steps li:nth-child(3)::before{background:var(--navy);border-color:var(--navy);color:#fff}
+/* demostración: sin marco, sobre el mismo fondo que el título */
+.demo{position:relative}
+.d-search{display:flex;align-items:center;gap:8px;height:44px;padding:0 16px;background:#fff;border:1px solid #CDD5E5;border-radius:999px;font:500 15.5px var(--f-body);color:var(--txt)}
+.d-search svg{width:17px;height:17px;stroke:var(--mut);fill:none;stroke-width:2.2;stroke-linecap:round;flex:none}
 .d-q{white-space:nowrap;overflow:hidden}
 .d-caret{width:2px;height:18px;background:var(--navy);animation:blink 1s steps(1) infinite}
 @keyframes blink{50%{opacity:0}}
-.d-n{font:700 12.5px var(--f-body);color:var(--mut);margin:10px 4px 8px;min-height:16px;opacity:0;transition:opacity .3s}
-.d-card{border:1px solid var(--line);border-radius:16px;padding:12px 14px;display:grid;gap:8px;opacity:0;transform:translateY(10px);transition:opacity .45s,transform .45s}
-.demo.s2 .d-n,.demo.s3 .d-n,.demo.s2 .d-card,.demo.s3 .d-card{opacity:1;transform:none}
-.d-card .tool-h{grid-template-columns:34px minmax(0,1fr);gap:10px}
-.d-card .lg{width:34px;height:34px;border-radius:10px}
-.d-card .lg img{width:22px;height:22px}
-.d-card h4{font:800 16.5px/1.1 var(--f-disp)}
-.d-card .ex{font-size:13.5px;line-height:1.35;color:#2A3352;padding-left:9px;border-left:3px solid var(--sky)}
+.d-row{display:flex;align-items:center;justify-content:space-between;gap:8px;margin:8px 2px}
+.d-n{font:700 13px var(--f-body);color:var(--mut);opacity:0;transition:opacity .3s}
+.d-card{background:#fff;border-radius:20px;padding:16px;display:grid;gap:9px;opacity:.35;filter:saturate(0);transform:translateY(6px);transition:opacity .45s,transform .45s,filter .45s;box-shadow:0 14px 30px -18px rgba(6,16,51,.22)}
+.head[data-s="2"] .d-n,.head[data-s="3"] .d-n,.head[data-s="2"] .d-card,.head[data-s="3"] .d-card{opacity:1;filter:none;transform:none}
+.d-card .tool-h{grid-template-columns:36px minmax(0,1fr);gap:10px}
+.d-card .lg{width:36px;height:36px;border-radius:10px}
+.d-card .lg img{width:23px;height:23px}
+.d-card h4{font:800 17px/1.1 var(--f-disp)}
+.d-card .ex{font-size:14px;line-height:1.35;color:#2A3352;padding-left:9px;border-left:3px solid var(--sky)}
 .d-card .ex b{color:var(--navy)}
 .d-card .facts{gap:4px}
 .d-card .fact{font-size:12.5px;padding:3px 7px}
-.d-open{justify-self:start;display:inline-flex;align-items:center;gap:6px;font:700 13.5px var(--f-body);color:#fff;background:var(--navy);border-radius:999px;padding:6px 14px;transition:transform .3s,box-shadow .3s}
-.d-open svg{width:12px;height:12px;stroke:currentColor;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
-.demo.s3 .d-open{transform:scale(1.06);box-shadow:0 0 0 5px rgba(159,179,255,.55)}
-.d-steps{list-style:none;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;margin-top:12px;counter-reset:d}
-.d-steps li{counter-increment:d;font:700 12.5px/1.25 var(--f-body);color:var(--mut);padding-top:8px;border-top:3px solid var(--line);transition:color .3s,border-color .3s}
-.d-steps li::before{content:counter(d) ". "}
-.demo.s1 .d-steps li:nth-child(1),.demo.s2 .d-steps li:nth-child(2),.demo.s3 .d-steps li:nth-child(3){color:var(--navy);border-color:var(--navy)}
-.d-pause{position:absolute;top:-12px;right:-12px;width:32px;height:32px;border-radius:50%;border:1px solid var(--line);background:#fff;display:grid;place-items:center;cursor:pointer;box-shadow:0 4px 12px rgba(6,16,51,.08)}
-.d-pause svg{width:12px;height:12px;fill:var(--navy)}
+.d-card .more-b{display:none}
+.d-card.open .more-b{display:grid;animation:dIn .35s ease-out}
+@keyframes dIn{from{opacity:0;transform:translateY(-4px)}}
+.d-card .more-b li{font-size:14px}
+.d-foot{display:flex;align-items:center;justify-content:space-between;padding-top:9px;border-top:1px solid var(--line)}
+.d-open{display:inline-flex;align-items:center;gap:6px;font:700 14px var(--f-body);color:#fff;background:var(--navy);border-radius:999px;padding:7px 15px;transition:transform .3s,box-shadow .3s}
+.d-open svg,.d-det svg{width:12px;height:12px;stroke:currentColor;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.d-det{display:inline-flex;align-items:center;gap:6px;font:700 14px var(--f-body);color:var(--navy3);padding:5px 8px;border-radius:999px;transition:background .3s,box-shadow .3s}
+.d-det::after{content:"";width:6px;height:6px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg) translateY(-2px);transition:transform .25s}
+.d-card.press .d-det{background:var(--ice);box-shadow:0 0 0 4px rgba(159,179,255,.45)}
+.d-card.open .d-det::after{transform:rotate(-135deg) translateY(-1px)}
+.head[data-s="3"] .d-open{transform:scale(1.06);box-shadow:0 0 0 5px rgba(159,179,255,.55)}
+.d-pause{flex:none;width:32px;height:32px;border-radius:50%;border:1px solid var(--line);background:#fff;display:grid;place-items:center;cursor:pointer}
+.d-pause svg{width:11px;height:11px;fill:var(--navy)}
 .d-pause[hidden]{display:none}
-@media (max-width:900px){.head{grid-template-columns:1fr}.demo{max-width:520px}}
-@media (max-width:560px){.demo{padding:12px}.d-card .ex{display:none}.d-pause{top:-10px;right:-6px}}
-@media (prefers-reduced-motion:reduce){.d-card,.d-n,.d-steps li,.d-open{transition:none}.d-caret{animation:none}}
+@media (max-width:900px){.head{grid-template-columns:1fr;gap:20px}.demo{max-width:520px}
+ .d-steps{grid-template-columns:repeat(3,minmax(0,1fr));max-width:520px;margin-top:20px;gap:8px}
+ .d-steps li{grid-template-columns:1fr;gap:6px;font-size:13.5px;align-items:start;padding:0}
+ .d-steps li::before{width:28px;height:28px;font-size:13px}}
+@media (max-width:560px){.d-card .ex{display:none}}
+@media (prefers-reduced-motion:reduce){.d-card,.d-n,.d-steps li,.d-steps li::before,.d-open,.d-det,.d-det::after{transition:none}.d-card.open .more-b{animation:none}.d-caret{animation:none}}
 
 /* buscador: primer nivel = búsqueda + «¿Qué quieres hacer?» */
 .finder{margin-top:24px}
@@ -219,17 +234,23 @@ footer a{font-weight:700}
 .loaderr .empty-acts{justify-content:flex-start;align-items:center}
 
 /* barra fina al bajar: buscador + filtros, siempre en el mismo sitio mientras recorres el catálogo */
-.minibar{position:fixed;top:0;left:0;right:0;z-index:40;display:flex;align-items:center;gap:10px;padding:8px max(20px,calc((100vw - 1200px)/2));background:rgba(242,244,249,.96);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+/* misma pieza que la barra del menú pegada arriba: mismo ancho, blanco translúcido, borde, sombra y logo */
+.minibar{position:fixed;top:0;left:50%;transform:translateX(-50%);width:min(1200px,calc(100% - 40px));z-index:40;display:flex;align-items:center;gap:10px;padding:8px 8px 8px 10px;background:rgba(255,255,255,.8);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid var(--line);border-top-color:transparent;border-radius:0 0 24px 24px;box-shadow:0 8px 30px rgba(6,16,51,.06)}
+.minibar .brand{margin-left:8px;margin-right:6px}
+.minibar .search.mini{background:var(--bg);border-color:transparent}
+.minibar .search.mini:focus-within{background:#fff;border-color:var(--navy)}
+.mb-sp{flex:1}
 .minibar[hidden]{display:none}
-.search.mini{flex:0 1 420px;height:42px;padding:0 14px}
+.search.mini{flex:0 1 460px;min-width:0;height:42px;padding:0 14px}
+.search.mini input{width:100%}
 .search.mini input{font-size:16px}
 .mb-f{display:inline-flex;align-items:center;gap:6px;font:700 15px var(--f-body);color:#fff;background:var(--navy);border:0;border-radius:999px;padding:0 16px;height:42px;cursor:pointer}
 .mb-f:hover{background:var(--navy3)}
 .mb-n{font:700 12.5px var(--f-body);background:var(--sky);color:var(--navy);border-radius:999px;padding:1px 7px}
 .mb-n:empty{display:none}
-.mb-c{font:600 14.5px var(--f-body);color:var(--mut);white-space:nowrap}
+.mb-c{font:600 14.5px var(--f-body);color:var(--mut);white-space:nowrap;margin-right:8px}
 body.mini-on .top{transform:translateY(-140%)}
-@media (max-width:560px){.minibar{padding:8px 16px}.search.mini{flex:1 1 auto}.mb-c{display:none}}
+@media (max-width:560px){.minibar{gap:8px}.minibar .brand{margin-left:0;margin-right:0}.mb-f{padding:0 14px;flex:none}.search.mini{flex:1 1 auto}.mb-c,.mb-sp{display:none}}
 @media (prefers-reduced-motion:reduce){.goal,.mf-t::after,.top{transition:none}}
 
 /* listado */
@@ -351,10 +372,10 @@ body.mini-on .top{transform:translateY(-140%)}
 @media (max-width:560px){.crit2{grid-template-columns:1fr}}
 
 /* origen */
-.orig{margin-top:22px;max-width:70ch}
-.orig p{font-size:17px;color:#2A3352}
+.orig{margin-top:22px}
+.orig p{font-size:17px;color:#2A3352;text-align:justify;hyphens:auto}
 .orig p a{font-weight:700;color:var(--navy3)}
-.orig-acts{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.orig-acts{display:flex;flex-wrap:wrap;justify-content:flex-end;gap:10px;margin-top:22px}
 .orig-acts .btn{min-height:44px;padding:10px 18px}
 .btn.line{color:var(--navy);background:transparent}
 .btn.line:hover{background:#fff}
@@ -378,20 +399,17 @@ body.mini-on .top{transform:translateY(-140%)}
 </header>
 
 <main>
- <section class="head" aria-labelledby="ph1">
+ <section class="head" id="hero" data-s="1" aria-labelledby="ph1">
   <div class="head-t">
    <span class="lab">Para docentes de Secundaria y Bachillerato · Revisión de octubre de 2026</span>
    <h1 id="ph1">Caja de herramientas <span>digitales</span></h1>
    <p class="sr">Herramientas y recursos elegidos y comprobados. Busca lo que necesitas, mira cómo usarlo en clase con un ejemplo y ábrelo.</p>
+   <ol class="d-steps" aria-hidden="true"><li>Busca lo que necesitas</li><li>Mira cómo usarla en clase</li><li>Ábrela</li></ol>
   </div>
-  <div class="demo s1" id="demo">
-   <div aria-hidden="true">
-    <div class="d-search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.4-4.4"/></svg><span class="d-q" id="d-q"></span><span class="d-caret"></span></div>
-    <p class="d-n" id="d-n"></p>
-    <div class="d-card" id="d-card"></div>
-    <ol class="d-steps"><li>Busca lo que necesitas</li><li>Mira cómo usarla en clase</li><li>Ábrela</li></ol>
-   </div>
-   <button type="button" class="d-pause" id="d-pause" aria-label="Pausar la animación" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg></button>
+  <div class="demo" id="demo">
+   <div class="d-search" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.4-4.4"/></svg><span class="d-q" id="d-q"></span><span class="d-caret"></span></div>
+   <div class="d-row"><p class="d-n" id="d-n" aria-hidden="true"></p><button type="button" class="d-pause" id="d-pause" aria-label="Pausar la animación" hidden></button></div>
+   <div class="d-card" id="d-card" aria-hidden="true"></div>
   </div>
  </section>
 
@@ -417,12 +435,14 @@ body.mini-on .top{transform:translateY(-140%)}
  <div class="state" id="state" aria-live="polite" tabindex="-1"></div>
  <noscript><p class="nojs">El catálogo necesita JavaScript para mostrarse y filtrarse. Si no puedes activarlo, consulta el <a href="https://sites.google.com/view/repositorio-digital-docente-cc/inicio">repositorio original de 2024</a>.</p></noscript>
  <div class="minibar" id="minibar" hidden>
+  <a class="brand" href="/" aria-label="Inicio · Jorge Delgado Aguilera"><span class="logo" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 26 26"><path d="M13 2 2 7h22L13 2Z" fill="#fff"/><rect x="3" y="8" width="20" height="2" fill="#fff"/><rect x="5" y="11" width="2.4" height="9" fill="#fff"/><rect x="9.6" y="11" width="2.4" height="9" fill="#fff"/><rect x="14" y="11" width="2.4" height="9" fill="#fff"/><rect x="18.6" y="11" width="2.4" height="9" fill="#fff"/><rect x="2" y="21" width="22" height="2.4" fill="#fff"/></svg></span></a>
   <div class="search mini" role="search">
    <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.4-4.4"/></svg>
    <label class="sr" for="q2">Buscar en la caja</label>
    <input id="q2" type="text" placeholder="Buscar…" autocomplete="off" enterkeyhint="search">
   </div>
   <button type="button" class="mb-f" id="mb-f">Filtros<span class="mb-n" id="mb-n"></span></button>
+  <span class="mb-sp"></span>
   <span class="mb-c" id="mb-c"></span>
  </div>
  <div id="list"></div>
@@ -699,26 +719,41 @@ $('chnew').innerHTML=`<div><span class="lab">Novedad</span><h3>${esc(last.n)}</h
 
 // ---------- demostración del hero: búsquedas reales y la primera ficha que devuelve el propio buscador
 (()=>{
- const D=$('demo'),Q=$('d-q'),N=$('d-n'),C=$('d-card'),B=$('d-pause');
+ const H=$('hero'),D=$('demo'),Q=$('d-q'),N=$('d-n'),C=$('d-card'),B=$('d-pause');
  const scenes=['línea del tiempo','cuestionario','geometría','programar'].map(q=>{const r=TOOLS.filter(t=>t.s!=='recursos'&&match(t,query(q)));return r.length?{q,n:r.length,t:r[0]}:null}).filter(Boolean);
  if(!scenes.length){D.hidden=true;return;}
  const draw=sc=>{const t=sc.t,aula=t.s==='aula',m=t.n.match(/^(.+?)\s*\((.+)\)$/);
-  N.textContent=`${sc.n} ${sc.n===1?'resultado':'resultados'}`;
-  C.innerHTML=`<div class="tool-h"><span class="lg">${logo(t)}</span><h4>${esc(m?m[1]:t.n)}</h4></div><p class="ex"><b>Ejemplo:</b> ${esc(t.i[0])}</p><div class="facts">${aula?fact(I.cap,t.c)+fact(I.key,t.cta,/^no necesita/i.test(t.cta)?'ok':''):fact(I.eur,t.coste,/gratu|incluido|sin coste/i.test(t.coste)?'ok':'')}</div><span class="d-open">Abrir ${I.ext}</span>`;};
+  const facts=aula?fact(I.cap,t.c)+fact(I.key,t.cta,/^no necesita/i.test(t.cta)?'ok':''):fact(I.eur,t.coste,/gratu|incluido|sin coste/i.test(t.coste)?'ok':'');
+  C.className='d-card';
+  C.innerHTML=`<div class="tool-h"><span class="lg">${logo(t)}</span><h4>${esc(m?m[1]:t.n)}</h4></div><p class="ex"><b>Ejemplo:</b> ${esc(t.i[0])}</p><div class="facts">${facts}</div>
+   <div class="more-b"><div><h5>${aula?'Más ideas para clase':'Más ideas de uso'}</h5><ul>${t.i.slice(1).map(x=>`<li>${esc(x)}</li>`).join('')}</ul></div></div>
+   <div class="d-foot"><span class="d-open">Abrir ${I.ext}</span><span class="d-det">Detalles</span></div>`;};
+ // se reserva la altura de la ficha más alta con los detalles abiertos, para que la página no salte
+ const reserve=()=>{D.style.minHeight='';const keep=[H.dataset.s,C.className,C.innerHTML];let mx=0;
+  scenes.forEach(sc=>{draw(sc);C.className='d-card open';mx=Math.max(mx,D.offsetHeight);});
+  [H.dataset.s,C.className,C.innerHTML]=keep;D.style.minHeight=mx+'px';};
+ const result=sc=>{N.textContent=`${sc.n} ${sc.n===1?'resultado':'resultados'}`;draw(sc);};
  const still=matchMedia('(prefers-reduced-motion: reduce)');
  let i=0,timers=[],paused=false,seen=true;
  const clear=()=>{timers.forEach(clearTimeout);timers=[];};
  const at=(ms,f)=>timers.push(setTimeout(f,ms));
- const play=()=>{clear();const sc=scenes[i%scenes.length];D.className='demo s1';Q.textContent='';draw(sc);
+ const play=()=>{clear();const sc=scenes[i%scenes.length];H.dataset.s='1';Q.textContent='';C.classList.remove('open');
   [...sc.q].forEach((ch,k)=>at(400+k*75,()=>{Q.textContent+=ch}));
   const t0=400+sc.q.length*75+350;
-  at(t0,()=>{D.className='demo s2'});at(t0+2600,()=>{D.className='demo s3'});at(t0+4200,()=>{i++;if(!paused&&seen)play();});};
- const showStill=()=>{clear();const sc=scenes[0];draw(sc);Q.textContent=sc.q;D.className='demo s2';};
+  at(t0,()=>{result(sc);H.dataset.s='2'});
+  at(t0+1500,()=>{C.classList.add('press')});
+  at(t0+1800,()=>{C.classList.remove('press');C.classList.add('open')});
+  at(t0+4600,()=>{H.dataset.s='3'});
+  at(t0+6200,()=>{i++;if(!paused&&seen)play();});};
+ const showStill=()=>{clear();const sc=scenes[0];result(sc);Q.textContent=sc.q;C.className='d-card open';H.dataset.s='2';};
  const icon=p=>p?'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5v14l12-7z"/></svg>':'<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>';
  const setPause=p=>{paused=p;B.innerHTML=icon(p);B.setAttribute('aria-label',p?'Reanudar la animación':'Pausar la animación');if(p)clear();else play();};
  const start=()=>{if(still.matches){B.hidden=true;showStill();}else{B.hidden=false;paused=false;B.innerHTML=icon(false);play();}};
  B.addEventListener('click',()=>setPause(!paused));
  still.addEventListener('change',start);
+ reserve();draw(scenes[0]);
+ let rz;addEventListener('resize',()=>{clearTimeout(rz);rz=setTimeout(reserve,200)});
+ if(document.fonts)document.fonts.ready.then(reserve);
  // fuera de la pantalla o con la pestaña oculta, se detiene
  if('IntersectionObserver' in window)new IntersectionObserver(([e])=>{const was=seen;seen=e.isIntersecting;if(seen&&!was&&!paused&&!still.matches)play();if(!seen)clear();}).observe(D);
  document.addEventListener('visibilitychange',()=>{if(document.hidden)clear();else if(seen&&!paused&&!still.matches)play();});
