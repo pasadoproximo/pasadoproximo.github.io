@@ -112,30 +112,24 @@ footer a{font-weight:700}
 @media (max-width:780px){.bar nav a.nav-key{display:inline-flex}.bar nav{gap:4px}.bar nav a{padding:8px 12px}.bar nav a.cv{display:none}}
 @media (max-width:440px){.bar nav a{padding:8px 10px;font-size:15px}}
 /* cabecera breve */
-.head{margin-top:52px}
-.head h1{font:800 clamp(34px,4.4vw,56px)/1 var(--f-disp);letter-spacing:-.03em;margin-top:10px}
+/* cabecera: el título manda; a la derecha, un ejemplo de búsqueda (no es un buscador) */
+.head{margin-top:48px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,420px);gap:32px 64px;align-items:center}
+.head-t .lab{display:block;font-size:12.5px;line-height:1.5}
+.head h1{font:800 clamp(38px,5vw,64px)/.98 var(--f-disp);letter-spacing:-.035em;margin-top:12px}
 .head h1 span{color:var(--navy3)}
-.head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,460px);gap:28px 56px;align-items:start}
-/* la etiqueta va sola arriba; debajo, el título y la animación empiezan a la misma altura */
-.head-l{grid-column:1/-1;margin-bottom:-6px}
-.head-t h1{margin-top:0}
-/* pasos a la izquierda, bajo el título: se marcan al ritmo de la animación */
-.d-steps{list-style:none;padding:0;margin-top:30px;display:grid;gap:4px;max-width:360px;counter-reset:d}
-.d-steps li{counter-increment:d;display:grid;grid-template-columns:34px 1fr;gap:12px;align-items:center;font:700 17px/1.25 var(--f-body);color:var(--mut);padding:8px 0;transition:color .3s}
-.d-steps li::before{content:counter(d);width:34px;height:34px;border-radius:50%;display:grid;place-items:center;font:800 15px var(--f-disp);background:#fff;color:var(--mut);border:1px solid var(--line);transition:background .3s,color .3s,border-color .3s}
-.head[data-s="1"] .d-steps li:nth-child(1),.head[data-s="2"] .d-steps li:nth-child(2),.head[data-s="3"] .d-steps li:nth-child(3){color:var(--navy)}
-.head[data-s="1"] .d-steps li:nth-child(1)::before,.head[data-s="2"] .d-steps li:nth-child(2)::before,.head[data-s="3"] .d-steps li:nth-child(3)::before{background:var(--navy);border-color:var(--navy);color:#fff}
-/* demostración: sin marco, sobre el mismo fondo que el título */
+.head-p{font-size:clamp(16.5px,1.5vw,18.5px);line-height:1.5;color:#2A3352;margin-top:16px;max-width:52ch}
 .demo{position:relative}
-.d-search{display:flex;align-items:center;gap:8px;height:44px;padding:0 16px;background:#fff;border:1px solid #CDD5E5;border-radius:999px;font:500 15.5px var(--f-body);color:var(--txt)}
-.d-search svg{width:17px;height:17px;stroke:var(--mut);fill:none;stroke-width:2.2;stroke-linecap:round;flex:none}
-.d-q{white-space:nowrap;overflow:hidden}
-.d-caret{width:2px;height:18px;background:var(--navy);animation:blink 1s steps(1) infinite}
+.demo[hidden]{display:none}
+.d-top{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:6px}
+.d-cap{font:700 12px var(--f-body);letter-spacing:.12em;text-transform:uppercase;color:var(--mut)}
+.d-ql{font:500 17px/1.3 var(--f-body);color:var(--mut);margin-bottom:12px;min-height:23px;white-space:nowrap;overflow:hidden}
+.d-ql b{color:var(--navy);font-weight:700}
+#d-q:not(:empty)::before{content:"«"}
+#d-q:not(:empty)::after{content:"»"}
+.d-caret{display:inline-block;width:2px;height:17px;background:var(--navy);margin-left:1px;vertical-align:-2px;animation:blink 1s steps(1) infinite}
 @keyframes blink{50%{opacity:0}}
-.d-row{display:flex;align-items:center;justify-content:space-between;gap:8px;margin:8px 2px}
-.d-n{font:700 13px var(--f-body);color:var(--mut);opacity:0;transition:opacity .3s}
-.d-card{background:#fff;border-radius:20px;padding:16px;display:grid;gap:9px;opacity:.35;filter:saturate(0);transform:translateY(6px);transition:opacity .45s,transform .45s,filter .45s;box-shadow:0 14px 30px -18px rgba(6,16,51,.22)}
-.head[data-s="2"] .d-n,.head[data-s="3"] .d-n,.head[data-s="2"] .d-card,.head[data-s="3"] .d-card{opacity:1;filter:none;transform:none}
+.d-card{background:#fff;border-radius:20px;padding:16px;display:grid;gap:9px;box-shadow:0 14px 30px -18px rgba(6,16,51,.22);opacity:.35;filter:saturate(0);transform:translateY(6px);transition:opacity .45s,transform .45s,filter .45s}
+.head[data-s="2"] .d-card,.head[data-s="3"] .d-card{opacity:1;filter:none;transform:none}
 .d-card .tool-h{grid-template-columns:36px minmax(0,1fr);gap:10px}
 .d-card .lg{width:36px;height:36px;border-radius:10px}
 .d-card .lg img{width:23px;height:23px}
@@ -144,31 +138,21 @@ footer a{font-weight:700}
 .d-card .ex b{color:var(--navy)}
 .d-card .facts{gap:4px}
 .d-card .fact{font-size:12.5px;padding:3px 7px}
-.d-card .more-b{display:none}
-.d-card.open .more-b{display:grid;animation:dIn .35s ease-out}
-@keyframes dIn{from{opacity:0;transform:translateY(-4px)}}
-.d-card .more-b li{font-size:14px}
 .d-foot{display:flex;align-items:center;justify-content:space-between;padding-top:9px;border-top:1px solid var(--line)}
 .d-open{display:inline-flex;align-items:center;gap:6px;font:700 14px var(--f-body);color:#fff;background:var(--navy);border-radius:999px;padding:7px 15px;transition:transform .3s,box-shadow .3s}
-.d-open svg,.d-det svg{width:12px;height:12px;stroke:currentColor;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
-.d-det{display:inline-flex;align-items:center;gap:6px;font:700 14px var(--f-body);color:var(--navy3);padding:5px 8px;border-radius:999px;transition:background .3s,box-shadow .3s}
-.d-det::after{content:"";width:6px;height:6px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg) translateY(-2px);transition:transform .25s}
-.d-card.press .d-det{background:var(--ice);box-shadow:0 0 0 4px rgba(159,179,255,.45)}
-.d-card.open .d-det::after{transform:rotate(-135deg) translateY(-1px)}
+.d-open svg{width:12px;height:12px;stroke:currentColor;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.d-det{font:700 14px var(--f-body);color:var(--navy3)}
 .head[data-s="3"] .d-open{transform:scale(1.06);box-shadow:0 0 0 5px rgba(159,179,255,.55)}
-.d-pause{flex:none;width:32px;height:32px;border-radius:50%;border:1px solid var(--line);background:#fff;display:grid;place-items:center;cursor:pointer}
-.d-pause svg{width:11px;height:11px;fill:var(--navy)}
+.d-pause{flex:none;width:30px;height:30px;border-radius:50%;border:1px solid var(--line);background:#fff;display:grid;place-items:center;cursor:pointer}
+.d-pause svg{width:10px;height:10px;fill:var(--navy)}
 .d-pause[hidden]{display:none}
-@media (max-width:900px){.head{grid-template-columns:1fr;gap:20px}.demo{max-width:520px}
- .d-steps{grid-template-columns:repeat(3,minmax(0,1fr));max-width:520px;margin-top:20px;gap:8px}
- .d-steps li{grid-template-columns:1fr;gap:6px;font-size:13.5px;align-items:start;padding:0}
- .d-steps li::before{width:28px;height:28px;font-size:13px}}
-@media (max-width:560px){.d-card .ex{display:none}}
-@media (prefers-reduced-motion:reduce){.d-card,.d-n,.d-steps li,.d-steps li::before,.d-open,.d-det,.d-det::after{transition:none}.d-card.open .more-b{animation:none}.d-caret{animation:none}}
+@media (max-width:900px){.head{grid-template-columns:1fr;gap:28px;margin-top:36px}.demo{max-width:460px}}
+@media (max-width:560px){.d-card .ex,.d-foot{display:none}.d-card{padding:14px}.d-ql{font-size:16px;margin-bottom:10px}}
+@media (prefers-reduced-motion:reduce){.d-card,.d-open{transition:none}.d-caret{animation:none}}
 
 /* buscador: primer nivel = búsqueda + «¿Qué quieres hacer?» */
-.finder{margin-top:72px}
-@media (max-width:640px){.finder{margin-top:48px}}
+.finder{margin-top:48px}
+@media (max-width:640px){.finder{margin-top:32px}}
 .search{display:flex;align-items:center;gap:10px;background:#fff;border:1px solid #CDD5E5;border-radius:999px;padding:0 6px 0 18px;height:52px}
 .search:focus-within{border-color:var(--navy);box-shadow:0 0 0 3px rgba(159,179,255,.45)}
 .search>svg{width:20px;height:20px;stroke:var(--mut);fill:none;stroke-width:2.2;stroke-linecap:round;flex:none}
@@ -404,15 +388,14 @@ body.mini-on .top{transform:translateY(-140%)}
 
 <main>
  <section class="head" id="hero" data-s="1" aria-labelledby="ph1">
-  <span class="lab head-l">Para docentes de Secundaria y Bachillerato · Revisión de octubre de 2026</span>
   <div class="head-t">
+   <span class="lab">Para docentes de Secundaria y Bachillerato</span>
    <h1 id="ph1">Caja de herramientas <span>digitales</span></h1>
-   <p class="sr">Herramientas y recursos elegidos y comprobados. Busca lo que necesitas, mira cómo usarlo en clase con un ejemplo y ábrelo.</p>
-   <ol class="d-steps" aria-hidden="true"><li>Busca lo que necesitas</li><li>Mira cómo usarla en clase</li><li>Ábrela</li></ol>
+   <p class="head-p">Herramientas elegidas y revisadas una a una para usar en clase. Cada ficha te dice qué hace, cómo usarla con un ejemplo y si el alumnado necesita cuenta. Revisada en octubre de 2026.</p>
   </div>
-  <div class="demo" id="demo">
-   <div class="d-search" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.4-4.4"/></svg><span class="d-q" id="d-q"></span><span class="d-caret"></span></div>
-   <div class="d-row"><p class="d-n" id="d-n" aria-hidden="true"></p><button type="button" class="d-pause" id="d-pause" aria-label="Pausar la animación" hidden></button></div>
+  <div class="demo" id="demo" hidden>
+   <div class="d-top"><span class="d-cap" aria-hidden="true">Así funciona</span><button type="button" class="d-pause" id="d-pause" aria-label="Pausar la animación" hidden></button></div>
+   <p class="d-ql" aria-hidden="true">Buscas <b id="d-q"></b><span class="d-caret"></span></p>
    <div class="d-card" id="d-card" aria-hidden="true"></div>
   </div>
  </section>
@@ -721,41 +704,34 @@ $('changes').innerHTML=CHANGES.slice(0,-1).map(c=>{
 }).join('');
 $('chnew').innerHTML=`<div><span class="lab">Novedad</span><h3>${esc(last.n)}</h3><p>${esc(last.what)}</p></div><div class="alt"><b>Qué hacer</b><p>${esc(last.alt)}</p></div>`;
 
-// ---------- demostración del hero: búsquedas reales y la primera ficha que devuelve el propio buscador
+// ---------- ejemplo del hero: búsquedas reales y la primera ficha que devuelve el propio buscador
 (()=>{
- const H=$('hero'),D=$('demo'),Q=$('d-q'),N=$('d-n'),C=$('d-card'),B=$('d-pause');
- const scenes=['línea del tiempo','cuestionario','geometría','programar'].map(q=>{const r=TOOLS.filter(t=>t.s!=='recursos'&&match(t,query(q)));return r.length?{q,n:r.length,t:r[0]}:null}).filter(Boolean);
- if(!scenes.length){D.hidden=true;return;}
+ const H=$('hero'),D=$('demo'),Q=$('d-q'),C=$('d-card'),B=$('d-pause');
+ const scenes=['línea del tiempo','cuestionario','geometría','programar'].map(q=>{const r=TOOLS.filter(t=>t.s!=='recursos'&&match(t,query(q)));return r.length?{q,t:r[0]}:null}).filter(Boolean);
+ if(!scenes.length)return;
+ D.hidden=false;
  const draw=sc=>{const t=sc.t,aula=t.s==='aula',m=t.n.match(/^(.+?)\s*\((.+)\)$/);
   const facts=aula?fact(I.cap,t.c)+fact(I.key,t.cta,/^no necesita/i.test(t.cta)?'ok':''):fact(I.eur,t.coste,/gratu|incluido|sin coste/i.test(t.coste)?'ok':'');
-  C.className='d-card';
-  C.innerHTML=`<div class="tool-h"><span class="lg">${logo(t)}</span><h4>${esc(m?m[1]:t.n)}</h4></div><p class="ex"><b>Ejemplo:</b> ${esc(t.i[0])}</p><div class="facts">${facts}</div>
-   <div class="more-b"><div><h5>${aula?'Más ideas para clase':'Más ideas de uso'}</h5><ul>${t.i.slice(1).map(x=>`<li>${esc(x)}</li>`).join('')}</ul></div></div>
-   <div class="d-foot"><span class="d-open">Abrir ${I.ext}</span><span class="d-det">Detalles</span></div>`;};
- // se reserva la altura de la ficha más alta con los detalles abiertos, para que la página no salte
- const reserve=()=>{D.style.minHeight='';const keep=[H.dataset.s,C.className,C.innerHTML];let mx=0;
-  scenes.forEach(sc=>{draw(sc);C.className='d-card open';mx=Math.max(mx,D.offsetHeight);});
-  [H.dataset.s,C.className,C.innerHTML]=keep;D.style.minHeight=mx+'px';};
- const result=sc=>{N.textContent=`${sc.n} ${sc.n===1?'resultado':'resultados'}`;draw(sc);};
+  C.innerHTML=`<div class="tool-h"><span class="lg">${logo(t)}</span><h4>${esc(m?m[1]:t.n)}</h4></div><p class="ex"><b>Ejemplo:</b> ${esc(t.i[0])}</p><div class="facts">${facts}</div><div class="d-foot"><span class="d-open">Abrir ${I.ext}</span><span class="d-det">Detalles</span></div>`;};
+ // se reserva la altura de la ficha más alta, para que la página no salte al cambiar de ejemplo
+ const reserve=()=>{C.style.minHeight='';const keep=C.innerHTML;let mx=0;scenes.forEach(sc=>{draw(sc);mx=Math.max(mx,C.offsetHeight);});C.innerHTML=keep;C.style.minHeight=mx+'px';};
  const still=matchMedia('(prefers-reduced-motion: reduce)');
  let i=0,timers=[],paused=false,seen=true;
  const clear=()=>{timers.forEach(clearTimeout);timers=[];};
  const at=(ms,f)=>timers.push(setTimeout(f,ms));
- const play=()=>{clear();const sc=scenes[i%scenes.length];H.dataset.s='1';Q.textContent='';C.classList.remove('open');
+ const play=()=>{clear();const sc=scenes[i%scenes.length];H.dataset.s='1';Q.textContent='';
   [...sc.q].forEach((ch,k)=>at(400+k*75,()=>{Q.textContent+=ch}));
-  const t0=400+sc.q.length*75+350;
-  at(t0,()=>{result(sc);H.dataset.s='2'});
-  at(t0+1500,()=>{C.classList.add('press')});
-  at(t0+1800,()=>{C.classList.remove('press');C.classList.add('open')});
-  at(t0+4600,()=>{H.dataset.s='3'});
-  at(t0+6200,()=>{i++;if(!paused&&seen)play();});};
- const showStill=()=>{clear();const sc=scenes[0];result(sc);Q.textContent=sc.q;C.className='d-card open';H.dataset.s='2';};
+  const t0=400+sc.q.length*75+300;
+  at(t0,()=>{draw(sc);H.dataset.s='2'});
+  at(t0+2600,()=>{H.dataset.s='3'});
+  at(t0+4200,()=>{i++;if(!paused&&seen)play();});};
+ const showStill=()=>{clear();const sc=scenes[0];draw(sc);Q.textContent=sc.q;H.dataset.s='2';};
  const icon=p=>p?'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5v14l12-7z"/></svg>':'<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>';
  const setPause=p=>{paused=p;B.innerHTML=icon(p);B.setAttribute('aria-label',p?'Reanudar la animación':'Pausar la animación');if(p)clear();else play();};
  const start=()=>{if(still.matches){B.hidden=true;showStill();}else{B.hidden=false;paused=false;B.innerHTML=icon(false);play();}};
  B.addEventListener('click',()=>setPause(!paused));
  still.addEventListener('change',start);
- reserve();draw(scenes[0]);
+ draw(scenes[0]);reserve();
  let rz;addEventListener('resize',()=>{clearTimeout(rz);rz=setTimeout(reserve,200)});
  if(document.fonts)document.fonts.ready.then(reserve);
  // fuera de la pantalla o con la pestaña oculta, se detiene
