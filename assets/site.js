@@ -30,4 +30,23 @@ if(ct.length){
   b.addEventListener('keydown',e=>{const k={ArrowRight:1,ArrowLeft:-1}[e.key];if(k){e.preventDefault();sel(ct[(i+k+ct.length)%ct.length],true);}});});
  // si se llega con #categoría (por ejemplo /proyectos/#aula), se elige esa
  const h=location.hash.slice(1),pre=ct.find(b=>b.id==='cg-'+h);if(pre)sel(pre);}
+// El Consejo de Clío: las seis caras hablan por turnos (se puede pulsar en cada una y pausar)
+document.querySelectorAll('.cq-board').forEach(bd=>{
+ const team=bd.querySelector('.cq-team'),ms=[...team.querySelectorAll('.cq-m')],say=bd.querySelector('.cq-say'),line=team.querySelector('.cq-line i'),play=bd.querySelector('.cq-play');
+ const red=matchMedia('(prefers-reduced-motion: reduce)').matches;let i=0,run=!red,t=null,vis=false;
+ const col=m=>m.querySelector('svg').style.getPropertyValue('--c');
+ const set=k=>{i=k;const last=ms.length-1;
+  ms.forEach((m,j)=>{const on=j===k;m.classList.toggle('on',on);m.classList.toggle('talk',on&&!red);m.setAttribute('aria-pressed',on);m.classList.toggle('rev',k===last&&j<last);});
+  if(line)line.style.setProperty('--p',k/last);
+  const m=ms[k];say.style.setProperty('--c',col(m));
+  say.querySelector('.cq-k').textContent=k+1;say.querySelector('b').textContent=m.dataset.n;say.querySelector('.cq-r').textContent=m.dataset.r;say.querySelector('p').textContent=m.dataset.t;
+  const f=m.querySelector('.cq-face').getBoundingClientRect(),r=say.getBoundingClientRect();say.style.setProperty('--x',(f.left+f.width/2-r.left)+'px');};
+ const go=()=>{clearInterval(t);t=null;if(run&&vis)t=setInterval(()=>set((i+1)%ms.length),2600);};
+ const lab=()=>{play.textContent=run?'Pausar':'Reproducir';play.setAttribute('aria-label',run?'Pausar la animación':'Reproducir la animación');};
+ ms.forEach((m,j)=>{m.style.setProperty('--c',col(m));m.addEventListener('click',()=>{run=false;lab();go();set(j);});});
+ play.addEventListener('click',()=>{run=!run;lab();if(run)set((i+1)%ms.length);go();});
+ lab();
+ new IntersectionObserver(es=>es.forEach(e=>{vis=e.isIntersecting;go();}),{threshold:.35}).observe(bd);
+ addEventListener('resize',()=>set(i));set(0);
+});
 })();

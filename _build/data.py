@@ -33,29 +33,49 @@ P.append(dict(
           ("Tipo", "Aplicación con IA · material de libre uso"),
           ("Herramientas", "Claude (artefacto con agentes de IA)"),
           ("Estado", "Publicada. Funciona con una cuenta de Claude, también la gratuita")],
-    links=[("Probar el consejo", "https://claude.ai/artifact/7fyLPT3yg45X1Wr4Mu9rjx", "ext"),
-           ("Ver la web del consejo", "/consejo-de-clio/", "int")],
+    links=[("Probar el consejo", "https://claude.ai/artifact/7fyLPT3yg45X1Wr4Mu9rjx", "ext")],
     cta_note="«Probar el consejo» se abre en Claude y pide iniciar sesión (sirve la cuenta gratuita).",
     sections=[
-        ("Seis pensadores, un equipo", """
-<p class="psub">Un pequeño equipo de agentes de IA: cada miembro hace una sola tarea y le pasa su trabajo al siguiente.</p>
-<ol class="hsteps six">
-<li><b>Heródoto</b><span>Lee la noticia y la resume.</span></li>
-<li><b>Tucídides</b><span>La sitúa en el temario del curso.</span></li>
-<li><b>Hannah Arendt</b><span>La conecta con el presente.</span></li>
-<li><b>Clío</b><span>Se la cuenta al alumnado.</span></li>
-<li><b>Sócrates</b><span>Plantea el debate.</span></li>
-<li><b>Ibn Jaldún</b><span>Revisa el trabajo de todos.</span></li>
-</ol>"""),
-        ("Una sesión real", """
-<p class="psub">Generada para 4.º ESO con una noticia del 14 de octubre de 2026: la NASA y el Departamento de Energía acuerdan el primer reactor nuclear para misiones espaciales.</p>
-<div class="session">
-<div class="session-media"><video src="/consejo-de-clio/assets/reel.mp4" poster="/consejo-de-clio/assets/reel-poster.jpg" muted loop playsinline controls preload="none" aria-label="Vídeo: una sesión del Consejo de Clío"></video></div>
-<ul class="needs session-list">
-<li><b>Tucídides · el temario</b><span>UD 11. La Guerra Fría: carrera armamentística y espacial. Avisa de que el encaje es parcial, porque hoy el escenario no es bipolar.</span></li>
-<li><b>Sócrates · el debate</b><span>«En 1957 el Sputnik llevó a EE. UU. a responder. ¿Qué empuja hoy a un país a replicar el hito tecnológico de otro?»</span></li>
-<li class="needs-out"><b>Ibn Jaldún · la revisión</b><span>Clío presentaba como hecho el uso militar, que en la noticia era opinión de la autora. Lo corrigió antes de que llegara a clase.</span></li>
+        ("El problema", """
+<p class="psub">Traer la actualidad a clase de Historia engancha al alumnado, pero prepararlo bien lleva tiempo. Y pedírselo sin más a una IA tiene sus riesgos.</p>
+<ul class="needs three">
+<li><b>La noticia llega sin contexto</b><span>Casi todo lo que pasa hoy tiene un antecedente histórico. Encontrarlo, explicarlo y convertirlo en una actividad pide un tiempo que no siempre hay.</span></li>
+<li><b>Tiene que encajar en el temario</b><span>No vale cualquier conexión: tiene que ser con las unidades del curso que das y al nivel de tu alumnado.</span></li>
+<li><b>La IA responde rápido, pero se equivoca</b><span>Un asistente genérico puede inventar un dato o presentar una opinión como un hecho. En clase, eso no se puede colar.</span></li>
 </ul>
+<p class="cq-idea"><b>La idea</b>Repartir el trabajo entre varios agentes de IA, cada uno con un solo papel, y dejar a uno solo para buscar errores.</p>"""),
+        ("Seis pensadores, un equipo", """
+<p class="psub">Un pequeño equipo de agentes de IA: cada miembro hace una sola tarea y le pasa su trabajo al siguiente. Pulsa en cada cara para ver qué hace.</p>
+<div class="cq cq-board">
+<ol class="cq-team" aria-label="Los seis miembros del consejo, en orden">
+<li><button type="button" class="cq-m" data-n="Heródoto" data-r="Resume la noticia" data-t="Lee la noticia y cuenta qué ha pasado y cuáles son las claves, sin opinar." aria-pressed="true"><span class="cq-face">[[AV:0]]<span class="cq-n">1</span><span class="cq-ok" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span></span><b>Heródoto</b><small>Resume la noticia</small></button></li>
+<li><button type="button" class="cq-m" data-n="Tucídides" data-r="La sitúa en el temario" data-t="Busca la unidad y los apartados del curso elegido con los que encaja la noticia y avisa si el encaje es solo parcial." aria-pressed="false"><span class="cq-face">[[AV:1]]<span class="cq-n">2</span><span class="cq-ok" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span></span><b>Tucídides</b><small>La sitúa en el temario</small></button></li>
+<li><button type="button" class="cq-m" data-n="Hannah Arendt" data-r="La conecta con el presente" data-t="Compara las dos épocas: qué se repite, qué ha cambiado y por qué importa hoy." aria-pressed="false"><span class="cq-face">[[AV:2]]<span class="cq-n">3</span><span class="cq-ok" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span></span><b>Hannah Arendt</b><small>La conecta con el presente</small></button></li>
+<li><button type="button" class="cq-m" data-n="Clío" data-r="Se la cuenta al alumnado" data-t="Escribe el relato para la clase, del hecho histórico a la noticia de hoy." aria-pressed="false"><span class="cq-face">[[AV:3]]<span class="cq-n">4</span><span class="cq-ok" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span></span><b>Clío</b><small>Se la cuenta al alumnado</small></button></li>
+<li><button type="button" class="cq-m" data-n="Sócrates" data-r="Plantea el debate" data-t="Propone tres preguntas abiertas para debatir en clase, sin dar la respuesta." aria-pressed="false"><span class="cq-face">[[AV:4]]<span class="cq-n">5</span><span class="cq-ok" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span></span><b>Sócrates</b><small>Plantea el debate</small></button></li>
+<li><button type="button" class="cq-m" data-n="Ibn Jaldún" data-r="Revisa a todos" data-t="Repasa el trabajo de los otros cinco, señala lo que falla y pide que se corrija antes de dar la sesión por buena." aria-pressed="false"><span class="cq-face">[[AV:5]]<span class="cq-n">6</span><span class="cq-ok" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span></span><b>Ibn Jaldún</b><small>Revisa a todos</small></button></li>
+<li class="cq-line" aria-hidden="true"><i></i></li>
+</ol>
+<div class="cq-say" aria-live="polite"><span class="cq-k">1</span><div><b>Heródoto</b><span class="cq-r">Resume la noticia</span><p>Lee la noticia y cuenta qué ha pasado y cuáles son las claves, sin opinar.</p></div><button type="button" class="cq-play" aria-label="Pausar la animación">Pausar</button></div>
+</div>"""),
+        ("Una sesión real", """
+<p class="psub">Así trabajó el consejo con una noticia real para 4.º ESO. El vídeo muestra la conversación y la revisión tal como salieron.</p>
+<div class="cq-news"><span class="tag">Noticia · 4.º ESO</span><div><b>La NASA y el Departamento de Energía acuerdan el primer reactor nuclear para misiones espaciales en 2028</b><small>whatsnew.com · 14 de octubre de 2026</small></div></div>
+<div class="session cq">
+<div class="session-media"><video src="/assets/proyectos/consejo-de-clio/sesion.webm" poster="/assets/proyectos/consejo-de-clio/sesion-poster.jpg" width="720" height="866" muted loop playsinline controls preload="none" aria-label="Vídeo: la conversación del consejo y la revisión de Ibn Jaldún"></video></div>
+<ol class="cq-steps">
+<li><span class="cq-mini">[[AV:0]]</span><div><b>Heródoto</b><span>Resume la noticia: un reactor en órbita en 2028 y otro en la Luna en 2030.</span></div></li>
+<li><span class="cq-mini">[[AV:1]]</span><div><b>Tucídides</b><span>La sitúa en la UD 11, La Guerra Fría, con el Sputnik de 1957 como caso. Avisa de que el encaje es parcial, porque hoy el escenario no es bipolar.</span></div></li>
+<li><span class="cq-mini">[[AV:2]]</span><div><b>Hannah Arendt</b><span>Se repite el espacio como carrera de prestigio. Cambia que ya no hay dos bloques: están China, Rusia y empresas privadas.</span></div></li>
+<li><span class="cq-mini">[[AV:3]]</span><div><b>Clío</b><span>Escribe el relato, del Sputnik a los reactores. Ahí se cuela un error.</span></div></li>
+<li><span class="cq-mini">[[AV:4]]</span><div><b>Sócrates</b><span>«¿Qué empuja hoy a un país a replicar el hito tecnológico de otro?» y dos preguntas más.</span></div></li>
+<li class="cq-rev"><span class="cq-mini">[[AV:5]]</span><div><b>Ibn Jaldún</b><span>Lo detecta: Clío generaliza y da por hecho el uso militar, que en la noticia es opinión de la autora.</span></div></li>
+</ol>
+</div>
+<div class="cq cq-fix">
+<div class="cq-bad"><span class="lab">Borrador de Clío</span><p>«…cuando una potencia logra un hito, <del>las demás se sienten empujadas a seguirla</del>».</p></div>
+<div class="cq-judge"><span class="cq-mini">[[AV:5]]</span><span class="stamp">Corrección</span><p>«Eso es generalizar. Y el uso militar es opinión de la autora, no un dato de la noticia».</p></div>
+<div class="cq-good"><span class="lab">Versión final para clase</span><p>«En 1957, el hito de una potencia <mark>empujó a la otra a responder</mark>. El uso militar es <mark>una opinión de la autora</mark>, no un dato del acuerdo».</p></div>
 </div>"""),
         ("Cómo funciona", """
 <ul class="needs three">
@@ -63,6 +83,9 @@ P.append(dict(
 <li><b>Cada uno, su papel</b><span>Resumir, encajar en el temario, conectar pasado y presente, contarlo y plantear el debate. Respuestas cortas y claras.</span></li>
 <li><b>Nada sin revisar</b><span>Ibn Jaldún revisa a todos antes de dar la sesión por buena, porque lo que dice una IA también hay que revisarlo.</span></li>
 </ul>"""),
+        ("Antes de llevarlo a clase", """
+<div class="cq-warn"><span class="cq-wi" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3.5 2.5 20h19z"/><path d="M12 10v4.5M12 17.4v.1"/></svg></span>
+<div><b>Contrasta siempre la información</b><p>Los seis miembros del consejo son una IA y pueden equivocarse. Ibn Jaldún reduce los errores, pero no los elimina, porque también es una IA. Antes de usar la sesión en el aula, comprueba los datos con la noticia original y con otras fuentes fiables.</p></div></div>"""),
     ],
     related=["asistente-gpt-2eso", "la-ia-tambien-miente", "cazadores-de-bulos"],
 ))

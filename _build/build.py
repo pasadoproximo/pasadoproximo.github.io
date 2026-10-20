@@ -45,6 +45,13 @@ VIZ["map"] = '<div class="viz v-map" aria-hidden="true">%s%s</div>' % (claude_ch
 council = SRC[SRC.index('<div class="council"'):]
 council = balanced(council, 0)
 VIZ["council"] = '<div class="viz v-council" aria-hidden="true">%s</div>' % council.replace(' role="img" aria-label="Heródoto, Tucídides, Hannah Arendt, Clío, Sócrates e Ibn Jaldún"', "")
+# las seis caras sueltas, para la página del Consejo: [[AV:0]] … [[AV:5]] (el color va en --c)
+AVS = re.findall(r'<span style="--c:(#[0-9A-Fa-f]+)" title="[^"]+">(<svg.*?</svg>)</span>', council, re.S)
+def caras(h):
+    def un(m):
+        c, svg = AVS[int(m.group(1))]
+        return svg.replace('<svg class="avatar"', f'<svg class="avatar" style="--c:{c}"')
+    return re.sub(r"\[\[AV:(\d)\]\]", un, h)
 
 
 def viz(p):
@@ -64,7 +71,7 @@ FAVICON = re.search(r'<link rel="icon"[^>]*>', SRC).group(0)
 FONTS = '''<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alegreya+SC:wght@700&family=Alegreya+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&display=swap">'''
-CSSV = "50"
+CSSV = "51"
 
 
 def head(title, desc, path, og="/assets/og.jpg"):
@@ -293,7 +300,7 @@ def fig(src, alt, cap=""):
 def render_section(x):
     if isinstance(x, tuple):
         h, b = x
-        return f'\n <section class="psec rv"><h2>{h}</h2>{b}</section>'
+        return f'\n <section class="psec rv"><h2>{h}</h2>{caras(b)}</section>'
     # bloque de evidencias: {"title", "intro", "figs":[(src, alt, cap)], "cols", "after"}
     figs = "".join(fig(*f) for f in x["figs"])
     cols = {1: " one", 2: "", 3: " three"}.get(x.get("cols", 2), "")
