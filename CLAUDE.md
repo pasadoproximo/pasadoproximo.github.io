@@ -13,36 +13,13 @@ Cada push a `main` se publica solo en 1-2 minutos. El Consejo de Clío vive en o
   **Experiencia, Formación (con «Con qué trabajo») y Contacto**. Para cambiar esas secciones, editar este archivo.
 - `assets/site.css`, `assets/site.js` → estilos y scripts comunes. Si cambian, subir `CSSV` en `build.py`
   (rompe la caché del navegador).
-- `herramientas/` → la «Caja de herramientas digitales». Página propia, se edita directamente
-  (`index.html` + `tools.js` con los datos; logos en `herramientas/logos/`). Al entrar, las cuatro categorías plegadas;
-  el buscador busca en todas las secciones, entiende plurales y los términos relacionados de `SYN` en `index.html`.
-  Al bajar, barra fina fija con el mismo aspecto que la barra del menú pegada (logo, buscador + «Categorías»). Si `tools.js`
-  falla, aviso con reintento. `AREAS` (materias) sigue en `tools.js` pero ya no tiene interfaz.
-  «¿Qué quieres hacer?» = `TASKS`, cuatro objetivos
-  (Enseñar y aprender, Crear materiales, Evaluar y participar, Organizar y gestionar); cada herramienta cae en uno solo según
-  su categoría (`s:cat`); recuento + búsqueda activa solo cuando se busca. Hero y buscador forman un solo bloque azul marino (`.head` +
-  `.find-box`): etiqueta, título, descripción breve (`.head-d`), sello circular «Revisada octubre 2026» y el buscador (etiqueta solo para lector de pantalla).
-  Al pasar el cursor, foco azulado como en los hero del portfolio; cubre los dos elementos a la vez (`body.hero-hot`).
-  Ya no hay «Más filtros» (tipo/materia): `state.sec`/`state.area` quedan sin interfaz. Con búsqueda solo se ven las
-  fichas que coinciden (`#list`), sin categorías. `#q2` es el de la barra fina (botón «Categorías»): sincronizado, solo
-  aparece cuando `#q` sale de pantalla.
-  Catálogo: los cuatro botones de «¿Qué quieres hacer?» (`TASKS`) son las categorías; cada uno despliega debajo su panel
-  `.gp` unido al botón «en lágrima» (fondo ice). Escritorio: 4 columnas y los paneles debajo de la fila (orden por CSS `order`);
-  ≤900px: una columna y cada panel justo bajo su botón. Dentro, las categorías de los datos son pestañas (`role=tab`,
-  flechas para moverse; `subOpen` recuerda la elegida) y solo se ven sus fichas. Sin etiqueta Aula/Docente: por eso
-  «Explorar Geografía e Historia» pasó a «Geografía e Historia» y docente:crear a «Materiales para tu clase». Plegadas
-  al entrar y solo una abierta (`browseOpen`). Ya no hay filtro por objetivo (`state.p` eliminado). La barra fina observa el buscador, no la sección. Al abrir/cerrar, el botón no se mueve. Fichas compactas:
-  frase de uso + primer ejemplo (`i[0]`) + etiquetas; el resto va en «Detalles». Las etiquetas salen solo de los datos.
-  Lo que ha cerrado o cambiado sale de `CHANGES` en `tools.js` (el último elemento es la novedad destacada);
-  el balance (siguen, nuevas, otro nombre, cerradas) se calcula con el campo `st`.
-  Buscador: palabras cortas (IA, 3D) solo cuentan en nombre y descripción, no en los ejemplos; materias de Ciencias,
-  Música y Programación en `SUBJ` (solo para buscar). Edad mínima en `tools.js` (`edad`, `edadTxt`, `edadUrl`) solo con
-  fuente oficial; si no la hay, la ficha dice que se consulten las condiciones. Fichas: sin alturas fijas; cada fila se
-  iguala sola y las etiquetas + botones se apoyan abajo (margin-top:auto solo en `.facts`). Al abrir «Detalles», `lockGrid`
-  fija la altura de las demás fichas de esa cuadrícula (`.grid.lock`): solo crece la abierta.
-- `assets/caja-demo.js` → animación «Así se usa la caja» del Repositorio digital: carga `/herramientas/tools.js` y
-  reproduce la caja (buscar → solo fichas; elegir → lágrima con pestañas → ficha → Detalles → Abrir). Copia las cuatro
-  categorías de `TASKS`: si cambian, actualizarla.
+- `herramientas/` → la antigua «Caja de herramientas digitales», que en octubre de 2026 pasó a ser **Didakora**, una web propia
+  (repo `pasadoproximo/didakora` → https://pasadoproximo.github.io/didakora/, con su propio CLAUDE.md). Aquí solo quedan:
+  `herramientas/index.html`, que redirige a Didakora (con `#id` lleva a la ficha y con `?q=` a la búsqueda), y
+  `herramientas/logos/`, que usa la página del Repositorio digital (y `tools.js`, ya sin uso, como copia de los datos de 2026). No editar la caja aquí.
+- El menú enlaza a «Didakora» (`/didakora/`). La página del Repositorio digital explica el paso de 2024 a Didakora con un vídeo real
+  de la web (`assets/proyectos/repositorio-digital/didakora.webm` + póster `didakora-video.jpg`, 31 s, sin sonido, en bucle,
+  con botón de pausa; no arranca si el sistema pide reducir el movimiento). Si Didakora cambia mucho, regrabarlo.
 - `apps/` → el Mapa de relieves y El bombo, recuperados de claude.ai y alojados aquí (no dependen de Claude).
 - `anterior/` → copia de la portada antigua (sin indexar). No tocar.
 - `_build/cv.html` → fuente del CV. Para regenerar el PDF: Chrome headless con `--print-to-pdf` (comando al inicio del archivo).
@@ -61,7 +38,7 @@ Cada push a `main` se publica solo en 1-2 minutos. El Consejo de Clío vive en o
 
 - Azul marino `#061033`, `--navy3 #1B2C6B`, azul claro `--sky #9FB3FF`, `--ice #DDE4F6`, fondo `--bg #F2F4F9`.
 - Tipografías: Bricolage Grotesque (títulos), Alegreya SC (citas), Alegreya Sans (texto).
-- Bloques redondeados tipo «bento», barra superior en píldora que se pega arriba al bajar (siempre redondeada, a 12 px del borde; también en la Caja y el Consejo), foco azulado que sigue al ratón.
+- Bloques redondeados tipo «bento», barra superior en píldora que se pega arriba al bajar (siempre redondeada, a 12 px del borde; también en el Consejo), foco azulado que sigue al ratón.
 - Criterio acordado: **pocos cajones**. Cajón solo para lo que se pulsa o lo que debe destacar (bloques azul marino);
   el texto informativo va sobre el fondo, separado con líneas finas `#D3DAEA`.
 
@@ -83,12 +60,16 @@ Cada push a `main` se publica solo en 1-2 minutos. El Consejo de Clío vive en o
 - Casos de estudio (`kind="caso"`): repositorio digital, asistente TFM y Consejo de Clío. Usan todo el ancho y bloques
   horizontales (`needs`, `hsteps`, `gal frame`, `status`). El Consejo tiene además su web completa en `/consejo-de-clio/`,
   con la misma barra que el portfolio.
-- Todas las páginas (portfolio, Caja de herramientas y Consejo) comparten la misma barra: solo logo + menú.
-- Índice `/proyectos/`: las tres categorías son botones que despliegan sus proyectos debajo «en lágrima», como la Caja.
-  Orden: Profesorado y formación (la del repositorio, abierta al entrar), Herramientas y asistentes, Actividades de aula.
-  Una abierta a la vez; `/proyectos/#aula` abre esa. Sin JavaScript se ven todas.
-- Repositorio digital, «Mantenerlo al día»: filas antes → ahora (`.upd`, sin cajas): en «Antes» los iconos originales (archivados en Wayback Machine, en `assets/proyectos/repositorio-digital/antes/`; EarTeach y Hablaconlahistoria no tenían, llevan un icono propio: oreja y Colón) en gris y tachados; en «Ahora» los logos reales y debajo la animación
-  «Así se usa la caja». Ya no hay bloques 2024/2026 ni capturas de las portadas.
+- Todas las páginas (portfolio y Consejo) comparten la misma barra: solo logo + menú. Didakora tiene su propia barra.
+- Índice `/proyectos/`: tres botones en píldora (pestañas, `.ct`) para las tres categorías; el elegido queda en azul marino
+  y debajo salen su descripción y sus proyectos. Orden: Profesorado y formación (elegida al entrar), Herramientas y asistentes,
+  Actividades de aula. Flechas izquierda/derecha para moverse; `/proyectos/#aula` elige esa. Sin JavaScript se ven todas.
+- Tarjetas de proyecto (`card()`), en la portada y en todas partes: solo etiqueta gris y título, centrados, sin texto ni flecha
+  ni foco que sigue al ratón. La etiqueta reserva dos líneas si no cabe en una, para que los títulos cuadren.
+- Pie común (`foot()`): bloque azul marino «¿Hablamos?» con los contactos como iconos y el templo del logo que se construye
+  por piezas (animación); debajo, nombre y lugar. En la portada sustituye a la antigua sección «Contacto» (`#contacto`).
+- Repositorio digital, «Mantenerlo al día»: filas antes → ahora (`.upd`, sin cajas): en «Antes» los iconos originales (archivados en Wayback Machine, en `assets/proyectos/repositorio-digital/antes/`; EarTeach y Hablaconlahistoria no tenían, llevan un icono propio: oreja y Colón) en gris y tachados; en «Ahora» los logos reales, en dos columnas compactas;
+  debajo «Así es Didakora» (texto + vídeo real de Didakora). Ya no hay bloques 2024/2026 ni la animación de la caja antigua.
 - Títulos de sección: la descripción va siempre debajo del título, nunca a la derecha (`.sec-head` en columna).
 - El resto son fichas breves (`kind="ficha"`): descripción, material real, nivel y enlace.
 - Destacados en portada, en este orden: repositorio, asistente, Consejo de Clío, Cazadores de bulos.

@@ -64,7 +64,7 @@ FAVICON = re.search(r'<link rel="icon"[^>]*>', SRC).group(0)
 FONTS = '''<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alegreya+SC:wght@700&family=Alegreya+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&display=swap">'''
-CSSV = "29"
+CSSV = "46"
 
 
 def head(title, desc, path, og="/assets/og.jpg"):
@@ -104,33 +104,46 @@ def topbar(active=""):
   <nav aria-label="Principal">
    {a("/proyectos/", "Proyectos", "proyectos").replace("<a ", "<a class=\"nav-key\" ",1)}
    {a("/#sobre-mi", "Sobre mí", "sobre")}
-   {a("/herramientas/", "Caja de herramientas", "herr")}
+   {a("/didakora/", "Didakora", "herr")}
    <a class="cv" href="/assets/pdf/CV-Jorge-Delgado-Aguilera.pdf" download aria-label="Descargar CV (PDF)">CV <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg></a>
-   <a class="hire" href="/#contacto">Contacto</a>
+   <a class="hire" href="#contacto">Contacto</a>
   </nav>
  </div>
 </header>
 '''
 
 
+CONTACTO = [
+ ("Correo", "mailto:jorgedelagui@gmail.com", '<rect x="3" y="4" width="18" height="16" rx="3.5"/><path d="m4 7 8 6.5 8-6.5"/>', ""),
+ ("LinkedIn", "https://www.linkedin.com/in/jorgedelgadoaguilera", '<rect x="3" y="3" width="18" height="18" rx="4.5"/><path d="M8 10.5V16.5M8 7.6v.1M11.8 16.5v-6M11.8 13.2c0-1.7 1.1-2.8 2.5-2.8s2.3 1 2.3 2.8v3.3"/>', ' rel="noopener" target="_blank"'),
+ ("Instagram", "https://www.instagram.com/pasadoproximo/", '<rect x="3" y="3" width="18" height="18" rx="5.5"/><circle cx="12" cy="12" r="4.2"/><path d="M17.3 6.7v.1"/>', ' rel="noopener" target="_blank"'),
+ ("Descargar el CV", "/assets/pdf/CV-Jorge-Delgado-Aguilera.pdf", '<path d="M12 3v12M7 10l5 5 5-5"/><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/>', " download"),
+]
 def foot():
-    return '''
+    iconos = "".join(f'<a href="{u}"{x} aria-label="{n}" title="{n}"><svg viewBox="0 0 24 24" aria-hidden="true">{d}</svg></a>' for n, u, d, x in CONTACTO)
+    return f'''
+<aside class="fin" id="contacto" aria-labelledby="h-fin">
+ <svg class="fin-logo" viewBox="0 0 26 26" aria-hidden="true"><path class="fl-r" d="M13 2 2 7h22L13 2Z"/><rect class="fl-e" x="3" y="8" width="20" height="2"/><rect class="fl-c c1" x="5" y="11" width="2.4" height="9"/><rect class="fl-c c2" x="9.6" y="11" width="2.4" height="9"/><rect class="fl-c c3" x="14" y="11" width="2.4" height="9"/><rect class="fl-c c4" x="18.6" y="11" width="2.4" height="9"/><rect class="fl-b" x="2" y="21" width="22" height="2.4"/></svg>
+ <h2 id="h-fin">¿Hablamos<span>?</span></h2>
+ <p>Abierto a proyectos de docencia, formación del profesorado y tecnología educativa.</p>
+ <nav class="fin-c" aria-label="Contacto">{iconos}</nav>
+</aside>
 <footer><span>© 2026 Jorge Delgado Aguilera</span><span>Campanillas, Málaga</span></footer>
 </div>
-<script src="/assets/site.js?v=''' + CSSV + '''" defer></script>
+<script src="/assets/site.js?v={CSSV}" defer></script>
 </body>
 </html>
 '''
 
 
-def card(p, lvl="h3"):
+def card(p, lvl="h3", desc=False):
     tags = " · ".join(html.escape(t) for t in p["tags"][:2])
-    return f'''<a class="t pc lift rv" href="{url(p)}">
- <span class="arrow" aria-hidden="true">{ICON_EXT}</span>
+    texto = f'\n <p>{p["card"]}</p>' if desc else ""  # todas las tarjetas: solo etiqueta y título (desc=True añade el texto)
+    flecha = f'\n <span class="arrow" aria-hidden="true">{ICON_EXT}</span>' if desc else ""  # y sin flecha
+    return f'''<a class="t pc lift rv" href="{url(p)}">{flecha}
  {viz(p)}
  <div class="pc-tags">{tags}</div>
- <{lvl}>{p["title"]}</{lvl}>
- <p>{p["card"]}</p>
+ <{lvl}>{p["title"]}</{lvl}>{texto}
 </a>'''
 
 
@@ -150,7 +163,6 @@ def section(id_):
 def home():
     exp = section("experiencia")
     form = section("formacion")
-    contact = section("contacto")
     # dentro de «Sobre mí» los bloques usan h3 en vez de h2
     exp = exp.replace('<span class="lab">Experiencia docente</span><h2>En el aula</h2>', '<span class="lab">Experiencia docente</span><h3 class="h3big">En el aula</h3>')
     form = form.replace('<span class="lab">Formación</span><h2>De la Historia al aula digital</h2>', '<span class="lab">Formación</span><h3 class="h3big">De la Historia al aula digital</h3>')
@@ -178,7 +190,7 @@ def home():
   <div class="t dark h2-main rv">
    <span class="live"><span class="dot" aria-hidden="true"></span>Abierto a proyectos</span>
    <h1>Jorge Delgado Aguilera</h1>
-   <p class="value">Diseño materiales educativos digitales y soy profesor de Geografía e Historia. Creo actividades, herramientas y formación para que la tecnología, y en especial la IA, ayude al alumnado a <b>leer fuentes, contrastar y argumentar.</b></p>
+   <p class="value">Diseño materiales educativos digitales y soy profesor de Geografía e Historia. Creo actividades, herramientas y formación para que la tecnología, en especial la IA, ayude al alumnado a <b>leer fuentes, contrastar y argumentar.</b></p>
    <div class="cta">
     <a class="btn solid" href="/proyectos/">Ver proyectos <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
     <a class="btn line" href="#contacto">Contactar</a>
@@ -211,7 +223,6 @@ def home():
  </section>
 {exp}
 {form}
-{contact}
 </main>'''
     out = head("Jorge Delgado Aguilera · Diseño de materiales educativos digitales",
                "Diseñador de materiales educativos digitales y profesor de Geografía e Historia en Málaga. Diseño actividades, herramientas y formación para que la tecnología y la IA ayuden a leer fuentes, contrastar y argumentar.",
@@ -221,31 +232,31 @@ def home():
 
 # ================================================================= ÍNDICE
 def index():
-    # las categorías son botones que despliegan sus proyectos debajo, como en la Caja de herramientas;
-    # la del repositorio va primera y abierta al entrar, y solo hay una abierta a la vez
+    # tres botones (pestañas): el elegido se queda en azul marino y debajo se ven sus proyectos; la del repositorio, al entrar
     order = ["profesorado", "herramientas", "aula"]
-    chev = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>'
-    goals = ""
+    tabs = panels = ""
     for i, k in enumerate(order):
         c = CATS[k]; n = sum(1 for p in P if p["cat"] == k); op = i == 0
         cards = "\n".join(card(p) for p in P if p["cat"] == k)
-        goals += f'''
-  <h2 class="cg-h" id="{k}" style="--i:{i}"><button type="button" class="cg" id="cg-{k}" aria-expanded="{str(op).lower()}" aria-controls="cp-{k}"><b>{c["name"]}</b><span class="gi">{chev}</span><span class="gd">{c["desc"]}</span><span class="num">{n}<span class="vh"> proyectos</span></span></button></h2>
-  <div class="cgp" id="cp-{k}" role="region" aria-labelledby="cg-{k}" style="--i:{i}"{"" if op else " hidden"}><div class="pgrid g3">
+        tabs += (f'<button type="button" class="ct" role="tab" id="cg-{k}" aria-selected="{str(op).lower()}" aria-controls="{k}"'
+                 f'{"" if op else " tabindex=" + chr(34) + "-1" + chr(34)}>{c["name"]}<span class="num">{n}<span class="vh"> proyectos</span></span></button>')
+        panels += f'''
+  <div class="cgp" id="{k}" role="tabpanel" aria-labelledby="cg-{k}"{"" if op else " hidden"}>
+   <p class="cgd">{c["desc"]}</p>
+   <div class="pgrid g3">
 {cards}
-  </div></div>'''
+   </div>
+  </div>'''
     secs = f'''
  <section class="pcats" aria-label="Proyectos por categoría">
-  <div class="cgrid">{goals}
-  </div>
-  <noscript><style>.cgp[hidden]{{display:block}}</style></noscript>
+  <div class="ctabs" role="tablist" aria-label="Categorías de proyectos">{tabs}</div>{panels}
+  <noscript><style>.cgp[hidden]{{display:block}}.ctabs{{display:none}}</style></noscript>
  </section>'''
     body = f'''
 <main id="contenido">
  <section class="sec first">
   <div class="sec-head rv">
    <div><span class="lab">Proyectos</span><h1 class="h1page">Todo lo que he construido</h1></div>
-   <p>{len(P)} trabajos agrupados por para qué sirven. Los proyectos más grandes se explican a fondo; las actividades y recursos tienen una ficha breve con su descarga o su enlace.</p>
   </div>
  </section>
 {secs}

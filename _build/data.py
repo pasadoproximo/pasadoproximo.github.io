@@ -12,7 +12,7 @@ CATS = {
     },
     "profesorado": {
         "name": "Profesorado y formación",
-        "desc": "Recursos y guías para el trabajo del docente, y el portfolio de mi propia formación.",
+        "desc": "Recursos y guías para el trabajo del docente y el portfolio de mi propia formación.",
     },
 }
 
@@ -25,10 +25,10 @@ P = []
 P.append(dict(
     slug="consejo-de-clio", cat="herramientas", year="2026",
     title="El Consejo de Clío", tags=["Aplicación con IA", "Secundaria"], kind="caso",
-    card="Seis agentes de IA convierten una noticia de hoy en una sesión de clase, y uno revisa a todos.",
+    card="Seis agentes de IA convierten una noticia de hoy en una sesión de clase y uno revisa a todos.",
     viz="council",
     h1="El Consejo de Clío: seis pensadores preparan una clase con la noticia de hoy",
-    lede="Una herramienta con IA para docentes: pegas una noticia, eliges el curso y seis personajes de la historia preparan una sesión para el aula. Cada uno tiene su papel, y uno existe solo para buscar errores.",
+    lede="Una herramienta con IA para docentes: pegas una noticia, eliges el curso y seis personajes de la historia preparan una sesión para el aula. Cada uno tiene su papel y uno existe solo para buscar errores.",
     meta=[("Para quién", "Docentes de Geografía e Historia, de 1.º ESO a Bachillerato"),
           ("Tipo", "Aplicación con IA · material de libre uso"),
           ("Herramientas", "Claude (artefacto con agentes de IA)"),
@@ -69,7 +69,7 @@ P.append(dict(
 
 P.append(dict(
     slug="asistente-gpt-2eso", cat="herramientas", year="2024",
-    title="Asistente de IA para 2.º ESO", tags=["Trabajo Fin de Máster", "2.º ESO"], kind="caso",
+    title="Asistente de IA", tags=["TFM", "2.º ESO"], kind="caso",
     card="Un GPT que guía al alumnado sin darle la respuesta y dice siempre de dónde sale cada dato.",
     viz="v-chat",
     h1="PasadoPróximo-2ºESO: un asistente de IA que guía sin resolver",
@@ -142,7 +142,7 @@ P.append(dict(
 # ---------------------------------------------------------------- AULA
 P.append(dict(
     slug="cazadores-de-bulos", cat="aula", year="2026",
-    title="Cazadores de bulos históricos", tags=["Actividad (PDF)", "4.º ESO y 2.º Bachillerato"], kind="ficha",
+    title="Cazadores de bulos históricos", tags=["Actividad", "4.º ESO y 2.º Bach."], kind="ficha",
     card="Un texto escrito por una IA sobre la caída de Málaga en 1937, convincente y con nueve errores.",
     viz="v-bulos",
     lede="Una IA ha escrito un texto sobre la caída de Málaga en 1937. Suena convincente y tiene nueve errores: ocho se cazan con el tema estudiado y el noveno, razonando. Sirve a la vez para repasar y para aprender a no fiarse de un texto solo porque está bien escrito.",
@@ -182,7 +182,7 @@ P.append(dict(
     card="Escenas históricas generadas con IA con anacronismos escondidos y una trampa en cada una.",
     viz="img:/assets/ia-miente/mercado.jpg",
     lede="Una serie quincenal que publico en LinkedIn. Cada entrega es una escena histórica generada con IA que esconde anacronismos. Y siempre hay una trampa: algo que parece imposible y sí es de la época.",
-    meta=[("Para quién", "Docentes que quieran llevarla a clase, y cualquiera con curiosidad"),
+    meta=[("Para quién", "Docentes que quieran llevarla a clase y cualquiera con curiosidad"),
           ("Tipo", "Serie de imágenes para el aula"),
           ("Herramientas", "Claude y Canva")],
     links=[],
@@ -219,7 +219,7 @@ P.append(dict(
 <li><b>La medida (10 min).</b> Cada equipo escribe su frase. Las que no tienen segunda mitad se devuelven.</li>
 </ol>
 <p>Funciona también sin dispositivos, con una cartulina por equipo. Los datos están verificados a septiembre de 2026 y la guía recuerda comprobarlos antes de usarla.</p>"""),
-        dict(title="El material", cols=2, intro="<p>El PDF trae la guía docente cronometrada, las fichas, la hoja de la cadena y el solucionario con las fuentes de los datos.</p>", figs=[("/assets/proyectos/la-nube-pesa/pagina-2.jpg", "Página 2 del PDF: cinco fichas de eslabón (extracción, fabricación y transporte, uso y vida útil, centro de datos y residuo) con datos y preguntas", "Página 2: las cinco fichas de eslabón, para recortar y repartir."), ("/assets/proyectos/la-nube-pesa/pagina-3.jpg", "Página 3 del PDF: hoja de la cadena con columnas de dato y fuente, lugar en el mapa, quién gana y quién pierde, y el espacio para la medida", "Página 3: la hoja de la cadena que completa cada equipo.")]),
+        dict(title="El material", cols=2, intro="<p>El PDF trae la guía docente cronometrada, las fichas, la hoja de la cadena y el solucionario con las fuentes de los datos.</p>", figs=[("/assets/proyectos/la-nube-pesa/pagina-2.jpg", "Página 2 del PDF: cinco fichas de eslabón (extracción, fabricación y transporte, uso y vida útil, centro de datos y residuo) con datos y preguntas", "Página 2: las cinco fichas de eslabón, para recortar y repartir."), ("/assets/proyectos/la-nube-pesa/pagina-3.jpg", "Página 3 del PDF: hoja de la cadena con columnas de dato y fuente, lugar en el mapa, quién gana y quién pierde y el espacio para la medida", "Página 3: la hoja de la cadena que completa cada equipo.")]),
     ],
     value=["Unir un tema de Geografía con algo que el alumnado hace cada día.",
            "Evaluar la argumentación con una regla sencilla y clara."],
@@ -241,11 +241,11 @@ P.append(dict(
         ("Cómo se hace", """
 <ol class="steps">
 <li><b>La pregunta (5 min).</b> Dos equipos con postura asignada: ruptura revolucionaria o liberalización con límites.</li>
-<li><b>Anotación por parejas (20 min).</b> Al menos tres anotaciones, y una respondiendo a otra pareja. El docente ve el margen en directo.</li>
+<li><b>Anotación por parejas (20 min).</b> Al menos tres anotaciones y una respondiendo a otra pareja. El docente ve el margen en directo.</li>
 <li><b>Debate (15 min).</b> Cada intervención empieza citando el artículo anotado.</li>
 <li><b>Cierre (10 min).</b> Votación razonada y una pregunta: ¿por qué un mismo texto puede sostener las dos posturas?</li>
 </ol>
-<p>Incluye un plan B sin cuentas, con Google Docs, y variantes para subir o bajar el nivel.</p>"""),
+<p>Incluye un plan B sin cuentas, con Google Docs y variantes para subir o bajar el nivel.</p>"""),
         dict(title="El material", cols=2, intro="<p>El PDF trae la guía docente, el dosier de artículos, la hoja de registro y el solucionario con rúbrica.</p>", figs=[("/assets/proyectos/constitucion-1812/pagina-2.jpg", "Página 2 del PDF: dosier de trabajo con artículos de la Constitución de 1812 y el protocolo de anotación #APOYA, #LIMITA y #PREGUNTA", "Página 2: el dosier de artículos y el protocolo de marcas."), ("/assets/proyectos/constitucion-1812/pagina-3.jpg", "Página 3 del PDF: hoja de registro con tabla de anotaciones, respuesta a otra pareja y votación razonada", "Página 3: la hoja de registro de la pareja.")]),
     ],
     value=["Trabajar fuentes primarias con una herramienta digital que hace visible el razonamiento.",
@@ -297,16 +297,16 @@ P.append(dict(
     slug="repositorio-digital", cat="profesorado", year="2024 · 2026",
     title="Repositorio digital docente", tags=["Web de recursos", "Profesorado"], kind="caso",
     lab="Web de recursos",
-    card="La web de herramientas que creé para un centro en 2024 y su revisión de 2026 para Secundaria.",
+    card="La web de herramientas que creé para un centro en 2024 y que en 2026 se ha convertido en Didakora.",
     viz="v-caja",
-    h1="Del repositorio de centro a la caja de herramientas",
-    lede="Una web para que el profesorado encuentre rápido qué herramienta digital usar. La creé en 2024 para el Colegio Cerrado de Calderón (Málaga), en las prácticas del Máster en Tecnología Educativa. En 2026 la he actualizado para Secundaria.",
-    meta=[("Para quién", "El claustro del centro (2024) y docentes de Secundaria (2026)"),
+    h1="Del repositorio de centro a Didakora",
+    lede="Una web para que el profesorado encuentre rápido qué herramienta digital usar. La creé en 2024 para el Colegio Cerrado de Calderón (Málaga), en las prácticas del Máster en Tecnología Educativa. En 2026 la he convertido en Didakora, una web propia de herramientas revisadas para docentes.",
+    meta=[("Para quién", "El claustro del centro (2024) y docentes de todas las etapas (2026)"),
           ("Tipo", "Web de recursos y autoformación"),
-          ("Herramientas", "Google Sites (2024) · web propia (2026)"),
+          ("Herramientas", "Google Sites (2024) · Didakora, web propia (2026)"),
           ("Reconocimiento", "Presentada por el centro en Braining 2025")],
-    links=[("Abrir la caja de herramientas", "/herramientas/", "int"),
-           ("Ver el repositorio original", "https://sites.google.com/view/repositorio-digital-docente-cc/inicio", "ext")],
+    links=[("Ver el repositorio original", "https://sites.google.com/view/repositorio-digital-docente-cc/inicio", "ext"),
+           ("Abrir Didakora", "https://pasadoproximo.github.io/didakora/", "ext")],
     sections=[
         ("La necesidad", """
 <p class="psub">La dirección estaba intentando fomentar la digitalización del centro y el claustro tenía dificultades para encontrar las herramientas digitales adecuadas. Faltaba un sitio común claro y adaptado a todas las etapas (Infantil, Primaria y Secundaria) que permitiera la autoformación del profesorado.</p>
@@ -319,8 +319,8 @@ P.append(dict(
              intro='<p class="psub">Dos ejemplos de etapas distintas: una herramienta de Infantil y otra de Secundaria.</p>',
              cols=1, figs=[],
              after="""<div class="ficha1 two">
-FIG:/assets/proyectos/repositorio-digital/ficha-infantil-2024.jpg?v=2|Ficha de Cokitos en Infantil (5 años): videotutorial de YouTube, qué es la plataforma, las áreas que trabaja (Matemáticas, Lengua, Ciencias, Arte y música) y botón a la web|<b>Infantil · 5 años · Matemáticas.</b> Cokitos: videotutorial, qué es, áreas que trabaja y enlace a la web.
-FIG:/assets/proyectos/repositorio-digital/ficha-2024.jpg?v=2|Ficha de StopMotion en el repositorio de 2024: videotutorial de YouTube, explicación de la técnica, tres usos en el aula, «Todas las edades» y botón a la app|<b>Secundaria y Bachillerato · Sociales.</b> StopMotion: videotutorial, qué es, usos en el aula, edad y enlace a la app.
+FIG:/assets/proyectos/repositorio-digital/ficha-infantil-2024.jpg?v=2|Ficha de Cokitos en Infantil (5 años): videotutorial de YouTube, qué es la plataforma, las áreas que trabaja (Matemáticas, Lengua, Ciencias, Arte y música) y botón a la web|<b>Infantil · 5 años · Matemáticas</b>
+FIG:/assets/proyectos/repositorio-digital/ficha-2024.jpg?v=2|Ficha de StopMotion en el repositorio de 2024: videotutorial de YouTube, explicación de la técnica, tres usos en el aula, «Todas las edades» y botón a la app|<b>Secundaria y Bachillerato · Sociales</b>
 </div>"""),
         ("Lo que puedo afirmar", """
 <div class="status four">
@@ -330,23 +330,29 @@ FIG:/assets/proyectos/repositorio-digital/ficha-2024.jpg?v=2|Ficha de StopMotion
 <div class="s-pend"><span class="st-l pend">Más de 100</span><p>Más de 100 herramientas y recursos para el centro, cada uno con su ficha y su videotutorial.</p></div>
 </div>"""),
         dict(title="Mantenerlo al día",
-             intro='<p class="psub">La tecnología educativa evoluciona muy rápido: dos años después, muchas herramientas habían cerrado o cambiado. Por eso en 2026 la he rehecho para Secundaria.</p>',
+             intro='<p class="psub">La tecnología educativa evoluciona muy rápido: dos años después, muchas herramientas habían cerrado o cambiado. Por eso en 2026 la he rehecho como Didakora.</p>',
              cols=1, figs=[],
              after="""<div class="upd">
 <div class="upd-h" aria-hidden="true"><span>Antes</span><span></span><span>Ahora</span></div>
 <div class="upd-r"><div class="upd-a"><b>Herramientas cerradas</b><span class="upd-logos"><span class="upd-old"><img src="/assets/proyectos/repositorio-digital/antes/flip.png" alt="" width="24" height="24" loading="lazy"><s>Flip</s></span><span class="upd-old"><img src="/assets/proyectos/repositorio-digital/antes/tome.png" alt="" width="24" height="24" loading="lazy"><s>Tome</s></span><span class="upd-old"><img src="/assets/proyectos/repositorio-digital/antes/classcraft.png" alt="" width="24" height="24" loading="lazy"><s>Classcraft</s></span><span class="upd-old"><img src="/assets/proyectos/repositorio-digital/antes/earteach.svg" alt="" width="24" height="24" loading="lazy"><s>EarTeach</s></span><span class="upd-old"><img src="/assets/proyectos/repositorio-digital/antes/hablaconlahistoria.svg" alt="" width="24" height="24" loading="lazy"><s>Hablaconlahistoria</s></span></span></div><span class="upd-ar" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span><div class="upd-b"><span class="vh">Ahora: </span><b>Cada una tiene su alternativa</b><span class="upd-logos"><span class="upd-lg"><img src="/herramientas/logos/padlet.png" alt="" width="24" height="24" loading="lazy"><span>Padlet</span></span><span class="upd-lg"><img src="/herramientas/logos/gamma.png" alt="" width="24" height="24" loading="lazy"><span>Gamma</span></span><span class="upd-lg"><img src="/herramientas/logos/classdojo.png" alt="" width="24" height="24" loading="lazy"><span>ClassDojo</span></span><span class="upd-lg"><img src="/herramientas/logos/musictheory.png" alt="" width="24" height="24" loading="lazy"><span>musictheory.net</span></span><span class="upd-lg"><img src="/herramientas/logos/gemini.png" alt="" width="24" height="24" loading="lazy"><span>Gemini</span></span></span></div></div>
 <div class="upd-r"><div class="upd-a"><b>Nombres que cambiaron</b><span class="upd-logos"><span class="upd-old"><img src="/assets/proyectos/repositorio-digital/antes/quizizz.png" alt="" width="24" height="24" loading="lazy"><s>Quizizz</s></span><span class="upd-old"><img src="/assets/proyectos/repositorio-digital/antes/freepik.png" alt="" width="24" height="24" loading="lazy"><s>Freepik</s></span></span></div><span class="upd-ar" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span><div class="upd-b"><span class="vh">Ahora: </span><b>Con su nombre actual</b><span class="upd-logos"><span class="upd-lg"><img src="/herramientas/logos/wayground.png" alt="" width="24" height="24" loading="lazy"><span>Wayground</span></span><span class="upd-lg"><img src="/herramientas/logos/magnific.png" alt="" width="24" height="24" loading="lazy"><span>Magnific</span></span></span></div></div>
 <div class="upd-r"><div class="upd-a"><b>Faltaba la IA de los centros</b><span class="upd-gone"><em>Ninguna IA con cuenta del centro</em></span></div><span class="upd-ar" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span><div class="upd-b"><span class="vh">Ahora: </span><b>Para usarla con la cuenta del centro</b><span class="upd-logos"><span class="upd-lg"><img src="/herramientas/logos/gemini.png" alt="" width="24" height="24" loading="lazy"><span>Gemini</span></span><span class="upd-lg"><img src="/herramientas/logos/notebooklm.png" alt="" width="24" height="24" loading="lazy"><span>NotebookLM</span></span><span class="upd-lg"><img src="/herramientas/logos/copilot.png" alt="" width="24" height="24" loading="lazy"><span>Copilot</span></span></span></div></div>
-<div class="upd-r"><div class="upd-a"><b>Difícil de encontrar</b><span class="upd-path"><span>Etapa</span><i>›</i><span>Materia</span><i>›</i><span>Herramienta</span></span></div><span class="upd-ar" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span><div class="upd-b"><span class="vh">Ahora: </span><b>Se busca por nombre o por lo que necesitas</b><span class="upd-search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.4-4.4"/></svg>Busca una herramienta o qué necesitas hacer…</span></div></div>
+<div class="upd-r"><div class="upd-a"><b>Difícil de encontrar</b><span class="upd-path"><span>Etapa</span><i>›</i><span>Materia</span><i>›</i><span>Herramienta</span></span></div><span class="upd-ar" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span><div class="upd-b"><span class="vh">Ahora: </span><b>Se busca por nombre o por lo que necesitas</b></div></div>
 </div>
 <div class="caja-demo">
-<div><h3>Así se usa la caja</h3><p>Puedes usar el buscador para encontrar las herramientas necesarias para lo que quieres hacer.</p><p>También hay 4 categorías escogidas según la finalidad de la herramienta que te sirven de orientación y se despliegan.</p><p class="cdf-t">Cada ficha te da</p><ul class="cdf"><li><span class="cdf-i" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 11v5M12 8h.01"/></svg></span>Lo que hace</li><li><span class="cdf-i" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 7h10M7 11h10M7 15h6"/><path d="M5 3h14v18l-3.5-2.5L12 21l-3.5-2.5L5 21z"/></svg></span>Un ejemplo de clase</li><li><span class="cdf-i" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M2 9 12 4l10 5-10 5z"/><path d="M6 11v5c3 2 9 2 12 0v-5"/></svg></span>La etapa recomendada</li><li><span class="cdf-i" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="8" cy="15" r="4"/><path d="m11 12 9-9M17 6l3 3M14 9l2 2"/></svg></span>Qué necesita</li><li><span class="cdf-i" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m10 9 5 3-5 3z"/></svg></span>Videotutoriales</li></ul></div>
-<div class="cd" id="cd" data-s="1" hidden>
-<div class="cd-win" aria-hidden="true"><div class="cd-sbox"><div class="cd-search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.4-4.4"/></svg><span class="cd-q"></span><span class="cd-caret"></span></div></div><div class="cd-stage"><div class="cd-browse"><p class="cd-l">¿Qué quieres hacer?</p><div class="cd-tabs"><span class="cd-tab"><span class="l">Enseñar y aprender</span><span class="s">Enseñar</span><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></span><span class="cd-tab"><span class="l">Crear materiales</span><span class="s">Crear</span><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></span><span class="cd-tab"><span class="l">Evaluar y participar</span><span class="s">Evaluar</span><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></span><span class="cd-tab"><span class="l">Organizar y gestionar</span><span class="s">Organizar</span><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></span></div><div class="cd-panel"><div class="cd-sub"></div><div class="cd-slot"></div></div></div><div class="cd-res"><div class="cd-slot"></div></div></div></div>
-<ol class="cd-steps" aria-hidden="true"><li>Busca o elige qué quieres hacer</li><li>Mira cómo usarla en clase</li><li>Ábrela</li></ol>
-<button type="button" class="cd-pause" aria-label="Pausar la animación" hidden></button>
+<h3>Así es Didakora</h3>
+<div class="dk-t"><p>Se busca por el nombre de la herramienta o por lo que quieres hacer y se filtra por etapa. También se puede entrar por diez categorías según para qué sirve cada herramienta.</p><p class="cdf-t">Cada ficha te da</p><ul class="cdf"><li><span class="cdf-i" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 11v5M12 8h.01"/></svg></span>Qué es la herramienta</li><li><span class="cdf-i" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 7h10M7 11h10M7 15h6"/><path d="M5 3h14v18l-3.5-2.5L12 21l-3.5-2.5L5 21z"/></svg></span>Para qué la puedes usar</li><li><span class="cdf-i" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M2 9 12 4l10 5-10 5z"/><path d="M6 11v5c3 2 9 2 12 0v-5"/></svg></span>La etapa</li><li><span class="cdf-i" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="8" cy="15" r="4"/><path d="m11 12 9-9M17 6l3 3M14 9l2 2"/></svg></span>Dispositivos y cuenta que necesita</li><li><span class="cdf-i" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 7h11M4 12h16M4 17h9"/></svg></span>Herramientas alternativas</li></ul>
 </div>
-<script src="/herramientas/tools.js?v=8" defer></script><script src="/assets/caja-demo.js?v=3" defer></script>
+<div class="dk-video">
+<video src="/assets/proyectos/repositorio-digital/didakora.webm" poster="/assets/proyectos/repositorio-digital/didakora-video.jpg" width="1264" height="712" muted loop playsinline preload="metadata" aria-label="Vídeo de Didakora: se busca «repasar», se filtra por Primaria y se abre la ficha de Kahoot!, con qué es, para qué usarla, qué necesita y sus alternativas"></video>
+<button type="button" class="dk-play" aria-label="Pausar el vídeo"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="i-pause" d="M9 6v12M15 6v12"/><path class="i-play" d="M8 5.5v13l11-6.5z"/></svg></button>
+<script>(()=>{const w=document.currentScript.parentElement,v=w.querySelector("video"),b=w.querySelector(".dk-play");
+const set=on=>{w.classList.toggle("paused",!on);b.setAttribute("aria-label",on?"Pausar el vídeo":"Reproducir el vídeo");};
+b.addEventListener("click",()=>{if(v.paused){v.play();set(true);}else{v.pause();set(false);}});
+// arranca al verse en pantalla, salvo si el sistema pide reducir el movimiento
+if(matchMedia("(prefers-reduced-motion: reduce)").matches){set(false);return;}
+new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting&&!w.classList.contains("paused"))v.play().catch(()=>set(false));else if(!e.isIntersecting)v.pause();}),{threshold:.3}).observe(v);})();</script>
+</div>
 </div>"""),
     ],
     related=["audita-tu-programacion", "rubrica-materiales-digitales", "e-portfolio-master"],
@@ -365,7 +371,7 @@ P.append(dict(
     links=[("Descargar la guía (PDF)", "/assets/pdf/audita-tu-programacion.pdf", "dl")],
     sections=[
         ("Cómo está pensada", """
-<p>NotebookLM responde citando el fragmento exacto del documento que se le sube, y eso permite comprobar cada respuesta. No es un corrector: es un buscador que señala dónde mirar. La decisión sobre si un criterio está evaluado sigue siendo del docente, con el documento delante.</p>
+<p>NotebookLM responde citando el fragmento exacto del documento que se le sube y eso permite comprobar cada respuesta. No es un corrector: es un buscador que señala dónde mirar. La decisión sobre si un criterio está evaluado sigue siendo del docente, con el documento delante.</p>
 <ul class="pl">
 <li><b>Antes de nada, privacidad:</b> quitar la portada con el nombre y el DNI antes de subir el documento.</li>
 <li><b>Ocho prompts en orden:</b> del inventario de criterios a la cobertura, cada uno apoyado en el anterior.</li>

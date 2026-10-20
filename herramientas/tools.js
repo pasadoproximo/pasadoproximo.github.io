@@ -73,7 +73,7 @@ const TOOLS = [
     i:["Mapas interactivos para localizar","Crucigramas de vocabulario del tema","Actividades autocorregibles de repaso"],
     c:"ESO", disp:"Uno por alumno", cta:"No necesita para jugar con el enlace" },
   { id:"edpuzzle", s:"aula", cat:"part", st:"vigente", n:"Edpuzzle", url:"https://edpuzzle.com",
-    a:"Ve un vídeo que se detiene para hacerle preguntas, y avanza a su ritmo.",
+    a:"Ve un vídeo que se detiene para hacerle preguntas y avanza a su ritmo.",
     i:["Aula invertida: el vídeo en casa, la práctica en clase","Documental con preguntas de comprensión","Repasar una explicación tantas veces como necesite"],
     c:"ESO", disp:"Uno por alumno", cta:"Cuenta de alumno (o con Google/Microsoft)" },
   { id:"nearpod", s:"aula", cat:"part", st:"vigente", n:"Nearpod", url:"https://nearpod.com",
@@ -186,10 +186,6 @@ const TOOLS = [
     a:"Hace mapas mentales y conceptuales en grupo.",
     i:["Esquema de una unidad","Planificar un proyecto","Resumen visual para estudiar"],
     c:"Toda la etapa", disp:"Uno por alumno o pareja", cta:"Cuenta" },
-  { id:"popplet", s:"aula", cat:"equipo", st:"vigente", n:"Popplet", url:"https://popplet.com",
-    a:"Organiza ideas en burbujas conectadas, con texto e imágenes.",
-    i:["Causas y consecuencias de un hecho","Secuencia de acontecimientos","Lluvia de ideas"],
-    c:"1.º y 2.º ESO", disp:"Uno por alumno o pareja", cta:"Cuenta" },
   { id:"stormboard", edad:"Desde 13 años", edadTxt:"13 años o la edad legal del país", edadUrl:"https://stormboard.com/legal/terms-of-service", s:"aula", cat:"equipo", st:"vigente", n:"Stormboard", url:"https://stormboard.com",
     a:"Trabaja con notas adhesivas en una pizarra compartida y vota ideas.",
     i:["Lluvia de ideas por equipos","Priorizar propuestas","Organizar un proyecto"],
@@ -265,7 +261,7 @@ const TOOLS = [
     i:["App informativa de la localidad","Prototipo de una idea","Proyecto de emprendimiento"],
     c:"4.º ESO y Bachillerato", disp:"Ordenador", cta:"Cuenta" },
   { id:"cospaces", s:"aula", cat:"cienc", st:"vigente", n:"CoSpaces Edu", url:"https://cospaces.io/edu/",
-    a:"Crea mundos 3D y de realidad virtual o aumentada, y los programa con bloques.",
+    a:"Crea mundos 3D y de realidad virtual o aumentada y los programa con bloques.",
     i:["Recrear un espacio histórico en 3D","Museo virtual del alumnado","Escena interactiva"],
     c:"Toda la etapa", disp:"Uno por alumno o pareja", cta:"Código de clase" },
   { id:"coppelia", s:"aula", cat:"cienc", st:"vigente", n:"CoppeliaSim", url:"https://www.coppeliarobotics.com",
@@ -515,7 +511,8 @@ const CHANGES = [
   { n:"Hablaconlahistoria", what:"La web no responde en octubre de 2026.", alt:"Crear el personaje con Gemini o SchoolAI, siempre contrastando con fuentes" },
   { n:"Freepik", what:"Cambió su nombre a Magnific en 2026 y se centra en la creación con IA.", alt:"Magnific (el mismo servicio) o Wikimedia Commons" },
   { n:"EarTeach", what:"La versión web ya no está disponible.", alt:"musictheory.net" },
-  { n:"La IA en las cuentas del centro", what:"En 2025, Gemini y NotebookLM pasaron a estar incluidos en Google Workspace for Education, y Microsoft abrió Copilot Chat al alumnado de 13 años o más.", alt:"Usar la IA con la cuenta del centro, no con cuentas personales" }
+  { n:"Popplet", what:"Cerró el 1 de agosto de 2026; su web remite a Superstructures.", alt:"Mindomo" },
+  { n:"La IA en las cuentas del centro", what:"En 2025, Gemini y NotebookLM pasaron a estar incluidos en Google Workspace for Education y Microsoft abrió Copilot Chat al alumnado de 13 años o más.", alt:"Usar la IA con la cuenta del centro, no con cuentas personales" }
 ];
 
 // MATERIAS (filtro «Materia» en «Más filtros»). Solo las herramientas propias de una materia, según su descripción;

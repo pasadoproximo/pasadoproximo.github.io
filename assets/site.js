@@ -22,13 +22,12 @@ const m=document.querySelectorAll('.council span');
 if(m.length&&!reduce){let i=0;setInterval(()=>{m.forEach(e=>e.classList.remove('talk'));m[i%m.length].classList.add('talk');i++},1400)}
 // cintas de «Con qué trabajo»: se duplica la lista solo para el bucle visual, oculta a lectores de pantalla
 if(!reduce)document.querySelectorAll('.marq .track').forEach(t=>{[...t.children].forEach(li=>{const c=li.cloneNode(true);c.setAttribute('aria-hidden','true');t.appendChild(c)});t.closest('.marq').classList.add('loop')});
-// categorías del índice de proyectos: cada botón despliega sus proyectos debajo; solo una abierta a la vez
-const cg=[...document.querySelectorAll('.cg')];
-if(cg.length){
- const set=(b,o)=>{b.setAttribute('aria-expanded',o);const p=document.getElementById(b.getAttribute('aria-controls'));p.hidden=!o;if(o)p.querySelectorAll('.rv').forEach(r=>r.classList.add('in'));};
- const open=(b,o)=>{const y=b.getBoundingClientRect().top;if(o)cg.forEach(x=>{if(x!==b)set(x,false)});set(b,o);
-  const dy=b.getBoundingClientRect().top-y;if(Math.abs(dy)>1)scrollBy({top:dy,behavior:'instant'});};
- cg.forEach(b=>b.addEventListener('click',()=>open(b,b.getAttribute('aria-expanded')!=='true')));
- // si se llega con #categoría, se abre esa
- const h=location.hash.slice(1),pre=cg.find(b=>b.id==='cg-'+h);if(pre)set(pre,true),cg.forEach(x=>{if(x!==pre)set(x,false)});}
+// categorías del índice de proyectos: tres pestañas; la elegida queda marcada y se ven sus proyectos (flechas para moverse)
+const ct=[...document.querySelectorAll('.ct')];
+if(ct.length){
+ const sel=(b,focus)=>{ct.forEach(x=>{const on=x===b;x.setAttribute('aria-selected',on);x.tabIndex=on?0:-1;const p=document.getElementById(x.getAttribute('aria-controls'));p.hidden=!on;if(on)p.querySelectorAll('.rv').forEach(r=>r.classList.add('in'));});if(focus)b.focus();};
+ ct.forEach((b,i)=>{b.addEventListener('click',()=>sel(b));
+  b.addEventListener('keydown',e=>{const k={ArrowRight:1,ArrowLeft:-1}[e.key];if(k){e.preventDefault();sel(ct[(i+k+ct.length)%ct.length],true);}});});
+ // si se llega con #categoría (por ejemplo /proyectos/#aula), se elige esa
+ const h=location.hash.slice(1),pre=ct.find(b=>b.id==='cg-'+h);if(pre)sel(pre);}
 })();
