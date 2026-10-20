@@ -1179,3 +1179,10 @@ svg.cq-wi{width:34px;height:34px;flex:none;fill:none;stroke:var(--sky);stroke-wi
 .cq-pasos b{font-size:22px;padding-top:10px}
 .cq-pasos span{font-size:17px;max-width:46ch}
 @media (max-width:900px){.cq-how{grid-template-columns:minmax(0,1fr);gap:40px}.cq-pasos{gap:28px}.cq-pasos li:not(:last-child)::after{bottom:-28px}.cq-pasos li{column-gap:16px}.cq-pasos b{font-size:19px;padding-top:12px}.cq-vid{max-width:400px}}
+/* el marco del vídeo llega hasta el borde derecho; el vídeo va centrado dentro, sobre su mismo fondo */
+.cq-how{grid-template-columns:minmax(0,500px) minmax(0,1fr)}
+.cq-vid{background:#FCFCFC;display:flex;justify-content:center}
+.cq-vid video{width:auto;max-width:100%;height:540px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 18px,#000 calc(100% - 18px),transparent);mask-image:linear-gradient(90deg,transparent,#000 18px,#000 calc(100% - 18px),transparent)}
+@media (max-width:900px){.cq-how{grid-template-columns:minmax(0,1fr)}.cq-vid{max-width:none}.cq-vid video{width:100%;max-width:440px;height:auto}}
+.cq-wh{justify-content:center;text-align:center}  /* aviso: icono y título centrados */
+.psec .cq-warn p{text-align-last:center}  /* justificado, con la última línea centrada bajo el título */
