@@ -1170,3 +1170,12 @@ mark.err{background:#FCE3E3;color:inherit;border-bottom:2px solid #C73636;paddin
 .cq-wh{display:flex;align-items:center;gap:14px}
 svg.cq-wi{width:34px;height:34px;flex:none;fill:none;stroke:var(--sky);stroke-width:2;stroke-linecap:round;stroke-linejoin:round;background:none;border-radius:0}
 .psec .cq-warn p{max-width:none!important;margin-top:14px!important;text-align:justify;hyphens:auto}
+/* «Cómo funciona» del Consejo, rehecho: tres pasos en vertical unidos por una línea, centrados junto al vídeo */
+.cq-how{grid-template-columns:minmax(0,500px) minmax(0,400px);justify-content:start;gap:72px;align-items:center}
+.cq-pasos{position:relative;gap:40px}
+.cq-pasos li:not(:last-child)::after{content:"";position:absolute;left:23px;top:48px;bottom:-40px;width:2px;background:#D3DAEA}
+.cq-pasos li{position:relative;grid-template-columns:48px minmax(0,1fr);column-gap:22px}
+.cq-pasos li::before,.cq-pasos li.cq-p-rev::before{width:48px;height:48px;border-radius:50%;background:var(--navy);font-size:20px;box-shadow:0 0 0 8px var(--bg)}
+.cq-pasos b{font-size:22px;padding-top:10px}
+.cq-pasos span{font-size:17px;max-width:46ch}
+@media (max-width:900px){.cq-how{grid-template-columns:minmax(0,1fr);gap:40px}.cq-pasos{gap:28px}.cq-pasos li:not(:last-child)::after{bottom:-28px}.cq-pasos li{column-gap:16px}.cq-pasos b{font-size:19px;padding-top:12px}.cq-vid{max-width:400px}}

@@ -71,7 +71,7 @@ FAVICON = re.search(r'<link rel="icon"[^>]*>', SRC).group(0)
 FONTS = '''<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alegreya+SC:wght@700&family=Alegreya+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&display=swap">'''
-CSSV = "54"
+CSSV = "57"
 
 
 def head(title, desc, path, og="/assets/og.jpg"):

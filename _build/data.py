@@ -53,16 +53,13 @@ P.append(dict(
 <div class="cq-say" aria-live="polite"><span class="cq-k">1</span><div><b>Heródoto</b><span class="cq-r">Resume la noticia</span><p>Lee la noticia y cuenta qué ha pasado y cuáles son las claves, sin opinar.</p></div><button type="button" class="cq-play" aria-label="Pausar la animación">Pausar</button></div>
 </div>"""),
         ("Cómo funciona", """
-<p class="psub">Con una sesión real para 4.º ESO.</p>
+<p class="psub">Tres pasos, con una sesión real.</p>
 <div class="cq-how">
-<div class="cq-how-t">
-<div class="cq-news"><span class="tag">La noticia</span><div><b>La NASA y el Departamento de Energía acuerdan el primer reactor nuclear para misiones espaciales en 2028</b><small>whatsnew.com · 14 de octubre de 2026</small></div></div>
 <ol class="cq-pasos">
-<li><b>Pegas la noticia y eliges el curso</b><span>Tucídides solo la relaciona con las unidades de ese curso.</span></li>
-<li><b>Cada pensador hace su parte</b><span>Aquí, la Guerra Fría y el Sputnik de 1957, un relato y tres preguntas para debatir.</span></li>
-<li class="cq-p-rev"><b>Ibn Jaldún revisa y corrige</b><span>Clío daba por hecho lo que era una opinión de la autora. Se corrige antes de llegar a clase.</span></li>
+<li><b>Pegas una noticia y eliges el curso</b><span>En el vídeo, el acuerdo de la NASA para llevar un reactor nuclear al espacio, para 4.º ESO.</span></li>
+<li><b>Cada pensador hace su parte</b><span>Resumen, encaje en el temario (la Guerra Fría y el Sputnik), relato y preguntas para debatir.</span></li>
+<li><b>Ibn Jaldún revisa y corrige</b><span>Clío daba por hecho una opinión de la autora. Se corrige antes de llegar a clase.</span></li>
 </ol>
-</div>
 <div class="dk-video cq-vid">
 <video src="/assets/proyectos/consejo-de-clio/sesion.webm" poster="/assets/proyectos/consejo-de-clio/sesion-poster.jpg" width="720" height="866" muted loop playsinline preload="metadata" aria-label="Vídeo de una sesión real: los seis pensadores trabajan por turnos e Ibn Jaldún corrige un error de Clío"></video>
 <button type="button" class="dk-play" aria-label="Pausar el vídeo"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="i-pause" d="M9 6v12M15 6v12"/><path class="i-play" d="M8 5.5v13l11-6.5z"/></svg></button>
