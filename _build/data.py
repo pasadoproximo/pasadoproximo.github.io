@@ -27,7 +27,7 @@ P.append(dict(
     title="El Consejo de Clío", tags=["Aplicación con IA", "Secundaria"], kind="caso",
     card="Seis agentes de IA convierten una noticia de hoy en una sesión de clase y uno revisa a todos.",
     viz="council",
-    h1="El Consejo de Clío: seis pensadores preparan una clase con la noticia de hoy",
+    h1="El Consejo de Clío",
     lede="Una herramienta con IA para docentes: pegas una noticia, eliges el curso y seis personajes de la historia preparan una sesión para el aula. Cada uno tiene su papel y uno existe solo para buscar errores.",
     meta=[("Para quién", "Docentes de Geografía e Historia, de 1.º ESO a Bachillerato"),
           ("Tipo", "Aplicación con IA · material de libre uso"),
@@ -37,12 +37,7 @@ P.append(dict(
     cta_note="«Probar el consejo» se abre en Claude y pide iniciar sesión (sirve la cuenta gratuita).",
     sections=[
         ("El problema", """
-<p class="psub">Traer la actualidad a clase de Historia engancha al alumnado, pero prepararlo bien lleva tiempo. Y pedírselo sin más a una IA tiene sus riesgos.</p>
-<ul class="needs three">
-<li><b>La noticia llega sin contexto</b><span>Casi todo lo que pasa hoy tiene un antecedente histórico. Encontrarlo, explicarlo y convertirlo en una actividad pide un tiempo que no siempre hay.</span></li>
-<li><b>Tiene que encajar en el temario</b><span>No vale cualquier conexión: tiene que ser con las unidades del curso que das y al nivel de tu alumnado.</span></li>
-<li><b>La IA responde rápido, pero se equivoca</b><span>Un asistente genérico puede inventar un dato o presentar una opinión como un hecho. En clase, eso no se puede colar.</span></li>
-</ul>
+<p class="cq-par">Traer la actualidad a clase de Historia engancha al alumnado, pero prepararlo bien lleva tiempo: hay que encontrar el antecedente histórico de la noticia, encajarlo en el temario del curso y convertirlo en una actividad. Pedírselo sin más a una IA es rápido, pero puede inventar un dato o presentar una opinión como un hecho.</p>
 <p class="cq-idea"><b>La idea</b>Repartir el trabajo entre varios agentes de IA, cada uno con un solo papel, y dejar a uno solo para buscar errores.</p>"""),
         ("Seis pensadores, un equipo", """
 <p class="psub">Un pequeño equipo de agentes de IA: cada miembro hace una sola tarea y le pasa su trabajo al siguiente. Pulsa en cada cara para ver qué hace.</p>
@@ -58,34 +53,31 @@ P.append(dict(
 </ol>
 <div class="cq-say" aria-live="polite"><span class="cq-k">1</span><div><b>Heródoto</b><span class="cq-r">Resume la noticia</span><p>Lee la noticia y cuenta qué ha pasado y cuáles son las claves, sin opinar.</p></div><button type="button" class="cq-play" aria-label="Pausar la animación">Pausar</button></div>
 </div>"""),
-        ("Una sesión real", """
-<p class="psub">Así trabajó el consejo con una noticia real para 4.º ESO. El vídeo muestra la conversación y la revisión tal como salieron.</p>
-<div class="cq-news"><span class="tag">Noticia · 4.º ESO</span><div><b>La NASA y el Departamento de Energía acuerdan el primer reactor nuclear para misiones espaciales en 2028</b><small>whatsnew.com · 14 de octubre de 2026</small></div></div>
-<div class="session cq">
-<div class="session-media"><video src="/assets/proyectos/consejo-de-clio/sesion.webm" poster="/assets/proyectos/consejo-de-clio/sesion-poster.jpg" width="720" height="866" muted loop playsinline controls preload="none" aria-label="Vídeo: la conversación del consejo y la revisión de Ibn Jaldún"></video></div>
-<ol class="cq-steps">
-<li><span class="cq-mini">[[AV:0]]</span><div><b>Heródoto</b><span>Resume la noticia: un reactor en órbita en 2028 y otro en la Luna en 2030.</span></div></li>
-<li><span class="cq-mini">[[AV:1]]</span><div><b>Tucídides</b><span>La sitúa en la UD 11, La Guerra Fría, con el Sputnik de 1957 como caso. Avisa de que el encaje es parcial, porque hoy el escenario no es bipolar.</span></div></li>
-<li><span class="cq-mini">[[AV:2]]</span><div><b>Hannah Arendt</b><span>Se repite el espacio como carrera de prestigio. Cambia que ya no hay dos bloques: están China, Rusia y empresas privadas.</span></div></li>
-<li><span class="cq-mini">[[AV:3]]</span><div><b>Clío</b><span>Escribe el relato, del Sputnik a los reactores. Ahí se cuela un error.</span></div></li>
-<li><span class="cq-mini">[[AV:4]]</span><div><b>Sócrates</b><span>«¿Qué empuja hoy a un país a replicar el hito tecnológico de otro?» y dos preguntas más.</span></div></li>
-<li class="cq-rev"><span class="cq-mini">[[AV:5]]</span><div><b>Ibn Jaldún</b><span>Lo detecta: Clío generaliza y da por hecho el uso militar, que en la noticia es opinión de la autora.</span></div></li>
+        ("Cómo funciona", """
+<p class="psub">Con una sesión real para 4.º ESO.</p>
+<div class="cq-how">
+<div class="cq-how-t">
+<div class="cq-news"><span class="tag">La noticia</span><div><b>La NASA y el Departamento de Energía acuerdan el primer reactor nuclear para misiones espaciales en 2028</b><small>whatsnew.com · 14 de octubre de 2026</small></div></div>
+<ol class="cq-pasos">
+<li><b>Pegas la noticia y eliges el curso</b><span>Tucídides solo la relaciona con las unidades de ese curso.</span></li>
+<li><b>Cada pensador hace su parte</b><span>Aquí, la Guerra Fría y el Sputnik de 1957, un relato y tres preguntas para debatir.</span></li>
+<li class="cq-p-rev"><b>Ibn Jaldún revisa y corrige</b><span>Clío daba por hecho lo que era una opinión de la autora. Se corrige antes de llegar a clase.</span></li>
 </ol>
 </div>
-<div class="cq cq-fix">
-<div class="cq-bad"><span class="lab">Borrador de Clío</span><p>«…cuando una potencia logra un hito, <del>las demás se sienten empujadas a seguirla</del>».</p></div>
-<div class="cq-judge"><span class="cq-mini">[[AV:5]]</span><span class="stamp">Corrección</span><p>«Eso es generalizar. Y el uso militar es opinión de la autora, no un dato de la noticia».</p></div>
-<div class="cq-good"><span class="lab">Versión final para clase</span><p>«En 1957, el hito de una potencia <mark>empujó a la otra a responder</mark>. El uso militar es <mark>una opinión de la autora</mark>, no un dato del acuerdo».</p></div>
+<div class="dk-video cq-vid">
+<video src="/assets/proyectos/consejo-de-clio/sesion.webm" poster="/assets/proyectos/consejo-de-clio/sesion-poster.jpg" width="720" height="866" muted loop playsinline preload="metadata" aria-label="Vídeo de una sesión real: los seis pensadores trabajan por turnos e Ibn Jaldún corrige un error de Clío"></video>
+<button type="button" class="dk-play" aria-label="Pausar el vídeo"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="i-pause" d="M9 6v12M15 6v12"/><path class="i-play" d="M8 5.5v13l11-6.5z"/></svg></button>
+<script>(()=>{const w=document.currentScript.parentElement,v=w.querySelector("video"),b=w.querySelector(".dk-play");
+const set=on=>{w.classList.toggle("paused",!on);b.setAttribute("aria-label",on?"Pausar el vídeo":"Reproducir el vídeo");};
+b.addEventListener("click",()=>{if(v.paused){v.play();set(true);}else{v.pause();set(false);}});
+// arranca al verse en pantalla, salvo si el sistema pide reducir el movimiento
+if(matchMedia("(prefers-reduced-motion: reduce)").matches){set(false);return;}
+new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting&&!w.classList.contains("paused"))v.play().catch(()=>set(false));else if(!e.isIntersecting)v.pause();}),{threshold:.3}).observe(v);})();</script>
+</div>
 </div>"""),
-        ("Cómo funciona", """
-<ul class="needs three">
-<li><b>Una noticia y un curso</b><span>El docente pega la noticia y elige el curso. Tucídides solo puede relacionarla con las unidades de ese curso.</span></li>
-<li><b>Cada uno, su papel</b><span>Resumir, encajar en el temario, conectar pasado y presente, contarlo y plantear el debate. Respuestas cortas y claras.</span></li>
-<li><b>Nada sin revisar</b><span>Ibn Jaldún revisa a todos antes de dar la sesión por buena, porque lo que dice una IA también hay que revisarlo.</span></li>
-</ul>"""),
         ("Antes de llevarlo a clase", """
-<div class="cq-warn"><span class="cq-wi" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3.5 2.5 20h19z"/><path d="M12 10v4.5M12 17.4v.1"/></svg></span>
-<div><b>Contrasta siempre la información</b><p>Los seis miembros del consejo son una IA y pueden equivocarse. Ibn Jaldún reduce los errores, pero no los elimina, porque también es una IA. Antes de usar la sesión en el aula, comprueba los datos con la noticia original y con otras fuentes fiables.</p></div></div>"""),
+<div class="cq-warn"><div class="cq-wh"><svg class="cq-wi" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5 2.5 20h19z"/><path d="M12 10v4.5M12 17.4v.1"/></svg><b>Contrasta siempre la información</b></div>
+<p>Los seis miembros del consejo son una IA y pueden equivocarse. Ibn Jaldún reduce los errores, pero no los elimina, porque también es una IA. Antes de usar la sesión en el aula, comprueba los datos con la noticia original y con otras fuentes fiables. Esto simplemente es un filtro más.</p></div>"""),
     ],
     related=["asistente-gpt-2eso", "la-ia-tambien-miente", "cazadores-de-bulos"],
 ))

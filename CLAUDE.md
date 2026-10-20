@@ -59,9 +59,12 @@ Cada push a `main` se publica solo en 1-2 minutos. El Consejo de Clío vive en o
 
 - Casos de estudio (`kind="caso"`): repositorio digital, asistente TFM y Consejo de Clío. Usan todo el ancho y bloques
   horizontales (`needs`, `hsteps`, `gal frame`, `status`). El Consejo tiene su web en `/consejo-de-clio/`, pero **no se enlaza**
-  desde el portfolio. Su página de proyecto: el problema → seis caras numeradas que hablan por turnos (`.cq-board`, se pueden pulsar
-  y pausar; las caras salen de `[[AV:n]]`) → sesión real (vídeo recortado a la conversación y la revisión,
-  `assets/proyectos/consejo-de-clio/sesion.webm`, y el antes/después de la corrección) → cómo funciona → aviso de contrastar.
+  desde el portfolio. Su página de proyecto (título del hero: solo el nombre): el problema en un párrafo + «La idea» →
+  seis caras numeradas que hablan por turnos (`.cq-board`, se pueden pulsar y pausar; las caras salen de `[[AV:n]]`) →
+  «Cómo funciona», mezclado con la sesión real: la noticia, tres pasos cortos y el vídeo grande (recortado a la conversación
+  y la revisión, `assets/proyectos/consejo-de-clio/sesion.webm`) → aviso «Contrasta siempre la información». Poca chapa:
+  que se entienda a simple vista.
+- «Lo que puedo afirmar» (`.status`): tarjetas blancas con sombra suave y el título en azul (`--navy3`).
 - Todas las páginas (portfolio y Consejo) comparten la misma barra: solo logo + menú. Didakora tiene su propia barra.
 - Índice `/proyectos/`: tres botones en píldora (pestañas, `.ct`) para las tres categorías; el elegido queda en azul marino
   y debajo salen su descripción y sus proyectos. Orden: Profesorado y formación (elegida al entrar), Herramientas y asistentes,
