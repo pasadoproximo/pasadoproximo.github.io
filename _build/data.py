@@ -37,8 +37,7 @@ P.append(dict(
     cta_note="«Probar el consejo» se abre en Claude y pide iniciar sesión (sirve la cuenta gratuita).",
     sections=[
         ("El problema", """
-<p class="cq-par">Traer la actualidad a clase de Historia engancha al alumnado, pero prepararlo bien lleva tiempo: hay que encontrar el antecedente histórico de la noticia, encajarlo en el temario del curso y convertirlo en una actividad. Pedírselo sin más a una IA es rápido, pero puede inventar un dato o presentar una opinión como un hecho.</p>
-<p class="cq-idea"><b>La idea</b>Repartir el trabajo entre varios agentes de IA, cada uno con un solo papel, y dejar a uno solo para buscar errores.</p>"""),
+<p class="cq-par">Traer la actualidad a clase de Historia engancha al alumnado y lo ayuda a entender para qué sirve la historia. Pero, a veces, prepararlo bien lleva tiempo. Pedírselo sin más a una IA es rápido, pero puede inventar un dato o presentar una opinión como un hecho.</p>"""),
         ("Seis pensadores, un equipo", """
 <p class="psub">Un pequeño equipo de agentes de IA: cada miembro hace una sola tarea y le pasa su trabajo al siguiente. Pulsa en cada cara para ver qué hace.</p>
 <div class="cq cq-board">

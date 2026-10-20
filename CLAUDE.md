@@ -59,7 +59,7 @@ Cada push a `main` se publica solo en 1-2 minutos. El Consejo de Clío vive en o
 
 - Casos de estudio (`kind="caso"`): repositorio digital, asistente TFM y Consejo de Clío. Usan todo el ancho y bloques
   horizontales (`needs`, `hsteps`, `gal frame`, `status`). El Consejo tiene su web en `/consejo-de-clio/`, pero **no se enlaza**
-  desde el portfolio. Su página de proyecto (título del hero: solo el nombre): el problema en un párrafo + «La idea» →
+  desde el portfolio. Su página de proyecto (título del hero: solo el nombre): el problema en un párrafo →
   seis caras numeradas que hablan por turnos (`.cq-board`, se pueden pulsar y pausar; las caras salen de `[[AV:n]]`) →
   «Cómo funciona», mezclado con la sesión real: la noticia, tres pasos cortos y el vídeo grande (recortado a la conversación
   y la revisión, `assets/proyectos/consejo-de-clio/sesion.webm`) → aviso «Contrasta siempre la información». Poca chapa:
