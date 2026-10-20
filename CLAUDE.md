@@ -61,7 +61,7 @@ Cada push a `main` se publica solo en 1-2 minutos. El Consejo de Clío vive en o
 
 - Azul marino `#061033`, `--navy3 #1B2C6B`, azul claro `--sky #9FB3FF`, `--ice #DDE4F6`, fondo `--bg #F2F4F9`.
 - Tipografías: Bricolage Grotesque (títulos), Alegreya SC (citas), Alegreya Sans (texto).
-- Bloques redondeados tipo «bento», barra superior en píldora que se pega arriba al bajar, foco azulado que sigue al ratón.
+- Bloques redondeados tipo «bento», barra superior en píldora que se pega arriba al bajar (siempre redondeada, a 12 px del borde; también en la Caja y el Consejo), foco azulado que sigue al ratón.
 - Criterio acordado: **pocos cajones**. Cajón solo para lo que se pulsa o lo que debe destacar (bloques azul marino);
   el texto informativo va sobre el fondo, separado con líneas finas `#D3DAEA`.
 
