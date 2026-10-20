@@ -1186,3 +1186,4 @@ svg.cq-wi{width:34px;height:34px;flex:none;fill:none;stroke:var(--sky);stroke-wi
 @media (max-width:900px){.cq-how{grid-template-columns:minmax(0,1fr)}.cq-vid{max-width:none}.cq-vid video{width:100%;max-width:440px;height:auto}}
 .cq-wh{justify-content:center;text-align:center}  /* aviso: icono y título centrados */
 .psec .cq-warn p{text-align-last:center}  /* justificado, con la última línea centrada bajo el título */
+.cq-warn{max-width:860px;margin:30px auto 0}  /* aviso más estrecho, centrado y con aire bajo el título */
