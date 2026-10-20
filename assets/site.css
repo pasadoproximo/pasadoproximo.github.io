@@ -778,18 +778,18 @@ mark.err{background:#FCE3E3;color:inherit;border-bottom:2px solid #C73636;paddin
 .hero2+#proyectos{margin-top:104px}
 @media (max-width:620px){.sec{margin-top:88px}.sec-head{margin-bottom:28px}#experiencia .sec-head,#formacion .sec-head{margin-bottom:24px}.hero2+#proyectos{margin-top:72px}}
 #sobre-mi+.sec{margin-top:96px}
-.tools .head+.marq{margin-top:24px}
+.tools .head+.marq{margin-top:16px}
 @media (max-width:620px){#sobre-mi+.sec{margin-top:64px}}
 /* «Con qué trabajo»: una fila por grupo, nombre a la izquierda y logos en línea */
-.tgrid{margin-top:28px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:44px;border-bottom:1.5px solid #D3DAEA}
-.tg{display:grid;grid-template-columns:130px minmax(0,1fr);gap:10px 18px;align-items:center;padding:16px 0;border-top:1.5px solid #D3DAEA}
-.tg ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:10px 4px}
-.tg li{width:64px;display:flex;flex-direction:column;align-items:center;gap:6px;text-align:center}
-.tg img{width:32px;height:32px;object-fit:contain;border-radius:8px}
-.tg li span{font-size:12px;line-height:1.2;color:var(--mut)}
+.tgrid{margin-top:14px;border-bottom:1px solid #D3DAEA}
+.tg{display:grid;grid-template-columns:190px minmax(0,1fr);gap:6px 20px;align-items:center;padding:7px 0;border-top:1px solid #D3DAEA}
+.tg>.lab{margin:0}
+.tg ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px 14px}
+.tg li{min-width:56px;display:flex;flex-direction:column;align-items:center;gap:4px;text-align:center}
+.tg img{width:30px;height:30px;object-fit:contain}
+.tg li span{font-size:12px;line-height:1.15;color:var(--mut);white-space:nowrap}
 .tg-note{grid-column:2;margin:0;font-size:13.5px;color:var(--mut)}
-@media (max-width:980px){.tgrid{grid-template-columns:minmax(0,1fr)}}
-@media (max-width:560px){.tg{grid-template-columns:1fr}.tg-note{grid-column:1}}
+@media (max-width:760px){.tg{grid-template-columns:minmax(0,1fr);gap:8px;padding:12px 0}.tg-note{grid-column:1}.tg ul{gap:8px 12px}}
 /* Casos de estudio: todo el ancho del marco, bloques horizontales y más aire */
 .pbody.caso{max-width:none}
 .caso .psec{margin-top:88px}
@@ -907,14 +907,14 @@ mark.err{background:#FCE3E3;color:inherit;border-bottom:2px solid #C73636;paddin
 /* «Así es Didakora»: título arriba; debajo, el texto y el vídeo empiezan a la misma altura y acaban igual */
 .caja-demo:has(.dk-video){grid-template-columns:minmax(0,1fr) minmax(0,1.55fr);grid-template-areas:"h ." "t v";row-gap:14px;align-items:stretch}
 .caja-demo:has(.dk-video)>h3{grid-area:h}
-.caja-demo .dk-t{grid-area:t;display:flex;flex-direction:column}
+.caja-demo .dk-t{grid-area:t;display:flex;flex-direction:column;align-self:stretch}
 .caja-demo .dk-t>p:first-child{margin-top:0!important}
 .caja-demo .dk-video{grid-area:v;align-self:start}
 .caja-demo .dk-t .cdf{gap:8px}
 .caja-demo .dk-t .cdf li{font-size:16px;gap:12px}
 .caja-demo .dk-t .cdf-i{width:34px;height:34px}
 .caja-demo .dk-t .cdf-i svg{width:16px;height:16px}
-.psec .caja-demo .dk-t>p.cdf-t{margin-top:18px}
+.psec .caja-demo .dk-t>p.cdf-t{margin-top:auto;padding-top:18px}
 @media (max-width:1240px) and (min-width:901px){.caja-demo:has(.dk-video){grid-template-columns:minmax(0,1fr) minmax(0,1.8fr);column-gap:36px}.caja-demo .dk-t .cdf{gap:6px}.caja-demo .dk-t .cdf li{font-size:15px}.caja-demo .dk-t .cdf-i{width:30px;height:30px}}
 @media (max-width:900px){.caja-demo:has(.dk-video){grid-template-columns:minmax(0,1fr);grid-template-areas:"h" "t" "v"}}
 .cd{position:relative}
@@ -987,7 +987,7 @@ mark.err{background:#FCE3E3;color:inherit;border-bottom:2px solid #C73636;paddin
 /* índice de proyectos: categorías que despliegan sus proyectos debajo, unidas al botón como una lágrima */
 .pcats{margin-top:48px}
 /* índice de proyectos: tres botones en píldora; el elegido, en azul marino */
-.ctabs{display:flex;flex-wrap:wrap;gap:10px}
+.ctabs{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
 .ct{display:inline-flex;align-items:center;gap:10px;font:700 17px var(--f-body);color:var(--navy);background:#fff;border:1.5px solid #D3DAEA;border-radius:999px;padding:11px 14px 11px 22px;min-height:48px;cursor:pointer;transition:background .2s,border-color .2s,color .2s}
 .ct:hover{border-color:var(--navy)}
 .ct .num{font:800 13px var(--f-disp);background:var(--bg);color:var(--navy);border-radius:999px;padding:3px 9px}
@@ -995,7 +995,7 @@ mark.err{background:#FCE3E3;color:inherit;border-bottom:2px solid #C73636;paddin
 .ct[aria-selected="true"] .num{background:var(--sky);color:var(--navy)}
 .cgp{margin-top:22px}
 .cgp[hidden]{display:none}
-.cgd{color:var(--mut);margin:0 0 20px;max-width:70ch}
+.cgd{color:var(--mut);margin:0 auto 20px;max-width:70ch;text-align:center}
 @media (max-width:640px){.ctabs{gap:8px}.ct{font-size:15.5px;padding:9px 10px 9px 16px;min-height:44px}}
 
 /* «Mantenerlo al día»: antes → ahora, en filas sobre el fondo (sin cajas), con lo que había y lo que hay */
@@ -1069,3 +1069,4 @@ mark.err{background:#FCE3E3;color:inherit;border-bottom:2px solid #C73636;paddin
 @keyframes fl-e{0%,22%{transform:scaleX(0)}30%,84%{transform:scaleX(1)}92%,100%{transform:scaleX(0)}}
 @keyframes fl-r{0%,30%{transform:translateY(-60%);opacity:0}40%,82%{transform:none;opacity:1}90%,100%{transform:translateY(-60%);opacity:0}}
 @media (max-width:760px){.fin-logo{width:110px;height:110px;right:-26px;bottom:-22px;opacity:.22}}
+@media (max-width:900px){.psec .caja-demo .dk-t>p.cdf-t{margin-top:18px;padding-top:0}}

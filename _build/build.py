@@ -64,7 +64,7 @@ FAVICON = re.search(r'<link rel="icon"[^>]*>', SRC).group(0)
 FONTS = '''<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alegreya+SC:wght@700&family=Alegreya+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&display=swap">'''
-CSSV = "46"
+CSSV = "48"
 
 
 def head(title, desc, path, og="/assets/og.jpg"):
@@ -346,11 +346,11 @@ def project(p):
  <div class="pbody{' caso' if p.get('kind')=='caso' else ''}">{secs}{gal}{val}
  </div>
  <section class="sec related" aria-labelledby="rel-h">
-  <div class="sec-head rv"><div><span class="lab">Sigue explorando</span><h2 id="rel-h">Proyectos relacionados</h2></div>
-  <a class="dl" href="/proyectos/">Todos los proyectos <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+  <div class="sec-head rv"><div><span class="lab">Sigue explorando</span><h2 id="rel-h">Proyectos relacionados</h2></div></div>
   <div class="pgrid g3">
 {rel}
   </div>
+  <div class="all-link rv"><a class="dl" href="/proyectos/">Todos los proyectos <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
  </section>
 </main>'''
     desc = re.sub("<[^>]+>", "", p["card"])
