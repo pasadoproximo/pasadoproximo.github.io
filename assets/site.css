@@ -632,6 +632,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var
 
 /* índice de proyectos */
 .sec.first{margin-top:40px}
+.sec.first .sec-head{align-items:center;text-align:center}  /* «Todo lo que he construido», centrado */
 .h1page{font:800 clamp(40px,5.6vw,72px)/.95 var(--f-disp);letter-spacing:-.035em;margin-top:8px}
 .catnav{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
 .catnav a{display:inline-flex;align-items:center;gap:8px;text-decoration:none;font-weight:700;font-size:16px;background:#fff;border:1px solid #E3E8F2;border-radius:999px;padding:9px 16px;transition:background .2s,color .2s}
@@ -781,7 +782,7 @@ mark.err{background:#FCE3E3;color:inherit;border-bottom:2px solid #C73636;paddin
 .tools .head+.marq{margin-top:16px}
 @media (max-width:620px){#sobre-mi+.sec{margin-top:64px}}
 /* «Con qué trabajo»: una fila por grupo, nombre a la izquierda y logos en línea */
-.tgrid{margin-top:14px;border-bottom:1px solid #D3DAEA}
+.tgrid{margin-top:30px;border-bottom:1px solid #D3DAEA}
 .tg{display:grid;grid-template-columns:190px minmax(0,1fr);gap:6px 20px;align-items:center;padding:7px 0;border-top:1px solid #D3DAEA}
 .tg>.lab{margin:0}
 .tg ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px 14px}
