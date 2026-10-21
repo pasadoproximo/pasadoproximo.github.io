@@ -551,7 +551,7 @@ P.append(dict(
 <li><b>Búsqueda y curación de información</b><span>Ecuaciones de búsqueda, organización de fuentes y curación de contenidos para el aula.</span><em>Módulos 2 y 3</em></li>
 <li><b>Trabajo colaborativo</b><span>Una actividad colaborativa diseñada para el aula y la planificación de sus espacios.</span><em>Módulo 3</em></li>
 <li><b>Evaluación digital</b><span>Instrumentos de evaluación según la norma UNE 71362:2020, con Jotform, CoRubrics y SELFIE.</span><em>Módulo 5</em></li>
-<li><b>Reflexión sobre la práctica</b><span>Cada trabajo termina con qué aprendió y cómo lo llevaría a clase.</span><em>Todos los módulos</em></li>
+<li><b>Reflexión sobre la práctica</b><span>Cada trabajo termina con qué aprendí y cómo lo llevaría a clase.</span><em>Todos los módulos</em></li>
 </ul>"""),
     ],
     value=["Documentar el propio aprendizaje y las evidencias de cada módulo."],
