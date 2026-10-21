@@ -1352,7 +1352,7 @@ html{font-variant-ligatures:no-common-ligatures}
 .monjes span{font-size:16px;line-height:1.45;color:#2A3352}
 @media (max-width:1020px){.monjes{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media (max-width:640px){.monjes{grid-template-columns:1fr;gap:18px}.monjes li{display:grid;grid-template-columns:64px minmax(0,1fr);column-gap:16px;row-gap:2px;align-items:start}.monjes img{grid-row:span 3;width:64px;height:64px;margin:0}}
-.mo-vid{margin-top:36px}
+.mo-vid{margin:36px auto 0;max-width:min(980px,calc((100vh - 170px) * 1.775))}
 .caso p.creditos,p.creditos{font-size:14px;color:var(--mut);margin-top:22px;line-height:1.5;max-width:none;text-align:right}
 .dk-mas{margin-top:64px;padding-top:56px;border-top:1.5px solid #D3DAEA;display:grid;gap:16px;justify-items:start}
 .dk-mas h3{font:800 24px/1.1 var(--f-disp);letter-spacing:-.02em;color:var(--navy);margin:0}
