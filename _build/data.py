@@ -94,7 +94,7 @@ P.append(dict(
           ("Tipo", "Equipo de agentes de IA con una interfaz de videojuego"),
           ("Herramientas", "Claude Code (cinco subagentes), Python y JavaScript"),
           ("Estado", "En uso desde octubre de 2026. Funciona en mi ordenador: no está publicado")],
-    links=[("Abrir Didákora", "https://pasadoproximo.github.io/didakora/", "ext")],
+    links=[],
     sections=[
         ("La necesidad", """
 <p class="psub">Una web de herramientas educativas se queda vieja enseguida: unas cierran, otras cambian de nombre o de dirección y cada semana salen otras nuevas. Revisarla a mano lleva muchas horas.</p>
