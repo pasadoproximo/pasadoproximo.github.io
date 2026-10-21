@@ -16,7 +16,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alegreya+SC:wght@700&family=Alegreya+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&display=swap">
-<link rel="stylesheet" href="/assets/site.css?v=115">
+<link rel="stylesheet" href="/assets/site.css?v=116">
 </head>
 <body>
 <a class="skip" href="#contenido">Saltar al contenido</a>
@@ -87,11 +87,20 @@ b.addEventListener("click",()=>{if(v.paused){v.play();set(true);}else{v.pause();
 if(matchMedia("(prefers-reduced-motion: reduce)").matches){set(false);return;}
 new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting&&!w.classList.contains("paused"))v.play().catch(()=>set(false));else if(!e.isIntersecting)v.pause();}),{threshold:.3}).observe(v);})();</script>
 </div>
+</div>
+<div class="dk-mas">
+<h3>Cómo se mantiene al día</h3>
+<p>Cinco agentes de IA revisan Didákora y yo decido qué cambia desde un monasterio en pixel art.</p>
+<a class="btn" href="/proyectos/monasterio-didakora/">Ver Monasterio <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
 </div></section>
  </div>
  <section class="sec related" aria-labelledby="rel-h">
   <div class="sec-head rv"><div><span class="lab">Sigue explorando</span><h2 id="rel-h">Proyectos relacionados</h2></div></div>
   <div class="pgrid g3">
+<a class="t pc lift rv" href="/proyectos/monasterio-didakora/">
+ <div class="viz v-img" aria-hidden="true"><img src="/assets/proyectos/monasterio-didakora/tarjeta.png" alt="" loading="lazy"></div>
+ <h3>El monasterio de Didákora</h3>
+</a>
 <a class="t pc lift rv" href="/proyectos/audita-tu-programacion/">
  <div class="viz v-aud" aria-hidden="true"><div class="made"><span><img src="/assets/tools/notebooklm.png" alt="" width="20" height="20" loading="lazy">NotebookLM</span></div>
      <div class="row"><b>2.1</b><small>Actividad · UD 4, p. 18</small><span class="ok">✓</span></div>
@@ -106,12 +115,6 @@ new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting&&!w.classList.co
      <div class="r"><span>Uso en el aula</span><span class="lv"><i></i><i></i><i></i><i></i></span></div></div>
  <h3>Rúbrica de materiales digitales</h3>
 </a>
-<a class="t pc lift rv" href="/proyectos/e-portfolio-master/">
- <div class="viz v-epo" aria-hidden="true"><div class="made"><span><img src="/assets/tools/google-sites.png" alt="" width="20" height="20" loading="lazy">Google Sites</span></div>
-     <div class="bar2"><i></i><i></i><i></i><span></span></div>
-     <div class="pg"><span class="m">M1<small>módulo</small></span><span class="m">M2<small>módulo</small></span><span class="m">M3<small>módulo</small></span><span class="m">M4<small>módulo</small></span><span class="m">M5<small>módulo</small></span></div></div>
- <h3>e-Portfolio del máster</h3>
-</a>
   </div>
   <div class="all-link rv"><a class="dl" href="/proyectos/">Todos los proyectos <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
  </section>
@@ -124,6 +127,6 @@ new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting&&!w.classList.co
 </aside>
 <footer><span>© 2026 Jorge Delgado Aguilera</span><span>Campanillas, Málaga</span></footer>
 </div>
-<script src="/assets/site.js?v=115" defer></script>
+<script src="/assets/site.js?v=116" defer></script>
 </body>
 </html>

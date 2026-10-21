@@ -79,7 +79,7 @@ FAVICON = re.search(r'<link rel="icon"[^>]*>', SRC).group(0)
 FONTS = '''<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alegreya+SC:wght@700&family=Alegreya+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&display=swap">'''
-CSSV = "115"
+CSSV = "116"
 
 
 def head(title, desc, path, og="/assets/og.jpg"):
@@ -251,7 +251,12 @@ def home():
 def index():
     # botones (pestañas): «Todos» y las tres categorías; el elegido se queda en azul marino y debajo se ven sus proyectos; «Todos», al entrar
     order = ["profesorado", "herramientas", "aula"]
-    groups = [("todos", {"name": "Todos", "desc": "Todos mis proyectos, de las tres categorías."}, [p for k in order for p in P if p["cat"] == k])]
+    todos = [p for k in order for p in P if p["cat"] == k]
+    # en «Todos», el monasterio va justo después de Didákora (el Repositorio digital), aunque sea de otra categoría
+    for antes, despues in [("repositorio-digital", "monasterio-didakora")]:
+        m = next((p for p in todos if p["slug"] == despues), None)
+        if m: todos.remove(m); todos.insert(next(i for i, p in enumerate(todos) if p["slug"] == antes) + 1, m)
+    groups = [("todos", {"name": "Todos", "desc": "Todos mis proyectos, de las tres categorías."}, todos)]
     groups += [(k, CATS[k], [p for p in P if p["cat"] == k]) for k in order]
     tabs = panels = ""
     for i, (k, c, ps) in enumerate(groups):

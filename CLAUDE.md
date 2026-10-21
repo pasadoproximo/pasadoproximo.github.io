@@ -7,7 +7,7 @@ Cada push a `main` se publica solo en 1-2 minutos. El Consejo de Clío vive en o
 ## Estructura
 
 - `index.html`, `proyectos/index.html`, `proyectos/<slug>/index.html` → **generados**. No editarlos a mano.
-- `_build/data.py` → el contenido: categorías (`CATS`), los 14 proyectos (`P`) y los destacados (`FEATURED`).
+- `_build/data.py` → el contenido: categorías (`CATS`), los 15 proyectos (`P`) y los destacados (`FEATURED`).
 - `_build/build.py` → genera las páginas a partir de `data.py`. Plantillas de portada, índice y ficha.
 - `_build/source_old.html` → de aquí se copian las animaciones de las tarjetas y las secciones de la portada
   **Experiencia, Formación (con «Con qué trabajo») y Contacto**. Para cambiar esas secciones, editar este archivo.
@@ -77,6 +77,17 @@ Cada push a `main` se publica solo en 1-2 minutos. El Consejo de Clío vive en o
 - Repositorio digital, «Mantenerlo al día»: filas antes → ahora (`.upd`, sin cajas): en «Antes» los iconos originales (archivados en Wayback Machine, en `assets/proyectos/repositorio-digital/antes/`; EarTeach y Hablaconlahistoria no tenían, llevan un icono propio: oreja y Colón) en gris y tachados; en «Ahora» los logos reales, en dos columnas compactas;
   debajo «Así es Didákora» (texto + vídeo real de Didákora). Ya no hay bloques 2024/2026 ni la animación de la caja antigua.
 - Títulos de sección: la descripción va siempre debajo del título, nunca a la derecha (`.sec-head` en columna).
+- **El monasterio de Didákora** (`monasterio-didakora`, caso de Herramientas): el sistema de cinco agentes de IA que mantiene Didákora
+  y su interfaz de videojuego (vive en el repo de Didákora, `agentes/monasterio/`, privado y solo en local). Página: la necesidad →
+  los cinco monjes con su retrato (`.monjes`) → «Cómo funciona» (`hsteps four` + vídeo real) → «Lo que puedo afirmar» → créditos del
+  arte LPC (CC-BY-SA/GPL: obligatorio citarlos; `assets/proyectos/monasterio-didakora/creditos.txt`). Las cifras salen de los
+  registros de los ciclos: actualizarlas si se citan nuevas. Vídeo: **recreación avisada** (Jorge la eligió el 21-10-2026) del
+  ciclo 2026-10-21-3 con el modo `?demo=<ciclo>` del monasterio, que repite un ciclo real con sus datos sin lanzar ni escribir
+  nada; la página y el vídeo dicen que es una recreación. Se graba con `_build/grabar_monasterio.js` (instrucciones al principio).
+  Música: chiptune medieval original (`_build/musica_monasterio.py` → `musica.wav`, bucle de 32 s), en un `<audio>` aparte
+  porque el ffmpeg disponible no codifica audio. Está **activada al entrar** (Jorge lo pidió): si el navegador la bloquea, suena
+  con el primer clic o tecla; el altavoz (`.dk-son`) la silencia y se reinicia con cada vuelta del vídeo. El vídeo de Didákora
+  (Repositorio digital) va sin música: Jorge la descartó. El Repositorio digital enlaza a él con una línea (`.dk-mas`).
 - El resto son fichas breves (`kind="ficha"`): descripción, material real, nivel y enlace.
 - Destacados en portada, en este orden: repositorio, asistente, Consejo de Clío, Cazadores de bulos.
 - En Cazadores de bulos solo se muestran 2 de los 9 errores (no revelar el resto).
