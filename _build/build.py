@@ -54,6 +54,14 @@ def caras(h):
     return re.sub(r"\[\[AV:(\d)\]\]", un, h)
 
 
+# Didákora en la portada: el logo apilado (copia de didakora/marca/didakora-apilado-cielo.svg) con la caja en su grupo para animarla
+_dk = open(os.path.join(ROOT, "assets", "proyectos", "repositorio-digital", "didakora-apilado.svg"), encoding="utf-8").read().strip()
+_dk = re.sub(r"<title>.*?</title>", "", _dk).replace(' role="img" aria-label="Didákora"', "")
+_i = _dk.index(">", _dk.index("<g ")) + 1; _j = _dk.index("</g>", _i)
+_dk = _dk[:_i] + '<g class="caja">' + _dk[_i:_j] + "</g>" + _dk[_j:]
+VIZ["didakora"] = '<div class="viz v-dk" aria-hidden="true">%s</div>' % _dk
+
+
 def viz(p):
     v = p["viz"]
     if v.startswith("img:"):
@@ -71,7 +79,7 @@ FAVICON = re.search(r'<link rel="icon"[^>]*>', SRC).group(0)
 FONTS = '''<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alegreya+SC:wght@700&family=Alegreya+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&display=swap">'''
-CSSV = "63"
+CSSV = "115"
 
 
 def head(title, desc, path, og="/assets/og.jpg"):
@@ -111,7 +119,7 @@ def topbar(active=""):
   <nav aria-label="Principal">
    {a("/proyectos/", "Proyectos", "proyectos").replace("<a ", "<a class=\"nav-key\" ",1)}
    {a("/#sobre-mi", "Sobre mí", "sobre")}
-   {a("/didakora/", "Didakora", "herr")}
+   {a("/didakora/", "Didákora", "herr")}
    <a class="cv" href="/assets/pdf/CV-Jorge-Delgado-Aguilera.pdf" download aria-label="Descargar CV (PDF)">CV <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg></a>
    <a class="hire" href="#contacto">Contacto</a>
   </nav>
@@ -143,13 +151,13 @@ def foot():
 '''
 
 
-def card(p, lvl="h3", desc=False):
+def card(p, lvl="h3", desc=False, etiqueta=False):
     tags = " · ".join(html.escape(t) for t in p["tags"][:2])
+    tags = f'\n <div class="pc-tags">{tags}</div>' if etiqueta else ""  # las tarjetas van sin la etiqueta gris (portada, índice y relacionados)
     texto = f'\n <p>{p["card"]}</p>' if desc else ""  # todas las tarjetas: solo etiqueta y título (desc=True añade el texto)
     flecha = f'\n <span class="arrow" aria-hidden="true">{ICON_EXT}</span>' if desc else ""  # y sin flecha
     return f'''<a class="t pc lift rv" href="{url(p)}">{flecha}
- {viz(p)}
- <div class="pc-tags">{tags}</div>
+ {viz(p)}{tags}
  <{lvl}>{p["title"]}</{lvl}>{texto}
 </a>'''
 
@@ -190,7 +198,9 @@ def home():
     ]) + '</div>'
     form = re.sub(r'(<div class="marq( rev)?" aria-label="[^"]*"><div class="track">.*?</div></div>\s*)+', tools, form, count=1, flags=re.S)
     form = form.replace('<h3 class="big" style="margin-top:8px">Con qué trabajo</h3>', '<h3 class="big h3big" style="margin-top:8px">Con qué trabajo</h3>')
-    feat = "\n".join(card(BY[s]) for s in FEATURED)
+    # en la portada, el repositorio se presenta como Didákora, con su logo animado
+    home = {"repositorio-digital": dict(title="Didákora", viz="didakora")}
+    feat = "\n".join(card(dict(BY[s], **home.get(s, {})), etiqueta=False) for s in FEATURED)
     body = f'''
 <main id="contenido">
  <section class="bento hero2" aria-label="Presentación">
@@ -239,12 +249,14 @@ def home():
 
 # ================================================================= ÍNDICE
 def index():
-    # tres botones (pestañas): el elegido se queda en azul marino y debajo se ven sus proyectos; la del repositorio, al entrar
+    # botones (pestañas): «Todos» y las tres categorías; el elegido se queda en azul marino y debajo se ven sus proyectos; «Todos», al entrar
     order = ["profesorado", "herramientas", "aula"]
+    groups = [("todos", {"name": "Todos", "desc": "Todos mis proyectos, de las tres categorías."}, [p for k in order for p in P if p["cat"] == k])]
+    groups += [(k, CATS[k], [p for p in P if p["cat"] == k]) for k in order]
     tabs = panels = ""
-    for i, k in enumerate(order):
-        c = CATS[k]; n = sum(1 for p in P if p["cat"] == k); op = i == 0
-        cards = "\n".join(card(p) for p in P if p["cat"] == k)
+    for i, (k, c, ps) in enumerate(groups):
+        n = len(ps); op = i == 0
+        cards = "\n".join(card(p) for p in ps)
         tabs += (f'<button type="button" class="ct" role="tab" id="cg-{k}" aria-selected="{str(op).lower()}" aria-controls="{k}"'
                  f'{"" if op else " tabindex=" + chr(34) + "-1" + chr(34)}>{c["name"]}<span class="num">{n}<span class="vh"> proyectos</span></span></button>')
         panels += f'''
@@ -257,15 +269,11 @@ def index():
     secs = f'''
  <section class="pcats" aria-label="Proyectos por categoría">
   <div class="ctabs" role="tablist" aria-label="Categorías de proyectos">{tabs}</div>{panels}
-  <noscript><style>.cgp[hidden]{{display:block}}.ctabs{{display:none}}</style></noscript>
+  <noscript><style>.ctabs{{display:none}}</style></noscript>
  </section>'''
     body = f'''
 <main id="contenido">
- <section class="sec first">
-  <div class="sec-head rv">
-   <div><h1 class="h1page">Todo lo que he construido</h1></div>
-  </div>
- </section>
+ <h1 class="vh">Proyectos</h1>
 {secs}
 </main>'''
     write("/proyectos/", head("Proyectos · Jorge Delgado Aguilera",
@@ -300,7 +308,13 @@ def fig(src, alt, cap=""):
 def render_section(x):
     if isinstance(x, tuple):
         h, b = x
-        return f'\n <section class="psec rv"><h2>{h}</h2>{caras(b)}</section>'
+        # «La necesidad» (problema + qué, cómo y para qué) ocupa todo el ancho en todos los proyectos, como en los casos de estudio
+        cls = " wide nec" if h == "La necesidad" else ""
+        # el texto de muestra de Cazadores de bulos, a todo el ancho para que se lea mejor
+        if h == "Así empieza el texto": cls = " wide txt"
+        # e-Portfolio: la lista de lo que se puede ver, a todo el ancho para que las líneas sean largas
+        if h == "Qué puedes ver en él": cls = " wide"
+        return f'\n <section class="psec{cls} rv"><h2>{h}</h2>{caras(b)}</section>'
     # bloque de evidencias: {"title", "intro", "figs":[(src, alt, cap)], "cols", "after"}
     figs = "".join(fig(*f) for f in x["figs"])
     cols = {1: " one", 2: "", 3: " three"}.get(x.get("cols", 2), "")
@@ -311,6 +325,41 @@ def render_section(x):
     cont = " cont" if not x.get("title") else ""
     frame = " frame" if x.get("frame") else ""
     gal = f'<div class="gal{cols}{frame}">{figs}</div>' if figs else ""
+    # «El material» con PDF: el texto a la izquierda y, del texto al borde derecho, una ventana del mismo alto que el texto
+    # con las páginas del PDF (se baja por dentro para leerlas) y el botón de descarga fijo abajo
+    if x.get("pdf"):
+        pdf, pre = x["pdf"]
+        pages, n = "", 1
+        while os.path.exists(os.path.join(ROOT, f"{pre}{n}.jpg".lstrip("/"))):
+            w, h = _Img.open(os.path.join(ROOT, f"{pre}{n}.jpg".lstrip("/"))).size
+            pages += f'<img src="{pre}{n}.jpg" alt="Página {n} del PDF" width="{w}" height="{h}" loading="lazy" decoding="async">'
+            n += 1
+        name = pdf.rsplit("/", 1)[1]
+        view = (f'<div class="mat-pdf"><div class="mat-sc" tabindex="0" aria-label="Vista previa del PDF ({n - 1} páginas)">{pages}</div>'
+                f'<a class="mat-dl" href="{pdf}" download="{name}">{ICON_DL}Descargar el PDF</a></div>')
+        return f'\n <section class="psec wide rv">{head}<div class="mat"><div class="mat-t">{intro}</div>{view}</div></section>'
+    # «La actividad» sin PDF: la actividad digital (Genially, Delightex, Jotform…) o la imagen, en el mismo sitio que el visor del PDF;
+    # el botón para abrirla aparte va debajo del texto
+    if x.get("embed"):
+        kind, src, title, label, href = x["embed"]
+        # La IA también miente: la imagen sin marco; «Ver la solución», encima, la funde en la solución y
+        # despliega la leyenda de los errores debajo del texto (columna izquierda)
+        if kind == "flip":
+            sol, ley = label, href
+            w, h = _Img.open(os.path.join(ROOT, src.lstrip("/"))).size
+            inner = (f'<div class="flip-im" style="aspect-ratio:{w}/{h}">'
+                     f'<img class="f-a" src="{src}" alt="{html.escape(title)}" width="{w}" height="{h}" loading="lazy" decoding="async">'
+                     f'<img class="f-b" src="{sol}" alt="La misma escena con los cinco anacronismos y la trampa marcados" width="{w}" height="{h}" loading="lazy" decoding="async">'
+                     f'<button type="button" class="flip-b" aria-pressed="false">Ver la solución</button></div>')
+            leyenda = f'<div class="flip-ley" aria-hidden="true"><div>{ley}</div></div>'
+            return f'\n <section class="psec wide rv">{head}<div class="mat emb flip"><div class="mat-t">{intro}{leyenda}</div><div class="mat-pdf">{inner}</div></div></section>'
+        if kind == "img":
+            w, h = _Img.open(os.path.join(ROOT, src.lstrip("/"))).size
+            inner = f'<a class="mat-img" href="{src}" target="_blank" rel="noopener"><img src="{src}" alt="{html.escape(title)}" width="{w}" height="{h}" loading="lazy" decoding="async"></a>'
+        else:
+            inner = f'<iframe src="{src}" title="{html.escape(title)}" loading="lazy" allow="fullscreen; autoplay; xr-spatial-tracking" allowfullscreen></iframe>'
+        go = f'<p class="mat-go">{btn(label, href, "ext", True)}</p>'
+        return f'\n <section class="psec wide rv">{head}<div class="mat emb"><div class="mat-t">{intro}{go if x.get("go_texto") else ""}</div><div class="mat-pdf{' zoom' if x.get('zoom') else ''}">{inner}</div></div>{"" if x.get("go_texto") else go}</section>'
     return f'\n <section class="psec{wide}{cont} rv">{head}{intro}{gal}{after}</section>'
 
 

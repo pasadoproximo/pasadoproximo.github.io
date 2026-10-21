@@ -12,7 +12,7 @@ CATS = {
     },
     "profesorado": {
         "name": "Profesorado y formación",
-        "desc": "Recursos y guías para el trabajo del docente y el portfolio de mi propia formación.",
+        "desc": "Recursos y guías para el trabajo docente. Portfolio del Máster de Competencias Digitales.",
     },
 }
 
@@ -28,16 +28,21 @@ P.append(dict(
     card="Seis agentes de IA convierten una noticia de hoy en una sesión de clase y uno revisa a todos.",
     viz="council",
     h1="El Consejo de Clío",
-    lede="Una herramienta con IA para docentes: pegas una noticia, eliges el curso y seis personajes de la historia preparan una sesión para el aula. Cada uno tiene su papel y uno existe solo para buscar errores.",
+    lede="Pegas una noticia, eliges el curso y seis personajes de la historia preparan una sesión para el aula.",
     meta=[("Para quién", "Docentes de Geografía e Historia, de 1.º ESO a Bachillerato"),
           ("Tipo", "Aplicación con IA · material de libre uso"),
           ("Herramientas", "Claude (artefacto con agentes de IA)"),
           ("Estado", "Publicada. Funciona con una cuenta de Claude, también la gratuita")],
     links=[("Probar el consejo", "https://claude.ai/artifact/7fyLPT3yg45X1Wr4Mu9rjx", "ext")],
-    cta_note="«Probar el consejo» se abre en Claude y pide iniciar sesión (sirve la cuenta gratuita).",
+    cta_note="Se abre en Claude y pide iniciar sesión (sirve la cuenta gratuita).",
     sections=[
-        ("El problema", """
-<p class="cq-par">Traer la actualidad a clase de Historia engancha al alumnado y le hace cuestionársela. Pero, a veces, prepararlo bien lleva tiempo. Pedírselo sin más a una IA es rápido, pero puede inventar un dato o presentar una opinión como un hecho.</p>"""),
+        ("La necesidad", """
+<p class="psub">Traer la actualidad a clase de Historia es necesario y engancha al alumnado. Prepararlo bien lleva tiempo y pedírselo sin más a una IA puede traer problemas.</p>
+<ul class="needs three">
+<li><b>Qué hice</b><span>Una herramienta con IA para docentes.</span></li>
+<li><b>Cómo lo hice</b><span>Creando un equipo de seis agentes de IA en Claude.</span></li>
+<li><b>Para qué lo hice</b><span>Para agilizar el proceso y filtrar la información.</span></li>
+</ul>"""),
         ("Seis pensadores, un equipo", """
 <p class="psub">Un pequeño equipo de agentes de IA: cada miembro hace una sola tarea y le pasa su trabajo al siguiente. Pulsa en cada cara para ver qué hace.</p>
 <div class="cq cq-board">
@@ -83,8 +88,8 @@ P.append(dict(
     title="Asistente de IA", tags=["TFM", "2.º ESO"], kind="caso",
     card="Un GPT que guía al alumnado sin darle la respuesta y dice siempre de dónde sale cada dato.",
     viz="v-chat",
-    h1="PasadoPróximo-2ºESO: un asistente de IA que guía sin resolver",
-    lede="Mi TFM del Máster en Tecnología Educativa (Universidad Europea, 2023-2024): un GPT personalizado que acompaña a un grupo de 2.º ESO en Geografía e Historia. No hace la tarea: ayuda a hacerla y dice de dónde sale cada respuesta.",
+    h1="PasadoPróximo",
+    lede="Un asistente de IA para 2.º ESO que guía al estudiante sin resolver.",
     meta=[("Para quién", "Un grupo de 2.º ESO y su docente de Geografía e Historia"),
           ("Tipo", "Trabajo Fin de Máster · propuesta didáctica"),
           ("Herramientas", "GPT personalizado (GPT-4o) y Google Classroom"),
@@ -92,19 +97,25 @@ P.append(dict(
     links=[("Leer el TFM completo (PDF)", "/assets/pdf/tfm-asistente-gpt-2eso.pdf", "dl")],
     sections=[
         ("La necesidad", """
-<p class="psub">Un grupo heterogéneo de 2.º ESO en un instituto público de una barriada de Málaga: aulas de 25 a 30 estudiantes, retroalimentación que llega tarde, dudas sin resolver en casa y alumnado que usa ChatGPT para que le haga la tarea.</p>
+<p class="psub">En muchos institutos públicos se producen los mismos problemas: aulas de 25 a 30 estudiantes, retroalimentación que llega tarde o no llega, dudas sin resolver que van a casa y un alumnado que usa ChatGPT para que le haga la tarea.</p>
 <ul class="needs three">
-<li><b>Qué hice</b><span>Configuré un GPT personalizado que acompaña al grupo en Geografía e Historia: resuelve dudas, propone repasos y dice de dónde sale cada dato.</span></li>
-<li><b>Cómo lo hice</b><span>Le di los materiales de las nueve unidades y un banco de preguntas, con instrucciones para priorizar esos materiales, guiar sin resolver y no pedir datos personales.</span></li>
-<li><b>Para qué lo hice</b><span>Para que el alumnado tenga apoyo también en casa, reciba retroalimentación a tiempo y aprenda a contrastar, en vez de usar la IA para copiar.</span></li>
+<li><b>Qué hice</b><span>Configuración de un GPT personalizado para la clase de Geografía e Historia en 2.º ESO.</span></li>
+<li><b>Cómo lo hice</b><span>Introduje el material de clase y le di instrucciones para guiar sin resolver y no pedir datos personales.</span></li>
+<li><b>Para qué lo hice</b><span>Para ayudar a la diversidad del aula y concienciar sobre el uso adecuado de la IA.</span></li>
 </ul>"""),
         dict(title="Qué hace en la práctica",
              intro='<p class="psub">Cuatro comportamientos configurados y probados.</p>',
-             cols=2, frame=True,
-             figs=[("/assets/proyectos/tfm/guia-sin-resolver.png", "El alumno pide «¿Puedes hacerme la actividad 2 del tema 1?» y el asistente responde que no puede realizarla por él, pero que puede guiarle para completarla", "<b>Guía, no resuelve.</b> Si le piden la actividad, ayuda a hacerla."),
-                   ("/assets/proyectos/tfm/fuente-archivos.png", "Respuesta del asistente sobre la sociedad de la Península Ibérica medieval que termina indicando que la información sale del documento de la Unidad 5", "<b>Cita la unidad.</b> Si la respuesta sale de los materiales de clase, dice de cuál."),
-                   ("/assets/proyectos/tfm/fuente-ia.png", "Respuesta del asistente sobre Abderramán III que avisa de que la información ha sido generada por inteligencia artificial y debe verificarse", "<b>Avisa si es IA.</b> Si no está en los materiales, lo dice y pide verificarlo."),
-                   ("/assets/proyectos/tfm/correccion.png", "El alumno escribe que taifa significa impuesto sobre la tierra y el asistente le corrige: era un pequeño reino musulmán surgido tras la desintegración del Califato de Córdoba", "<b>Corrige el repaso.</b> Explica lo que no se ha entendido.")]),
+             cols=2, figs=[],
+             after="""<div class="beh">
+<div class="beh-i"><h3>Guía, no resuelve</h3>
+<div class="bchat"><div class="bc-top"><span class="bc-av" aria-hidden="true"><svg viewBox="0 0 26 26"><path d="M13 2 2 7h22L13 2Z"/><rect x="3" y="8" width="20" height="2"/><rect x="5" y="11" width="2.4" height="9"/><rect x="9.6" y="11" width="2.4" height="9"/><rect x="14" y="11" width="2.4" height="9"/><rect x="18.6" y="11" width="2.4" height="9"/><rect x="2" y="21" width="22" height="2.4"/></svg></span>PasadoPróximo-2ºESO</div><p class="bc-u s" style="--d:0.3s">¿Puedes hacerme la actividad 2 del tema 1?</p><div class="bc-a s" style="--d:1.1s"><span class="bc-dots" aria-hidden="true"><i></i><i></i><i></i></span><p class="s" style="--d:2.4s">Puedo ayudarte con la actividad 2 del tema 1, <mark>pero no puedo realizar la actividad por ti.</mark> Mi objetivo es guiarte para que puedas completarla por ti mismo, fomentando tu aprendizaje activo.</p><p class="s" style="--d:3.0s">Dicho esto, dime cuál es la actividad 2 y en qué parte te gustaría que te ayudara.</p></div></div></div>
+<div class="beh-i"><h3>Cita la unidad</h3>
+<div class="bchat"><div class="bc-top"><span class="bc-av" aria-hidden="true"><svg viewBox="0 0 26 26"><path d="M13 2 2 7h22L13 2Z"/><rect x="3" y="8" width="20" height="2"/><rect x="5" y="11" width="2.4" height="9"/><rect x="9.6" y="11" width="2.4" height="9"/><rect x="14" y="11" width="2.4" height="9"/><rect x="18.6" y="11" width="2.4" height="9"/><rect x="2" y="21" width="22" height="2.4"/></svg></span>PasadoPróximo-2ºESO</div><div class="bc-a s" style="--d:0.3s"><span class="bc-dots" aria-hidden="true"><i></i><i></i><i></i></span><p class="s" style="--d:1.6s"><b>4. La Compleja Sociedad de la Península Ibérica</b></p><p class="s" style="--d:2.2s"><b>Sociedad en Al-Ándalus:</b> Compuesta por árabes, bereberes, muladíes (convertidos al Islam) y no musulmanes como los judíos y mozárabes (cristianos en territorio musulmán). […]</p><p class="s" style="--d:2.8s"><mark>La información ha sido extraída de los documentos que subiste, específicamente del documento de la <b>Unidad 5 - La Península Ibérica en la Edad Media</b>.</mark></p></div></div></div>
+<div class="beh-i"><h3>Avisa si es IA</h3>
+<div class="bchat"><div class="bc-top"><span class="bc-av" aria-hidden="true"><svg viewBox="0 0 26 26"><path d="M13 2 2 7h22L13 2Z"/><rect x="3" y="8" width="20" height="2"/><rect x="5" y="11" width="2.4" height="9"/><rect x="9.6" y="11" width="2.4" height="9"/><rect x="14" y="11" width="2.4" height="9"/><rect x="18.6" y="11" width="2.4" height="9"/><rect x="2" y="21" width="22" height="2.4"/></svg></span>PasadoPróximo-2ºESO</div><div class="bc-a s" style="--d:0.3s"><span class="bc-dots" aria-hidden="true"><i></i><i></i><i></i></span><p class="s" style="--d:1.6s">Este resumen está basado en información general sobre la figura de Abderramán III y no en los documentos que me has proporcionado. […]</p><p class="s" style="--d:2.2s"><mark>La información proporcionada ha sido generada por inteligencia artificial y debe verificarse.</mark></p></div></div></div>
+<div class="beh-i"><h3>Corrige el repaso</h3>
+<div class="bchat"><div class="bc-top"><span class="bc-av" aria-hidden="true"><svg viewBox="0 0 26 26"><path d="M13 2 2 7h22L13 2Z"/><rect x="3" y="8" width="20" height="2"/><rect x="5" y="11" width="2.4" height="9"/><rect x="9.6" y="11" width="2.4" height="9"/><rect x="14" y="11" width="2.4" height="9"/><rect x="18.6" y="11" width="2.4" height="9"/><rect x="2" y="21" width="22" height="2.4"/></svg></span>PasadoPróximo-2ºESO</div><p class="bc-u s" style="--d:0.3s">Taifa significa impuesto sobre la tierra<br>Los mozárabes eran los cristianos que vivían en Al-Ándalus</p><div class="bc-a s" style="--d:1.1s"><span class="bc-dots" aria-hidden="true"><i></i><i></i><i></i></span><p class="s" style="--d:2.4s">Parece que hay un pequeño malentendido en las definiciones. Vamos a corregirlas:</p><ol class="s" style="--d:3.0s"><li><b>Taifa</b>: En realidad, una <i>taifa</i> <mark>no es un impuesto, sino un pequeño reino musulmán</mark> que surgió tras la desintegración del Califato de Córdoba en el año 1031.</li><li><b>Mozárabes</b>: Correcto, los <i>mozárabes</i> eran cristianos que vivían en territorio musulmán. […]</li></ol></div></div></div>
+</div>"""),
         ("Cómo lo hice", """
 <ol class="hsteps">
 <li><b>Necesidades</b><span>Objetivos del grupo con la LOMLOE, el currículo andaluz, el DUA y la protección de datos.</span></li>
@@ -128,22 +139,29 @@ P.append(dict(
     title="Mapa de relieves de la Península Ibérica", tags=["Aplicación web", "2.º Bachillerato"], kind="ficha",
     card="Un mapa interactivo que localiza cada relieve, era geológica o agente erosivo y lo explica.",
     viz="map",
-    lede="Una herramienta de estudio para el tema de relieve de Geografía de España. En lugar de memorizar una lista de unidades, el alumnado pulsa sobre lo que quiere repasar y el mapa le señala dónde está, con una ficha explicativa, imágenes y preguntas.",
+    lede="Mapa interactivo para estudiar el relieve de la Península.",
     meta=[("Nivel", "2.º Bachillerato · Geografía de España"),
           ("Para quién", "Alumnado que estudia el relieve peninsular"),
           ("Tipo", "Aplicación web interactiva"),
           ("Herramientas", "Claude (artefacto web)")],
-    links=[("Abrir el mapa", "/apps/mapa-de-relieves/", "int")],
+    links=[],  # se usa en «La herramienta»
     sections=[
-        ("Para qué sirve", """
-<p>El relieve de la Península se suele estudiar como una lista de nombres. El problema es que esa lista no dice dónde está cada cosa ni por qué está ahí. El mapa organiza el tema en cuatro bloques y une cada concepto con su lugar:</p>
-<ul class="pl">
-<li><b>Evolución geológica:</b> qué se formó en cada era.</li>
-<li><b>Estructuras:</b> zócalo, cordilleras de plegamiento y cuencas sedimentarias.</li>
-<li><b>Roquedo:</b> silíceo, calizo y arcilloso.</li>
-<li><b>Erosión:</b> los agentes que han modelado el paisaje.</li>
+        ("La necesidad", """
+<p class="psub">El tema del relieve suele ser complicado. Muchas veces, mientras estás estudiando una cosa, necesitas mirar lo que ya has repasado para entenderlo mejor porque es fácil de olvidar.</p>
+<ul class="needs three">
+<li><b>Qué hice</b><span>Un mapa interactivo del relieve de la Península Ibérica.</span></li>
+<li><b>Cómo lo hice</b><span>Con Claude, organizando el tema en cuatro bloques y revisando el contenido.</span></li>
+<li><b>Para qué lo hice</b><span>Para volver a lo ya repasado en cualquier momento y entender mejor el tema.</span></li>
+</ul>"""),
+        dict(title="La herramienta", cols=1, intro="""<p>Se pulsa un relieve o un tema: el mapa lo localiza y una ficha lo explica. El tema va en cuatro bloques:</p>
+<ul class='pl'>
+<li><b>Evolución geológica:</b> la cronología y lo que se formó en cada era.</li>
+<li><b>Estructuras:</b> relieves aclinales, monoclinales, plegados, fallados y sajónicos.</li>
+<li><b>Roquedo:</b> silíceo, kárstico, arcilloso y volcánico.</li>
+<li><b>Erosión:</b> laminar, fluvial, glaciar, eólica y marina.</li>
 </ul>
-<p>Cada elemento tiene su ficha, imágenes y preguntas de repaso. Así se puede usar para estudiar en casa o en clase, proyectado, para explicar.</p>"""),
+<p>Cada ficha tiene qué es, sus partes y formas, imágenes, dónde está en España y preguntas de repaso.</p>
+<p>Los colores del texto indican de qué documento de clase sale cada dato: los apuntes, el PDF o la presentación (PPS). Lo que va en azul se ha añadido.</p>""", figs=[], go_texto=True, zoom=True, embed=("iframe", "/apps/mapa-de-relieves/", "Mapa de relieves de la Península Ibérica", "Abrir el mapa", "/apps/mapa-de-relieves/")),
     ],
     value=["Convertir un tema memorístico en una herramienta de consulta visual.",
            "Diseñar y construir una aplicación sencilla con IA, revisando el contenido."],
@@ -156,13 +174,20 @@ P.append(dict(
     title="Cazadores de bulos históricos", tags=["Actividad", "4.º ESO y 2.º Bach."], kind="ficha",
     card="Un texto escrito por una IA sobre la caída de Málaga en 1937, convincente y con nueve errores.",
     viz="v-bulos",
-    lede="Una IA ha escrito un texto sobre la caída de Málaga en 1937. Suena convincente y tiene nueve errores: ocho se cazan con el tema estudiado y el noveno, razonando. Sirve a la vez para repasar y para aprender a no fiarse de un texto solo porque está bien escrito.",
+    lede="Actividad para repasar y desarrollar pensamiento crítico.",
     meta=[("Nivel", "4.º ESO y 2.º Bachillerato"),
-          ("Cuándo", "Al final de la unidad de la Guerra Civil, como repaso"),
+          ("Cuándo", "Repaso de la Guerra Civil"),
           ("Duración", "Una sesión de 55 minutos, ampliable a dos"),
           ("Agrupamiento", "Parejas o grupos de 3")],
-    links=[("Descargar la actividad (PDF)", "/assets/pdf/cazadores-de-bulos.pdf", "dl")],
+    links=[],  # el PDF se descarga desde «El material»
     sections=[
+        ("La necesidad", """
+<p class="psub">Al acabar la unidad de la Guerra Civil hace falta repasar. Además, el alumnado tiene que aprender a no fiarse de un texto solo porque está bien escrito, sobre todo si lo ha escrito una IA.</p>
+<ul class="needs three">
+<li><b>Qué hice</b><span>Generar un texto de repaso con errores sobre la caída de Málaga.</span></li>
+<li><b>Cómo lo hice</b><span>Pedirle a la IA que ocho errores salieran del temario y uno tuviera que ser razonado.</span></li>
+<li><b>Para qué lo hice</b><span>Para repasar y aprender a desconfiar de un texto que parece correcto.</span></li>
+</ul>"""),
         ("Así empieza el texto", """
 <p>Un fragmento real del documento que recibe el alumnado. Te enseño dos de los nueve errores; los demás están en el PDF, con el solucionario para el docente.</p>
 <blockquote class="excerpt">
@@ -180,9 +205,7 @@ P.append(dict(
 <li><b>A cazar en grupos (25 min),</b> primero de memoria y luego con el libro y el atlas. Un error solo cuenta si dicen dónde lo han comprobado.</li>
 <li><b>Puesta en común (20 min):</b> ¿cuál te habrías creído si nadie te avisa?</li>
 </ol>"""),
-        dict(title="El material", cols=2, intro="<p>El PDF trae la guía docente, el texto, la hoja de registro y el solucionario con su rúbrica.</p>",
-             figs=[("/assets/proyectos/cazadores-de-bulos/pagina-2.jpg", "Página 2 del PDF: el Documento A, «La caída de Málaga y la huida por la carretera», con el aviso de que es un texto falso de uso didáctico y pistas para repasar", "Página 2: el texto con los nueve errores y las pistas."),
-                   ("/assets/proyectos/cazadores-de-bulos/pagina-3.jpg", "Página 3 del PDF: hoja de registro con columnas para lo que dice el texto, lo que pasó en realidad y dónde se ha comprobado", "Página 3: la hoja de registro del alumnado.")]),
+        dict(title="El material", cols=1, intro="<p>El PDF tiene cuatro páginas, listas para imprimir:</p><ul class='pl'><li><b>Guía docente (pág. 1):</b> la ficha de la actividad, por qué funciona como repaso, los cuatro pasos de la sesión y cómo subir o bajar el nivel.</li><li><b>Documento A (pág. 2):</b> el texto falso con los nueve errores, avisado como material didáctico, con los cuatro puntos del tema que conviene repasar y una pista para el error número nueve.</li><li><b>Hoja de registro (pág. 3):</b> para anotar lo que dice el texto, lo que pasó en realidad y dónde se ha comprobado, con una pregunta final individual.</li><li><b>Solucionario y rúbrica (pág. 4, solo para el docente):</b> la corrección de cada error con el contenido del tema que lo delata, lo que sí es verdad en el texto y una rúbrica de tres criterios.</li></ul>", figs=[], pdf=("/assets/pdf/cazadores-de-bulos.pdf", "/assets/proyectos/cazadores-de-bulos/pdf-")),
     ],
     related=["la-ia-tambien-miente", "constitucion-1812", "la-nube-pesa"],
 ))
@@ -192,17 +215,27 @@ P.append(dict(
     title="La IA también miente", tags=["Serie de imágenes", "Cualquier nivel"], kind="ficha",
     card="Escenas históricas generadas con IA con anacronismos escondidos y una trampa en cada una.",
     viz="img:/assets/ia-miente/mercado.jpg",
-    lede="Una serie quincenal que publico en LinkedIn. Cada entrega es una escena histórica generada con IA que esconde anacronismos. Y siempre hay una trampa: algo que parece imposible y sí es de la época.",
+    lede="Serie de imágenes para mirar con ojo crítico lo que genera una IA.",
     meta=[("Para quién", "Docentes que quieran llevarla a clase y cualquiera con curiosidad"),
-          ("Tipo", "Serie de imágenes para el aula"),
+          ("Tipo", "Serie quincenal de imágenes en LinkedIn"),
           ("Herramientas", "Claude y Canva")],
-    links=[],
+    links=[],  # la imagen se ve en «La actividad»
     sections=[
-        ("La idea", """
-<p>Las imágenes generadas con IA tienen un aspecto muy convincente, pero mezclan épocas sin ningún problema. Buscar los errores obliga a mirar con atención y a preguntarse de dónde viene cada objeto. La trampa final evita que se marque como error todo lo que «parece moderno».</p>"""),
+        ("La necesidad", """
+<p class="psub">Las imágenes generadas con IA tienen un aspecto muy convincente, pero mezclan épocas sin ningún problema.</p>
+<ul class="needs three">
+<li><b>Qué hice</b><span>Una serie de escenas históricas generadas con IA que esconden anacronismos.</span></li>
+<li><b>Cómo lo hice</b><span>Esconder en cada escena una trampa: algo que parece imposible y sí es de la época.</span></li>
+<li><b>Para qué lo hice</b><span>Para entrenar la mirada y aprender a desconfiar de una imagen que parece real.</span></li>
+</ul>"""),
+        dict(title="La actividad", cols=1, intro="""<p><b>Entrega 1 · Mercado medieval.</b> Hay cinco errores y una trampa.</p>
+<ul class='pl'>
+<li><b>Busca los anacronismos:</b> objetos que no podían estar en un mercado medieval.</li>
+<li><b>Cuidado con la trampa:</b> hay algo que parece moderno y sí es de la época. Así no se marca como error todo lo que «parece moderno».</li>
+<li><b>Pregúntate de dónde viene cada objeto:</b> buscar los errores obliga a mirar con atención.</li>
+</ul>""",
+             figs=[], embed=("flip", "/assets/ia-miente/mercado.jpg", "Entrega 1 de la serie: un mercado medieval generado con IA con cinco anacronismos y una trampa", "/assets/ia-miente/mercado-solucion-foto.jpg", "<h3>Las cinco que no pueden estar y la que sí</h3><ol><li><b>Cartel impreso:</b> todas las letras iguales. La imprenta es de 1450.</li><li><b>Maíz:</b> de América. Después de 1492.</li><li><b>Tomates:</b> de América. Después de 1492.</li><li><b>Patatas:</b> de los Andes. Llegan a España hacia 1570.</li><li><b>Girasoles:</b> de América. Llegan a Europa en el siglo XVI.</li><li class='ok'><b>Las gafas</b> están bien. Hay gafas de lectura en Italia desde finales del siglo XIII.</li></ol>")),
     ],
-    gallery=[("/assets/ia-miente/mercado.jpg", "Entrega 1 · Mercado medieval. Hay cinco errores y una trampa.")],
-    spoiler=("/assets/ia-miente/mercado-solucion.jpg", "Ver la solución", "Solución: el cartel impreso, el maíz, los tomates, las patatas y los girasoles son anacronismos. Las gafas de lectura sí son de la época."),
     value=["Llevar la alfabetización visual y sobre IA a algo que se resuelve en cinco minutos."],
     related=["cazadores-de-bulos", "consejo-de-clio", "asistente-gpt-2eso"],
 ))
@@ -212,13 +245,20 @@ P.append(dict(
     title="La nube pesa", tags=["Actividad (PDF)", "2.º ESO"], kind="ficha",
     card="Cada equipo reconstruye un eslabón de lo que hay detrás de un gesto digital y propone una medida.",
     viz="v-nube",
-    lede="¿De dónde sale y qué consume un gesto digital? Cinco equipos reconstruyen la cadena que hay detrás de mandar una foto o hacer una pregunta a un asistente: del mineral al residuo.",
+    lede="Actividad para descubrir lo que consume un gesto digital y argumentar una medida.",
     meta=[("Nivel", "2.º ESO, adaptable a 3.º ESO"),
-          ("Cuándo", "Al cerrar el tema de recursos naturales y desigualdad"),
+          ("Cuándo", "Cierre del tema de recursos naturales y desigualdad"),
           ("Duración", "Una sesión de 55 minutos"),
           ("Agrupamiento", "Cinco equipos de 4 o 5")],
-    links=[("Descargar la actividad (PDF)", "/assets/pdf/la-nube-pesa.pdf", "dl")],
+    links=[],  # el PDF se descarga desde «El material»
     sections=[
+        ("La necesidad", """
+<p class="psub">Mandar una foto o hacer una pregunta a un asistente parece un gesto sin peso. Detrás hay una cadena que va del mineral al residuo.</p>
+<ul class="needs three">
+<li><b>Qué hice</b><span>Una actividad en la que cinco equipos reconstruyen la cadena de un gesto digital.</span></li>
+<li><b>Cómo lo hice</b><span>Con fichas de datos verificados y una regla: toda medida tiene que decir quién la paga.</span></li>
+<li><b>Para qué lo hice</b><span>Para unir la Geografía con algo que el alumnado hace cada día y argumentar con datos.</span></li>
+</ul>"""),
         ("La regla que sostiene la actividad", """
 <p>Al final, cada equipo propone una medida y siempre con el mismo formato: <b>«Proponemos ___. Esto lo paga ___».</b> Si falta la segunda mitad, la medida no se admite.</p>
 <p>Se repasan recursos, tensiones internacionales y desigualdad, pero lo que se evalúa de verdad es si el alumnado distingue entre opinar sobre un problema y hacer una propuesta sabiendo a quién le cuesta.</p>"""),
@@ -230,7 +270,7 @@ P.append(dict(
 <li><b>La medida (10 min).</b> Cada equipo escribe su frase. Las que no tienen segunda mitad se devuelven.</li>
 </ol>
 <p>Funciona también sin dispositivos, con una cartulina por equipo. Los datos están verificados a septiembre de 2026 y la guía recuerda comprobarlos antes de usarla.</p>"""),
-        dict(title="El material", cols=2, intro="<p>El PDF trae la guía docente cronometrada, las fichas, la hoja de la cadena y el solucionario con las fuentes de los datos.</p>", figs=[("/assets/proyectos/la-nube-pesa/pagina-2.jpg", "Página 2 del PDF: cinco fichas de eslabón (extracción, fabricación y transporte, uso y vida útil, centro de datos y residuo) con datos y preguntas", "Página 2: las cinco fichas de eslabón, para recortar y repartir."), ("/assets/proyectos/la-nube-pesa/pagina-3.jpg", "Página 3 del PDF: hoja de la cadena con columnas de dato y fuente, lugar en el mapa, quién gana y quién pierde y el espacio para la medida", "Página 3: la hoja de la cadena que completa cada equipo.")]),
+        dict(title="El material", cols=1, intro="<p>El PDF tiene cuatro páginas, listas para imprimir:</p><ul class='pl'><li><b>Guía docente (pág. 1):</b> la ficha didáctica, la regla de la medida, la sesión cronometrada minuto a minuto y variantes para bajar o subir el nivel o para trabajar sin dispositivos.</li><li><b>Fichas de eslabón (pág. 2):</b> cinco fichas para recortar (extracción, fabricación y transporte, uso y vida útil, centro de datos y residuo), cada una con sus datos y un dato que busca el propio equipo.</li><li><b>Hoja de la cadena (pág. 3):</b> una por equipo, con el dato y su fuente, el lugar en el mapa, quién gana, quién pierde y el espacio para la medida.</li><li><b>Solucionario (pág. 4):</b> lo que suele pasar en clase y qué contenido del tema delata, una rúbrica de tres criterios y las fuentes de todos los datos.</li></ul>", figs=[], pdf=("/assets/pdf/la-nube-pesa.pdf", "/assets/proyectos/la-nube-pesa/pdf-")),
     ],
     value=["Unir un tema de Geografía con algo que el alumnado hace cada día.",
            "Evaluar la argumentación con una regla sencilla y clara."],
@@ -242,13 +282,20 @@ P.append(dict(
     title="¿Fue liberal la Constitución de 1812?", tags=["Actividad (PDF)", "4.º ESO"], kind="ficha",
     card="Comentario de texto colaborativo: las parejas anotan los artículos y debaten con el texto delante.",
     viz="v-1812",
-    lede="Un comentario de texto colaborativo con Hypothes.is. Por parejas, el alumnado anota artículos de la Constitución de 1812 y marca cada fragmento como #APOYA, #LIMITA o #PREGUNTA. Después debate con una condición: nada de lo que se diga vale si no está anclado a un fragmento.",
+    lede="Comentario de texto colaborativo para debatir con fuentes primarias.",
     meta=[("Nivel", "4.º ESO, adaptable a 2.º Bachillerato"),
-          ("Cuándo", "Tras la Guerra de la Independencia y las Cortes de Cádiz"),
+          ("Cuándo", "Tras las Cortes de Cádiz"),
           ("Duración", "Una sesión de 55 minutos"),
           ("Herramientas", "Hypothes.is (o Google Docs con comentarios)")],
-    links=[("Descargar la actividad (PDF)", "/assets/pdf/constitucion-1812-hypothesis.pdf", "dl")],
+    links=[],  # el PDF se descarga desde «El material»
     sections=[
+        ("La necesidad", """
+<p class="psub">Ante un texto histórico es fácil opinar sin apoyarse en lo que dice. La Constitución de 1812 admite dos lecturas: ruptura revolucionaria o liberalización con límites.</p>
+<ul class="needs three">
+<li><b>Qué hice</b><span>Un comentario de texto colaborativo sobre la Constitución de 1812 con Hypothes.is.</span></li>
+<li><b>Cómo lo hice</b><span>Marcando cada fragmento como #APOYA, #LIMITA o #PREGUNTA antes de debatir.</span></li>
+<li><b>Para qué lo hice</b><span>Para trabajar fuentes primarias y debatir solo con lo que dice el texto.</span></li>
+</ul>"""),
         ("Cómo se hace", """
 <ol class="steps">
 <li><b>La pregunta (5 min).</b> Dos equipos con postura asignada: ruptura revolucionaria o liberalización con límites.</li>
@@ -257,7 +304,7 @@ P.append(dict(
 <li><b>Cierre (10 min).</b> Votación razonada y una pregunta: ¿por qué un mismo texto puede sostener las dos posturas?</li>
 </ol>
 <p>Incluye un plan B sin cuentas, con Google Docs y variantes para subir o bajar el nivel.</p>"""),
-        dict(title="El material", cols=2, intro="<p>El PDF trae la guía docente, el dosier de artículos, la hoja de registro y el solucionario con rúbrica.</p>", figs=[("/assets/proyectos/constitucion-1812/pagina-2.jpg", "Página 2 del PDF: dosier de trabajo con artículos de la Constitución de 1812 y el protocolo de anotación #APOYA, #LIMITA y #PREGUNTA", "Página 2: el dosier de artículos y el protocolo de marcas."), ("/assets/proyectos/constitucion-1812/pagina-3.jpg", "Página 3 del PDF: hoja de registro con tabla de anotaciones, respuesta a otra pareja y votación razonada", "Página 3: la hoja de registro de la pareja.")]),
+        dict(title="El material", cols=1, intro="<p>El PDF tiene cuatro páginas, listas para imprimir:</p><ul class='pl'><li><b>Guía docente (pág. 1):</b> la ficha didáctica, cómo preparar Hypothes.is en diez minutos (con un plan B sin cuentas), la sesión cronometrada y variantes para subir o bajar el nivel.</li><li><b>Dosier de trabajo (pág. 2):</b> los artículos de la Constitución de 1812, el protocolo de marcas #APOYA, #LIMITA y #PREGUNTA y los dos roles de la pareja: anotador y verificador.</li><li><b>Hoja de registro (pág. 3):</b> las anotaciones de la pareja, la respuesta a otra pareja, una votación razonada antes y después del debate y una pregunta final individual.</li><li><b>Solucionario y rúbrica (pág. 4, solo para el docente):</b> la etiqueta esperada en cada artículo, qué debería aparecer en la anotación, qué contenido delata el fallo y una rúbrica de tres criterios.</li></ul>", figs=[], pdf=("/assets/pdf/constitucion-1812-hypothesis.pdf", "/assets/proyectos/constitucion-1812/pdf-")),
     ],
     value=["Trabajar fuentes primarias con una herramienta digital que hace visible el razonamiento.",
            "Diseñar un debate en el que se argumenta con evidencias, no con opiniones."],
@@ -269,16 +316,28 @@ P.append(dict(
     title="Escape room del siglo XIX", tags=["Escape room", "4.º ESO"], kind="ficha",
     card="Repaso del siglo XIX español ambientado en El Ministerio del Tiempo, con una caja fuerte al final.",
     viz="v-esc",
-    lede="Un escape room digital para repasar el siglo XIX español. Ambientado en <i>El Ministerio del Tiempo</i>, el alumnado actúa como agentes que deben impedir que se altere el 2 de mayo de 1808.",
+    lede="Escape room digital para repasar el siglo XIX español.",
     meta=[("Nivel", "4.º ESO"),
           ("Tipo", "Escape room digital de repaso"),
           ("Herramientas", "Genially")],
-    links=[("Jugar al escape room", "https://view.genially.com/65f972b6e99bde00148864ea", "ext")],
+    links=[],  # se juega en «La actividad»
     sections=[
-        ("Qué hay dentro", """
-<p>Las pruebas recorren el siglo: las Pinturas Negras de Goya, textos para completar sobre la Guerra de la Independencia, el Trienio Liberal, el Bienio Progresista y La Gloriosa. Al final hay una caja fuerte con un código que solo se abre con lo aprendido.</p>
-<p>Un tema largo y con muchas fechas se convierte en una misión con un orden y una meta.</p>"""),
-        dict(title="Así se ve", cols=1, figs=[("/assets/proyectos/escape-room-siglo-xix/portada.jpg", "Pantalla de inicio del escape room en Genially, con el logotipo de El Ministerio del Tiempo sobre una mesa de despacho y el botón Empezar", "La pantalla de inicio en Genially.")]),
+        ("La necesidad", """
+<p class="psub">El siglo XIX español es un tema largo y con muchas fechas. Repasarlo de memoria se hace pesado.</p>
+<ul class="needs three">
+<li><b>Qué hice</b><span>Un escape room digital ambientado en <i>El Ministerio del Tiempo</i>.</span></li>
+<li><b>Cómo lo hice</b><span>Con Genially, con pruebas que recorren el siglo y una caja fuerte al final.</span></li>
+<li><b>Para qué lo hice</b><span>Para convertir el repaso en una misión con un orden y una meta.</span></li>
+</ul>"""),
+        dict(title="La actividad", cols=1, intro="""<p>El alumnado actúa como agentes del Ministerio que deben impedir que se altere el 2 de mayo de 1808. Las pruebas recorren el siglo:</p>
+<ul class='pl'>
+<li><b>Las Pinturas Negras de Goya.</b></li>
+<li><b>La Guerra de la Independencia,</b> con textos para completar.</li>
+<li><b>El Trienio Liberal.</b></li>
+<li><b>El Bienio Progresista.</b></li>
+<li><b>La Gloriosa.</b></li>
+<li><b>Una caja fuerte final,</b> con un código que solo se abre con lo aprendido.</li>
+</ul>""", figs=[], go_texto=True, embed=("iframe", "https://view.genially.com/65f972b6e99bde00148864ea", "Escape room del siglo XIX en Genially", "Jugar a pantalla completa", "https://view.genially.com/65f972b6e99bde00148864ea")),
     ],
     value=["Diseñar un repaso gamificado con una narrativa que el alumnado reconoce."],
     related=["excursion-roma-3d", "la-ia-tambien-miente", "constitucion-1812"],
@@ -289,15 +348,27 @@ P.append(dict(
     title="Excursión a Roma en 3D", tags=["Mundo 3D", "1.º ESO"], kind="ficha",
     card="Un mundo 3D con edificios de la Antigua Roma para recorrer su arquitectura.",
     viz="v-cos",
-    lede="Un mundo virtual con algunos de los edificios más representativos de la Antigua Roma, creado para recorrerlo en clase. Es una actividad de introducción: primero una visita guiada y después se comparan la arquitectura romana y la griega.",
+    lede="Mundo 3D para recorrer la Antigua Roma en clase.",
     meta=[("Nivel", "1.º ESO"),
           ("Tipo", "Mundo 3D para una visita guiada"),
           ("Herramientas", "CoSpaces Edu (hoy Delightex)")],
-    links=[("Visitar el mundo 3D", "https://edu.delightex.com/EXA-NNH", "ext")],
+    links=[],  # se visita en «La actividad»
     sections=[
-        ("La idea", """
-<p>La idea es motivar al alumnado a través de la inmersión: que se sitúe en el espacio antes de entrar en los conceptos. En una de las habitaciones de la domus me encontraréis descansando: un guiño para que la visita tenga algo de juego.</p>"""),
-        dict(title="Así se ve", cols=1, figs=[("/assets/proyectos/excursion-roma-3d/delightex.jpg", "Página pública del mundo «Excursión a Roma» en Delightex: una habitación de la domus con un avatar y la descripción de la actividad", "La página del mundo en Delightex, con una habitación de la domus.")]),
+        ("La necesidad", """
+<p class="psub">Para introducir la Antigua Roma en 1.º ESO, el alumnado necesita situarse en el espacio antes de entrar en los conceptos.</p>
+<ul class="needs three">
+<li><b>Qué hice</b><span>Un mundo virtual con edificios representativos de la Antigua Roma.</span></li>
+<li><b>Cómo lo hice</b><span>Con CoSpaces Edu (hoy Delightex), con un guiño escondido en la domus.</span></li>
+<li><b>Para qué lo hice</b><span>Para motivar con la inmersión y comparar la arquitectura romana con la griega.</span></li>
+</ul>"""),
+        dict(title="La actividad", cols=1, intro="""<p>Un recorrido por algunos de los edificios más representativos de la Antigua Roma, cada uno con su explicación:</p>
+<ul class='chips-ed'><li>Templo</li><li>El Coliseo</li><li>Panteón de Agripa</li><li>Ara Pacis</li><li>Obras de ingeniería</li><li>Domus romana</li></ul>
+<p>Es una actividad de introducción en dos momentos:</p>
+<ul class='pl'>
+<li><b>Visita guiada:</b> el alumnado recorre el mundo y se sitúa en el espacio antes de entrar en los conceptos.</li>
+<li><b>Comparación:</b> después se comparan la arquitectura romana y la griega.</li>
+<li><b>Un guiño:</b> en una de las habitaciones de la domus me encontraréis descansando, para que la visita tenga algo de juego.</li>
+</ul>""", figs=[], go_texto=True, embed=("iframe", "https://edu.delightex.com/EXA-NNH", "Excursión a Roma en Delightex", "Visitar a pantalla completa", "https://edu.delightex.com/EXA-NNH")),
     ],
     value=["Usar la realidad virtual al servicio de un objetivo concreto: comparar dos arquitecturas."],
     related=["escape-room-siglo-xix", "mapa-de-relieves", "la-ia-tambien-miente"],
@@ -308,23 +379,23 @@ P.append(dict(
     slug="repositorio-digital", cat="profesorado", year="2024 · 2026",
     title="Repositorio digital docente", tags=["Web de recursos", "Profesorado"], kind="caso",
     lab="Web de recursos",
-    card="La web de herramientas que creé para un centro en 2024 y que en 2026 se ha convertido en Didakora.",
-    viz="v-caja",
-    h1="Del repositorio de centro a Didakora",
-    lede="Una web para que el profesorado encuentre rápido qué herramienta digital usar. La creé en 2024 para el Colegio Cerrado de Calderón (Málaga), en las prácticas del Máster en Tecnología Educativa. En 2026 la he convertido en Didakora, una web propia de herramientas revisadas para docentes.",
-    meta=[("Para quién", "El claustro del centro (2024) y docentes de todas las etapas (2026)"),
+    card="La web de herramientas que creé para un centro en 2024 y que en 2026 se ha convertido en Didákora.",
+    viz="didakora",
+    h1="Del repositorio de centro a Didákora",
+    lede="Una web con herramientas digitales para docentes.",
+    meta=[("Para quién", "Colegio Cerrado de Calderón (2024) · Docentes (2026)"),
           ("Tipo", "Web de recursos y autoformación"),
-          ("Herramientas", "Google Sites (2024) · Didakora, web propia (2026)"),
+          ("Herramientas", "Google Sites (2024) · Web propia (2026)"),
           ("Reconocimiento", "Presentada por el centro en Braining 2025")],
-    links=[("Ver el repositorio original", "https://sites.google.com/view/repositorio-digital-docente-cc/inicio", "ext"),
-           ("Abrir Didakora", "https://pasadoproximo.github.io/didakora/", "ext")],
+    links=[("Abrir Didákora", "https://pasadoproximo.github.io/didakora/", "ext"),
+           ("Ver el repositorio original", "https://sites.google.com/view/repositorio-digital-docente-cc/inicio", "ext")],
     sections=[
         ("La necesidad", """
-<p class="psub">La dirección estaba intentando fomentar la digitalización del centro y el claustro tenía dificultades para encontrar las herramientas digitales adecuadas. Faltaba un sitio común claro y adaptado a todas las etapas (Infantil, Primaria y Secundaria) que permitiera la autoformación del profesorado.</p>
+<p class="psub">La Dirección del Colegio Cerrado de Calderón quería fomentar la digitalización de su centro y ayudar a la autoformación del profesorado (Infantil, Primaria y Secundaria).</p>
 <ul class="needs three">
-<li><b>Qué hice</b><span>Elaboré una web mediante Google Sites donde se recogían todas las herramientas digitales que los docentes podían usar en sus clases. Se organizaba por etapas y materias.</span></li>
-<li><b>Cómo lo hice</b><span>Realicé una curación de herramientas digitales específica tras detectar mediante entrevistas las necesidades del centro y de los propios docentes.</span></li>
-<li><b>Para qué lo hice</b><span>Para fomentar la autoformación del profesorado y estandarizar los criterios de selección de herramientas digitales de acuerdo a lo que demandaba el centro.</span></li>
+<li><b>Qué hice</b><span>Elaboración de un repositorio digital docente totalmente adaptado en Google Sites.</span></li>
+<li><b>Cómo lo hice</b><span>Entrevistas con la Dirección y los docentes para realizar una curación de herramientas digitales.</span></li>
+<li><b>Para qué lo hice</b><span>Para fomentar la autoformación del profesorado y estandarizar criterios de selección.</span></li>
 </ul>"""),
         dict(title="Así era cada ficha",
              intro='<p class="psub">Dos ejemplos de etapas distintas: una herramienta de Infantil y otra de Secundaria.</p>',
@@ -341,7 +412,7 @@ FIG:/assets/proyectos/repositorio-digital/ficha-2024.jpg?v=2|Ficha de StopMotion
 <div class="s-pend"><span class="st-l pend">Más de 100</span><p>Más de 100 herramientas y recursos para el centro, cada uno con su ficha y su videotutorial.</p></div>
 </div>"""),
         dict(title="Mantenerlo al día",
-             intro='<p class="psub">La tecnología educativa evoluciona muy rápido: dos años después, muchas herramientas habían cerrado o cambiado. Por eso en 2026 la he rehecho como Didakora.</p>',
+             intro='<p class="psub">La tecnología educativa evoluciona muy rápido: dos años después, muchas herramientas habían cerrado o cambiado. Por eso en 2026 la he rehecho como Didákora.</p>',
              cols=1, figs=[],
              after="""<div class="upd">
 <div class="upd-h" aria-hidden="true"><span>Antes</span><span></span><span>Ahora</span></div>
@@ -351,11 +422,11 @@ FIG:/assets/proyectos/repositorio-digital/ficha-2024.jpg?v=2|Ficha de StopMotion
 <div class="upd-r"><div class="upd-a"><b>Difícil de encontrar</b><span class="upd-path"><span>Etapa</span><i>›</i><span>Materia</span><i>›</i><span>Herramienta</span></span></div><span class="upd-ar" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span><div class="upd-b"><span class="vh">Ahora: </span><b>Se busca por nombre o por lo que necesitas</b></div></div>
 </div>
 <div class="caja-demo">
-<h3>Así es Didakora</h3>
+<h3>Así es Didákora</h3>
 <div class="dk-t"><p>Se busca por el nombre de la herramienta o por lo que quieres hacer y se filtra por etapa. También se puede entrar por diez categorías según para qué sirve cada herramienta.</p><p class="cdf-t">Cada ficha te da</p><ul class="cdf"><li><span class="cdf-i" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 11v5M12 8h.01"/></svg></span>Qué es la herramienta</li><li><span class="cdf-i" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 7h10M7 11h10M7 15h6"/><path d="M5 3h14v18l-3.5-2.5L12 21l-3.5-2.5L5 21z"/></svg></span>Para qué la puedes usar</li><li><span class="cdf-i" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M2 9 12 4l10 5-10 5z"/><path d="M6 11v5c3 2 9 2 12 0v-5"/></svg></span>La etapa</li><li><span class="cdf-i" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="8" cy="15" r="4"/><path d="m11 12 9-9M17 6l3 3M14 9l2 2"/></svg></span>Dispositivos y cuenta que necesita</li><li><span class="cdf-i" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 7h11M4 12h16M4 17h9"/></svg></span>Herramientas alternativas</li></ul>
 </div>
 <div class="dk-video">
-<video src="/assets/proyectos/repositorio-digital/didakora.webm" poster="/assets/proyectos/repositorio-digital/didakora-video.jpg" width="1264" height="712" muted loop playsinline preload="metadata" aria-label="Vídeo de Didakora: se busca «repasar», se filtra por Primaria y se abre la ficha de Kahoot!, con qué es, para qué usarla, qué necesita y sus alternativas"></video>
+<video src="/assets/proyectos/repositorio-digital/didakora.webm?v=4" poster="/assets/proyectos/repositorio-digital/didakora-video.jpg?v=4" width="1264" height="712" muted loop playsinline preload="metadata" aria-label="Vídeo de Didákora: se busca «repasar», se filtra por Primaria y se abre la ficha de Kahoot!, con qué es, para qué usarla, qué necesita y sus alternativas"></video>
 <button type="button" class="dk-play" aria-label="Pausar el vídeo"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="i-pause" d="M9 6v12M15 6v12"/><path class="i-play" d="M8 5.5v13l11-6.5z"/></svg></button>
 <script>(()=>{const w=document.currentScript.parentElement,v=w.querySelector("video"),b=w.querySelector(".dk-play");
 const set=on=>{w.classList.toggle("paused",!on);b.setAttribute("aria-label",on?"Pausar el vídeo":"Reproducir el vídeo");};
@@ -374,13 +445,20 @@ P.append(dict(
     title="Audita tu programación", tags=["Guía (PDF)", "Profesorado"], kind="ficha",
     card="Un método con NotebookLM para encontrar criterios de evaluación que no se evalúan en ninguna actividad.",
     viz="v-aud",
-    lede="Una programación didáctica tiene decenas de páginas y nadie la sostiene entera en la cabeza. El fallo típico es un criterio de evaluación que está en la tabla y luego no se evalúa en ninguna actividad. Esta guía usa NotebookLM para localizar esos huecos, con cita y página.",
+    lede="Guía para encontrar con NotebookLM los criterios que no se evalúan.",
     meta=[("Para quién", "Docentes y opositores que revisan su programación"),
           ("Tipo", "Guía paso a paso con ocho prompts"),
           ("Herramientas", "NotebookLM (plan gratuito)"),
           ("Tiempo", "Unos 40 minutos la primera vez")],
-    links=[("Descargar la guía (PDF)", "/assets/pdf/audita-tu-programacion.pdf", "dl")],
+    links=[],  # el PDF se descarga desde «El material»
     sections=[
+        ("La necesidad", """
+<p class="psub">En una programación de decenas de páginas es fácil que un criterio de evaluación aparezca en la tabla y luego no se evalúe en ninguna actividad. Encontrarlo a mano obliga a releerla entera.</p>
+<ul class="needs three">
+<li><b>Qué hice</b><span>Una guía paso a paso con ocho prompts para NotebookLM.</span></li>
+<li><b>Cómo lo hice</b><span>Aprovechando que NotebookLM cita el fragmento exacto del documento.</span></li>
+<li><b>Para qué lo hice</b><span>Para localizar esos huecos con cita y página, sin releer la programación entera.</span></li>
+</ul>"""),
         ("Cómo está pensada", """
 <p>NotebookLM responde citando el fragmento exacto del documento que se le sube y eso permite comprobar cada respuesta. No es un corrector: es un buscador que señala dónde mirar. La decisión sobre si un criterio está evaluado sigue siendo del docente, con el documento delante.</p>
 <ul class="pl">
@@ -388,7 +466,7 @@ P.append(dict(
 <li><b>Ocho prompts en orden:</b> del inventario de criterios a la cobertura, cada uno apoyado en el anterior.</li>
 <li><b>Una hoja de registro</b> para anotar el veredicto, porque la herramienta no lo guarda.</li>
 </ul>"""),
-        dict(title="El material", cols=2, intro="<p>La guía tiene cuatro páginas: montaje del cuaderno, los ocho prompts, la hoja de auditoría y qué hacer cuando la herramienta se equivoca.</p>", figs=[("/assets/proyectos/audita-tu-programacion/pagina-2.jpg", "Página 2 del PDF: los ocho prompts numerados (inventario, cobertura, los huecos, nombrar no es evaluar, sobrecarga, instrumentos, contraste con el decreto y la defensa)", "Página 2: los ocho prompts, para copiar tal cual."), ("/assets/proyectos/audita-tu-programacion/pagina-3.jpg", "Página 3 del PDF: hoja de auditoría con columnas para criterio, qué dice la herramienta, fragmento citado y comprobación", "Página 3: la hoja de auditoría donde se anota el veredicto.")]),
+        dict(title="El material", cols=1, intro="<p>La guía tiene cuatro páginas, lista para imprimir:</p><ul class='pl'><li><b>Para qué sirve y montaje (pág. 1):</b> qué busca la guía, cómo quitar los datos personales antes de subir nada, qué necesitas y cómo montar el cuaderno en cinco pasos.</li><li><b>Los ocho prompts (pág. 2):</b> para copiar tal cual y en orden, cada uno con una nota de para qué sirve.</li><li><b>Hoja de auditoría (pág. 3):</b> para anotar lo que dice la herramienta, el fragmento que cita y tu propia comprobación, con los cuatro veredictos posibles.</li><li><b>Qué no hace bien (pág. 4):</b> los límites de NotebookLM, cuándo no conviene usarla y las fuentes consultadas.</li></ul>", figs=[], pdf=("/assets/pdf/audita-tu-programacion.pdf", "/assets/proyectos/audita-tu-programacion/pdf-")),
     ],
     value=["Usar la IA para una tarea docente real y comprobable.",
            "Escribir instrucciones que otro docente puede seguir sin ayuda."],
@@ -400,15 +478,27 @@ P.append(dict(
     title="El bombo", tags=["Aplicación web", "Opositores"], kind="ficha",
     card="Calcula la probabilidad de que salga alguno de tus temas en el sorteo de las oposiciones.",
     viz="v-bombo",
-    lede="Una calculadora para opositores: calcula la probabilidad de que en el sorteo salga al menos uno de los temas que llevas preparados. Sirve para cualquier especialidad.",
+    lede="Calculadora para saber qué probabilidad tienes de que salga uno de tus temas.",
     meta=[("Para quién", "Opositores de cualquier especialidad"),
           ("Tipo", "Aplicación web"),
           ("Herramientas", "Claude (artefacto web)"),
           ("Privacidad", "Los datos no salen del navegador")],
-    links=[("Abrir El bombo", "/apps/el-bombo/", "int")],
+    links=[],  # se usa en «La herramienta»
     sections=[
-        ("Para qué sirve", """
-<p>Decidir cuántos temas preparar es una de las dudas más habituales al opositar. Ver la probabilidad real ayuda a planificar el estudio con datos en lugar de intuiciones.</p>"""),
+        ("La necesidad", """
+<p class="psub">Decidir cuántos temas preparar es una de las dudas más habituales al opositar.</p>
+<ul class="needs three">
+<li><b>Qué hice</b><span>Una calculadora para opositores de cualquier especialidad.</span></li>
+<li><b>Cómo lo hice</b><span>Con Claude, como aplicación web que no pide datos.</span></li>
+<li><b>Para qué lo hice</b><span>Para planificar el estudio con datos en lugar de intuiciones.</span></li>
+</ul>"""),
+        dict(title="La herramienta", cols=1, intro="""<p>Una calculadora para opositores de cualquier especialidad:</p>
+<ul class='pl'>
+<li><b>El bombo:</b> cada bola es un tema. Se pulsa para sumarle una vuelta de repaso.</li>
+<li><b>La cobertura:</b> la probabilidad de que salga al menos uno de tus temas preparados. También la de que salgan dos o más.</li>
+<li><b>La curva:</b> cuánto sube la probabilidad con cada tema que preparas.</li>
+<li><b>Tu convocatoria:</b> se cambian los temas del temario, las bolas que salen y tus títulos. Todo se guarda en tu navegador.</li>
+</ul>""", figs=[], go_texto=True, embed=("iframe", "/apps/el-bombo/", "El bombo, calculadora para opositores", "Abrir El bombo", "/apps/el-bombo/")),
     ],
     value=["Resolver una necesidad concreta con una herramienta sencilla y sin pedir datos."],
     related=["audita-tu-programacion", "rubrica-materiales-digitales", "repositorio-digital"],
@@ -419,12 +509,26 @@ P.append(dict(
     title="Rúbrica de materiales digitales", tags=["Formulario", "Profesorado"], kind="ficha",
     card="Una rúbrica en formulario para valorar un recurso digital antes de llevarlo al aula.",
     viz="v-rub",
-    lede="Un formulario de 17 preguntas para valorar un material educativo digital antes de llevarlo al aula, basado en la norma UNE 71362:2020 de calidad de los materiales educativos digitales.",
+    lede="Formulario para valorar un material digital antes de llevarlo al aula.",
     meta=[("Para quién", "Docentes que eligen recursos digitales"),
           ("Tipo", "Rúbrica en formulario"),
           ("Herramientas", "Jotform")],
-    links=[("Abrir la rúbrica", "https://form.jotform.com/241185578598070", "ext")],
-    sections=[dict(title="Así se ve", cols=1, figs=[("/assets/proyectos/rubrica-materiales-digitales/formulario.jpg", "Pantalla de inicio del formulario en Jotform: Instrumento de evaluación digital, basado en la normativa 71362:2020, 17 preguntas", "La pantalla de inicio del formulario.")])],
+    links=[],  # se rellena en «La rúbrica»
+    sections=[
+        ("La necesidad", """
+<p class="psub">Antes de llevar un recurso digital al aula hay que valorarlo. Sin criterios comunes, cada docente lo hace a su manera.</p>
+<ul class="needs three">
+<li><b>Qué hice</b><span>Un formulario de 17 preguntas para valorar un material educativo digital.</span></li>
+<li><b>Cómo lo hice</b><span>Con Jotform, a partir de la norma UNE 71362:2020.</span></li>
+<li><b>Para qué lo hice</b><span>Para que elegir un recurso sea una decisión con criterios compartidos.</span></li>
+</ul>"""),
+        dict(title="La rúbrica", cols=1, intro="""<p>Un instrumento de evaluación digital de 17 preguntas para decidir si un material educativo digital está listo para el aula:</p>
+<ul class='pl'>
+<li><b>Basado en una norma:</b> la UNE 71362:2020 de calidad de los materiales educativos digitales.</li>
+<li><b>Se responde en línea,</b> desde el propio formulario, pregunta a pregunta.</li>
+<li><b>Criterios compartidos:</b> cualquier docente valora el recurso con las mismas preguntas.</li>
+</ul>""", figs=[], go_texto=True, embed=("iframe", "https://form.jotform.com/241185578598070", "Rúbrica de materiales digitales en Jotform", "Abrir el formulario en otra pestaña", "https://form.jotform.com/241185578598070")),
+    ],
     value=["Convertir la selección de recursos en una decisión con criterios compartidos."],
     related=["repositorio-digital", "audita-tu-programacion", "e-portfolio-master"],
 ))
@@ -449,7 +553,6 @@ P.append(dict(
 <li><b>Evaluación digital</b><span>Instrumentos de evaluación según la norma UNE 71362:2020, con Jotform, CoRubrics y SELFIE.</span><em>Módulo 5</em></li>
 <li><b>Reflexión sobre la práctica</b><span>Cada trabajo termina con qué aprendió y cómo lo llevaría a clase.</span><em>Todos los módulos</em></li>
 </ul>"""),
-        dict(title="Así se ve", cols=1, figs=[("/assets/proyectos/e-portfolio-master/inicio.jpg", "Portada del e-Portfolio en Google Sites con el menú de los cinco módulos, galería de imágenes y sobre mí", "La portada, con un apartado por módulo.")]),
     ],
     value=["Documentar el propio aprendizaje y las evidencias de cada módulo."],
     related=["asistente-gpt-2eso", "repositorio-digital", "rubrica-materiales-digitales"],

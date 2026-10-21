@@ -13,13 +13,14 @@ Cada push a `main` se publica solo en 1-2 minutos. El Consejo de Clío vive en o
   **Experiencia, Formación (con «Con qué trabajo») y Contacto**. Para cambiar esas secciones, editar este archivo.
 - `assets/site.css`, `assets/site.js` → estilos y scripts comunes. Si cambian, subir `CSSV` en `build.py`
   (rompe la caché del navegador).
-- `herramientas/` → la antigua «Caja de herramientas digitales», que en octubre de 2026 pasó a ser **Didakora**, una web propia
+- `herramientas/` → la antigua «Caja de herramientas digitales», que en octubre de 2026 pasó a ser **Didákora**, una web propia
   (repo `pasadoproximo/didakora` → https://pasadoproximo.github.io/didakora/, con su propio CLAUDE.md). Aquí solo quedan:
-  `herramientas/index.html`, que redirige a Didakora (con `#id` lleva a la ficha y con `?q=` a la búsqueda), y
+  `herramientas/index.html`, que redirige a Didákora (con `#id` lleva a la ficha y con `?q=` a la búsqueda), y
   `herramientas/logos/`, que usa la página del Repositorio digital (y `tools.js`, ya sin uso, como copia de los datos de 2026). No editar la caja aquí.
-- El menú enlaza a «Didakora» (`/didakora/`). La página del Repositorio digital explica el paso de 2024 a Didakora con un vídeo real
-  de la web (`assets/proyectos/repositorio-digital/didakora.webm` + póster `didakora-video.jpg`, 31 s, sin sonido, en bucle,
-  con botón de pausa; no arranca si el sistema pide reducir el movimiento). Si Didakora cambia mucho, regrabarlo.
+- El menú enlaza a «Didákora» (`/didakora/`). La página del Repositorio digital explica el paso de 2024 a Didákora con un vídeo real
+  de la web (`assets/proyectos/repositorio-digital/didakora.webm` + póster `didakora-video.jpg`, 34 s, sin sonido, en bucle,
+  con botón de pausa; no arranca si el sistema pide reducir el movimiento). Si Didákora cambia mucho, regrabarlo con
+  `_build/grabar_video.js` (Playwright + Chrome, con Didákora servida en el 8020; las instrucciones están al principio del script) y subir el `?v=` en `data.py`.
 - `apps/` → el Mapa de relieves y El bombo, recuperados de claude.ai y alojados aquí (no dependen de Claude).
 - `anterior/` → copia de la portada antigua (sin indexar). No tocar.
 - `_build/cv.html` → fuente del CV. Para regenerar el PDF: Chrome headless con `--print-to-pdf` (comando al inicio del archivo).
@@ -65,16 +66,16 @@ Cada push a `main` se publica solo en 1-2 minutos. El Consejo de Clío vive en o
   y la revisión, `assets/proyectos/consejo-de-clio/sesion.webm`) → aviso «Contrasta siempre la información». Poca chapa:
   que se entienda a simple vista.
 - «Lo que puedo afirmar» (`.status`): tarjetas blancas con sombra suave y el título en azul (`--navy3`).
-- Todas las páginas (portfolio y Consejo) comparten la misma barra: solo logo + menú. Didakora tiene su propia barra.
-- Índice `/proyectos/`: tres botones en píldora (pestañas, `.ct`) para las tres categorías; el elegido queda en azul marino
-  y debajo salen su descripción y sus proyectos. Orden: Profesorado y formación (elegida al entrar), Herramientas y asistentes,
+- Todas las páginas (portfolio y Consejo) comparten la misma barra: solo logo + menú. Didákora tiene su propia barra.
+- Índice `/proyectos/`: botones en píldora (pestañas, `.ct`): «Todos» y las tres categorías; el elegido queda en azul marino
+  y debajo salen su descripción y sus proyectos. Orden: Todos (elegida al entrar), Profesorado y formación, Herramientas y asistentes,
   Actividades de aula. Flechas izquierda/derecha para moverse; `/proyectos/#aula` elige esa. Sin JavaScript se ven todas.
-- Tarjetas de proyecto (`card()`), en la portada y en todas partes: solo etiqueta gris y título, centrados, sin texto ni flecha
-  ni foco que sigue al ratón. La etiqueta reserva dos líneas si no cabe en una, para que los títulos cuadren.
+- Tarjetas de proyecto (`card()`), en la portada y en todas partes: solo el visual y el título, centrado, sin etiqueta gris,
+  sin texto ni flecha ni foco que sigue al ratón.
 - Pie común (`foot()`): bloque azul marino «¿Hablamos?» con los contactos como iconos y el templo del logo que se construye
   por piezas (animación); debajo, nombre y lugar. En la portada sustituye a la antigua sección «Contacto» (`#contacto`).
 - Repositorio digital, «Mantenerlo al día»: filas antes → ahora (`.upd`, sin cajas): en «Antes» los iconos originales (archivados en Wayback Machine, en `assets/proyectos/repositorio-digital/antes/`; EarTeach y Hablaconlahistoria no tenían, llevan un icono propio: oreja y Colón) en gris y tachados; en «Ahora» los logos reales, en dos columnas compactas;
-  debajo «Así es Didakora» (texto + vídeo real de Didakora). Ya no hay bloques 2024/2026 ni la animación de la caja antigua.
+  debajo «Así es Didákora» (texto + vídeo real de Didákora). Ya no hay bloques 2024/2026 ni la animación de la caja antigua.
 - Títulos de sección: la descripción va siempre debajo del título, nunca a la derecha (`.sec-head` en columna).
 - El resto son fichas breves (`kind="ficha"`): descripción, material real, nivel y enlace.
 - Destacados en portada, en este orden: repositorio, asistente, Consejo de Clío, Cazadores de bulos.

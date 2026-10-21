@@ -22,7 +22,7 @@ const m=document.querySelectorAll('.council span');
 if(m.length&&!reduce){let i=0;setInterval(()=>{m.forEach(e=>e.classList.remove('talk'));m[i%m.length].classList.add('talk');i++},1400)}
 // cintas de «Con qué trabajo»: se duplica la lista solo para el bucle visual, oculta a lectores de pantalla
 if(!reduce)document.querySelectorAll('.marq .track').forEach(t=>{[...t.children].forEach(li=>{const c=li.cloneNode(true);c.setAttribute('aria-hidden','true');t.appendChild(c)});t.closest('.marq').classList.add('loop')});
-// categorías del índice de proyectos: tres pestañas; la elegida queda marcada y se ven sus proyectos (flechas para moverse)
+// categorías del índice de proyectos: «Todos» y tres pestañas; la elegida queda marcada y se ven sus proyectos (flechas para moverse)
 const ct=[...document.querySelectorAll('.ct')];
 if(ct.length){
  const sel=(b,focus)=>{ct.forEach(x=>{const on=x===b;x.setAttribute('aria-selected',on);x.tabIndex=on?0:-1;const p=document.getElementById(x.getAttribute('aria-controls'));p.hidden=!on;if(on)p.querySelectorAll('.rv').forEach(r=>r.classList.add('in'));});if(focus)b.focus();};
@@ -47,6 +47,25 @@ document.querySelectorAll('.cq-board').forEach(bd=>{
  play.addEventListener('click',()=>{run=!run;lab();if(run)set((i+1)%ms.length);go();});
  lab();
  new IntersectionObserver(es=>es.forEach(e=>{vis=e.isIntersecting;go();}),{threshold:.35}).observe(bd);
- addEventListener('resize',()=>set(i));set(0);
+ // el bocadillo guarda siempre el alto del texto más largo: así lo de debajo no se mueve al cambiar de pensador
+ const fit=()=>{say.style.minHeight='';const p=say.querySelector('p'),nb=say.querySelector('b'),nr=say.querySelector('.cq-r'),keep=[p.textContent,nb.textContent,nr.textContent];let h=0;
+  ms.forEach(m=>{p.textContent=m.dataset.t;nb.textContent=m.dataset.n;nr.textContent=m.dataset.r;h=Math.max(h,say.offsetHeight);});
+  [p.textContent,nb.textContent,nr.textContent]=keep;say.style.minHeight=h+'px';};
+ fit();if(document.fonts)document.fonts.ready.then(fit);
+ addEventListener('resize',()=>{fit();set(i);});set(0);
 });
 })();
+
+// logo del menú: al pulsarlo, el templo hace su animación y después va al inicio
+document.addEventListener('click',e=>{const b=e.target.closest('.brand');if(!b||e.metaKey||e.ctrlKey||e.shiftKey||e.button)return;
+ if(matchMedia('(prefers-reduced-motion:reduce)').matches)return;
+ e.preventDefault();b.classList.remove('tap');void b.offsetWidth;b.classList.add('tap');
+ setTimeout(()=>{if(new URL(b.href,location.href).pathname!==location.pathname||location.search||location.hash)location.href=b.href;},520);
+});
+
+// Asistente: cada chat se anima al verse en pantalla y vuelve a empezar cada vez que se vuelve a ver
+if(!matchMedia('(prefers-reduced-motion: reduce)').matches)document.querySelectorAll('.bchat').forEach(c=>{c.classList.add('anim');
+ new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){c.classList.remove('go');void c.offsetWidth;c.classList.add('go');}}),{threshold:.45}).observe(c);});
+// La IA también miente: «Ver la solución» funde la imagen en la solución y despliega la leyenda (y vuelve)
+document.querySelectorAll('.flip').forEach(f=>{const b=f.querySelector('.flip-b'),l=f.querySelector('.flip-ley');
+ b.addEventListener('click',()=>{const on=f.classList.toggle('on');b.setAttribute('aria-pressed',on);b.textContent=on?'Volver a la imagen':'Ver la solución';l.setAttribute('aria-hidden',!on);});});

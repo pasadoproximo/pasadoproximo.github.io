@@ -721,7 +721,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var
 .marq li{display:flex}.marq li>span{display:inline-block}.marq{padding-block:4px}
 
 /* ---- fichas con evidencias ---- */
-.cta-note{font-size:14.5px;color:var(--pale);margin-top:12px}
+.cta-note{font-size:12.5px;color:var(--pale);margin-top:10px}
 .psec.cont{margin-top:22px}
 .gal figure a{display:block;border-radius:14px}
 .gal figure a:hover img{box-shadow:0 10px 30px rgba(6,16,51,.14)}
@@ -797,6 +797,7 @@ mark.err{background:#FCE3E3;color:inherit;border-bottom:2px solid #C73636;paddin
 .caso .psec h2{margin-bottom:12px}
 .caso .psec p{max-width:68ch}
 .caso .psub{color:var(--mut)!important;font-size:18px;margin-bottom:32px}
+.psub+.needs{margin-top:28px}
 .caso .psec.wide{width:auto}
 /* el problema: rejilla de necesidades separadas por líneas */
 .needs{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:28px 32px}
@@ -892,7 +893,7 @@ mark.err{background:#FCE3E3;color:inherit;border-bottom:2px solid #C73636;paddin
 .caso .status.four{grid-template-columns:repeat(4,minmax(0,1fr))}
 @media (max-width:1020px){.caso .status.four{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:560px){.caso .status.four{grid-template-columns:1fr}}
-/* «Así es Didakora»: texto y vídeo real de la web, con botón de pausa */
+/* «Así es Didákora»: texto y vídeo real de la web, con botón de pausa */
 .dk-video{position:relative;border-radius:16px;overflow:hidden;border:1px solid #D3DAEA;box-shadow:0 18px 40px -28px rgba(6,16,51,.45);background:#F2F4F9}
 .dk-video video{display:block;width:100%;height:auto}
 .dk-play{position:absolute;right:12px;bottom:12px;width:40px;height:40px;border-radius:50%;border:0;background:rgba(6,16,51,.75);color:#fff;display:grid;place-items:center;cursor:pointer}
@@ -904,7 +905,7 @@ mark.err{background:#FCE3E3;color:inherit;border-bottom:2px solid #C73636;paddin
 .caja-demo h3{font:800 24px/1.1 var(--f-disp);letter-spacing:-.02em;color:var(--navy)}
 .psec .caja-demo>div>p{margin-top:12px}
 .caja-demo .ver-y{background:var(--navy);color:#fff}
-/* «Así es Didakora»: título arriba; debajo, el texto y el vídeo empiezan a la misma altura y acaban igual */
+/* «Así es Didákora»: título arriba; debajo, el texto y el vídeo empiezan a la misma altura y acaban igual */
 .caja-demo:has(.dk-video){grid-template-columns:minmax(0,1fr) minmax(0,1.55fr);grid-template-areas:"h ." "t v";row-gap:14px;align-items:stretch}
 .caja-demo:has(.dk-video)>h3{grid-area:h}
 .caja-demo .dk-t{grid-area:t;display:flex;flex-direction:column;align-self:stretch}
@@ -1041,7 +1042,7 @@ mark.err{background:#FCE3E3;color:inherit;border-bottom:2px solid #C73636;paddin
 .epo-sk em{font:700 12.5px var(--f-body);letter-spacing:.08em;text-transform:uppercase;font-style:normal;color:var(--navy3);background:var(--ice);border-radius:999px;padding:4px 11px;white-space:nowrap;justify-self:end}
 @media (max-width:760px){.epo-sk li{grid-template-columns:minmax(0,1fr)}.epo-sk em{justify-self:start}}
 
-/* pie común (como el de Didakora): bloque azul marino con «¿Hablamos?» y los contactos como iconos;
+/* pie común (como el de Didákora): bloque azul marino con «¿Hablamos?» y los contactos como iconos;
    debajo, sobre el fondo, el nombre y el lugar */
 .fin{position:relative;isolation:isolate;overflow:hidden;margin-top:96px;background:var(--navy);color:#fff;border-radius:28px;padding:44px 40px 40px;text-align:center}
 .fin::before{content:"";position:absolute;z-index:-1;border-radius:50%;pointer-events:none}
@@ -1186,4 +1187,159 @@ svg.cq-wi{width:34px;height:34px;flex:none;fill:none;stroke:var(--sky);stroke-wi
 @media (max-width:900px){.cq-how{grid-template-columns:minmax(0,1fr)}.cq-vid{max-width:none}.cq-vid video{width:100%;max-width:440px;height:auto}}
 .cq-wh{justify-content:center;text-align:center}  /* aviso: icono y título centrados */
 .psec .cq-warn p{text-align-last:center}  /* justificado, con la última línea centrada bajo el título */
-.cq-warn{max-width:860px;margin:48px auto 0}  /* aviso más estrecho, centrado y con aire bajo el título */
+.cq-warn{max-width:680px;margin:48px auto 0}  /* aviso más estrecho, centrado y con aire bajo el título */
+.psec:has(.cq-warn)>h2{text-align:center}  /* «Antes de llevarlo a clase», centrado sobre el aviso */
+/* al pulsar el logo: el templo se encoge y rebota, las columnas se aplastan una tras otra y el frontón da un saltito */
+.logo svg *{transform-box:fill-box}
+.logo svg>path{transform-origin:50% 100%}
+.logo svg>rect{transform-origin:50% 100%}
+.brand.tap .logo{animation:lg-press .6s cubic-bezier(.3,.7,.4,1)}
+.brand.tap .logo svg>path{animation:lg-roof .6s cubic-bezier(.3,.7,.4,1)}
+.brand.tap .logo svg>rect:nth-of-type(n+2):nth-of-type(-n+5){animation:lg-col .5s ease-in-out both}
+.brand.tap .logo svg>rect:nth-of-type(3){animation-delay:.04s}
+.brand.tap .logo svg>rect:nth-of-type(4){animation-delay:.08s}
+.brand.tap .logo svg>rect:nth-of-type(5){animation-delay:.12s}
+@keyframes lg-press{0%,100%{transform:none}25%{transform:scale(.88)}60%{transform:scale(1.06)}}
+@keyframes lg-roof{0%,100%{transform:none}45%{transform:translateY(-38%) rotate(-5deg)}75%{transform:translateY(6%)}}
+@keyframes lg-col{0%,100%{transform:none}35%{transform:scaleY(.62)}68%{transform:scaleY(1.06)}}
+/* Asistente, «Qué hace en la práctica»: cuadrícula 2 × 2 de chats animados con el texto real de cada captura.
+   Al verse en pantalla: llega la pregunta, el asistente «escribe» y la respuesta aparece por partes. Sin animación si se pide reducir el movimiento */
+.beh{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:1fr;gap:44px 32px}
+.beh-i{display:flex;flex-direction:column}
+.beh-i h3{font:800 22px/1.15 var(--f-disp);color:var(--navy);letter-spacing:-.01em;margin:0 0 14px}
+.bchat{flex:1;display:flex;flex-direction:column;gap:12px;background:#fff;border:1px solid #E3E8F2;border-radius:18px;box-shadow:0 6px 20px rgba(6,16,51,.06);padding:14px 18px 20px;font-size:15.5px;line-height:1.45;color:#2A3352}
+.bc-top{display:flex;align-items:center;gap:9px;font:700 13.5px var(--f-body);color:var(--mut);padding-bottom:12px;border-bottom:1px solid #EEF1F7}
+.bc-av{width:26px;height:26px;border-radius:50%;background:var(--navy);display:grid;place-items:center;flex:none}
+.bc-av svg{width:14px;height:14px;fill:#fff}
+.bc-u{align-self:flex-end;background:var(--navy);color:#fff;border-radius:16px 16px 4px 16px;padding:10px 14px;max-width:86%;margin:4px 0 0}
+.bc-a{position:relative;align-self:flex-start;background:var(--bg);border-radius:16px 16px 16px 4px;padding:12px 16px;max-width:96%}
+.bc-a p,.bc-a ol{margin:0}.bc-a>*+*{margin-top:9px}
+.bc-a ol{padding-left:20px;display:grid;gap:6px}
+.bc-a b{color:var(--navy)}
+.bc-a mark{background:linear-gradient(transparent 8%,#DCE3FF 8%,#DCE3FF 92%,transparent 92%);color:var(--navy);padding:0 2px;border-radius:3px}
+.bc-dots{display:none}
+.bchat.anim .s{opacity:0}
+.bchat.anim.go .s{animation:bc-in .45s cubic-bezier(.2,.7,.3,1) var(--d) forwards}
+.bchat.anim.go .bc-a mark{background-size:0 100%;background-repeat:no-repeat;animation:bc-mark .7s ease calc(var(--d) + .5s) forwards}
+.bchat.anim.go .bc-dots{display:flex;gap:4px;position:absolute;left:16px;top:16px;opacity:0;animation:bc-dots 1.3s var(--d) forwards}
+.bc-dots i{width:6px;height:6px;border-radius:50%;background:var(--mut);animation:dot 1s infinite}
+.bc-dots i:nth-child(2){animation-delay:.15s}.bc-dots i:nth-child(3){animation-delay:.3s}
+@keyframes bc-in{from{opacity:0}to{opacity:1}}
+@keyframes bc-dots{0%,85%{opacity:1}100%{opacity:0}}
+@keyframes bc-mark{to{background-size:100% 100%}}
+@media (max-width:760px){.beh{grid-template-columns:1fr;gap:36px}.beh-i h3{font-size:20px}.bchat{font-size:15px}}
+/* «La necesidad» en las fichas breves: igual que en los casos de estudio */
+.nec .psub{color:var(--mut)!important;font-size:18px;margin-bottom:32px;max-width:72ch!important}
+.nec h2{margin-bottom:12px}
+.psec .bchat p,.psec .bchat li{font-size:15.5px;line-height:1.5;max-width:none;margin:0;color:#2A3352}
+.psec .bchat .bc-u{color:#fff;margin-top:4px}
+.psec .bchat .bc-a>*+*{margin-top:10px}
+@media (max-width:760px){.psec .bchat p,.psec .bchat li{font-size:15px}}
+/* el tamaño del chat es fijo desde el principio: todo ocupa su sitio y solo cambia la opacidad */
+/* portada: tarjeta de Didákora con su logo; cada pocos segundos la caja da un saltito y las solapas se balancean hacia dentro, como en el menú de Didákora */
+.v-dk{position:relative;isolation:isolate;overflow:hidden;background:#9FB3FF;display:grid;place-items:center}
+.v-dk::before,.v-dk::after{content:"";position:absolute;z-index:-1;border-radius:50%;pointer-events:none}
+.v-dk::before{width:124px;height:124px;right:-58px;top:-74px;background:#FF8A6B}
+.v-dk::after{width:84px;height:84px;left:-40px;bottom:-54px;border:12px solid rgba(255,255,255,.55)}
+.v-dk svg{width:min(52%,210px);height:auto;display:block;overflow:visible}
+.v-dk .caja,.v-dk .caja>path:nth-child(-n+2){transform-box:fill-box}
+.v-dk .caja{transform-origin:50% 100%}
+.v-dk .caja>path:nth-child(1){transform-origin:0 100%}
+.v-dk .caja>path:nth-child(2){transform-origin:100% 100%}
+@media (prefers-reduced-motion:no-preference){
+ .v-dk .caja{animation:vdk-salto 4s cubic-bezier(.3,.7,.4,1) 1s infinite}
+ .v-dk .caja>path:nth-child(1){animation:vdk-sol-i 4s ease-in-out 1s infinite}
+ .v-dk .caja>path:nth-child(2){animation:vdk-sol-d 4s ease-in-out 1s infinite}
+}
+@keyframes vdk-salto{0%,14%,100%{transform:none}3%{transform:scale(1.08,.88)}7.5%{transform:translateY(-24%) scale(.95,1.06)}11%{transform:scale(1.04,.96)}}
+@keyframes vdk-sol-i{0%,14%,100%{transform:none}7%{transform:rotate(16deg)}}
+@keyframes vdk-sol-d{0%,14%,100%{transform:none}7%{transform:rotate(-16deg)}}
+.ph-vis .v-dk{background:#9FB3FF}
+.ph-vis .v-dk svg{width:min(64%,250px)}
+.ph-vis .v-dk::before{width:190px;height:190px;right:-72px;top:-96px}
+.ph-vis .v-dk::after{width:130px;height:130px;left:-40px;bottom:-70px;border-width:18px}
+/* los círculos de la tarjeta de Didákora se mueven como en el hero de Didákora, pero menos y más despacio para no tapar el logo */
+@media (prefers-reduced-motion:no-preference){.v-dk::before{animation:vdk-float 24s ease-in-out infinite}.v-dk::after{animation:vdk-drift 30s ease-in-out infinite}}
+@keyframes vdk-float{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(-10px,8px) scale(1.03)}}
+@keyframes vdk-drift{0%,100%{transform:translate(0,0)}33%{transform:translate(10px,-7px)}66%{transform:translate(-6px,-12px)}}
+/* «Cómo funciona»: los pasos empiezan a la altura del vídeo (no centrados) y más juntos */
+.cq-how{align-items:start}
+.cq-pasos{gap:28px;padding-top:6px}
+.cq-pasos li:not(:last-child)::after{bottom:-28px}
+/* Cazadores de bulos: el texto de muestra a todo el ancho; la explicación de arriba conserva un ancho cómodo */
+.txt>p{max-width:72ch}
+.txt .errs{grid-template-columns:repeat(2,minmax(0,1fr))}
+/* más aire entre el título de «Cómo se hace» y el primer paso */
+.psec h2+.steps{margin-top:28px}
+/* «El material» con PDF: texto a la izquierda y, hasta el borde derecho, una ventana del alto exacto del texto (contain:size + stretch)
+   con las páginas del PDF; se baja por dentro para leerlas y el botón de descarga queda fijo abajo */
+.mat{display:flex;gap:32px;align-items:stretch}
+.mat-t{flex:0 1 62ch;min-width:0}
+.mat-t>:first-child{margin-top:0!important}.mat-t>:last-child{margin-bottom:0!important}
+.mat-pdf{position:relative;flex:1 1 0;min-width:300px;contain:size;border-radius:14px;overflow:hidden;border:1px solid #E3E8F2;background:#E9EDF5;box-shadow:0 8px 24px rgba(6,16,51,.10)}
+.mat-sc{height:100%;overflow-y:auto;padding:12px 12px 64px;display:grid;gap:12px;overscroll-behavior:contain}
+.mat-sc img{display:block;width:100%;height:auto;background:#fff;border-radius:4px;box-shadow:0 2px 8px rgba(6,16,51,.10)}
+.mat-sc:focus-visible{outline:2px solid var(--navy);outline-offset:-2px}
+.mat-dl{position:absolute;left:50%;bottom:12px;transform:translateX(-50%);display:inline-flex;align-items:center;gap:7px;background:var(--navy);color:#fff;font:700 14px var(--f-body);border-radius:999px;padding:9px 18px;text-decoration:none;box-shadow:0 6px 18px rgba(6,16,51,.25);white-space:nowrap}
+.mat-dl:hover,.mat-dl:focus-visible{background:var(--navy3)}
+.mat-dl svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none}
+@media (max-width:760px){.mat{flex-direction:column;gap:20px}.mat-t{flex:none}.mat-pdf{flex:none;width:100%;min-width:0;height:460px}}
+/* «La actividad» sin PDF: la actividad digital incrustada en el sitio del visor, del alto exacto del texto */
+.mat.emb .mat-pdf{background:#fff}
+.mat.emb .mat-pdf iframe{display:block;width:100%;height:100%;border:0}
+.mat-img{display:flex;align-items:center;justify-content:center;width:100%;height:100%;background:#0B1433}
+.mat-img img{display:block;max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain}
+.mat-go{margin-top:22px!important}
+.mat-t .spoiler{max-width:none;margin-top:18px}
+@media (max-width:760px){.mat.emb .mat-pdf{height:420px;min-height:0}}
+/* el botón para abrir la actividad aparte, en azul marino como el de «Descargar el PDF» */
+.mat-go .btn{background:var(--navy);color:#fff;border-color:var(--navy)}
+.mat-go .btn:hover,.mat-go .btn:focus-visible{background:var(--navy3);border-color:var(--navy3);color:#fff}
+/* con la actividad incrustada, el texto más estrecho para que la actividad tenga más sitio (y más alto, al alargarse el texto) */
+.mat.emb .mat-t{flex:0 0 400px}
+@media (max-width:1100px){.mat.emb .mat-t{flex-basis:340px}}
+@media (max-width:760px){.mat.emb .mat-t{flex:none}}
+/* las actividades que necesitan más alto del que da el texto para verse enteras */
+.mat.emb .mat-pdf:has(iframe[src*="jotform"]){min-height:470px}
+.mat.emb .mat-pdf:has(iframe[src*="delightex"]){min-height:560px}
+/* La IA también miente: imagen sin marco; «Ver la solución» va encima y la funde en la solución, con la leyenda debajo */
+.mat.emb.flip .mat-pdf{contain:none;align-self:flex-start;background:none;border:0;box-shadow:none;border-radius:16px;overflow:visible}
+.flip-im{position:relative;border-radius:16px;overflow:hidden}
+.flip-im img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.flip-im .f-b{opacity:0;transition:opacity .7s ease}
+.flip.on .f-b{opacity:1}
+.flip-b{position:absolute;left:50%;bottom:16px;transform:translateX(-50%);border:0;cursor:pointer;background:var(--navy);color:#fff;font:700 15px var(--f-body);border-radius:999px;padding:11px 20px;box-shadow:0 8px 22px rgba(6,16,51,.35)}
+.flip-b:hover,.flip-b:focus-visible{background:var(--navy3)}
+.flip-ley{display:grid;grid-template-rows:0fr;transition:grid-template-rows .6s ease}
+.flip-ley>*{overflow:hidden}
+.flip.on .flip-ley{grid-template-rows:1fr}
+.flip-ley h3{font:800 20px/1.2 var(--f-disp);color:var(--navy);margin:18px 0 10px}
+.flip-ley ol{list-style:none;margin:0;padding:0;display:grid;gap:6px;counter-reset:f}
+
+.flip-ley li{counter-increment:f;position:relative;padding-left:32px;font-size:16px;line-height:1.45;color:#2A3352}
+.flip-ley li::before{content:counter(f);position:absolute;left:0;top:1px;width:22px;height:22px;border-radius:50%;background:#C73636;color:#fff;font:800 12px var(--f-disp);display:grid;place-items:center}
+.flip-ley li.ok::before{background:#2E7D4F}
+.flip-ley b{color:var(--navy)}
+@media (prefers-reduced-motion:reduce){.flip-im .f-b,.flip-ley{transition:none}}
+/* Alegreya Sans convierte XIII, XVI… en números romanos con raya por su ligadura estándar: se desactiva en toda la web */
+html{font-variant-ligatures:no-common-ligatures}
+/* botón para abrir la actividad aparte: debajo del bloque y centrado */
+.mat-go{text-align:center;margin-top:24px!important}
+.mat.emb .mat-pdf:has(iframe[src*="genially"]){min-height:432px}
+/* centrado bajo la actividad (no bajo toda la sección): se salta el ancho del texto y el hueco */
+.mat-go{padding-left:432px}
+@media (max-width:1100px){.mat-go{padding-left:372px}}
+@media (max-width:760px){.mat-go{padding-left:0}}
+/* Escape room: el botón debajo del texto, a la izquierda */
+.mat-t .mat-go{padding-left:0;text-align:left}
+/* datos bajo el hero: cada dato mide lo que su texto (hasta 265 px, para que cuatro quepan en una línea) y todos van seguidos a la izquierda, sin huecos */
+.pmeta{display:flex;flex-wrap:wrap;column-gap:40px}
+.pmeta div{max-width:265px;padding-right:0}
+/* los datos, repartidos de un lado a otro (tanto con tres como con cuatro) */
+.pmeta{justify-content:space-between}
+/* aplicaciones que se ven mejor en su versión de escritorio: se muestran al 62 % (el Mapa de relieves) */
+.mat.emb .mat-pdf.zoom iframe{width:calc(100% / .62);height:calc(100% / .62);transform:scale(.62);transform-origin:0 0}
+@media (max-width:760px){.mat.emb .mat-pdf.zoom iframe{width:100%;height:100%;transform:none}}
+/* Excursión a Roma: los edificios del mundo 3D, como etiquetas */
+.chips-ed{list-style:none;margin:12px 0 18px!important;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.chips-ed li{font:700 14.5px var(--f-body);color:var(--navy);background:#fff;border:1px solid #D3DAEA;border-radius:999px;padding:6px 13px;margin:0}
