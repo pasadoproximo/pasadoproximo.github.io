@@ -85,8 +85,8 @@ Cada push a `main` se publica solo en 1-2 minutos. El Consejo de Clío vive en o
   ciclo 2026-10-21-3 con el modo `?demo=<ciclo>` del monasterio, que repite un ciclo real con sus datos sin lanzar ni escribir
   nada; la página y el vídeo dicen que es una recreación. Se graba con `_build/grabar_monasterio.js` (instrucciones al principio).
   Música: chiptune medieval original (`_build/musica_monasterio.py` → `musica.wav`, bucle de 32 s), en un `<audio>` aparte
-  porque el ffmpeg disponible no codifica audio. Está **activada al entrar** (Jorge lo pidió): si el navegador la bloquea, suena
-  con el primer clic o tecla; el altavoz (`.dk-son`) la silencia y se reinicia con cada vuelta del vídeo. El vídeo de Didákora
+  porque el ffmpeg disponible no codifica audio. Está **apagada al entrar** (Jorge lo pidió): suena solo al pulsar el
+  altavoz (`.dk-son`), sigue al vídeo y se reinicia con cada vuelta. El vídeo de Didákora
   (Repositorio digital) va sin música: Jorge la descartó. El Repositorio digital enlaza a él con una línea (`.dk-mas`).
 - El resto son fichas breves (`kind="ficha"`): descripción, material real, nivel y enlace.
 - Destacados en portada, en este orden: repositorio, asistente, Consejo de Clío, Cazadores de bulos.

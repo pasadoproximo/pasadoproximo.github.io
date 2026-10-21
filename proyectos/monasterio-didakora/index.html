@@ -74,13 +74,13 @@
 </ol>
 <div class="dk-video mo-vid">
 <video src="/assets/proyectos/monasterio-didakora/monasterio.webm?v=2" poster="/assets/proyectos/monasterio-didakora/monasterio-video.jpg?v=2" width="1264" height="712" muted loop playsinline preload="metadata" aria-label="Vídeo, recreación con los datos reales de un ciclo: suena la campana y los monjes trabajan en sus salas; Fray Gaspar cuenta lo que encontró; en el tablón se aprueban EduGems y Doc to Form Quiz Maker; Fray Bartolomé cambia la web; Fray Custodio enseña su revisión y las capturas del móvil; el Libro del Abad muestra el antes y el después"></video>
-<audio src="/assets/proyectos/monasterio-didakora/musica.wav?v=1" loop preload="auto"></audio>
-<button type="button" class="dk-son" aria-pressed="true" aria-label="Silenciar la música"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="i-alt" d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z"/><path class="i-on" d="M15.5 9a4 4 0 0 1 0 6M18 6.5a7.5 7.5 0 0 1 0 11"/><path class="i-off" d="m16 9.5 5 5M21 9.5l-5 5"/></svg></button>
+<audio src="/assets/proyectos/monasterio-didakora/musica.wav?v=1" loop preload="none"></audio>
+<button type="button" class="dk-son" aria-pressed="false" aria-label="Activar la música"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="i-alt" d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z"/><path class="i-on" d="M15.5 9a4 4 0 0 1 0 6M18 6.5a7.5 7.5 0 0 1 0 11"/><path class="i-off" d="m16 9.5 5 5M21 9.5l-5 5"/></svg></button>
 <button type="button" class="dk-play" aria-label="Pausar el vídeo"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="i-pause" d="M9 6v12M15 6v12"/><path class="i-play" d="M8 5.5v13l11-6.5z"/></svg></button>
 <script>(()=>{const w=document.currentScript.parentElement,v=w.querySelector("video"),b=w.querySelector(".dk-play");
 const set=on=>{w.classList.toggle("paused",!on);b.setAttribute("aria-label",on?"Pausar el vídeo":"Reproducir el vídeo");};
 b.addEventListener("click",()=>{if(v.paused){v.play();set(true);}else{v.pause();set(false);}});
-const a=w.querySelector("audio"),s=w.querySelector(".dk-son");let on=true,ult=0;
+const a=w.querySelector("audio"),s=w.querySelector(".dk-son");let on=false,ult=0;
 const pinta=()=>{s.setAttribute("aria-pressed",on);s.setAttribute("aria-label",on?"Silenciar la música":"Activar la música");};
 const suena=()=>{if(!on||v.paused)return;a.play().catch(()=>{const go=e=>{if(e.target.closest&&e.target.closest(".dk-son"))return;quita();if(on&&!v.paused)a.play().catch(()=>{});};const quita=()=>{document.removeEventListener("pointerdown",go,true);document.removeEventListener("keydown",go,true);};document.addEventListener("pointerdown",go,true);document.addEventListener("keydown",go,true);});};
 s.addEventListener("click",()=>{if(on&&a.paused&&!v.paused){a.play().catch(()=>{});return;}on=!on;pinta();on?suena():a.pause();});
