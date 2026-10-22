@@ -155,7 +155,7 @@ P.append(dict(
     title="Asistente de IA", tags=["TFM", "2.º ESO"], kind="caso",
     card="Un GPT que guía al alumnado sin darle la respuesta y dice siempre de dónde sale cada dato.",
     viz="v-chat",
-    h1="PasadoPróximo",
+    h1="Asistente de IA para 2.º ESO",
     lede="Un asistente de IA para 2.º ESO que guía al estudiante sin resolver.",
     meta=[("Para quién", "Un grupo de 2.º ESO y su docente de Geografía e Historia"),
           ("Tipo", "Trabajo Fin de Máster · propuesta didáctica"),
