@@ -884,6 +884,13 @@ SUB_BRIEF = {  # titulares del brief (2.5), con punto en vez de «;» como pidi�
     "monasterio-didakora": "Cinco agentes de IA proponen cambios en Didákora. Yo apruebo cada uno antes de publicar.",
     "asistente-gpt-2eso": "Un GPT que configuré y probé para guiar sin resolver. Pendiente de pilotar con alumnado.",
 }
+# «Lo que hice yo» de cada proyecto con IA: textos elegidos por Jorge (23-10-2026). Los que faltan salen con [texto de Jorge].
+HICE = {
+    "monasterio-didakora": [("Diseñé", "los cinco monjes (rastrear, coordinar, administrar, auditar y optimizar) y la interfaz."),
+                            ("Decidí", "qué se aprueba, se edita o se rechaza en cada pergamino y cuándo sale a la web."),
+                            ("Probé", "cuatro ciclos reales: diecisiete cambios en Didákora, todos revisados por el Auditor."),
+                            ("Corregí", "el equipo con las propuestas de Fray Ambrosio: apliqué diez de once.")],
+}
 MIGAS_C = {"profesorado": "Formación", "herramientas": "Herramientas", "aula": "Actividades"}
 TIPO_EXTRA = {"el-bombo": "Herramienta", "e-portfolio-master": "Formación"}
 
@@ -908,7 +915,8 @@ def ficha_auto(p):
     facts = "".join(f'<div class="fact"><span>{a}</span><b>{b}</b></div>' for a, b in meta)
     hice = ""
     if slug in CON_IA:
-        frases = "".join(f'<p style="color:#061033"><b>{v}</b> [texto de Jorge]</p>' for v in ("Diseñé", "Decidí", "Probé", "Corregí"))
+        lineas = HICE.get(slug) or [(v, "[texto de Jorge]") for v in ("Diseñé", "Decidí", "Probé", "Corregí")]
+        frases = "".join(f'<p style="color:#061033"><b>{v}</b> {t}</p>' for v, t in lineas)
         hice = f"""
 <section class="wrap" style="padding:48px 40px 0;display:flex;flex-direction:column;gap:18px">
   <div class="rule"><h2 class="serif" style="font-size:36px;font-weight:700">Lo que hice yo</h2></div>
