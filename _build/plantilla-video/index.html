@@ -1,0 +1,133 @@
+<!doctype html>
+<!--
+  Plantilla de vídeo de los proyectos (brief, 1.3): la misma estética que el porfolio.
+  Intro de 2 s → la grabación dentro de una ficha, con rótulos en fichas → cierre de 2 s con «Lo que puedo afirmar».
+  Uso: servir el repo (python -m http.server 8000) y abrir
+    /_build/plantilla-video/?f=169&s=intro      (f = 169 o 916 · s = intro, cuerpo o cierre)
+  Sin «s», recorre las tres pantallas en bucle (vista previa). Para montar un vídeo, un script de Playwright
+  fijará cada pantalla y sustituirá la imagen de muestra por la grabación real (aún sin hacer: Jorge debe aprobar la plantilla).
+-->
+<html lang="es"><head><meta charset="utf-8"><title>Plantilla de vídeo</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@400;500;600;700&family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&display=swap">
+<style>
+html,body{margin:0;background:#c9cfdc}
+body{display:grid;place-items:center;min-height:100vh;overflow:hidden}
+.esc{transform-origin:center}
+.v{position:relative;overflow:hidden;background:#F2F4F9;color:#061033;font-family:"Alegreya Sans",system-ui,sans-serif}
+.v.f169{width:1280px;height:720px}.v.f916{width:1080px;height:1920px}
+.serif{font-family:"Bricolage Grotesque",system-ui,sans-serif;font-weight:800;letter-spacing:-.03em;line-height:.96;margin:0}
+/* barra fina arriba: progreso del vídeo, verde al terminar (como en la web) */
+.barra{position:absolute;left:0;right:0;top:0;height:6px;background:#E1E6F0;z-index:5}
+.barra i{display:block;height:100%;background:#A3322A;width:0;transition:width .6s ease}
+.cierre-on .barra i{background:#5E7D3A}
+.lab{color:#A3322A;font-weight:600;margin:0}
+.ficha{background:#fff;border:1px solid #061033;box-shadow:5px 5px 0 #9FB3FF;box-sizing:border-box}
+.pant{position:absolute;inset:6px 0 0;opacity:0;transition:opacity .35s ease}
+.pant.on{opacity:1}
+.firma{position:absolute;display:flex;justify-content:space-between;align-items:baseline;color:#5A6480;font-weight:600}
+.firma b{font-family:"Bricolage Grotesque";font-weight:800;color:#061033;letter-spacing:-.01em}
+
+/* ---- 16:9 */
+.f169 .intro{padding:120px 110px 0;display:flex;flex-direction:column;gap:26px}
+.f169 .intro .lab{font-size:24px}
+.f169 .intro h1{font-size:104px}
+.f169 .cab{display:none}
+.f169 .cierre .lab{font-size:22px}
+.f916 .cierre .lab{font-size:34px}
+.f169 .intro p:not(.lab){margin:0;font-size:30px;line-height:1.3;max-width:36ch;color:#2A3352}
+.f169 .firma{left:110px;right:110px;bottom:44px;font-size:20px;border-top:1px solid #061033;padding-top:18px}
+.f169 .firma b{font-size:22px}
+.f169 .marco{position:absolute;left:150px;top:44px;width:980px;height:525px;overflow:hidden;box-shadow:8px 8px 0 #9FB3FF}
+.f169 .marco img{width:100%;display:block}
+.f169 .rotulo{position:absolute;left:84px;bottom:46px;max-width:760px;padding:18px 26px;display:flex;flex-direction:column;gap:6px}
+.f169 .rotulo .lab{font-size:17px}
+.f169 .rotulo p{margin:0;font-size:30px;font-weight:500;line-height:1.2}
+.f169 .esquina{position:absolute;right:84px;bottom:58px;font-size:17px;font-weight:600;color:#5A6480}
+.f169 .cierre{padding:84px 110px 0;display:flex;flex-direction:column;gap:22px}
+.f169 .cierre h2{font-size:64px}
+.f169 .fila{display:grid;grid-template-columns:200px 1fr;gap:24px;align-items:baseline;padding:16px 0;border-top:1px solid #E1E6F0;font-size:26px;line-height:1.25}
+.f169 .fila span{font-size:20px;font-weight:600}
+
+/* ---- 9:16 */
+.f916 .intro{padding:300px 90px 0;display:flex;flex-direction:column;gap:40px}
+.f916 .intro .lab{font-size:36px}
+.f916 .intro h1{font-size:150px}
+.f916 .intro p:not(.lab){margin:0;font-size:44px;line-height:1.3;color:#2A3352}
+.f916 .firma{left:90px;right:90px;bottom:110px;font-size:30px;border-top:1px solid #061033;padding-top:26px;flex-direction:column;gap:6px}
+.f916 .firma b{font-size:36px}
+.f916 .cab{position:absolute;left:70px;right:70px;top:90px;display:flex;flex-direction:column;gap:10px}
+.f916 .cab .lab{font-size:30px}
+.f916 .cab h2{font-size:64px}
+.f916 .marco{position:absolute;left:70px;top:290px;width:932px;height:1147px;overflow:hidden;box-shadow:10px 10px 0 #9FB3FF}
+.f916 .marco img{width:100%;display:block}
+.f916 .rotulo{position:absolute;left:70px;right:78px;top:1500px;padding:30px 36px;display:flex;flex-direction:column;gap:10px}
+.f916 .rotulo .lab{font-size:28px}
+.f916 .rotulo p{margin:0;font-size:46px;font-weight:500;line-height:1.2}
+.f916 .esquina{position:absolute;left:70px;bottom:90px;font-size:30px;font-weight:600;color:#5A6480}
+.f916 .cierre{padding:220px 90px 0;display:flex;flex-direction:column;gap:30px}
+.f916 .cierre h2{font-size:104px}
+.f916 .fila{display:flex;flex-direction:column;gap:8px;padding:30px 0;border-top:1px solid #E1E6F0;font-size:42px;line-height:1.25}
+.f916 .fila span{font-size:30px;font-weight:600}
+</style></head><body>
+<div class="esc"><div class="v" id="v">
+  <div class="barra"><i id="bar"></i></div>
+
+  <section class="pant intro" data-s="intro">
+    <p class="lab" data-t="lab"></p>
+    <h1 class="serif" data-t="titulo"></h1>
+    <p data-t="sub"></p>
+    <div class="firma"><b>Jorge Delgado Aguilera</b><span>pasadoproximo.github.io</span></div>
+  </section>
+
+  <section class="pant cuerpo" data-s="cuerpo">
+    <div class="cab"><p class="lab" data-t="lab"></p><h2 class="serif" data-t="titulo"></h2></div>
+    <div class="ficha marco"><img id="muestra" alt=""></div>
+    <div class="ficha rotulo"><p class="lab" data-t="rot_lab"></p><p data-t="rot"></p></div>
+    <span class="esquina">pasadoproximo.github.io</span>
+  </section>
+
+  <section class="pant cierre" data-s="cierre">
+    <p class="lab" data-t="lab"></p>
+    <h2 class="serif">Lo que puedo afirmar</h2>
+    <div id="filas"></div>
+    <div class="firma"><b>Jorge Delgado Aguilera</b><span>pasadoproximo.github.io</span></div>
+  </section>
+</div></div>
+<script>
+// Textos de cada proyecto: los de su página (data.py). El rótulo es uno de los del vídeo actual.
+var P = {
+  "consejo-de-clio": {
+    lab: "Ficha de trabajo · El Consejo de Clío",
+    titulo: "El Consejo de Clío",
+    sub: "Seis agentes de IA preparan una sesión a partir de una noticia; el docente la contrasta antes de llevarla al aula.",
+    rot_lab: "3 · Ibn Jaldún revisa",
+    rot: "Ibn Jaldún lo corrige. En 1991 decidieron las repúblicas",
+    afirmar: [["Comprobado", "#5E7D3A", "Ibn Jaldún ha detectado varios fallos en las numerosas pruebas que he realizado."],
+              ["En uso", "#A3322A", "Recurso abierto a disposición de los docentes."],
+              ["Pendiente", "#5A6480", "Medir si las sesiones ahorran tiempo real y cuántos errores deja pasar el revisor."]]
+  }
+};
+var q = new URLSearchParams(location.search), f = q.get("f") === "916" ? "916" : "169", d = P[q.get("p") || "consejo-de-clio"];
+var v = document.getElementById("v"); v.className = "v f" + f;
+document.querySelectorAll("[data-t]").forEach(function (e) { e.textContent = d[e.getAttribute("data-t")]; });
+document.getElementById("muestra").src = "muestra-" + f + ".jpg";
+document.getElementById("filas").innerHTML = d.afirmar.map(function (a) {
+  return '<div class="fila"><span style="color:' + a[1] + '">' + a[0] + '</span><div>' + a[2] + '</div></div>';
+}).join("");
+var PROG = { intro: 6, cuerpo: 55, cierre: 100 };
+function ir(s) {
+  document.querySelectorAll(".pant").forEach(function (p) { p.classList.toggle("on", p.getAttribute("data-s") === s); });
+  v.classList.toggle("cierre-on", s === "cierre");
+  document.getElementById("bar").style.width = PROG[s] + "%";
+}
+// encajar en la ventana para verla entera
+function encaja() {
+  var w = f === "916" ? 1080 : 1280, h = f === "916" ? 1920 : 720;
+  var k = q.get("s") ? 1 : Math.min(innerWidth / w, innerHeight / h) * .96;
+  document.querySelector(".esc").style.transform = "scale(" + k + ")";
+}
+addEventListener("resize", encaja); encaja();
+if (q.get("s")) { document.querySelectorAll(".pant").forEach(function (p) { p.style.transition = "none"; }); document.getElementById("bar").style.transition = "none"; ir(q.get("s")); }
+else { var orden = ["intro", "cuerpo", "cierre"], t = [2000, 4000, 2000], i = 0; (function sig() { ir(orden[i]); setTimeout(sig, t[i]); i = (i + 1) % 3; })(); }
+</script>
+</body></html>
