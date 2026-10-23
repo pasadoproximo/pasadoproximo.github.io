@@ -928,8 +928,8 @@ VIDEO_FICHA = {
                             "Vídeo, recreación con los datos reales de un ciclo: toco la campana, Fray Gaspar busca novedades y Fray Anselmo prepara propuestas; las apruebo en el tablón; Fray Bartolomé cambia la web y Fray Custodio la revisa; en el Libro del Abad, el antes y el después"),
     "asistente-gpt-2eso": ("/assets/proyectos/asistente-gpt-2eso/ficha.webm?v=1", "/assets/proyectos/asistente-gpt-2eso/ficha-poster.jpg?v=1",
                            "Vídeo de los cuatro comportamientos probados del asistente: guía, no resuelve; cita la unidad; avisa si es IA; corrige el repaso"),
-    "repositorio-digital": ("/assets/proyectos/repositorio-digital/ficha.webm?v=2", "/assets/proyectos/repositorio-digital/ficha-poster.jpg?v=1",
-                            "Vídeo del repositorio de 2024 en Google Sites: la portada, las etapas, la ficha de StopMotion con el videotutorial de Rosa Liarte y las de Sociales"),
+    "repositorio-digital": ("/assets/proyectos/repositorio-digital/ficha.webm?v=3", "/assets/proyectos/repositorio-digital/ficha-poster.jpg?v=1",
+                            "Vídeo del repositorio de 2024 en Google Sites: la portada, las etapas y cuatro fichas con su videotutorial (Cokitos, StopMotion, Edpuzzle y Magic School)"),
     "e-portfolio-master": ("/assets/proyectos/e-portfolio-master/ficha.webm?v=1", "/assets/proyectos/e-portfolio-master/ficha-poster.jpg?v=1",
                            "Vídeo del e-Portfolio del máster: la portada y los cinco módulos"),
 }

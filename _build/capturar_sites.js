@@ -33,4 +33,23 @@ const MARCA = { "repositorio-digital-3": /^stop ?motion$/i };
     await ctx.close();
   }
   fs.writeFileSync(`${OUT}/marcas.json`, JSON.stringify(marcas, null, 1)); console.log("marcas", marcas);
+  // Planos fijos de fichas del repositorio con su videotutorial cargado (YouTube solo se ve en una captura de pantalla
+  // y con la ficha a la vista): sin desplazarse por ellas en el vídeo (Jorge, 23-10-2026)
+  const PLANOS = [[R + "infantil/5-a%C3%B1os", /^cokitos$/i], [R + "primaria/1-ciclo", /^stop ?motion$/i],
+                  [R + "primaria/2-ciclo", /^edpuzzle$/i], [R + "apoyo-docente", /^magic ?school/i]];
+  for (const [f, w, k] of [["169", 1280, 1], ["916", 540, 2]]) {
+    const ctx = await b.newContext({ viewport: { width: w, height: f === "169" ? 714 : 957 }, deviceScaleFactor: k }); const p = await ctx.newPage();
+    for (let i = 0; i < PLANOS.length; i++) {
+      const [u, re] = PLANOS[i];
+      await p.goto(u, { waitUntil: "load", timeout: 60000 }).catch(() => {}); await p.waitForTimeout(2500);
+      const ok = p.getByText("Entendido", { exact: false }); if (await ok.count()) await ok.first().click().catch(() => {});
+      const hay = await p.evaluate(src => { const r = new RegExp(src, "i"); const h = [...document.querySelectorAll("h2")].find(e => r.test(e.textContent.trim()));
+        if (!h) return false; h.scrollIntoView({ block: "start" }); window.scrollBy(0, -64); return true; }, re.source);
+      if (!hay) { console.log("no encuentro", re, "en", u); continue; }
+      await p.waitForTimeout(7000);
+      await p.screenshot({ path: `${OUT}/repositorio-digital/plano${i + 1}-${f}.jpg`, type: "jpeg", quality: 85 });
+      console.log(f, "plano", i + 1, re);
+    }
+    await ctx.close();
+  }
   await b.close(); })();

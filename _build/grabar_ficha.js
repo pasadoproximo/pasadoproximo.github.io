@@ -66,15 +66,15 @@ const GUIONES = {
   },
   // El repositorio de 2024 en Google Sites: capturas reales de sus páginas
   "repositorio-digital": async ({ cap, wait, img, desl, page }) => {
-    // más despacio que antes y con un plano parado de una ficha: StopMotion, con el tutorial de Rosa Liarte (Jorge)
-    const marcas = JSON.parse(fs.readFileSync(path.join(__dirname, "plantilla-video/capturas/marcas.json"), "utf8"));
-    await img(1); await cap("El repositorio de 2024", "Una web de recursos en Google Sites <b>para todo el claustro</b>"); await desl(800, 5200); await wait(600);
-    await img(2); await cap("Por etapas y materias", "Infantil, Primaria y <b>Secundaria y Bachillerato</b>"); await desl(900, 4600); await wait(400);
-    await img(3); await cap("Primaria · 1.º ciclo", "Cada herramienta con su ficha y <b>su videotutorial</b>"); await desl(marcas[`repositorio-digital/3-${FMT}`] - 10, 4200);
-    // plano de la ficha con su vídeo cargado (captura de pantalla), con un fundido corto para el cambio
-    await page.evaluate(() => window.__fundido(true)); await wait(260); await img("3b"); await page.evaluate(() => window.__fundido(false));
-    await cap("StopMotion · tutorial de Rosa Liarte", "El videotutorial, <b>qué es y sus usos en el aula</b>"); await wait(5400);
-    await img(4); await cap("Secundaria y Bachillerato · Sociales", "Qué es, <b>usos en el aula</b> y botón a la herramienta"); await desl(2200, 5200); await wait(600);
+    // la portada y las etapas se desplazan; las fichas van en planos fijos con su videotutorial cargado (Jorge, 23-10-2026)
+    const plano = async (n, lab, txt) => { await page.evaluate(() => window.__fundido(true)); await wait(260); await img("plano" + n);
+      await page.evaluate(() => window.__fundido(false)); await cap(lab, txt); await wait(4300); };
+    await img(1); await cap("El repositorio de 2024", "Una web de recursos en Google Sites <b>para todo el claustro</b>"); await desl(800, 5000); await wait(400);
+    await img(2); await cap("Por etapas y materias", "Infantil, Primaria y <b>Secundaria y Bachillerato</b>"); await desl(900, 4200); await wait(300);
+    await plano(1, "Infantil · 5 años · Cokitos", "Cada herramienta con su ficha: <b>videotutorial, qué es y las áreas que trabaja</b>");
+    await plano(2, "Primaria · 1.º ciclo · StopMotion", "El videotutorial de Rosa Liarte, <b>qué es y sus usos en el aula</b>");
+    await plano(3, "Primaria · 2.º ciclo · Edpuzzle", "Con su videotutorial y <b>el botón a la herramienta</b>");
+    await plano(4, "Apoyo docente · Magic School", "También herramientas <b>para el trabajo del docente</b>");
   },
   // Los cinco módulos del máster (textos de «Qué puedes ver en él»)
   "e-portfolio-master": async ({ cap, wait, img, desl }) => {
