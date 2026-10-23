@@ -1017,7 +1017,7 @@ def ficha_auto(p):
         h = necesidad[1]
         parrafos = "".join(f'<p style="margin:0 0 10px">{t}</p>' for t in re.findall(r'<p class="psub">(.*?)</p>', h, re.S))
         filas = "".join(f'<div class="step"><b>{a}</b><span>{b}</span></div>' for a, b in re.findall(r"<li><b>(.*?)</b><span>(.*?)</span></li>", h, re.S))
-        der = f'<div><h3 class="nec-h">Qué hice, cómo y para qué</h3>{filas}</div>' if filas else ""
+        der = f'<div>{filas}</div>' if filas else ""  # sin subtítulo (Jorge)
         # títulos normales, como el resto de secciones (Jorge, 23-10-2026)
         bloque_nec = (f'\n<section class="wrap" style="padding:56px 40px 0;display:flex;flex-direction:column;gap:18px">'
                       f'<div class="rule"><h2 class="serif" style="font-size:36px;font-weight:700">La necesidad</h2></div>'
