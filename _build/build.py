@@ -590,7 +590,7 @@ def home_c():
     <div class="num" style="display:flex;flex-direction:column;gap:8px"><b style="font-family:'Bricolage Grotesque';font-weight:800;font-size:54px;line-height:1;letter-spacing:-.03em">04</b><span class="k" style="color:#9FB3FF">Lección 4 · 3 min</span></div>
     <div style="display:flex;flex-direction:column;gap:18px">
       <h2 class="serif" style="font-size:44px;color:#fff">Cómo trabajo, en cuatro pasos</h2>
-      <p style="margin:0;font-size:18px;color:#E6EBF8;max-width:60ch">El mismo proceso en todos los proyectos. Aquí, con el repositorio digital del Colegio Cerrado de Calderón (2024), presentado en Braining 2025. {CODE_C["intro"]}</p>
+      <p style="margin:0;font-size:18px;color:#E6EBF8;max-width:60ch">El mismo proceso en todos los proyectos. Aquí, con el repositorio digital que creé para el Colegio Cerrado de Calderón (2024).</p>
       <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:14px">
         <div {paso}><b {paso_n}>1</b><b>Parto de una necesidad de aula</b><p {paso_p}>{CODE_C["1"]}</p></div>
         <div {paso}><b {paso_n}>2</b><b>Diseño el material y sus reglas</b><p {paso_p}>{CODE_C["2"]}</p></div>
@@ -821,13 +821,12 @@ def contacto_pag_c():
           + cab("contacto", leccion=5) + body + pie_c(guino_izq=True))
 
 
-# Lección 4 de la portada: textos redactados a partir de la página del Repositorio digital (data.py) y del CV
-CODE_C = {
-    "intro": "El centro lo presentó en el IX Congreso Internacional de Creatividad Educativa (Valencia, abril de 2025) como herramienta de autoformación del profesorado.",
-    "1": "Digitalizar el centro y que el profesorado de todas las etapas pudiera formarse por su cuenta.",
-    "2": "Entrevisté a Dirección y docentes, elegí las herramientas y les di a todas la misma ficha.",
-    "3": "Dos años después muchas habían cerrado o cambiado. Lo rehíce como Didákora.",
-    "4": "Comprobado: el claustro lo usó y unificó criterios. Pendiente: datos de uso.",
+# Lección 4 de la portada: los cuatro pasos, con las palabras de Jorge
+CODE_C = {  # textos de Jorge (notas del 23-10-2026)
+    "1": "En el proceso de digitalización del centro necesitaban una herramienta para la autoformación del profesorado.",
+    "2": "Tras entrevistar al centro y sus docentes, realicé una curación de herramientas digitales y una web.",
+    "3": "Tras una primera versión lo adapté con lo que los docentes necesitaban de cada herramienta.",
+    "4": 'El centro lo usó para la autoformación del profesorado y lo presentó al <a href="https://colegiocerradodecalderon.es/braining/" rel="noopener" target="_blank" style="color:#fff">IX Congreso Internacional de Creatividad Educativa (Valencia, 2025)</a>.',
 }
 TESTIMONIO_C = "Quiero expresarte mi agradecimiento por el excelente trabajo que has realizado al crear la nueva web de recursos TIC para nuestro colegio. Estoy seguro de que esta herramienta será de gran valor para nuestros estudiantes y docentes."
 
