@@ -144,3 +144,8 @@ button.opt:hover,button.opt:focus-visible{transform:translate(-3px,-3px);box-sha
 @media (prefers-reduced-motion:reduce){button.opt{transition:none}button.opt:hover,button.opt:focus-visible{transform:none}}
 .fija.sobre-oscuro header.cab{border-bottom-color:transparent!important}
 @media (min-width:901px){.paso>b+b{min-height:3em}}  /* títulos de los pasos a dos líneas: los textos empiezan a la misma altura (Jorge) */
+/* desplegable del error corregido (fichas de trabajo) */
+.desp summary{cursor:pointer;font-weight:700;font-size:15px;color:#061033;list-style:none;display:inline-flex;align-items:center;gap:8px;border-bottom:2px solid #A3322A;padding-bottom:2px}
+.desp summary::-webkit-details-marker{display:none}
+.desp summary::after{content:"+";font-weight:700;color:#A3322A}
+.desp[open] summary::after{content:"–"}

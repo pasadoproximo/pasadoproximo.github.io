@@ -422,7 +422,7 @@ def project(p):
 # El porfolio como curso de cinco lecciones. Marcado y estilos copiados de las maquetas del brief
 # (1-home.html … 5-contacto.html): las reglas comunes en assets/curso.css, el resto en línea como en ellas.
 # Lo anterior (home(), index(), project()) se conserva para poder recuperar piezas.
-CURSOV = "15"
+CURSOV = "16"
 FONTS_C = '''<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&display=swap">'''
@@ -709,7 +709,9 @@ def ficha_c(slug):
                    for c_src, c_alt, c_pie in d.get("capturas", []))
     tarjetas = []
     for i, (t, x) in enumerate(d["afirmar"]):
-        extra = f'<div style="display:flex;flex-direction:column;gap:10px;margin-top:4px">{caps}</div>' if i == 0 and caps else ""
+        # el error corregido, en un desplegable (Jorge: sin capturas a la vista)
+        extra = (f'<details class="desp"><summary>Ver el error corregido: antes y después</summary>'
+                 f'<div style="display:flex;flex-direction:column;gap:10px;margin-top:12px">{caps}</div></details>') if i == 0 and caps else ""
         color = COLOR_AFIRMAR.get(t, "#A3322A")
         st = "" if color == "#A3322A" else f' style="color:{color}"'  # el rojo es el de .tipo
         tarjetas.append(f'<div class="ficha" style="min-height:0"><span class="tipo"{st}>{t}</span><p style="color:#061033">{x}</p>{extra}</div>')
@@ -734,7 +736,7 @@ def ficha_c(slug):
 </section>{hice}
 <section class="wrap" style="padding:48px 40px 0;display:grid;grid-template-columns:7fr 5fr;gap:28px;align-items:stretch">
   {visual}
-  <div style="display:flex;flex-direction:column;gap:12px;justify-content:center">{botones}<p style="margin:0;color:#5A6480;font-size:15px">{d["nota"]}</p></div>
+  <div style="display:flex;flex-direction:column;gap:12px;justify-content:center">{botones}<p style="margin:0;color:#5A6480;font-size:15px;text-align:center">{d["nota"]}</p></div>
 </section>
 <section class="wrap" style="padding:56px 40px 0;display:flex;flex-direction:column;gap:18px">
   <div class="rule"><h2 class="serif" style="font-size:36px;font-weight:700">Lo que puedo afirmar</h2></div>
