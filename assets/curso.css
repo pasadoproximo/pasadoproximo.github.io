@@ -56,9 +56,7 @@ button.opt[aria-pressed="true"] span{border-color:#fff;background:#fff;color:#06
 @media (max-width:900px){.wrap{padding:0 16px}.lesson{grid-template-columns:1fr;gap:16px;padding:40px 0}[style*="grid-template-columns:1.1fr .9fr"]{grid-template-columns:1fr!important}[style*="grid-template-columns:repeat(2,1fr)"],[style*="grid-template-columns:repeat(3,1fr)"],[style*="grid-template-columns:repeat(4,1fr)"],[style*="grid-template-columns:200px 1fr"],[style*="grid-template-columns:1fr 1fr"]{grid-template-columns:1fr!important}h1.serif{font-size:48px!important}header nav{display:none}}
 @media (max-width:900px){section.wrap[style*="padding:80px 40px"]{padding:48px 16px 40px!important;gap:40px!important}section>.wrap[style*="padding:64px 40px"]{padding:40px 16px!important;gap:16px!important}}
 @media (max-width:900px){header.cab nav{display:none!important}header.cab.abierto nav{display:flex!important}#leccion-4 blockquote{font-size:21px!important}#leccion-5 [style*="margin-top:22px"]{flex-wrap:wrap}.btn{white-space:nowrap}}
-/* actividad: las opciones erróneas se ponen en rojo y explican por qué */
-button.opt.mal[aria-pressed="true"]{background:#A3322A;border-color:#A3322A;color:#fff}
-button.opt.mal[aria-pressed="true"] span{color:#A3322A}
+/* actividad: las respuestas erróneas (A y C) en rojo claro; la opción pulsada, en navy como B (Jorge) */
 .fb.mal{background:#F6E0DD;border-color:#A3322A}
 
 /* ---------- /proyectos/ (maqueta 2-proyectos): sus reglas propias, tal cual */
@@ -178,3 +176,7 @@ dialog.pop::backdrop{background:rgba(6,16,51,.55)}
  42%{transform:scaleX(1) skewX(-12deg);transform-origin:0 50%}
  62%{transform:scaleX(1) skewX(-12deg);transform-origin:100% 50%}
  100%{transform:scaleX(0) skewX(-12deg);transform-origin:100% 50%}}
+/* actividad: las tres respuestas ocupan el mismo hueco desde el principio, así la sección no crece al pulsar (Jorge) */
+.fbs{display:grid;margin-top:16px}
+.fbs .fb{grid-area:1/1;margin:0}
+.fbs .fb[hidden]{display:block!important;visibility:hidden}
