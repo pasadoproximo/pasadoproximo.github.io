@@ -898,6 +898,10 @@ HICE = {
                          ("Organicé", "el tema en cuatro bloques: evolución geológica, estructuras, roquedo y erosión."),
                          ("Revisé", "cada ficha con los documentos de clase."),
                          ("Decidí", "que se viera de qué documento sale cada dato.")],
+    "la-nube-pesa": [("Diseñé", "la sesión cronometrada y las fichas de cada eslabón."),
+                     ("Decidí", "evaluar si el alumnado distingue entre opinar y proponer sabiendo a quién le cuesta."),
+                     ("Verifiqué", "los datos a septiembre de 2026 y dejé avisado que hay que comprobarlos."),
+                     ("Escribí", "el solucionario con una rúbrica de tres criterios.")],
 }
 MIGAS_C = {"profesorado": "Formación", "herramientas": "Herramientas", "aula": "Actividades"}
 TIPO_EXTRA = {"el-bombo": "Herramienta", "e-portfolio-master": "Formación"}
