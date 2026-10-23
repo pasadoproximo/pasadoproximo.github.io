@@ -699,7 +699,10 @@ P.append(dict(
     sections=[
         ("La necesidad", '<p class="psub">La tecnología educativa evoluciona muy rápido: dos años después, muchas herramientas habían cerrado o cambiado. '
                          'Didákora es la actualización del repositorio digital que creé en 2024 para el Colegio Cerrado de Calderón, que el centro presentó '
-                         'en el IX Congreso Internacional de Creatividad Educativa (Braining, Valencia, 2025).</p>'),
+                         'en el IX Congreso Internacional de Creatividad Educativa (Braining, Valencia, 2025).</p>'
+                         '<ul class="needs three"><li><b>Qué hice</b><span>La actualización del repositorio de 2024 como web propia, con buscador y diez categorías.</span></li>'
+                         '<li><b>Cómo lo hice</b><span>Sustituyendo lo que había cerrado y revisando cada ficha con sus fuentes oficiales.</span></li>'
+                         '<li><b>Para qué lo hice</b><span>Para tener las herramientas al día sin tener que buscarlas una a una.</span></li></ul>'),
         ("Cómo funciona", _ASI),
         ("Qué cambió desde 2024", _TABLA),
         ("Lo que puedo afirmar", '<div class="status"><div class="s-ok"><span class="st-l ok">Comprobado</span><p>Las 120 fichas están revisadas a mano y fechadas: octubre de 2026.</p></div>'
