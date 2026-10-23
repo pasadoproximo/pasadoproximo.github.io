@@ -822,11 +822,11 @@ def contacto_pag_c():
 
 
 # Lección 4 de la portada: los cuatro pasos, con las palabras de Jorge
-CODE_C = {  # textos de Jorge (notas del 23-10-2026)
-    "1": "En el proceso de digitalización del centro necesitaban una herramienta para la autoformación del profesorado.",
-    "2": "Tras entrevistar al centro y sus docentes, realicé una curación de herramientas digitales y una web.",
-    "3": "Tras una primera versión lo adapté con lo que los docentes necesitaban de cada herramienta.",
-    "4": 'El centro lo usó para la autoformación del profesorado y lo presentó al <a href="https://colegiocerradodecalderon.es/braining/" rel="noopener" target="_blank" style="color:#fff">IX Congreso Internacional de Creatividad Educativa (Valencia, 2025)</a>.',
+CODE_C = {  # textos de Jorge (notas del 23-10-2026), ajustados a una longitud parecida para que las cajas cuadren
+    "1": "El centro, en plena digitalización, necesitaba una herramienta para que el profesorado se autoformara.",
+    "2": "Entrevisté al centro y a sus docentes, hice una curación de herramientas digitales y creé la web.",
+    "3": "Tras una primera versión, la adapté a lo que los docentes necesitaban de cada herramienta.",
+    "4": 'El centro la usó para la autoformación docente y la presentó al <a href="https://colegiocerradodecalderon.es/braining/" rel="noopener" target="_blank" style="color:#fff">IX Congreso de Creatividad Educativa</a>.',
 }
 TESTIMONIO_C = "Quiero expresarte mi agradecimiento por el excelente trabajo que has realizado al crear la nueva web de recursos TIC para nuestro colegio. Estoy seguro de que esta herramienta será de gran valor para nuestros estudiantes y docentes."
 
