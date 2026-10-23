@@ -623,7 +623,7 @@ FICHA_LISTA = [
     ("/didakora/", "profesorado", "Recurso", "Didákora", "121 herramientas revisadas a mano, con ficha y fecha.", "", "En uso"),
     ("consejo-de-clio", "herramientas", "Herramienta", "El Consejo de Clío", "Seis agentes preparan la sesión y el docente la contrasta.", "Diseño de los roles e instrucciones", "Comprobado"),
     ("asistente-gpt-2eso", "herramientas", "Herramienta", "Asistente de IA para 2.º ESO", "Un GPT que guía sin resolver y cita la unidad.", "Configuración, materiales y pruebas", "Pendiente de pilotar"),
-    ("monasterio-didakora", "herramientas", "Proceso", "Mantenimiento con agentes", "Cinco agentes proponen cambios en Didákora; yo apruebo cada uno.", "Diseño del equipo y aprobación de cada cambio", "17 cambios en 4 ciclos"),
+    ("monasterio-didakora", "herramientas", "Proceso", "Mantenimiento con agentes", "Cinco agentes proponen cambios en Didákora. Yo apruebo cada uno.", "Diseño del equipo y aprobación de cada cambio", "17 cambios en 4 ciclos"),
     ("cazadores-de-bulos", "aula", "Actividad", "Cazadores de bulos históricos", "Nueve errores escondidos en un texto sobre Málaga en 1936.", "", "4.º ESO"),
 ]
 TABLA_LISTA = [
