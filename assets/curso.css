@@ -164,5 +164,6 @@ dialog.pop::backdrop{background:rgba(6,16,51,.55)}
 .vid-b{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);border:none;font:inherit;font-weight:700;cursor:pointer;background:#fff;color:#061033}  /* blanco sobre la miniatura navy */
 .vid-b[hidden]{display:none}
 /* /proyectos/: filtros en la columna izquierda, en vertical, a la altura de la primera tarjeta (Jorge) */
-.filtros{display:flex;flex-direction:column;align-items:flex-start;gap:10px;margin-top:110px}  /* = la primera tarjeta */
-@media (max-width:900px){.filtros{flex-direction:row;flex-wrap:wrap;margin-top:8px!important}}
+.filtros{display:flex;flex-direction:column;align-items:stretch;width:max-content;gap:10px;margin-top:110px}  /* = la primera tarjeta; todos del ancho del más largo */
+.filtros .filter{text-align:center}
+@media (max-width:900px){.filtros{flex-direction:row;flex-wrap:wrap;width:auto;margin-top:8px!important}}
