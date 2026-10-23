@@ -130,7 +130,10 @@ button.filter.on{background:#061033;color:#fff}
 /* cabecera fija al bajar, con la barra roja de progreso debajo; la línea navy pasa a ser el fondo de la barra */
 .fija{position:sticky;top:0;z-index:20;background:#F2F4F9;max-width:1220px;margin:0 auto}  /* solo el ancho del contenido: por los lados se ve la página */
 /* la barra, del ancho del contenido (1220 px como la línea de antes), encima de la línea navy */
-.fija .barra{position:static;max-width:1220px;margin:0 auto;box-sizing:border-box;border-bottom:1px solid #061033}
+.fija .barra{position:static;max-width:1220px;margin:0 auto 3px}
+/* cabecera más baja (56 px) y un hueco de 3 px entre la barra de progreso y la línea navy (Jorge) */
+.fija{border-bottom:1px solid #061033}
+@media (min-width:901px){.fija header.cab{height:56px!important}}
 .barra>div{transition:width .2s,background-color .3s}
 main [id]{scroll-margin-top:96px}
 /* fichas que se pulsan: se mueven un poco al pasar el cursor */
