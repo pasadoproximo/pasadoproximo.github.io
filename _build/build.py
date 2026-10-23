@@ -890,6 +890,10 @@ HICE = {
                             ("Decidí", "qué se aprueba, se edita o se rechaza en cada pergamino y cuándo sale a la web."),
                             ("Probé", "cuatro ciclos reales: diecisiete cambios en Didákora, todos revisados por el Auditor."),
                             ("Corregí", "el equipo con las propuestas de Fray Ambrosio: apliqué diez de once.")],
+    "asistente-gpt-2eso": [("Diseñé", "el asistente a partir de las necesidades del grupo, la LOMLOE, el currículo andaluz y el DUA."),
+                           ("Decidí", "que guiara sin resolver, diera prioridad a los materiales de clase y no pidiera datos personales."),
+                           ("Probé", "su comportamiento en simulaciones y recogí los ajustes en el anexo del TFM."),
+                           ("Corregí", "la definición de taifa que el GPT daba mal en las pruebas.")],
 }
 MIGAS_C = {"profesorado": "Formación", "herramientas": "Herramientas", "aula": "Actividades"}
 TIPO_EXTRA = {"el-bombo": "Herramienta", "e-portfolio-master": "Formación"}
