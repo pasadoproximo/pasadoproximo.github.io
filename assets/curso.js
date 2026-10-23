@@ -14,7 +14,7 @@
       var pct=Math.round(cur/5*100);
       var done=(cur===5 && window.scrollY>=max-4); lbl.textContent= done ? 'Curso completado · 100 %' : 'Lección '+cur+' de 5 · '+pct+' %'; lbl.style.color= done ? '#5E7D3A' : '';
     }
-    if(bar){ var p=max>0?Math.min(100,Math.round(window.scrollY/max*100)):0; bar.style.width=p+'%'; }
+    if(bar){ var p=max>0?Math.min(100,Math.round(window.scrollY/max*100)):100; /* sin scroll ya se ve todo (Contacto) */ bar.style.width=p+'%'; }
   }
   window.addEventListener('scroll',update,{passive:true}); window.addEventListener('resize',update); update();
 

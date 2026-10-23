@@ -422,7 +422,7 @@ def project(p):
 # El porfolio como curso de cinco lecciones. Marcado y estilos copiados de las maquetas del brief
 # (1-home.html … 5-contacto.html): las reglas comunes en assets/curso.css, el resto en línea como en ellas.
 # Lo anterior (home(), index(), project()) se conserva para poder recuperar piezas.
-CURSOV = "5"
+CURSOV = "6"
 FONTS_C = '''<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&display=swap">'''
@@ -489,12 +489,12 @@ def cab(active="", leccion=1, completo=False, subrayar=True, etiqueta="", texto=
 '''
 
 
-def pie_c(guino=False, margen=True):
+def pie_c(guino=False, margen=True, guino_izq=False):
     """La línea © de siempre; a la derecha, el guiño (portada) o los enlaces de las interiores."""
     der = ('<span>Curso completado al 100 % · Ya sabes qué hago</span>' if guino else
            f'<span style="display:flex;gap:18px"><a href="mailto:{MAIL}">{MAIL}</a><a href="{LINKEDIN}" rel="noopener" target="_blank">LinkedIn</a><a href="/didakora/">Didákora</a></span>')
     mt = ";margin-top:72px" if margen else ""
-    return f'''<footer class="wrap" style="padding:28px 40px;border-top:1px solid #061033;display:flex;justify-content:space-between;color:#5A6480;font-size:15px{mt}"><span>© 2026 Jorge Delgado Aguilera · Campanillas, Málaga</span>{der}</footer>
+    return f'''<footer class="wrap" style="padding:28px 40px;border-top:1px solid #061033;display:flex;justify-content:space-between;color:#5A6480;font-size:15px{mt}"><span>© 2026 Jorge Delgado Aguilera · Campanillas, Málaga{" · Curso completado al 100 % · Ya sabes qué hago" if guino_izq else ""}</span>{der}</footer>
 <script src="/assets/curso.js?v={CURSOV}" defer></script>
 </body></html>
 '''
@@ -504,22 +504,22 @@ ICO_C = '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#06
 CIRC = 'style="width:52px;height:52px;border:1.5px solid #061033;border-radius:50%;display:inline-flex;align-items:center;justify-content:center"'
 
 
-def contacto_c():
+def contacto_c(margen=True):
     """Iconos de correo, LinkedIn e Instagram + «Descargar el CV» (lección 5, en la portada y en Contacto)."""
-    return (f'<div style="display:flex;gap:14px;margin-top:22px;align-items:center">'
+    return (f'<div style="display:flex;gap:14px;{"margin-top:22px;" if margen else ""}align-items:center;flex-wrap:wrap">'
             f'<a href="mailto:{MAIL}" aria-label="Correo" {CIRC}>{ICO_C}<rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></a>'
             f'<a href="{LINKEDIN}" rel="noopener" target="_blank" aria-label="LinkedIn" {CIRC}>{ICO_C}<rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 10v7M8 7v.5M12 17v-4a2 2 0 0 1 4 0v4M12 10v7"/></svg></a>'
             f'<a href="{INSTAGRAM}" rel="noopener" target="_blank" aria-label="Instagram" {CIRC}>{ICO_C}<rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8" fill="#061033"/></svg></a>'
             f'<a class="btn o" href="{CV}" download style="margin-left:6px">Descargar el CV</a></div>')
 
 
-def form_c():
+def form_c(filas=4, sin_altura=False):
     accion = f' action="https://formspree.io/f/{FORMSPREE}" method="POST"' if FORMSPREE else ""
     campo = 'style="border:1px solid #061033;padding:11px;font:inherit;background:#F2F4F9"'
-    return f'''<form class="ficha"{accion} style="gap:12px">{"" if FORMSPREE else "<!-- TODO: falta el ID de Formspree -->"}<span class="tipo">Contacta</span><input type="hidden" name="_subject" value="Mensaje desde el porfolio">
+    return f'''<form class="ficha"{accion} style="{"min-height:0;" if sin_altura else ""}gap:12px">{"" if FORMSPREE else "<!-- TODO: falta el ID de Formspree -->"}<span class="tipo">Contacta</span><input type="hidden" name="_subject" value="Mensaje desde el porfolio">
       <label class="k" style="display:flex;flex-direction:column;gap:6px">Nombre<input name="nombre" autocomplete="name" required {campo}></label>
       <label class="k" style="display:flex;flex-direction:column;gap:6px">Email<input type="email" name="email" autocomplete="email" required {campo}></label>
-      <label class="k" style="display:flex;flex-direction:column;gap:6px">¿Qué necesitas?<textarea name="mensaje" rows="4" required {campo}></textarea></label>
+      <label class="k" style="display:flex;flex-direction:column;gap:6px">¿Qué necesitas?<textarea name="mensaje" rows="{filas}" required {campo}></textarea></label>
       <button class="btn" style="border:none;font:inherit;font-weight:700;align-self:flex-start">Enviar</button></form>'''
 
 
@@ -804,6 +804,25 @@ def sobre_c():
           + cab("sobre", leccion=1) + body + pie_c())
 
 
+# Contacto = lección 5 (maqueta 5-contacto)
+def contacto_pag_c():
+    body = f'''<main id="contenido">
+<section class="wrap"><div class="lesson">
+  <div class="lnum"><b>05</b><span class="k">Evaluación final</span></div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start">
+    <div style="display:flex;flex-direction:column;gap:22px"><h1 class="serif" style="font-size:64px">Ahora pregunta tú</h1><p style="margin:0;font-size:19px;max-width:40ch;color:#2A3352">Abierto a proyectos de diseño instruccional, formación del profesorado y tecnología educativa. En remoto o en Málaga.</p>
+      {contacto_c(margen=False)}</div>
+    {form_c(filas=5, sin_altura=True)}
+  </div>
+</div></section>
+</main>
+'''
+    write("/contacto/", head_c("Contacto · Jorge Delgado Aguilera",
+                               "Contacta con Jorge Delgado Aguilera: proyectos de diseño instruccional, formación del profesorado y tecnología educativa, en remoto o en Málaga.",
+                               "/contacto/", pagina="p-contacto")
+          + cab("contacto", leccion=5) + body + pie_c(guino_izq=True))
+
+
 # Lección 4 de la portada: textos redactados a partir de la página del Repositorio digital (data.py) y del CV
 CODE_C = {
     "intro": "El centro lo presentó en el IX Congreso Internacional de Creatividad Educativa (Valencia, abril de 2025) como herramienta de autoformación del profesorado.",
@@ -819,6 +838,7 @@ if __name__ == "__main__":
     home_c()
     lista_c()
     sobre_c()
+    contacto_pag_c()
     for p in P:
         if not p.get("ext"):
             if p["slug"] in PAGINA:

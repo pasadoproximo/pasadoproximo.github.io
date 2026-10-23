@@ -120,3 +120,8 @@ button.filter.on{background:#061033;color:#fff}
  .exp{grid-template-columns:1fr}
  .p-sobre [style*="gap:72px;align-items:start"]{gap:40px!important}
 }
+
+/* ---------- Contacto (maqueta 5-contacto): sus reglas propias, tal cual */
+.p-contacto .lesson{padding:56px 0;border-top:none}
+.p-contacto .ficha{padding:26px 26px 24px}
+@media (max-width:900px){.p-contacto h1.serif{font-size:48px!important}.p-contacto .lesson{padding:40px 0}}
