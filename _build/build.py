@@ -894,7 +894,7 @@ HICE = {
     "asistente-gpt-2eso": [("Diseñé", "el asistente a partir de las necesidades del grupo, la LOMLOE, el currículo andaluz y el DUA."),
                            ("Decidí", "que guiara sin resolver, diera prioridad a los materiales de clase y no pidiera datos personales."),
                            ("Probé", "su comportamiento en simulaciones y recogí los ajustes en el anexo del TFM."),
-                           ("Corregí", "que en las pruebas resolvía las actividades: lo reconfiguré para que se negara y ofreciera ayuda.")  # TFM, págs. 26-27],
+                           ("Corregí", "que en las pruebas resolvía las actividades: lo reconfiguré para que se negara y ofreciera ayuda.")],  # «Corregí»: TFM, págs. 26-27
     "mapa-de-relieves": [("Diseñé", "el mapa: se pulsa un relieve y una ficha lo explica."),
                          ("Organicé", "el tema en cuatro bloques: evolución geológica, estructuras, roquedo y erosión."),
                          ("Revisé", "cada ficha con los documentos de clase."),
