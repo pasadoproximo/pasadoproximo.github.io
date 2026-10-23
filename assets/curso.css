@@ -159,3 +159,7 @@ dialog.pop::backdrop{background:rgba(6,16,51,.55)}
 .herr b{font-weight:700}
 .herr a{font-weight:500}
 .herr span:not(.k){color:#5A6480}
+/* vídeo de la ficha: botón píldora encima hasta que se pulsa */
+.vid{position:relative;align-self:center}
+.vid-b{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);border:none;font:inherit;font-weight:700;cursor:pointer}
+.vid-b[hidden]{display:none}

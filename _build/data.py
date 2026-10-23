@@ -642,15 +642,15 @@ BY = {p["slug"]: p for p in P}
 PAGINA = {
     "consejo-de-clio": dict(
         migas="Herramientas", lnum="Herramienta · 2026",
-        sub="Seis agentes de IA preparan una sesión a partir de una noticia; el docente la contrasta antes de llevarla al aula.",
+        sub="Seis agentes de IA preparan una sesión a partir de una noticia. El docente la contrasta antes de llevarla al aula.",
         ficha=[("Para quién", "Docentes de Historia, 1.º ESO a Bachillerato"), ("Tipo", "Aplicación con IA · libre uso"),
                ("Herramientas", "Claude · 6 agentes"), ("Estado", "Publicada · necesita cuenta de Claude")],
         hice=[("Diseñé", "el equipo. Elegí a los seis personajes por su relación con el papel de cada agente y escribí sus instrucciones, el formato de la sesión y el diseño."),
               ("Amplié", "el equipo de cuatro historiadores a seis. Añadí a Hannah Arendt y a Sócrates para conectar con el presente y abrir el debate."),
               ("Probé", "con noticias de actualidad de temas distintos, varias por curso, para ver cómo filtraba. Antes de llevar una sesión a clase, contrasto el material final."),
               ("Descarté", "que leyera la noticia desde un enlace. Pegar el texto es más fiable.")],
-        # sesión real del 22-10-2026 (EFE, Ucrania, 1.º Bachillerato), grabada con _build/grabar_consejo.js
-        video=("/assets/proyectos/consejo-de-clio/sesion-ucrania.webm?v=2", "/assets/proyectos/consejo-de-clio/sesion-ucrania-poster.jpg?v=2",
+        # sesión real del 22-10-2026 (EFE, Ucrania, 1.º Bachillerato), grabada con la plantilla de vídeo: _build/grabar_consejo_plantilla.js
+        video=("/assets/proyectos/consejo-de-clio/sesion-ucrania.webm?v=4", "/assets/proyectos/consejo-de-clio/sesion-ucrania-poster.jpg?v=4",
                "Vídeo de 30 segundos de una sesión real para 1.º Bachillerato con una noticia de EFE sobre Ucrania. Los seis pensadores trabajan por turnos, Hannah Arendt iguala 1991 con hoy e Ibn Jaldún lo corrige"),
         botones=[("Probar el Consejo (cuenta gratuita de Claude)", "https://claude.ai/artifact/7fyLPT3yg45X1Wr4Mu9rjx"),
                  ("Ver una sesión de ejemplo en PDF", "/assets/pdf/consejo-de-clio-sesion-ucrania.pdf")],

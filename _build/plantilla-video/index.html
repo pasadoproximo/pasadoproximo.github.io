@@ -4,8 +4,9 @@
   Intro de 2 s → la grabación dentro de una ficha, con rótulos en fichas → cierre de 2 s con «Lo que puedo afirmar».
   Uso: servir el repo (python -m http.server 8000) y abrir
     /_build/plantilla-video/?f=169&s=intro      (f = 169 o 916 · s = intro, cuerpo o cierre)
-  Sin «s», recorre las tres pantallas en bucle (vista previa). Para montar un vídeo, un script de Playwright
-  fijará cada pantalla y sustituirá la imagen de muestra por la grabación real (aún sin hacer: Jorge debe aprobar la plantilla).
+  Sin «s», recorre las tres pantallas en bucle (vista previa). Con «grabar=1», la ficha central carga la sesión real
+  (/_build/consejo-sesion/, mismo origen) y un script de Playwright la mueve con window.__ir, window.__cap,
+  window.__scroll y window.__bar (ver _build/grabar_consejo_plantilla.js).
 -->
 <html lang="es"><head><meta charset="utf-8"><title>Plantilla de vídeo</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@400;500;600;700&family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&display=swap">
@@ -38,10 +39,13 @@ body{display:grid;place-items:center;min-height:100vh;overflow:hidden}
 .f169 .firma{left:110px;right:110px;bottom:44px;font-size:20px;border-top:1px solid #061033;padding-top:18px}
 .f169 .firma b{font-size:22px}
 .f169 .marco{position:absolute;left:150px;top:44px;width:980px;height:525px;overflow:hidden;box-shadow:8px 8px 0 #9FB3FF}
-.f169 .marco img{width:100%;display:block}
+.f169 .marco img,.f169 .marco iframe{width:100%;display:block}
+.marco iframe{height:100%;border:0}
 .f169 .rotulo{position:absolute;left:84px;bottom:46px;max-width:760px;padding:18px 26px;display:flex;flex-direction:column;gap:6px}
 .f169 .rotulo .lab{font-size:17px}
 .f169 .rotulo p{margin:0;font-size:30px;font-weight:500;line-height:1.2}
+.rotulo{transition:opacity .35s ease,transform .35s ease}.rotulo.off{opacity:0;transform:translateY(12px)}
+.rotulo b{font-weight:700}
 .f169 .esquina{position:absolute;right:84px;bottom:58px;font-size:17px;font-weight:600;color:#5A6480}
 .f169 .cierre{padding:84px 110px 0;display:flex;flex-direction:column;gap:22px}
 .f169 .cierre h2{font-size:64px}
@@ -59,7 +63,7 @@ body{display:grid;place-items:center;min-height:100vh;overflow:hidden}
 .f916 .cab .lab{font-size:30px}
 .f916 .cab h2{font-size:64px}
 .f916 .marco{position:absolute;left:70px;top:290px;width:932px;height:1147px;overflow:hidden;box-shadow:10px 10px 0 #9FB3FF}
-.f916 .marco img{width:100%;display:block}
+.f916 .marco img,.f916 .marco iframe{width:100%;display:block}
 .f916 .rotulo{position:absolute;left:70px;right:78px;top:1500px;padding:30px 36px;display:flex;flex-direction:column;gap:10px}
 .f916 .rotulo .lab{font-size:28px}
 .f916 .rotulo p{margin:0;font-size:46px;font-weight:500;line-height:1.2}
@@ -99,7 +103,7 @@ var P = {
   "consejo-de-clio": {
     lab: "Ficha de trabajo · El Consejo de Clío",
     titulo: "El Consejo de Clío",
-    sub: "Seis agentes de IA preparan una sesión a partir de una noticia; el docente la contrasta antes de llevarla al aula.",
+    sub: "Seis agentes de IA preparan una sesión a partir de una noticia. El docente la contrasta antes de llevarla al aula.",
     rot_lab: "3 · Ibn Jaldún revisa",
     rot: "Ibn Jaldún lo corrige. En 1991 decidieron las repúblicas",
     afirmar: [["Comprobado", "#5E7D3A", "Ibn Jaldún ha detectado varios fallos en las numerosas pruebas que he realizado."],
@@ -123,11 +127,28 @@ function ir(s) {
 // encajar en la ventana para verla entera
 function encaja() {
   var w = f === "916" ? 1080 : 1280, h = f === "916" ? 1920 : 720;
-  var k = q.get("s") ? 1 : Math.min(innerWidth / w, innerHeight / h) * .96;
+  var k = q.get("s") || q.get("grabar") ? 1 : Math.min(innerWidth / w, innerHeight / h) * .96;  // al grabar, a tamaño real
   document.querySelector(".esc").style.transform = "scale(" + k + ")";
 }
 addEventListener("resize", encaja); encaja();
-if (q.get("s")) { document.querySelectorAll(".pant").forEach(function (p) { p.style.transition = "none"; }); document.getElementById("bar").style.transition = "none"; ir(q.get("s")); }
+if (q.get("grabar")) {
+  // modo de grabación: la sesión real en la ficha central y control desde fuera
+  var m = document.querySelector(".marco"); m.innerHTML = '<iframe src="/_build/consejo-sesion/" title="Sesión real del Consejo de Clío"></iframe>';
+  var rot = document.querySelector(".rotulo"), rl = rot.querySelector(".lab"), rt = rot.querySelector("p:not(.lab)");
+  window.__ir = ir;
+  window.__bar = function (pct, ms) { var b = document.getElementById("bar"); b.style.transition = "width " + (ms || 600) + "ms linear"; b.style.width = pct + "%"; };
+  window.__cap = function (lab, html) { return new Promise(function (r) {
+    var show = function () { if (html) { rl.textContent = lab; rt.innerHTML = html; rot.classList.remove("off"); } r(); };
+    if (!rot.classList.contains("off")) { rot.classList.add("off"); setTimeout(show, 380); } else show(); }); };
+  // desplazamiento suave dentro de la sesión hasta un elemento (con su margen arriba), en ms
+  window.__scroll = function (sel, ms, arriba) { return new Promise(function (r) {
+    var w = m.querySelector("iframe").contentWindow, doc = w.document, el = typeof sel === "number" ? null : doc.querySelector(sel);
+    var y0 = w.scrollY, y1 = Math.max(0, Math.min(doc.documentElement.scrollHeight - w.innerHeight, el ? el.getBoundingClientRect().top + w.scrollY - (arriba || 0) : sel));
+    var t0 = performance.now(), ease = function (t) { return t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2; };
+    (function paso(now) { var t = Math.min(1, (now - t0) / ms); w.scrollTo(0, y0 + (y1 - y0) * ease(t)); t < 1 ? requestAnimationFrame(paso) : r(); })(t0);
+  }); };
+  rot.classList.add("off"); document.getElementById("bar").style.transition = "none"; ir("intro");
+} else if (q.get("s")) { document.querySelectorAll(".pant").forEach(function (p) { p.style.transition = "none"; }); document.getElementById("bar").style.transition = "none"; ir(q.get("s")); }
 else { var orden = ["intro", "cuerpo", "cierre"], t = [2000, 4000, 2000], i = 0; (function sig() { ir(orden[i]); setTimeout(sig, t[i]); i = (i + 1) % 3; })(); }
 </script>
 </body></html>

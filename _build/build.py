@@ -422,7 +422,7 @@ def project(p):
 # El porfolio como curso de cinco lecciones. Marcado y estilos copiados de las maquetas del brief
 # (1-home.html … 5-contacto.html): las reglas comunes en assets/curso.css, el resto en línea como en ellas.
 # Lo anterior (home(), index(), project()) se conserva para poder recuperar piezas.
-CURSOV = "18"
+CURSOV = "19"
 FONTS_C = '''<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&display=swap">'''
@@ -697,8 +697,10 @@ def ficha_c(slug):
 </section>"""
     if d.get("video"):
         src, poster, alt = d["video"]
-        visual = (f'<video src="{src}" poster="{poster}" controls muted playsinline preload="metadata" aria-label="{html.escape(alt)}" '
-                  f'style="width:100%;height:100%;min-height:340px;object-fit:contain;background:#061033;display:block;border:1px solid #061033"></video>')
+        # sin controles nativos hasta que se pulsa (tapaban el cartel): un botón píldora del porfolio encima
+        visual = (f'<div class="vid"><video src="{src}" poster="{poster}" muted playsinline preload="metadata" aria-label="{html.escape(alt)}" '
+                  f'class="ficha" style="width:100%;height:auto;display:block;padding:0;box-shadow:8px 8px 0 #9FB3FF"></video>'
+                  f'<button type="button" class="btn vid-b">▶&nbsp; Ver el vídeo · 30 s</button></div>')
     else:
         visual = '<!-- TODO visual --><div class="ph" style="min-height:340px">[visual]</div>'
     ext = ' rel="noopener" target="_blank"'

@@ -47,6 +47,12 @@
     d.addEventListener('click',function(e){ if(e.target===d || e.target.hasAttribute('data-cierra')) d.close(); });
   });
 
+  // Vídeos de las fichas: el botón lo arranca y entonces aparecen los controles
+  document.querySelectorAll('.vid').forEach(function(c){
+    var v=c.querySelector('video'), b=c.querySelector('.vid-b');
+    b.addEventListener('click',function(){ v.controls=true; v.play(); b.hidden=true; });
+  });
+
   // Filtros de /proyectos/: ocultan fichas y filas de las demás categorías (sin JavaScript se ve todo)
   var fs=document.querySelectorAll('button.filter');
   fs.forEach(function(f){ f.addEventListener('click',function(){
