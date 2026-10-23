@@ -884,7 +884,8 @@ def contacto_pag_c():
 # bloque visual con los botones → «Lo que puedo afirmar» → «La necesidad» → el resto (cómo funciona…) → siguiente ficha.
 # Las piezas antiguas (visor de PDF, actividades incrustadas, monjes…) llevan su CSS de site.css limitado a .p-ficha
 # (assets/curso-fichas-base.css, de _build/extraer_piezas.py) y la estética nueva encima (assets/curso-fichas.css).
-CON_IA = {"didakora", "monasterio-didakora", "asistente-gpt-2eso", "mapa-de-relieves", "la-nube-pesa", "la-ia-tambien-miente",  # brief, 0 bis
+CON_IA = {"monasterio-didakora",  # Didákora sin «Lo que hice yo»: lo cuenta su «Qué hice, cómo y para qué» (Jorge)
+          "asistente-gpt-2eso", "mapa-de-relieves", "la-nube-pesa", "la-ia-tambien-miente",  # brief, 0 bis
           "audita-tu-programacion", "el-bombo"}  # también con IA (Jorge, 23-10-2026)
 SUB_BRIEF = {  # titulares del brief (2.5), con punto en vez de «;» como pidió Jorge para el Consejo
     "monasterio-didakora": "Cinco agentes de IA proponen cambios en Didákora. Yo apruebo cada uno antes de publicar.",
@@ -999,8 +1000,9 @@ def ficha_auto(p):
         tit = VIDEO_EN_SECCION[slug]
         for k, x in enumerate(secs):
             if isinstance(x, tuple) and x[0] == tit:
-                secs[k] = (tit, f'<div class="vid-sec">{x[1]}{video_c(*VIDEO_FICHA[slug])}</div>')
-        bloque_visual = f'\n<div class="botones-f" style="justify-content:flex-start">{botones}</div>' if botones else ""
+                lado = f'<div class="botones-f" style="justify-content:flex-start;margin-top:18px">{botones}</div>' if botones else ""
+                secs[k] = (tit, f'<div class="vid-sec">{x[1]}<div>{video_c(*VIDEO_FICHA[slug])}{lado}</div></div>')  # los botones, bajo el vídeo (Jorge)
+        bloque_visual = ""
     elif slug in VIDEO_FICHA:
         # vídeo con la plantilla, con los botones al lado (como el Consejo); el vídeo antiguo de «Cómo funciona» sale
         lado = f'<div style="display:flex;flex-direction:column;gap:12px;justify-content:center">{botones}</div>' if botones else ""
