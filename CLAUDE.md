@@ -150,4 +150,11 @@ Lo anterior queda en `_antes/`, en `main` y en las ramas `rediseno-2026-10-inten
 
 ## Pendiente
 
+- Publicado el rediseño el 23-10-2026 (`main` = `rediseno-2026-10`). Jorge lo revisa en local y pide cambios: corregir en la
+  rama y volver a publicar.
+- Sitemap del porfolio: no hay (`/sitemap.xml` da 404; `robots.txt` solo apunta al de Didákora). Jorge lo deja pendiente:
+  generarlo con `build.py` y añadirlo a `robots.txt` cuando lo pida.
+- Repositorio digital, «Mantenerlo al día»: ¿punto en vez de dos puntos, como en Didákora? Sin decidir.
+- Las 10 fichas sin «Lo que puedo afirmar»: Jorge las revisa una a una.
+
 - «Probar el consejo» sigue en claude.ai (usa la IA de Claude): pide iniciar sesión, es inevitable.
