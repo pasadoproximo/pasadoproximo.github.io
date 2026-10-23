@@ -418,8 +418,215 @@ def project(p):
     write(f"/proyectos/{p['slug']}/", head(f"{re.sub('<[^>]+>','',h1)} · Jorge Delgado Aguilera", desc, f"/proyectos/{p['slug']}/") + topbar("proyectos") + body + foot())
 
 
+# ================================================================= CURSO (rediseño de octubre de 2026)
+# El porfolio como curso de cinco lecciones. Marcado y estilos copiados de las maquetas del brief
+# (1-home.html … 5-contacto.html): las reglas comunes en assets/curso.css, el resto en línea como en ellas.
+# Lo anterior (home(), index(), project()) se conserva para poder recuperar piezas.
+CURSOV = "1"
+FONTS_C = '''<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&display=swap">'''
+MAIL = "jorgedelagui@gmail.com"
+LINKEDIN = "https://www.linkedin.com/in/jorgedelgadoaguilera"
+INSTAGRAM = "https://www.instagram.com/pasadoproximo/"
+CV = "/assets/pdf/CV-Jorge-Delgado-Aguilera.pdf"
+FORMSPREE = ""  # TODO: ID del formulario de Formspree (lo crea Jorge); sin él, el formulario no envía
+
+
+def head_c(title, desc, path, og="/assets/og.jpg"):
+    t = html.escape(title)
+    d = html.escape(desc)
+    return f'''<!doctype html><html lang="es"><head><meta charset="utf-8"><title>{t}</title><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="{d}">
+<link rel="canonical" href="{SITE}{path}">
+<meta property="og:title" content="{t}">
+<meta property="og:description" content="{d}">
+<meta property="og:image" content="{SITE}{og}">
+<meta property="og:url" content="{SITE}{path}">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+{FAVICON}
+{FONTS_C}
+<link rel="stylesheet" href="/assets/curso.css?v={CURSOV}">
+</head><body>
+<a class="skip" href="#contenido">Saltar al contenido</a>'''
+
+
+NAV_C = [("/", "Índice", "indice"), ("/proyectos/", "Proyectos", "proyectos"), ("/sobre-mi/", "Sobre mí", "sobre"), ("/contacto/", "Contacto", "contacto")]
+
+
+def cab(active="", leccion=1, completo=False, subrayar=True):
+    """Barra de progreso + cabecera. En la portada el script cambia los segmentos; en las interiores, estado fijo."""
+    def seg(i):
+        c = "#5E7D3A" if completo or i < leccion else ("#A3322A" if i == leccion else "#E1E6F0")
+        return f'<span class="seg" style="width:44px;height:8px;background:{c}"></span>'
+    if completo:
+        lbl = '<span class="k" id="proglbl" style="color:#5E7D3A">Curso completado · 100 %</span>'
+    else:
+        lbl = f'<span class="k" id="proglbl">Lección {leccion} de 5 · {leccion * 20} %</span>'
+    def a(href, label, key):
+        if key == active and not subrayar:  # la maqueta de la portada no subraya «Índice»
+            return f'<a href="{href}" aria-current="page" style="text-decoration:none">{label}</a>'
+        if key == active:
+            return f'<a href="{href}" aria-current="page" style="text-decoration:none;border-bottom:2px solid #A3322A;padding-bottom:2px">{label}</a>'
+        return f'<a href="{href}" style="text-decoration:none">{label}</a>'
+    nav = "".join(a(*n) for n in NAV_C)
+    return f'''
+<div class="barra" aria-hidden="true"><div></div></div>
+<header class="wrap cab" style="display:flex;justify-content:space-between;align-items:center;height:74px;border-bottom:1px solid #061033">
+  <a href="/" style="font-family:'Bricolage Grotesque';font-weight:800;font-size:22px;letter-spacing:-.01em;text-decoration:none">Jorge Delgado Aguilera</a>
+  <button type="button" class="menu-b" aria-expanded="false" aria-controls="menu">Menú</button>
+  <div id="prog" style="display:flex;align-items:center;gap:14px" aria-label="Progreso del curso">
+    <div style="display:flex;gap:6px">
+      {"".join(seg(i) for i in range(1, 6))}
+    </div>
+    {lbl}
+  </div>
+  <nav id="menu" aria-label="Principal" style="display:flex;gap:30px;font-weight:500">{nav}</nav>
+</header>
+'''
+
+
+def pie_c(guino=False, margen=True):
+    """La línea © de siempre; a la derecha, el guiño (portada) o los enlaces de las interiores."""
+    der = ('<span>Curso completado al 100 % · Ya sabes qué hago</span>' if guino else
+           f'<span style="display:flex;gap:18px"><a href="mailto:{MAIL}">{MAIL}</a><a href="{LINKEDIN}" rel="noopener" target="_blank">LinkedIn</a><a href="/didakora/">Didákora</a></span>')
+    mt = ";margin-top:72px" if margen else ""
+    return f'''<footer class="wrap" style="padding:28px 40px;border-top:1px solid #061033;display:flex;justify-content:space-between;color:#5A6480;font-size:15px{mt}"><span>© 2026 Jorge Delgado Aguilera · Campanillas, Málaga</span>{der}</footer>
+<script src="/assets/curso.js?v={CURSOV}" defer></script>
+</body></html>
+'''
+
+
+ICO_C = '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#061033" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'
+CIRC = 'style="width:52px;height:52px;border:1.5px solid #061033;border-radius:50%;display:inline-flex;align-items:center;justify-content:center"'
+
+
+def contacto_c():
+    """Iconos de correo, LinkedIn e Instagram + «Descargar el CV» (lección 5, en la portada y en Contacto)."""
+    return (f'<div style="display:flex;gap:14px;margin-top:22px;align-items:center">'
+            f'<a href="mailto:{MAIL}" aria-label="Correo" {CIRC}>{ICO_C}<rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></a>'
+            f'<a href="{LINKEDIN}" rel="noopener" target="_blank" aria-label="LinkedIn" {CIRC}>{ICO_C}<rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 10v7M8 7v.5M12 17v-4a2 2 0 0 1 4 0v4M12 10v7"/></svg></a>'
+            f'<a href="{INSTAGRAM}" rel="noopener" target="_blank" aria-label="Instagram" {CIRC}>{ICO_C}<rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8" fill="#061033"/></svg></a>'
+            f'<a class="btn o" href="{CV}" download style="margin-left:6px">Descargar el CV</a></div>')
+
+
+def form_c():
+    accion = f' action="https://formspree.io/f/{FORMSPREE}" method="POST"' if FORMSPREE else ""
+    campo = 'style="border:1px solid #061033;padding:11px;font:inherit;background:#F2F4F9"'
+    return f'''<form class="ficha"{accion} style="gap:12px">{"" if FORMSPREE else "<!-- TODO: falta el ID de Formspree -->"}<span class="tipo">Contacta</span>
+      <label class="k" style="display:flex;flex-direction:column;gap:6px">Nombre<input name="nombre" autocomplete="name" required {campo}></label>
+      <label class="k" style="display:flex;flex-direction:column;gap:6px">Email<input type="email" name="email" autocomplete="email" required {campo}></label>
+      <label class="k" style="display:flex;flex-direction:column;gap:6px">¿Qué necesitas?<textarea name="mensaje" rows="4" required {campo}></textarea></label>
+      <button class="btn" style="border:none;font:inherit;font-weight:700;align-self:flex-start">Enviar</button></form>'''
+
+
+def leccion5_c():
+    return f'''<div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start">
+    <div><h2 class="serif" style="font-size:44px;margin-bottom:14px">Ahora pregunta tú</h2><p style="margin:0;color:#5A6480;max-width:40ch">Abierto a proyectos de diseño instruccional, formación del profesorado y tecnología educativa. En remoto o en Málaga.</p>{contacto_c()}</div>
+    {form_c()}
+  </div>'''
+
+
+def home_c():
+    li = 'style="display:flex;justify-content:space-between;padding:12px 0;border-top:1px solid #E1E6F0'
+    paso = 'style="border:1px solid #9FB3FF;padding:18px;display:flex;flex-direction:column;gap:8px"'
+    paso_n = 'style="font-family:\'Bricolage Grotesque\';font-size:30px;color:#9FB3FF"'
+    paso_p = 'style="margin:0;font-size:15px;color:#E6EBF8"'
+    body = f'''<main id="contenido">
+<section class="wrap" style="display:grid;grid-template-columns:1.1fr .9fr;gap:72px;align-items:center;padding:80px 40px 64px">
+  <div style="display:flex;flex-direction:column;gap:26px">
+    <p class="lab">Curso de 12 minutos · para quien contrata diseño instruccional</p>
+    <h1 class="serif" style="font-size:78px">Cómo diseño materiales que hacen pensar</h1>
+    <p style="margin:0;font-size:20px;max-width:38ch;color:#2A3352">Cinco lecciones cortas, una actividad ramificada y una evaluación final que haces tú. Al terminar sabrás qué hago, cómo lo hago y para qué lo hago.</p>
+    <div style="display:flex;gap:14px;flex-wrap:wrap"><a class="btn" href="/sobre-mi/">Lección 1: sobre mí</a><a class="btn o" href="/proyectos/">Ir directo a los proyectos</a></div>
+  </div>
+  <nav class="ficha idx" aria-label="Índice del curso" style="gap:0;padding:28px 30px">
+    <span class="tipo">Índice del curso</span>
+    <ol style="margin:14px 0 0;padding:0;list-style:none;display:flex;flex-direction:column">
+      <li {li}"><a href="/sobre-mi/"><b style="color:#5E7D3A">✓</b>&nbsp; 1 · Quién soy y para quién trabajo</a><span class="k">2 min</span></li>
+      <li {li};font-weight:700"><a href="#leccion-2">▶&nbsp; 2 · Cuatro trabajos, uno por tipo</a><span class="k">3 min</span></li>
+      <li {li}"><a href="#leccion-3">3 · Actividad: ¿y si lo hizo la IA?</a><span class="k">1 min</span></li>
+      <li {li}"><a href="#leccion-4">4 · Cómo trabajo, en cuatro pasos</a><span class="k">3 min</span></li>
+      <li {li};border-bottom:1px solid #E1E6F0"><a href="#leccion-5">5 · Evaluación final: ahora pregunta tú</a><span class="k">3 min</span></li>
+    </ol>
+  </nav>
+</section>
+
+<section class="wrap" id="leccion-2" data-lesson="2"><div class="lesson">
+  <div class="num"><b>02</b><span class="k">Lección 2 · 3 min</span></div>
+  <div>
+    <h2 class="serif" style="font-size:44px;margin-bottom:18px">Cuatro trabajos, uno por tipo</h2>
+    <p class="obj"><b>Objetivo:</b> al terminar esta lección podrás decir qué tipo de material sé hacer y en qué estado está cada uno.</p>
+    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:28px;padding-right:6px">
+      <a class="ficha" href="/didakora/"><span class="tipo">Recurso</span><h3>Didákora</h3><p>121 herramientas digitales revisadas a mano, con ficha y fecha.</p><span class="estado"><i></i>En uso</span></a>
+      <a class="ficha" href="/proyectos/consejo-de-clio/"><span class="tipo">Herramienta</span><h3>El Consejo de Clío</h3><p>Seis agentes preparan la sesión; el docente la contrasta.</p><span class="estado"><i></i>Comprobado</span></a>
+      <a class="ficha" href="/proyectos/cazadores-de-bulos/"><span class="tipo">Actividad</span><h3>Cazadores de bulos históricos</h3><p>Nueve errores escondidos en un texto sobre Málaga en 1936.</p><span class="estado"><i></i>4.º ESO</span></a>
+      <div class="ficha"><span class="tipo">Curso</span><h3>Verifica lo que dice la IA</h3><p>Tres lecciones y una rutina de cinco minutos para clase.</p><span class="estado"><i></i>Rise y Storyline</span></div>
+    </div>
+    <div class="next" style="justify-content:space-between;align-items:center"><a href="/proyectos/" style="font-weight:700;border-bottom:2px solid #A3322A;text-decoration:none;padding-bottom:2px">Ver el resto de proyectos</a><a class="btn" href="#leccion-3">Siguiente: la actividad</a></div>
+  </div>
+</div></section>
+
+<section class="wrap" id="leccion-3" data-lesson="3"><div class="lesson">
+  <div class="num"><b>03</b><span class="k">Actividad · 1 min</span></div>
+  <div class="rama">
+    <h2 class="serif" style="font-size:44px;margin-bottom:18px">¿Y si lo hizo la IA?</h2>
+    <p style="margin:0 0 22px;font-size:18px;max-width:60ch">Un alumno de 4.º entrega un comentario de texto impecable sobre la Constitución de 1812. Sospechas que lo ha escrito una IA. ¿Qué haces?</p>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px">
+      <button type="button" class="opt" data-op="a" aria-pressed="false"><span>A</span>Lo paso por un detector y actúo según el resultado.</button>
+      <button type="button" class="opt" data-op="b" aria-pressed="false"><span>B</span>Le pido que defienda en voz alta tres afirmaciones de su texto con el libro delante.</button>
+      <button type="button" class="opt" data-op="c" aria-pressed="false"><span>C</span>Prohíbo el uso de IA en la siguiente tarea.</button>
+    </div>
+    <p class="fb" data-op="a" style="margin:16px 0 0" hidden aria-live="polite"><b>Has elegido A.</b> [Feedback de la opción A: texto de Jorge]</p>
+    <p class="fb" data-op="b" style="margin:16px 0 0" hidden aria-live="polite"><b>Has elegido B.</b> Es lo que hago en "Cazadores de bulos": la IA no se detecta, se interroga. Un detector falla; una pregunta bien hecha, no. Esa idea está en todos mis materiales.</p>
+    <p class="fb" data-op="c" style="margin:16px 0 0" hidden aria-live="polite"><b>Has elegido C.</b> [Feedback de la opción C: texto de Jorge]</p>
+    <div class="next"><a class="btn" href="#leccion-4">Siguiente: cómo trabajo</a></div>
+  </div>
+</div></section>
+
+<section id="leccion-4" style="background:#061033;color:#fff;margin-top:24px" data-lesson="4">
+  <div class="wrap" style="display:grid;grid-template-columns:200px 1fr;gap:40px;padding:64px 40px">
+    <div class="num" style="display:flex;flex-direction:column;gap:8px"><b style="font-family:'Bricolage Grotesque';font-weight:800;font-size:54px;line-height:1;letter-spacing:-.03em">04</b><span class="k" style="color:#9FB3FF">Lección 4 · 3 min</span></div>
+    <div style="display:flex;flex-direction:column;gap:18px">
+      <h2 class="serif" style="font-size:44px;color:#fff">Cómo trabajo, en cuatro pasos</h2>
+      <p style="margin:0;font-size:18px;color:#E6EBF8;max-width:60ch">El mismo proceso en todos los proyectos. Aquí, con el repositorio digital del Colegio Cerrado de Calderón (2024), presentado en Braining 2025. {CODE_C["intro"]}</p>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:14px">
+        <div {paso}><b {paso_n}>1</b><b>Parto de una necesidad de aula</b><p {paso_p}>{CODE_C["1"]}</p></div>
+        <div {paso}><b {paso_n}>2</b><b>Diseño el material y sus reglas</b><p {paso_p}>{CODE_C["2"]}</p></div>
+        <div {paso}><b {paso_n}>3</b><b>Lo pruebo y busco el fallo</b><p {paso_p}>{CODE_C["3"]}</p></div>
+        <div {paso}><b {paso_n}>4</b><b>Digo qué está comprobado y qué no</b><p {paso_p}>{CODE_C["4"]}</p></div>
+      </div>
+      <blockquote style="margin:14px 0 0;font-family:'Bricolage Grotesque';font-weight:700;font-size:26px;line-height:1.2;color:#fff">«{TESTIMONIO_C}»</blockquote>
+      <p style="margin:0;font-size:15px;color:#9FB3FF">Jorge Lanzat · Subdirector General · Colegio Cerrado de Calderón</p>
+    </div>
+  </div>
+</section>
+
+<section class="wrap" id="leccion-5" data-lesson="5"><div class="lesson" style="border-top:none">
+  <div class="num"><b>05</b><span class="k">Evaluación final · 3 min</span></div>
+  {leccion5_c()}
+</div></section>
+</main>
+'''
+    write("/", head_c("Jorge Delgado Aguilera · Diseño de materiales educativos digitales",
+                      "Cómo diseño materiales que hacen pensar: un curso de 12 minutos en cinco lecciones cortas, con una actividad ramificada y una evaluación final que haces tú.", "/")
+          + cab("indice", subrayar=False) + body + pie_c(guino=True, margen=False))
+
+
+# Lección 4 de la portada: textos redactados a partir de la página del Repositorio digital (data.py) y del CV
+CODE_C = {
+    "intro": "El centro lo presentó en el IX Congreso Internacional de Creatividad Educativa (Valencia, abril de 2025) como herramienta de autoformación del profesorado.",
+    "1": "La Dirección quería impulsar la digitalización del centro y ayudar a la autoformación del profesorado de Infantil, Primaria y Secundaria.",
+    "2": "Tras entrevistar a la Dirección y a los docentes, seleccioné las herramientas y les di a todas la misma ficha: videotutorial, qué es, usos en el aula y etapa.",
+    "3": "Dos años después lo revisé: muchas herramientas habían cerrado o cambiado. Por eso en 2026 lo he rehecho como Didákora.",
+    "4": "Comprobado: el claustro lo usó para autoformarse y unificó el criterio para elegir herramientas. Pendiente: no tengo datos de uso.",
+}
+TESTIMONIO_C = "Quiero expresarte mi agradecimiento por el excelente trabajo que has realizado al crear la nueva web de recursos TIC para nuestro colegio. Estoy seguro de que esta herramienta será de gran valor para nuestros estudiantes y docentes."
+
+
 if __name__ == "__main__":
-    home()
+    home_c()
     index()
     for p in P:
         if not p.get("ext"):

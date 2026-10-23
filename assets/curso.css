@@ -1,0 +1,58 @@
+/* Rediseño de octubre de 2026: el porfolio como curso (maquetas 1-home … 5-contacto del brief).
+   Las reglas de la maqueta van tal cual; el marcado de cada página copia sus estilos en línea.
+   Su bloque para móvil va al final: en la maqueta iba delante y las reglas de escritorio lo anulaban. */
+
+body{margin:0;background:#F2F4F9;color:#061033;font-family:"Alegreya Sans","Gill Sans",system-ui,sans-serif;font-size:17px;line-height:1.5}
+a{color:#061033}
+.serif{font-family:"Bricolage Grotesque",system-ui,sans-serif;font-weight:800;letter-spacing:-.03em;line-height:.96;margin:0}
+.wrap{max-width:1140px;margin:0 auto;padding:0 40px}
+.ficha{background:#fff;border:1px solid #061033;box-shadow:5px 5px 0 #9FB3FF;padding:26px;text-decoration:none;color:#061033;display:flex;flex-direction:column;gap:10px;box-sizing:border-box}
+.ficha h3{margin:0;font-family:"Bricolage Grotesque";font-weight:700;font-size:25px;line-height:1.08}
+.ficha p{margin:0;color:#5A6480;font-size:16px}
+.tipo{color:#A3322A;font-weight:600;font-size:14px}
+.estado{margin-top:auto;padding-top:14px;font-size:14px;font-weight:500;color:#5E7D3A;display:flex;align-items:center;gap:8px}
+.estado i{width:8px;height:8px;border-radius:50%;background:#5E7D3A;display:inline-block}
+.btn{display:inline-block;background:#061033;color:#fff;padding:14px 26px;font-weight:700;text-decoration:none;border-radius:999px}
+.btn.o{background:none;color:#061033;border:1.5px solid #061033}
+.lab{font-weight:600;font-size:14px;color:#A3322A;margin:0}
+.k{font-weight:600;font-size:14px;color:#5A6480}
+.lesson{display:grid;grid-template-columns:200px 1fr;gap:40px;padding:64px 0;border-top:1px solid #061033}
+.lesson .num{display:flex;flex-direction:column;gap:8px}
+.lesson .num b{font-family:"Bricolage Grotesque";font-weight:800;font-size:54px;line-height:1;letter-spacing:-.03em}
+.obj{background:#fff;border:1px solid #E1E6F0;border-left:4px solid #A3322A;padding:14px 18px;font-size:16px;margin:0 0 26px}
+.next{display:flex;justify-content:flex-end;margin-top:28px}
+.opt{border:1.5px solid #061033;padding:16px 18px;background:#fff;font-weight:500;display:flex;gap:12px;align-items:flex-start}
+.opt span{width:26px;height:26px;border-radius:50%;border:1.5px solid #061033;display:inline-flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;flex:none}
+.fb{background:#DCE7D0;border:1px solid #5E7D3A;padding:14px 18px;font-size:16px}
+
+/* Lo que la maqueta no necesita por ser una imagen fija */
+.skip{position:absolute;left:12px;top:-60px;z-index:100;background:#061033;color:#fff;padding:10px 16px;font-weight:700;text-decoration:none}
+.skip:focus{top:12px}
+.barra{position:sticky;top:0;z-index:10;height:6px;background:#E1E6F0}
+.barra>div{width:0;height:100%;background:#A3322A;transition:width .2s}
+@media (prefers-reduced-motion:reduce){.barra>div{transition:none}}
+.idx a{color:inherit;text-decoration:none}
+.idx a:hover{text-decoration:underline}
+/* actividad ramificada: la opción elegida se pone en navy y aparece su feedback */
+button.opt{font:inherit;font-weight:500;color:#061033;text-align:left;cursor:pointer;line-height:1.5}
+button.opt[aria-pressed="true"]{background:#061033;color:#fff}
+button.opt[aria-pressed="true"] span{border-color:#fff;background:#fff;color:#061033}
+.fb[hidden]{display:none}
+/* menú plegado en móvil */
+.menu-b{display:none;font:inherit;font-weight:700;background:none;border:1.5px solid #061033;border-radius:999px;padding:6px 14px;color:#061033;cursor:pointer}
+@media (max-width:900px){
+ header.cab{flex-wrap:wrap;height:auto!important;padding-top:14px;padding-bottom:14px;gap:10px}
+ header.cab #prog{order:3;width:100%}
+ header.cab .seg{width:24px!important}
+ .menu-b{display:inline-block}
+ header.cab.abierto nav{display:flex!important;order:4;width:100%;flex-direction:column;gap:10px!important}
+ footer.wrap{flex-direction:column;gap:8px;padding:24px 16px!important}
+ .lesson>*,.wrap>*{min-width:0}
+ .next{flex-wrap:wrap;gap:14px}
+ .lesson h2.serif{font-size:36px!important}
+}
+
+/* móvil: el bloque de la maqueta, más los márgenes de las secciones con padding en línea */
+@media (max-width:900px){.wrap{padding:0 16px}.lesson{grid-template-columns:1fr;gap:16px;padding:40px 0}[style*="grid-template-columns:1.1fr .9fr"]{grid-template-columns:1fr!important}[style*="grid-template-columns:repeat(2,1fr)"],[style*="grid-template-columns:repeat(3,1fr)"],[style*="grid-template-columns:repeat(4,1fr)"],[style*="grid-template-columns:200px 1fr"],[style*="grid-template-columns:1fr 1fr"]{grid-template-columns:1fr!important}h1.serif{font-size:48px!important}header nav{display:none}}
+@media (max-width:900px){section.wrap[style*="padding:80px 40px"]{padding:48px 16px 40px!important;gap:40px!important}section>.wrap[style*="padding:64px 40px"]{padding:40px 16px!important;gap:16px!important}}
+@media (max-width:900px){header.cab nav{display:none!important}header.cab.abierto nav{display:flex!important}#leccion-4 blockquote{font-size:21px!important}#leccion-5 [style*="margin-top:22px"]{flex-wrap:wrap}.btn{white-space:nowrap}}
