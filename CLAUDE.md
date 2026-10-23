@@ -4,6 +4,32 @@ Web estática publicada con GitHub Pages desde la rama `main` (hay `.nojekyll`: 
 Cada push a `main` se publica solo en 1-2 minutos. El Consejo de Clío vive en otro repositorio
 (`pasadoproximo/consejo-de-clio`) y se sirve en `/consejo-de-clio/`.
 
+## Rediseño de octubre de 2026: el porfolio como curso (rama `rediseno-2026-10`, sin publicar)
+
+**Manda sobre lo que diga el resto de este archivo.** El brief y las maquetas (`1-home` … `6-didakora`, PNG + HTML) están en
+`rediseno-porfolio-v3.zip`, en la carpeta de arriba. Las páginas deben ser **exactas a los PNG** (mismas medidas, textos y orden):
+se comparan con capturas a 1280 px (maqueta servida al lado) y se revisan a 390 px.
+Lo anterior queda en `_antes/`, en `main` y en las ramas `rediseno-2026-10-intento1` (maquetas v1) e `-intento2` (maquetas v2).
+
+- Plantillas nuevas en `build.py`, sección «CURSO»: `head_c`, `cab` (barra fina + cinco segmentos de progreso + menú Índice ·
+  Proyectos · Sobre mí · Contacto), `pie_c`, `home_c` (/), `lista_c` (/proyectos/), `ficha_c` (fichas con textos en `PAGINA` de
+  `data.py`), `sobre_c` (/sobre-mi/), `contacto_pag_c` (/contacto/). Estilos en `assets/curso.css`, scripts en `assets/curso.js`
+  (subir `CURSOV` si cambian). El marcado copia los estilos en línea de las maquetas; el bloque móvil de la maqueta va al
+  **final** del CSS (en la maqueta iba delante y las reglas de escritorio lo anulaban).
+- Las fichas de proyecto que aún no tienen sus textos en `PAGINA` siguen con la plantilla antigua (`project()`, `site.css`).
+- Pie: solo la línea «© 2026 Jorge Delgado Aguilera · Campanillas, Málaga» con el estilo de la maqueta (sin «¿Hablamos?»). En la
+  portada y en Contacto, el guiño «Curso completado al 100 % · Ya sabes qué hago».
+- Formulario «Contacta»: Formspree, ID `mljjerlq` (cuenta de Jorge).
+- Actividad de la portada: B en navy con feedback verde; A y C en rojo explicando por qué están mal (textos aprobados).
+- /proyectos/: 6 destacados y 9 en la tabla. «Mi parte»: Consejo «Diseño de los roles e instrucciones», Asistente
+  «Configuración, materiales y pruebas», Mantenimiento con agentes «Diseño del equipo y aprobación de cada cambio».
+  Años y herramientas de la tabla: los del repo, no los de la maqueta. «Verifica lo que dice la IA»: «Demo sin login», sin enlace
+  hasta que exista el curso.
+- Consejo de Clío: textos de Jorge de la v2, vídeo y PDF de la sesión real de Ucrania, capturas Arendt/Ibn Jaldún en «Comprobado»,
+  aviso «Contrasta siempre la información» antes de «Todas las fichas». Sin fragmento de instrucciones (Jorge: «de momento no»).
+- Sobre mí: hostelería «Ibis Málaga Centro, recepcionista» (desde 2015 en varias empresas); PROA+ 30 alumnos, de 4 a 7.
+- El correo no va en el hero (la maqueta no lo lleva).
+
 ## Estructura
 
 - `index.html`, `proyectos/index.html`, `proyectos/<slug>/index.html` → **generados**. No editarlos a mano.
