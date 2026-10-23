@@ -143,3 +143,4 @@ button.opt{transition:transform .18s ease,box-shadow .18s ease}
 button.opt:hover,button.opt:focus-visible{transform:translate(-3px,-3px);box-shadow:5px 5px 0 #9FB3FF}
 @media (prefers-reduced-motion:reduce){button.opt{transition:none}button.opt:hover,button.opt:focus-visible{transform:none}}
 .fija.sobre-oscuro header.cab{border-bottom-color:transparent!important}
+@media (min-width:901px){.paso>b+b{min-height:3em}}  /* títulos de los pasos a dos líneas: los textos empiezan a la misma altura (Jorge) */
