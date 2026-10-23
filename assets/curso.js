@@ -39,6 +39,14 @@
     }); });
   });
 
+  // Ventanas emergentes (<dialog>): se abren con [data-abre] y se cierran con [data-cierra], Esc o pulsando fuera
+  document.querySelectorAll('[data-abre]').forEach(function(b){ b.addEventListener('click',function(){
+    var d=document.getElementById(b.getAttribute('data-abre')); if(d && d.showModal) d.showModal();
+  }); });
+  document.querySelectorAll('dialog.pop').forEach(function(d){
+    d.addEventListener('click',function(e){ if(e.target===d || e.target.hasAttribute('data-cierra')) d.close(); });
+  });
+
   // Filtros de /proyectos/: ocultan fichas y filas de las demás categorías (sin JavaScript se ve todo)
   var fs=document.querySelectorAll('button.filter');
   fs.forEach(function(f){ f.addEventListener('click',function(){
