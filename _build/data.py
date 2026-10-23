@@ -689,6 +689,18 @@ for _x in BY["repositorio-digital"]["sections"]:
 _i = _DIDAKORA_ANTES.index('<div class="caja-demo">'); _v = _DIDAKORA_ANTES.index('<div class="dk-video">'); _m = _DIDAKORA_ANTES.index('<div class="dk-mas">')
 _TABLA = _DIDAKORA_ANTES[:_i]
 _ASI = re.sub(r"<h3>Así es Didákora</h3>", "", _DIDAKORA_ANTES[_i:_v]) + "</div>"
+# La tabla, al día con la lista de cambios de Didákora (CHANGES de tools.js, octubre de 2026): Body Maps y Popplet,
+# retiradas, con su alternativa, y CoSpaces Edu, que ahora se llama Delightex Edu
+_old = lambda img, n: f'<span class="upd-old"><img src="{img}" alt="" width="24" height="24" loading="lazy"><s>{n}</s></span>'
+_new = lambda img, n: f'<span class="upd-lg"><img src="{img}" alt="" width="24" height="24" loading="lazy"><span>{n}</span></span>'
+def _añade(t, ancla, html):
+    assert ancla in t, ancla
+    i = t.index(ancla); j = t.index("</span></div>", i)
+    return t[:j] + html + t[j:]
+_TABLA = _añade(_TABLA, "<s>Hablaconlahistoria</s>", _old("/herramientas/logos/bodymaps.png", "Body Maps") + _old("/herramientas/logos/popplet.png", "Popplet"))
+_TABLA = _añade(_TABLA, "Cada una tiene su alternativa", _new("/herramientas/logos/anatomy3d.png", "Anatomy 3D Atlas") + _new("/herramientas/logos/mindomo.png", "Mindomo"))
+_TABLA = _añade(_TABLA, "<s>Freepik</s>", _old("/herramientas/logos/cospaces.png", "CoSpaces Edu"))
+_TABLA = _añade(_TABLA, "Con su nombre actual", _new("/assets/tools/delightex.png", "Delightex Edu"))
 P.append(dict(
     slug="didakora", cat="profesorado", year="2026", title="Didákora", tags=["Web de recursos", "Docentes"], kind="caso",
     card="120 herramientas digitales para docentes, revisadas a mano.",
@@ -698,11 +710,11 @@ P.append(dict(
     links=[("Abrir Didákora", "https://pasadoproximo.github.io/didakora/", "ext"), ("Ver el Monasterio", "/proyectos/monasterio-didakora/", "int")],
     sections=[
         ("La necesidad", '<p class="psub">La tecnología educativa evoluciona muy rápido: dos años después, muchas herramientas habían cerrado o cambiado. '
-                         'Didákora es la actualización del repositorio digital que creé en 2024 para el Colegio Cerrado de Calderón, que el centro presentó '
-                         'en el IX Congreso Internacional de Creatividad Educativa (Braining, Valencia, 2025).</p>'
+                         'Didákora es la actualización del <a href="/proyectos/repositorio-digital/">repositorio digital</a> que creé en 2024 para el Colegio Cerrado de Calderón, que el centro presentó '
+                         'en el <a href="https://colegiocerradodecalderon.es/braining/" rel="noopener" target="_blank">IX Congreso Internacional de Creatividad Educativa</a> (Braining, Valencia, 2025).</p>'
                          '<ul class="needs three"><li><b>Qué hice</b><span>La actualización del repositorio de 2024 como web propia, con buscador y diez categorías.</span></li>'
                          '<li><b>Cómo lo hice</b><span>Sustituyendo lo que había cerrado y revisando cada ficha con sus fuentes oficiales.</span></li>'
-                         '<li><b>Para qué lo hice</b><span>Para tener las herramientas al día sin tener que buscarlas una a una.</span></li></ul>'),
+                         '<li><b>Para qué lo hice</b><span>Para ofrecer un recurso que agilice la búsqueda de herramientas digitales y aportar mi conocimiento sobre ellas.</span></li></ul>'),
         ("Cómo funciona", _ASI),
         ("Qué cambió desde 2024", _TABLA),
         ("Lo que puedo afirmar", '<div class="status"><div class="s-ok"><span class="st-l ok">Comprobado</span><p>Las 120 fichas están revisadas a mano y fechadas: octubre de 2026.</p></div>'
