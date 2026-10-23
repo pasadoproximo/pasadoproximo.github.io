@@ -22,7 +22,8 @@ Lo anterior queda en `_antes/`, en `main` y en las ramas `rediseno-2026-10-inten
   generado con `_build/extraer_piezas.py`: no editar a mano) y la estética nueva encima (`assets/curso-fichas.css`), más
   `site.js`. «Lo que hice yo» en las de IA (`CON_IA`) con «[texto de Jorge]» hasta que Jorge dé los textos; al tenerlos, pasar
   el proyecto a `PAGINA`. Sin bloque visual propio (llevan `<!-- TODO visual -->`): Monasterio (su vídeo está en «Cómo
-  funciona»), Asistente, Repositorio digital y e-Portfolio. `project()` queda como plantilla anterior.
+  funciona»), Asistente, Repositorio digital y e-Portfolio: ya tienen vídeo con la plantilla (`VIDEO_FICHA`, `ficha.webm`); el
+  vídeo antiguo del Monasterio (con música) sale de «Cómo funciona». `project()` queda como plantilla anterior.
 - Pie: solo la línea «© 2026 Jorge Delgado Aguilera · Campanillas, Málaga» con el estilo de la maqueta (sin «¿Hablamos?»). En la
   portada y en Contacto, el guiño «Curso completado al 100 % · Ya sabes qué hago».
 - Formulario «Contacta»: Formspree, ID `mljjerlq` (cuenta de Jorge).
@@ -37,7 +38,9 @@ Lo anterior queda en `_antes/`, en `main` y en las ramas `rediseno-2026-10-inten
 - El correo no va en el hero (la maqueta no lo lleva).
 - **Vídeos de proyecto: todos con la estética del del Consejo de Clío** (aprobada por Jorge el 23-10-2026). Plantilla en
   `_build/plantilla-video/` (añadir el proyecto a `P` en su script; en modo `grabar=1` la ficha central carga la grabación) y
-  ejemplo de grabación en `_build/grabar_consejo_plantilla.js`. Reglas:
+  ejemplo de grabación en `_build/grabar_consejo_plantilla.js`; los demás, con `_build/grabar_ficha.js` (un guion por proyecto;
+  el Monasterio necesita su `servidor.py` en el 8020 y va a ×1,5; Repositorio y e-Portfolio, capturas de Google Sites con
+  `_build/capturar_sites.js`, fuera de git). Textos del cierre: `proyectos.js`, generado por `build.py`. Reglas:
   - Fondo navy `#061033` en todo el vídeo; barra roja fina arriba que avanza con el vídeo y se pone verde en el cierre.
   - Intro de 2 s: etiqueta «Ficha de trabajo · [proyecto]» en sky, título Bricolage 800 en blanco, subtítulo (el de su página)
     en `#E6EBF8`, firma «Jorge Delgado Aguilera · pasadoproximo.github.io».

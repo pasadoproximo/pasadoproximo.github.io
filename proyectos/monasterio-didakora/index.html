@@ -11,9 +11,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&display=swap">
-<link rel="stylesheet" href="/assets/curso.css?v=31">
-<link rel="stylesheet" href="/assets/curso-fichas-base.css?v=31">
-<link rel="stylesheet" href="/assets/curso-fichas.css?v=31">
+<link rel="stylesheet" href="/assets/curso.css?v=33">
+<link rel="stylesheet" href="/assets/curso-fichas-base.css?v=33">
+<link rel="stylesheet" href="/assets/curso-fichas.css?v=33">
 </head><body class="p-ficha p-auto">
 <a class="skip" href="#contenido">Saltar al contenido</a>
 <div class="fija">
@@ -45,7 +45,7 @@
   <div class="ficha" style="min-height:0;display:grid;grid-template-columns:1fr 1fr;gap:12px 32px"><p style="color:#061033"><b>Diseñé</b> los cinco monjes (rastrear, coordinar, administrar, auditar y optimizar) y la interfaz.</p><p style="color:#061033"><b>Decidí</b> qué se aprueba, se edita o se rechaza en cada pergamino y cuándo sale a la web.</p><p style="color:#061033"><b>Probé</b> cuatro ciclos reales: diecisiete cambios en Didákora, todos revisados por el Auditor.</p><p style="color:#061033"><b>Corregí</b> el equipo con las propuestas de Fray Ambrosio: apliqué diez de once.</p></div>
 </section>
 <div class="wrap pbody-c caso">
-<!-- TODO visual -->
+<section class="psec vis-f" style="display:grid;grid-template-columns:minmax(0,760px);justify-content:center;gap:28px;align-items:center"><div class="vid"><video src="/assets/proyectos/monasterio-didakora/ficha.webm?v=1" poster="/assets/proyectos/monasterio-didakora/ficha-poster.jpg?v=1" muted playsinline preload="metadata" aria-label="Vídeo, recreación con los datos reales de un ciclo: toco la campana, Fray Gaspar busca novedades y Fray Anselmo prepara propuestas; las apruebo en el tablón; Fray Bartolomé cambia la web y Fray Custodio la revisa; en el Libro del Abad, el antes y el después" style="width:100%;height:auto;display:block;border:1px solid #061033"></video><button type="button" class="btn vid-b">▶&nbsp; Ver el vídeo · 30 s</button></div></section>
  <section class="psec rv"><h2>Lo que puedo afirmar</h2>
 <div class="status four">
 <div class="s-ok"><span class="st-l ok">Comprobado</span><p>Cuatro ciclos completos en octubre de 2026: diecisiete cambios en Didákora, entre ellos tres herramientas nuevas y el aviso de la guía de protección de datos del INTEF en doce fichas. Todos, revisados por el Auditor.</p></div>
@@ -78,28 +78,11 @@
 <li><b>Ellos lo hacen y lo revisan</b><span>Fray Bartolomé cambia la web y Fray Custodio la revisa, también en el móvil.</span></li>
 <li><b>Yo publico</b><span>Veo el antes y el después de cada cambio en el Libro del Abad y decido cuándo sale a la web.</span></li>
 </ol>
-<div class="dk-video mo-vid">
-<video src="/assets/proyectos/monasterio-didakora/monasterio.webm?v=2" poster="/assets/proyectos/monasterio-didakora/monasterio-video.jpg?v=2" width="1264" height="712" muted loop playsinline preload="metadata" aria-label="Vídeo, recreación con los datos reales de un ciclo: suena la campana y los monjes trabajan en sus salas; Fray Gaspar cuenta lo que encontró; en el tablón se aprueban EduGems y Doc to Form Quiz Maker; Fray Bartolomé cambia la web; Fray Custodio enseña su revisión y las capturas del móvil; el Libro del Abad muestra el antes y el después"></video>
-<audio src="/assets/proyectos/monasterio-didakora/musica.wav?v=1" loop preload="none"></audio>
-<button type="button" class="dk-son" aria-pressed="false" aria-label="Activar la música"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="i-alt" d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z"/><path class="i-on" d="M15.5 9a4 4 0 0 1 0 6M18 6.5a7.5 7.5 0 0 1 0 11"/><path class="i-off" d="m16 9.5 5 5M21 9.5l-5 5"/></svg></button>
-<button type="button" class="dk-play" aria-label="Pausar el vídeo"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="i-pause" d="M9 6v12M15 6v12"/><path class="i-play" d="M8 5.5v13l11-6.5z"/></svg></button>
-<script>(()=>{const w=document.currentScript.parentElement,v=w.querySelector("video"),b=w.querySelector(".dk-play");
-const set=on=>{w.classList.toggle("paused",!on);b.setAttribute("aria-label",on?"Pausar el vídeo":"Reproducir el vídeo");};
-b.addEventListener("click",()=>{if(v.paused){v.play();set(true);}else{v.pause();set(false);}});
-const a=w.querySelector("audio"),s=w.querySelector(".dk-son");let on=false,ult=0;
-const pinta=()=>{s.setAttribute("aria-pressed",on);s.setAttribute("aria-label",on?"Silenciar la música":"Activar la música");};
-const suena=()=>{if(!on||v.paused)return;a.play().catch(()=>{const go=e=>{if(e.target.closest&&e.target.closest(".dk-son"))return;quita();if(on&&!v.paused)a.play().catch(()=>{});};const quita=()=>{document.removeEventListener("pointerdown",go,true);document.removeEventListener("keydown",go,true);};document.addEventListener("pointerdown",go,true);document.addEventListener("keydown",go,true);});};
-s.addEventListener("click",()=>{if(on&&a.paused&&!v.paused){a.play().catch(()=>{});return;}on=!on;pinta();on?suena():a.pause();});
-v.addEventListener("play",suena);v.addEventListener("pause",()=>a.pause());
-v.addEventListener("timeupdate",()=>{if(v.currentTime<ult-1){a.currentTime=0;}ult=v.currentTime;});
-// arranca al verse en pantalla, salvo si el sistema pide reducir el movimiento
-if(matchMedia("(prefers-reduced-motion: reduce)").matches){set(false);return;}
-new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting&&!w.classList.contains("paused"))v.play().catch(()=>set(false));else if(!e.isIntersecting)v.pause();}),{threshold:.3}).observe(v);})();</script>
-</div></section>
+</section>
 </div>
 <section class="wrap" style="padding:40px 40px 0"><div class="next" style="justify-content:space-between"><a href="/proyectos/" style="font-weight:700;border-bottom:2px solid #A3322A;text-decoration:none;padding-bottom:2px">Todas las fichas</a><a class="btn" href="/proyectos/cazadores-de-bulos/">Siguiente ficha: Cazadores de bulos históricos</a></div></section>
 </main>
 <footer class="wrap" style="padding:28px 40px;border-top:1px solid #061033;display:flex;justify-content:space-between;color:#5A6480;font-size:15px;margin-top:72px"><span>© 2026 Jorge Delgado Aguilera · Campanillas, Málaga</span></footer>
-<script src="/assets/curso.js?v=31" defer></script>
+<script src="/assets/curso.js?v=33" defer></script>
 <script src="/assets/site.js?v=117" defer></script>
 </body></html>

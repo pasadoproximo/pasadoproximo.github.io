@@ -80,6 +80,8 @@ body{display:grid;place-items:center;min-height:100vh;overflow:hidden}
 .f169 .rotulo{left:0;right:0;margin:0 auto;width:fit-content;bottom:40px;text-align:center}
 .f916 .rotulo{top:auto;bottom:120px;left:0;right:0;margin:0 auto;width:fit-content;max-width:940px;text-align:center}
 .rotulo{box-shadow:6px 6px 0 #9FB3FF}
+/* en el monasterio los diálogos del juego salen abajo: el cartel va arriba, centrado, para no taparlos */
+.monasterio .cuerpo .rotulo{bottom:auto!important;top:64px}
 /* 9:16: la sesión como en un móvil (540 px) y ampliada al doble, para que se lea en el teléfono */
 .f916 .cuerpo .marco iframe{width:540px!important;height:957px!important;transform:scale(2);transform-origin:0 0}
 /* fondo navy, como el botón, para que el vídeo contraste en la página (Jorge); carteles y fichas, igual.
@@ -98,6 +100,11 @@ body{display:grid;place-items:center;min-height:100vh;overflow:hidden}
 .mini .lab{color:#9FB3FF!important}
 .mini-pie{position:absolute;left:0;right:0;bottom:64px;margin:0;color:#B8C2DE;font-weight:600;font-size:24px}
 .f916 .mini{padding-top:420px;gap:30px}.f916 .mini .lab{font-size:36px}.f916 .mini h1{font-size:130px;color:#fff}.f916 .mini-pie{font-size:36px;bottom:200px}
+/* capturas que se desplazan (Google Sites no deja incrustarse), fundido para los cortes de escena y cierre con 4 o 5 filas */
+.tira{position:absolute;inset:0;overflow:hidden}.cuerpo .marco .tira img{width:100%;height:auto!important;object-fit:initial;display:block;will-change:transform}
+#fd{position:absolute;inset:0;background:#061033;opacity:0;transition:opacity .25s ease;pointer-events:none}#fd.on{opacity:1}
+.f169.muchas .cierre{gap:14px;padding-top:64px}.f169.muchas .cierre h2{font-size:54px}.f169.muchas .fila{padding:10px 0;font-size:21px}.f169.muchas .fila span{font-size:17px}
+.f916.muchas .fila{padding:22px 0;font-size:36px}
 </style></head><body>
 <div class="esc"><div class="v" id="v">
   <div class="barra"><i id="bar"></i></div>
@@ -119,7 +126,7 @@ body{display:grid;place-items:center;min-height:100vh;overflow:hidden}
   <section class="pant mini" data-s="miniatura">
     <p class="lab" data-t="lab"></p>
     <h1 class="serif" data-t="titulo"></h1>
-    <p class="mini-pie">Una sesión real · 1.º Bachillerato · 30 s</p>
+    <p class="mini-pie"></p>
   </section>
 
   <section class="pant cierre" data-s="cierre">
@@ -129,27 +136,51 @@ body{display:grid;place-items:center;min-height:100vh;overflow:hidden}
     <div class="firma"><b>Jorge Delgado Aguilera</b><span>pasadoproximo.github.io</span></div>
   </section>
 </div></div>
+<script src="proyectos.js"></script>
 <script>
-// Textos de cada proyecto: los de su página (data.py). El rótulo es uno de los del vídeo actual.
-var P = {
-  "consejo-de-clio": {
-    lab: "Ficha de trabajo · El Consejo de Clío",
-    titulo: "El Consejo de Clío",
-    sub: "Seis agentes de IA preparan una sesión a partir de una noticia. El docente la contrasta antes de llevarla al aula.",
-    rot_lab: "3 · Ibn Jaldún revisa",
-    rot: "Ibn Jaldún lo corrige. En 1991 decidieron las repúblicas",
-    afirmar: [["Comprobado", "#A8C686", "Ibn Jaldún ha detectado varios fallos en las numerosas pruebas que he realizado."],
-              ["En uso", "#F2A196", "Recurso abierto a disposición de los docentes."],
-              ["Pendiente", "#B8C2DE", "Medir si las sesiones ahorran tiempo real y cuántos errores deja pasar el revisor."]]
-  }
+// Textos de cada ficha (título, subtítulo, «Lo que puedo afirmar»): proyectos.js, generado por build.py desde data.py.
+// Aquí, de dónde sale la imagen de cada vídeo y la línea de su miniatura.
+var CSS_NAVY = "body{background:#061033!important}";
+var FUENTES = {
+  "consejo-de-clio": { src: "../consejo-sesion/", mini: "Una sesión real · 1.º Bachillerato · 30 s",
+    // fichas de la sesión en crema suave, para que el cartel blanco destaque encima (Jorge: «sin pasarte»)
+    css: ":root{--surface:#FBF6E8!important;--bg:#F3EDDC!important}" + CSS_NAVY + "header .header-top,header h1,.autor strong,.acta-head h2,.separador span{color:#fff!important}" +
+         ".eyebrow,.autor,.lede,.acta-head .badge,.separador small{color:#B8C2DE!important}.separador{border-top-color:rgba(159,179,255,.35)!important}",
+    rot_lab: "3 · Ibn Jaldún revisa", rot: "Ibn Jaldún lo corrige. En 1991 decidieron las repúblicas" },
+  // el monasterio es local y privado: grabar con la carpeta «El pasado próximo» servida en el 8020
+  "monasterio-didakora": { src: "../../../didakora/agentes/monasterio/?demo=2026-10-21-3", mini: "Recreación con datos reales · 30 s",
+    rot_lab: "Recreación con datos reales", rot: "Fray Gaspar <b>busca novedades</b> en las fuentes" },
+  // los cuatro chats de prueba de su ficha, solos y grandes sobre navy
+  "asistente-gpt-2eso": { src: "../../proyectos/asistente-gpt-2eso/", mini: "Cuatro comportamientos probados · 30 s",
+    css: CSS_NAVY + ".fija,footer,main>section,.botones-f,.psec:not(:has(.beh)),.psec:has(.beh)>h2,.psec:has(.beh)>.psub{display:none!important}" +
+         ".pbody-c{max-width:none!important;padding:0!important}.psec:has(.beh){padding:60px 0 400px!important}" +
+         ".psec:has(.beh){display:block!important}.beh{display:flex!important;flex-direction:column!important;gap:80px!important;width:640px;margin:0 auto!important;zoom:1.45}" +
+         ".beh-i h3{color:#fff!important;font-size:22px!important}.bchat{min-height:0!important}",
+    css916: ".beh{width:500px!important;zoom:1!important}",  // en vertical, a lo ancho del móvil
+    rot_lab: "Guía, no resuelve", rot: "Ayuda con la actividad, <b>pero no la hace por el alumno</b>" },
+  // Google Sites no deja incrustarse: capturas reales de página completa (capturas/<proyecto>/), que se desplazan
+  "repositorio-digital": { imgs: "capturas/repositorio-digital/", mini: "El repositorio de 2024 · 30 s",
+    rot_lab: "El repositorio de 2024", rot: "Una web de recursos para todo el claustro" },
+  "e-portfolio-master": { imgs: "capturas/e-portfolio-master/", mini: "Los cinco módulos del máster · 30 s",
+    rot_lab: "Módulos 1 y 4", rot: "Diseño de materiales digitales",
+    // no tiene «Lo que puedo afirmar»: el cierre resume qué se puede ver en él (textos de su ficha)
+    cierre: { titulo: "Qué puedes ver en él", filas: [
+      ["Módulos 1 y 4", "#9FB3FF", "Diseño de materiales digitales"], ["Módulos 2 y 3", "#9FB3FF", "Búsqueda y curación de información"],
+      ["Módulo 3", "#9FB3FF", "Trabajo colaborativo"], ["Módulo 5", "#9FB3FF", "Evaluación digital"],
+      ["Todos los módulos", "#9FB3FF", "Reflexión sobre la práctica"]] } }
 };
-var q = new URLSearchParams(location.search), f = q.get("f") === "916" ? "916" : "169", d = P[q.get("p") || "consejo-de-clio"];
-var v = document.getElementById("v"); v.className = "v f" + f;
-document.querySelectorAll("[data-t]").forEach(function (e) { e.textContent = d[e.getAttribute("data-t")]; });
+var q = new URLSearchParams(location.search), f = q.get("f") === "916" ? "916" : "169", clave = q.get("p") || "consejo-de-clio";
+var d = Object.assign({}, window.PROYECTOS[clave], FUENTES[clave] || {});
+var v = document.getElementById("v"); v.className = "v f" + f + (clave === "monasterio-didakora" ? " monasterio" : "");
+document.querySelectorAll("[data-t]").forEach(function (e) { e.innerHTML = d[e.getAttribute("data-t")] || ""; });
+document.querySelector(".mini-pie").textContent = d.mini || "";
 document.getElementById("muestra").src = "muestra-" + f + ".jpg";
-document.getElementById("filas").innerHTML = d.afirmar.map(function (a) {
+var fin = d.cierre || { titulo: "Lo que puedo afirmar", filas: d.afirmar };
+document.querySelector(".cierre h2").textContent = fin.titulo;
+document.getElementById("filas").innerHTML = fin.filas.map(function (a) {
   return '<div class="fila"><span style="color:' + a[1] + '">' + a[0] + '</span><div>' + a[2] + '</div></div>';
 }).join("");
+if (fin.filas.length > 3) v.classList.add("muchas");
 var PROG = { intro: 6, cuerpo: 55, cierre: 100, miniatura: 0 };
 function ir(s) {
   document.querySelectorAll(".pant").forEach(function (p) { p.classList.toggle("on", p.getAttribute("data-s") === s); });
@@ -164,27 +195,38 @@ function encaja() {
 }
 addEventListener("resize", encaja); encaja();
 if (q.get("grabar")) {
-  // modo de grabación: la sesión real en la ficha central y control desde fuera
-  var m = document.querySelector(".marco"); m.innerHTML = '<iframe src="/_build/consejo-sesion/" title="Sesión real del Consejo de Clío"></iframe>';
-  m.querySelector("iframe").addEventListener("load", function () {
-    var st = this.contentDocument.createElement("style");
-    // fichas de la sesión en crema suave, para que el cartel blanco destaque encima (Jorge: «sin pasarte»)
-    st.textContent = ":root{--surface:#FBF6E8!important;--bg:#F3EDDC!important}body{background:#061033!important}header .header-top,header h1,.autor strong,.acta-head h2,.separador span{color:#fff!important}" +
-      ".eyebrow,.autor,.lede,.acta-head .badge,.separador small{color:#B8C2DE!important}.separador{border-top-color:rgba(159,179,255,.35)!important}";
-    this.contentDocument.head.appendChild(st);
-  });
+  // modo de grabación: la fuente en la ficha central (a pantalla completa) y control desde fuera
+  var m = document.querySelector(".marco"), ifr = null;
+  if (d.src) {
+    m.innerHTML = '<iframe src="' + d.src + '" title="' + d.titulo + '"></iframe>'; ifr = m.querySelector("iframe");
+    // CSS que se añade a la web cargada: el de cada proyecto (y el de su 9:16) y, siempre, sin la barra de Agentation (solo local)
+    var css = (d.css || "") + (f === "916" ? d.css916 || "" : "") + "agentation-toolbar{display:none!important}";
+    ifr.addEventListener("load", function () { var st = this.contentDocument.createElement("style"); st.textContent = css; this.contentDocument.head.appendChild(st); });
+  } else if (d.imgs) {
+    m.innerHTML = '<div class="tira"><img id="ti" alt=""></div>';
+  }
+  m.insertAdjacentHTML("beforeend", '<div id="fd"></div>');
   var rot = document.querySelector(".rotulo"), rl = rot.querySelector(".lab"), rt = rot.querySelector("p:not(.lab)");
   window.__ir = ir;
   window.__bar = function (pct, ms) { var b = document.getElementById("bar"); b.style.transition = "width " + (ms || 600) + "ms linear"; b.style.width = pct + "%"; };
   window.__cap = function (lab, html) { return new Promise(function (r) {
     var show = function () { if (html) { rl.textContent = lab; rt.innerHTML = html; rot.classList.remove("off"); } r(); };
     if (!rot.classList.contains("off")) { rot.classList.add("off"); setTimeout(show, 380); } else show(); }); };
-  // desplazamiento suave dentro de la sesión hasta un elemento (con su margen arriba), en ms
+  window.__fundido = function (on) { document.getElementById("fd").classList.toggle("on", !!on); };
+  var ease = function (t) { return t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2; };
+  // desplazamiento suave dentro de la web cargada hasta un elemento (con su margen arriba), en ms
   window.__scroll = function (sel, ms, arriba) { return new Promise(function (r) {
-    var w = m.querySelector("iframe").contentWindow, doc = w.document, el = typeof sel === "number" ? null : doc.querySelector(sel);
+    var w = ifr.contentWindow, doc = w.document, el = typeof sel === "number" ? null : doc.querySelector(sel);
     var y0 = w.scrollY, y1 = Math.max(0, Math.min(doc.documentElement.scrollHeight - w.innerHeight, el ? el.getBoundingClientRect().top + w.scrollY - (arriba || 0) : sel));
-    var t0 = performance.now(), ease = function (t) { return t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2; };
+    var t0 = performance.now();
     (function paso(now) { var t = Math.min(1, (now - t0) / ms); w.scrollTo(0, y0 + (y1 - y0) * ease(t)); t < 1 ? requestAnimationFrame(paso) : r(); })(t0);
+  }); };
+  // capturas: cambiar de imagen y desplazarla (px desde arriba, o "fin"), en ms
+  window.__img = function (n) { return new Promise(function (r) { var im = document.getElementById("ti"); im.onload = function () { r(); };
+    im.style.transform = "translateY(0)"; im.dataset.y = 0; im.src = d.imgs + n + "-" + f + ".jpg"; }); };
+  window.__desliza = function (y, ms) { return new Promise(function (r) {
+    var im = document.getElementById("ti"), alto = m.clientHeight, max = Math.max(0, im.clientHeight - alto), y1 = Math.min(max, y === "fin" ? max : y), y0 = +im.dataset.y || 0, t0 = performance.now();
+    (function paso(now) { var t = Math.min(1, (now - t0) / ms), yy = y0 + (y1 - y0) * ease(t); im.style.transform = "translateY(" + (-yy) + "px)"; im.dataset.y = yy; t < 1 ? requestAnimationFrame(paso) : r(); })(t0);
   }); };
   rot.classList.add("off"); document.getElementById("bar").style.transition = "none"; ir("intro");
 } else if (q.get("s")) { document.querySelectorAll(".pant").forEach(function (p) { p.style.transition = "none"; }); document.getElementById("bar").style.transition = "none"; ir(q.get("s")); }

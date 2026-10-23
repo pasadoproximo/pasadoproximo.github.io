@@ -67,4 +67,4 @@
 })();
 
 // Agentation (anotar la página para Claude Code): solo en local; agentation-local.js no se sube (.gitignore)
-if(["127.0.0.1","localhost"].includes(location.hostname))import("/agentation-local.js").catch(function(){});
+if(["127.0.0.1","localhost"].includes(location.hostname) && window.self===window.top)import("/agentation-local.js").catch(function(){});  /* no dentro de la plantilla de vídeo */

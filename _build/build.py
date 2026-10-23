@@ -422,7 +422,7 @@ def project(p):
 # El porfolio como curso de cinco lecciones. Marcado y estilos copiados de las maquetas del brief
 # (1-home.html … 5-contacto.html): las reglas comunes en assets/curso.css, el resto en línea como en ellas.
 # Lo anterior (home(), index(), project()) se conserva para poder recuperar piezas.
-CURSOV = "31"
+CURSOV = "33"
 FONTS_C = '''<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&display=swap">'''
@@ -916,6 +916,26 @@ HICE = {
                  ("Decidí", "que sirviera para cualquier especialidad, cambiando los temas y las bolas."),
                  ("Mantuve", "los datos en el navegador: no se pide nada.")],
 }
+# Vídeos de las fichas sin bloque visual propio, grabados con la plantilla (_build/grabar_ficha.js): (vídeo, póster, descripción)
+VIDEO_FICHA = {
+    "monasterio-didakora": ("/assets/proyectos/monasterio-didakora/ficha.webm?v=1", "/assets/proyectos/monasterio-didakora/ficha-poster.jpg?v=1",
+                            "Vídeo, recreación con los datos reales de un ciclo: toco la campana, Fray Gaspar busca novedades y Fray Anselmo prepara propuestas; las apruebo en el tablón; Fray Bartolomé cambia la web y Fray Custodio la revisa; en el Libro del Abad, el antes y el después"),
+    "asistente-gpt-2eso": ("/assets/proyectos/asistente-gpt-2eso/ficha.webm?v=1", "/assets/proyectos/asistente-gpt-2eso/ficha-poster.jpg?v=1",
+                           "Vídeo de los cuatro comportamientos probados del asistente: guía, no resuelve; cita la unidad; avisa si es IA; corrige el repaso"),
+    "repositorio-digital": ("/assets/proyectos/repositorio-digital/ficha.webm?v=1", "/assets/proyectos/repositorio-digital/ficha-poster.jpg?v=1",
+                            "Vídeo del repositorio de 2024 en Google Sites: la portada, las etapas y las fichas de herramientas de Infantil y de Sociales"),
+    "e-portfolio-master": ("/assets/proyectos/e-portfolio-master/ficha.webm?v=1", "/assets/proyectos/e-portfolio-master/ficha-poster.jpg?v=1",
+                           "Vídeo del e-Portfolio del máster: la portada y los cinco módulos"),
+}
+
+
+def video_c(src, poster, alt):
+    """Reproductor de las fichas (como el del Consejo): miniatura navy y botón blanco encima; los controles, al pulsar."""
+    return (f'<div class="vid"><video src="{src}" poster="{poster}" muted playsinline preload="metadata" aria-label="{html.escape(alt)}" '
+            f'style="width:100%;height:auto;display:block;border:1px solid #061033"></video>'
+            f'<button type="button" class="btn vid-b">▶&nbsp; Ver el vídeo · 30 s</button></div>')
+
+
 MIGAS_C = {"profesorado": "Formación", "herramientas": "Herramientas", "aula": "Actividades"}
 TIPO_EXTRA = {"el-bombo": "Herramienta", "e-portfolio-master": "Formación"}
 
@@ -960,7 +980,19 @@ def ficha_auto(p):
     ext = ' rel="noopener" target="_blank"'
     botones = "".join(f'<a class="btn{" o" if i else ""}" style="text-align:center" href="{h}"{"" if h.startswith("/") else ext}{" download" if k == "dl" else ""}>{l}</a>'
                       for i, (l, h, k) in enumerate(p.get("links", [])))
-    if visual:
+    if slug in VIDEO_FICHA:
+        # vídeo con la plantilla, con los botones al lado (como el Consejo); el vídeo antiguo de «Cómo funciona» sale
+        lado = f'<div style="display:flex;flex-direction:column;gap:12px;justify-content:center">{botones}</div>' if botones else ""
+        rejilla = "7fr 5fr" if botones else "minmax(0,760px);justify-content:center"  # sin botones: del mismo ancho que los demás, centrado
+        bloque_visual = (f'\n<section class="psec vis-f" style="display:grid;grid-template-columns:{rejilla};gap:28px;align-items:center">'
+                         f'{video_c(*VIDEO_FICHA[slug])}{lado}</section>')
+        for k, x in enumerate(secs):
+            if isinstance(x, tuple) and '<div class="dk-video mo-vid">' in x[1]:
+                h = x[1]; i = h.index('<div class="dk-video mo-vid">')
+                secs[k] = (x[0], h[:i] + h[i + len(balanced(h, i, "div")):])
+        if visual:
+            secs.insert(0, visual)
+    elif visual:
         bloque_visual = render_section(visual)
         if botones:
             bloque_visual += f'\n<div class="botones-f">{botones}</div>'
@@ -1005,7 +1037,32 @@ CODE_C = {  # textos de Jorge (notas del 23-10-2026), ajustados a una longitud p
 TESTIMONIO_C = "Quiero expresarte mi agradecimiento por el excelente trabajo que has realizado al crear la nueva web de recursos TIC para nuestro colegio. Estoy seguro de que esta herramienta será de gran valor para nuestros estudiantes y docentes."
 
 
+def proyectos_video():
+    """_build/plantilla-video/proyectos.js: título, subtítulo y «Lo que puedo afirmar» de cada ficha, tal cual (para los vídeos)."""
+    import json
+    COLOR = {"ok": "#A8C686", "exp": "#F2A196", "pend": "#B8C2DE"}  # verde, rojo y gris claros: se leen sobre el navy
+    out = {}
+    for p in P:
+        if p.get("ext"):
+            continue
+        slug, d = p["slug"], PAGINA.get(p["slug"])
+        titulo = re.sub("<[^>]+>", "", p["h1"] if slug == "asistente-gpt-2eso" else p["title"])  # el título completo de su ficha
+        sub = d["sub"] if d else SUB_BRIEF.get(slug, p["lede"])
+        if d:
+            col = {"Comprobado": "ok", "En uso": "exp", "Pendiente": "pend"}
+            afirmar = [[t, COLOR[col.get(t, "exp")], x] for t, x in d["afirmar"]]
+        else:
+            st = next((x[1] for x in p.get("sections", []) if isinstance(x, tuple) and x[0] == "Lo que puedo afirmar"), "")
+            afirmar = [[re.sub("<[^>]+>", "", t), COLOR[c], re.sub(r"\s*Ver la noticia\.$", "", re.sub("<[^>]+>", "", x).strip())]  # en vídeo no hay enlace
+                       for c, t, x in re.findall(r'<div class="s-(ok|exp|pend)"><span class="st-l \w+">(.*?)</span><p>(.*?)</p>', st, re.S)]
+        out[slug] = {"lab": f"Ficha de trabajo · {titulo}", "titulo": titulo, "sub": re.sub("<[^>]+>", "", sub), "afirmar": afirmar}
+    open(os.path.join(ROOT, "_build/plantilla-video/proyectos.js"), "w", encoding="utf-8").write(
+        "// GENERADO por _build/build.py (proyectos_video): textos de cada ficha para la plantilla de vídeo. No editar a mano.\n"
+        "window.PROYECTOS = " + json.dumps(out, ensure_ascii=False, indent=1) + ";\n")
+
+
 if __name__ == "__main__":
+    proyectos_video()
     home_c()
     lista_c()
     sobre_c()

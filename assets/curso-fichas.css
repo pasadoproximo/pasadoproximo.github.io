@@ -48,3 +48,4 @@
 .p-ficha .caso .status .st-l.ok,.p-ficha .status .st-l.ok{color:#5E7D3A!important}
 .p-ficha .caso .status .st-l.exp,.p-ficha .status .st-l.exp{color:#A3322A!important}
 .p-ficha .caso .status .st-l.pend,.p-ficha .status .st-l.pend{color:#5A6480!important}
+@media (max-width:900px){.p-ficha .vis-f{grid-template-columns:1fr!important}}
