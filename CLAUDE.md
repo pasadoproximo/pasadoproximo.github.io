@@ -36,6 +36,9 @@ Lo anterior queda en `_antes/`, en `main` y en las ramas `rediseno-2026-10-inten
   aviso «Contrasta siempre la información» antes de «Todas las fichas». Sin fragmento de instrucciones (Jorge: «de momento no»).
 - Sobre mí: hostelería «Ibis Málaga Centro, recepcionista» (desde 2015 en varias empresas); PROA+ 30 alumnos, de 4 a 7.
 - El correo no va en el hero (la maqueta no lo lleva).
+- Repositorio digital: de Didákora solo queda el párrafo de «Mantenerlo al día» con «Abrir Didákora» y «Ver el Monasterio»
+  (Jorge: Didákora ya tiene su sitio). Sin tabla de antes y ahora, sin «Así es Didákora» ni su vídeo (`didakora.webm` ya no
+  se usa en el rediseño; se conserva para `_antes/`). Se cambia al final de `data.py`.
 - **Vídeos de proyecto: todos con la estética del del Consejo de Clío** (aprobada por Jorge el 23-10-2026). Plantilla en
   `_build/plantilla-video/` (añadir el proyecto a `P` en su script; en modo `grabar=1` la ficha central carga la grabación) y
   ejemplo de grabación en `_build/grabar_consejo_plantilla.js`; los demás, con `_build/grabar_ficha.js` (un guion por proyecto;

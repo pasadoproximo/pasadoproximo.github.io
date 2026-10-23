@@ -670,3 +670,12 @@ PAGINA = {
         siguiente=("Cazadores de bulos", "cazadores-de-bulos"),
     ),
 }
+
+# Repositorio digital: de Didákora, solo el párrafo de «Mantenerlo al día» y dos botones (Jorge, 23-10-2026: Didákora ya
+# tiene su sitio). La tabla de antes y ahora, «Así es Didákora» con su vídeo y «Cómo se mantiene al día» siguen arriba en
+# este archivo, en _antes/ y en git, por si se quieren recuperar.
+for _x in BY["repositorio-digital"]["sections"]:
+    if isinstance(_x, dict) and _x.get("title") == "Mantenerlo al día":
+        _x["after"] = ('<p class="dk-botones" style="display:flex;gap:12px;flex-wrap:wrap;margin-top:18px">'
+                       '<a class="btn" href="/didakora/">Abrir Didákora</a>'
+                       '<a class="btn o" href="/proyectos/monasterio-didakora/">Ver el Monasterio</a></p>')
