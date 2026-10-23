@@ -887,6 +887,10 @@ SUB_BRIEF = {  # titulares del brief (2.5), con punto en vez de «;» como pidi�
 }
 # «Lo que hice yo» de cada proyecto con IA: textos elegidos por Jorge (23-10-2026). Los que faltan salen con [texto de Jorge].
 HICE = {
+    "didakora": [("Rehice", "el repositorio de 2024 como una web propia, con buscador y diez categorías."),
+                 ("Revisé", "a mano cada herramienta: para qué sirve, si pide cuenta, edad mínima y que funcione bien."),
+                 ("Quité", "las que habían cerrado y busqué una alternativa para cada una."),
+                 ("Publico", "solo lo que he comprobado: los agentes del Monasterio solo proponen.")],
     "monasterio-didakora": [("Diseñé", "los cinco monjes (rastrear, coordinar, administrar, auditar y optimizar) y la interfaz."),
                             ("Decidí", "qué se aprueba, se edita o se rechaza en cada pergamino y cuándo sale a la web."),
                             ("Probé", "cuatro ciclos reales: diecisiete cambios en Didákora, todos revisados por el Auditor."),

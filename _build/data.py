@@ -702,7 +702,9 @@ P.append(dict(
                          'en el IX Congreso Internacional de Creatividad Educativa (Braining, Valencia, 2025).</p>'),
         ("Cómo funciona", _ASI),
         ("Qué cambió desde 2024", _TABLA),
-        ("Lo que puedo afirmar", "[texto de Jorge]"),
+        ("Lo que puedo afirmar", '<div class="status"><div class="s-ok"><span class="st-l ok">Comprobado</span><p>Las 121 fichas están revisadas a mano y fechadas: octubre de 2026.</p></div>'
+                                 '<div class="s-exp"><span class="st-l exp">En uso</span><p>Publicada y abierta a cualquier docente, sin registro.</p></div>'
+                                 '<div class="s-pend"><span class="st-l pend">Pendiente</span><p>Medir cuánto se usa: todavía no tengo datos de visitas.</p></div></div>'),
     ],
     related=["repositorio-digital", "monasterio-didakora", "audita-tu-programacion"],
 ))
