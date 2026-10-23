@@ -163,5 +163,11 @@ window.PROYECTOS = {
   "titulo": "e-Portfolio del máster",
   "sub": "El portfolio que hice durante el Máster en Tecnología Educativa y Competencias Digitales (Universidad Europea, 2023-2024). Reúne los trabajos de los cinco módulos y, en cada uno, lo que aprendí.",
   "afirmar": []
+ },
+ "didakora": {
+  "lab": "Ficha de trabajo · Didákora",
+  "titulo": "Didákora",
+  "sub": "121 herramientas digitales para docentes, revisadas a mano, con su ficha y su fecha.",
+  "afirmar": []
  }
 };

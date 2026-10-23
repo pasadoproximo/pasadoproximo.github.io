@@ -1,3 +1,4 @@
+import re
 # Contenido de los proyectos del portfolio.
 # Todo sale de los materiales reales (PDF, TFM, webs publicadas). No se inventan resultados.
 
@@ -676,6 +677,33 @@ PAGINA = {
 # este archivo, en _antes/ y en git, por si se quieren recuperar.
 for _x in BY["repositorio-digital"]["sections"]:
     if isinstance(_x, dict) and _x.get("title") == "Mantenerlo al día":
+        _DIDAKORA_ANTES = _x["after"]  # lo de Didákora pasa a su propia ficha (abajo)
         _x["after"] = ('<p class="dk-botones" style="display:flex;gap:12px;flex-wrap:wrap;margin-top:18px">'
                        '<a class="btn" href="/didakora/">Abrir Didákora</a>'
                        '<a class="btn o" href="/proyectos/monasterio-didakora/">Ver el Monasterio</a></p>')
+
+
+# ---------------------------------------------------------------- Didákora, con su propia ficha (Jorge, 23-10-2026)
+# Con los bloques que estaban en el Repositorio digital (la tabla de antes y ahora, «Así es Didákora» y el Monasterio) y los
+# textos de la web de Didákora («Sobre mí» y la autoría). «Lo que hice yo» y «Lo que puedo afirmar», con las palabras de Jorge.
+_i = _DIDAKORA_ANTES.index('<div class="caja-demo">'); _v = _DIDAKORA_ANTES.index('<div class="dk-video">'); _m = _DIDAKORA_ANTES.index('<div class="dk-mas">')
+_TABLA = _DIDAKORA_ANTES[:_i]
+_ASI = re.sub(r"<h3>Así es Didákora</h3>", "", _DIDAKORA_ANTES[_i:_v]) + "</div>"
+P.append(dict(
+    slug="didakora", cat="profesorado", year="2026", title="Didákora", tags=["Web de recursos", "Docentes"], kind="caso",
+    card="121 herramientas digitales para docentes, revisadas a mano.",
+    lede="121 herramientas digitales para docentes, revisadas a mano, con su ficha y su fecha.",
+    meta=[("Para quién", "Docentes de Infantil, Primaria y Secundaria y Bachillerato"), ("Tipo", "Web de recursos"),
+          ("Herramientas", "Web propia"), ("Estado", "Publicada · actualizada en octubre de 2026")],
+    links=[("Abrir Didákora", "https://pasadoproximo.github.io/didakora/", "ext"), ("Ver el Monasterio", "/proyectos/monasterio-didakora/", "int")],
+    sections=[
+        ("La necesidad", '<p class="psub">La tecnología educativa evoluciona muy rápido: dos años después, muchas herramientas habían cerrado o cambiado. '
+                         'Didákora es la actualización del repositorio digital que creé en 2024 para el Colegio Cerrado de Calderón, que el centro presentó '
+                         'en el IX Congreso Internacional de Creatividad Educativa (Braining, Valencia, 2025).</p>'),
+        ("Cómo funciona", _ASI),
+        ("Qué cambió desde 2024", _TABLA),
+        ("Lo que puedo afirmar", "[texto de Jorge]"),
+    ],
+    related=["repositorio-digital", "monasterio-didakora", "audita-tu-programacion"],
+))
+BY["didakora"] = P[-1]
