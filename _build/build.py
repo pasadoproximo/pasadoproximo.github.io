@@ -422,7 +422,7 @@ def project(p):
 # El porfolio como curso de cinco lecciones. Marcado y estilos copiados de las maquetas del brief
 # (1-home.html … 5-contacto.html): las reglas comunes en assets/curso.css, el resto en línea como en ellas.
 # Lo anterior (home(), index(), project()) se conserva para poder recuperar piezas.
-CURSOV = "25"
+CURSOV = "26"
 FONTS_C = '''<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&display=swap">'''
@@ -653,6 +653,19 @@ def lista_c():
     filas = "".join(f'<tr data-cat="{cat}"><td><a href="{url(BY[s])}">{tit}</a></td><td>{tipo}</td><td>{herr}</td><td>{ano}</td></tr>'
                     for s, cat, tit, tipo, herr, ano in tabla)
     fichas_html = "\n      ".join(fichas)
+    # subtítulos que cambian con el filtro (Jorge): cuántos destacados y cuántos «otros» hay en cada opción
+    NUM = {1: "uno", 2: "dos", 3: "tres", 4: "cuatro", 5: "cinco", 6: "seis", 7: "siete", 8: "ocho", 9: "nueve"}
+    NOMBRE = {"profesorado": "formación", "herramientas": "herramientas", "aula": "actividades"}
+    def txt_dest(k):
+        n = len(FICHA_LISTA) if k == "todos" else sum(c == k for _, c, *_ in FICHA_LISTA)
+        de = "" if k == "todos" else f" de {NOMBRE[k]}"
+        return f"El{de} que mejor muestra lo que hago" if n == 1 else f"Los {NUM[n]}{de} que mejor muestran lo que hago"
+    def txt_otros(k):
+        n = len(TABLA_LISTA) if k == "todos" else sum(c == k for _, c, *_ in TABLA_LISTA)
+        return "Uno más" if n == 1 else f"{NUM[n].capitalize()} más, en orden cronológico"
+    claves = ["todos", "profesorado", "herramientas", "aula"]
+    attr_dest = " ".join(f'data-t-{k}="{txt_dest(k)}"' for k in claves)
+    attr_otros = " ".join(f'data-t-{k}="{txt_otros(k)}"' for k in claves)
     cats = [c for _, c, *_ in FICHA_LISTA] + [c for _, c, *_ in TABLA_LISTA]
     fil = "".join(f'<button type="button" class="filter{" on" if k == "todos" else ""}" data-cat="{k}" aria-pressed="{str(k == "todos").lower()}">{n}</button>'
                   for k, n in [("todos", "Todos"), ("profesorado", "Formación"), ("herramientas", "Herramientas"), ("aula", "Actividades")])
@@ -663,11 +676,11 @@ def lista_c():
   <div>
     <h1 class="serif" style="font-size:64px;margin-bottom:18px">Todas las fichas de trabajo</h1>
     <p class="obj"><b>Objetivo:</b> al terminar podrás elegir el proyecto que más se parezca a lo que necesitas y ver qué hice yo en él.</p>
-    <div class="rule"><h2 class="serif" style="font-size:32px;font-weight:700">Destacados</h2><span class="k">Los seis que mejor muestran lo que hago</span></div>
+    <div class="rule"><h2 class="serif" style="font-size:32px;font-weight:700">Destacados</h2><span class="k sub-f" {attr_dest}>{txt_dest("todos")}</span></div>
     <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:28px;padding:24px 6px 10px 0">
       {fichas_html}
     </div>
-    <div class="rule" id="otros" style="margin-top:40px"><h2 class="serif" style="font-size:32px;font-weight:700">Otros proyectos</h2><span class="k">Nueve más, en orden cronológico</span></div>
+    <div class="rule" id="otros" style="margin-top:40px"><h2 class="serif" style="font-size:32px;font-weight:700">Otros proyectos</h2><span class="k sub-f" {attr_otros}>{txt_otros("todos")}</span></div>
     <table style="margin-top:10px"><thead><tr><th scope="col">Proyecto</th><th scope="col">Tipo</th><th scope="col">Herramienta</th><th scope="col">Año</th></tr></thead><tbody>{filas}</tbody></table>
     <div class="next"><a class="btn" href="/#leccion-3">Volver al curso: lección 3</a></div>
   </div>

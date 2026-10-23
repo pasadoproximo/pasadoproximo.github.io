@@ -62,6 +62,7 @@
     var c=f.getAttribute('data-cat');
     fs.forEach(function(x){ x.classList.toggle('on',x===f); x.setAttribute('aria-pressed',x===f); });
     document.querySelectorAll('main [data-cat]:not(button)').forEach(function(el){ el.hidden = c!=='todos' && el.getAttribute('data-cat')!==c; });
+    document.querySelectorAll('.sub-f').forEach(function(el){ el.textContent = el.getAttribute('data-t-'+c); });  /* subtítulos según el filtro */
   }); });
 })();
 
