@@ -422,7 +422,7 @@ def project(p):
 # El porfolio como curso de cinco lecciones. Marcado y estilos copiados de las maquetas del brief
 # (1-home.html … 5-contacto.html): las reglas comunes en assets/curso.css, el resto en línea como en ellas.
 # Lo anterior (home(), index(), project()) se conserva para poder recuperar piezas.
-CURSOV = "11"
+CURSOV = "13"
 FONTS_C = '''<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&display=swap">'''
@@ -456,7 +456,8 @@ NAV_C = [("/", "Índice", "indice"), ("/proyectos/", "Proyectos", "proyectos"), 
 
 
 def cab(active="", leccion=1, completo=False, subrayar=True, etiqueta="", texto=""):
-    """Cabecera fija al bajar, con la barra roja de progreso debajo (Jorge, 23-10-2026: sin los cinco segmentos, solo
+    """Barra roja de progreso a todo el ancho arriba (como en la maqueta) y la cabecera debajo; las dos bajan con la página
+    (Jorge, 23-10-2026: sin los cinco segmentos, solo
     «Lección X de 5 · Y %»). En la portada el script cambia el rótulo según la lección; en las interiores, fijo."""
     if completo:
         lbl = '<span class="k" id="proglbl" style="color:#5E7D3A">Curso completado · 100 %</span>'
@@ -473,7 +474,8 @@ def cab(active="", leccion=1, completo=False, subrayar=True, etiqueta="", texto=
     nav = "".join(a(*n) for n in NAV_C)
     return f'''
 <div class="fija">
-<header class="wrap cab" style="display:flex;justify-content:space-between;align-items:center;height:74px">
+<div class="barra" aria-hidden="true"><div></div></div>
+<header class="wrap cab" style="display:flex;justify-content:space-between;align-items:center;height:74px;border-bottom:1px solid #061033">
   <a href="/" style="font-family:'Bricolage Grotesque';font-weight:800;font-size:22px;letter-spacing:-.01em;text-decoration:none">Jorge Delgado Aguilera</a>
   <button type="button" class="menu-b" aria-expanded="false" aria-controls="menu">Menú</button>
   <div id="prog" style="display:flex;align-items:center;gap:14px" aria-label="Progreso del curso">
@@ -481,7 +483,6 @@ def cab(active="", leccion=1, completo=False, subrayar=True, etiqueta="", texto=
   </div>
   <nav id="menu" aria-label="Principal" style="display:flex;gap:30px;font-weight:500">{nav}</nav>
 </header>
-<div class="barra" aria-hidden="true"><div></div></div>
 </div>
 '''
 

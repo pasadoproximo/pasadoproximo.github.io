@@ -127,12 +127,10 @@ button.filter.on{background:#061033;color:#fff}
 @media (max-width:900px){.p-contacto h1.serif{font-size:48px!important}.p-contacto .lesson{padding:40px 0}}
 
 /* ---------- Notas de Jorge en Agentation (23-10-2026) */
-/* cabecera fija al bajar, con la barra roja de progreso debajo; la línea navy pasa a ser el fondo de la barra */
-.fija{position:sticky;top:0;z-index:20;background:#F2F4F9;max-width:1220px;margin:0 auto}  /* solo el ancho del contenido: por los lados se ve la página */
-/* la barra, del ancho del contenido (1220 px como la línea de antes), encima de la línea navy */
-.fija .barra{position:static;max-width:1220px;margin:0 auto 3px}
-/* cabecera más baja (56 px) y un hueco de 3 px entre la barra de progreso y la línea navy (Jorge) */
-.fija{border-bottom:1px solid #061033}
+/* barra de progreso arriba a todo el ancho y cabecera debajo: bajan juntas con la página */
+.fija{position:sticky;top:0;z-index:20;background:#F2F4F9}  /* fondo a todo el ancho (Jorge: los lados tapados); barra y línea, al del contenido */
+.fija .barra{position:static}
+/* cabecera más baja (56 px), Jorge */
 @media (min-width:901px){.fija header.cab{height:56px!important}}
 .barra>div{transition:width .2s,background-color .3s}
 main [id]{scroll-margin-top:96px}

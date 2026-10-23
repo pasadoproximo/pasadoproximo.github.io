@@ -11,8 +11,8 @@ Cada push a `main` se publica solo en 1-2 minutos. El Consejo de Clío vive en o
 se comparan con capturas a 1280 px (maqueta servida al lado) y se revisan a 390 px.
 Lo anterior queda en `_antes/`, en `main` y en las ramas `rediseno-2026-10-intento1` (maquetas v1) e `-intento2` (maquetas v2).
 
-- Plantillas nuevas en `build.py`, sección «CURSO»: `head_c`, `cab` (barra fina + cinco segmentos de progreso + menú Índice ·
-  Proyectos · Sobre mí · Contacto), `pie_c`, `home_c` (/), `lista_c` (/proyectos/), `ficha_c` (fichas con textos en `PAGINA` de
+- Plantillas nuevas en `build.py`, sección «CURSO»: `head_c`, `cab` (barra roja de progreso a todo el ancho arriba, verde al 100 %, y debajo la cabecera de 56 px con «Lección X de 5 · Y %», sin segmentos, y el menú Índice ·
+  Proyectos · Sobre mí · Contacto; las dos bajan fijas con la página), `pie_c`, `home_c` (/), `lista_c` (/proyectos/), `ficha_c` (fichas con textos en `PAGINA` de
   `data.py`), `sobre_c` (/sobre-mi/), `contacto_pag_c` (/contacto/). Estilos en `assets/curso.css`, scripts en `assets/curso.js`
   (subir `CURSOV` si cambian). El marcado copia los estilos en línea de las maquetas; el bloque móvil de la maqueta va al
   **final** del CSS (en la maqueta iba delante y las reglas de escritorio lo anulaban).
