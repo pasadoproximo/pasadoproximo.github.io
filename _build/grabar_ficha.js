@@ -15,7 +15,7 @@ const fs = require("fs"), path = require("path");
 const [PROY, FMT, OUT] = [process.argv[2], process.argv[3] === "916" ? "916" : "169", process.argv[4]];
 const [W, H] = FMT === "916" ? [1080, 1920] : [1280, 720];
 // el monasterio necesita la carpeta «El pasado próximo» (8020); el resto, el repo servido en el 8000 (sus rutas /assets/…)
-const BASE = PROY === "monasterio-didakora" ? "http://127.0.0.1:8020/pasadoproximo.github.io" : "http://localhost:8000";
+const BASE = ["monasterio-didakora", "didakora"].includes(PROY) ? "http://127.0.0.1:8020/pasadoproximo.github.io" : "http://localhost:8000";
 const URL = `${BASE}/_build/plantilla-video/?f=${FMT}&p=${PROY}&grabar=1`;
 
 // Guiones: qué se ve y qué dice cada cartel. Los textos salen de la ficha del proyecto (data.py), sin inventar nada.
@@ -55,6 +55,19 @@ const GUIONES = {
     await wait(2600);
     await tecla("Escape"); await wait(200);
     await cap("Recreación con datos reales", "<b>Nada se publica sin mí</b>"); await wait(2000);
+  },
+  // Didákora: portada con la autoría → buscar por lo que se quiere hacer → resultados → una ficha con su fecha y su fuente
+  "didakora": async ({ cap, wait, frame, sc, page }) => {
+    const fundido = async fn => { await page.evaluate(() => window.__fundido(true)); await wait(260); await fn(); await page.evaluate(() => window.__fundido(false)); };
+    await cap("La portada", "<b>120 herramientas</b>, revisadas a mano por mí"); await wait(3600);
+    await cap("Buscar", "Por el nombre o <b>por lo que quieres hacer</b>");
+    await frame.click("#hq"); await wait(300); await frame.type("#hq", "repasar", { delay: 140 }); await wait(700);
+    await fundido(async () => { await Promise.all([frame.waitForNavigation({ waitUntil: "load" }), frame.press("#hq", "Enter")]); await wait(500); });
+    await cap("Los resultados", "Ordenados por relevancia y <b>filtrables por etapa</b>"); await wait(1200); await sc(420, 2400); await wait(1400);
+    await fundido(async () => { await Promise.all([frame.waitForNavigation({ waitUntil: "load" }), frame.evaluate(() => { location.href = (window.DK_BASE || "/didakora") + "/notebooklm/"; })]); await wait(600); });
+    await cap("Cada ficha", "Qué es, <b>para qué usarla</b> y qué necesita"); await wait(2600);
+    await sc(".fq", 2000, 90); await cap("Ficha rápida", "Etapa, dispositivos, cuenta y <b>la fecha de revisión</b>"); await wait(3400);
+    await sc(0, 1400); await cap("Afirmaciones con fuente", "Lo que puede cambiar, <b>con su enlace oficial y la fecha</b>"); await wait(3600);
   },
   // Los cuatro comportamientos configurados y probados (los chats de su ficha)
   "asistente-gpt-2eso": async ({ cap, wait, sc }) => {

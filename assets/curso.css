@@ -160,7 +160,7 @@ dialog.pop::backdrop{background:rgba(6,16,51,.55)}
 /* vídeo de la ficha: botón píldora encima hasta que se pulsa */
 .vid{position:relative;align-self:center}
 .vid-b{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);border:none;font:inherit;font-weight:700;cursor:pointer;background:#fff;color:#061033}  /* blanco sobre la miniatura navy */
-.vid-b[hidden]{display:none}
+.vid-b[hidden]{display:none!important}  /* por encima de .p-ficha .btn de las fichas automáticas */
 /* /proyectos/: filtros en la columna izquierda, en vertical, a la altura de la primera tarjeta (Jorge) */
 .filtros{display:flex;flex-direction:column;align-items:stretch;width:133px;gap:10px;margin-top:110px}  /* = la primera tarjeta; el ancho del bloque de la lección («15 proyectos · 2024-2026») */
 .filtros .filter{text-align:left;font-size:16px;padding:11px 18px}
