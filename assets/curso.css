@@ -128,7 +128,7 @@ button.filter.on{background:#061033;color:#fff}
 
 /* ---------- Notas de Jorge en Agentation (23-10-2026) */
 /* cabecera fija al bajar, con la barra roja de progreso debajo; la línea navy pasa a ser el fondo de la barra */
-.fija{position:sticky;top:0;z-index:20;background:#F2F4F9}
+.fija{position:sticky;top:0;z-index:20;background:#F2F4F9;max-width:1220px;margin:0 auto}  /* solo el ancho del contenido: por los lados se ve la página */
 /* la barra, del ancho del contenido (1220 px como la línea de antes), encima de la línea navy */
 .fija .barra{position:static;max-width:1220px;margin:0 auto;box-sizing:border-box;border-bottom:1px solid #061033}
 .barra>div{transition:width .2s,background-color .3s}
@@ -137,7 +137,7 @@ main [id]{scroll-margin-top:96px}
 a.ficha{transition:transform .18s ease,box-shadow .18s ease}
 a.ficha:hover,a.ficha:focus-visible{transform:translate(-3px,-3px);box-shadow:8px 8px 0 #9FB3FF}
 @media (prefers-reduced-motion:reduce){a.ficha{transition:none}a.ficha:hover,a.ficha:focus-visible{transform:none}}
-/* opciones de la actividad y pasos de la lección 4: la misma animación que las fichas */
-button.opt,.paso{transition:transform .18s ease,box-shadow .18s ease}
-button.opt:hover,button.opt:focus-visible,.paso:hover{transform:translate(-3px,-3px);box-shadow:5px 5px 0 #9FB3FF}
-@media (prefers-reduced-motion:reduce){button.opt,.paso{transition:none}button.opt:hover,button.opt:focus-visible,.paso:hover{transform:none}}
+/* opciones de la actividad: la misma animación que las fichas (los pasos de la lección 4, sin animación: Jorge) */
+button.opt{transition:transform .18s ease,box-shadow .18s ease}
+button.opt:hover,button.opt:focus-visible{transform:translate(-3px,-3px);box-shadow:5px 5px 0 #9FB3FF}
+@media (prefers-reduced-motion:reduce){button.opt{transition:none}button.opt:hover,button.opt:focus-visible{transform:none}}
