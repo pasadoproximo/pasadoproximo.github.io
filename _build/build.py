@@ -911,6 +911,10 @@ HICE = {
                                ("Aproveché", "que NotebookLM cita el fragmento exacto para poder comprobar cada respuesta."),
                                ("Escribí", "los ocho prompts para copiarlos tal cual, cada uno con su nota."),
                                ("Puse", "la privacidad por delante: quitar el nombre y el DNI antes de subir el documento.")],
+    "el-bombo": [("Convertí", "la duda de cuántos temas preparar en una calculadora."),
+                 ("Diseñé", "tres vistas: el bombo, la cobertura y la curva."),
+                 ("Decidí", "que sirviera para cualquier especialidad, cambiando los temas y las bolas."),
+                 ("Mantuve", "los datos en el navegador: no se pide nada.")],
 }
 MIGAS_C = {"profesorado": "Formación", "herramientas": "Herramientas", "aula": "Actividades"}
 TIPO_EXTRA = {"el-bombo": "Herramienta", "e-portfolio-master": "Formación"}
