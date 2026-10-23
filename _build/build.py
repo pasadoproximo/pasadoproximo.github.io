@@ -619,7 +619,7 @@ def home_c():
 # y la tabla va de la más reciente a la más antigua, como dice su subtítulo.
 FICHA_LISTA = [
     # (slug o URL, categoría, tipo, título, descripción, mi parte, estado)
-    (None, "profesorado", "Curso", "Verifica lo que dice la IA", "Tres lecciones en Rise y una ramificación en Storyline. SCORM descargable.", "", "En construcción"),
+    (None, "profesorado", "Curso", "Verifica lo que dice la IA", "Tres lecciones en Rise y una ramificación en Storyline. SCORM descargable.", "", "Demo sin login"),  # sin enlace hasta que el curso exista: entonces, su URL en vez de None
     ("/didakora/", "profesorado", "Recurso", "Didákora", "121 herramientas revisadas a mano, con ficha y fecha.", "", "En uso"),
     ("consejo-de-clio", "herramientas", "Herramienta", "El Consejo de Clío", "Seis agentes preparan la sesión; el docente la contrasta.", "Diseño de los roles e instrucciones", "Comprobado"),
     ("asistente-gpt-2eso", "herramientas", "Herramienta", "Asistente de IA para 2.º ESO", "Un GPT que guía sin resolver y cita la unidad.", "Configuración, materiales y pruebas", "Pendiente de pilotar"),
