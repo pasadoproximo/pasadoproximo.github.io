@@ -422,7 +422,7 @@ def project(p):
 # El porfolio como curso de cinco lecciones. Marcado y estilos copiados de las maquetas del brief
 # (1-home.html … 5-contacto.html): las reglas comunes en assets/curso.css, el resto en línea como en ellas.
 # Lo anterior (home(), index(), project()) se conserva para poder recuperar piezas.
-CURSOV = "40"
+CURSOV = "41"
 FONTS_C = '''<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&display=swap">'''
@@ -758,9 +758,12 @@ def ficha_c(slug):
 <section class="wrap" style="padding:36px 40px 0;display:grid;grid-template-columns:repeat(4,1fr);gap:14px">
   {facts}
 </section>
-<section class="wrap" style="padding:56px 40px 0;display:grid;grid-template-columns:1fr 1fr;gap:60px">
-  <div><p class="lab">La necesidad</p><p style="margin:10px 0 0">{d["necesidad"]}</p></div>
-  <div><p class="lab" style="margin-bottom:10px">{d["pasos_titulo"]}</p>{pasos}</div>
+<section class="wrap" style="padding:56px 40px 0;display:flex;flex-direction:column;gap:18px">
+  <div class="rule"><h2 class="serif" style="font-size:36px;font-weight:700">La necesidad</h2></div>
+  <div class="nec2" style="display:grid;grid-template-columns:1fr 1fr;gap:60px">
+  <div><p style="margin:0">{d["necesidad"]}</p></div>
+  <div><h3 class="nec-h">{d["pasos_titulo"]}</h3>{pasos}</div>
+  </div>
 </section>
 <section class="wrap" style="padding:48px 40px 0;display:grid;grid-template-columns:7fr 5fr;gap:28px;align-items:stretch">
   {visual}
@@ -1012,11 +1015,13 @@ def ficha_auto(p):
     bloque_nec = ""
     if necesidad:
         h = necesidad[1]
-        parrafos = "".join(f'<p style="margin:10px 0 0">{t}</p>' for t in re.findall(r'<p class="psub">(.*?)</p>', h, re.S))
+        parrafos = "".join(f'<p style="margin:0 0 10px">{t}</p>' for t in re.findall(r'<p class="psub">(.*?)</p>', h, re.S))
         filas = "".join(f'<div class="step"><b>{a}</b><span>{b}</span></div>' for a, b in re.findall(r"<li><b>(.*?)</b><span>(.*?)</span></li>", h, re.S))
-        der = f'<div><p class="lab" style="margin-bottom:10px">Qué hice, cómo y para qué</p>{filas}</div>' if filas else ""
-        bloque_nec = (f'\n<section class="wrap" style="padding:56px 40px 0;display:grid;grid-template-columns:{"1fr 1fr" if filas else "1fr"};gap:60px">'
-                      f'<div><p class="lab">La necesidad</p>{parrafos}</div>{der}</section>')
+        der = f'<div><h3 class="nec-h">Qué hice, cómo y para qué</h3>{filas}</div>' if filas else ""
+        # títulos normales, como el resto de secciones (Jorge, 23-10-2026)
+        bloque_nec = (f'\n<section class="wrap" style="padding:56px 40px 0;display:flex;flex-direction:column;gap:18px">'
+                      f'<div class="rule"><h2 class="serif" style="font-size:36px;font-weight:700">La necesidad</h2></div>'
+                      f'<div class="nec2" style="display:grid;grid-template-columns:{"1fr 1fr" if filas else "1fr"};gap:60px"><div>{parrafos}</div>{der}</div></section>')
     pie_cuerpo = "".join(render_section(x) for x in secs) + (render_section(afirmar) if afirmar else "")
     lista = orden_fichas()
     i = [s_ for s_, _ in lista].index(slug)

@@ -180,3 +180,8 @@ dialog.pop::backdrop{background:rgba(6,16,51,.55)}
 .fbs{display:grid;margin-top:16px}
 .fbs .fb{grid-area:1/1;margin:0}
 .fbs .fb[hidden]{display:block!important;visibility:hidden}
+/* «La necesidad»: título normal de sección y el bloque de al lado con un subtítulo de verdad (Jorge) */
+.nec-h{margin:0 0 6px;font:700 22px/1.1 "Bricolage Grotesque",system-ui,sans-serif;letter-spacing:-.02em;color:#061033}
+.nec2 .step:first-of-type{border-top:0}
+@media (max-width:900px){.nec2{grid-template-columns:1fr!important;gap:28px!important}}
+.nec2>div:only-child{max-width:62ch}  /* sin columna derecha: el párrafo con un ancho de lectura */
