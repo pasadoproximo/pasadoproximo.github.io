@@ -60,3 +60,30 @@ button.opt[aria-pressed="true"] span{border-color:#fff;background:#fff;color:#06
 button.opt.mal[aria-pressed="true"]{background:#A3322A;border-color:#A3322A;color:#fff}
 button.opt.mal[aria-pressed="true"] span{color:#A3322A}
 .fb.mal{background:#F6E0DD;border-color:#A3322A}
+
+/* ---------- /proyectos/ (maqueta 2-proyectos): sus reglas propias, tal cual */
+.p-lista .ficha{padding:26px 26px 24px;position:relative;min-height:230px}
+.p-lista .ficha h3{font-family:"Bricolage Grotesque",system-ui,sans-serif;letter-spacing:-.01em}
+.ficha .mi{font-size:14px;color:#061033;border-top:1px solid #E1E6F0;padding-top:10px;margin-top:4px}
+.rule{border-bottom:1px solid #061033;padding-bottom:14px;display:flex;align-items:baseline;justify-content:space-between}
+.filter{display:inline-block;padding:9px 16px;border:1.5px solid #061033;border-radius:999px;font-weight:600;font-size:15px;text-decoration:none}
+.filter.on{background:#061033;color:#fff}
+.p-lista table{width:100%;border-collapse:collapse;font-size:16px}
+.p-lista th{text-align:left;font-weight:600;font-size:14px;color:#5A6480;padding:10px 12px 10px 0;border-bottom:1px solid #061033}
+.p-lista td{padding:14px 12px 14px 0;border-bottom:1px solid #E1E6F0}
+.lnum{display:flex;flex-direction:column;gap:8px}.lnum b{font-family:"Bricolage Grotesque";font-weight:800;font-size:54px;line-height:1;letter-spacing:-.03em}
+.p-lista .lesson{padding:56px 0;border-top:none}
+button.filter{font-family:inherit;line-height:1.5;color:#061033;background:none;cursor:pointer}
+button.filter.on{background:#061033;color:#fff}
+[data-cat][hidden]{display:none!important}
+@media (max-width:900px){
+ .p-lista h1.serif{font-size:44px!important}
+ .p-lista .lesson{padding:40px 0}
+ .rule{flex-direction:column;gap:4px}
+ .p-lista thead{display:none}
+ .p-lista tr{display:grid;grid-template-columns:1fr auto;border-bottom:1px solid #E1E6F0;padding:12px 0}
+ .p-lista td{border:none;padding:0}
+ .p-lista td:first-child{grid-column:1/-1;font-weight:500}
+ .p-lista td:nth-child(2),.p-lista td:nth-child(3){color:#5A6480;font-size:15px;grid-column:1;display:inline}
+ .p-lista td:nth-child(4){grid-row:2;grid-column:2;color:#5A6480;font-size:15px}
+}

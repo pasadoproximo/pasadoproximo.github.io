@@ -422,7 +422,7 @@ def project(p):
 # El porfolio como curso de cinco lecciones. Marcado y estilos copiados de las maquetas del brief
 # (1-home.html … 5-contacto.html): las reglas comunes en assets/curso.css, el resto en línea como en ellas.
 # Lo anterior (home(), index(), project()) se conserva para poder recuperar piezas.
-CURSOV = "2"
+CURSOV = "3"
 FONTS_C = '''<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&display=swap">'''
@@ -433,7 +433,7 @@ CV = "/assets/pdf/CV-Jorge-Delgado-Aguilera.pdf"
 FORMSPREE = "mljjerlq"  # formulario «Contacta» (cuenta de Jorge en formspree.io)
 
 
-def head_c(title, desc, path, og="/assets/og.jpg"):
+def head_c(title, desc, path, og="/assets/og.jpg", pagina=""):
     t = html.escape(title)
     d = html.escape(desc)
     return f'''<!doctype html><html lang="es"><head><meta charset="utf-8"><title>{t}</title><meta name="viewport" content="width=device-width,initial-scale=1">
@@ -448,14 +448,14 @@ def head_c(title, desc, path, og="/assets/og.jpg"):
 {FAVICON}
 {FONTS_C}
 <link rel="stylesheet" href="/assets/curso.css?v={CURSOV}">
-</head><body>
+</head><body{f' class="{pagina}"' if pagina else ""}>
 <a class="skip" href="#contenido">Saltar al contenido</a>'''
 
 
 NAV_C = [("/", "Índice", "indice"), ("/proyectos/", "Proyectos", "proyectos"), ("/sobre-mi/", "Sobre mí", "sobre"), ("/contacto/", "Contacto", "contacto")]
 
 
-def cab(active="", leccion=1, completo=False, subrayar=True):
+def cab(active="", leccion=1, completo=False, subrayar=True, etiqueta=""):
     """Barra de progreso + cabecera. En la portada el script cambia los segmentos; en las interiores, estado fijo."""
     def seg(i):
         c = "#5E7D3A" if completo or i < leccion else ("#A3322A" if i == leccion else "#E1E6F0")
@@ -463,7 +463,7 @@ def cab(active="", leccion=1, completo=False, subrayar=True):
     if completo:
         lbl = '<span class="k" id="proglbl" style="color:#5E7D3A">Curso completado · 100 %</span>'
     else:
-        lbl = f'<span class="k" id="proglbl">Lección {leccion} de 5 · {leccion * 20} %</span>'
+        lbl = f'<span class="k" id="proglbl">Lección {leccion} de 5 · {etiqueta or f"{leccion * 20} %"}</span>'
     def a(href, label, key):
         if key == active and not subrayar:  # la maqueta de la portada no subraya «Índice»
             return f'<a href="{href}" aria-current="page" style="text-decoration:none">{label}</a>'
@@ -614,6 +614,70 @@ def home_c():
           + cab("indice", subrayar=False) + body + pie_c(guino=True, margen=False))
 
 
+# /proyectos/ (maqueta 2-proyectos): 6 destacados en fichas y los otros 9 en una tabla, con filtros por categoría.
+# Textos y datos de la maqueta; «Mi parte» de los proyectos con IA, pendiente de Jorge.
+FICHA_LISTA = [
+    # (slug o URL, categoría, tipo, título, descripción, mi parte, estado)
+    (None, "profesorado", "Curso", "Verifica lo que dice la IA", "Tres lecciones en Rise y una ramificación en Storyline. SCORM descargable.", "", "En construcción"),
+    ("/didakora/", "profesorado", "Recurso", "Didákora", "121 herramientas revisadas a mano, con ficha y fecha.", "", "En uso"),
+    ("consejo-de-clio", "herramientas", "Herramienta", "El Consejo de Clío", "Seis agentes preparan la sesión; el docente la contrasta.", "[texto de Jorge]", "Comprobado"),
+    ("asistente-gpt-2eso", "herramientas", "Herramienta", "Asistente de IA para 2.º ESO", "Un GPT que guía sin resolver y cita la unidad.", "[texto de Jorge]", "Pendiente de pilotar"),
+    ("monasterio-didakora", "herramientas", "Proceso", "Mantenimiento con agentes", "Cinco agentes proponen cambios en Didákora; yo apruebo cada uno.", "[texto de Jorge]", "17 cambios en 4 ciclos"),
+    ("cazadores-de-bulos", "aula", "Actividad", "Cazadores de bulos históricos", "Nueve errores escondidos en un texto sobre Málaga en 1936.", "", "4.º ESO"),
+]
+TABLA_LISTA = [
+    # (slug, categoría, título, tipo, herramienta, año), en el orden de la maqueta
+    ("audita-tu-programacion", "profesorado", "Audita tu programación", "Formación", "NotebookLM", "2026"),
+    ("repositorio-digital", "profesorado", "Repositorio digital de centro", "Recurso", "Google Sites", "2024"),
+    ("constitucion-1812", "aula", "¿Fue liberal la Constitución de 1812?", "Actividad", "Hypothes.is", "2025"),
+    ("la-ia-tambien-miente", "aula", "La IA también miente", "Actividad", "Imagen con IA", "2026"),
+    ("la-nube-pesa", "aula", "La nube pesa", "Actividad", "Claude", "2026"),
+    ("mapa-de-relieves", "herramientas", "Mapa de relieves de la Península", "Herramienta", "Claude", "2026"),
+    ("rubrica-materiales-digitales", "profesorado", "Rúbrica de materiales digitales", "Formación", "Jotform", "2024"),
+    ("escape-room-siglo-xix", "aula", "Escape room del siglo XIX", "Actividad", "Genially", "2019"),
+    ("excursion-roma-3d", "aula", "Excursión a Roma en 3D", "Actividad", "CoSpaces", "2019"),
+]
+
+
+def lista_c():
+    def enlace(s):
+        return s if s.startswith("/") else url(BY[s])
+    fichas = []
+    for s, cat, tipo, tit, desc, mi, est in FICHA_LISTA:
+        dentro = (f'<span class="tipo">{tipo}</span><h3>{tit}</h3><p>{desc}</p>'
+                  + (f'<span class="mi">Mi parte: {mi}</span>' if mi else "")
+                  + f'<span class="estado"><i></i>{est}</span>')
+        fichas.append(f'<a class="ficha" data-cat="{cat}" href="{enlace(s)}">{dentro}</a>' if s else f'<div class="ficha" data-cat="{cat}">{dentro}</div>')
+    filas = "".join(f'<tr data-cat="{cat}"><td><a href="{url(BY[s])}">{tit}</a></td><td>{tipo}</td><td>{herr}</td><td>{ano}</td></tr>'
+                    for s, cat, tit, tipo, herr, ano in TABLA_LISTA)
+    fichas_html = "\n      ".join(fichas)
+    cats = [c for _, c, *_ in FICHA_LISTA] + [c for _, c, *_ in TABLA_LISTA]
+    fil = "".join(f'<button type="button" class="filter{" on" if k == "todos" else ""}" data-cat="{k}" aria-pressed="{str(k == "todos").lower()}">{n} · {len(cats) if k == "todos" else cats.count(k)}</button>'
+                  for k, n in [("todos", "Todos"), ("profesorado", "Formación"), ("herramientas", "Herramientas"), ("aula", "Actividades")])
+    body = f'''<main id="contenido">
+<section class="wrap"><div class="lesson">
+  <div class="lnum"><b>02</b><span class="k">Lección 2 · ampliación</span><span class="k">{len(cats)} proyectos · 2019-2026</span></div>
+  <div>
+    <h1 class="serif" style="font-size:64px;margin-bottom:18px">Todas las fichas de trabajo</h1>
+    <p class="obj"><b>Objetivo:</b> al terminar podrás elegir el proyecto que más se parezca a lo que necesitas y ver qué hice yo en él.</p>
+    <div class="filtros" role="group" aria-label="Filtrar por categoría" style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:30px">{fil}</div>
+    <div class="rule"><h2 class="serif" style="font-size:32px;font-weight:700">Destacados</h2><span class="k">Los seis que mejor muestran lo que hago</span></div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:28px;padding:24px 6px 10px 0">
+      {fichas_html}
+    </div>
+    <div class="rule" id="otros" style="margin-top:40px"><h2 class="serif" style="font-size:32px;font-weight:700">Otros proyectos</h2><span class="k">Nueve más, en orden cronológico</span></div>
+    <table style="margin-top:10px"><thead><tr><th scope="col">Proyecto</th><th scope="col">Tipo</th><th scope="col">Herramienta</th><th scope="col">Año</th></tr></thead><tbody>{filas}</tbody></table>
+    <div class="next"><a class="btn" href="/#leccion-3">Volver al curso: lección 3</a></div>
+  </div>
+</div></section>
+</main>
+'''
+    write("/proyectos/", head_c("Proyectos · Jorge Delgado Aguilera",
+                                "Herramientas con IA, actividades de aula y recursos para el profesorado diseñados por Jorge Delgado Aguilera, profesor de Geografía e Historia.",
+                                "/proyectos/", pagina="p-lista")
+          + cab("proyectos", leccion=2, etiqueta="ampliación") + body + pie_c())
+
+
 # Lección 4 de la portada: textos redactados a partir de la página del Repositorio digital (data.py) y del CV
 CODE_C = {
     "intro": "El centro lo presentó en el IX Congreso Internacional de Creatividad Educativa (Valencia, abril de 2025) como herramienta de autoformación del profesorado.",
@@ -627,7 +691,7 @@ TESTIMONIO_C = "Quiero expresarte mi agradecimiento por el excelente trabajo que
 
 if __name__ == "__main__":
     home_c()
-    index()
+    lista_c()
     for p in P:
         if not p.get("ext"):
             project(p)

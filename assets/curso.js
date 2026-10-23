@@ -30,4 +30,12 @@
       fbs.forEach(function(f){ f.hidden = f.getAttribute('data-op')!==o.getAttribute('data-op'); });
     }); });
   });
+
+  // Filtros de /proyectos/: ocultan fichas y filas de las demás categorías (sin JavaScript se ve todo)
+  var fs=document.querySelectorAll('button.filter');
+  fs.forEach(function(f){ f.addEventListener('click',function(){
+    var c=f.getAttribute('data-cat');
+    fs.forEach(function(x){ x.classList.toggle('on',x===f); x.setAttribute('aria-pressed',x===f); });
+    document.querySelectorAll('main [data-cat]:not(button)').forEach(function(el){ el.hidden = c!=='todos' && el.getAttribute('data-cat')!==c; });
+  }); });
 })();
