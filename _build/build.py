@@ -422,7 +422,7 @@ def project(p):
 # El porfolio como curso de cinco lecciones. Marcado y estilos copiados de las maquetas del brief
 # (1-home.html … 5-contacto.html): las reglas comunes en assets/curso.css, el resto en línea como en ellas.
 # Lo anterior (home(), index(), project()) se conserva para poder recuperar piezas.
-CURSOV = "23"
+CURSOV = "24"
 FONTS_C = '''<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&display=swap">'''
@@ -654,7 +654,7 @@ def lista_c():
                     for s, cat, tit, tipo, herr, ano in tabla)
     fichas_html = "\n      ".join(fichas)
     cats = [c for _, c, *_ in FICHA_LISTA] + [c for _, c, *_ in TABLA_LISTA]
-    fil = "".join(f'<button type="button" class="filter{" on" if k == "todos" else ""}" data-cat="{k}" aria-pressed="{str(k == "todos").lower()}">{n} · {len(cats) if k == "todos" else cats.count(k)}</button>'
+    fil = "".join(f'<button type="button" class="filter{" on" if k == "todos" else ""}" data-cat="{k}" aria-pressed="{str(k == "todos").lower()}">{n}</button>'
                   for k, n in [("todos", "Todos"), ("profesorado", "Formación"), ("herramientas", "Herramientas"), ("aula", "Actividades")])
     body = f'''<main id="contenido">
 <section class="wrap"><div class="lesson">
