@@ -69,20 +69,20 @@
 // Agentation (anotar la página para Claude Code): solo en local; agentation-local.js no se sube (.gitignore)
 if(["127.0.0.1","localhost"].includes(location.hostname) && window.self===window.top)import("/agentation-local.js").catch(function(){});  /* no dentro de la plantilla de vídeo */
 
-/* El nombre de la cabecera hace de muelle al pulsarlo: se comprime y rebota hasta quedarse quieto; después va a la portada (Jorge) */
+/* El nombre de la cabecera se subraya al pulsarlo, como lo importante de un texto: un trazo sky pasa por detrás de izquierda
+   a derecha y se borra; después va a la portada (Jorge) */
 (function(){
   var a=document.querySelector('header.cab > a[href="/"]');
-  if(!a || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  var txt=a.textContent; a.setAttribute('aria-label',txt); a.textContent=''; a.classList.add('muelle');
-  txt.split('').forEach(function(c,i){ var s=document.createElement('span'); s.textContent=c; s.setAttribute('aria-hidden','true'); s.style.setProperty('--i',i); a.appendChild(s); });
-  var ocupado=false;
+  if(!a) return;
+  a.classList.add('subraya');
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches, ocupado=false;
   a.addEventListener('click',function(e){
-    if(e.metaKey||e.ctrlKey||e.shiftKey||e.button) return;
+    if(reduce||e.metaKey||e.ctrlKey||e.shiftKey||e.button) return;
     e.preventDefault(); if(ocupado) return; ocupado=true;
-    a.classList.remove('salta'); void a.offsetWidth; a.classList.add('salta');
+    a.classList.remove('marca'); void a.offsetWidth; a.classList.add('marca');
     setTimeout(function(){
-      if(location.pathname==='/'){ a.classList.remove('salta'); ocupado=false; window.scrollTo({top:0,behavior:'smooth'}); }
+      if(location.pathname==='/'){ a.classList.remove('marca'); ocupado=false; window.scrollTo({top:0,behavior:'smooth'}); }
       else location.href=a.href;
-    },900);
+    },820);
   });
 })();

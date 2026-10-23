@@ -167,15 +167,14 @@ dialog.pop::backdrop{background:rgba(6,16,51,.55)}
 .filtros{display:flex;flex-direction:column;align-items:stretch;width:133px;gap:10px;margin-top:110px}  /* = la primera tarjeta; el ancho del bloque de la lección («15 proyectos · 2024-2026») */
 .filtros .filter{text-align:left;font-size:16px;padding:11px 18px}
 @media (max-width:900px){.filtros{flex-direction:row;flex-wrap:wrap;width:auto;margin-top:8px!important}}
-/* nombre de la cabecera: muelle al pulsarlo (curso.js). Se comprime hacia la izquierda y rebota con amortiguación;
-   cada letra sigue al conjunto con un retraso mínimo, como las espiras de un muelle */
-.muelle{display:inline-flex;white-space:pre;transform-origin:0 60%}
-.muelle span{display:inline-block;transform-origin:0 100%}
-.muelle.salta{animation:muelle .9s linear}
-.muelle.salta span{animation:espira .9s linear;animation-delay:calc(var(--i) * 6ms)}
-@keyframes muelle{
- 0%{transform:scale(1,1)} 14%{transform:scale(.78,1.12)} 30%{transform:scale(1.1,.94)} 44%{transform:scale(.95,1.04)}
- 58%{transform:scale(1.035,.98)} 72%{transform:scale(.988,1.01)} 86%{transform:scale(1.006,.997)} 100%{transform:scale(1,1)}}
-@keyframes espira{
- 0%{transform:none} 14%{transform:translateY(-2px)} 30%{transform:translateY(1.5px)} 44%{transform:translateY(-.8px)}
- 58%{transform:translateY(.4px)} 72%{transform:none} 100%{transform:none}}
+/* nombre de la cabecera: subrayador al pulsarlo (curso.js). Un trazo sky, como de rotulador, cubre la mitad baja del
+   nombre de izquierda a derecha, se queda un instante y se borra hacia la derecha */
+.subraya{position:relative;isolation:isolate}
+.subraya::before{content:"";position:absolute;z-index:-1;left:-4px;right:-4px;bottom:.04em;height:.5em;background:#9FB3FF;
+ border-radius:2px;transform:scaleX(0) skewX(-12deg);transform-origin:0 50%;opacity:.85}
+.subraya.marca::before{animation:subrayador .82s cubic-bezier(.6,0,.2,1)}
+@keyframes subrayador{
+ 0%{transform:scaleX(0) skewX(-12deg);transform-origin:0 50%}
+ 42%{transform:scaleX(1) skewX(-12deg);transform-origin:0 50%}
+ 62%{transform:scaleX(1) skewX(-12deg);transform-origin:100% 50%}
+ 100%{transform:scaleX(0) skewX(-12deg);transform-origin:100% 50%}}
