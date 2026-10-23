@@ -879,7 +879,8 @@ def contacto_pag_c():
 # bloque visual con los botones → «Lo que puedo afirmar» → «La necesidad» → el resto (cómo funciona…) → siguiente ficha.
 # Las piezas antiguas (visor de PDF, actividades incrustadas, monjes…) llevan su CSS de site.css limitado a .p-ficha
 # (assets/curso-fichas-base.css, de _build/extraer_piezas.py) y la estética nueva encima (assets/curso-fichas.css).
-CON_IA = {"monasterio-didakora", "asistente-gpt-2eso", "mapa-de-relieves", "la-nube-pesa", "la-ia-tambien-miente"}  # brief, 0 bis
+CON_IA = {"monasterio-didakora", "asistente-gpt-2eso", "mapa-de-relieves", "la-nube-pesa", "la-ia-tambien-miente",  # brief, 0 bis
+          "audita-tu-programacion", "el-bombo"}  # también con IA (Jorge, 23-10-2026)
 SUB_BRIEF = {  # titulares del brief (2.5), con punto en vez de «;» como pidió Jorge para el Consejo
     "monasterio-didakora": "Cinco agentes de IA proponen cambios en Didákora. Yo apruebo cada uno antes de publicar.",
     "asistente-gpt-2eso": "Un GPT que configuré y probé para guiar sin resolver. Pendiente de pilotar con alumnado.",
@@ -906,6 +907,10 @@ HICE = {
                              ("Decidí", "esconder algo que parece moderno y sí es de la época, para que no se marque todo como error."),
                              ("Comprobé", "de qué época es cada objeto antes de publicar la entrega."),
                              ("Preparé", "la solución con cada error explicado.")],
+    "audita-tu-programacion": [("Diseñé", "la guía en cuatro páginas: montaje, prompts, hoja de auditoría y límites."),
+                               ("Aproveché", "que NotebookLM cita el fragmento exacto para poder comprobar cada respuesta."),
+                               ("Escribí", "los ocho prompts para copiarlos tal cual, cada uno con su nota."),
+                               ("Puse", "la privacidad por delante: quitar el nombre y el DNI antes de subir el documento.")],
 }
 MIGAS_C = {"profesorado": "Formación", "herramientas": "Herramientas", "aula": "Actividades"}
 TIPO_EXTRA = {"el-bombo": "Herramienta", "e-portfolio-master": "Formación"}
