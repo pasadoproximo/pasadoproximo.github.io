@@ -422,7 +422,7 @@ def project(p):
 # El porfolio como curso de cinco lecciones. Marcado y estilos copiados de las maquetas del brief
 # (1-home.html … 5-contacto.html): las reglas comunes en assets/curso.css, el resto en línea como en ellas.
 # Lo anterior (home(), index(), project()) se conserva para poder recuperar piezas.
-CURSOV = "42"
+CURSOV = "45"
 FONTS_C = '''<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&display=swap">'''
@@ -1000,8 +1000,8 @@ def ficha_auto(p):
         tit = VIDEO_EN_SECCION[slug]
         for k, x in enumerate(secs):
             if isinstance(x, tuple) and x[0] == tit:
-                lado = f'<div class="botones-f" style="justify-content:flex-start;margin-top:18px">{botones}</div>' if botones else ""
-                secs[k] = (tit, f'<div class="vid-sec">{x[1]}<div>{video_c(*VIDEO_FICHA[slug])}{lado}</div></div>')  # los botones, bajo el vídeo (Jorge)
+                lado = f'<div class="botones-f" style="justify-content:center;margin-top:24px">{botones}</div>' if botones else ""
+                secs[k] = (tit, f'<div class="vid-sec"><div>{x[1]}{lado}</div>{video_c(*VIDEO_FICHA[slug])}</div>')  # los botones, centrados bajo el texto (Jorge)
         bloque_visual = ""
     elif slug in VIDEO_FICHA:
         # vídeo con la plantilla, con los botones al lado (como el Consejo); el vídeo antiguo de «Cómo funciona» sale
@@ -1051,8 +1051,7 @@ def ficha_auto(p):
 <section class="wrap" style="padding:36px 40px 0;display:grid;grid-template-columns:repeat({max(len(meta), 1)},1fr);gap:14px">
   {facts}
 </section>{bloque_nec}
-<div class="wrap pbody-c{' caso' if p.get('kind') == 'caso' else ''}">{bloque_visual}
-</div>{hice}
+{f'<div class="wrap pbody-c">{bloque_visual}</div>' if bloque_visual.strip() else ""}{hice}
 <div class="wrap pbody-c{' caso' if p.get('kind') == 'caso' else ''}">{pie_cuerpo}
 </div>
 <section class="wrap" style="padding:40px 40px 0"><div class="next" style="justify-content:space-between"><a href="/proyectos/" style="font-weight:700;border-bottom:2px solid #A3322A;text-decoration:none;padding-bottom:2px">Todas las fichas</a><a class="btn" href="{url(BY[sig_s])}">Siguiente ficha: {re.sub("<[^>]+>", "", sig_t)}</a></div></section>

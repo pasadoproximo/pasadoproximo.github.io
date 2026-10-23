@@ -55,3 +55,5 @@
 .p-auto .vid-sec{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);gap:48px;align-items:center}
 .p-auto .vid-sec .caja-demo{margin:0!important}
 @media (max-width:900px){.p-auto .vid-sec{grid-template-columns:1fr;gap:28px}}
+.p-auto .pbody-c>.psec{margin-top:0!important}  /* sin el margen de la web anterior: 56 px entre secciones, como en el Consejo (Jorge: «mucho aire») */
+.p-auto .vid-sec>div:first-child{max-width:430px}  /* la columna del texto, del ancho del texto: los botones quedan centrados con él (Jorge) */
