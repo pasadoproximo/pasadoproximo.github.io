@@ -167,17 +167,15 @@ dialog.pop::backdrop{background:rgba(6,16,51,.55)}
 .filtros{display:flex;flex-direction:column;align-items:stretch;width:133px;gap:10px;margin-top:110px}  /* = la primera tarjeta; el ancho del bloque de la lección («15 proyectos · 2024-2026») */
 .filtros .filter{text-align:left;font-size:16px;padding:11px 18px}
 @media (max-width:900px){.filtros{flex-direction:row;flex-wrap:wrap;width:auto;margin-top:8px!important}}
-/* nombre de la cabecera: se arruga como un papel al pulsarlo y se alisa (curso.js): las letras se pliegan en 3D
-   hacia el centro, con pliegues alternos y sombreado, y vuelven a su sitio */
-.papel{display:inline-flex;white-space:pre;transform-origin:50% 55%;perspective:420px}
-.papel span{display:inline-block;transform-origin:50% 60%;backface-visibility:visible}
-.papel.arruga{animation:papel-hoja .8s cubic-bezier(.65,0,.25,1)}
-.papel.arruga span{animation:papel-letra .8s cubic-bezier(.65,0,.25,1)}
-@keyframes papel-hoja{0%{transform:none}40%{transform:scale(.92,.86) rotate(-1.5deg)}56%{transform:scale(.9,.85) rotate(1deg)}84%{transform:scale(1.02)}100%{transform:none}}
-@keyframes papel-letra{
- 0%{transform:none;filter:none}
- 40%{transform:translate(var(--x),var(--y)) rotate(var(--r)) rotateY(var(--ry)) skewY(var(--k)) scale(.82);filter:brightness(var(--b))}
- 56%{transform:translate(calc(var(--x)*.94),calc(var(--y)*.94)) rotate(calc(var(--r)*-.4)) rotateY(calc(var(--ry)*-.5)) scale(.84);filter:brightness(var(--b))}
- 84%{transform:translate(calc(var(--x)*-.03),calc(var(--y)*-.03)) rotateY(calc(var(--ry)*.08)) scale(1.01);filter:none}
- 100%{transform:none;filter:none}}
-@media (max-width:900px){.papel{font-size:inherit}}
+/* nombre de la cabecera: muelle al pulsarlo (curso.js). Se comprime hacia la izquierda y rebota con amortiguación;
+   cada letra sigue al conjunto con un retraso mínimo, como las espiras de un muelle */
+.muelle{display:inline-flex;white-space:pre;transform-origin:0 60%}
+.muelle span{display:inline-block;transform-origin:0 100%}
+.muelle.salta{animation:muelle .9s linear}
+.muelle.salta span{animation:espira .9s linear;animation-delay:calc(var(--i) * 6ms)}
+@keyframes muelle{
+ 0%{transform:scale(1,1)} 14%{transform:scale(.78,1.12)} 30%{transform:scale(1.1,.94)} 44%{transform:scale(.95,1.04)}
+ 58%{transform:scale(1.035,.98)} 72%{transform:scale(.988,1.01)} 86%{transform:scale(1.006,.997)} 100%{transform:scale(1,1)}}
+@keyframes espira{
+ 0%{transform:none} 14%{transform:translateY(-2px)} 30%{transform:translateY(1.5px)} 44%{transform:translateY(-.8px)}
+ 58%{transform:translateY(.4px)} 72%{transform:none} 100%{transform:none}}

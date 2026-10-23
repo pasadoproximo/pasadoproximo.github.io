@@ -69,28 +69,20 @@
 // Agentation (anotar la página para Claude Code): solo en local; agentation-local.js no se sube (.gitignore)
 if(["127.0.0.1","localhost"].includes(location.hostname) && window.self===window.top)import("/agentation-local.js").catch(function(){});  /* no dentro de la plantilla de vídeo */
 
-/* El nombre de la cabecera se arruga como un papel al pulsarlo y se vuelve a alisar; después va a la portada (Jorge) */
+/* El nombre de la cabecera hace de muelle al pulsarlo: se comprime y rebota hasta quedarse quieto; después va a la portada (Jorge) */
 (function(){
   var a=document.querySelector('header.cab > a[href="/"]');
   if(!a || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  var txt=a.textContent; a.setAttribute('aria-label',txt); a.textContent=''; a.classList.add('papel');
-  var ls=txt.split('').map(function(c){ var s=document.createElement('span'); s.textContent=c; s.setAttribute('aria-hidden','true'); a.appendChild(s); return s; });
+  var txt=a.textContent; a.setAttribute('aria-label',txt); a.textContent=''; a.classList.add('muelle');
+  txt.split('').forEach(function(c,i){ var s=document.createElement('span'); s.textContent=c; s.setAttribute('aria-hidden','true'); s.style.setProperty('--i',i); a.appendChild(s); });
   var ocupado=false;
   a.addEventListener('click',function(e){
     if(e.metaKey||e.ctrlKey||e.shiftKey||e.button) return;
     e.preventDefault(); if(ocupado) return; ocupado=true;
-    var r=a.getBoundingClientRect(), cx=r.left+r.width/2, cy=r.top+r.height/2;
-    ls.forEach(function(s,i){
-      var b=s.getBoundingClientRect(), dx=cx-(b.left+b.width/2), dy=cy-(b.top+b.height/2);
-      var q=Math.sin(i*12.9898)*43758.5453; q=q-Math.floor(q);            // pseudoaleatorio fijo por letra
-      s.style.setProperty('--x',(dx*.62)+'px'); s.style.setProperty('--y',(dy*.6+(q-.5)*10)+'px');
-      s.style.setProperty('--r',((q-.5)*36)+'deg'); s.style.setProperty('--k',((q-.5)*18)+'deg');
-      s.style.setProperty('--ry',(i%2?1:-1)*(30+q*40)+'deg'); s.style.setProperty('--b',(i%2?.72:1.08));  // pliegues alternos, como una hoja
-    });
-    a.classList.remove('arruga'); void a.offsetWidth; a.classList.add('arruga');
+    a.classList.remove('salta'); void a.offsetWidth; a.classList.add('salta');
     setTimeout(function(){
-      if(location.pathname==='/'){ a.classList.remove('arruga'); ocupado=false; window.scrollTo({top:0,behavior:'smooth'}); }
+      if(location.pathname==='/'){ a.classList.remove('salta'); ocupado=false; window.scrollTo({top:0,behavior:'smooth'}); }
       else location.href=a.href;
-    },780);
+    },900);
   });
 })();
