@@ -29,6 +29,21 @@ Lo anterior queda en `_antes/`, en `main` y en las ramas `rediseno-2026-10-inten
   aviso «Contrasta siempre la información» antes de «Todas las fichas». Sin fragmento de instrucciones (Jorge: «de momento no»).
 - Sobre mí: hostelería «Ibis Málaga Centro, recepcionista» (desde 2015 en varias empresas); PROA+ 30 alumnos, de 4 a 7.
 - El correo no va en el hero (la maqueta no lo lleva).
+- **Vídeos de proyecto: todos con la estética del del Consejo de Clío** (aprobada por Jorge el 23-10-2026). Plantilla en
+  `_build/plantilla-video/` (añadir el proyecto a `P` en su script; en modo `grabar=1` la ficha central carga la grabación) y
+  ejemplo de grabación en `_build/grabar_consejo_plantilla.js`. Reglas:
+  - Fondo navy `#061033` en todo el vídeo; barra roja fina arriba que avanza con el vídeo y se pone verde en el cierre.
+  - Intro de 2 s: etiqueta «Ficha de trabajo · [proyecto]» en sky, título Bricolage 800 en blanco, subtítulo (el de su página)
+    en `#E6EBF8`, firma «Jorge Delgado Aguilera · pasadoproximo.github.io».
+  - La grabación ocupa **toda la pantalla** (nada de una pantalla dentro de otra), en modo claro, con el fondo de la web grabada
+    en navy y sus tarjetas en crema suave (`--surface:#FBF6E8`) para que destaquen los carteles.
+  - Carteles: ficha blanca, borde navy, sombra dura sky, **centrados abajo**; etiqueta roja pequeña (el paso) y el texto en
+    Alegreya Sans con la parte clave en negrita. El cartel cambia a la vez que empieza el desplazamiento.
+  - Cierre de 2 s: «Lo que puedo afirmar» con Comprobado / En uso / Pendiente (en verde, rojo y gris claros) y la firma.
+  - Unos 30 s. 16:9 (1280×720, WebM VP9) para la web y 9:16 (1080×1920, MP4 H.264, la web grabada a 540 px y ampliada ×2)
+    para Instagram, este fuera del repo en `../videos-instagram/` (lo sube Jorge).
+  - En la página: póster = miniatura navy de la plantilla (`?s=miniatura`), botón blanco «Ver el vídeo · 30 s» encima; los
+    controles aparecen al pulsar; marco fino navy, sin sombra.
 
 ## Estructura
 
