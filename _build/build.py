@@ -422,7 +422,7 @@ def project(p):
 # El porfolio como curso de cinco lecciones. Marcado y estilos copiados de las maquetas del brief
 # (1-home.html … 5-contacto.html): las reglas comunes en assets/curso.css, el resto en línea como en ellas.
 # Lo anterior (home(), index(), project()) se conserva para poder recuperar piezas.
-CURSOV = "1"
+CURSOV = "2"
 FONTS_C = '''<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&display=swap">'''
@@ -574,13 +574,13 @@ def home_c():
     <h2 class="serif" style="font-size:44px;margin-bottom:18px">¿Y si lo hizo la IA?</h2>
     <p style="margin:0 0 22px;font-size:18px;max-width:60ch">Un alumno de 4.º entrega un comentario de texto impecable sobre la Constitución de 1812. Sospechas que lo ha escrito una IA. ¿Qué haces?</p>
     <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px">
-      <button type="button" class="opt" data-op="a" aria-pressed="false"><span>A</span>Lo paso por un detector y actúo según el resultado.</button>
+      <button type="button" class="opt mal" data-op="a" aria-pressed="false"><span>A</span>Lo paso por un detector y actúo según el resultado.</button>
       <button type="button" class="opt" data-op="b" aria-pressed="false"><span>B</span>Le pido que defienda en voz alta tres afirmaciones de su texto con el libro delante.</button>
-      <button type="button" class="opt" data-op="c" aria-pressed="false"><span>C</span>Prohíbo el uso de IA en la siguiente tarea.</button>
+      <button type="button" class="opt mal" data-op="c" aria-pressed="false"><span>C</span>Prohíbo el uso de IA en la siguiente tarea.</button>
     </div>
-    <p class="fb" data-op="a" style="margin:16px 0 0" hidden aria-live="polite"><b>Has elegido A.</b> [Feedback de la opción A: texto de Jorge]</p>
+    <p class="fb mal" data-op="a" style="margin:16px 0 0" hidden aria-live="polite"><b>Has elegido A.</b> Los detectores de IA se equivocan: marcan como artificiales textos escritos por personas y dejan pasar los que se han retocado. Un porcentaje no demuestra nada y acusar con él a un alumno es injusto. Prueba otra opción.</p>
     <p class="fb" data-op="b" style="margin:16px 0 0" hidden aria-live="polite"><b>Has elegido B.</b> Es lo que hago en "Cazadores de bulos": la IA no se detecta, se interroga. Un detector falla; una pregunta bien hecha, no. Esa idea está en todos mis materiales.</p>
-    <p class="fb" data-op="c" style="margin:16px 0 0" hidden aria-live="polite"><b>Has elegido C.</b> [Feedback de la opción C: texto de Jorge]</p>
+    <p class="fb mal" data-op="c" style="margin:16px 0 0" hidden aria-live="polite"><b>Has elegido C.</b> Prohibirla no resuelve el caso: no sabes si este comentario es suyo y la IA seguirá a mano fuera del aula. Lo que importa es comprobar si entiende lo que ha entregado. Prueba otra opción.</p>
     <div class="next"><a class="btn" href="#leccion-4">Siguiente: cómo trabajo</a></div>
   </div>
 </div></section>
