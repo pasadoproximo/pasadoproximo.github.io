@@ -633,3 +633,39 @@ P.append(dict(
 FEATURED = ["repositorio-digital", "asistente-gpt-2eso", "consejo-de-clio", "cazadores-de-bulos"]
 
 BY = {p["slug"]: p for p in P}
+
+# ---------------------------------------------------------------- FICHAS DE TRABAJO (rediseño, maqueta 3-proyecto)
+# Orden: migas + H1 + subtítulo → ficha (4 cajas) → «Lo que hice yo» (proyectos con IA, palabras de Jorge) → bloque visual
+# con los botones al lado → «Lo que puedo afirmar» (el error corregido primero, con sus capturas) → la necesidad y cómo
+# funciona → «Todas las fichas» y la siguiente. Textos de la maqueta y, donde ella deja corchetes, los que Jorge dio
+# en el chat (22-10-2026). Lo que falte, entre corchetes y visible.
+PAGINA = {
+    "consejo-de-clio": dict(
+        migas="Herramientas", lnum="Herramienta · 2026",
+        sub="Seis agentes de IA preparan una sesión a partir de una noticia; el docente la contrasta antes de llevarla al aula.",
+        ficha=[("Para quién", "Docentes de Historia, 1.º ESO a Bachillerato"), ("Tipo", "Aplicación con IA · libre uso"),
+               ("Herramientas", "Claude · 6 agentes"), ("Estado", "Publicada · necesita cuenta de Claude")],
+        hice=[("Diseñé", "el equipo. Elegí a los seis personajes por su relación con el papel de cada agente y escribí sus instrucciones, el formato de la sesión y el diseño."),
+              ("Amplié", "el equipo de cuatro historiadores a seis. Añadí a Hannah Arendt y a Sócrates para conectar con el presente y abrir el debate."),
+              ("Probé", "con noticias de actualidad de temas distintos, varias por curso, para ver cómo filtraba. Antes de llevar una sesión a clase, contrasto el material final."),
+              ("Descarté", "que leyera la noticia desde un enlace. Pegar el texto es más fiable.")],
+        # sesión real del 22-10-2026 (EFE, Ucrania, 1.º Bachillerato), grabada con _build/grabar_consejo.js
+        video=("/assets/proyectos/consejo-de-clio/sesion-ucrania.webm?v=2", "/assets/proyectos/consejo-de-clio/sesion-ucrania-poster.jpg?v=2",
+               "Vídeo de 30 segundos de una sesión real para 1.º Bachillerato con una noticia de EFE sobre Ucrania. Los seis pensadores trabajan por turnos, Hannah Arendt iguala 1991 con hoy e Ibn Jaldún lo corrige"),
+        botones=[("Probar el Consejo (cuenta gratuita de Claude)", "https://claude.ai/artifact/7fyLPT3yg45X1Wr4Mu9rjx"),
+                 ("Ver una sesión de ejemplo en PDF", "/assets/pdf/consejo-de-clio-sesion-ucrania.pdf")],
+        nota="El vídeo y el PDF se abren sin cuenta. La app pide iniciar sesión en Claude.",
+        afirmar=[("Comprobado", "Ibn Jaldún ha detectado varios fallos en las numerosas pruebas que he realizado."),
+                 ("En uso", "Recurso abierto a disposición de los docentes."),
+                 ("Pendiente", "Medir si las sesiones ahorran tiempo real y cuántos errores deja pasar el revisor.")],
+        # el error corregido, de la sesión real: va dentro de «Comprobado»
+        capturas=[("/assets/proyectos/consejo-de-clio/ucrania-arendt.jpg", "Turno de Hannah Arendt en la sesión real: «En 1991, la disolución de la URSS dejó a Ucrania como Estado independiente sin que el nuevo marco de seguridad quedara del todo resuelto. Hoy, como entonces, las grandes potencias discuten qué fronteras y qué garantías valen para la región»", "Antes: el turno de Arendt"),
+                  ("/assets/proyectos/consejo-de-clio/ucrania-ibn-jaldun.jpg", "Revisión de Ibn Jaldún en la sesión real, aprobada con correcciones: «‹reparto› y ‹las grandes potencias discuten› en 1991 es una equivalencia simplista. Entonces decidieron las repúblicas soviéticas, no un reparto entre potencias»", "Después: la revisión de Ibn Jaldún")],
+        necesidad="Traer la actualidad a clase de Historia engancha, pero prepararlo bien lleva tiempo y pedírselo sin más a una IA trae problemas de rigor.",
+        pasos_titulo="Cómo funciona",
+        pasos=[("1 · Pegas la noticia", "Y eliges el curso. Heródoto la resume sin opinar."),
+               ("2 · Cada pensador hace su parte", "Tucídides la sitúa en el temario, Arendt la conecta con el presente, Clío la cuenta, Sócrates plantea el debate."),
+               ("3 · Ibn Jaldún revisa", "Corrige lo que no se sostiene antes de que llegue al aula.")],
+        siguiente=("Cazadores de bulos", "cazadores-de-bulos"),
+    ),
+}

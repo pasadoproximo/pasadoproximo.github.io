@@ -87,3 +87,21 @@ button.filter.on{background:#061033;color:#fff}
  .p-lista td:nth-child(2),.p-lista td:nth-child(3){color:#5A6480;font-size:15px;grid-column:1;display:inline}
  .p-lista td:nth-child(4){grid-row:2;grid-column:2;color:#5A6480;font-size:15px}
 }
+
+/* ---------- fichas de trabajo (maqueta 3-proyecto): sus reglas propias, tal cual */
+.p-ficha .ficha{padding:26px 26px 24px;position:relative;min-height:230px}
+.p-ficha .ficha h3{font-family:"Bricolage Grotesque",system-ui,sans-serif;letter-spacing:-.01em}
+.fact{border:1px solid #061033;background:#fff;padding:16px 18px;display:flex;flex-direction:column;gap:4px}
+.fact span{font-size:13px;font-weight:600;color:#5A6480}.fact b{font-weight:500;font-size:16px}
+.step{display:grid;grid-template-columns:200px 1fr;gap:8px 24px;padding:16px 0;border-top:1px solid #E1E6F0}
+.step b{font-family:"Bricolage Grotesque";font-weight:700}
+.ph{border:1.5px dashed #9FB3FF;color:#5A6480;display:flex;align-items:center;justify-content:center;text-align:center;font-size:15px;padding:20px;box-sizing:border-box}
+@media (max-width:900px){
+ .p-ficha section.wrap{padding-left:16px!important;padding-right:16px!important}
+ .p-ficha [style*="grid-template-columns:7fr 5fr"]{grid-template-columns:1fr!important}
+ .p-ficha h1.serif{font-size:48px!important}
+ .p-ficha [style*="font-size:22px;max-width:42ch"]{font-size:19px!important}
+ .p-ficha video{min-height:0!important;height:auto!important}
+ .step{grid-template-columns:1fr}
+ .p-ficha [style*="gap:60px"]{gap:32px!important}
+}

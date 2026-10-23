@@ -7,7 +7,7 @@ de _build/source_old.html (la portada anterior), para no duplicar el código.
 """
 import os, re, html, sys
 sys.path.insert(0, os.path.dirname(__file__))
-from data import P, BY, CATS, FEATURED, ICON_EXT, ICON_DL
+from data import P, BY, CATS, FEATURED, ICON_EXT, ICON_DL, PAGINA
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SRC = open(os.path.join(ROOT, "_build/source_old.html"), encoding="utf-8").read()
@@ -422,7 +422,7 @@ def project(p):
 # El porfolio como curso de cinco lecciones. Marcado y estilos copiados de las maquetas del brief
 # (1-home.html … 5-contacto.html): las reglas comunes en assets/curso.css, el resto en línea como en ellas.
 # Lo anterior (home(), index(), project()) se conserva para poder recuperar piezas.
-CURSOV = "3"
+CURSOV = "4"
 FONTS_C = '''<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&display=swap">'''
@@ -455,13 +455,15 @@ def head_c(title, desc, path, og="/assets/og.jpg", pagina=""):
 NAV_C = [("/", "Índice", "indice"), ("/proyectos/", "Proyectos", "proyectos"), ("/sobre-mi/", "Sobre mí", "sobre"), ("/contacto/", "Contacto", "contacto")]
 
 
-def cab(active="", leccion=1, completo=False, subrayar=True, etiqueta=""):
+def cab(active="", leccion=1, completo=False, subrayar=True, etiqueta="", texto=""):
     """Barra de progreso + cabecera. En la portada el script cambia los segmentos; en las interiores, estado fijo."""
     def seg(i):
         c = "#5E7D3A" if completo or i < leccion else ("#A3322A" if i == leccion else "#E1E6F0")
         return f'<span class="seg" style="width:44px;height:8px;background:{c}"></span>'
     if completo:
         lbl = '<span class="k" id="proglbl" style="color:#5E7D3A">Curso completado · 100 %</span>'
+    elif texto:  # la ficha de trabajo pone su propio rótulo («Lección 2 · ficha de trabajo»)
+        lbl = f'<span class="k" id="proglbl">{texto}</span>'
     else:
         lbl = f'<span class="k" id="proglbl">Lección {leccion} de 5 · {etiqueta or f"{leccion * 20} %"}</span>'
     def a(href, label, key):
@@ -680,6 +682,76 @@ def lista_c():
           + cab("proyectos", leccion=2, etiqueta="ampliación") + body + pie_c())
 
 
+# Fichas de trabajo (maqueta 3-proyecto), con los textos de PAGINA en data.py
+COLOR_AFIRMAR = {"Comprobado": "#5E7D3A", "En uso": "#A3322A", "Pendiente": "#5A6480"}
+
+
+def ficha_c(slug):
+    p, d = BY[slug], PAGINA[slug]
+    facts = "".join(f'<div class="fact"><span>{a}</span><b>{b}</b></div>' for a, b in d["ficha"])
+    hice = ""
+    if d.get("hice"):
+        frases = "".join(f'<p style="color:#061033"><b>{v}</b> {t}</p>' for v, t in d["hice"])
+        hice = f"""
+<section class="wrap" style="padding:48px 40px 0;display:flex;flex-direction:column;gap:18px">
+  <div class="rule"><h2 class="serif" style="font-size:36px;font-weight:700">Lo que hice yo</h2></div>
+  <div class="ficha" style="min-height:0;display:grid;grid-template-columns:1fr 1fr;gap:12px 32px">{frases}</div>
+</section>"""
+    if d.get("video"):
+        src, poster, alt = d["video"]
+        visual = (f'<video src="{src}" poster="{poster}" controls muted playsinline preload="metadata" aria-label="{html.escape(alt)}" '
+                  f'style="width:100%;height:100%;min-height:340px;object-fit:contain;background:#061033;display:block;border:1px solid #061033"></video>')
+    else:
+        visual = '<!-- TODO visual --><div class="ph" style="min-height:340px">[visual]</div>'
+    ext = ' rel="noopener" target="_blank"'
+    botones = "".join(f'<a class="btn{" o" if i else ""}" href="{h}"{"" if h.startswith("/") else ext}>{l}</a>' for i, (l, h) in enumerate(d["botones"]))
+    caps = "".join(f'<a href="{c_src}" target="_blank" rel="noopener" style="display:flex;flex-direction:column;gap:4px;text-decoration:none">'
+                   f'<img src="{c_src}" alt="{html.escape(c_alt)}" loading="lazy" style="width:100%;border:1px solid #E1E6F0;display:block">'
+                   f'<span class="k" style="font-size:13px">{c_pie}</span></a>'
+                   for c_src, c_alt, c_pie in d.get("capturas", []))
+    tarjetas = []
+    for i, (t, x) in enumerate(d["afirmar"]):
+        extra = f'<div style="display:flex;flex-direction:column;gap:10px;margin-top:4px">{caps}</div>' if i == 0 and caps else ""
+        color = COLOR_AFIRMAR.get(t, "#A3322A")
+        st = "" if color == "#A3322A" else f' style="color:{color}"'  # el rojo es el de .tipo
+        tarjetas.append(f'<div class="ficha" style="min-height:0"><span class="tipo"{st}>{t}</span><p style="color:#061033">{x}</p>{extra}</div>')
+    pasos = "".join(f'<div class="step"><b>{a}</b><span>{b}</span></div>' for a, b in d["pasos"])
+    sig_t, sig_s = d["siguiente"]
+    titulo = re.sub("<[^>]+>", "", p.get("h1", p["title"]))
+    body = f"""<main id="contenido">
+<section class="wrap" style="padding:56px 40px 0;display:grid;grid-template-columns:200px 1fr;gap:40px">
+  <div class="lnum"><b>02</b><span class="k">Ficha de trabajo</span><span class="k">{d["lnum"]}</span></div>
+  <div style="display:flex;flex-direction:column;gap:18px">
+  <p class="k"><a href="/proyectos/" style="color:inherit;text-decoration:none">Proyectos</a> / <a href="/proyectos/" style="color:inherit;text-decoration:none">{d["migas"]}</a></p>
+  <h1 class="serif" style="font-size:72px">{titulo}</h1>
+  <p style="margin:0;font-size:22px;max-width:42ch;line-height:1.35">{d["sub"]}</p>
+  <p class="obj" style="margin-top:8px"><b>Objetivo de esta ficha:</b> al terminar sabrás qué hace, qué hice yo y qué está comprobado.</p>
+  </div>
+</section>
+<section class="wrap" style="padding:36px 40px 0;display:grid;grid-template-columns:repeat(4,1fr);gap:14px">
+  {facts}
+</section>{hice}
+<section class="wrap" style="padding:48px 40px 0;display:grid;grid-template-columns:7fr 5fr;gap:28px;align-items:stretch">
+  {visual}
+  <div style="display:flex;flex-direction:column;gap:12px;justify-content:center">{botones}<p style="margin:0;color:#5A6480;font-size:15px">{d["nota"]}</p></div>
+</section>
+<section class="wrap" style="padding:56px 40px 0;display:flex;flex-direction:column;gap:18px">
+  <div class="rule"><h2 class="serif" style="font-size:36px;font-weight:700">Lo que puedo afirmar</h2></div>
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:28px;padding:10px 6px 10px 0;align-items:start">
+    {"".join(tarjetas)}
+  </div>
+</section>
+<section class="wrap" style="padding:56px 40px 0;display:grid;grid-template-columns:1fr 1fr;gap:60px">
+  <div><p class="lab">La necesidad</p><p style="margin:10px 0 0">{d["necesidad"]}</p></div>
+  <div><p class="lab" style="margin-bottom:10px">{d["pasos_titulo"]}</p>{pasos}</div>
+</section>
+<section class="wrap" style="padding:40px 40px 0"><div class="next" style="justify-content:space-between"><a href="/proyectos/" style="font-weight:700;border-bottom:2px solid #A3322A;text-decoration:none;padding-bottom:2px">Todas las fichas</a><a class="btn" href="{url(BY[sig_s])}">Siguiente ficha: {sig_t}</a></div></section>
+</main>
+"""
+    write(f"/proyectos/{slug}/", head_c(f"{titulo} · Jorge Delgado Aguilera", re.sub("<[^>]+>", "", d["sub"]), f"/proyectos/{slug}/", pagina="p-ficha")
+          + cab("proyectos", leccion=2, texto="Lección 2 · ficha de trabajo") + body + pie_c())
+
+
 # Lección 4 de la portada: textos redactados a partir de la página del Repositorio digital (data.py) y del CV
 CODE_C = {
     "intro": "El centro lo presentó en el IX Congreso Internacional de Creatividad Educativa (Valencia, abril de 2025) como herramienta de autoformación del profesorado.",
@@ -696,4 +768,7 @@ if __name__ == "__main__":
     lista_c()
     for p in P:
         if not p.get("ext"):
-            project(p)
+            if p["slug"] in PAGINA:
+                ficha_c(p["slug"])
+            else:
+                project(p)  # plantilla anterior, hasta que tenga sus textos en PAGINA

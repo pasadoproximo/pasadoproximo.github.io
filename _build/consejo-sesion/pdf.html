@@ -1,0 +1,657 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style><style>
+/* versión para PDF: la noticia y el acta de la sesión, en claro */
+:root{color-scheme:light!important;--bg:#FFFFFF!important;--surface:#F8FAFB!important;--ink:#18202C!important;--muted:#5A6474!important;--line:#CCD3DC!important;--accent:#24429A!important;--herodoto:#B07410!important;--tucidides:#24429A!important;--jaldun:#7A4A2A!important;--clio:#0F7A6E!important;--arendt:#55642A!important;--socrates:#6B3E7A!important;--ok:#2F7A3A!important;--warn:#A8650C!important;--bad:#A3322A!important}
+body{background:#fff!important;padding-block:10px 20px!important}
+.panel,.mesa,.acciones,#aviso{display:none!important}
+.turno{break-inside:avoid}
+@page{size:A4;margin:14mm 12mm}
+</style></head><body><script>window.claude={use:async()=>null};window.__NOTICIA="Putin acepta reanudar en noviembre las negociaciones con Ucrania con la mediación de Estados Unidos\nLas negociaciones tripartitas no se celebran desde mediados de febrero debido al comienzo de la operación militar estadounidense en Irán\nEFE · Moscú, 21 de octubre de 2026\n\nEl presidente ruso, Vladímir Putin, se mostró este miércoles dispuesto a reanudar en noviembre las negociaciones de paz sobre Ucrania con mediación de Estados Unidos, tras la reunión mantenida con el emisario de la Casa Blanca, Steve Witkoff.";</script>
+<title>El Consejo de Clío</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alegreya+SC:wght@500;700&family=Alegreya+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap">
+<style>
+/* Layout: una sola columna; noticia → mesa de cuatro historiadores en orden → acta de la sesión */
+:root{
+  --bg:#EDF0F3; --surface:#F8FAFB; --ink:#18202C; --muted:#5A6474; --line:#CCD3DC;
+  --accent:#24429A; --accent-ink:#FFFFFF;
+  --herodoto:#B07410; --tucidides:#24429A; --jaldun:#7A4A2A; --clio:#0F7A6E;
+  --ok:#2F7A3A; --warn:#A8650C; --bad:#A3322A;
+  --skin:#D8A47D; --skin-shade:#B9835C; --white-hair:#E9E6E0; --dark-hair:#3A2C24; --leaf:#5E7D3A; --gold:#C79A2E; --crest:#A3322A; --metal:#8E98A6; --cloth-light:#F2EFE8;
+  --f-display:"Alegreya SC", "Palatino Linotype", Palatino, Georgia, serif;
+  --f-body:"Alegreya Sans", "Gill Sans", "Segoe UI", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0F131A; --surface:#171C25; --ink:#E6EAF0; --muted:#9AA4B3; --line:#2A3240;
+  --accent:#7D97E6; --accent-ink:#0F131A;
+  --herodoto:#E3A845; --tucidides:#7D97E6; --jaldun:#D39A73; --clio:#4FC3B2;
+  --ok:#6CC27A; --warn:#E3A845; --bad:#EE7B70; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0F131A; --surface:#171C25; --ink:#E6EAF0; --muted:#9AA4B3; --line:#2A3240;
+  --accent:#7D97E6; --accent-ink:#0F131A;
+  --herodoto:#E3A845; --tucidides:#7D97E6; --jaldun:#D39A73; --clio:#4FC3B2;
+  --ok:#6CC27A; --warn:#E3A845; --bad:#EE7B70; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:17px;line-height:1.55;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:28px 64px}
+.wrap{max-width:900px;margin:0 auto;display:flex;flex-direction:column;gap:32px}
+h1,h2,h3{font-family:var(--f-display);font-weight:700;text-wrap:balance;margin:0;line-height:1.1}
+.eyebrow{font-size:.78rem;text-transform:uppercase;letter-spacing:.14em;color:var(--muted);font-weight:500}
+header{display:flex;flex-direction:column;gap:10px}
+h1{font-size:clamp(2.2rem,6vw,3.4rem);letter-spacing:.01em}
+.lede{max-width:62ch;color:var(--muted);margin:0}
+
+/* Noticia */
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:20px;display:flex;flex-direction:column;gap:14px}
+label{font-weight:700}
+.hint{font-size:.9rem;color:var(--muted);margin:0}
+textarea{width:100%;min-height:120px;resize:vertical;font:inherit;font-size:16px;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:4px;padding:12px}
+textarea:focus-visible,select:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.controls{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+select{font:inherit;font-size:16px;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:4px;padding:8px 10px}
+button{font:inherit;font-weight:700;cursor:pointer;border-radius:4px;padding:10px 18px;border:1px solid transparent}
+.btn-main{background:var(--accent);color:var(--accent-ink)}
+.btn-main:disabled{opacity:.5;cursor:not-allowed}
+.btn-ghost{background:transparent;color:var(--ink);border-color:var(--line)}
+.notice{font-size:.92rem;color:var(--muted);margin:0}
+.notice.err{color:var(--bad)}
+
+/* Mesa */
+.mesa{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;position:relative}
+@media (max-width:680px){.mesa{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.sitio{--c:var(--accent);display:flex;flex-direction:column;align-items:center;text-align:center;gap:6px;padding:14px 8px 12px;border-radius:6px;border:1px solid var(--line);background:var(--surface);transition:border-color .3s, box-shadow .3s}
+.sitio[data-agent="herodoto"]{--c:var(--herodoto)} .sitio[data-agent="tucidides"]{--c:var(--tucidides)}
+.sitio[data-agent="jaldun"]{--c:var(--jaldun)} .sitio[data-agent="clio"]{--c:var(--clio)}
+.orden{font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:var(--c);font-weight:700}
+.sitio h3{font-size:1.25rem}
+.rol{font-size:.88rem;color:var(--muted);line-height:1.3}
+.estado{font-size:.8rem;font-weight:700;color:var(--muted);min-height:1.2em}
+.sitio.thinking,.sitio.speaking{border-color:var(--c);box-shadow:0 0 0 3px color-mix(in srgb,var(--c) 22%,transparent)}
+.sitio.thinking .estado,.sitio.speaking .estado,.sitio.done .estado{color:var(--c)}
+
+/* Avatares */
+.avatar{width:96px;height:96px;max-width:100%}
+.avatar .halo{fill:var(--c);opacity:.16}
+.avatar .robe{fill:var(--c)}
+.avatar .skin{fill:var(--skin)} .avatar .shade{fill:var(--skin-shade)}
+.avatar .whair{fill:var(--white-hair)} .avatar .dhair{fill:var(--dark-hair)}
+.avatar .leaf{fill:var(--leaf)} .avatar .gold{fill:var(--gold)} .avatar .crest{fill:var(--crest)}
+.avatar .metal{fill:var(--metal)} .avatar .cloth{fill:var(--cloth-light)}
+.avatar .eye{fill:#1E1A17;transform-box:fill-box;transform-origin:center;animation:blink 5s infinite}
+.avatar .mouth{fill:#6E2B22;transform-box:fill-box;transform-origin:center;transform:scaleY(.35)}
+.avatar .body{transform-origin:60px 110px}
+.sitio[data-agent="tucidides"] .eye{animation-delay:1.3s} .sitio[data-agent="jaldun"] .eye{animation-delay:2.6s} .sitio[data-agent="clio"] .eye{animation-delay:3.4s}
+.thinking .avatar .body{animation:ponder 1.6s ease-in-out infinite}
+.speaking .avatar .mouth{animation:talk .22s ease-in-out infinite alternate}
+.speaking .avatar .body{animation:nod 2.4s ease-in-out infinite}
+@keyframes blink{0%,94%,100%{transform:scaleY(1)}96%{transform:scaleY(.1)}}
+@keyframes talk{from{transform:scaleY(.3)}to{transform:scaleY(1.15)}}
+@keyframes ponder{0%,100%{transform:rotate(0)}50%{transform:rotate(-3deg) translateY(-1px)}}
+@keyframes nod{0%,100%{transform:translateY(0)}50%{transform:translateY(1.5px)}}
+@media (prefers-reduced-motion:reduce){.avatar *{animation:none!important}}
+
+/* Acta */
+.acta{display:flex;flex-direction:column;gap:18px}
+.acta-head{display:flex;flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.acta-head h2{font-size:1.7rem}
+.badge{font-size:.75rem;text-transform:uppercase;letter-spacing:.12em;font-weight:700;color:var(--muted);border:1px solid var(--line);border-radius:3px;padding:2px 8px}
+.noticia-citada{border-left:3px solid var(--line);padding-left:14px;color:var(--muted);font-style:italic;margin:0;max-width:68ch}
+.turno{--c:var(--accent);display:grid;grid-template-columns:44px minmax(0,1fr);gap:14px;align-items:start}
+.turno[data-agent="herodoto"]{--c:var(--herodoto)} .turno[data-agent="tucidides"]{--c:var(--tucidides)}
+.turno[data-agent="jaldun"]{--c:var(--jaldun)} .turno[data-agent="clio"]{--c:var(--clio)}
+.turno .mini{width:44px;height:44px}
+.turno .mini .eye,.turno .mini .mouth{animation:none}
+.bocadillo{min-width:0;background:var(--surface);border:1px solid var(--line);border-top:3px solid var(--c);border-radius:4px;padding:14px 18px}
+.quien{display:flex;flex-wrap:wrap;gap:8px;align-items:baseline;margin-bottom:6px}
+.quien strong{font-family:var(--f-display);font-size:1.15rem;color:var(--c)}
+.quien span{font-size:.85rem;color:var(--muted)}
+.texto{max-width:68ch}
+.texto p{margin:0 0 .7em}
+.texto p:last-child{margin-bottom:0}
+.texto ul{margin:0 0 .7em;padding-left:1.2em}
+.texto li{margin-bottom:.3em}
+.pensando{color:var(--muted);font-style:italic}
+.sello{display:inline-block;font-family:var(--f-display);font-weight:700;font-size:.95rem;border:2px solid currentColor;border-radius:3px;padding:2px 10px;margin-bottom:10px;transform:rotate(-2deg)}
+.sello.ok{color:var(--ok)} .sello.warn{color:var(--warn)} .sello.bad{color:var(--bad)}
+.turno.final .bocadillo{border:2px solid var(--c);padding:20px 22px}
+.turno.final .texto{font-size:1.08rem}
+.acciones{display:flex;gap:10px;margin-top:12px;flex-wrap:wrap}
+.nota{font-size:.88rem;color:var(--muted);max-width:68ch;margin:0}
+.borrador summary{cursor:pointer;color:var(--muted);font-size:.9rem;font-weight:700}
+.borrador[open] summary{margin-bottom:8px}
+.borrador .texto{opacity:.8}
+.nota-revision{margin:0 0 10px;font-size:.9rem;font-weight:700;color:var(--c)}
+footer{font-size:.85rem;color:var(--muted);border-top:1px solid var(--line);padding-top:14px;max-width:68ch}
+
+:root{--arendt:#55642A;--socrates:#6B3E7A}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--arendt:#B5C46A;--socrates:#C49BD6}}
+:root[data-theme="dark"]{--arendt:#B5C46A;--socrates:#C49BD6}
+.sitio[data-agent="arendt"],.turno[data-agent="arendt"]{--c:var(--arendt)}
+.sitio[data-agent="socrates"],.turno[data-agent="socrates"]{--c:var(--socrates)}
+.sitio[data-agent="arendt"] .eye{animation-delay:.7s} .sitio[data-agent="socrates"] .eye{animation-delay:4.2s}
+.mesa{grid-template-columns:repeat(6,minmax(0,1fr));gap:10px}
+.mesa .avatar{width:84px;height:84px}
+.mesa .sitio h3{font-size:1.1rem}
+@media (max-width:760px){.mesa{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:420px){.mesa{grid-template-columns:repeat(2,minmax(0,1fr))}}
+input[type="url"]{width:100%;font:inherit;font-size:16px;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:4px;padding:10px 12px}
+input:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.plan-b summary{cursor:pointer;font-size:.9rem;color:var(--muted);font-weight:500}
+.plan-b[open] summary{margin-bottom:8px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+#acta-noticia a{color:var(--accent)}
+.borrador summary{cursor:pointer;color:var(--muted);font-size:.9rem;font-weight:700}
+.borrador[open] summary{margin-bottom:8px}
+.borrador .texto{opacity:.8}
+.separador{display:flex;flex-direction:column;gap:2px;border-top:2px solid var(--line);padding-top:16px;margin-top:6px}
+.separador span{font-family:var(--f-display);font-weight:700;font-size:1.35rem}
+.separador small{font-size:.9rem;color:var(--muted);font-weight:700}
+.reintentar{margin-top:12px}
+.header-top{display:flex;justify-content:space-between;align-items:flex-start;gap:8px 16px;flex-wrap:wrap}
+.autor{font-size:.85rem;color:var(--muted);text-align:right;line-height:1.35;margin-left:auto}
+.autor strong{color:var(--ink);font-weight:700}
+</style>
+
+<div class="wrap">
+  <header>
+    <div class="header-top"><span class="eyebrow">Taller de Historia · Pasado y presente</span><span class="autor">Un proyecto de <strong>Jorge Delgado Aguilera</strong><br>Profesor de Geografía e Historia</span></div>
+    <h1>El Consejo de Clío</h1>
+    <p class="lede">Trae una noticia y seis pensadores la trabajan por turnos para tu clase: uno la resume, otro la sitúa en el temario del curso, otra la conecta con la actualidad, una cuarta la cuenta al alumnado y otro plantea el debate. Al final, Ibn Jaldún lo revisa todo antes de darlo por bueno.</p>
+  </header>
+
+  <section class="panel" aria-labelledby="lbl-enlace">
+    <label id="lbl-enlace" for="noticia">La noticia</label>
+    <p class="hint" style="margin:0">Pega el titular y los primeros párrafos de una noticia reciente. Para usar el consejo necesitas iniciar sesión en Claude (sirve la cuenta gratuita).</p>
+    <input id="enlace" type="hidden" value="">
+    <details class="plan-b" id="plan-b" open>
+      <summary hidden>Texto de la noticia</summary>
+      
+      <textarea id="noticia" placeholder="Titular y primeros párrafos de la noticia"></textarea>
+    </details>
+    <div class="controls">
+      <label for="curso" style="font-weight:500">Curso</label>
+      <select id="curso"></select>
+    </div>
+    <div class="controls">
+      <button id="convocar" class="btn-main" type="button">Convocar al consejo</button>
+      <button id="parar" class="btn-ghost" type="button" hidden>Detener</button>
+    </div>
+    <p id="aviso" class="notice" aria-live="polite"></p>
+  </section>
+
+  <section class="mesa" aria-label="Los seis miembros del consejo">
+    <div class="sitio" data-agent="herodoto">
+      <span class="orden">Turno 1</span>
+      <svg class="avatar" viewBox="0 0 120 120" aria-hidden="true"><circle class="halo" cx="60" cy="60" r="58"/><g class="body">
+        <path class="robe" d="M18 120c2-24 18-36 42-36s40 12 42 36z"/><path class="cloth" d="M44 88l16 22 16-22c-5-2-10-3-16-3s-11 1-16 3z" opacity=".55"/>
+        <rect class="shade" x="52" y="66" width="16" height="16" rx="4"/>
+        <ellipse class="skin" cx="60" cy="50" rx="21" ry="24"/>
+        <path class="whair" d="M40 52c0 22 9 34 20 34s20-12 20-34c-4 8-10 11-20 11s-16-3-20-11z"/>
+        <path class="whair" d="M40 44c2-14 10-20 20-20s18 6 20 20c-6-6-12-8-20-8s-14 2-20 8z"/>
+        <g class="leaf"><ellipse cx="40" cy="40" rx="6" ry="3" transform="rotate(-50 40 40)"/><ellipse cx="45" cy="31" rx="6" ry="3" transform="rotate(-30 45 31)"/><ellipse cx="53" cy="26" rx="6" ry="3" transform="rotate(-10 53 26)"/><ellipse cx="67" cy="26" rx="6" ry="3" transform="rotate(10 67 26)"/><ellipse cx="75" cy="31" rx="6" ry="3" transform="rotate(30 75 31)"/><ellipse cx="80" cy="40" rx="6" ry="3" transform="rotate(50 80 40)"/></g>
+        <ellipse class="eye" cx="52" cy="49" rx="2.3" ry="2.6"/><ellipse class="eye" cx="68" cy="49" rx="2.3" ry="2.6"/>
+        <ellipse class="mouth" cx="60" cy="66" rx="4.5" ry="2.6"/>
+      </g></svg>
+      <h3>Heródoto</h3>
+      <span class="rol">Resume la noticia</span>
+      <span class="estado">En espera</span>
+    </div>
+    <div class="sitio" data-agent="tucidides">
+      <span class="orden">Turno 2</span>
+      <svg class="avatar" viewBox="0 0 120 120" aria-hidden="true"><circle class="halo" cx="60" cy="60" r="58"/><g class="body">
+        <path class="robe" d="M18 120c2-24 18-36 42-36s40 12 42 36z"/><circle class="gold" cx="80" cy="94" r="4"/>
+        <rect class="shade" x="52" y="66" width="16" height="16" rx="4"/>
+        <ellipse class="skin" cx="60" cy="52" rx="20" ry="23"/>
+        <path class="dhair" d="M41 56c0 18 8 28 19 28s19-10 19-28c-4 6-10 9-19 9s-15-3-19-9z"/>
+        <path class="metal" d="M38 44c0-17 10-27 22-27s22 10 22 27c-6-4-13-6-22-6s-16 2-22 6z"/>
+        <path class="crest" d="M42 22c6-12 30-12 36 0l-4 4c-6-6-22-6-28 0z"/>
+        <ellipse class="eye" cx="52" cy="51" rx="2.3" ry="2.6"/><ellipse class="eye" cx="68" cy="51" rx="2.3" ry="2.6"/>
+        <ellipse class="mouth" cx="60" cy="67" rx="4.5" ry="2.6"/>
+      </g></svg>
+      <h3>Tucídides</h3>
+      <span class="rol">La sitúa en el temario</span>
+      <span class="estado">En espera</span>
+    </div>
+    <div class="sitio" data-agent="arendt">
+      <span class="orden">Turno 3</span>
+      <svg class="avatar" viewBox="0 0 120 120" aria-hidden="true"><circle class="halo" cx="60" cy="60" r="58"/><g class="body">
+        <path class="robe" d="M18 120c2-24 18-36 42-36s40 12 42 36z"/>
+        <path class="cloth" d="M46 86l14 16 14-16c-4-2-9-3-14-3s-10 1-14 3z"/>
+        <rect class="shade" x="53" y="66" width="14" height="16" rx="4"/>
+        <ellipse class="skin" cx="60" cy="52" rx="18" ry="22"/>
+        <path class="dhair" d="M41 56c-5-22 4-36 19-36s25 13 19 36c-1-9-4-15-8-19-7 5-19 6-27 2-2 4-3 10-3 17z"/>
+        <circle class="dhair" cx="42" cy="46" r="5"/><circle class="dhair" cx="78" cy="46" r="5"/>
+        <ellipse class="eye" cx="53" cy="52" rx="2.2" ry="2.6"/><ellipse class="eye" cx="67" cy="52" rx="2.2" ry="2.6"/>
+        <ellipse class="mouth" cx="60" cy="66" rx="4" ry="2.4"/>
+      </g></svg>
+      <h3>Hannah Arendt</h3>
+      <span class="rol">La conecta con la actualidad</span>
+      <span class="estado">En espera</span>
+    </div>
+    <div class="sitio" data-agent="clio">
+      <span class="orden">Turno 4</span>
+      <svg class="avatar" viewBox="0 0 120 120" aria-hidden="true"><circle class="halo" cx="60" cy="60" r="58"/><g class="body">
+        <path class="dhair" d="M36 50c-4 26 0 46 8 54h32c8-8 12-28 8-54z"/>
+        <path class="robe" d="M18 120c2-24 18-36 42-36s40 12 42 36z"/>
+        <rect class="cloth" x="70" y="96" width="24" height="10" rx="5"/>
+        <rect class="shade" x="53" y="66" width="14" height="16" rx="4"/>
+        <ellipse class="skin" cx="60" cy="52" rx="19" ry="23"/>
+        <path class="dhair" d="M40 50c0-18 9-27 20-27s20 9 20 27c-5-9-12-13-20-13s-15 4-20 13z"/>
+        <g class="gold"><ellipse cx="42" cy="40" rx="6" ry="2.6" transform="rotate(-50 42 40)"/><ellipse cx="48" cy="32" rx="6" ry="2.6" transform="rotate(-25 48 32)"/><ellipse cx="72" cy="32" rx="6" ry="2.6" transform="rotate(25 72 32)"/><ellipse cx="78" cy="40" rx="6" ry="2.6" transform="rotate(50 78 40)"/></g>
+        <ellipse class="eye" cx="52" cy="52" rx="2.3" ry="2.8"/><ellipse class="eye" cx="68" cy="52" rx="2.3" ry="2.8"/>
+        <ellipse class="mouth" cx="60" cy="66" rx="4" ry="2.4"/>
+      </g></svg>
+      <h3>Clío</h3>
+      <span class="rol">La cuenta al alumnado</span>
+      <span class="estado">En espera</span>
+    </div>
+    <div class="sitio" data-agent="socrates">
+      <span class="orden">Turno 5</span>
+      <svg class="avatar" viewBox="0 0 120 120" aria-hidden="true"><circle class="halo" cx="60" cy="60" r="58"/><g class="body">
+        <path class="robe" d="M18 120c2-24 18-36 42-36s40 12 42 36z"/><path class="cloth" d="M60 86l-22 34h12l10-22z" opacity=".5"/>
+        <rect class="shade" x="52" y="66" width="16" height="16" rx="4"/>
+        <ellipse class="skin" cx="60" cy="50" rx="22" ry="24"/>
+        <path class="whair" d="M38 46c-3 6-2 14 2 18 0-8 2-12 4-14zM82 46c3 6 2 14-2 18 0-8-2-12-4-14z"/>
+        <path class="whair" d="M39 56c0 24 10 36 21 36s21-12 21-36c-5 8-11 12-21 12s-16-4-21-12z"/>
+        <ellipse class="shade" cx="60" cy="58" rx="5" ry="3.5"/>
+        <path d="M47 43q5-3 10 0M63 43q5-3 10 0" stroke="var(--white-hair)" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+        <ellipse class="eye" cx="52" cy="48" rx="2.4" ry="2.7"/><ellipse class="eye" cx="68" cy="48" rx="2.4" ry="2.7"/>
+        <ellipse class="mouth" cx="60" cy="68" rx="4.5" ry="2.6"/>
+      </g></svg>
+      <h3>Sócrates</h3>
+      <span class="rol">Plantea el debate</span>
+      <span class="estado">En espera</span>
+    </div>
+    <div class="sitio" data-agent="jaldun">
+      <span class="orden">Turno 6</span>
+      <svg class="avatar" viewBox="0 0 120 120" aria-hidden="true"><circle class="halo" cx="60" cy="60" r="58"/><g class="body">
+        <path class="robe" d="M18 120c2-24 18-36 42-36s40 12 42 36z"/><path class="robe" d="M34 92c4-30 12-50 26-50s22 20 26 50c-8-6-16-8-26-8s-18 2-26 8z" opacity=".75"/>
+        <rect class="shade" x="52" y="66" width="16" height="16" rx="4"/>
+        <ellipse class="skin" cx="60" cy="54" rx="19" ry="22"/>
+        <path class="dhair" d="M42 58c0 17 8 27 18 27s18-10 18-27c-4 5-9 8-18 8s-14-3-18-8z"/>
+        <ellipse class="cloth" cx="60" cy="34" rx="25" ry="14"/><path d="M36 38c8 6 40 6 48 0" stroke="var(--metal)" stroke-width="1.2" fill="none" opacity=".6"/><path d="M38 31c10 5 34 5 44 0" stroke="var(--metal)" stroke-width="1.2" fill="none" opacity=".6"/>
+        <ellipse class="eye" cx="52" cy="53" rx="2.3" ry="2.6"/><ellipse class="eye" cx="68" cy="53" rx="2.3" ry="2.6"/>
+        <ellipse class="mouth" cx="60" cy="68" rx="4.5" ry="2.6"/>
+      </g></svg>
+      <h3>Ibn Jaldún</h3>
+      <span class="rol">Lo revisa todo</span>
+      <span class="estado">En espera</span>
+    </div>
+  </section>
+
+  <section class="acta" aria-labelledby="acta-titulo">
+    <div class="acta-head">
+      <h2 id="acta-titulo">Acta de la sesión</h2>
+      <span id="acta-badge" class="badge">Sesión de ejemplo</span>
+    </div>
+    <div id="acta-noticia"></div>
+    <div id="turnos" class="acta" aria-live="polite"></div>
+  </section>
+
+  <footer>Los miembros del consejo son una inteligencia artificial que interpreta a cada personaje y pueden equivocarse: revisad las fechas y los datos antes de usarlos en clase. El temario es una organización orientativa de las unidades habituales de cada curso según el currículo andaluz. Material de libre uso para docentes. Elaborado por Jorge Delgado Aguilera · Profesor de Geografía e Historia.</footer>
+</div>
+
+<script>
+const TEMARIO = {"1eso": [{"t": "UD 1. La Tierra y su representación", "a": ["El planeta Tierra: forma, dimensiones y movimientos", "Paralelos, meridianos y coordenadas geográficas", "Latitud y longitud", "Mapas, globos y proyecciones cartográficas", "Escalas, leyendas y orientación", "Localización geográfica mediante atlas y mapas"]}, {"t": "UD 2. El relieve terrestre", "a": ["Estructura interna de la Tierra", "Placas tectónicas y dinámica terrestre", "Formación y transformación del relieve", "Agentes internos y externos", "Formas del relieve continental y submarino", "Grandes unidades del relieve mundial"]}, {"t": "UD 3. El agua en la naturaleza", "a": ["Ciclo del agua", "Aguas oceánicas y continentales", "Océanos, mares, ríos, lagos y aguas subterráneas", "Distribución de los recursos hídricos", "Aprovechamiento, escasez y contaminación del agua"]}, {"t": "UD 4. El clima", "a": ["Tiempo atmosférico y clima", "Elementos y factores climáticos", "Temperatura, precipitaciones, presión y viento", "Interpretación de mapas meteorológicos y climogramas", "Zonas climáticas de la Tierra", "Cambio climático y riesgos asociados"]}, {"t": "UD 5. Los paisajes de la Tierra", "a": ["Relación entre relieve, clima, agua y vegetación", "Paisajes de las zonas cálidas, templadas y frías", "Paisajes de montaña y medios extremos", "Paisajes naturales y humanizados", "Impacto humano y conservación"]}, {"t": "UD 6. Los continentes", "a": ["África: relieve, clima e hidrografía", "Asia: principales unidades físicas", "América: grandes regiones físicas", "Europa: relieve, ríos y climas", "Oceanía", "Antártida", "Interpretación de mapas físicos"]}, {"t": "UD 7. El medio físico de España", "a": ["Situación geográfica y límites", "Meseta, cordilleras y depresiones", "Costas e islas", "Vertientes hidrográficas y ríos", "Climas, vegetación y paisajes españoles"]}, {"t": "UD 8. El medio físico de Andalucía", "a": ["Relieve andaluz", "Sierra Morena, depresión del Guadalquivir y Sistemas Béticos", "Litoral y principales ríos", "Climas, paisajes y biodiversidad", "Espacios naturales protegidos", "Riesgos naturales y conservación ambiental"]}, {"t": "UD 9. La Prehistoria", "a": ["Concepto de Prehistoria y fuentes arqueológicas", "Evolución humana y hominización", "Paleolítico: economía depredadora, sociedad y tecnología", "Neolítico: agricultura, ganadería y sedentarización", "Edad de los Metales", "Arte prehistórico y megalitismo", "Yacimientos de la península ibérica y Andalucía"]}, {"t": "UD 10. Mesopotamia y Egipto", "a": ["Nacimiento de las primeras civilizaciones", "Agricultura, excedentes y ciudades", "Aparición de la escritura", "Organización política y social", "Mesopotamia: ciudades-Estado e imperios", "Egipto: faraón, religión y sociedad", "Arquitectura, templos, pirámides y tumbas", "Legado cultural"]}, {"t": "UD 11. La civilización griega", "a": ["Espacio geográfico griego", "Civilizaciones minoica y micénica", "Polis y colonización", "Atenas y Esparta", "Democracia ateniense y ciudadanía", "Guerras médicas y guerra del Peloponeso", "Alejandro Magno y helenismo", "Religión, filosofía, ciencia, arte y cultura"]}, {"t": "UD 12. La civilización romana", "a": ["Fundación de Roma y Monarquía", "República e instituciones", "Expansión territorial y guerras púnicas", "Crisis republicana e Imperio", "Sociedad, economía y esclavitud", "Romanización y urbanismo", "Cristianismo y crisis imperial", "Legado romano"]}, {"t": "UD 13. España y Andalucía en la Antigüedad", "a": ["Pueblos prerromanos", "Fenicios, griegos y cartagineses", "Tartessos", "Conquista romana de Hispania", "La Bética", "Ciudades, economía, arte y patrimonio arqueológico"]}], "2eso": [{"t": "UD 1. La crisis del Imperio romano y el inicio de la Edad Media", "a": ["Crisis del Imperio romano de Occidente", "Migraciones e invasiones germánicas", "Reinos germánicos", "Imperio bizantino y Justiniano", "Imperio carolingio y Carlomagno"]}, {"t": "UD 2. El islam y su expansión", "a": ["Arabia antes del islam", "Mahoma y nacimiento de la religión", "Principios del islam", "Expansión territorial", "Califatos omeya y abasí", "Sociedad, economía, ciencia, cultura y arte islámicos"]}, {"t": "UD 3. Al-Ándalus", "a": ["Conquista musulmana de la península ibérica", "Emirato dependiente e independiente", "Califato de Córdoba", "Reinos de taifas", "Almorávides y almohades", "Reino nazarí de Granada", "Economía, sociedad, cultura y urbanismo", "Patrimonio andalusí en Andalucía"]}, {"t": "UD 4. La Europa feudal", "a": ["Formación del feudalismo", "Relaciones de vasallaje", "Monarquía, nobleza y clero", "Campesinado y sociedad estamental", "Señoríos y economía rural", "Iglesia y cultura medieval", "Arte románico"]}, {"t": "UD 5. El resurgimiento de las ciudades", "a": ["Crecimiento demográfico y expansión agraria", "Renacimiento urbano y comercial", "Burguesía, gremios y mercados", "Ferias y rutas comerciales", "Fortalecimiento de las monarquías", "Universidades", "Arte gótico"]}, {"t": "UD 6. Los reinos cristianos de la península ibérica", "a": ["Formación de los núcleos cristianos", "Reino asturleonés y expansión castellana", "Navarra, Aragón y condados catalanes", "Repoblación y organización territorial", "Reconquista: etapas y debate historiográfico", "Sociedad, economía y cultura", "Intercambios, convivencia y conflictos"]}, {"t": "UD 7. La Baja Edad Media", "a": ["Peste negra y crisis demográfica", "Hambre, guerras y conflictos sociales", "Crisis del feudalismo", "Fortalecimiento de las monarquías", "Transformaciones económicas y comerciales", "Cambios culturales y artísticos"]}, {"t": "UD 8. El nacimiento de la Edad Moderna", "a": ["Transformaciones de los siglos XV y XVI", "Humanismo y Renacimiento", "Imprenta y difusión cultural", "Reforma protestante", "Contrarreforma católica", "Nuevas concepciones del mundo"]}, {"t": "UD 9. Los grandes descubrimientos geográficos", "a": ["Expansión marítima portuguesa", "Viajes de exploración", "Llegada de Colón a América", "Conquista y colonización", "Civilizaciones maya, azteca e inca", "Intercambios colombinos y consecuencias demográficas", "Imperios coloniales"]}, {"t": "UD 10. La monarquía hispánica", "a": ["Reyes Católicos y unión dinástica", "Organización política y expansión", "Carlos I y conflictos europeos", "Felipe II y hegemonía hispánica", "Conquista y administración americana", "Economía, sociedad y conflictos internos", "Siglo de Oro"]}, {"t": "UD 11. El siglo XVII y el Barroco", "a": ["Crisis demográfica y económica", "Absolutismo y parlamentarismo", "Guerra de los Treinta Años", "Crisis de la monarquía hispánica", "Felipe III, Felipe IV y Carlos II", "Cultura y arte barrocos"]}, {"t": "UD 12. Población y demografía", "a": ["Distribución de la población mundial", "Natalidad, mortalidad y crecimiento natural", "Migraciones", "Estructura por edades y sexo", "Envejecimiento y retos demográficos", "Población española y andaluza"]}, {"t": "UD 13. El espacio urbano", "a": ["Origen y evolución de las ciudades", "Morfología y estructura urbana", "Funciones urbanas", "Jerarquía urbana y áreas metropolitanas", "Problemas urbanos y desigualdad", "Ciudades sostenibles"]}, {"t": "UD 14. Desigualdades socioeconómicas", "a": ["Indicadores de desarrollo y bienestar", "Desigualdad entre países y territorios", "Pobreza y exclusión social", "Acceso a educación, sanidad y recursos", "Cooperación internacional y desarrollo sostenible"]}], "3eso": [{"t": "UD 1. El medio físico y los paisajes", "a": ["Relieve, climas, hidrografía y biomas", "Interacción entre medio natural y sociedad", "Paisajes naturales y humanizados", "Riesgos naturales y vulnerabilidad", "Problemas ambientales y conservación"]}, {"t": "UD 2. La organización política del mundo", "a": ["Estado, nación, soberanía y territorio", "Fronteras y organización territorial", "Regímenes políticos y democracia", "Organismos internacionales", "Unión Europea", "Organización territorial de España y Andalucía", "Conflictos geopolíticos y cooperación"]}, {"t": "UD 3. La población mundial", "a": ["Distribución de la población", "Natalidad, mortalidad y crecimiento", "Transición demográfica", "Estructura demográfica", "Migraciones y sus consecuencias", "Envejecimiento y retos demográficos", "Población española y andaluza"]}, {"t": "UD 4. Un mundo globalizado", "a": ["Globalización económica, cultural y tecnológica", "Interdependencia territorial", "Empresas multinacionales", "Comercio internacional y flujos financieros", "Transporte y comunicaciones", "Deslocalización productiva", "Ventajas, riesgos y desigualdades"]}, {"t": "UD 5. El sector primario", "a": ["Agricultura, ganadería, pesca y explotación forestal", "Factores físicos y humanos", "Sistemas agrarios tradicionales y comerciales", "Agricultura intensiva y extensiva", "Paisajes agrarios", "Pesca y acuicultura", "Sector primario en España y Andalucía", "Soberanía alimentaria y sostenibilidad"]}, {"t": "UD 6. Minería, energía e industria", "a": ["Recursos naturales y materias primas", "Energías renovables y no renovables", "Localización industrial", "Revoluciones industriales", "Sectores y cadenas productivas", "Industria española y andaluza", "Descarbonización y economía circular"]}, {"t": "UD 7. El sector servicios", "a": ["Terciarización de la economía", "Comercio interior e internacional", "Transporte y comunicaciones", "Turismo e impactos", "Servicios financieros, educativos y sanitarios", "Administración pública", "Sector terciario en España y Andalucía"]}, {"t": "UD 8. Los espacios urbanos", "a": ["Urbanización mundial", "Morfología y estructura urbana", "Funciones y jerarquía de ciudades", "Áreas metropolitanas", "Segregación espacial y vivienda", "Movilidad, contaminación y planificación", "Ciudades sostenibles"]}, {"t": "UD 9. Desigualdad y desarrollo", "a": ["Desarrollo humano y calidad de vida", "Indicadores económicos y sociales", "Desigualdad de ingresos y oportunidades", "Pobreza, hambre y exclusión", "Desigualdad de género", "Diferencias territoriales", "Cooperación internacional"]}, {"t": "UD 10. Sostenibilidad y retos ambientales", "a": ["Cambio climático", "Pérdida de biodiversidad", "Deforestación y desertificación", "Contaminación", "Sobreexplotación de recursos", "Objetivos de Desarrollo Sostenible", "Transición ecológica y adaptación"]}, {"t": "UD 11. España y Andalucía: territorio y economía", "a": ["Organización territorial y desequilibrios", "Población y redes urbanas", "Agricultura intensiva y regadío", "Industria, energía y minería", "Turismo, comercio y transporte", "Recursos naturales y patrimonio", "Retos socioeconómicos y ambientales"]}], "4eso": [{"t": "UD 1. La crisis del Antiguo Régimen", "a": ["Sociedad estamental y absolutismo", "Ilustración y pensamiento liberal", "Independencia de Estados Unidos", "Revolución francesa", "Napoleón y expansión revolucionaria", "Fin del Antiguo Régimen"]}, {"t": "UD 2. Revoluciones liberales y nacionalismo", "a": ["Liberalismo y soberanía nacional", "Restauración y Congreso de Viena", "Revoluciones de 1820, 1830 y 1848", "Nacionalismo", "Unificación italiana y alemana", "Construcción de los Estados nacionales"]}, {"t": "UD 3. La Revolución Industrial", "a": ["Industrialización británica", "Innovaciones y fuentes de energía", "Fábricas y mecanización", "Expansión industrial", "Capitalismo y liberalismo económico", "Burguesía y proletariado", "Movimiento obrero", "Transformaciones demográficas y urbanas"]}, {"t": "UD 4. Imperialismo y expansión colonial", "a": ["Causas económicas, políticas e ideológicas", "Reparto de África y Asia", "Potencias coloniales", "Explotación colonial", "Resistencia de sociedades colonizadas", "Consecuencias del colonialismo", "Rivalidades internacionales"]}, {"t": "UD 5. España en el siglo XIX", "a": ["Guerra de la Independencia", "Cortes de Cádiz y Constitución de 1812", "Fernando VII", "Construcción del Estado liberal", "Reinado de Isabel II", "Sexenio Democrático y Primera República", "Restauración borbónica", "Transformaciones económicas y sociales", "Andalucía en el siglo XIX"]}, {"t": "UD 6. La Primera Guerra Mundial", "a": ["Imperialismo, nacionalismo y alianzas", "Crisis internacionales", "Estallido y desarrollo de la guerra", "Guerra de trincheras y movilización total", "Revolución rusa", "Tratados de paz", "Nuevo mapa europeo y Sociedad de Naciones"]}, {"t": "UD 7. La Revolución rusa y la URSS", "a": ["Rusia zarista", "Revolución de febrero de 1917", "Revolución de octubre", "Guerra civil", "Lenin y Stalin", "Colectivización y planificación económica", "Represión política"]}, {"t": "UD 8. El período de entreguerras", "a": ["Felices años veinte", "Crisis de 1929 y Gran Depresión", "New Deal", "Crisis de las democracias", "Fascismo italiano", "Nazismo alemán", "Totalitarismo y propaganda"]}, {"t": "UD 9. España: de la Restauración a la Guerra Civil", "a": ["Crisis de la Restauración", "Reinado de Alfonso XIII", "Dictadura de Primo de Rivera", "Segunda República y reformas", "Polarización política y social", "Guerra Civil", "Represión, exilio y memoria democrática"]}, {"t": "UD 10. La Segunda Guerra Mundial", "a": ["Expansionismo de Alemania, Italia y Japón", "Causas y desarrollo de la guerra", "Principales frentes", "Holocausto", "Resistencia y colaboración", "Bombas atómicas y final del conflicto", "Consecuencias y creación de la ONU"]}, {"t": "UD 11. La Guerra Fría", "a": ["Formación de los bloques", "Estados Unidos y Unión Soviética", "OTAN y Pacto de Varsovia", "Carrera armamentística y espacial", "Berlín, Corea, Vietnam y Cuba", "Distensión", "Final de la Guerra Fría"]}, {"t": "UD 12. Descolonización y nuevos Estados", "a": ["Crisis de los imperios coloniales", "Independencia de Asia y África", "Nacionalismos anticoloniales", "India y Argelia", "Conferencia de Bandung", "Neocolonialismo y dependencia", "Desafíos de los nuevos Estados"]}, {"t": "UD 13. El mundo desde 1945", "a": ["Reconstrucción y Estado del bienestar", "Evolución económica de los bloques", "Transformaciones sociales y culturales", "Derechos civiles e igualdad", "Crisis del bloque soviético", "Caída del Muro de Berlín", "Globalización y nuevas potencias", "Conflictos y retos actuales"]}, {"t": "UD 14. España: dictadura y democracia", "a": ["Establecimiento y evolución del franquismo", "Represión, autarquía y oposición", "Apertura económica y desarrollismo", "Crisis final del régimen", "Transición democrática", "Constitución de 1978", "Consolidación democrática", "Integración europea", "Memoria democrática"]}, {"t": "UD 15. Andalucía en la Edad Contemporánea", "a": ["Transformaciones agrarias y sociales", "Industrialización y desigualdades", "Movimiento obrero", "Andalucía durante la Segunda República y la Guerra Civil", "Franquismo, represión y oposición", "Transición y autonomía", "Estatuto de Autonomía", "Patrimonio e identidad andaluza"]}], "hmc": [{"t": "UD 1. El Antiguo Régimen y los orígenes del mundo contemporáneo", "a": ["Sociedad estamental y privilegios", "Absolutismo y organización política", "Economía agraria y demografía", "Ilustración y pensamiento crítico", "Parlamentarismo inglés", "Crisis del Antiguo Régimen"]}, {"t": "UD 2. La Revolución Industrial", "a": ["Industrialización británica", "Innovaciones técnicas y energéticas", "Sistema fabril y mecanización", "Expansión de la industrialización", "Capitalismo industrial", "Burguesía y proletariado", "Movimiento obrero, sindicalismo y socialismo"]}, {"t": "UD 3. Las revoluciones liberales", "a": ["Independencia de Estados Unidos", "Revolución francesa", "Declaración de derechos y soberanía nacional", "Napoleón", "Restauración", "Revoluciones liberales de 1820, 1830 y 1848"]}, {"t": "UD 4. Nacionalismo y construcción de los Estados", "a": ["Liberalismo y nacionalismo", "Unificación italiana", "Unificación alemana", "Estados nacionales", "Conflictos territoriales", "Identidades nacionales"]}, {"t": "UD 5. La expansión imperialista", "a": ["Segunda Revolución Industrial", "Nuevas energías y transformaciones productivas", "Causas del imperialismo", "Reparto de África y Asia", "Dominio y explotación colonial", "Resistencia anticolonial", "Consecuencias del colonialismo"]}, {"t": "UD 6. La Primera Guerra Mundial", "a": ["Rivalidades imperialistas", "Nacionalismos y alianzas", "Causas del conflicto", "Guerra de movimientos y trincheras", "Guerra total", "Revolución rusa", "Tratados de paz", "Sociedad de Naciones"]}, {"t": "UD 7. La Revolución rusa y la URSS", "a": ["Rusia zarista", "Revolución de febrero", "Revolución de octubre", "Guerra civil", "Lenin y la NEP", "Ascenso de Stalin", "Colectivización, planificación y represión"]}, {"t": "UD 8. El período de entreguerras", "a": ["Sociedad de masas", "Felices años veinte", "Crisis de 1929 y Gran Depresión", "New Deal", "Crisis de las democracias", "Fascismo y nazismo", "Totalitarismo, propaganda y represión"]}, {"t": "UD 9. La Segunda Guerra Mundial", "a": ["Expansionismo de las potencias del Eje", "Apaciguamiento y crisis internacionales", "Causas y desarrollo", "Ocupación, resistencia y colaboración", "Holocausto y genocidios", "Final de la guerra", "Consecuencias y creación de la ONU"]}, {"t": "UD 10. La Guerra Fría", "a": ["Formación de los bloques", "Estados Unidos y Unión Soviética", "OTAN y Pacto de Varsovia", "Carrera armamentística y espacial", "Berlín, Corea, Vietnam y Cuba", "Distensión", "Crisis del bloque soviético"]}, {"t": "UD 11. Descolonización y nuevos Estados", "a": ["Crisis de los imperios coloniales", "Independencia de Asia y África", "Movimientos anticoloniales", "India y Argelia", "Conferencia de Bandung", "Neocolonialismo", "Conflictos y desafíos de los nuevos Estados"]}, {"t": "UD 12. Globalización y mundo actual", "a": ["Reconstrucción de posguerra", "Estado del bienestar", "Caída del Muro de Berlín y disolución de la URSS", "Globalización económica y cultural", "Nuevas potencias", "Conflictos contemporáneos", "Desigualdad, migraciones y crisis humanitarias", "Cambio climático, tecnología y retos del siglo XXI"]}], "hesp": [{"t": "UD 1. La Prehistoria y la Hispania prerromana", "a": ["Paleolítico, Neolítico y Edad de los Metales", "Arte rupestre", "Pueblos íberos y celtas", "Tartessos", "Colonizaciones fenicia, griega y cartaginesa"]}, {"t": "UD 2. Hispania romana y monarquía visigoda", "a": ["Conquista romana", "Romanización", "Organización territorial", "La Bética", "Cristianización y crisis imperial", "Monarquía visigoda"]}, {"t": "UD 3. Al-Ándalus y los reinos cristianos medievales", "a": ["Conquista musulmana de 711", "Emirato y Califato de Córdoba", "Taifas y dinastías norteafricanas", "Reino nazarí de Granada", "Formación y expansión de los reinos cristianos", "Reconquista y repoblación", "Sociedad, economía y cultura", "Intercambios y conflictos"]}, {"t": "UD 4. La Baja Edad Media", "a": ["Peste negra y crisis demográfica", "Transformaciones económicas y sociales", "Conflictos políticos", "Fortalecimiento monárquico", "Corona de Castilla y Corona de Aragón", "Crisis del reino nazarí"]}, {"t": "UD 5. Los Reyes Católicos y la expansión ultramarina", "a": ["Unión dinástica", "Fortalecimiento de la monarquía", "Política religiosa", "Conquista de Granada", "Expansión atlántica", "Conquista y colonización americana", "Formación de la monarquía autoritaria"]}, {"t": "UD 6. Los Austrias del siglo XVI", "a": ["Carlos I", "Comunidades y Germanías", "Felipe II", "Conflictos europeos", "Reforma y Contrarreforma", "Economía y sociedad", "América y organización imperial"]}, {"t": "UD 7. Los Austrias del siglo XVII", "a": ["Felipe III, Felipe IV y Carlos II", "Validos", "Guerra de los Treinta Años", "Crisis demográfica y económica", "Rebeliones de 1640", "Pérdida de hegemonía", "Siglo de Oro"]}, {"t": "UD 8. Los Borbones y el reformismo del siglo XVIII", "a": ["Guerra de Sucesión", "Tratado de Utrecht", "Decretos de Nueva Planta", "Centralización administrativa", "Reformismo borbónico", "Carlos III y despotismo ilustrado", "Economía y sociedad", "Relaciones con América"]}, {"t": "UD 9. La crisis del Antiguo Régimen (1788-1833)", "a": ["Carlos IV", "Guerra de la Independencia", "Cortes de Cádiz", "Constitución de 1812", "Fernando VII", "Trienio Liberal", "Independencia de la América española"]}, {"t": "UD 10. Construcción del Estado liberal (1833-1874)", "a": ["Regencias y guerras carlistas", "Isabel II", "Moderados y progresistas", "Desamortizaciones", "Sexenio Democrático", "Revolución de 1868", "Amadeo I", "Primera República"]}, {"t": "UD 11. Restauración y crisis del sistema (1874-1931)", "a": ["Alfonso XII", "Constitución de 1876", "Turnismo y caciquismo", "Nacionalismos periféricos", "Movimiento obrero", "Guerra de Cuba y crisis de 1898", "Alfonso XIII", "Dictadura de Primo de Rivera"]}, {"t": "UD 12. La Segunda República (1931-1936)", "a": ["Proclamación de la República", "Constitución de 1931", "Reformas políticas, sociales y territoriales", "Relaciones Iglesia-Estado", "Bienio reformista y bienio conservador", "Revolución de octubre de 1934", "Frente Popular"]}, {"t": "UD 13. La Guerra Civil (1936-1939)", "a": ["Golpe militar", "Evolución militar", "Intervención internacional", "Represión", "Transformaciones sociales y económicas", "Exilio", "Consecuencias y memoria histórica"]}, {"t": "UD 14. La dictadura franquista (1939-1975)", "a": ["Establecimiento de la dictadura", "Represión", "Autarquía y aislamiento", "Apertura y desarrollismo", "Transformaciones sociales", "Oposición política y social", "Crisis final del régimen"]}, {"t": "UD 15. Transición y consolidación democrática", "a": ["Muerte de Franco", "Reforma política", "Elecciones de 1977", "Constitución de 1978", "Estado autonómico", "Gobiernos democráticos", "Integración europea", "Transformaciones sociales y económicas"]}, {"t": "UD 16. España en el mundo actual", "a": ["Evolución del sistema democrático", "España en la Unión Europea", "Estado del bienestar", "Transformaciones demográficas y migratorias", "Igualdad y movimientos sociales", "Memoria democrática", "Retos territoriales, económicos y ambientales"]}, {"t": "UD transversal. Andalucía en la historia de España", "a": ["Tartessos, Bética romana y Al-Ándalus", "Reino nazarí y conquista castellana", "Andalucía en la Edad Moderna", "Sociedad agraria y desamortizaciones", "Industrialización y movimiento obrero", "Segunda República, Guerra Civil y franquismo", "Transición y autonomía", "Estatuto de Autonomía", "Patrimonio y memoria democrática"]}], "arte": [{"t": "UD 1. Introducción al arte y al patrimonio", "a": ["Concepto y funciones del arte", "Arte, sociedad, religión y poder", "Elementos formales y lenguaje visual", "Arquitectura, escultura y pintura", "Técnicas y materiales", "Análisis e interpretación de obras", "Patrimonio, conservación y restauración", "Museos y difusión cultural"]}, {"t": "UD 2. Arte prehistórico", "a": ["Arte paleolítico", "Pintura levantina", "Arte mobiliar", "Megalitismo", "Funciones simbólicas y rituales"]}, {"t": "UD 3. Arte egipcio y mesopotámico", "a": ["Arquitectura religiosa y funeraria", "Pirámides, templos y tumbas", "Escultura y representación del poder", "Relieve y pintura", "Convenciones formales y simbolismo", "Arte y religión"]}, {"t": "UD 4. Arte griego", "a": ["Órdenes dórico, jónico y corintio", "Templo y arquitectura pública", "Escultura arcaica, clásica y helenística", "Ideal de belleza y proporción", "Cerámica y pintura", "Polis y función social del arte"]}, {"t": "UD 5. Arte romano", "a": ["Arquitectura civil, religiosa y conmemorativa", "Arco, bóveda y cúpula", "Ingeniería y obras públicas", "Escultura, retrato y relieve", "Pintura mural y mosaico", "Urbanismo y propaganda imperial", "Hispania y patrimonio romano"]}, {"t": "UD 6. Arte paleocristiano y bizantino", "a": ["Primeras manifestaciones cristianas", "Catacumbas y basílicas", "Iconografía cristiana", "Arquitectura bizantina", "Mosaicos y representación sagrada", "Arte, liturgia y poder"]}, {"t": "UD 7. Arte prerrománico e islámico", "a": ["Arte visigodo y asturiano", "Arquitectura mozárabe", "Orígenes del arte islámico", "Mezquitas, palacios y decoración geométrica", "Arte hispanomusulmán", "Mezquita de Córdoba y Alhambra de Granada"]}, {"t": "UD 8. Arte románico", "a": ["Contexto feudal y religioso", "Iglesias, monasterios y peregrinaciones", "Arco de medio punto y bóveda de cañón", "Escultura monumental y portadas", "Pintura mural", "Simbolismo y función didáctica", "Camino de Santiago"]}, {"t": "UD 9. Arte gótico", "a": ["Crecimiento urbano y religiosidad", "Catedral gótica", "Arco apuntado y bóveda de crucería", "Arbotantes y vidrieras", "Escultura y naturalismo", "Pintura gótica y retablos", "Gótico peninsular y andaluz"]}, {"t": "UD 10. Arte del Renacimiento", "a": ["Humanismo y Antigüedad clásica", "Arquitectura del Quattrocento y Cinquecento", "Proporción, perspectiva y órdenes clásicos", "Escultura renacentista", "Pintura, perspectiva y anatomía", "Mecenazgo y figura del artista", "Renacimiento italiano y europeo"]}, {"t": "UD 11. Arte del Renacimiento en España", "a": ["Arquitectura plateresca, clasicista y herreriana", "Escultura religiosa", "Pintura renacentista", "El Greco", "Monarquía y Contrarreforma", "Patrimonio renacentista andaluz"]}, {"t": "UD 12. Arte barroco", "a": ["Contrarreforma y monarquías", "Arquitectura barroca", "Escultura dinámica y teatral", "Pintura, claroscuro y naturalismo", "Barroco italiano y europeo", "Bernini, Caravaggio, Rubens, Rembrandt y Velázquez", "Barroco español y andaluz"]}, {"t": "UD 13. Neoclasicismo y arte del siglo XVIII", "a": ["Ilustración y modelos clásicos", "Arquitectura neoclásica", "Escultura y pintura", "Arte y revoluciones políticas", "Goya y la crítica social", "Academias y transformación del gusto"]}, {"t": "UD 14. Romanticismo y realismo", "a": ["Romanticismo y subjetividad", "Paisaje, historia y sentimiento", "Nacionalismo y libertad artística", "Realismo y representación social", "Pintura social y vida cotidiana", "Transformación de la figura del artista"]}, {"t": "UD 15. Impresionismo y postimpresionismo", "a": ["Nuevos temas y espacios", "Luz, color y pincelada", "Pintura al aire libre", "Fotografía y percepción visual", "Monet, Renoir y Degas", "Cézanne, Van Gogh, Gauguin y Toulouse-Lautrec", "Ruptura con la tradición académica"]}, {"t": "UD 16. Arquitectura y urbanismo del siglo XIX", "a": ["Revolución Industrial y nuevos materiales", "Hierro, vidrio e ingeniería", "Transformación urbana", "Eclecticismo e historicismos", "Modernismo y Art Nouveau", "Gaudí y modernismo español"]}, {"t": "UD 17. Las primeras vanguardias del siglo XX", "a": ["Fauvismo y expresionismo", "Cubismo", "Futurismo", "Dadaísmo y surrealismo", "Abstracción", "Nuevos lenguajes y materiales", "Arte y crisis de la modernidad"]}, {"t": "UD 18. Arquitectura y arte del siglo XX", "a": ["Racionalismo y funcionalismo", "Bauhaus y diseño moderno", "Le Corbusier y Mies van der Rohe", "Organicismo y Frank Lloyd Wright", "Picasso, Dalí y Miró", "Expresionismo abstracto", "Pop art y minimalismo", "Arte conceptual, instalaciones y nuevas tecnologías"]}, {"t": "UD 19. Arte contemporáneo y patrimonio", "a": ["Posmodernidad y pluralidad artística", "Fotografía, cine, vídeo y arte digital", "Performance, instalaciones y arte urbano", "Mercado del arte y cultura de masas", "Museos y patrimonio mundial", "Conservación y restauración", "Patrimonio andaluz, museos y artistas"]}]};
+const CURSOS = [
+  {id:"1eso", nombre:"1º de ESO · Geografía e Historia", nivel:"1º de ESO"},
+  {id:"2eso", nombre:"2º de ESO · Geografía e Historia", nivel:"2º de ESO"},
+  {id:"3eso", nombre:"3º de ESO · Geografía e Historia", nivel:"3º de ESO"},
+  {id:"4eso", nombre:"4º de ESO · Geografía e Historia", nivel:"4º de ESO"},
+  {id:"hmc", nombre:"1º de Bachillerato · Historia del Mundo Contemporáneo", nivel:"1º de Bachillerato"},
+  {id:"hesp", nombre:"2º de Bachillerato · Historia de España", nivel:"2º de Bachillerato"},
+  {id:"arte", nombre:"2º de Bachillerato · Historia del Arte", nivel:"2º de Bachillerato"}
+];
+const SERVER = "Parallel Search";
+const SESSION_ID = Array.from(crypto.getRandomValues(new Uint8Array(16)), b => b.toString(16).padStart(2,"0")).join("");
+
+const NAMES = {herodoto:"Heródoto", tucidides:"Tucídides", arendt:"Hannah Arendt", clio:"Clío", socrates:"Sócrates", jaldun:"Ibn Jaldún"};
+const STEPS = [
+  {key:"herodoto", agent:"herodoto", rol:"Resumen de la noticia", tier:"quick", busy:"Leyendo…"},
+  {key:"tucidides", agent:"tucidides", rol:"Relación con el temario", tier:"default", busy:"Buscando en el temario…"},
+  {key:"arendt", agent:"arendt", rol:"Historia y actualidad", tier:"default", busy:"Pensando…"},
+  {key:"clio", agent:"clio", rol:"Borrador del relato", tier:"default", busy:"Escribiendo…"},
+  {key:"socrates", agent:"socrates", rol:"Borrador de las preguntas", tier:"default", busy:"Pensando preguntas…"},
+  {key:"jaldun", agent:"jaldun", rol:"Revisión de todo el consejo", tier:"default", busy:"Revisando…", effort:"high"}
+];
+
+/* ---------- Sesión de ejemplo ---------- */
+const EJEMPLO = {
+  curso:"hmc",
+  enlace:"",
+  titular:"Putin acepta reanudar en noviembre las negociaciones con Ucrania con la mediación de Estados Unidos",
+  medio:"EFE · 21 de octubre de 2026",
+  herodoto:"**Qué ha pasado.** Putin acepta reanudar en noviembre las negociaciones de paz sobre Ucrania, con mediación de EE. UU., tras reunirse con el enviado Steve Witkoff.\n**Claves.** Las negociaciones estaban suspendidas desde febrero por la operación militar de EE. UU. en Irán. Zelenski se muestra abierto a congelar las líneas actuales del frente como primer paso y exige participar.",
+  tucidides:"**Unidad.** UD 12. Globalización y mundo actual\n**Apartados.** Conflictos contemporáneos · Nuevas potencias\n**Relación.** La guerra de Ucrania y su negociación muestran cómo las grandes potencias (EE. UU., Rusia, China) buscan definir un orden de seguridad, y plantean un dilema que sigue abierto: si las fronteras se pueden congelar por la fuerza y si los Estados afectados deben sentarse a la mesa. Es una conexión de fondo con el mundo posterior a la Guerra Fría.\n**Caso para trabajar.** La disolución de la URSS en 1991 y el origen de los nuevos Estados, entre ellos Ucrania, que explica el marco de seguridad que hoy se discute.",
+  arendt:"**Lo que se repite.** En 1991, la disolución de la URSS dejó a Ucrania como Estado independiente sin que el nuevo marco de seguridad quedara del todo resuelto. Hoy, como entonces, las grandes potencias discuten qué fronteras y qué garantías valen para la región.\n**Lo que ha cambiado.** En 1991 el reparto se hizo con el final de un bloque en descomposición; ahora Ucrania es un Estado en guerra que exige sentarse a la mesa, y China aparece como nueva potencia en las propuestas de Moscú.\n**Por qué importa hoy.** Os invita a preguntaros quién decide sobre un país: ¿las potencias o sus ciudadanos? Esa pregunta no tiene respuesta automática.",
+  clio:"Diciembre de 1991. En Moscú, una bandera deja de ondear y la Unión Soviética se disuelve. De pronto aparecen nuevos Estados, entre ellos Ucrania, que nace como país independiente. Pero el nuevo marco de seguridad de la región no quedó del todo resuelto, y esa grieta sigue abierta.\nSaltamos al 21 de octubre de 2026. Putin se declara dispuesto a reanudar en torno al 10 de noviembre las negociaciones con Ucrania, mediadas por Estados Unidos, tras reunirse con el enviado Steve Witkoff. Se hablaría de un sistema de seguridad para Rusia y Ucrania. Zelenski se muestra abierto a \"congelar\" las líneas del frente y advierte de que Ucrania debe estar en cualquier conversación, incluso si Moscú propone una mesa con China y Estados Unidos.\nLa diferencia es clara: en 1991 se cerraba un bloque; hoy un Estado en guerra reclama su asiento. Y persiste una idea de fondo: las fronteras no las dibujan solo las potencias, también las defienden quienes viven en ellas.",
+  socrates:"**1.** ¿Quién debería tener voz en la decisión sobre las fronteras de un país: las potencias, sus gobiernos o sus ciudadanos? ¿Qué muestran 1991 y hoy?\n*Para qué sirve:* Comparar quién decidió en 1991 y quién pretende decidir ahora.\n**2.** ¿Qué diferencias hay entre cómo se repartió el espacio soviético en 1991 y cómo se plantea hoy un sistema de seguridad para la región?\n*Para qué sirve:* Distinguir continuidades y cambios entre el final de la URSS y el presente.\n**3.** ¿Qué consecuencias puede tener que una frontera quede fijada por una guerra y no por un acuerdo previo? ¿Conoces algún precedente?\n*Para qué sirve:* Relacionar el debate actual con casos históricos de fronteras y conflictos.",
+  jaldun:"VEREDICTO: Aprobado con correcciones\nCAMBIOS:\n- **Heródoto:** correcto. Se ajusta a la noticia.\n- **Tucídides:** UD 12 y los apartados existen y encajan. \"Nuevas potencias\" encaja poco, porque China solo aparece en una propuesta de Moscú. Mejor \"Conflictos contemporáneos\" y \"Caída del Muro de Berlín y disolución de la URSS\".\n- **Arendt:** \"reparto\" y \"las grandes potencias discuten\" en 1991 es una equivalencia simplista. Entonces decidieron las repúblicas soviéticas, no un reparto entre potencias. Además, que el marco de seguridad quedara sin resolver en 1991 no lo dice la noticia.\n- **Clío:** se corrige \"nace\" (Ucrania ya se había declarado independiente) y se atribuye lo dicho a Ushakov (\"en principio\", \"al término del conflicto\"). Se quita la \"grieta\" y la moraleja, que son interpretación.\n- **Sócrates:** las preguntas 2 y 3 presuponen un \"reparto\" y una frontera \"fijada por una guerra\". La pregunta 1 daba pistas en su finalidad. Se reformulan.\nVERSIÓN FINAL DE CLÍO:\nDiciembre de 1991. En Moscú, una bandera deja de ondear y la Unión Soviética se disuelve. Surgen así nuevos Estados independientes, entre ellos Ucrania. Es el punto de partida de la Ucrania independiente que hoy aparece en las negociaciones.\nSaltamos al 21 de octubre de 2026. Según el Kremlin, Putin está dispuesto, en principio, a reanudar en torno al 10 de noviembre las negociaciones con Ucrania, mediadas por Estados Unidos, tras reunirse con el enviado Steve Witkoff. El asunto central sería un sistema de seguridad para Rusia y Ucrania al término del conflicto. Zelenski se muestra abierto a \"congelar\" las líneas del frente como primer paso hacia un alto el fuego definitivo. Advierte además de que su gobierno debe estar en cualquier conversación, incluso ante las propuestas de Moscú de una reunión entre Rusia, China y Estados Unidos.\nLa diferencia es clara: en 1991 se disolvía un Estado y nacían otros; hoy un Estado en guerra reclama su asiento. Y queda una pregunta de fondo: ¿quién decide sobre las fronteras de un país?\nVERSIÓN FINAL DE SÓCRATES:\n**1.** ¿Quién debería tener voz en la decisión sobre las fronteras de un país: las potencias, sus gobiernos o sus ciudadanos? ¿Qué muestran 1991 y hoy?\n*Para qué sirve:* Reflexionar sobre quién decide el futuro de un país y contrastar los dos momentos.\n**2.** ¿Qué diferencias ves entre el contexto de 1991 y el de hoy a la hora de decidir el futuro de Ucrania y de la región?\n*Para qué sirve:* Distinguir continuidades y cambios entre el final de la URSS y el presente.\n**3.** ¿Qué consecuencias puede tener congelar las líneas del frente como primer paso hacia un acuerdo? ¿Qué ejemplos históricos te ayudan a pensarlo?\n*Para qué sirve:* Relacionar el debate actual con casos históricos de fronteras y conflictos."
+};
+
+/* ---------- Utilidades ---------- */
+const $ = s => document.querySelector(s);
+const sitio = id => document.querySelector(`.sitio[data-agent="${id}"]`);
+const ESTADOS = {idle:"En espera", thinking:"Pensando…", speaking:"Hablando…", done:"Listo", stopped:"Detenido"};
+const reduce = () => matchMedia("(prefers-reduced-motion: reduce)").matches;
+function setState(id, st, label){
+  const el = sitio(id);
+  el.classList.remove("thinking","speaking","done");
+  if (["thinking","speaking","done"].includes(st)) el.classList.add(st);
+  el.querySelector(".estado").textContent = label || ESTADOS[st];
+}
+function esc(t){ return String(t).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c])); }
+function inline(t){ return esc(t).replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>").replace(/\*(.+?)\*/g,"<em>$1</em>"); }
+function fmt(text){
+  const lines = text.replace(/^#+\s*/gm,"").split("\n");
+  let html = "", inList = false;
+  for (const raw of lines){
+    const l = raw.trim();
+    const m = l.match(/^[-•]\s+(.*)/);
+    if (m){ if(!inList){html+="<ul>";inList=true;} html += "<li>"+inline(m[1])+"</li>"; continue; }
+    if (inList){ html += "</ul>"; inList=false; }
+    if (l) html += "<p>"+inline(l)+"</p>";
+  }
+  if (inList) html += "</ul>";
+  return html;
+}
+function plano(t){ return t.replace(/\*\*/g,"").replace(/\*/g,""); }
+function dominio(u){ try { return new URL(u).hostname.replace(/^www\./,""); } catch(e){ return ""; } }
+function safeUrl(u){ try { const x = new URL(u.trim()); return (x.protocol === "https:" || x.protocol === "http:") ? x.href : null; } catch(e){ return null; } }
+function selloClass(v){ const s = v.toLowerCase(); if (s.includes("correcc")) return "warn"; if (s.includes("revisar")) return "bad"; return "ok"; }
+
+/* La revisión de Ibn Jaldún: veredicto, cambios y versiones finales */
+function parseRevision(text){
+  const vm = text.match(/^\s*\**VEREDICTO:?\**\s*:?\s*(.+)$/im);
+  const verdict = vm ? vm[1].replace(/\*/g,"").trim() : null;
+  const marks = [];
+  for (const [k, re] of [["clio", /^\s*\**VERSI[ÓO]N FINAL DE CL[ÍI]O:?\**\s*:?\s*$/im], ["socrates", /^\s*\**VERSI[ÓO]N FINAL DE S[ÓO]CRATES:?\**\s*:?\s*$/im]]){
+    const m = text.match(re); if (m) marks.push({k, start:m.index, end:m.index + m[0].length});
+  }
+  marks.sort((a,b) => a.start - b.start);
+  const out = {verdict, clio:null, socrates:null};
+  marks.forEach((m, i) => { out[m.k] = text.slice(m.end, i + 1 < marks.length ? marks[i+1].start : undefined).trim() || null; });
+  let cambios = marks.length ? text.slice(0, marks[0].start) : text;
+  if (vm) cambios = cambios.replace(vm[0], "");
+  out.cambios = cambios.replace(/^\s*\**CAMBIOS:?\**\s*:?\s*$/im, "").trim();
+  return out;
+}
+function contarCambios(cambios){
+  return cambios.split("\n").filter(l => /^\s*[-•]\s+/.test(l) && !/correct[oa]s?[;:.]|son correctos|es correcto|sin cambios|ninguno/i.test(l)).length;
+}
+
+/* ---------- Acta ---------- */
+function crearTurno(agent, rol, extra){
+  const t = document.createElement("div");
+  t.className = "turno" + (extra ? " " + extra : "");
+  t.dataset.agent = agent;
+  const mini = sitio(agent).querySelector("svg").cloneNode(true);
+  mini.setAttribute("class","avatar mini");
+  const b = document.createElement("div"); b.className = "bocadillo";
+  b.innerHTML = `<div class="quien"><strong>${NAMES[agent]}</strong><span>${esc(rol)}</span></div><div class="sello-slot"></div><div class="texto"><p class="pensando">Pensando…</p></div>`;
+  t.append(mini, b);
+  $("#turnos").append(t);
+  return t;
+}
+function pintar(turno, step, text){
+  if (step.key === "jaldun"){
+    const r = parseRevision(text);
+    turno.querySelector(".sello-slot").innerHTML = r.verdict ? `<span class="sello ${selloClass(r.verdict)}">${esc(r.verdict)}</span>` : "";
+    turno.querySelector(".texto").innerHTML = fmt(r.cambios || "");
+    return;
+  }
+  turno.querySelector(".texto").innerHTML = fmt(text);
+}
+function plegar(turno){
+  if (!turno || turno.querySelector("details.borrador")) return;
+  const texto = turno.querySelector(".texto");
+  const d = document.createElement("details"); d.className = "borrador";
+  const s = document.createElement("summary"); s.textContent = "Ver el borrador antes de la revisión";
+  texto.replaceWith(d); d.append(s, texto);
+}
+function botonCopiar(turno, getText, etiqueta){
+  const acc = document.createElement("div"); acc.className = "acciones";
+  const btn = document.createElement("button"); btn.type = "button"; btn.className = "btn-ghost"; btn.textContent = etiqueta;
+  btn.addEventListener("click", async () => {
+    try { await navigator.clipboard.writeText(plano(getText())); btn.textContent = "Copiado"; }
+    catch(e){ const r = document.createRange(); r.selectNodeContents(turno.querySelector(".bocadillo")); const s = getSelection(); s.removeAllRanges(); s.addRange(r); btn.textContent = "Texto seleccionado: cópialo"; }
+    setTimeout(() => { btn.textContent = etiqueta; }, 2500);
+  });
+  acc.append(btn); turno.querySelector(".bocadillo").append(acc);
+}
+function mostrarFinales(ctx){
+  const r = parseRevision(ctx.jaldun);
+  const fClio = r.clio || ctx.clio, fSoc = r.socrates || ctx.socrates;
+  const n = contarCambios(r.cambios);
+  plegar(document.querySelector('.turno[data-agent="clio"]'));
+  plegar(document.querySelector('.turno[data-agent="socrates"]'));
+  const sep = document.createElement("div"); sep.className = "separador";
+  sep.innerHTML = `<span>Versión final para clase</span><small>${n ? `Revisada por Ibn Jaldún: ${n} ${n === 1 ? "corrección" : "correcciones"}` : "Revisada por Ibn Jaldún: sin correcciones"}</small>`;
+  $("#turnos").append(sep);
+  const tc = crearTurno("clio", "El relato para el alumnado", "final");
+  tc.querySelector(".texto").innerHTML = fmt(fClio);
+  const ts = crearTurno("socrates", "Preguntas para el debate", "final");
+  ts.querySelector(".texto").innerHTML = fmt(fSoc);
+  botonCopiar(ts, () => fClio + "\n\nPREGUNTAS PARA EL DEBATE\n" + fSoc, "Copiar relato y preguntas");
+  setState("clio","done","Versión final"); setState("socrates","done","Versión final");
+  return tc;
+}
+function pintarNoticia({titular, enlace, medio}, badge){
+  const u = enlace && safeUrl(enlace);
+  $("#acta-noticia").innerHTML = `<p class="noticia-citada"><strong>${esc(titular || "Noticia de partida")}</strong>${medio ? ` · ${esc(medio)}` : ""}${u ? ` · <a href="${esc(u)}" target="_blank" rel="noopener noreferrer">Abrir la noticia</a>` : ""}</p>`;
+  $("#acta-badge").textContent = badge;
+}
+function mostrarEjemplo(){
+  const c = CURSOS.find(x => x.id === EJEMPLO.curso);
+  pintarNoticia(EJEMPLO, "Sesión · " + c.nivel);
+  for (const st of STEPS){ const t = crearTurno(st.agent, st.rol); pintar(t, st, EJEMPLO[st.key]); setState(st.agent,"done"); }
+  mostrarFinales(EJEMPLO);
+  setState("jaldun","done");
+}
+
+/* ---------- Instrucciones ---------- */
+function temarioTxt(id){ return TEMARIO[id].map(u => `${u.t}: ${u.a.join("; ")}.`).join("\n"); }
+function prompt(key, ctx){
+  const c = ctx.curso;
+  const base = `Trabajas para un docente de Historia en Andalucía (España) que prepara una sesión para ${c.nombre}. Escribe en español de España, claro y breve: lo leerán en pantalla, en clase. Usa solo texto; puedes usar **negrita**, *cursiva* y listas con "- ", sin títulos con # ni tablas. Respeta de forma estricta el límite de palabras.
+No inventes hechos, fechas, cifras ni declaraciones. Si no estás seguro de un dato, no lo des.
+
+NOTICIA:
+"""${ctx.noticia.slice(0,8000)}"""
+`;
+  if (key === "herodoto") return base + `
+Eres Heródoto. Resume la noticia sin relacionarla todavía con la historia.
+FORMATO EXACTO:
+**Qué ha pasado.** (una o dos frases)
+**Claves.** (los datos más importantes de la noticia, en una o dos frases)
+Máximo 60 palabras.`;
+  if (key === "tucidides") return base + `
+RESUMEN DE HERÓDOTO:
+"""${ctx.herodoto}"""
+
+TEMARIO DE ${c.nombre.toUpperCase()} (unidad: apartados):
+${temarioTxt(c.id)}
+
+Eres Tucídides. Busca la relación de la noticia SOLO dentro de este temario: elige la unidad que mejor encaja y los apartados concretos de esa unidad. No uses contenidos de otros cursos. Si la relación con este curso es débil, dilo en una frase y elige la menos forzada. Evita relaciones superficiales: tiene que haber una conexión de fondo (causa, proceso o problema compartido), no solo un parecido.
+FORMATO EXACTO:
+**Unidad.** (el título exacto de la unidad, tal como aparece en el temario)
+**Apartados.** (uno a tres apartados exactos de esa unidad, separados por " · ")
+**Relación.** (una o dos frases)
+**Caso para trabajar.** (un hecho o proceso concreto de esa unidad, con su fecha)
+Máximo 100 palabras.`;
+  if (key === "arendt") return base + `
+RESUMEN DE HERÓDOTO:
+"""${ctx.herodoto}"""
+RELACIÓN CON EL TEMARIO DE TUCÍDIDES:
+"""${ctx.tucidides}"""
+
+Eres Hannah Arendt, la pensadora que reflexionó sobre cómo el pasado ilumina el presente. Relaciona el caso histórico de Tucídides con la noticia de hoy. No digas que "la historia se repite": distingue lo que es parecido de lo que es distinto, y evita equivalencias simplistas.
+FORMATO EXACTO:
+**Lo que se repite.** (una o dos frases)
+**Lo que ha cambiado.** (una o dos frases)
+**Por qué importa hoy.** (una o dos frases, pensando en el alumnado)
+Máximo 110 palabras.`;
+  if (key === "clio") return base + `
+RESUMEN DE HERÓDOTO:
+"""${ctx.herodoto}"""
+RELACIÓN CON EL TEMARIO DE TUCÍDIDES:
+"""${ctx.tucidides}"""
+HISTORIA Y ACTUALIDAD SEGÚN ARENDT:
+"""${ctx.arendt}"""
+
+Eres Clío, la musa de la Historia. Cuenta todo esto al alumnado de ${c.nivel} de forma didáctica, como un relato que enganche. Empieza con una escena concreta del caso histórico, llega a la noticia de hoy y termina con una idea que una pasado y presente. No añadas hechos que no aparezcan arriba. Vocabulario adecuado a ${c.nivel}. No escribas preguntas.
+Tres párrafos cortos. Máximo 150 palabras.`;
+  if (key === "socrates") return base + `
+RELACIÓN CON EL TEMARIO DE TUCÍDIDES:
+"""${ctx.tucidides}"""
+HISTORIA Y ACTUALIDAD SEGÚN ARENDT:
+"""${ctx.arendt}"""
+RELATO DE CLÍO:
+"""${ctx.clio}"""
+
+Eres Sócrates, que enseñaba preguntando. Escribe 3 preguntas para abrir un debate en clase de ${c.nivel}. Cada pregunta: clara y corta (máximo 25 palabras), abierta (no se responde con sí o no), sin dar pistas de la respuesta, sin empujar hacia una postura política y relacionando pasado y presente o una causa concreta.
+FORMATO EXACTO, para cada una:
+**1.** (la pregunta)
+*Para qué sirve:* (una frase breve)
+Máximo 110 palabras en total.`;
+  return base + `
+TEMARIO DE ${c.nombre.toUpperCase()}:
+${temarioTxt(c.id)}
+
+TRABAJO DEL CONSEJO:
+HERÓDOTO: """${ctx.herodoto}"""
+TUCÍDIDES: """${ctx.tucidides}"""
+ARENDT: """${ctx.arendt}"""
+CLÍO (borrador): """${ctx.clio}"""
+SÓCRATES (borrador): """${ctx.socrates}"""
+
+Eres Ibn Jaldún, el historiador que denunció los errores de los cronistas. Revisa el trabajo de los cinco antes de que llegue a clase. Comprueba: que Heródoto no atribuya a la noticia lo que no dice; que la unidad y los apartados de Tucídides existan en el temario de este curso y encajen de verdad; fechas, hechos y cifras; anacronismos, presentismo y equivalencias simplistas en Arendt; que Clío no añada datos nuevos ni errores; que las preguntas de Sócrates sean abiertas, claras y no den pistas.
+FORMATO EXACTO:
+VEREDICTO: Aprobado  (o bien: VEREDICTO: Aprobado con correcciones)
+CAMBIOS:
+- (una línea por cada miembro del consejo que revises: su nombre, qué está mal y cómo queda; o que es correcto). Máximo 5 líneas, frases cortas.
+VERSIÓN FINAL DE CLÍO:
+(el relato de Clío con tus correcciones aplicadas; si no hay nada que corregir, cópialo igual)
+VERSIÓN FINAL DE SÓCRATES:
+(las preguntas de Sócrates con tus correcciones aplicadas, con el mismo formato; si no hay nada que corregir, cópialas igual)
+Cambia solo lo necesario.`;
+}
+
+/* ---------- Leer el enlace ---------- */
+let sample = null, mcp = null, ctl = null, running = false, CTX = null;
+async function leerEnlace(url, signal){
+  if (!mcp) throw {code:"lectura", message:"Esta vista no puede leer enlaces. Abre el desplegable de debajo del enlace y pega el texto de la noticia."};
+  let ultimo = null;
+  for (let i = 0; i < 2; i++){
+    try {
+      const res = await mcp.callTool(SERVER, "web_fetch", {urls:[url], objective:"Titular y texto completo de la noticia: hechos, cifras, protagonistas y declaraciones", full_content:true, session_id:SESSION_ID}, {signal});
+      const p = res.payload;
+      const r = p && Array.isArray(p.results) ? p.results[0] : null;
+      let texto = r ? (r.full_content || (Array.isArray(r.excerpts) ? r.excerpts.join("\n") : "") || r.content || "") : (typeof p === "string" ? p : "");
+      texto = String(texto).trim();
+      if (texto.length < 200) throw {code:"vacio"};
+      return {texto: texto.slice(0, 9000), titular: r && r.title ? String(r.title).trim() : "", fecha: r && r.publish_date ? r.publish_date : ""};
+    } catch(e){
+      if (e && e.code === "cancelled") throw e;
+      if (e && ["server_not_connected","needs_reauth","not_in_manifest","not_granted","capability_disabled"].includes(e.code)) throw {code:"lectura", message: e.code === "not_in_manifest" ? "No has dado permiso para leer enlaces. Pega el texto de la noticia en el desplegable, o vuelve a abrir la página y acepta el permiso." : "Para leer enlaces hace falta el conector Parallel Search en tu cuenta de Claude (Ajustes → Conectores). Mientras, pega el texto de la noticia en el desplegable."};
+      ultimo = e;
+      const limite = /rate limit/i.test((e && e.message) || "");
+      if (i === 0 && (limite || (e && e.retryable))){ await new Promise(r => setTimeout(r, limite ? 15000 : 3000)); if (signal.aborted) throw {code:"cancelled"}; continue; }
+      break;
+    }
+  }
+  throw {code:"lectura", message: ultimo && ultimo.code === "vacio" ? "Este periódico no deja leer la noticia desde fuera. Pega el texto en el desplegable de debajo del enlace." : "No he podido leer el enlace. Pega el texto de la noticia en el desplegable de debajo del enlace."};
+}
+
+/* ---------- El consejo ---------- */
+const MENSAJES = {
+  not_granted:"No has permitido que esta página use Claude. Vuelve a abrirla y acepta el permiso para convocar al consejo.",
+  sampling_disabled:"Claude no está disponible para tu cuenta en esta página.",
+  rate_limited:"Has alcanzado el límite de uso de Claude por ahora. Espera un poco y reintenta.",
+  session_expired:"Tu sesión ha caducado. Inicia sesión de nuevo en Claude.",
+  refused:"Claude no ha querido trabajar con esta noticia. Prueba con otra.",
+  prompt_too_large:"La noticia es demasiado larga. Pega solo el titular y los primeros párrafos."
+};
+const aviso = $("#aviso"), btn = $("#convocar"), stopBtn = $("#parar"), selCurso = $("#curso");
+function avisar(t, err){ aviso.className = "notice" + (err ? " err" : ""); aviso.textContent = t; }
+CURSOS.forEach(c => { const o = document.createElement("option"); o.value = c.id; o.textContent = c.nombre; selCurso.append(o); });
+try { const g = localStorage.getItem("curso"); if (CURSOS.some(c => c.id === g)) selCurso.value = g; else selCurso.value = "4eso"; } catch(e){ selCurso.value = "4eso"; }
+selCurso.addEventListener("change", () => { try { localStorage.setItem("curso", selCurso.value); } catch(e){} });
+
+async function ejecutar(desde){
+  running = true; btn.disabled = true; stopBtn.hidden = false;
+  ctl = new AbortController();
+  document.querySelectorAll(".reintentar").forEach(b => b.remove());
+  let ok = true;
+  for (let i = desde; i < STEPS.length; i++){
+    const st = STEPS[i];
+    document.querySelector(`.turno[data-agent="${st.agent}"]`)?.remove();
+    const turno = crearTurno(st.agent, st.rol);
+    setState(st.agent, "thinking", st.busy);
+    turno.scrollIntoView({behavior: reduce() ? "auto" : "smooth", block:"nearest"});
+    try {
+      if (st.key === "herodoto" && !CTX.noticia){
+        setState(st.agent, "thinking", "Leyendo el enlace…");
+        const r = await leerEnlace(CTX.enlace, ctl.signal);
+        CTX.noticia = (r.titular ? r.titular + "\n\n" : "") + r.texto;
+        pintarNoticia({titular: r.titular || dominio(CTX.enlace), enlace: CTX.enlace, medio: dominio(CTX.enlace) + (r.fecha ? " · " + r.fecha : "")}, "Sesión · " + CTX.curso.nivel);
+        setState(st.agent, "thinking", st.busy);
+      }
+      const r = await sample(prompt(st.key, CTX), {modelTier: st.tier, effort: st.effort, signal: ctl.signal, cache:false,
+        onText: ({text}) => { if (!sitio(st.agent).classList.contains("speaking")) setState(st.agent, "speaking"); pintar(turno, st, text); }});
+      CTX[st.key] = r.text; pintar(turno, st, r.text);
+      setState(st.agent, "done", (st.key === "clio" || st.key === "socrates") ? "Borrador listo" : null);
+    } catch(e){
+      ok = false; setState(st.agent, "stopped");
+      turno.querySelector(".texto").innerHTML = (e && e.text) ? fmt(e.text) : "";
+      if (e && e.code === "lectura"){ avisar(e.message, true); turno.querySelector(".texto").innerHTML = `<p class="nota">${esc(e.message)}</p>`; $("#plan-b").open = true; }
+      else if (e && e.code === "cancelled") avisar("Has detenido la sesión.");
+      else avisar(MENSAJES[e && e.code] || "Se ha cortado la conexión en el turno de " + NAMES[st.agent] + ". Puedes reintentar solo ese turno.", true);
+      if (e && (e.code === "not_granted" || e.code === "sampling_disabled")) sample = null;
+      else if (!(e && e.code === "lectura")){
+        const rb = document.createElement("button"); rb.type = "button"; rb.className = "btn-main reintentar";
+        rb.textContent = (e && e.code === "cancelled" ? "Continuar desde " : "Reintentar el turno de ") + NAMES[st.agent];
+        rb.addEventListener("click", () => { if (!running && sample) ejecutar(i); });
+        turno.querySelector(".bocadillo").append(rb);
+      }
+      break;
+    }
+  }
+  if (ok){
+    const tc = mostrarFinales(CTX);
+    tc.scrollIntoView({behavior: reduce() ? "auto" : "smooth", block:"start"});
+    avisar("Sesión terminada. El relato y las preguntas ya han pasado la revisión de Ibn Jaldún.");
+  }
+  running = false; stopBtn.hidden = true; btn.disabled = !sample;
+}
+
+btn.addEventListener("click", () => {
+  if (running || !sample) return;
+  const enlace = safeUrl($("#enlace").value || "");
+  const texto = $("#noticia").value.trim();
+  if (!enlace && texto.length < 40){ avisar("Pega al menos el titular y un párrafo de la noticia.", true); $("#noticia").focus(); return; }
+  const curso = CURSOS.find(c => c.id === selCurso.value);
+  CTX = {curso, enlace, noticia: texto.length >= 40 ? texto : ""};
+  $("#turnos").innerHTML = "";
+  pintarNoticia({titular: CTX.noticia ? CTX.noticia.split("\n")[0].slice(0,160) : "Leyendo la noticia…", enlace, medio: enlace ? dominio(enlace) : ""}, "Sesión · " + curso.nivel);
+  Object.keys(NAMES).forEach(id => setState(id, "idle"));
+  avisar("El consejo está trabajando. Tardará uno o dos minutos.");
+  ejecutar(0);
+});
+stopBtn.addEventListener("click", () => ctl?.abort());
+
+(async function iniciar(){
+  const sinClaude = "Abre esta página dentro de Claude para que el consejo pueda trabajar. Mientras, puedes leer la sesión de ejemplo.";
+  if (!(window.claude && typeof window.claude.use === "function")){ avisar(sinClaude); btn.disabled = true; return; }
+  btn.disabled = true;
+  const [s, m] = await Promise.all([window.claude.use("sample").catch(() => null), Promise.resolve(null)]);
+  sample = s; mcp = m;
+  if (!sample){ avisar(sinClaude); return; }
+  btn.disabled = false;
+})();
+
+mostrarEjemplo();
+</script>
+
+<script>addEventListener("load",()=>{const n=document.getElementById("noticia");if(n)n.value=window.__NOTICIA||"";const c=document.getElementById("curso");if(c){c.value="hmc";}const a=document.getElementById("aviso");if(a){a.textContent="";}});</script></body></html>
