@@ -762,15 +762,15 @@ def ficha_c(slug):
   {visual}
   <div style="display:flex;flex-direction:column;gap:12px;justify-content:center">{botones}<p style="margin:0;color:#5A6480;font-size:15px;text-align:center">{d["nota"]}</p></div>
 </section>
+<section class="wrap" style="padding:56px 40px 0;display:grid;grid-template-columns:1fr 1fr;gap:60px">
+  <div><p class="lab">La necesidad</p><p style="margin:10px 0 0">{d["necesidad"]}</p></div>
+  <div><p class="lab" style="margin-bottom:10px">{d["pasos_titulo"]}</p>{pasos}</div>
+</section>
 <section class="wrap" style="padding:56px 40px 0;display:flex;flex-direction:column;gap:18px">
   <div class="rule"><h2 class="serif" style="font-size:36px;font-weight:700">Lo que puedo afirmar</h2></div>
   <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:28px;padding:10px 6px 10px 0;align-items:start">
     {"".join(tarjetas)}
   </div>
-</section>
-<section class="wrap" style="padding:56px 40px 0;display:grid;grid-template-columns:1fr 1fr;gap:60px">
-  <div><p class="lab">La necesidad</p><p style="margin:10px 0 0">{d["necesidad"]}</p></div>
-  <div><p class="lab" style="margin-bottom:10px">{d["pasos_titulo"]}</p>{pasos}</div>
 </section>
 {aviso}<section class="wrap" style="padding:40px 40px 0"><div class="next" style="justify-content:space-between"><a href="/proyectos/" style="font-weight:700;border-bottom:2px solid #A3322A;text-decoration:none;padding-bottom:2px">Todas las fichas</a><a class="btn" href="{url(BY[sig_s])}">Siguiente ficha: {sig_t}</a></div></section>{dialogo}
 </main>
@@ -1004,7 +1004,8 @@ def ficha_auto(p):
             bloque_visual += f'\n<div class="botones-f">{botones}</div>'
     else:
         bloque_visual = "\n<!-- TODO visual -->" + (f'\n<div class="botones-f">{botones}</div>' if botones else "")
-    cuerpo = bloque_visual + (render_section(afirmar) if afirmar else "") + (render_section(necesidad) if necesidad else "") + "".join(render_section(x) for x in secs)
+    # «La necesidad» antes que «Lo que puedo afirmar» (Jorge, 23-10-2026)
+    cuerpo = bloque_visual + (render_section(necesidad) if necesidad else "") + (render_section(afirmar) if afirmar else "") + "".join(render_section(x) for x in secs)
     lista = orden_fichas()
     i = [s_ for s_, _ in lista].index(slug)
     sig_s, sig_t = lista[(i + 1) % len(lista)]
