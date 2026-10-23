@@ -422,7 +422,7 @@ def project(p):
 # El porfolio como curso de cinco lecciones. Marcado y estilos copiados de las maquetas del brief
 # (1-home.html … 5-contacto.html): las reglas comunes en assets/curso.css, el resto en línea como en ellas.
 # Lo anterior (home(), index(), project()) se conserva para poder recuperar piezas.
-CURSOV = "13"
+CURSOV = "14"
 FONTS_C = '''<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&display=swap">'''
@@ -585,7 +585,7 @@ def home_c():
   </div>
 </div></section>
 
-<section id="leccion-4" style="background:#061033;color:#fff;margin-top:24px" data-lesson="4">
+<section id="leccion-4" style="background:#061033;color:#fff;margin-top:24px" data-lesson="4" data-oscuro>
   <div class="wrap" style="display:grid;grid-template-columns:200px 1fr;gap:40px;padding:64px 40px">
     <div class="num" style="display:flex;flex-direction:column;gap:8px"><b style="font-family:'Bricolage Grotesque';font-weight:800;font-size:54px;line-height:1;letter-spacing:-.03em">04</b><span class="k" style="color:#9FB3FF">Lección 4 · 3 min</span></div>
     <div style="display:flex;flex-direction:column;gap:18px">

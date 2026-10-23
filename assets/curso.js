@@ -16,7 +16,15 @@
     }
     if(bar){ var p=max>0?Math.min(100,Math.round(window.scrollY/max*100)):100; /* sin scroll ya se ve todo (Contacto) */ bar.style.width=p+'%'; bar.style.background = p>=100 ? '#5E7D3A' : ''; /* verde al completar */ }
   }
-  window.addEventListener('scroll',update,{passive:true}); window.addEventListener('resize',update); update();
+  // Sobre un bloque azul ([data-oscuro], la lección 4) la cabecera pierde su línea navy; al salir, vuelve (Jorge)
+  var fija=document.querySelector('.fija'), oscuros=document.querySelectorAll('[data-oscuro]');
+  function linea(){
+    if(!fija) return;
+    var y=fija.getBoundingClientRect().bottom, dentro=false;
+    oscuros.forEach(function(o){ var r=o.getBoundingClientRect(); if(r.top<=y && r.bottom>y) dentro=true; });
+    fija.classList.toggle('sobre-oscuro',dentro);
+  }
+  window.addEventListener('scroll',function(){ update(); linea(); },{passive:true}); window.addEventListener('resize',function(){ update(); linea(); }); update(); linea();
 
   // Menú plegado en móvil
   var mb=document.querySelector('.menu-b'), cab=document.querySelector('header.cab');
