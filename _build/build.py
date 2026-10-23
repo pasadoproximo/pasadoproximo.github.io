@@ -894,6 +894,10 @@ HICE = {
                            ("Decidí", "que guiara sin resolver, diera prioridad a los materiales de clase y no pidiera datos personales."),
                            ("Probé", "su comportamiento en simulaciones y recogí los ajustes en el anexo del TFM."),
                            ("Corregí", "la definición de taifa que el GPT daba mal en las pruebas.")],
+    "mapa-de-relieves": [("Diseñé", "el mapa: se pulsa un relieve y una ficha lo explica."),
+                         ("Organicé", "el tema en cuatro bloques: evolución geológica, estructuras, roquedo y erosión."),
+                         ("Revisé", "cada ficha con los documentos de clase."),
+                         ("Decidí", "que se viera de qué documento sale cada dato.")],
 }
 MIGAS_C = {"profesorado": "Formación", "herramientas": "Herramientas", "aula": "Actividades"}
 TIPO_EXTRA = {"el-bombo": "Herramienta", "e-portfolio-master": "Formación"}
