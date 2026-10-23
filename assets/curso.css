@@ -105,3 +105,18 @@ button.filter.on{background:#061033;color:#fff}
  .step{grid-template-columns:1fr}
  .p-ficha [style*="gap:60px"]{gap:32px!important}
 }
+
+/* ---------- Sobre mí (maqueta 4-sobre-mi): sus reglas propias, tal cual (h4 de la maqueta → h3, mismo aspecto) */
+.exp{display:grid;grid-template-columns:110px 1fr;gap:6px 24px;padding:20px 0;border-top:1px solid #E1E6F0}
+.exp .y{font-family:"Bricolage Grotesque";font-weight:700;color:#5A6480}.exp h3{margin:0 0 4px;font-size:19px}.exp p{margin:0;color:#5A6480}
+.p-sobre .ficha{padding:26px 26px 24px}
+@media (max-width:900px){
+ .p-sobre section.wrap{padding-left:16px!important;padding-right:16px!important}
+ .p-sobre [style*="grid-template-columns:1fr 420px"]{grid-template-columns:1fr!important;gap:40px!important}
+ .p-sobre h1.serif{font-size:40px!important}
+ .p-sobre h2.serif[style*="font-size:60px"]{font-size:40px!important}
+ .p-sobre .foto{justify-self:start!important;margin-right:14px}
+ .p-sobre .foto img{width:100%!important;max-width:420px;height:auto!important;aspect-ratio:420/460}
+ .exp{grid-template-columns:1fr}
+ .p-sobre [style*="gap:72px;align-items:start"]{gap:40px!important}
+}

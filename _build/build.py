@@ -422,7 +422,7 @@ def project(p):
 # El porfolio como curso de cinco lecciones. Marcado y estilos copiados de las maquetas del brief
 # (1-home.html … 5-contacto.html): las reglas comunes en assets/curso.css, el resto en línea como en ellas.
 # Lo anterior (home(), index(), project()) se conserva para poder recuperar piezas.
-CURSOV = "4"
+CURSOV = "5"
 FONTS_C = '''<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&display=swap">'''
@@ -755,6 +755,55 @@ def ficha_c(slug):
           + cab("proyectos", leccion=2, texto="Lección 2 · ficha de trabajo") + body + pie_c())
 
 
+# Sobre mí = lección 1 (maqueta 4-sobre-mi). Datos del CV; los corchetes de la maqueta, con lo que Jorge dio en el chat
+# (PROA+: estimación suya; hostelería: desde 2015 en varias empresas, ahora en Ibis Málaga Centro).
+EXPERIENCIA_C = [
+    ("2023 – 2025", "Profesor de refuerzo · PROA+", "Sertudema · Residencia Escolar Andalucía", "30 alumnos · 3 h/día · nota media del grupo de 4 a 7"),
+    ("2024", "Coordinación TIC", "Colegio Cerrado de Calderón · Repositorio digital para el claustro, presentado en Braining 2025", ""),
+    ("2019", "Prácticas docentes", "IES Campanillas · 2.º ESO, Bachillerato y PMAR · Matrícula de Honor en el TFM", ""),
+    ("2015 – hoy", "Hostelería · Ibis Málaga Centro, recepcionista", "Atención al público en inglés a diario, incidencias y coordinación de equipos.", ""),
+]
+FORMACION_C = [
+    ("2024", "Máster en Tecnología Educativa y Competencias Digitales", "Universidad Europea"),
+    ("2019", "Máster en Formación del Profesorado", "Universidad de Málaga"),
+    ("2017", "Grado en Historia", "Universidad de Málaga"),
+    ("Idiomas", "Inglés B1 acreditado (Cambridge)", "Uso profesional diario · B2 en curso"),
+]
+
+
+def sobre_c():
+    def filas(items):
+        out = []
+        for i, it in enumerate(items):
+            y, h, t = it[:3]
+            extra = f'<p style="color:#061033;margin-top:6px">{it[3]}</p>' if len(it) > 3 and it[3] else ""
+            ultimo = ' style="border-bottom:1px solid #E1E6F0"' if i == len(items) - 1 else ""
+            out.append(f'<div class="exp"{ultimo}><span class="y">{y}</span><div><h3>{h}</h3><p>{t}</p>{extra}</div></div>')
+        return "\n    ".join(out)
+    body = f'''<main id="contenido">
+<section class="wrap" style="display:grid;grid-template-columns:200px 1fr;gap:40px;padding:56px 40px 0"><div class="lnum"><b>01</b><span class="k">Lección 1 · 2 min</span></div><div><h1 class="serif" style="font-size:56px;margin-bottom:18px">Quién soy y para quién trabajo</h1><p class="obj"><b>Objetivo:</b> al terminar sabrás qué hago, qué formación tengo y dónde he dado clase.</p></div></section>
+<section class="wrap" style="display:grid;grid-template-columns:1fr 420px;gap:72px;align-items:center;padding:16px 40px 56px">
+  <div style="display:flex;flex-direction:column;gap:26px"><h2 class="serif" style="font-size:60px">Lo que sé hacer lo aprendí en el aula y en un hotel</h2><p style="margin:0;font-size:20px;max-width:40ch;color:#2A3352">Diseñador de materiales educativos digitales y profesor de Geografía e Historia. Málaga, o en remoto.</p><div style="display:flex;gap:12px;flex-wrap:wrap"><a class="btn" href="{CV}" download>Descargar el CV</a><a class="btn o" href="mailto:{MAIL}">{MAIL}</a></div></div>
+  <div class="foto" style="position:relative;justify-self:end"><div style="position:absolute;inset:0;transform:translate(14px,14px);background:#9FB3FF"></div><img src="/assets/jorge.jpg" alt="Jorge Delgado Aguilera" width="420" height="460" style="width:420px;height:460px;object-fit:cover;display:block;position:relative"></div>
+</section>
+<section class="wrap" style="padding:24px 40px 0;display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start">
+  <div style="display:flex;flex-direction:column;gap:14px"><div class="rule"><h2 class="serif" style="font-size:34px;font-weight:700">Experiencia</h2></div>
+    {filas(EXPERIENCIA_C)}
+  </div>
+  <div style="display:flex;flex-direction:column;gap:14px"><div class="rule"><h2 class="serif" style="font-size:34px;font-weight:700">Formación</h2></div>
+    {filas(FORMACION_C)}
+    <figure class="ficha" style="min-height:0;margin:24px 0 0"><span class="tipo">Testimonio</span><blockquote style="margin:0"><p style="font-style:italic;color:#061033">«{TESTIMONIO_C}»</p></blockquote><figcaption class="k">Jorge Lanzat · Subdirector General</figcaption></figure>
+  </div>
+</section>
+<section class="wrap" style="padding:40px 40px 0"><div class="next"><a class="btn" href="/#leccion-2">Siguiente: lección 2, los trabajos</a></div></section>
+</main>
+'''
+    write("/sobre-mi/", head_c("Sobre mí · Jorge Delgado Aguilera",
+                               "Jorge Delgado Aguilera, diseñador de materiales educativos digitales y profesor de Geografía e Historia en Málaga: experiencia, formación e idiomas.",
+                               "/sobre-mi/", pagina="p-sobre")
+          + cab("sobre", leccion=1) + body + pie_c())
+
+
 # Lección 4 de la portada: textos redactados a partir de la página del Repositorio digital (data.py) y del CV
 CODE_C = {
     "intro": "El centro lo presentó en el IX Congreso Internacional de Creatividad Educativa (Valencia, abril de 2025) como herramienta de autoformación del profesorado.",
@@ -769,6 +818,7 @@ TESTIMONIO_C = "Quiero expresarte mi agradecimiento por el excelente trabajo que
 if __name__ == "__main__":
     home_c()
     lista_c()
+    sobre_c()
     for p in P:
         if not p.get("ext"):
             if p["slug"] in PAGINA:
