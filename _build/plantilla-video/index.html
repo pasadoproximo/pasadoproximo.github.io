@@ -81,6 +81,16 @@ body{display:grid;place-items:center;min-height:100vh;overflow:hidden}
 .rotulo{box-shadow:6px 6px 0 #9FB3FF}
 /* 9:16: la sesión como en un móvil (540 px) y ampliada al doble, para que se lea en el teléfono */
 .f916 .cuerpo .marco iframe{width:540px!important;height:957px!important;transform:scale(2);transform-origin:0 0}
+/* fondo navy, como el botón, para que el vídeo contraste en la página (Jorge); carteles y fichas, igual.
+   En navy los textos pasan a claros con acentos sky, como los bloques oscuros del porfolio (1.1) */
+.v{background:#061033;color:#fff}
+.barra{background:rgba(255,255,255,.14)}
+.intro h1,.cierre h2,.firma b{color:#fff}
+.intro .lab,.cierre .lab{color:#9FB3FF!important}
+.intro p:not(.lab){color:#E6EBF8!important}
+.firma{border-top-color:rgba(159,179,255,.5)!important;color:#B8C2DE}
+.fila{border-top-color:rgba(159,179,255,.25)!important;color:#E6EBF8}
+.ficha{color:#061033}.ficha .lab{color:#A3322A}
 </style></head><body>
 <div class="esc"><div class="v" id="v">
   <div class="barra"><i id="bar"></i></div>
@@ -115,9 +125,9 @@ var P = {
     sub: "Seis agentes de IA preparan una sesión a partir de una noticia. El docente la contrasta antes de llevarla al aula.",
     rot_lab: "3 · Ibn Jaldún revisa",
     rot: "Ibn Jaldún lo corrige. En 1991 decidieron las repúblicas",
-    afirmar: [["Comprobado", "#5E7D3A", "Ibn Jaldún ha detectado varios fallos en las numerosas pruebas que he realizado."],
-              ["En uso", "#A3322A", "Recurso abierto a disposición de los docentes."],
-              ["Pendiente", "#5A6480", "Medir si las sesiones ahorran tiempo real y cuántos errores deja pasar el revisor."]]
+    afirmar: [["Comprobado", "#A8C686", "Ibn Jaldún ha detectado varios fallos en las numerosas pruebas que he realizado."],
+              ["En uso", "#F2A196", "Recurso abierto a disposición de los docentes."],
+              ["Pendiente", "#B8C2DE", "Medir si las sesiones ahorran tiempo real y cuántos errores deja pasar el revisor."]]
   }
 };
 var q = new URLSearchParams(location.search), f = q.get("f") === "916" ? "916" : "169", d = P[q.get("p") || "consejo-de-clio"];
@@ -143,6 +153,12 @@ addEventListener("resize", encaja); encaja();
 if (q.get("grabar")) {
   // modo de grabación: la sesión real en la ficha central y control desde fuera
   var m = document.querySelector(".marco"); m.innerHTML = '<iframe src="/_build/consejo-sesion/" title="Sesión real del Consejo de Clío"></iframe>';
+  m.querySelector("iframe").addEventListener("load", function () {
+    var st = this.contentDocument.createElement("style");
+    st.textContent = "body{background:#061033!important}header .header-top,header h1,.autor strong,.acta-head h2,.separador span{color:#fff!important}" +
+      ".eyebrow,.autor,.lede,.acta-head .badge,.separador small{color:#B8C2DE!important}.separador{border-top-color:rgba(159,179,255,.35)!important}";
+    this.contentDocument.head.appendChild(st);
+  });
   var rot = document.querySelector(".rotulo"), rl = rot.querySelector(".lab"), rt = rot.querySelector("p:not(.lab)");
   window.__ir = ir;
   window.__bar = function (pct, ms) { var b = document.getElementById("bar"); b.style.transition = "width " + (ms || 600) + "ms linear"; b.style.width = pct + "%"; };
