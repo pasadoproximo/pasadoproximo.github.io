@@ -489,8 +489,8 @@ def cab(active="", leccion=1, completo=False, subrayar=True, etiqueta="", texto=
 
 def pie_c(guino=False, margen=True, guino_izq=False):
     """La línea © de siempre; a la derecha, el guiño (portada) o los enlaces de las interiores."""
-    der = ('<span>Curso completado al 100 % · Ya sabes qué hago</span>' if guino else
-           f'<span style="display:flex;gap:18px"><a href="mailto:{MAIL}">{MAIL}</a><a href="{LINKEDIN}" rel="noopener" target="_blank">LinkedIn</a><a href="/didakora/">Didákora</a></span>')
+    # sin correo, LinkedIn ni Didákora a la derecha (Jorge, 23-10-2026): solo el guiño en la portada
+    der = '<span>Curso completado al 100 % · Ya sabes qué hago</span>' if guino else ""
     mt = ";margin-top:72px" if margen else ""
     return f'''<footer class="wrap" style="padding:28px 40px;border-top:1px solid #061033;display:flex;justify-content:space-between;color:#5A6480;font-size:15px{mt}"><span>© 2026 Jorge Delgado Aguilera · Campanillas, Málaga{" · Curso completado al 100 % · Ya sabes qué hago" if guino_izq else ""}</span>{der}</footer>
 <script src="/assets/curso.js?v={CURSOV}" defer></script>
