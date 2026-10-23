@@ -691,8 +691,8 @@ _TABLA = _DIDAKORA_ANTES[:_i]
 _ASI = re.sub(r"<h3>Así es Didákora</h3>", "", _DIDAKORA_ANTES[_i:_v]) + "</div>"
 P.append(dict(
     slug="didakora", cat="profesorado", year="2026", title="Didákora", tags=["Web de recursos", "Docentes"], kind="caso",
-    card="121 herramientas digitales para docentes, revisadas a mano.",
-    lede="121 herramientas digitales para docentes, revisadas a mano, con su ficha y su fecha.",
+    card="120 herramientas digitales para docentes, revisadas a mano.",
+    lede="120 herramientas digitales para docentes, revisadas a mano, con su ficha y su fecha.",
     meta=[("Para quién", "Docentes de Infantil, Primaria y Secundaria y Bachillerato"), ("Tipo", "Web de recursos"),
           ("Herramientas", "Web propia"), ("Estado", "Publicada · actualizada en octubre de 2026")],
     links=[("Abrir Didákora", "https://pasadoproximo.github.io/didakora/", "ext"), ("Ver el Monasterio", "/proyectos/monasterio-didakora/", "int")],
@@ -702,7 +702,7 @@ P.append(dict(
                          'en el IX Congreso Internacional de Creatividad Educativa (Braining, Valencia, 2025).</p>'),
         ("Cómo funciona", _ASI),
         ("Qué cambió desde 2024", _TABLA),
-        ("Lo que puedo afirmar", '<div class="status"><div class="s-ok"><span class="st-l ok">Comprobado</span><p>Las 121 fichas están revisadas a mano y fechadas: octubre de 2026.</p></div>'
+        ("Lo que puedo afirmar", '<div class="status"><div class="s-ok"><span class="st-l ok">Comprobado</span><p>Las 120 fichas están revisadas a mano y fechadas: octubre de 2026.</p></div>'
                                  '<div class="s-exp"><span class="st-l exp">En uso</span><p>Publicada y abierta a cualquier docente, sin registro.</p></div>'
                                  '<div class="s-pend"><span class="st-l pend">Pendiente</span><p>Medir cuánto se usa: todavía no tengo datos de visitas.</p></div></div>'),
     ],

@@ -167,12 +167,12 @@ window.PROYECTOS = {
  "didakora": {
   "lab": "Ficha de trabajo · Didákora",
   "titulo": "Didákora",
-  "sub": "121 herramientas digitales para docentes, revisadas a mano, con su ficha y su fecha.",
+  "sub": "120 herramientas digitales para docentes, revisadas a mano, con su ficha y su fecha.",
   "afirmar": [
    [
     "Comprobado",
     "#A8C686",
-    "Las 121 fichas están revisadas a mano y fechadas: octubre de 2026."
+    "Las 120 fichas están revisadas a mano y fechadas: octubre de 2026."
    ],
    [
     "En uso",
