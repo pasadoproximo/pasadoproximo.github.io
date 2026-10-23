@@ -774,6 +774,7 @@ FORMACION_C = [
     ("2024", "Máster en Tecnología Educativa y Competencias Digitales", "Universidad Europea"),
     ("2019", "Máster en Formación del Profesorado", "Universidad de Málaga"),
     ("2017", "Grado en Historia", "Universidad de Málaga"),
+    ("2014", "Grado Superior en Administración y Finanzas", "IES Politécnico Jesús Marín"),
     ("Idiomas", "Inglés B1 acreditado (Cambridge)", "Uso profesional diario · B2 en curso"),
 ]
 
