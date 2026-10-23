@@ -615,27 +615,28 @@ def home_c():
 
 
 # /proyectos/ (maqueta 2-proyectos): 6 destacados en fichas y los otros 9 en una tabla, con filtros por categoría.
-# Textos y datos de la maqueta; «Mi parte» de los proyectos con IA, pendiente de Jorge.
+# Textos de la maqueta; «Mi parte», elegido por Jorge. Años y herramientas de la tabla: los del repo (Jorge, 23-10-2026),
+# y la tabla va de la más reciente a la más antigua, como dice su subtítulo.
 FICHA_LISTA = [
     # (slug o URL, categoría, tipo, título, descripción, mi parte, estado)
     (None, "profesorado", "Curso", "Verifica lo que dice la IA", "Tres lecciones en Rise y una ramificación en Storyline. SCORM descargable.", "", "En construcción"),
     ("/didakora/", "profesorado", "Recurso", "Didákora", "121 herramientas revisadas a mano, con ficha y fecha.", "", "En uso"),
-    ("consejo-de-clio", "herramientas", "Herramienta", "El Consejo de Clío", "Seis agentes preparan la sesión; el docente la contrasta.", "[texto de Jorge]", "Comprobado"),
-    ("asistente-gpt-2eso", "herramientas", "Herramienta", "Asistente de IA para 2.º ESO", "Un GPT que guía sin resolver y cita la unidad.", "[texto de Jorge]", "Pendiente de pilotar"),
-    ("monasterio-didakora", "herramientas", "Proceso", "Mantenimiento con agentes", "Cinco agentes proponen cambios en Didákora; yo apruebo cada uno.", "[texto de Jorge]", "17 cambios en 4 ciclos"),
+    ("consejo-de-clio", "herramientas", "Herramienta", "El Consejo de Clío", "Seis agentes preparan la sesión; el docente la contrasta.", "Diseño de los roles e instrucciones", "Comprobado"),
+    ("asistente-gpt-2eso", "herramientas", "Herramienta", "Asistente de IA para 2.º ESO", "Un GPT que guía sin resolver y cita la unidad.", "Configuración, materiales y pruebas", "Pendiente de pilotar"),
+    ("monasterio-didakora", "herramientas", "Proceso", "Mantenimiento con agentes", "Cinco agentes proponen cambios en Didákora; yo apruebo cada uno.", "Diseño del equipo y aprobación de cada cambio", "17 cambios en 4 ciclos"),
     ("cazadores-de-bulos", "aula", "Actividad", "Cazadores de bulos históricos", "Nueve errores escondidos en un texto sobre Málaga en 1936.", "", "4.º ESO"),
 ]
 TABLA_LISTA = [
     # (slug, categoría, título, tipo, herramienta, año), en el orden de la maqueta
     ("audita-tu-programacion", "profesorado", "Audita tu programación", "Formación", "NotebookLM", "2026"),
     ("repositorio-digital", "profesorado", "Repositorio digital de centro", "Recurso", "Google Sites", "2024"),
-    ("constitucion-1812", "aula", "¿Fue liberal la Constitución de 1812?", "Actividad", "Hypothes.is", "2025"),
-    ("la-ia-tambien-miente", "aula", "La IA también miente", "Actividad", "Imagen con IA", "2026"),
-    ("la-nube-pesa", "aula", "La nube pesa", "Actividad", "Claude", "2026"),
+    ("constitucion-1812", "aula", "¿Fue liberal la Constitución de 1812?", "Actividad", "Hypothes.is", "2026"),
+    ("la-ia-tambien-miente", "aula", "La IA también miente", "Actividad", "Claude y Canva", "2026"),
+    ("la-nube-pesa", "aula", "La nube pesa", "Actividad", "", "2026"),
     ("mapa-de-relieves", "herramientas", "Mapa de relieves de la Península", "Herramienta", "Claude", "2026"),
     ("rubrica-materiales-digitales", "profesorado", "Rúbrica de materiales digitales", "Formación", "Jotform", "2024"),
-    ("escape-room-siglo-xix", "aula", "Escape room del siglo XIX", "Actividad", "Genially", "2019"),
-    ("excursion-roma-3d", "aula", "Excursión a Roma en 3D", "Actividad", "CoSpaces", "2019"),
+    ("escape-room-siglo-xix", "aula", "Escape room del siglo XIX", "Actividad", "Genially", "2024"),
+    ("excursion-roma-3d", "aula", "Excursión a Roma en 3D", "Actividad", "CoSpaces", "2024"),
 ]
 
 
@@ -648,15 +649,16 @@ def lista_c():
                   + (f'<span class="mi">Mi parte: {mi}</span>' if mi else "")
                   + f'<span class="estado"><i></i>{est}</span>')
         fichas.append(f'<a class="ficha" data-cat="{cat}" href="{enlace(s)}">{dentro}</a>' if s else f'<div class="ficha" data-cat="{cat}">{dentro}</div>')
+    tabla = sorted(TABLA_LISTA, key=lambda f: -int(f[5]))  # orden cronológico, de lo más reciente a lo más antiguo
     filas = "".join(f'<tr data-cat="{cat}"><td><a href="{url(BY[s])}">{tit}</a></td><td>{tipo}</td><td>{herr}</td><td>{ano}</td></tr>'
-                    for s, cat, tit, tipo, herr, ano in TABLA_LISTA)
+                    for s, cat, tit, tipo, herr, ano in tabla)
     fichas_html = "\n      ".join(fichas)
     cats = [c for _, c, *_ in FICHA_LISTA] + [c for _, c, *_ in TABLA_LISTA]
     fil = "".join(f'<button type="button" class="filter{" on" if k == "todos" else ""}" data-cat="{k}" aria-pressed="{str(k == "todos").lower()}">{n} · {len(cats) if k == "todos" else cats.count(k)}</button>'
                   for k, n in [("todos", "Todos"), ("profesorado", "Formación"), ("herramientas", "Herramientas"), ("aula", "Actividades")])
     body = f'''<main id="contenido">
 <section class="wrap"><div class="lesson">
-  <div class="lnum"><b>02</b><span class="k">Lección 2 · ampliación</span><span class="k">{len(cats)} proyectos · 2019-2026</span></div>
+  <div class="lnum"><b>02</b><span class="k">Lección 2 · ampliación</span><span class="k">{len(cats)} proyectos · {min(int(f[5]) for f in TABLA_LISTA)}-2026</span></div>
   <div>
     <h1 class="serif" style="font-size:64px;margin-bottom:18px">Todas las fichas de trabajo</h1>
     <p class="obj"><b>Objetivo:</b> al terminar podrás elegir el proyecto que más se parezca a lo que necesitas y ver qué hice yo en él.</p>
