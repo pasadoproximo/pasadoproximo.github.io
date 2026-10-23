@@ -757,15 +757,15 @@ def ficha_c(slug):
 </section>
 <section class="wrap" style="padding:36px 40px 0;display:grid;grid-template-columns:repeat(4,1fr);gap:14px">
   {facts}
-</section>{hice}
-<section class="wrap" style="padding:48px 40px 0;display:grid;grid-template-columns:7fr 5fr;gap:28px;align-items:stretch">
-  {visual}
-  <div style="display:flex;flex-direction:column;gap:12px;justify-content:center">{botones}<p style="margin:0;color:#5A6480;font-size:15px;text-align:center">{d["nota"]}</p></div>
 </section>
 <section class="wrap" style="padding:56px 40px 0;display:grid;grid-template-columns:1fr 1fr;gap:60px">
   <div><p class="lab">La necesidad</p><p style="margin:10px 0 0">{d["necesidad"]}</p></div>
   <div><p class="lab" style="margin-bottom:10px">{d["pasos_titulo"]}</p>{pasos}</div>
 </section>
+<section class="wrap" style="padding:48px 40px 0;display:grid;grid-template-columns:7fr 5fr;gap:28px;align-items:stretch">
+  {visual}
+  <div style="display:flex;flex-direction:column;gap:12px;justify-content:center">{botones}<p style="margin:0;color:#5A6480;font-size:15px;text-align:center">{d["nota"]}</p></div>
+</section>{hice}
 <section class="wrap" style="padding:56px 40px 0;display:flex;flex-direction:column;gap:18px">
   <div class="rule"><h2 class="serif" style="font-size:36px;font-weight:700">Lo que puedo afirmar</h2></div>
   <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:28px;padding:10px 6px 10px 0;align-items:start">
@@ -1004,8 +1004,18 @@ def ficha_auto(p):
             bloque_visual += f'\n<div class="botones-f">{botones}</div>'
     else:
         bloque_visual = "\n<!-- TODO visual -->" + (f'\n<div class="botones-f">{botones}</div>' if botones else "")
-    # «La necesidad» antes que «Lo que puedo afirmar» (Jorge, 23-10-2026)
-    cuerpo = bloque_visual + (render_section(necesidad) if necesidad else "") + (render_section(afirmar) if afirmar else "") + "".join(render_section(x) for x in secs)
+    # Orden de todas las fichas, el del Consejo (Jorge, 23-10-2026): «La necesidad» lo primero, el vídeo, «Lo que hice yo»,
+    # el resto y «Lo que puedo afirmar» siempre al final. «La necesidad», con el formato del Consejo: el párrafo a la
+    # izquierda y «Qué hice / Cómo lo hice / Para qué lo hice» como filas a la derecha (mismos textos).
+    bloque_nec = ""
+    if necesidad:
+        h = necesidad[1]
+        parrafos = "".join(f'<p style="margin:10px 0 0">{t}</p>' for t in re.findall(r'<p class="psub">(.*?)</p>', h, re.S))
+        filas = "".join(f'<div class="step"><b>{a}</b><span>{b}</span></div>' for a, b in re.findall(r"<li><b>(.*?)</b><span>(.*?)</span></li>", h, re.S))
+        der = f'<div><p class="lab" style="margin-bottom:10px">Qué hice, cómo y para qué</p>{filas}</div>' if filas else ""
+        bloque_nec = (f'\n<section class="wrap" style="padding:56px 40px 0;display:grid;grid-template-columns:{"1fr 1fr" if filas else "1fr"};gap:60px">'
+                      f'<div><p class="lab">La necesidad</p>{parrafos}</div>{der}</section>')
+    pie_cuerpo = "".join(render_section(x) for x in secs) + (render_section(afirmar) if afirmar else "")
     lista = orden_fichas()
     i = [s_ for s_, _ in lista].index(slug)
     sig_s, sig_t = lista[(i + 1) % len(lista)]
@@ -1021,8 +1031,10 @@ def ficha_auto(p):
 </section>
 <section class="wrap" style="padding:36px 40px 0;display:grid;grid-template-columns:repeat({max(len(meta), 1)},1fr);gap:14px">
   {facts}
-</section>{hice}
-<div class="wrap pbody-c{' caso' if p.get('kind') == 'caso' else ''}">{cuerpo}
+</section>{bloque_nec}
+<div class="wrap pbody-c{' caso' if p.get('kind') == 'caso' else ''}">{bloque_visual}
+</div>{hice}
+<div class="wrap pbody-c{' caso' if p.get('kind') == 'caso' else ''}">{pie_cuerpo}
 </div>
 <section class="wrap" style="padding:40px 40px 0"><div class="next" style="justify-content:space-between"><a href="/proyectos/" style="font-weight:700;border-bottom:2px solid #A3322A;text-decoration:none;padding-bottom:2px">Todas las fichas</a><a class="btn" href="{url(BY[sig_s])}">Siguiente ficha: {re.sub("<[^>]+>", "", sig_t)}</a></div></section>
 </main>

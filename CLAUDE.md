@@ -17,8 +17,10 @@ Lo anterior queda en `_antes/`, en `main` y en las ramas `rediseno-2026-10-inten
   (subir `CURSOV` si cambian). El marcado copia los estilos en línea de las maquetas; el bloque móvil de la maqueta va al
   **final** del CSS (en la maqueta iba delante y las reglas de escritorio lo anulaban).
 - Fichas de proyecto: la del Consejo, con sus textos en `PAGINA` (`ficha_c`); las otras 14, automáticas (`ficha_auto`): su
-  contenido de siempre de `data.py`, sin cambiar textos, en el orden del brief (2.5) salvo que «La necesidad» va antes de «Lo que
-  puedo afirmar» (Jorge, 23-10-2026; también en el Consejo). Sus piezas antiguas (visor de PDF,
+  contenido de siempre de `data.py`, sin cambiar textos, con el formato y el orden del Consejo, que manda para
+  todas (Jorge, 23-10-2026): cabecera y cuatro cajas → «La necesidad» (el párrafo a la izquierda y «Qué hice / Cómo lo hice /
+  Para qué lo hice» en filas a la derecha) → bloque visual con los botones → «Lo que hice yo» → el resto → «Lo que puedo
+  afirmar», siempre al final. Sus piezas antiguas (visor de PDF,
   actividades incrustadas, monjes, chat…) llevan el CSS de `site.css` limitado a `.p-ficha` (`assets/curso-fichas-base.css`,
   generado con `_build/extraer_piezas.py`: no editar a mano) y la estética nueva encima (`assets/curso-fichas.css`), más
   `site.js`. «Lo que hice yo» en las de IA (`CON_IA`) con «[texto de Jorge]» hasta que Jorge dé los textos; al tenerlos, pasar
