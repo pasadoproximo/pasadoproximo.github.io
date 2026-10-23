@@ -902,6 +902,10 @@ HICE = {
                      ("Decidí", "evaluar si el alumnado distingue entre opinar y proponer sabiendo a quién le cuesta."),
                      ("Verifiqué", "los datos a septiembre de 2026 y dejé avisado que hay que comprobarlos."),
                      ("Escribí", "el solucionario con una rúbrica de tres criterios.")],
+    "la-ia-tambien-miente": [("Diseñé", "cada escena con cinco anacronismos y una trampa."),
+                             ("Decidí", "esconder algo que parece moderno y sí es de la época, para que no se marque todo como error."),
+                             ("Comprobé", "de qué época es cada objeto antes de publicar la entrega."),
+                             ("Preparé", "la solución con cada error explicado.")],
 }
 MIGAS_C = {"profesorado": "Formación", "herramientas": "Herramientas", "aula": "Actividades"}
 TIPO_EXTRA = {"el-bombo": "Herramienta", "e-portfolio-master": "Formación"}
