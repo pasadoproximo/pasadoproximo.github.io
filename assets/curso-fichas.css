@@ -51,3 +51,7 @@
 @media (max-width:900px){.p-ficha .vis-f{grid-template-columns:1fr!important}}
 /* Didákora: «Cómo funciona» sin el vídeo que había al lado (el vídeo, después): el texto a todo el ancho */
 .p-auto .caja-demo{display:block!important;border:0!important;padding:0!important}.p-auto .caja-demo .dk-t{max-width:62ch}
+/* vídeo dentro de una sección («Cómo funciona» de Didákora): el texto a la izquierda y el vídeo a la derecha */
+.p-auto .vid-sec{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);gap:48px;align-items:center}
+.p-auto .vid-sec .caja-demo{margin:0!important}
+@media (max-width:900px){.p-auto .vid-sec{grid-template-columns:1fr;gap:28px}}

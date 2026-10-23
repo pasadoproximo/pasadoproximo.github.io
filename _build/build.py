@@ -422,7 +422,7 @@ def project(p):
 # El porfolio como curso de cinco lecciones. Marcado y estilos copiados de las maquetas del brief
 # (1-home.html … 5-contacto.html): las reglas comunes en assets/curso.css, el resto en línea como en ellas.
 # Lo anterior (home(), index(), project()) se conserva para poder recuperar piezas.
-CURSOV = "41"
+CURSOV = "42"
 FONTS_C = '''<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&display=swap">'''
@@ -940,6 +940,9 @@ VIDEO_FICHA = {
 }
 
 
+VIDEO_EN_SECCION = {"didakora": "Cómo funciona"}
+
+
 def video_c(src, poster, alt):
     """Reproductor de las fichas (como el del Consejo): miniatura navy y botón blanco encima; los controles, al pulsar."""
     return (f'<div class="vid"><video src="{src}" poster="{poster}" muted playsinline preload="metadata" aria-label="{html.escape(alt)}" '
@@ -991,7 +994,14 @@ def ficha_auto(p):
     ext = ' rel="noopener" target="_blank"'
     botones = "".join(f'<a class="btn{" o" if i else ""}" style="text-align:center" href="{h}"{"" if h.startswith("/") else ext}{" download" if k == "dl" else ""}>{l}</a>'
                       for i, (l, h, k) in enumerate(p.get("links", [])))
-    if slug in VIDEO_FICHA:
+    if slug in VIDEO_EN_SECCION:
+        # el vídeo dentro de una sección (Jorge: en Didákora, en «Cómo funciona»), al lado del texto; arriba, solo los botones
+        tit = VIDEO_EN_SECCION[slug]
+        for k, x in enumerate(secs):
+            if isinstance(x, tuple) and x[0] == tit:
+                secs[k] = (tit, f'<div class="vid-sec">{x[1]}{video_c(*VIDEO_FICHA[slug])}</div>')
+        bloque_visual = f'\n<div class="botones-f" style="justify-content:flex-start">{botones}</div>' if botones else ""
+    elif slug in VIDEO_FICHA:
         # vídeo con la plantilla, con los botones al lado (como el Consejo); el vídeo antiguo de «Cómo funciona» sale
         lado = f'<div style="display:flex;flex-direction:column;gap:12px;justify-content:center">{botones}</div>' if botones else ""
         rejilla = "7fr 5fr" if botones else "minmax(0,760px);justify-content:center"  # sin botones: del mismo ancho que los demás, centrado
