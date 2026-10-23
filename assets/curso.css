@@ -133,7 +133,7 @@ button.filter.on{background:#061033;color:#fff}
 /* cabecera más baja (56 px), Jorge */
 @media (min-width:901px){.fija header.cab{height:56px!important}}
 .barra>div{transition:width .2s,background-color .3s}
-main [id]{scroll-margin-top:96px}
+main [id]{scroll-margin-top:var(--cab,96px)}  /* --cab: alto de la cabecera fija (curso.js) */
 /* fichas que se pulsan: se mueven un poco al pasar el cursor */
 a.ficha{transition:transform .18s ease,box-shadow .18s ease}
 a.ficha:hover,a.ficha:focus-visible{transform:translate(-3px,-3px);box-shadow:8px 8px 0 #9FB3FF}
@@ -163,3 +163,6 @@ dialog.pop::backdrop{background:rgba(6,16,51,.55)}
 .vid{position:relative;align-self:center}
 .vid-b{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);border:none;font:inherit;font-weight:700;cursor:pointer;background:#fff;color:#061033}  /* blanco sobre la miniatura navy */
 .vid-b[hidden]{display:none}
+/* /proyectos/: filtros en la columna izquierda, en vertical, a la altura de la primera tarjeta (Jorge) */
+.filtros{display:flex;flex-direction:column;align-items:flex-start;gap:10px;margin-top:110px}  /* = la primera tarjeta */
+@media (max-width:900px){.filtros{flex-direction:row;flex-wrap:wrap;margin-top:8px!important}}

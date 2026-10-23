@@ -24,6 +24,9 @@
     oscuros.forEach(function(o){ var r=o.getBoundingClientRect(); if(r.top<=y && r.bottom>y) dentro=true; });
     fija.classList.toggle('sobre-oscuro',dentro);
   }
+  // al saltar a una lección (#leccion-4…), que empiece justo debajo de la cabecera fija: su alto, en --cab
+  function cabAlto(){ if(fija) document.documentElement.style.setProperty('--cab', fija.offsetHeight+'px'); }
+  cabAlto(); window.addEventListener('resize',cabAlto);
   window.addEventListener('scroll',function(){ update(); linea(); },{passive:true}); window.addEventListener('resize',function(){ update(); linea(); }); update(); linea();
 
   // Menú plegado en móvil

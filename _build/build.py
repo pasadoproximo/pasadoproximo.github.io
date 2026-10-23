@@ -422,7 +422,7 @@ def project(p):
 # El porfolio como curso de cinco lecciones. Marcado y estilos copiados de las maquetas del brief
 # (1-home.html … 5-contacto.html): las reglas comunes en assets/curso.css, el resto en línea como en ellas.
 # Lo anterior (home(), index(), project()) se conserva para poder recuperar piezas.
-CURSOV = "20"
+CURSOV = "21"
 FONTS_C = '''<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&display=swap">'''
@@ -658,11 +658,11 @@ def lista_c():
                   for k, n in [("todos", "Todos"), ("profesorado", "Formación"), ("herramientas", "Herramientas"), ("aula", "Actividades")])
     body = f'''<main id="contenido">
 <section class="wrap"><div class="lesson">
-  <div class="lnum"><b>02</b><span class="k">Lección 2 · ampliación</span><span class="k">{len(cats)} proyectos · {min(int(f[5]) for f in TABLA_LISTA)}-2026</span></div>
+  <div class="lnum"><b>02</b><span class="k">Lección 2 · ampliación</span><span class="k">{len(cats)} proyectos · {min(int(f[5]) for f in TABLA_LISTA)}-2026</span>
+    <div class="filtros" role="group" aria-label="Filtrar por categoría">{fil}</div></div>
   <div>
     <h1 class="serif" style="font-size:64px;margin-bottom:18px">Todas las fichas de trabajo</h1>
     <p class="obj"><b>Objetivo:</b> al terminar podrás elegir el proyecto que más se parezca a lo que necesitas y ver qué hice yo en él.</p>
-    <div class="filtros" role="group" aria-label="Filtrar por categoría" style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:30px">{fil}</div>
     <div class="rule"><h2 class="serif" style="font-size:32px;font-weight:700">Destacados</h2><span class="k">Los seis que mejor muestran lo que hago</span></div>
     <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:28px;padding:24px 6px 10px 0">
       {fichas_html}
