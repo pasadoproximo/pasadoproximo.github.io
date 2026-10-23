@@ -422,7 +422,7 @@ def project(p):
 # El porfolio como curso de cinco lecciones. Marcado y estilos copiados de las maquetas del brief
 # (1-home.html … 5-contacto.html): las reglas comunes en assets/curso.css, el resto en línea como en ellas.
 # Lo anterior (home(), index(), project()) se conserva para poder recuperar piezas.
-CURSOV = "7"
+CURSOV = "8"
 FONTS_C = '''<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&display=swap">'''
@@ -456,10 +456,8 @@ NAV_C = [("/", "Índice", "indice"), ("/proyectos/", "Proyectos", "proyectos"), 
 
 
 def cab(active="", leccion=1, completo=False, subrayar=True, etiqueta="", texto=""):
-    """Barra de progreso + cabecera. En la portada el script cambia los segmentos; en las interiores, estado fijo."""
-    def seg(i):
-        c = "#5E7D3A" if completo or i < leccion else ("#A3322A" if i == leccion else "#E1E6F0")
-        return f'<span class="seg" style="width:44px;height:8px;background:{c}"></span>'
+    """Cabecera fija al bajar, con la barra roja de progreso debajo (Jorge, 23-10-2026: sin los cinco segmentos, solo
+    «Lección X de 5 · Y %»). En la portada el script cambia el rótulo según la lección; en las interiores, fijo."""
     if completo:
         lbl = '<span class="k" id="proglbl" style="color:#5E7D3A">Curso completado · 100 %</span>'
     elif texto:  # la ficha de trabajo pone su propio rótulo («Lección 2 · ficha de trabajo»)
@@ -474,18 +472,17 @@ def cab(active="", leccion=1, completo=False, subrayar=True, etiqueta="", texto=
         return f'<a href="{href}" style="text-decoration:none">{label}</a>'
     nav = "".join(a(*n) for n in NAV_C)
     return f'''
-<div class="barra" aria-hidden="true"><div></div></div>
-<header class="wrap cab" style="display:flex;justify-content:space-between;align-items:center;height:74px;border-bottom:1px solid #061033">
+<div class="fija">
+<header class="wrap cab" style="display:flex;justify-content:space-between;align-items:center;height:74px">
   <a href="/" style="font-family:'Bricolage Grotesque';font-weight:800;font-size:22px;letter-spacing:-.01em;text-decoration:none">Jorge Delgado Aguilera</a>
   <button type="button" class="menu-b" aria-expanded="false" aria-controls="menu">Menú</button>
   <div id="prog" style="display:flex;align-items:center;gap:14px" aria-label="Progreso del curso">
-    <div style="display:flex;gap:6px">
-      {"".join(seg(i) for i in range(1, 6))}
-    </div>
     {lbl}
   </div>
   <nav id="menu" aria-label="Principal" style="display:flex;gap:30px;font-weight:500">{nav}</nav>
 </header>
+<div class="barra" aria-hidden="true"><div></div></div>
+</div>
 '''
 
 
@@ -826,10 +823,10 @@ def contacto_pag_c():
 # Lección 4 de la portada: textos redactados a partir de la página del Repositorio digital (data.py) y del CV
 CODE_C = {
     "intro": "El centro lo presentó en el IX Congreso Internacional de Creatividad Educativa (Valencia, abril de 2025) como herramienta de autoformación del profesorado.",
-    "1": "La Dirección quería impulsar la digitalización del centro y ayudar a la autoformación del profesorado de Infantil, Primaria y Secundaria.",
-    "2": "Tras entrevistar a la Dirección y a los docentes, seleccioné las herramientas y les di a todas la misma ficha: videotutorial, qué es, usos en el aula y etapa.",
-    "3": "Dos años después lo revisé: muchas herramientas habían cerrado o cambiado. Por eso en 2026 lo he rehecho como Didákora.",
-    "4": "Comprobado: el claustro lo usó para autoformarse y unificó el criterio para elegir herramientas. Pendiente: no tengo datos de uso.",
+    "1": "Digitalizar el centro y que el profesorado de todas las etapas pudiera formarse por su cuenta.",
+    "2": "Entrevisté a Dirección y docentes, elegí las herramientas y les di a todas la misma ficha.",
+    "3": "Dos años después muchas habían cerrado o cambiado. Lo rehíce como Didákora.",
+    "4": "Comprobado: el claustro lo usó y unificó criterios. Pendiente: datos de uso.",
 }
 TESTIMONIO_C = "Quiero expresarte mi agradecimiento por el excelente trabajo que has realizado al crear la nueva web de recursos TIC para nuestro colegio. Estoy seguro de que esta herramienta será de gran valor para nuestros estudiantes y docentes."
 

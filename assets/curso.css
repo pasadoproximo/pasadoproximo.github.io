@@ -125,3 +125,13 @@ button.filter.on{background:#061033;color:#fff}
 .p-contacto .lesson{padding:56px 0;border-top:none}
 .p-contacto .ficha{padding:26px 26px 24px}
 @media (max-width:900px){.p-contacto h1.serif{font-size:48px!important}.p-contacto .lesson{padding:40px 0}}
+
+/* ---------- Notas de Jorge en Agentation (23-10-2026) */
+/* cabecera fija al bajar, con la barra roja de progreso debajo; la línea navy pasa a ser el fondo de la barra */
+.fija{position:sticky;top:0;z-index:20;background:#F2F4F9}
+.fija .barra{position:static;border-top:1px solid #061033}
+main [id]{scroll-margin-top:96px}
+/* fichas que se pulsan: se mueven un poco al pasar el cursor */
+a.ficha{transition:transform .18s ease,box-shadow .18s ease}
+a.ficha:hover,a.ficha:focus-visible{transform:translate(-3px,-3px);box-shadow:8px 8px 0 #9FB3FF}
+@media (prefers-reduced-motion:reduce){a.ficha{transition:none}a.ficha:hover,a.ficha:focus-visible{transform:none}}
