@@ -72,6 +72,15 @@ body{display:grid;place-items:center;min-height:100vh;overflow:hidden}
 .f916 .cierre h2{font-size:104px}
 .f916 .fila{display:flex;flex-direction:column;gap:8px;padding:30px 0;border-top:1px solid #E1E6F0;font-size:42px;line-height:1.25}
 .f916 .fila span{font-size:30px;font-weight:600}
+/* la sesión ocupa todo el vídeo (Jorge: nada de una pantalla dentro de otra); los carteles van encima */
+.cuerpo .marco{left:0!important;top:0!important;right:0;bottom:0;width:auto!important;height:auto!important;border:0;box-shadow:none!important}
+.cuerpo .marco img{height:100%;object-fit:cover;object-position:top}
+.cuerpo .cab,.cuerpo .esquina{display:none}
+.f169 .rotulo{left:56px;bottom:40px}
+.f916 .rotulo{top:auto;bottom:120px;left:56px;right:56px}
+.rotulo{box-shadow:6px 6px 0 #9FB3FF}
+/* 9:16: la sesión como en un móvil (540 px) y ampliada al doble, para que se lea en el teléfono */
+.f916 .cuerpo .marco iframe{width:540px!important;height:957px!important;transform:scale(2);transform-origin:0 0}
 </style></head><body>
 <div class="esc"><div class="v" id="v">
   <div class="barra"><i id="bar"></i></div>

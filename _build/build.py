@@ -699,12 +699,12 @@ def ficha_c(slug):
         src, poster, alt = d["video"]
         # sin controles nativos hasta que se pulsa (tapaban el cartel): un botón píldora del porfolio encima
         visual = (f'<div class="vid"><video src="{src}" poster="{poster}" muted playsinline preload="metadata" aria-label="{html.escape(alt)}" '
-                  f'class="ficha" style="width:100%;height:auto;display:block;padding:0;box-shadow:8px 8px 0 #9FB3FF"></video>'
+                  f'style="width:100%;height:auto;display:block;border:1px solid #061033"></video>'
                   f'<button type="button" class="btn vid-b">▶&nbsp; Ver el vídeo · 30 s</button></div>')
     else:
         visual = '<!-- TODO visual --><div class="ph" style="min-height:340px">[visual]</div>'
     ext = ' rel="noopener" target="_blank"'
-    botones = "".join(f'<a class="btn{" o" if i else ""}" href="{h}"{"" if h.startswith("/") else ext}>{l}</a>' for i, (l, h) in enumerate(d["botones"]))
+    botones = "".join(f'<a class="btn{" o" if i else ""}" style="text-align:center" href="{h}"{"" if h.startswith("/") else ext}>{l}</a>' for i, (l, h) in enumerate(d["botones"]))
     caps = "".join(f'<a href="{c_src}" target="_blank" rel="noopener" style="display:flex;flex-direction:column;gap:4px;text-decoration:none">'
                    f'<img src="{c_src}" alt="{html.escape(c_alt)}" loading="lazy" style="width:100%;border:1px solid #E1E6F0;display:block">'
                    f'<span class="k" style="font-size:13px">{c_pie}</span></a>'
