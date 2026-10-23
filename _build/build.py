@@ -422,7 +422,7 @@ def project(p):
 # El porfolio como curso de cinco lecciones. Marcado y estilos copiados de las maquetas del brief
 # (1-home.html … 5-contacto.html): las reglas comunes en assets/curso.css, el resto en línea como en ellas.
 # Lo anterior (home(), index(), project()) se conserva para poder recuperar piezas.
-CURSOV = "17"
+CURSOV = "18"
 FONTS_C = '''<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&display=swap">'''
@@ -779,6 +779,28 @@ FORMACION_C = [
 ]
 
 
+# «Con qué trabajo» (brief 2.6): solo las herramientas con proyecto detrás, cada una enlazada a él (lista aprobada por Jorge
+# en la v2). Rise y Storyline, sin enlace hasta que exista el curso.
+HERRAMIENTAS_C = [
+    ("Rise 360", "/herramientas/logos/rise.png", [("Verifica lo que dice la IA", None)]),
+    ("Storyline 360", "/herramientas/logos/storyline.png", [("Verifica lo que dice la IA", None)]),
+    ("Claude", "/assets/tools/claude.png", [("Consejo de Clío", "/proyectos/consejo-de-clio/"), ("Monasterio", "/proyectos/monasterio-didakora/")]),
+    ("ChatGPT", "/assets/tools/chatgpt.png", [("Asistente 2.º ESO", "/proyectos/asistente-gpt-2eso/")]),
+    ("NotebookLM", "/assets/tools/notebooklm.png", [("Audita tu programación", "/proyectos/audita-tu-programacion/")]),
+    ("Genially", "/assets/tools/genially.png", [("Escape room s. XIX", "/proyectos/escape-room-siglo-xix/")]),
+    ("Hypothes.is", "/assets/tools/hypothesis.png", [("Constitución de 1812", "/proyectos/constitucion-1812/")]),
+    ("Google Sites", "/assets/tools/google-sites.png", [("Repositorio de centro", "/proyectos/repositorio-digital/")]),
+]
+
+
+def herramientas_c():
+    out = []
+    for nombre, ico, projs in HERRAMIENTAS_C:
+        destinos = " · ".join(f'<a href="{h}">{t}</a>' if h else f'<span>{t}</span>' for t, h in projs)
+        out.append(f'<li class="herr"><img src="{ico}" alt="" width="22" height="22" loading="lazy"><b>{nombre}</b><span class="k" aria-hidden="true">→</span>{destinos}</li>')
+    return "\n    ".join(out)
+
+
 def sobre_c():
     def filas(items):
         out = []
@@ -802,6 +824,12 @@ def sobre_c():
     {filas(FORMACION_C)}
     <figure class="ficha" style="min-height:0;margin:24px 0 0"><span class="tipo">Testimonio</span><blockquote style="margin:0"><p style="font-style:italic;color:#061033">«{TESTIMONIO_C}»</p></blockquote><figcaption class="k">Jorge Lanzat · Subdirector General</figcaption></figure>
   </div>
+</section>
+<section class="wrap" style="padding:56px 40px 0;display:flex;flex-direction:column;gap:18px">
+  <div class="rule"><h2 class="serif" style="font-size:34px;font-weight:700">Con qué trabajo</h2><span class="k">Cada herramienta, con el proyecto en el que la uso</span></div>
+  <ul class="herrs">
+    {herramientas_c()}
+  </ul>
 </section>
 <section class="wrap" style="padding:40px 40px 0"><div class="next"><a class="btn" href="/#leccion-2">Siguiente: lección 2, los trabajos</a></div></section>
 </main>
