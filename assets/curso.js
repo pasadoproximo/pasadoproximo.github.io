@@ -39,3 +39,6 @@
     document.querySelectorAll('main [data-cat]:not(button)').forEach(function(el){ el.hidden = c!=='todos' && el.getAttribute('data-cat')!==c; });
   }); });
 })();
+
+// Agentation (anotar la página para Claude Code): solo en local; agentation-local.js no se sube (.gitignore)
+if(["127.0.0.1","localhost"].includes(location.hostname))import("/agentation-local.js").catch(function(){});
