@@ -430,7 +430,7 @@ MAIL = "jorgedelagui@gmail.com"
 LINKEDIN = "https://www.linkedin.com/in/jorgedelgadoaguilera"
 INSTAGRAM = "https://www.instagram.com/pasadoproximo/"
 CV = "/assets/pdf/CV-Jorge-Delgado-Aguilera.pdf"
-FORMSPREE = ""  # TODO: ID del formulario de Formspree (lo crea Jorge); sin él, el formulario no envía
+FORMSPREE = "mljjerlq"  # formulario «Contacta» (cuenta de Jorge en formspree.io)
 
 
 def head_c(title, desc, path, og="/assets/og.jpg"):
@@ -514,7 +514,7 @@ def contacto_c():
 def form_c():
     accion = f' action="https://formspree.io/f/{FORMSPREE}" method="POST"' if FORMSPREE else ""
     campo = 'style="border:1px solid #061033;padding:11px;font:inherit;background:#F2F4F9"'
-    return f'''<form class="ficha"{accion} style="gap:12px">{"" if FORMSPREE else "<!-- TODO: falta el ID de Formspree -->"}<span class="tipo">Contacta</span>
+    return f'''<form class="ficha"{accion} style="gap:12px">{"" if FORMSPREE else "<!-- TODO: falta el ID de Formspree -->"}<span class="tipo">Contacta</span><input type="hidden" name="_subject" value="Mensaje desde el porfolio">
       <label class="k" style="display:flex;flex-direction:column;gap:6px">Nombre<input name="nombre" autocomplete="name" required {campo}></label>
       <label class="k" style="display:flex;flex-direction:column;gap:6px">Email<input type="email" name="email" autocomplete="email" required {campo}></label>
       <label class="k" style="display:flex;flex-direction:column;gap:6px">¿Qué necesitas?<textarea name="mensaje" rows="4" required {campo}></textarea></label>
