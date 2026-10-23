@@ -105,6 +105,7 @@ body{display:grid;place-items:center;min-height:100vh;overflow:hidden}
 #fd{position:absolute;inset:0;background:#061033;opacity:0;transition:opacity .25s ease;pointer-events:none}#fd.on{opacity:1}
 .f169.muchas .cierre{gap:14px;padding-top:64px}.f169.muchas .cierre h2{font-size:54px}.f169.muchas .fila{padding:10px 0;font-size:21px}.f169.muchas .fila span{font-size:17px}
 .f916.muchas .fila{padding:22px 0;font-size:36px}
+.f169 .mini-logo{height:96px;margin:8px 0 0}.f916 .mini-logo{height:140px;margin:12px 0 0}
 </style></head><body>
 <div class="esc"><div class="v" id="v">
   <div class="barra"><i id="bar"></i></div>
@@ -160,6 +161,7 @@ var FUENTES = {
     rot_lab: "Guía, no resuelve", rot: "Ayuda con la actividad, <b>pero no la hace por el alumno</b>" },
   // Didákora en local (la carpeta «El pasado próximo» servida en el 8020)
   "didakora": { src: "../../../didakora/", mini: "Buscar, filtrar y leer una ficha · 30 s", css: CSS_NAVY,
+    logo: "/assets/proyectos/didakora/didakora-logo-blanco.svg",  // en la miniatura, el logo en vez del título (Jorge)
     rot_lab: "Didákora", rot: "<b>120 herramientas</b>, revisadas a mano" },
   // Google Sites no deja incrustarse: capturas reales de página completa (capturas/<proyecto>/), que se desplazan
   "repositorio-digital": { imgs: "capturas/repositorio-digital/", mini: "El repositorio de 2024 · 30 s",
@@ -177,6 +179,7 @@ var d = Object.assign({}, window.PROYECTOS[clave], FUENTES[clave] || {});
 var v = document.getElementById("v"); v.className = "v f" + f + (clave === "monasterio-didakora" ? " monasterio" : "");
 document.querySelectorAll("[data-t]").forEach(function (e) { e.innerHTML = d[e.getAttribute("data-t")] || ""; });
 document.querySelector(".mini-pie").textContent = d.mini || "";
+if (d.logo) document.querySelector(".mini h1").outerHTML = '<img class="mini-logo" src="' + d.logo + '" alt="' + d.titulo + '">';
 document.getElementById("muestra").src = "muestra-" + f + ".jpg";
 var fin = d.cierre || { titulo: "Lo que puedo afirmar", filas: d.afirmar };
 document.querySelector(".cierre h2").textContent = fin.titulo;

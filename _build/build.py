@@ -422,7 +422,7 @@ def project(p):
 # El porfolio como curso de cinco lecciones. Marcado y estilos copiados de las maquetas del brief
 # (1-home.html … 5-contacto.html): las reglas comunes en assets/curso.css, el resto en línea como en ellas.
 # Lo anterior (home(), index(), project()) se conserva para poder recuperar piezas.
-CURSOV = "45"
+CURSOV = "46"
 FONTS_C = '''<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&display=swap">'''
@@ -928,7 +928,7 @@ HICE = {
 }
 # Vídeos de las fichas sin bloque visual propio, grabados con la plantilla (_build/grabar_ficha.js): (vídeo, póster, descripción)
 VIDEO_FICHA = {
-    "didakora": ("/assets/proyectos/didakora/ficha.webm?v=1", "/assets/proyectos/didakora/ficha-poster.jpg?v=1",
+    "didakora": ("/assets/proyectos/didakora/ficha.webm?v=1", "/assets/proyectos/didakora/ficha-poster.jpg?v=3",
                  "Vídeo de Didákora: la portada con 120 herramientas revisadas a mano, una búsqueda por lo que se quiere hacer, los resultados y la ficha de NotebookLM con su fecha de revisión y su fuente oficial"),
     "monasterio-didakora": ("/assets/proyectos/monasterio-didakora/ficha.webm?v=1", "/assets/proyectos/monasterio-didakora/ficha-poster.jpg?v=1",
                             "Vídeo, recreación con los datos reales de un ciclo: toco la campana, Fray Gaspar busca novedades y Fray Anselmo prepara propuestas; las apruebo en el tablón; Fray Bartolomé cambia la web y Fray Custodio la revisa; en el Libro del Abad, el antes y el después"),
