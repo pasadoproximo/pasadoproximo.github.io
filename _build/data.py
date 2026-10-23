@@ -650,7 +650,7 @@ PAGINA = {
               ("Probé", "con noticias de actualidad de temas distintos, varias por curso, para ver cómo filtraba. Antes de llevar una sesión a clase, contrasto el material final."),
               ("Descarté", "que leyera la noticia desde un enlace. Pegar el texto es más fiable.")],
         # sesión real del 22-10-2026 (EFE, Ucrania, 1.º Bachillerato), grabada con la plantilla de vídeo: _build/grabar_consejo_plantilla.js
-        video=("/assets/proyectos/consejo-de-clio/sesion-ucrania.webm?v=7", "/assets/proyectos/consejo-de-clio/sesion-ucrania-poster.jpg?v=7",
+        video=("/assets/proyectos/consejo-de-clio/sesion-ucrania.webm?v=8", "/assets/proyectos/consejo-de-clio/sesion-ucrania-poster.jpg?v=8",
                "Vídeo de 30 segundos de una sesión real para 1.º Bachillerato con una noticia de EFE sobre Ucrania. Los seis pensadores trabajan por turnos, Hannah Arendt iguala 1991 con hoy e Ibn Jaldún lo corrige"),
         botones=[("Probar el Consejo (cuenta gratuita de Claude)", "https://claude.ai/artifact/7fyLPT3yg45X1Wr4Mu9rjx"),
                  ("Ver una sesión de ejemplo en PDF", "/assets/pdf/consejo-de-clio-sesion-ucrania.pdf")],

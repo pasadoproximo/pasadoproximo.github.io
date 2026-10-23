@@ -92,6 +92,12 @@ body{display:grid;place-items:center;min-height:100vh;overflow:hidden}
 .firma{border-top-color:rgba(159,179,255,.5)!important;color:#B8C2DE}
 .fila{border-top-color:rgba(159,179,255,.25)!important;color:#E6EBF8}
 .ficha{color:#061033}.ficha .lab{color:#A3322A}
+/* miniatura del vídeo (póster): navy, etiqueta y título arriba, el centro libre para el botón «Ver el vídeo» */
+.mini{display:flex;flex-direction:column;align-items:center;text-align:center}
+.f169 .mini{padding-top:96px;gap:18px}.f169 .mini .lab{font-size:24px}.f169 .mini h1{font-size:92px;color:#fff}
+.mini .lab{color:#9FB3FF!important}
+.mini-pie{position:absolute;left:0;right:0;bottom:64px;margin:0;color:#B8C2DE;font-weight:600;font-size:24px}
+.f916 .mini{padding-top:420px;gap:30px}.f916 .mini .lab{font-size:36px}.f916 .mini h1{font-size:130px;color:#fff}.f916 .mini-pie{font-size:36px;bottom:200px}
 </style></head><body>
 <div class="esc"><div class="v" id="v">
   <div class="barra"><i id="bar"></i></div>
@@ -108,6 +114,12 @@ body{display:grid;place-items:center;min-height:100vh;overflow:hidden}
     <div class="ficha marco"><img id="muestra" alt=""></div>
     <div class="ficha rotulo"><p class="lab" data-t="rot_lab"></p><p data-t="rot"></p></div>
     <span class="esquina">pasadoproximo.github.io</span>
+  </section>
+
+  <section class="pant mini" data-s="miniatura">
+    <p class="lab" data-t="lab"></p>
+    <h1 class="serif" data-t="titulo"></h1>
+    <p class="mini-pie">Una sesión real · 1.º Bachillerato · 30 s</p>
   </section>
 
   <section class="pant cierre" data-s="cierre">
@@ -138,7 +150,7 @@ document.getElementById("muestra").src = "muestra-" + f + ".jpg";
 document.getElementById("filas").innerHTML = d.afirmar.map(function (a) {
   return '<div class="fila"><span style="color:' + a[1] + '">' + a[0] + '</span><div>' + a[2] + '</div></div>';
 }).join("");
-var PROG = { intro: 6, cuerpo: 55, cierre: 100 };
+var PROG = { intro: 6, cuerpo: 55, cierre: 100, miniatura: 0 };
 function ir(s) {
   document.querySelectorAll(".pant").forEach(function (p) { p.classList.toggle("on", p.getAttribute("data-s") === s); });
   v.classList.toggle("cierre-on", s === "cierre");
@@ -156,7 +168,8 @@ if (q.get("grabar")) {
   var m = document.querySelector(".marco"); m.innerHTML = '<iframe src="/_build/consejo-sesion/" title="Sesión real del Consejo de Clío"></iframe>';
   m.querySelector("iframe").addEventListener("load", function () {
     var st = this.contentDocument.createElement("style");
-    st.textContent = "body{background:#061033!important}header .header-top,header h1,.autor strong,.acta-head h2,.separador span{color:#fff!important}" +
+    // fichas de la sesión en crema suave, para que el cartel blanco destaque encima (Jorge: «sin pasarte»)
+    st.textContent = ":root{--surface:#FBF6E8!important;--bg:#F3EDDC!important}body{background:#061033!important}header .header-top,header h1,.autor strong,.acta-head h2,.separador span{color:#fff!important}" +
       ".eyebrow,.autor,.lede,.acta-head .badge,.separador small{color:#B8C2DE!important}.separador{border-top-color:rgba(159,179,255,.35)!important}";
     this.contentDocument.head.appendChild(st);
   });

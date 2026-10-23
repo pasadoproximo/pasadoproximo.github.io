@@ -161,5 +161,5 @@ dialog.pop::backdrop{background:rgba(6,16,51,.55)}
 .herr span:not(.k){color:#5A6480}
 /* vídeo de la ficha: botón píldora encima hasta que se pulsa */
 .vid{position:relative;align-self:center}
-.vid-b{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);border:none;font:inherit;font-weight:700;cursor:pointer}
+.vid-b{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);border:none;font:inherit;font-weight:700;cursor:pointer;background:#fff;color:#061033}  /* blanco sobre la miniatura navy */
 .vid-b[hidden]{display:none}

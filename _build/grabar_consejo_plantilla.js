@@ -8,7 +8,8 @@
 //      -vf "scale=in_range=pc:out_range=tv,format=yuv420p" -color_range tv -colorspace bt709 -an sesion-ucrania.webm
 //    9:16 (Instagram): ffmpeg -f image2pipe -framerate 30 -c:v mjpeg -i todo.mjpeg -c:v libx264 -crf 20 -preset slow
 //      -vf "scale=in_range=pc:out_range=tv,format=yuv420p" -movflags +faststart -an consejo-de-clio-9x16.mp4
-// 4. Copiar sesion-ucrania.webm y poster.jpg (como sesion-ucrania-poster.jpg) a assets/proyectos/consejo-de-clio/ y subir el ?v= en data.py.
+// 4. Copiar sesion-ucrania.webm a assets/proyectos/consejo-de-clio/ y subir el ?v= en data.py. El póster es la miniatura navy de la
+//    plantilla (?f=169&s=miniatura), capturada como sesion-ucrania-poster.jpg; poster.jpg queda como fotograma de reserva.
 const { chromium } = require(process.env.PW);
 const fs = require("fs"), path = require("path");
 const OUT = process.argv[2], F = process.argv[3] === "916" ? "916" : "169";
