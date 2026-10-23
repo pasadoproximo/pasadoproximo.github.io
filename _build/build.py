@@ -717,6 +717,9 @@ def ficha_c(slug):
         tarjetas.append(f'<div class="ficha" style="min-height:0"><span class="tipo"{st}>{t}</span><p style="color:#061033">{x}</p>{extra}</div>')
     pasos = "".join(f'<div class="step"><b>{a}</b><span>{b}</span></div>' for a, b in d["pasos"])
     sig_t, sig_s = d["siguiente"]
+    aviso = ""
+    if d.get("aviso"):  # antes de «Todas las fichas», con la caja de objetivo de la maqueta (8.º bloque del brief)
+        aviso = f'<section class="wrap" style="padding:48px 40px 0"><p class="obj" role="note" style="margin:0"><b>{d["aviso"][0]}</b> {d["aviso"][1]}</p></section>\n'
     titulo = re.sub("<[^>]+>", "", p.get("h1", p["title"]))
     body = f"""<main id="contenido">
 <section class="wrap" style="padding:56px 40px 0;display:grid;grid-template-columns:200px 1fr;gap:40px">
@@ -745,7 +748,7 @@ def ficha_c(slug):
   <div><p class="lab">La necesidad</p><p style="margin:10px 0 0">{d["necesidad"]}</p></div>
   <div><p class="lab" style="margin-bottom:10px">{d["pasos_titulo"]}</p>{pasos}</div>
 </section>
-<section class="wrap" style="padding:40px 40px 0"><div class="next" style="justify-content:space-between"><a href="/proyectos/" style="font-weight:700;border-bottom:2px solid #A3322A;text-decoration:none;padding-bottom:2px">Todas las fichas</a><a class="btn" href="{url(BY[sig_s])}">Siguiente ficha: {sig_t}</a></div></section>
+{aviso}<section class="wrap" style="padding:40px 40px 0"><div class="next" style="justify-content:space-between"><a href="/proyectos/" style="font-weight:700;border-bottom:2px solid #A3322A;text-decoration:none;padding-bottom:2px">Todas las fichas</a><a class="btn" href="{url(BY[sig_s])}">Siguiente ficha: {sig_t}</a></div></section>
 </main>
 """
     write(f"/proyectos/{slug}/", head_c(f"{titulo} · Jorge Delgado Aguilera", re.sub("<[^>]+>", "", d["sub"]), f"/proyectos/{slug}/", pagina="p-ficha")
