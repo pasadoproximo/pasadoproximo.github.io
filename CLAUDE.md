@@ -16,7 +16,13 @@ Lo anterior queda en `_antes/`, en `main` y en las ramas `rediseno-2026-10-inten
   `data.py`), `sobre_c` (/sobre-mi/), `contacto_pag_c` (/contacto/). Estilos en `assets/curso.css`, scripts en `assets/curso.js`
   (subir `CURSOV` si cambian). El marcado copia los estilos en línea de las maquetas; el bloque móvil de la maqueta va al
   **final** del CSS (en la maqueta iba delante y las reglas de escritorio lo anulaban).
-- Las fichas de proyecto que aún no tienen sus textos en `PAGINA` siguen con la plantilla antigua (`project()`, `site.css`).
+- Fichas de proyecto: la del Consejo, con sus textos en `PAGINA` (`ficha_c`); las otras 14, automáticas (`ficha_auto`): su
+  contenido de siempre de `data.py`, sin cambiar textos, en el orden del brief (2.5). Sus piezas antiguas (visor de PDF,
+  actividades incrustadas, monjes, chat…) llevan el CSS de `site.css` limitado a `.p-ficha` (`assets/curso-fichas-base.css`,
+  generado con `_build/extraer_piezas.py`: no editar a mano) y la estética nueva encima (`assets/curso-fichas.css`), más
+  `site.js`. «Lo que hice yo» en las de IA (`CON_IA`) con «[texto de Jorge]» hasta que Jorge dé los textos; al tenerlos, pasar
+  el proyecto a `PAGINA`. Sin bloque visual propio (llevan `<!-- TODO visual -->`): Monasterio (su vídeo está en «Cómo
+  funciona»), Asistente, Repositorio digital y e-Portfolio. `project()` queda como plantilla anterior.
 - Pie: solo la línea «© 2026 Jorge Delgado Aguilera · Campanillas, Málaga» con el estilo de la maqueta (sin «¿Hablamos?»). En la
   portada y en Contacto, el guiño «Curso completado al 100 % · Ya sabes qué hago».
 - Formulario «Contacta»: Formspree, ID `mljjerlq` (cuenta de Jorge).

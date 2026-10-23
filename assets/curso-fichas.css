@@ -1,0 +1,50 @@
+/* Estética del rediseño (sistema 1.1) sobre las piezas antiguas de las fichas de proyecto (curso-fichas-base.css):
+   títulos con línea navy, tarjetas y ventanas sin radio con borde navy y sombra dura sky, etiquetas de estado como en
+   «Lo que puedo afirmar» del Consejo (Alegreya Sans 600, en color, sin mayúsculas). Los textos no cambian. */
+.p-ficha{--r:0px}
+.p-auto .pbody-c{display:flex;flex-direction:column}
+.p-auto .pbody-c>.psec{padding:56px 0 0}
+
+/* títulos de sección: como los de la maqueta */
+.p-ficha .psec>h2{font:700 36px/.96 "Bricolage Grotesque",system-ui,sans-serif;letter-spacing:-.03em;padding-bottom:14px;border-bottom:1px solid #061033;margin:0 0 18px}
+.p-ficha .psub{color:#5A6480}
+
+/* «Lo que puedo afirmar»: fichas blancas con sombra sky */
+.p-ficha .status{gap:28px;padding:10px 6px 10px 0}
+.p-ficha .status>div,.p-ficha .caso .status>div{background:#fff;border:1px solid #061033;border-radius:0;box-shadow:5px 5px 0 #9FB3FF;padding:26px 26px 24px}
+.p-ficha .st-l{font:600 14px "Alegreya Sans",system-ui,sans-serif;letter-spacing:0;text-transform:none;padding:0;border-radius:0;background:none!important}
+.p-ficha .st-l.ok{color:#5E7D3A}
+.p-ficha .st-l.exp{color:#A3322A}
+.p-ficha .st-l.pend{color:#5A6480}
+.p-ficha .status p{color:#061033}
+
+/* ventanas (PDF, actividades incrustadas, vídeo, capturas, chat, imagen con solución): sin radio, borde navy, sombra sky */
+.p-ficha .mat-pdf,.p-ficha .mat.emb .mat-pdf,.p-ficha .dk-video,.p-ficha .bchat,.p-ficha .excerpt,.p-ficha .flip-im,
+.p-ficha .gal figure a,.p-ficha .gal.frame figure a,.p-ficha .ficha1 img{border-radius:0!important;border:1px solid #061033;box-shadow:5px 5px 0 #9FB3FF!important}
+.p-ficha .gal img,.p-ficha .mat-sc img,.p-ficha .emb iframe{border-radius:0!important}
+.p-ficha .gal img{box-shadow:none!important}
+.p-ficha .mat-dl,.p-ficha .flip-b,.p-ficha .mat-go a{border-radius:999px}
+
+/* botones del proyecto, al lado del bloque visual */
+.p-auto .botones-f{display:flex;gap:12px;flex-wrap:wrap;justify-content:flex-end;margin-top:24px}
+
+@media (max-width:900px){
+ .p-auto .pbody-c>.psec{padding-top:40px}
+ .p-ficha .psec>h2{font-size:30px}
+ .p-ficha .status{grid-template-columns:1fr!important}
+ .p-ficha [style*="grid-template-columns:repeat(3,1fr)"],.p-ficha [style*="grid-template-columns:repeat(4,1fr)"]{grid-template-columns:1fr!important}
+ .p-ficha .mat,.p-ficha .needs{grid-template-columns:1fr!important}
+ .p-ficha iframe,.p-ficha img,.p-ficha video{max-width:100%}
+}
+
+/* botones antiguos de las piezas («Abrir … en otra pestaña», descargar): el botón de contorno del rediseño */
+.p-ficha .btn.solid{background:none;color:#061033;border:1.5px solid #061033}
+.p-ficha .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px}
+.p-ficha .btn svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.p-ficha .vh{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+@media (max-width:900px){.p-ficha .btn{white-space:normal}}
+/* las etiquetas de estado de los casos de estudio tenían reglas más específicas: las mismas que en el resto */
+.p-ficha .caso .status .st-l,.p-ficha .status .st-l{font:600 14px "Alegreya Sans",system-ui,sans-serif!important;letter-spacing:0!important;text-transform:none!important;padding:0!important;background:none!important;box-shadow:none!important}
+.p-ficha .caso .status .st-l.ok,.p-ficha .status .st-l.ok{color:#5E7D3A!important}
+.p-ficha .caso .status .st-l.exp,.p-ficha .status .st-l.exp{color:#A3322A!important}
+.p-ficha .caso .status .st-l.pend,.p-ficha .status .st-l.pend{color:#5A6480!important}

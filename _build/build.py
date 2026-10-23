@@ -422,7 +422,7 @@ def project(p):
 # El porfolio como curso de cinco lecciones. Marcado y estilos copiados de las maquetas del brief
 # (1-home.html … 5-contacto.html): las reglas comunes en assets/curso.css, el resto en línea como en ellas.
 # Lo anterior (home(), index(), project()) se conserva para poder recuperar piezas.
-CURSOV = "27"
+CURSOV = "30"
 FONTS_C = '''<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&display=swap">'''
@@ -874,6 +874,94 @@ def contacto_pag_c():
           + cab("contacto", leccion=5) + body + pie_c(guino_izq=True))
 
 
+# Fichas de trabajo automáticas: los proyectos sin textos propios en PAGINA. Se arman con su contenido de siempre (data.py,
+# sin cambiar textos) en el orden del brief (2.5): migas + H1 + subtítulo → ficha → «Lo que hice yo» (proyectos con IA) →
+# bloque visual con los botones → «Lo que puedo afirmar» → «La necesidad» → el resto (cómo funciona…) → siguiente ficha.
+# Las piezas antiguas (visor de PDF, actividades incrustadas, monjes…) llevan su CSS de site.css limitado a .p-ficha
+# (assets/curso-fichas-base.css, de _build/extraer_piezas.py) y la estética nueva encima (assets/curso-fichas.css).
+CON_IA = {"monasterio-didakora", "asistente-gpt-2eso", "mapa-de-relieves", "la-nube-pesa", "la-ia-tambien-miente"}  # brief, 0 bis
+SUB_BRIEF = {  # titulares del brief (2.5), con punto en vez de «;» como pidió Jorge para el Consejo
+    "monasterio-didakora": "Cinco agentes de IA proponen cambios en Didákora. Yo apruebo cada uno antes de publicar.",
+    "asistente-gpt-2eso": "Un GPT que configuré y probé para guiar sin resolver. Pendiente de pilotar con alumnado.",
+}
+MIGAS_C = {"profesorado": "Formación", "herramientas": "Herramientas", "aula": "Actividades"}
+TIPO_EXTRA = {"el-bombo": "Herramienta", "e-portfolio-master": "Formación"}
+
+
+def orden_fichas():
+    """Orden de «Siguiente ficha»: el de /proyectos/ (destacados y tabla) y después las que no salen en el listado."""
+    lista = [(s_, t) for s_, _, _, t, *_ in FICHA_LISTA if s_ and not s_.startswith("/")]
+    lista += [(s_, t) for s_, _, t, *_ in sorted(TABLA_LISTA, key=lambda f: -int(f[5]))]
+    vistos = {s_ for s_, _ in lista}
+    lista += [(x["slug"], x["title"]) for x in P if x["slug"] not in vistos and not x.get("ext")]
+    return lista
+
+
+def ficha_auto(p):
+    slug = p["slug"]
+    tipos = {s_: t for s_, _, t, *_ in FICHA_LISTA if s_}
+    tipos.update({s_: t for s_, _, _, t, *_ in TABLA_LISTA})
+    tipo = tipos.get(slug) or TIPO_EXTRA.get(slug) or p["tags"][0]
+    titulo = re.sub("<[^>]+>", "", p.get("h1", p["title"]))
+    sub = SUB_BRIEF.get(slug, p["lede"])
+    meta = p.get("meta", [])
+    facts = "".join(f'<div class="fact"><span>{a}</span><b>{b}</b></div>' for a, b in meta)
+    hice = ""
+    if slug in CON_IA:
+        frases = "".join(f'<p style="color:#061033"><b>{v}</b> [texto de Jorge]</p>' for v in ("Diseñé", "Decidí", "Probé", "Corregí"))
+        hice = f"""
+<section class="wrap" style="padding:48px 40px 0;display:flex;flex-direction:column;gap:18px">
+  <div class="rule"><h2 class="serif" style="font-size:36px;font-weight:700">Lo que hice yo</h2></div>
+  <div class="ficha" style="min-height:0;display:grid;grid-template-columns:1fr 1fr;gap:12px 32px">{frases}</div>
+</section>"""
+    secs = list(p.get("sections", []))
+    titulo_de = lambda x: x[0] if isinstance(x, tuple) else x.get("title", "")
+    def saca(cond):
+        for i, x in enumerate(secs):
+            if cond(x):
+                return secs.pop(i)
+        return None
+    visual = saca(lambda x: isinstance(x, dict) and (x.get("pdf") or x.get("embed")))
+    afirmar = saca(lambda x: titulo_de(x) == "Lo que puedo afirmar")
+    necesidad = saca(lambda x: titulo_de(x) == "La necesidad")
+    ext = ' rel="noopener" target="_blank"'
+    botones = "".join(f'<a class="btn{" o" if i else ""}" style="text-align:center" href="{h}"{"" if h.startswith("/") else ext}{" download" if k == "dl" else ""}>{l}</a>'
+                      for i, (l, h, k) in enumerate(p.get("links", [])))
+    if visual:
+        bloque_visual = render_section(visual)
+        if botones:
+            bloque_visual += f'\n<div class="botones-f">{botones}</div>'
+    else:
+        bloque_visual = "\n<!-- TODO visual -->" + (f'\n<div class="botones-f">{botones}</div>' if botones else "")
+    cuerpo = bloque_visual + (render_section(afirmar) if afirmar else "") + (render_section(necesidad) if necesidad else "") + "".join(render_section(x) for x in secs)
+    lista = orden_fichas()
+    i = [s_ for s_, _ in lista].index(slug)
+    sig_s, sig_t = lista[(i + 1) % len(lista)]
+    body = f"""<main id="contenido">
+<section class="wrap" style="padding:56px 40px 0;display:grid;grid-template-columns:200px 1fr;gap:40px">
+  <div class="lnum"><b>02</b><span class="k">Ficha de trabajo</span><span class="k">{tipo} · {p["year"]}</span></div>
+  <div style="display:flex;flex-direction:column;gap:18px">
+  <p class="k"><a href="/proyectos/" style="color:inherit;text-decoration:none">Proyectos</a> / <a href="/proyectos/#{p["cat"]}" style="color:inherit;text-decoration:none">{MIGAS_C[p["cat"]]}</a></p>
+  <h1 class="serif" style="font-size:72px">{titulo}</h1>
+  <p style="margin:0;font-size:22px;max-width:42ch;line-height:1.35">{sub}</p>
+  <p class="obj" style="margin-top:8px"><b>Objetivo de esta ficha:</b> al terminar sabrás qué hace, qué hice yo y qué está comprobado.</p>
+  </div>
+</section>
+<section class="wrap" style="padding:36px 40px 0;display:grid;grid-template-columns:repeat({max(len(meta), 1)},1fr);gap:14px">
+  {facts}
+</section>{hice}
+<div class="wrap pbody-c{' caso' if p.get('kind') == 'caso' else ''}">{cuerpo}
+</div>
+<section class="wrap" style="padding:40px 40px 0"><div class="next" style="justify-content:space-between"><a href="/proyectos/" style="font-weight:700;border-bottom:2px solid #A3322A;text-decoration:none;padding-bottom:2px">Todas las fichas</a><a class="btn" href="{url(BY[sig_s])}">Siguiente ficha: {re.sub("<[^>]+>", "", sig_t)}</a></div></section>
+</main>
+"""
+    desc = re.sub("<[^>]+>", "", p["card"])
+    extra_css = f'<link rel="stylesheet" href="/assets/curso-fichas-base.css?v={CURSOV}">\n<link rel="stylesheet" href="/assets/curso-fichas.css?v={CURSOV}">'
+    cabeza = head_c(f"{titulo} · Jorge Delgado Aguilera", desc, f"/proyectos/{slug}/", pagina="p-ficha p-auto").replace("</head>", extra_css + "\n</head>")
+    pie = pie_c().replace("</body>", f'<script src="/assets/site.js?v={CSSV}" defer></script>\n</body>')
+    write(f"/proyectos/{slug}/", cabeza + cab("proyectos", leccion=2, texto="Lección 2 · ficha de trabajo") + body + pie)
+
+
 # Lección 4 de la portada: los cuatro pasos, con las palabras de Jorge
 CODE_C = {  # textos de Jorge (notas del 23-10-2026), ajustados a una longitud parecida para que las cajas cuadren
     "1": "El centro, en plena digitalización, necesitaba una herramienta para que el profesorado se autoformara.",
@@ -894,4 +982,4 @@ if __name__ == "__main__":
             if p["slug"] in PAGINA:
                 ficha_c(p["slug"])
             else:
-                project(p)  # plantilla anterior, hasta que tenga sus textos en PAGINA
+                ficha_auto(p)  # con su contenido de siempre; project() queda como plantilla anterior
