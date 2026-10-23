@@ -709,7 +709,7 @@ P.append(dict(
           ("Herramientas", "Web propia"), ("Estado", "Publicada · actualizada en octubre de 2026")],
     links=[("Abrir Didákora", "https://pasadoproximo.github.io/didakora/", "ext"), ("Ver el Monasterio", "/proyectos/monasterio-didakora/", "int")],
     sections=[
-        ("La necesidad", '<p class="psub">La tecnología educativa evoluciona muy rápido: dos años después, muchas herramientas habían cerrado o cambiado. '
+        ("La necesidad", '<p class="psub">La tecnología educativa evoluciona muy rápido. Dos años después, muchas herramientas habían cerrado o cambiado. '
                          'Didákora es la actualización del <a href="/proyectos/repositorio-digital/">repositorio digital</a> que creé en 2024 para el Colegio Cerrado de Calderón, que el centro presentó '
                          'en el <a href="https://colegiocerradodecalderon.es/braining/" rel="noopener" target="_blank">IX Congreso Internacional de Creatividad Educativa</a> (Braining, Valencia, 2025).</p>'
                          '<ul class="needs three"><li><b>Qué hice</b><span>La actualización del repositorio de 2024 como web propia, con buscador y diez categorías.</span></li>'
