@@ -162,7 +162,12 @@ def card(p, lvl="h3", desc=False, etiqueta=False):
 </a>'''
 
 
+PAGINAS = []  # rutas de las páginas generadas, para el sitemap
+
+
 def write(path, content):
+    if path.endswith("/"):
+        PAGINAS.append(path)
     full = os.path.join(ROOT, path.strip("/"), "index.html") if not path.endswith(".html") else os.path.join(ROOT, path.strip("/"))
     os.makedirs(os.path.dirname(full), exist_ok=True)
     open(full, "w", encoding="utf-8").write(content)
@@ -1098,6 +1103,24 @@ def proyectos_video():
         "window.PROYECTOS = " + json.dumps(out, ensure_ascii=False, indent=1) + ";\n")
 
 
+def sitemap():
+    """sitemap-porfolio.xml con las páginas generadas y las apps; sitemap.xml en la raíz, índice de este y del de Didákora
+    (repo aparte), y robots.txt apuntando al índice. Sin lastmod: las páginas se generan antes del commit y no hay otra fecha fiable.
+    El Consejo de Clío (/consejo-de-clio/) va fuera: es otro repo y no se enlaza desde el porfolio."""
+    NL = "\n"
+    rutas = PAGINAS + ["/apps/mapa-de-relieves/", "/apps/el-bombo/"]
+    open(os.path.join(ROOT, "sitemap-porfolio.xml"), "w", encoding="utf-8", newline="\n").write(
+        '<?xml version="1.0" encoding="UTF-8"?>' + NL + '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' + NL
+        + "".join(f"<url><loc>{SITE}{r}</loc></url>{NL}" for r in rutas) + "</urlset>" + NL)
+    open(os.path.join(ROOT, "sitemap.xml"), "w", encoding="utf-8", newline="\n").write(
+        '<?xml version="1.0" encoding="UTF-8"?>' + NL + '<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' + NL
+        + "".join(f"<sitemap><loc>{SITE}{m}</loc></sitemap>{NL}" for m in ["/sitemap-porfolio.xml", "/didakora/sitemap.xml"])
+        + "</sitemapindex>" + NL)
+    open(os.path.join(ROOT, "robots.txt"), "w", encoding="utf-8", newline="\n").write(
+        f"User-agent: *{NL}Allow: /{NL}{NL}Sitemap: {SITE}/sitemap.xml{NL}")
+    print("· sitemap.xml, sitemap-porfolio.xml, robots.txt")
+
+
 if __name__ == "__main__":
     proyectos_video()
     home_c()
@@ -1110,3 +1133,4 @@ if __name__ == "__main__":
                 ficha_c(p["slug"])
             else:
                 ficha_auto(p)  # con su contenido de siempre; project() queda como plantilla anterior
+    sitemap()

@@ -79,6 +79,8 @@ Lo anterior queda en `_antes/`, en `main` y en las ramas `rediseno-2026-10-inten
   `_build/grabar_video.js` (Playwright + Chrome, con Didákora servida en el 8020; las instrucciones están al principio del script) y subir el `?v=` en `data.py`.
 - `apps/` → el Mapa de relieves y El bombo, recuperados de claude.ai y alojados aquí (no dependen de Claude).
 - `anterior/` → copia de la portada antigua (sin indexar). No tocar.
+- `sitemap.xml` (índice: el del porfolio y el de Didákora), `sitemap-porfolio.xml` y `robots.txt` → generados por `build.py`
+  (`sitemap()`). El Consejo de Clío no entra: es otro repo y no se enlaza.
 - `_build/cv.html` → fuente del CV. Para regenerar el PDF: Chrome headless con `--print-to-pdf` (comando al inicio del archivo).
 - `assets/pdf/` → materiales descargables y el CV. `assets/proyectos/<slug>/` → capturas reales de cada proyecto.
 
@@ -152,8 +154,6 @@ Lo anterior queda en `_antes/`, en `main` y en las ramas `rediseno-2026-10-inten
 
 - Publicado el rediseño el 23-10-2026 (`main` = `rediseno-2026-10`). Jorge lo revisa en local y pide cambios: corregir en la
   rama y volver a publicar.
-- Sitemap del porfolio: no hay (`/sitemap.xml` da 404; `robots.txt` solo apunta al de Didákora). Jorge lo deja pendiente:
-  generarlo con `build.py` y añadirlo a `robots.txt` cuando lo pida.
 - Repositorio digital, «Mantenerlo al día»: ¿punto en vez de dos puntos, como en Didákora? Sin decidir.
 - Las 10 fichas sin «Lo que puedo afirmar»: Jorge las revisa una a una.
 
