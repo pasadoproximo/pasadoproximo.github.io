@@ -561,7 +561,7 @@ def home_c():
     <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:28px;padding-right:6px">
       <a class="ficha" href="/proyectos/didakora/"><span class="tipo">Recurso</span><h3>Didákora</h3><p>120 herramientas digitales revisadas a mano, con ficha y fecha.</p><span class="estado"><i></i>En uso</span></a>
       <a class="ficha" href="/proyectos/consejo-de-clio/"><span class="tipo">Herramienta</span><h3>El Consejo de Clío</h3><p>Seis agentes preparan la sesión y el docente la contrasta.</p><span class="estado"><i></i>Comprobado</span></a>
-      <a class="ficha" href="/proyectos/cazadores-de-bulos/"><span class="tipo">Actividad</span><h3>Cazadores de bulos históricos</h3><p>Nueve errores escondidos en un texto sobre Málaga en 1936.</p><span class="estado"><i></i>4.º ESO</span></a>
+      <a class="ficha" href="/proyectos/cazadores-de-bulos/"><span class="tipo">Actividad</span><h3>Cazadores de bulos históricos</h3><p>Nueve errores escondidos en un texto sobre Málaga en 1937.</p><span class="estado"><i></i>4.º ESO</span></a>
       <div class="ficha"><span class="tipo">Curso</span><h3>Verifica lo que dice la IA</h3><p>Tres lecciones y una rutina de cinco minutos para clase.</p><span class="estado"><i></i>Rise y Storyline</span></div>
     </div>
     <div class="next" style="justify-content:space-between;align-items:center"><a href="/proyectos/" style="font-weight:700;border-bottom:2px solid #A3322A;text-decoration:none;padding-bottom:2px">Ver el resto de proyectos</a><a class="btn" href="#leccion-3">Siguiente: la actividad</a></div>
@@ -626,7 +626,7 @@ FICHA_LISTA = [
     ("consejo-de-clio", "herramientas", "Herramienta", "El Consejo de Clío", "Seis agentes preparan la sesión y el docente la contrasta.", "Diseño de los roles e instrucciones", "Comprobado"),
     ("asistente-gpt-2eso", "herramientas", "Herramienta", "Asistente de IA para 2.º ESO", "Un GPT que guía sin resolver y cita la unidad.", "Configuración, materiales y pruebas", "Pendiente de pilotar"),
     ("monasterio-didakora", "herramientas", "Proceso", "Mantenimiento con agentes", "Cinco agentes proponen cambios en Didákora. Yo apruebo cada uno.", "Diseño del equipo y aprobación de cada cambio", "17 cambios en 4 ciclos"),
-    ("cazadores-de-bulos", "aula", "Actividad", "Cazadores de bulos históricos", "Nueve errores escondidos en un texto sobre Málaga en 1936.", "", "4.º ESO"),
+    ("cazadores-de-bulos", "aula", "Actividad", "Cazadores de bulos históricos", "Nueve errores escondidos en un texto sobre Málaga en 1937.", "", "4.º ESO"),
 ]
 TABLA_LISTA = [
     # (slug, categoría, título, tipo, herramienta, año), en el orden de la maqueta
