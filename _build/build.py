@@ -945,7 +945,7 @@ HICE = {
 VIDEO_FICHA = {
     "didakora": ("/assets/proyectos/didakora/ficha.webm?v=1", "/assets/proyectos/didakora/ficha-poster.jpg?v=3",
                  "Vídeo de Didákora: la portada con 120 herramientas revisadas a mano, una búsqueda por lo que se quiere hacer, los resultados y la ficha de NotebookLM con su fecha de revisión y su fuente oficial"),
-    "monasterio-didakora": ("/assets/proyectos/monasterio-didakora/ficha.webm?v=2", "/assets/proyectos/monasterio-didakora/ficha-poster.jpg?v=2",
+    "monasterio-didakora": ("/assets/proyectos/monasterio-didakora/ficha.webm?v=2", "/assets/proyectos/monasterio-didakora/ficha-poster.jpg?v=3",
                             "Vídeo, recreación con los datos reales de un ciclo y de un post. Toco la campana, Fray Gaspar busca novedades y Fray Anselmo prepara propuestas. Las apruebo en el tablón. Fray Bartolomé cambia la web y Fray Custodio la revisa. Toco la campanilla, Fray Tomás trae noticias, Fray Lucas escribe el post y Fray Isidoro propone tres miniaturas. En el Libro del Abad, el antes y el después",
                             "43 s"),
     "asistente-gpt-2eso": ("/assets/proyectos/asistente-gpt-2eso/ficha.webm?v=1", "/assets/proyectos/asistente-gpt-2eso/ficha-poster.jpg?v=1",
