@@ -23,7 +23,8 @@ let T_INI = Date.now();
 // el monasterio marca su propio ritmo (cada monje trabaja 6 s en la recreación): esa parte se monta a ×1,5 para quedar en unos 30 s
 const VELOCIDAD = { "monasterio-didakora": 1.5 };
 const GUIONES = {
-  // Recreación avisada con datos reales: el monasterio repite el ciclo 2026-10-21-3 sin lanzar ni escribir nada
+  // Recreación avisada con datos reales: el monasterio repite el ciclo 2026-10-21-3 y, en el Scriptorium de la Gaceta, la búsqueda
+  // del 23-10-2026 y el post «Tutorías con familias sin cruzar correos» (?gaceta=…&busqueda=…), sin lanzar ni escribir nada
   "monasterio-didakora": async ({ cap, wait, frame, tecla, page }) => {
     // elige una opción del diálogo por su texto; espera a que exista (las propuestas llegan según avanza el ciclo)
     const opcion = async t => {
@@ -43,11 +44,22 @@ const GUIONES = {
     await frame.waitForFunction(() => typeof D !== "undefined" && D.pendientes && D.pendientes.length > 0, null, { timeout: 20000 });  // las propuestas llegan solas
     await corte(async () => { await camara(null); await ir(18, 20, 2); }); await cap("2 · Sello los pergaminos", "<b>Apruebo, edito o rechazo</b> cada propuesta");
     await tecla("Space"); await wait(2200); await opcion("Aprobar A"); await wait(1200); await opcion("Siguiente pergamino"); await wait(1800); await opcion("Aprobar A"); await wait(800); await tecla("Escape");
-    await corte(() => camara(3.5, 17)); await cap("3 · Ellos lo hacen", "Fray Bartolomé <b>cambia la web</b>"); await wait(2600);
-    await corte(() => camara(27.5, 17.5)); await cap("3 · Y lo revisan", "Fray Custodio <b>lo revisa todo</b>, también en el móvil"); await wait(2800);
+    await corte(() => camara(3.5, 17)); await cap("3 · Ellos lo hacen y lo revisan", "Fray Bartolomé <b>cambia la web</b> y Fray Custodio <b>la revisa</b>"); await wait(2000);
+    await corte(() => camara(27.5, 17.5)); await wait(2000);
+    // el blog: la campanilla y los tres monjes del Scriptorium de la Gaceta, cada uno con la decisión real de ese post
+    const espera = id => frame.waitForFunction(id => estadoDe(id).estado === "pendiente-aprobacion", id, { timeout: 20000 });
+    const habla = async id => { await frame.evaluate(id => hablarCon(npc[id]), id); };
+    await corte(async () => { await camara(null); await ir(12, 31, 2); }); await cap("4 · Toco la campanilla", "El Scriptorium de la Gaceta <b>escribe el blog</b>");
+    await tecla("Space"); await wait(1300); await opcion("Tocar la campanilla"); await wait(700); await tecla("Escape");
+    await corte(() => camara(10.5, 28.5)); await cap("Fray Tomás · cronista", "<b>Busca noticias</b> y yo guardo las que me interesan");
+    await espera("cronista"); await habla("cronista"); await wait(2400); await opcion("Guardar las"); await wait(700); await tecla("Escape");
+    await corte(() => camara(16.5, 28.5)); await cap("Fray Lucas · redactor", "Escribe el post. <b>Yo lo apruebo o lo reescribo</b>");
+    await espera("redactor"); await habla("redactor"); await wait(2800); await opcion("Aprobar el texto"); await wait(700); await tecla("Escape");
+    await corte(() => camara(20.5, 28.5)); await cap("Fray Isidoro · maquetador", "Me propone <b>tres miniaturas</b> y elijo una");
+    await espera("maquetador"); await habla("maquetador"); await wait(3000); await opcion("Elijo la 1"); await wait(700); await tecla("Escape");
     await corte(async () => { await camara(null); await ir(27, 17, 0); });
     await tecla("KeyL"); await wait(600); await frame.click('.pestanas [data-p="ciclo"]'); await wait(800);
-    await cap("4 · Yo publico", "En el Libro del Abad, <b>el antes y el después</b> de cada cambio");
+    await cap("5 · Yo publico", "En el Libro del Abad, <b>el antes y el después</b> de cada cambio");
     await frame.evaluate(() => new Promise(r => { const c = document.querySelector("#libro-c"), h = [...c.querySelectorAll("h3")].find(x => /cambiado/.test(x.textContent));
       const y1 = h ? h.offsetTop - 10 : 0, y0 = c.scrollTop, t0 = performance.now();
       const f = t => { const p = Math.min(1, (t - t0) / 1400), q = p < .5 ? 2 * p * p : 1 - Math.pow(-2 * p + 2, 2) / 2; c.scrollTop = y0 + (y1 - y0) * q; p < 1 ? requestAnimationFrame(f) : r(); };
@@ -102,6 +114,7 @@ const GUIONES = {
   if (!GUIONES[PROY]) throw new Error("no hay guion para " + PROY);
   const browser = await chromium.launch({ channel: "chrome" });
   const ctx = await browser.newContext({ viewport: { width: W, height: H }, deviceScaleFactor: 1, colorScheme: "light", reducedMotion: "no-preference" });
+  await ctx.route("**/agentation-local.js", r => r.abort());  // la barra de notas de Agentation no sale en el vídeo
   const page = await ctx.newPage();
   const wait = ms => page.waitForTimeout(ms);
   await page.goto(URL, { waitUntil: "load" });

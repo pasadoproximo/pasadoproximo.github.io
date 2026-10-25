@@ -142,6 +142,9 @@ Lo anterior queda en `_antes/`, en `main` y en las ramas `rediseno-2026-10-inten
   registros de los ciclos: actualizarlas si se citan nuevas. Vídeo: **recreación avisada** (Jorge la eligió el 21-10-2026) del
   ciclo 2026-10-21-3 con el modo `?demo=<ciclo>` del monasterio, que repite un ciclo real con sus datos sin lanzar ni escribir
   nada; la página y el vídeo dicen que es una recreación. Se graba con `_build/grabar_monasterio.js` (instrucciones al principio).
+  El vídeo de la ficha (plantilla, `_build/grabar_ficha.js`) incluye desde el 25-10-2026 el Scriptorium de la Gaceta (el blog):
+  `&gaceta=<post>&busqueda=<búsqueda>` repite la búsqueda del 23-10 y el post «Tutorías con familias…» (43 s, duración en
+  `VIDEO_FICHA`). Para grabarlo, el `servidor.py` del monasterio en el 8020, no el http.server: sin él no se sellan los pergaminos.
   Música: chiptune medieval original (`_build/musica_monasterio.py` → `musica.wav`, bucle de 32 s), en un `<audio>` aparte
   porque el ffmpeg disponible no codifica audio. Está **apagada al entrar** (Jorge lo pidió): suena solo al pulsar el
   altavoz (`.dk-son`), sigue al vídeo y se reinicia con cada vuelta. El vídeo de Didákora
