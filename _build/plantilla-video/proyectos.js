@@ -30,7 +30,7 @@ window.PROYECTOS = {
    [
     "Comprobado",
     "#A8C686",
-    "Cinco ciclos completos en octubre de 2026: dieciocho cambios en Didákora, entre ellos tres herramientas nuevas y el aviso de la guía de protección de datos del INTEF en doce fichas. Todos, revisados por el Auditor. Y cuatro posts en el blog, cada uno aprobado por mí."
+    "Cinco ciclos en octubre de 2026: dieciocho cambios en Didákora revisados por el Auditor y cuatro posts en el blog."
    ],
    [
     "Bajo control",
