@@ -427,7 +427,7 @@ def project(p):
 # El porfolio como curso de cinco lecciones. Marcado y estilos copiados de las maquetas del brief
 # (1-home.html … 5-contacto.html): las reglas comunes en assets/curso.css, el resto en línea como en ellas.
 # Lo anterior (home(), index(), project()) se conserva para poder recuperar piezas.
-CURSOV = "47"
+CURSOV = "48"
 FONTS_C = '''<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&display=swap">'''
@@ -652,8 +652,8 @@ def lista_c():
         return s if s.startswith("/") else url(BY[s])
     fichas = []
     for s, cat, tipo, tit, desc, mi, est in FICHA_LISTA:
+        # sin «Mi parte» en la tarjeta: se ve al entrar en la ficha (Jorge, 25-10-2026); el texto se conserva en FICHA_LISTA
         dentro = (f'<span class="tipo">{tipo}</span><h3>{tit}</h3><p>{desc}</p>'
-                  + (f'<span class="mi">Mi parte: {mi}</span>' if mi else "")
                   + f'<span class="estado"><i></i>{est}</span>')
         fichas.append(f'<a class="ficha" data-cat="{cat}" href="{enlace(s)}">{dentro}</a>' if s else f'<div class="ficha" data-cat="{cat}">{dentro}</div>')
     tabla = sorted(TABLA_LISTA, key=lambda f: -int(f[5]))  # orden cronológico, de lo más reciente a lo más antiguo

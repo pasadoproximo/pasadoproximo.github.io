@@ -31,7 +31,8 @@ Lo anterior queda en `_antes/`, en `main` y en las ramas `rediseno-2026-10-inten
   portada y en Contacto, el guiño «Curso completado al 100 % · Ya sabes qué hago».
 - Formulario «Contacta»: Formspree, ID `mljjerlq` (cuenta de Jorge).
 - Actividad de la portada: B en navy con feedback verde; A y C en rojo explicando por qué están mal (textos aprobados).
-- /proyectos/: 6 destacados y 9 en la tabla. «Mi parte»: Consejo «Diseño de los roles e instrucciones», Asistente
+- /proyectos/: 6 destacados y 9 en la tabla. Las tarjetas no muestran «Mi parte» (se ve en cada ficha; Jorge, 25-10-2026) y el título
+  reserva dos líneas para que el texto gris quede en fila. «Mi parte», guardado en `FICHA_LISTA`: Consejo «Diseño de los roles e instrucciones», Asistente
   «Configuración, materiales y pruebas», Mantenimiento con agentes «Diseño del equipo y aprobación de cada cambio».
   Años y herramientas de la tabla: los del repo, no los de la maqueta. «Verifica lo que dice la IA»: «Demo sin login», sin enlace
   hasta que exista el curso.

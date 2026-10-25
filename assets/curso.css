@@ -186,3 +186,5 @@ dialog.pop::backdrop{background:rgba(6,16,51,.55)}
 @media (max-width:900px){.nec2{grid-template-columns:1fr!important;gap:28px!important}}
 .nec2>div:only-child{max-width:62ch}  /* sin columna derecha: el párrafo con un ancho de lectura */
 .nec2 .step:first-of-type{padding-top:0}  /* las filas empiezan a la altura del párrafo (Jorge) */
+/* /proyectos/: el título de cada tarjeta ocupa siempre dos líneas para que el texto gris quede a la misma altura en la fila (Jorge) */
+@media (min-width:901px){.p-lista .ficha h3{min-height:2.16em}}
