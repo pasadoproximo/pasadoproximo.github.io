@@ -104,7 +104,7 @@ P.append(dict(
 <li><b>Cómo lo hice</b><span>Con subagentes de Claude Code y un videojuego para supervisarlos.</span></li>
 <li><b>Para qué lo hice</b><span>Para tener la web siempre actualizada sin perder el control de lo que se publica.</span></li>
 </ul>"""),
-        ("Ocho monjes, dos oficios", """
+        ("Ocho monjes, dos equipos", """
 <p class="psub">Cada agente es un monje con un solo oficio. Ninguno publica nada: eso lo decido yo.</p>
 <ul class="monjes ocho">
 <li><img src="/assets/proyectos/monasterio-didakora/rastreador.png" alt="" width="96" height="96" loading="lazy"><b>Fray Gaspar</b><small>Rastreador</small><span>Busca novedades en fuentes como el INTEF o Educación 3.0 y anota cada hallazgo con su fuente.</span></li>

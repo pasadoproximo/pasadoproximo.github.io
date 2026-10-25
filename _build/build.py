@@ -971,7 +971,7 @@ MIGAS_C = {"profesorado": "Formación", "herramientas": "Herramientas", "aula": 
 # secciones de data.py que no salen en la ficha (los textos se conservan): lo que ya cuenta el vídeo (Jorge, 25-10-2026)
 SIN_SECCION = {"asistente-gpt-2eso": ("Qué hace en la práctica",)}
 # fichas con el vídeo dentro de una de sus secciones (título, entradilla, vídeo y el resto) y las secciones que van detrás
-COMO_CON_VIDEO = {"monasterio-didakora": ("Cómo funciona", ("Ocho monjes, dos oficios",))}
+COMO_CON_VIDEO = {"monasterio-didakora": ("Cómo funciona", ("Ocho monjes, dos equipos",))}
 TITULO_VIDEO = {"asistente-gpt-2eso": "Cómo funciona"}  # fichas con título encima del vídeo de la plantilla
 TIPO_EXTRA = {"el-bombo": "Herramienta", "e-portfolio-master": "Formación"}
 
