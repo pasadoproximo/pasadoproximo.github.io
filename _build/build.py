@@ -779,7 +779,7 @@ def ficha_c(slug):
   <div>{filas}</div>
   </div>
 </section>
-<section class="wrap" style="padding:48px 40px 0;display:grid;grid-template-columns:7fr 5fr;gap:28px;align-items:stretch">
+<section class="wrap" style="padding:72px 40px 0;display:grid;grid-template-columns:7fr 5fr;gap:28px;align-items:stretch">
   {visual}
   <div style="display:flex;flex-direction:column;gap:12px;justify-content:center">{botones}<p style="margin:0;color:#5A6480;font-size:15px;text-align:center">{d["nota"]}</p></div>
 </section>{como}{hice}
