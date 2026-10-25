@@ -673,12 +673,11 @@ def lista_c():
     claves = ["todos", "profesorado", "herramientas", "aula"]
     attr_dest = " ".join(f'data-t-{k}="{txt_dest(k)}"' for k in claves)
     attr_otros = " ".join(f'data-t-{k}="{txt_otros(k)}"' for k in claves)
-    cats = [c for _, c, *_ in FICHA_LISTA] + [c for _, c, *_ in TABLA_LISTA]
     fil = "".join(f'<button type="button" class="filter{" on" if k == "todos" else ""}" data-cat="{k}" aria-pressed="{str(k == "todos").lower()}">{n}</button>'
                   for k, n in [("todos", "Todos"), ("profesorado", "Formación"), ("herramientas", "Herramientas"), ("aula", "Actividades")])
     body = f'''<main id="contenido">
 <section class="wrap"><div class="lesson">
-  <div class="lnum"><b>02</b><span class="k">Lección 2 · ampliación</span><span class="k">{len(cats)} proyectos · {min(int(f[5]) for f in TABLA_LISTA)}-2026</span>
+  <div class="lnum"><b>02</b><span class="k">Lección 2 · ampliación</span><span class="k">{sum(1 for x in P if not x.get("ext"))} proyectos · {min(int(f[5]) for f in TABLA_LISTA)}-2026</span>
     <div class="filtros" role="group" aria-label="Filtrar por categoría">{fil}</div></div>
   <div>
     <h1 class="serif" style="font-size:64px;margin-bottom:18px">Todas las fichas de trabajo</h1>
