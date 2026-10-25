@@ -969,6 +969,8 @@ def video_c(src, poster, alt):
 MIGAS_C = {"profesorado": "Formación", "herramientas": "Herramientas", "aula": "Actividades"}
 # secciones de data.py que no salen en la ficha (los textos se conservan): lo que ya cuenta el vídeo (Jorge, 25-10-2026)
 SIN_SECCION = {"asistente-gpt-2eso": ("Qué hace en la práctica",)}
+# fichas con el vídeo dentro de una de sus secciones (título, entradilla, vídeo y el resto) y las secciones que van detrás
+COMO_CON_VIDEO = {"monasterio-didakora": ("Cómo funciona", ("Cinco monjes, un equipo",))}
 TITULO_VIDEO = {"asistente-gpt-2eso": "Cómo funciona"}  # fichas con título encima del vídeo de la plantilla
 TIPO_EXTRA = {"el-bombo": "Herramienta", "e-portfolio-master": "Formación"}
 
@@ -1036,6 +1038,16 @@ def ficha_auto(p):
             if isinstance(x, tuple) and '<div class="dk-video mo-vid">' in x[1]:
                 h = x[1]; i = h.index('<div class="dk-video mo-vid">')
                 secs[k] = (x[0], h[:i] + h[i + len(balanced(h, i, "div")):])
+        if slug in COMO_CON_VIDEO:
+            # el vídeo dentro de su sección, bajo el título y la entradilla; los pasos debajo y, después, las secciones
+            # que deben ir antes de «Lo que hice yo» (Jorge, 25-10-2026)
+            tit, despues = COMO_CON_VIDEO[slug]
+            h = saca(lambda x: titulo_de(x) == tit)[1]
+            i = h.index("</p>") + 4 if h.lstrip().startswith('<p class="psub">') else 0
+            bloque_visual = (f'\n <section class="psec rv"><h2>{tit}</h2>{caras(h[:i])}'
+                             f'<div class="vis-f" style="display:grid;grid-template-columns:{rejilla};gap:28px;align-items:center;margin:8px 0 28px">'
+                             f'{video_c(*VIDEO_FICHA[slug])}{lado}</div>{caras(h[i:])}</section>'
+                             + "".join(render_section(saca(lambda x, t=t: titulo_de(x) == t)) for t in despues))
         if visual:
             secs.insert(0, visual)
     elif visual:
