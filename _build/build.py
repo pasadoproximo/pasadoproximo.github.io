@@ -737,6 +737,15 @@ def ficha_c(slug):
         st = "" if color == "#A3322A" else f' style="color:{color}"'  # el rojo es el de .tipo
         tarjetas.append(f'<div class="ficha" style="min-height:0"><span class="tipo"{st}>{t}</span><p style="color:#061033">{x}</p>{extra}</div>')
     pasos = "".join(f'<div class="step"><b>{a}</b><span>{b}</span></div>' for a, b in d["pasos"])
+    # «La necesidad» lleva a la derecha lo de todas las fichas, «Qué hice / Cómo lo hice / Para qué lo hice», con los textos
+    # de siempre del proyecto en data.py; «Cómo funciona» va aparte, antes de «Lo que hice yo» (Jorge, 25-10-2026)
+    nec_h = next(x[1] for x in p["sections"] if isinstance(x, tuple) and x[0] == "La necesidad")
+    filas = "".join(f'<div class="step"><b>{a}</b><span>{b}</span></div>' for a, b in re.findall(r"<li><b>(.*?)</b><span>(.*?)</span></li>", nec_h, re.S))
+    como = f"""
+<section class="wrap" style="padding:56px 40px 0;display:flex;flex-direction:column;gap:18px">
+  <div class="rule"><h2 class="serif" style="font-size:36px;font-weight:700">{d["pasos_titulo"]}</h2></div>
+  <div class="nec2">{pasos}</div>
+</section>"""
     dialogo = ""
     if caps:
         dialogo = f'''
@@ -767,13 +776,13 @@ def ficha_c(slug):
   <div class="rule"><h2 class="serif" style="font-size:36px;font-weight:700">La necesidad</h2></div>
   <div class="nec2" style="display:grid;grid-template-columns:1fr 1fr;gap:60px">
   <div><p style="margin:0">{d["necesidad"]}</p></div>
-  <div><h3 class="nec-h">{d["pasos_titulo"]}</h3>{pasos}</div>
+  <div>{filas}</div>
   </div>
 </section>
 <section class="wrap" style="padding:48px 40px 0;display:grid;grid-template-columns:7fr 5fr;gap:28px;align-items:stretch">
   {visual}
   <div style="display:flex;flex-direction:column;gap:12px;justify-content:center">{botones}<p style="margin:0;color:#5A6480;font-size:15px;text-align:center">{d["nota"]}</p></div>
-</section>{hice}
+</section>{como}{hice}
 <section class="wrap" style="padding:56px 40px 0;display:flex;flex-direction:column;gap:18px">
   <div class="rule"><h2 class="serif" style="font-size:36px;font-weight:700">Lo que puedo afirmar</h2></div>
   <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:28px;padding:10px 6px 10px 0;align-items:start">
