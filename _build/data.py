@@ -665,7 +665,7 @@ PAGINA = {
         necesidad="Traer la actualidad a clase de Historia engancha, pero prepararlo bien lleva tiempo y pedírselo sin más a una IA trae problemas de rigor.",
         pasos_titulo="Cómo funciona",
         pasos=[("1 · Pegas la noticia", "Y eliges el curso. Heródoto la resume sin opinar."),
-               ("2 · Cada pensador hace su parte", "Tucídides la sitúa en el temario, Arendt la conecta con el presente, Clío la cuenta, Sócrates plantea el debate."),
+               ("2 · Cada uno, su parte", "Tucídides la sitúa en el temario, Arendt la conecta con el presente, Clío la cuenta, Sócrates plantea el debate."),
                ("3 · Ibn Jaldún revisa", "Corrige lo que no se sostiene antes de que llegue al aula.")],
         aviso=("Contrasta siempre la información.", "Los seis miembros son una IA y pueden equivocarse. Comprueba los datos con la noticia original y otras fuentes antes de usar la sesión."),
         siguiente=("Cazadores de bulos", "cazadores-de-bulos"),

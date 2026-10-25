@@ -748,7 +748,7 @@ def ficha_c(slug):
   {visual}
   <div style="display:flex;flex-direction:column;gap:12px;justify-content:center">{botones}<p style="margin:0;color:#5A6480;font-size:15px;text-align:center">{d["nota"]}</p></div>
   </div>
-  <div class="nec2" style="margin-top:18px">{pasos}</div>
+  <div style="display:grid;grid-template-columns:7fr 5fr;gap:28px;margin-top:18px"><div class="nec2">{pasos}</div></div>
 </section>"""
     dialogo = ""
     if caps:
