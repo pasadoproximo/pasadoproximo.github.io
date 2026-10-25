@@ -1,6 +1,7 @@
 <!doctype html>
 <!-- Fuente del CV, preparada para los ATS (una columna, títulos estándar, texto real). Para regenerar el PDF:
-     chrome --headless --no-pdf-header-footer --print-to-pdf=assets/pdf/CV-Jorge-Delgado-Aguilera.pdf _build/cv.html
+     chrome --headless --no-pdf-header-footer --print-to-pdf=<ruta absoluta del PDF> http://localhost:8000/_build/cv.html
+     (servido, no con file://: la «ó» de la carpeta lo rompe y las fuentes de cv-fuentes/ no cargarían)
      y después poner autor, asunto y palabras clave en los metadatos del PDF (pypdf), que también leen los ATS. -->
 <html lang="es">
 <head>
@@ -9,8 +10,12 @@
 <title>Jorge Delgado Aguilera · Curriculum vitae</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap">
 <style>
+/* Bricolage en dos instancias estáticas (cv-fuentes/, sacadas de la variable con fontTools): con la variable, Chrome la
+   mete en el PDF como Type3 y algunos ATS no leen ese texto (el nombre y todos los títulos). */
+@font-face{font-family:"Bricolage Grotesque";font-weight:800;src:url(cv-fuentes/BricolageGrotesque-800.ttf) format("truetype")}
+@font-face{font-family:"Bricolage Grotesque";font-weight:700;src:url(cv-fuentes/BricolageGrotesque-700.ttf) format("truetype")}
 /* CV legible por los ATS: una sola columna en orden de lectura, títulos estándar, texto real (sin columnas,
    etiquetas sueltas ni ligaduras), contacto en el cuerpo. Estética del rediseño: barra roja, títulos con línea navy. */
 @page{size:A4;margin:11mm 15mm 11mm}
@@ -45,7 +50,7 @@ ul.b li::marker{color:var(--sky)}
 <header>
  <h1>Jorge Delgado Aguilera</h1>
  <p class="role">Diseño de materiales educativos digitales · Profesor de Geografía e Historia</p>
- <p class="contact">Campanillas (Málaga) · jorgedelagui@gmail.com · pasadoproximo.github.io · linkedin.com/in/jorgedelgadoaguilera · Instagram @pasadoproximo</p>
+ <p class="contact">Campanillas (Málaga) · <a href="mailto:jorgedelagui@gmail.com">jorgedelagui@gmail.com</a> · <a href="https://pasadoproximo.github.io">pasadoproximo.github.io</a> · <a href="https://www.linkedin.com/in/jorgedelgadoaguilera">linkedin.com/in/jorgedelgadoaguilera</a> · Instagram <a href="https://www.instagram.com/pasadoproximo/">@pasadoproximo</a></p>
 </header>
 
 <section>
