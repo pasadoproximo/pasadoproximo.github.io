@@ -740,10 +740,15 @@ def ficha_c(slug):
     # de siempre del proyecto en data.py; «Cómo funciona» va aparte, antes de «Lo que hice yo» (Jorge, 25-10-2026)
     nec_h = next(x[1] for x in p["sections"] if isinstance(x, tuple) and x[0] == "La necesidad")
     filas = "".join(f'<div class="step"><b>{a}</b><span>{b}</span></div>' for a, b in re.findall(r"<li><b>(.*?)</b><span>(.*?)</span></li>", nec_h, re.S))
+    # el vídeo va en «Cómo funciona», bajo su título: es lo que enseña (Jorge, 25-10-2026); los pasos, debajo
     como = f"""
-<section class="wrap" style="padding:56px 40px 0;display:flex;flex-direction:column;gap:18px">
+<section class="wrap" style="padding:72px 40px 0;display:flex;flex-direction:column;gap:18px">
   <div class="rule"><h2 class="serif" style="font-size:36px;font-weight:700">{d["pasos_titulo"]}</h2></div>
-  <div class="nec2">{pasos}</div>
+  <div style="display:grid;grid-template-columns:7fr 5fr;gap:28px;align-items:stretch">
+  {visual}
+  <div style="display:flex;flex-direction:column;gap:12px;justify-content:center">{botones}<p style="margin:0;color:#5A6480;font-size:15px;text-align:center">{d["nota"]}</p></div>
+  </div>
+  <div class="nec2" style="margin-top:18px">{pasos}</div>
 </section>"""
     dialogo = ""
     if caps:
@@ -778,10 +783,7 @@ def ficha_c(slug):
   <div>{filas}</div>
   </div>
 </section>
-<section class="wrap" style="padding:72px 40px 0;display:grid;grid-template-columns:7fr 5fr;gap:28px;align-items:stretch">
-  {visual}
-  <div style="display:flex;flex-direction:column;gap:12px;justify-content:center">{botones}<p style="margin:0;color:#5A6480;font-size:15px;text-align:center">{d["nota"]}</p></div>
-</section>{como}{hice}
+{como}{hice}
 <section class="wrap" style="padding:56px 40px 0;display:flex;flex-direction:column;gap:18px">
   <div class="rule"><h2 class="serif" style="font-size:36px;font-weight:700">Lo que puedo afirmar</h2></div>
   <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:28px;padding:10px 6px 10px 0;align-items:start">
