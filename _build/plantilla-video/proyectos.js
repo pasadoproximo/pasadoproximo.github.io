@@ -25,12 +25,12 @@ window.PROYECTOS = {
  "monasterio-didakora": {
   "lab": "Ficha de trabajo · El monasterio de Didákora",
   "titulo": "El monasterio de Didákora",
-  "sub": "Cinco agentes de IA proponen cambios en Didákora. Yo apruebo cada uno antes de publicar.",
+  "sub": "Ocho agentes de IA proponen cambios en Didákora. Yo apruebo cada uno antes de publicar.",
   "afirmar": [
    [
     "Comprobado",
     "#A8C686",
-    "Cuatro ciclos completos en octubre de 2026: diecisiete cambios en Didákora, entre ellos tres herramientas nuevas y el aviso de la guía de protección de datos del INTEF en doce fichas. Todos, revisados por el Auditor."
+    "Cinco ciclos completos en octubre de 2026: dieciocho cambios en Didákora, entre ellos tres herramientas nuevas y el aviso de la guía de protección de datos del INTEF en doce fichas. Todos, revisados por el Auditor. Y cuatro posts en el blog, cada uno aprobado por mí."
    ],
    [
     "Bajo control",

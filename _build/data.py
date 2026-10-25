@@ -87,38 +87,42 @@ new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting&&!w.classList.co
 P.append(dict(
     slug="monasterio-didakora", cat="herramientas", year="2026",
     title="El monasterio de Didákora", tags=["Agentes de IA", "Mantenimiento web"], kind="caso",
-    card="Cinco agentes de IA mantienen Didákora al día y yo decido desde un videojuego.",
+    card="Ocho agentes de IA mantienen Didákora al día y yo decido desde un videojuego.",
     viz="img:/assets/proyectos/monasterio-didakora/tarjeta.png",
     h1="El monasterio de Didákora",
-    lede="Cinco agentes de IA revisan Didákora y me proponen cambios. Yo decido desde un monasterio en pixel art.",
+    lede="Ocho agentes de IA revisan Didákora y me proponen cambios. Yo decido desde un monasterio en pixel art.",
     meta=[("Para quién", "Didákora, mi web de herramientas digitales para docentes"),
           ("Tipo", "Equipo de agentes de IA con una interfaz de videojuego"),
-          ("Herramientas", "Claude Code (cinco subagentes), Python y JavaScript"),
+          ("Herramientas", "Claude Code (ocho subagentes), Python y JavaScript"),
           ("Estado", "En uso desde octubre de 2026. Funciona en mi ordenador: no está publicado")],
     links=[],
     sections=[
         ("La necesidad", """
 <p class="psub">Una web de herramientas educativas se queda vieja enseguida: unas cierran, otras cambian de nombre o de dirección y cada semana salen otras nuevas. Revisarla a mano lleva muchas horas.</p>
 <ul class="needs three">
-<li><b>Qué hice</b><span>Un equipo de cinco agentes de IA que mantiene Didákora al día.</span></li>
+<li><b>Qué hice</b><span>Un equipo de ocho agentes de IA que mantiene Didákora al día y escribe su blog.</span></li>
 <li><b>Cómo lo hice</b><span>Con subagentes de Claude Code y un videojuego para supervisarlos.</span></li>
 <li><b>Para qué lo hice</b><span>Para tener la web siempre actualizada sin perder el control de lo que se publica.</span></li>
 </ul>"""),
-        ("Cinco monjes, un equipo", """
+        ("Ocho monjes, dos oficios", """
 <p class="psub">Cada agente es un monje con un solo oficio. Ninguno publica nada: eso lo decido yo.</p>
-<ul class="monjes">
+<ul class="monjes ocho">
 <li><img src="/assets/proyectos/monasterio-didakora/rastreador.png" alt="" width="96" height="96" loading="lazy"><b>Fray Gaspar</b><small>Rastreador</small><span>Busca novedades en fuentes como el INTEF o Educación 3.0 y anota cada hallazgo con su fuente.</span></li>
 <li><img src="/assets/proyectos/monasterio-didakora/coordinador-editorial.png" alt="" width="96" height="96" loading="lazy"><b>Fray Anselmo</b><small>Coordinador</small><span>Lo cruza con el catálogo y me lo presenta en pergaminos, con opciones para decidir.</span></li>
 <li><img src="/assets/proyectos/monasterio-didakora/administrador-web.png" alt="" width="96" height="96" loading="lazy"><b>Fray Bartolomé</b><small>Administrador</small><span>Hace solo lo que apruebo: cambia la web, la regenera y pasa las pruebas.</span></li>
 <li><img src="/assets/proyectos/monasterio-didakora/auditor.png" alt="" width="96" height="96" loading="lazy"><b>Fray Custodio</b><small>Auditor</small><span>Revisa enlaces, textos, el buscador y cómo se ve en el móvil, antes y después.</span></li>
-<li><img src="/assets/proyectos/monasterio-didakora/optimizador.png" alt="" width="96" height="96" loading="lazy"><b>Fray Ambrosio</b><small>Optimizador</small><span>Cuando lo convoco, estudia los ciclos y propone mejoras para el propio equipo.</span></li>
+<li><img src="/assets/proyectos/monasterio-didakora/optimizador.png" alt="" width="96" height="96" loading="lazy"><b>Fray Ambrosio</b><small>Optimizador</small><span>Cuando lo convoco, estudia los ciclos del catálogo y del blog y propone mejoras para el equipo.</span></li>
+<li><img src="/assets/proyectos/monasterio-didakora/cronista.png" alt="" width="96" height="96" loading="lazy"><b>Fray Tomás</b><small>Cronista</small><span>Busca noticias de educación digital y yo guardo las que me interesan.</span></li>
+<li><img src="/assets/proyectos/monasterio-didakora/redactor.png" alt="" width="96" height="96" loading="lazy"><b>Fray Lucas</b><small>Redactor</small><span>Escribe el post con las noticias que elijo. Yo lo apruebo o lo reescribo.</span></li>
+<li><img src="/assets/proyectos/monasterio-didakora/maquetador.png" alt="" width="96" height="96" loading="lazy"><b>Fray Isidoro</b><small>Maquetador</small><span>Lo coloca en la plantilla de Actualidad y me propone tres miniaturas para elegir.</span></li>
 </ul>"""),
         ("Cómo funciona", """
-<p class="psub">Un ciclo, de la campana a la web. El vídeo es una recreación con los datos reales de un ciclo: lo que encontraron, propusieron, hicieron y revisaron los monjes y lo que aprobé.</p>
-<ol class="hsteps four">
+<p class="psub">Dos ciclos, el de la campana para el catálogo y el de la campanilla para el blog. El vídeo es una recreación con los datos reales de un ciclo y de un post: lo que encontraron, propusieron, hicieron y revisaron los monjes y lo que aprobé.</p>
+<ol class="hsteps">
 <li><b>Toco la campana</b><span>Fray Gaspar recorre las fuentes aprobadas y Fray Anselmo prepara las propuestas.</span></li>
 <li><b>Sello los pergaminos</b><span>Apruebo, edito o rechazo cada propuesta en el tablón o hablando con Fray Anselmo.</span></li>
 <li><b>Ellos lo hacen y lo revisan</b><span>Fray Bartolomé cambia la web y Fray Custodio la revisa, también en el móvil.</span></li>
+<li><b>Toco la campanilla</b><span>Fray Tomás busca noticias, Fray Lucas escribe el post y Fray Isidoro propone tres miniaturas.</span></li>
 <li><b>Yo publico</b><span>Veo el antes y el después de cada cambio en el Libro del Abad y decido cuándo sale a la web.</span></li>
 </ol>
 <div class="dk-video mo-vid">
@@ -141,7 +145,7 @@ new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting&&!w.classList.co
 </div>"""),
         ("Lo que puedo afirmar", """
 <div class="status four">
-<div class="s-ok"><span class="st-l ok">Comprobado</span><p>Cuatro ciclos completos en octubre de 2026: diecisiete cambios en Didákora, entre ellos tres herramientas nuevas y el aviso de la guía de protección de datos del INTEF en doce fichas. Todos, revisados por el Auditor.</p></div>
+<div class="s-ok"><span class="st-l ok">Comprobado</span><p>Cinco ciclos completos en octubre de 2026: dieciocho cambios en Didákora, entre ellos tres herramientas nuevas y el aviso de la guía de protección de datos del INTEF en doce fichas. Todos, revisados por el Auditor. Y cuatro posts en el blog, cada uno aprobado por mí.</p></div>
 <div class="s-ok"><span class="st-l ok">Bajo control</span><p>Los agentes no pueden publicar. Cada cambio espera mi aprobación y yo publico cuando lo he visto.</p></div>
 <div class="s-exp"><span class="st-l exp">Se mejora</span><p>Fray Ambrosio estudió los primeros ciclos y propuso once mejoras para el equipo. Apliqué diez.</p></div>
 <div class="s-pend"><span class="st-l pend">Pendiente</span><p>Medir cuánto tiempo ahorra frente a revisar la web a mano y si sus propuestas aciertan con más ciclos.</p></div>

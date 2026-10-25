@@ -427,7 +427,7 @@ def project(p):
 # El porfolio como curso de cinco lecciones. Marcado y estilos copiados de las maquetas del brief
 # (1-home.html … 5-contacto.html): las reglas comunes en assets/curso.css, el resto en línea como en ellas.
 # Lo anterior (home(), index(), project()) se conserva para poder recuperar piezas.
-CURSOV = "46"
+CURSOV = "47"
 FONTS_C = '''<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&display=swap">'''
@@ -630,7 +630,7 @@ FICHA_LISTA = [
     ("didakora", "profesorado", "Recurso", "Didákora", "120 herramientas revisadas a mano, con ficha y fecha.", "", "En uso"),
     ("consejo-de-clio", "herramientas", "Herramienta", "El Consejo de Clío", "Seis agentes preparan la sesión y el docente la contrasta.", "Diseño de los roles e instrucciones", "Comprobado"),
     ("asistente-gpt-2eso", "herramientas", "Herramienta", "Asistente de IA para 2.º ESO", "Un GPT que guía sin resolver y cita la unidad.", "Configuración, materiales y pruebas", "Pendiente de pilotar"),
-    ("monasterio-didakora", "herramientas", "Proceso", "Mantenimiento con agentes", "Cinco agentes proponen cambios en Didákora. Yo apruebo cada uno.", "Diseño del equipo y aprobación de cada cambio", "17 cambios en 4 ciclos"),
+    ("monasterio-didakora", "herramientas", "Proceso", "Mantenimiento con agentes", "Ocho agentes proponen cambios en Didákora. Yo apruebo cada uno.", "Diseño del equipo y aprobación de cada cambio", "18 cambios en 5 ciclos"),
     ("cazadores-de-bulos", "aula", "Actividad", "Cazadores de bulos históricos", "Nueve errores escondidos en un texto sobre Málaga en 1937.", "", "4.º ESO"),
 ]
 TABLA_LISTA = [
@@ -903,7 +903,7 @@ CON_IA = {"monasterio-didakora",  # Didákora sin «Lo que hice yo»: lo cuenta 
           "asistente-gpt-2eso", "mapa-de-relieves", "la-nube-pesa", "la-ia-tambien-miente",  # brief, 0 bis
           "audita-tu-programacion", "el-bombo"}  # también con IA (Jorge, 23-10-2026)
 SUB_BRIEF = {  # titulares del brief (2.5), con punto en vez de «;» como pidió Jorge para el Consejo
-    "monasterio-didakora": "Cinco agentes de IA proponen cambios en Didákora. Yo apruebo cada uno antes de publicar.",
+    "monasterio-didakora": "Ocho agentes de IA proponen cambios en Didákora. Yo apruebo cada uno antes de publicar.",
     "asistente-gpt-2eso": "Un GPT que configuré y probé para guiar sin resolver. Pendiente de pilotar con alumnado.",
 }
 # «Lo que hice yo» de cada proyecto con IA: textos elegidos por Jorge (23-10-2026). Los que faltan salen con [texto de Jorge].
@@ -912,9 +912,9 @@ HICE = {
                  ("Revisé", "a mano cada herramienta: para qué sirve, si pide cuenta, edad mínima y que funcione bien."),
                  ("Quité", "las que habían cerrado y busqué una alternativa para cada una."),
                  ("Publico", "solo lo que he comprobado: los agentes del Monasterio solo proponen.")],
-    "monasterio-didakora": [("Diseñé", "los cinco monjes (rastrear, coordinar, administrar, auditar y optimizar) y la interfaz."),
+    "monasterio-didakora": [("Diseñé", "los ocho monjes (cinco para el catálogo y tres para el blog) y la interfaz."),
                             ("Decidí", "qué se aprueba, se edita o se rechaza en cada pergamino y cuándo sale a la web."),
-                            ("Probé", "cuatro ciclos reales: diecisiete cambios en Didákora, todos revisados por el Auditor."),
+                            ("Probé", "cinco ciclos reales: dieciocho cambios en Didákora, todos revisados por el Auditor. Y cuatro posts publicados en Actualidad."),
                             ("Corregí", "el equipo con las propuestas de Fray Ambrosio: apliqué diez de once.")],
     "asistente-gpt-2eso": [("Diseñé", "el asistente a partir de las necesidades del grupo, la LOMLOE, el currículo andaluz y el DUA."),
                            ("Decidí", "que guiara sin resolver, diera prioridad a los materiales de clase y no pidiera datos personales."),
@@ -970,7 +970,7 @@ MIGAS_C = {"profesorado": "Formación", "herramientas": "Herramientas", "aula": 
 # secciones de data.py que no salen en la ficha (los textos se conservan): lo que ya cuenta el vídeo (Jorge, 25-10-2026)
 SIN_SECCION = {"asistente-gpt-2eso": ("Qué hace en la práctica",)}
 # fichas con el vídeo dentro de una de sus secciones (título, entradilla, vídeo y el resto) y las secciones que van detrás
-COMO_CON_VIDEO = {"monasterio-didakora": ("Cómo funciona", ("Cinco monjes, un equipo",))}
+COMO_CON_VIDEO = {"monasterio-didakora": ("Cómo funciona", ("Ocho monjes, dos oficios",))}
 TITULO_VIDEO = {"asistente-gpt-2eso": "Cómo funciona"}  # fichas con título encima del vídeo de la plantilla
 TIPO_EXTRA = {"el-bombo": "Herramienta", "e-portfolio-master": "Formación"}
 
