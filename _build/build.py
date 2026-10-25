@@ -967,6 +967,8 @@ def video_c(src, poster, alt):
 
 
 MIGAS_C = {"profesorado": "Formación", "herramientas": "Herramientas", "aula": "Actividades"}
+# secciones de data.py que no salen en la ficha (los textos se conservan): lo que ya cuenta el vídeo (Jorge, 25-10-2026)
+SIN_SECCION = {"asistente-gpt-2eso": ("Qué hace en la práctica",)}
 TITULO_VIDEO = {"asistente-gpt-2eso": "Cómo funciona"}  # fichas con título encima del vídeo de la plantilla
 TIPO_EXTRA = {"el-bombo": "Herramienta", "e-portfolio-master": "Formación"}
 
@@ -998,8 +1000,8 @@ def ficha_auto(p):
   <div class="rule"><h2 class="serif" style="font-size:36px;font-weight:700">Lo que hice yo</h2></div>
   <div class="ficha" style="min-height:0;display:grid;grid-template-columns:1fr 1fr;gap:12px 32px">{frases}</div>
 </section>"""
-    secs = list(p.get("sections", []))
     titulo_de = lambda x: x[0] if isinstance(x, tuple) else x.get("title", "")
+    secs = [x for x in p.get("sections", []) if titulo_de(x) not in SIN_SECCION.get(slug, ())]
     def saca(cond):
         for i, x in enumerate(secs):
             if cond(x):
