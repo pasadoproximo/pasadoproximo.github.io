@@ -967,6 +967,7 @@ def video_c(src, poster, alt):
 
 
 MIGAS_C = {"profesorado": "Formación", "herramientas": "Herramientas", "aula": "Actividades"}
+TITULO_VIDEO = {"asistente-gpt-2eso": "Cómo funciona"}  # fichas con título encima del vídeo de la plantilla
 TIPO_EXTRA = {"el-bombo": "Herramienta", "e-portfolio-master": "Formación"}
 
 
@@ -1024,6 +1025,11 @@ def ficha_auto(p):
         rejilla = "7fr 5fr" if botones else "minmax(0,760px);justify-content:center"  # sin botones: del mismo ancho que los demás, centrado
         bloque_visual = (f'\n<section class="psec vis-f" style="display:grid;grid-template-columns:{rejilla};gap:28px;align-items:center">'
                          f'{video_c(*VIDEO_FICHA[slug])}{lado}</section>')
+        if slug in TITULO_VIDEO:  # el título encima del vídeo, como en el Consejo (Jorge, 25-10-2026)
+            bloque_visual = (f'\n<section class="psec" style="display:flex;flex-direction:column;gap:18px">'
+                             f'<div class="rule"><h2 class="serif" style="font-size:36px;font-weight:700">{TITULO_VIDEO[slug]}</h2></div>'
+                             f'<div class="vis-f" style="display:grid;grid-template-columns:{rejilla};gap:28px;align-items:center">'
+                             f'{video_c(*VIDEO_FICHA[slug])}{lado}</div></section>')
         for k, x in enumerate(secs):
             if isinstance(x, tuple) and '<div class="dk-video mo-vid">' in x[1]:
                 h = x[1]; i = h.index('<div class="dk-video mo-vid">')
