@@ -90,6 +90,7 @@ def head(title, desc, path, og="/assets/og.jpg"):
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="google-site-verification" content="Yc7dog5FgiijAysig5OLHqYJhraIem9FlrTZtTM2qGk" />
 <title>{t}</title>
 <meta name="description" content="{d}">
 <link rel="canonical" href="{SITE}{path}">
@@ -442,6 +443,7 @@ def head_c(title, desc, path, og="/assets/og.jpg", pagina=""):
     t = html.escape(title)
     d = html.escape(desc)
     return f'''<!doctype html><html lang="es"><head><meta charset="utf-8"><title>{t}</title><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="google-site-verification" content="Yc7dog5FgiijAysig5OLHqYJhraIem9FlrTZtTM2qGk" />
 <meta name="description" content="{d}">
 <link rel="canonical" href="{SITE}{path}">
 <meta property="og:title" content="{t}">
