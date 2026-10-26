@@ -428,7 +428,7 @@ def project(p):
 # El porfolio como curso de cinco lecciones. Marcado y estilos copiados de las maquetas del brief
 # (1-home.html … 5-contacto.html): las reglas comunes en assets/curso.css, el resto en línea como en ellas.
 # Lo anterior (home(), index(), project()) se conserva para poder recuperar piezas.
-CURSOV = "48"
+CURSOV = "49"
 FONTS_C = '''<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&display=swap">'''
@@ -569,7 +569,7 @@ def home_c():
       <a class="ficha" href="/proyectos/didakora/"><span class="tipo">Recurso</span><h3>Didákora</h3><p>120 herramientas digitales revisadas a mano, con ficha y fecha.</p><span class="estado"><i></i>En uso</span></a>
       <a class="ficha" href="/proyectos/consejo-de-clio/"><span class="tipo">Herramienta</span><h3>El Consejo de Clío</h3><p>Seis agentes preparan la sesión y el docente la contrasta.</p><span class="estado"><i></i>Comprobado</span></a>
       <a class="ficha" href="/proyectos/cazadores-de-bulos/"><span class="tipo">Actividad</span><h3>Cazadores de bulos históricos</h3><p>Nueve errores escondidos en un texto sobre Málaga en 1937.</p><span class="estado"><i></i>4.º ESO</span></a>
-      <div class="ficha"><span class="tipo">Curso</span><h3>Verifica lo que dice la IA</h3><p>Tres lecciones y una rutina de cinco minutos para clase.</p><span class="estado"><i></i>Rise y Storyline</span></div>
+      <div class="ficha"><span class="tipo">Curso</span><span class="obra">En construcción</span><h3>Verifica lo que dice la IA</h3><p>Tres lecciones y una rutina de cinco minutos para clase.</p><span class="estado"><i></i>Rise y Storyline</span></div>
     </div>
     <div class="next" style="justify-content:space-between;align-items:center"><a href="/proyectos/" style="font-weight:700;border-bottom:2px solid #A3322A;text-decoration:none;padding-bottom:2px">Ver el resto de proyectos</a><a class="btn" href="#leccion-3">Siguiente: la actividad</a></div>
   </div>
@@ -655,7 +655,9 @@ def lista_c():
     fichas = []
     for s, cat, tipo, tit, desc, mi, est in FICHA_LISTA:
         # sin «Mi parte» en la tarjeta: se ve al entrar en la ficha (Jorge, 25-10-2026); el texto se conserva en FICHA_LISTA
-        dentro = (f'<span class="tipo">{tipo}</span><h3>{tit}</h3><p>{desc}</p>'
+        # sin enlace = aún no existe: etiqueta «En construcción» (Jorge, 26-10-2026)
+        obra = '' if s else '<span class="obra">En construcción</span>'
+        dentro = (f'<span class="tipo">{tipo}</span>{obra}<h3>{tit}</h3><p>{desc}</p>'
                   + f'<span class="estado"><i></i>{est}</span>')
         fichas.append(f'<a class="ficha" data-cat="{cat}" href="{enlace(s)}">{dentro}</a>' if s else f'<div class="ficha" data-cat="{cat}">{dentro}</div>')
     tabla = sorted(TABLA_LISTA, key=lambda f: -int(f[5]))  # orden cronológico, de lo más reciente a lo más antiguo
